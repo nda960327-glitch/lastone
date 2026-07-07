@@ -634,28 +634,70 @@ async function runTestRound() {
     App.currentTestIndex = i;
     saveProgress();
 
-    // 단어 및 힌트 영역 초기 비우기
+    // 진행 상태 업데이트
+    document.getElementById('test-current').textContent = i + 1;
+    document.getElementById('test-total').textContent   = pool.length;
+    const pct = ((i + 1) / pool.length * 100).toFixed(1);
+    document.getElementById('test-progress-fill').style.width = pct + '%';
+
+    // 1. 이전 단어 버튼 활성 상태 설정
+    const btnPrev = document.getElementById('btn-prev-word');
+    if (btnPrev) {
+      btnPrev.disabled = (i === 0);
+    }
+
+    // 2. 단어 및 힌트 영역 초기 비우기 (이전 단어 뜻 흔적 소거)
     document.getElementById('test-word').textContent = '';
     const posHintEl = document.getElementById('test-pos-hint');
     posHintEl.textContent = '';
     posHintEl.classList.add('hidden');
+    document.getElementById('test-meanings').innerHTML = '';
+
+    // 뜻 확인 영역 숨김
+    document.getElementById('reveal-zone').classList.add('hidden');
+    document.getElementById('answer-zone').classList.add('hidden');
+
+    // 3. 2초 음성 청취 동안 헤드셋 노출
+    const listenZone = document.getElementById('test-listening-zone');
+    if (listenZone) {
+      listenZone.classList.remove('hidden');
+    }
 
     // TTS 음성 재생 선출력 (이전 재생음 정지)
     window.speechSynthesis.cancel();
     speak(wordObj.word);
 
-    // 2초 대기 후 스펠링 및 품사 개수 정보 표시
+    // 2초 대기
     await sleep(2000);
+
+    // 헤드셋 숨기고 단어 정보 노출
+    if (listenZone) {
+      listenZone.classList.add('hidden');
+    }
     document.getElementById('test-word').textContent = wordObj.word;
     posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
     posHintEl.classList.remove('hidden');
-
-    // 뜻 숨김, 확인 버튼 표시
     document.getElementById('reveal-zone').classList.remove('hidden');
-    document.getElementById('answer-zone').classList.add('hidden');
 
-    // 뜻 확인 버튼 대기
-    await waitForClick('btn-reveal');
+    // 4. 뜻 확인 버튼 또는 이전 단어 클릭 대기
+    const revealResult = await waitForRevealOrPrev();
+    if (revealResult === 'PREV') {
+      // 이전 단어로 되감기 (i - 1 번째 단어 상태 원복)
+      if (i > 0) {
+        const prevWord = pool[i - 1];
+        if (prevWord.passed) {
+          prevWord.passed = false;
+          correctThisRound = Math.max(0, correctThisRound - 1);
+        } else {
+          prevWord.attempts = Math.max(0, prevWord.attempts - 1);
+          // wrongThisRound 배열에 들어간 마지막 요소를 다시 빼주기
+          wrongThisRound.pop();
+        }
+        i = i - 2; // 다음 루프 시작 시 i++가 되므로 최종적으로 i - 1번째 단어로 회귀
+      }
+      window.speechSynthesis.cancel();
+      continue;
+    }
 
     // 뜻 공개
     document.getElementById('reveal-zone').classList.add('hidden');
@@ -665,14 +707,27 @@ async function runTestRound() {
     // O / X 버튼 활성화
     setOXDisabled(false);
 
-    // O 또는 X 클릭 대기
-    const result = await waitForOX();
-
-    // 클릭 후 버튼 비활성화 (더블클릭 방지)
+    // 5. O / X 또는 이전 단어 클릭 대기
+    const result = await waitForOXOrPrev();
     setOXDisabled(true);
 
-    // 다음 문제로 넘어가기 전 오디오 정지
     window.speechSynthesis.cancel();
+
+    if (result === 'PREV') {
+      // 이전 단어로 되감기
+      if (i > 0) {
+        const prevWord = pool[i - 1];
+        if (prevWord.passed) {
+          prevWord.passed = false;
+          correctThisRound = Math.max(0, correctThisRound - 1);
+        } else {
+          prevWord.attempts = Math.max(0, prevWord.attempts - 1);
+          wrongThisRound.pop();
+        }
+        i = i - 2;
+      }
+      continue;
+    }
 
     if (result === 'O') {
       wordObj.passed = true;
@@ -720,20 +775,41 @@ function waitForClickOrAbort(btnId, signal) {
   });
 }
 
-function waitForOX() {
+function waitForRevealOrPrev() {
+  return new Promise(resolve => {
+    const btnReveal = document.getElementById('btn-reveal');
+    const btnPrev = document.getElementById('btn-prev-word');
+
+    function cleanup() {
+      btnReveal.removeEventListener('click', handleReveal);
+      btnPrev.removeEventListener('click', handlePrev);
+    }
+    function handleReveal() { cleanup(); resolve('REVEAL'); }
+    function handlePrev() { cleanup(); resolve('PREV'); }
+
+    btnReveal.addEventListener('click', handleReveal);
+    btnPrev.addEventListener('click', handlePrev);
+  });
+}
+
+function waitForOXOrPrev() {
   return new Promise(resolve => {
     const btnO = document.getElementById('btn-correct');
     const btnX = document.getElementById('btn-wrong');
+    const btnPrev = document.getElementById('btn-prev-word');
 
     function cleanup() {
       btnO.removeEventListener('click', handleO);
       btnX.removeEventListener('click', handleX);
+      btnPrev.removeEventListener('click', handlePrev);
     }
     function handleO() { cleanup(); resolve('O'); }
     function handleX() { cleanup(); resolve('X'); }
+    function handlePrev() { cleanup(); resolve('PREV'); }
 
     btnO.addEventListener('click', handleO);
     btnX.addEventListener('click', handleX);
+    btnPrev.addEventListener('click', handlePrev);
   });
 }
 
@@ -983,28 +1059,63 @@ async function resumeTestRound(startIndex) {
     const pct = ((i + 1) / pool.length * 100).toFixed(1);
     document.getElementById('test-progress-fill').style.width = pct + '%';
 
-    // 단어 및 힌트 영역 초기 비우기
+    // 1. 이전 단어 버튼 활성 상태 설정
+    const btnPrev = document.getElementById('btn-prev-word');
+    if (btnPrev) {
+      btnPrev.disabled = (i === 0);
+    }
+
+    // 2. 단어 및 힌트 영역 초기 비우기 (이전 단어 뜻 흔적 소거)
     document.getElementById('test-word').textContent = '';
     const posHintEl = document.getElementById('test-pos-hint');
     posHintEl.textContent = '';
     posHintEl.classList.add('hidden');
+    document.getElementById('test-meanings').innerHTML = '';
+
+    // 뜻 확인 영역 숨김
+    document.getElementById('reveal-zone').classList.add('hidden');
+    document.getElementById('answer-zone').classList.add('hidden');
+
+    // 3. 2초 음성 청취 동안 헤드셋 노출
+    const listenZone = document.getElementById('test-listening-zone');
+    if (listenZone) {
+      listenZone.classList.remove('hidden');
+    }
 
     // TTS 음성 재생 선출력 (이전 재생음 정지)
     window.speechSynthesis.cancel();
     speak(wordObj.word);
 
-    // 2초 대기 후 스펠링 및 품사 개수 정보 표시
+    // 2초 대기
     await sleep(2000);
+
+    // 헤드셋 숨기고 단어 정보 노출
+    if (listenZone) {
+      listenZone.classList.add('hidden');
+    }
     document.getElementById('test-word').textContent = wordObj.word;
     posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
     posHintEl.classList.remove('hidden');
-
-    // 뜻 숨김, 확인 버튼 표시
     document.getElementById('reveal-zone').classList.remove('hidden');
-    document.getElementById('answer-zone').classList.add('hidden');
 
-    // 뜻 확인 버튼 대기
-    await waitForClick('btn-reveal');
+    // 4. 뜻 확인 버튼 또는 이전 단어 클릭 대기
+    const revealResult = await waitForRevealOrPrev();
+    if (revealResult === 'PREV') {
+      // 이전 단어로 되감기 (i - 1 번째 단어 상태 원복)
+      if (i > 0) {
+        const prevWord = pool[i - 1];
+        if (prevWord.passed) {
+          prevWord.passed = false;
+          correctThisRound = Math.max(0, correctThisRound - 1);
+        } else {
+          prevWord.attempts = Math.max(0, prevWord.attempts - 1);
+          wrongThisRound.pop();
+        }
+        i = i - 2;
+      }
+      window.speechSynthesis.cancel();
+      continue;
+    }
 
     // 뜻 공개
     document.getElementById('reveal-zone').classList.add('hidden');
@@ -1014,14 +1125,27 @@ async function resumeTestRound(startIndex) {
     // O / X 버튼 활성화
     setOXDisabled(false);
 
-    // O 또는 X 클릭 대기
-    const result = await waitForOX();
-
-    // 클릭 후 버튼 비활성화 (더블클릭 방지)
+    // 5. O / X 또는 이전 단어 클릭 대기
+    const result = await waitForOXOrPrev();
     setOXDisabled(true);
 
-    // 다음 문제로 넘어가기 전 오디오 정지
     window.speechSynthesis.cancel();
+
+    if (result === 'PREV') {
+      // 이전 단어로 되감기
+      if (i > 0) {
+        const prevWord = pool[i - 1];
+        if (prevWord.passed) {
+          prevWord.passed = false;
+          correctThisRound = Math.max(0, correctThisRound - 1);
+        } else {
+          prevWord.attempts = Math.max(0, prevWord.attempts - 1);
+          wrongThisRound.pop();
+        }
+        i = i - 2;
+      }
+      continue;
+    }
 
     if (result === 'O') {
       wordObj.passed = true;

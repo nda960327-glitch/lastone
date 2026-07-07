@@ -148,6 +148,12 @@
     </div>
 
     <div class="test-card glass-card">
+      <!-- 2초 음성 청취 동안 노출할 헤드셋 표시기 -->
+      <div class="test-listening-zone hidden" id="test-listening-zone">
+        <span class="headset-icon">🎧</span>
+        <span class="headset-text">발음을 듣고 스펠링을 맞춰보세요</span>
+      </div>
+
       <div class="test-word" id="test-word"></div>
       <div class="test-pos-hint" id="test-pos-hint"></div>
 
@@ -174,6 +180,13 @@
           </button>
         </div>
       </div>
+    </div>
+
+    <!-- 이전 단어로 되돌리기 제어부 -->
+    <div class="test-actions-footer">
+      <button id="btn-prev-word" class="btn-secondary btn-prev" disabled>
+        <span>◀ 이전 단어로</span>
+      </button>
     </div>
   </section>
 

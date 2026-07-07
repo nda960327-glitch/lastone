@@ -528,7 +528,50 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   font-weight: 700;
   margin-top: -14px;
   margin-bottom: 8px;
-  animation: viewIn 0.2s ease;
+}
+
+/* ─ 리스닝 헤드셋 노출 공간 ─ */
+.test-listening-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0;
+  animation: viewIn 0.3s ease;
+}
+.headset-icon {
+  font-size: 64px;
+  animation: pulse 1.6s infinite ease-in-out;
+}
+.headset-text {
+  font-size: 13px;
+  color: var(--text2);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 10px rgba(79,158,255,0.4)); }
+}
+
+/* ─ 이전 버튼 제어 레이아웃 ─ */
+.test-actions-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.btn-prev {
+  opacity: 0.8;
+  padding: 10px 24px !important;
+  font-size: 13px !important;
+  border-radius: 30px !important;
+}
+.btn-prev:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .reveal-zone { width:100%; display:flex; justify-content:center; }
