@@ -188,6 +188,63 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 #word-input:focus   { outline:none; border-color:rgba(79,158,255,.45); }
 #word-input::placeholder { color:var(--text2); opacity:.5; }
 
+/* 🧩 분할 및 누적 학습 버튼 스타일 */
+.range-select-panel {
+  margin-top: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  animation: viewIn 0.25s ease;
+}
+.range-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.range-buttons-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+.btn-range-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text1);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.btn-range-item:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.btn-range-item.cumulative {
+  background: rgba(79, 158, 255, 0.04);
+  border-color: rgba(79, 158, 255, 0.15);
+}
+.btn-range-item.cumulative:hover {
+  background: rgba(79, 158, 255, 0.12);
+  border-color: rgba(79, 158, 255, 0.4);
+}
+.range-btn-label { font-weight: 700; }
+.range-btn-count {
+  font-size: 11px;
+  color: var(--text2);
+  font-weight: 400;
+}
+
 .card-footer {
   display:flex; align-items:center; justify-content:space-between;
   margin-top:16px;

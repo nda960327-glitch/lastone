@@ -290,12 +290,83 @@ function initInputView() {
   const countEl  = document.getElementById('word-count');
 
   function updateCount() {
-    const n = parseWords(textarea.value).length;
+    const words = parseWords(textarea.value);
+    const n = words.length;
     countEl.textContent = `${n}개 단어`;
     countEl.style.color = n > 0 ? 'var(--blue)' : 'var(--text2)';
+
+    renderRangeButtons(words);
   }
 
   textarea.addEventListener('input', updateCount);
+
+  // 동적 50단위 학습 구간 리스트 렌더링
+  function renderRangeButtons(words) {
+    const panel = document.getElementById('range-select-panel');
+    const listContainer = document.getElementById('range-buttons-list');
+    if (!panel || !listContainer) return;
+
+    const n = words.length;
+
+    // 50개 이하일 경우 구간 분할 필요 없음
+    if (n <= 50) {
+      panel.classList.add('hidden');
+      return;
+    }
+
+    panel.classList.remove('hidden');
+    listContainer.innerHTML = '';
+
+    const step = 50;
+    const ranges = [];
+
+    // 1. 순차 분할 구간 정의 (예: 1~50, 51~100...)
+    for (let i = 0; i < n; i += step) {
+      const start = i + 1;
+      const end = Math.min(i + step, n);
+      ranges.push({
+        label: `${start} ~ ${end}`,
+        startIdx: i,
+        endIdx: end,
+        isCumulative: false
+      });
+
+      // 2. 누적 구간 정의 (2구간 이상일 때부터 앞의 누적 복습 구간 생성: 1~100, 1~150...)
+      if (i > 0) {
+        ranges.push({
+          label: `1 ~ ${end} (누적)`,
+          startIdx: 0,
+          endIdx: end,
+          isCumulative: true
+        });
+      }
+    }
+
+    // 3. 버튼 렌더링 및 클릭 이벤트 매핑
+    ranges.forEach(r => {
+      const btn = document.createElement('button');
+      btn.className = `btn-range-item${r.isCumulative ? ' cumulative' : ''}`;
+      
+      const count = r.endIdx - r.startIdx;
+      btn.innerHTML = `
+        <span class="range-btn-label">${r.label}</span>
+        <span class="range-btn-count">${count}개 단어</span>
+      `;
+
+      btn.onclick = () => {
+        // 지정된 범위만 슬라이싱하여 추출
+        const slicedWords = words.slice(r.startIdx, r.endIdx);
+        
+        // 셔플 후 바로 테스트 시작
+        App.words = slicedWords;
+        App.round = 1;
+        App.testPool = [];
+        startTest();
+      };
+
+      listContainer.appendChild(btn);
+    });
+  }
 
   // 예시 불러오기
   document.getElementById('btn-load-example').onclick = () => {
