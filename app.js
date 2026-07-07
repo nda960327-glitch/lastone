@@ -644,8 +644,8 @@ async function runTestRound() {
     window.speechSynthesis.cancel();
     speak(wordObj.word);
 
-    // 0.2초 대기 후 스펠링 및 품사 개수 정보 표시
-    await sleep(200);
+    // 2초 대기 후 스펠링 및 품사 개수 정보 표시
+    await sleep(2000);
     document.getElementById('test-word').textContent = wordObj.word;
     posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
     posHintEl.classList.remove('hidden');
@@ -993,8 +993,8 @@ async function resumeTestRound(startIndex) {
     window.speechSynthesis.cancel();
     speak(wordObj.word);
 
-    // 0.2초 대기 후 스펠링 및 품사 개수 정보 표시
-    await sleep(200);
+    // 2초 대기 후 스펠링 및 품사 개수 정보 표시
+    await sleep(2000);
     document.getElementById('test-word').textContent = wordObj.word;
     posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
     posHintEl.classList.remove('hidden');
