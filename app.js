@@ -341,7 +341,7 @@ function initInputView() {
     };
   }
 
-  // 학습 시작
+  // 테스트 시작
   document.getElementById('btn-start').onclick = () => {
     const words = parseWords(textarea.value);
     if (words.length === 0) {
@@ -351,7 +351,7 @@ function initInputView() {
     App.words    = words;
     App.round    = 1;
     App.testPool = [];
-    startStudy([...words]);
+    startTest();
   };
 }
 
@@ -749,8 +749,8 @@ function showRoundResult(correct, wrong) {
     btnNext.onclick = showFinalResult;
   } else {
     App.round++;
-    btnNext.innerHTML = `Round ${App.round} 시작 →`;
-    btnNext.onclick = () => startStudy([...App.testPool]);
+    btnNext.innerHTML = `Round ${App.round} 테스트 시작 →`;
+    btnNext.onclick = () => startTest();
   }
 }
 
@@ -782,7 +782,7 @@ function showFinalResult() {
       App.words    = hardWords.map(w => ({ ...w, attempts: 0, passed: false }));
       App.testPool = [];
       App.round    = 1;
-      startStudy([...App.words]);
+      startTest();
     };
   } else {
     btnRetry.classList.add('hidden');
