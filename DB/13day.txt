@@ -1,0 +1,399 @@
+buy [v] 사다
+
+sly [a] 교활한, 간교한
+
+next [ad] (to와 함께) ~의 옆에 / [a] 다음의
+
+hungry [a] 배고픈, 굶주린
+
+community [n] 사회
+
+ribbon [n] 리본, 장식용 띠
+
+it [pron] 그것, 날씨를 나타낼 때, 사람을 나타낼 때
+
+to [prep] ~에, ~로, ~에게
+
+airplane [n] 비행기
+
+duck [n] 오리
+
+gas [n] 휘발유, 기름
+
+work [n] 일, 직장, 사무실 / [v] 일하다, 근무하다
+
+market [n] 시장
+
+any [a] 어떤, 무슨, 무언가
+
+left [n] 왼쪽 / [v] leave의 과거.과거 분사형
+
+utter [a] 전적인, 완전한, 제대로된 / [v] 발언하다, 입을 열다
+
+decay [v] 부식하다, 썩다 / [n] 부패, 부식;(사회제도 등의) 쇠퇴[퇴락]
+
+kneel [v] 무릎 꿇다, 굴복하다
+
+pay [v] (돈을) 지불하다
+
+big [a] 큰, 커다란
+
+warrant [n] 영장 ; 근거, 보증 / [v] 단언하다, 보증하다
+
+between [prep] ~의 사이에
+
+church [n] 교회
+
+bye [int] 잘가요, 안녕(헤어질 때 하는 인사말)
+
+police [n] 경찰
+
+now [ad] 지금, 현재
+
+lady [n] 숙녀, 귀부인
+
+skyscraper [n] 고층건물
+
+tremble [v] 떨다, 떨리다; 흔들리다 / [n] 떪, 떨림, 전율
+
+nobody [n] 보잘 것 없는 사람
+
+sea [n] 바다
+
+contempt [n] 경멸, 멸시
+
+oil [n] 기름, 유화, 유화물감
+
+cultivate [v] 재배하다, 경작하다
+
+actor [n] 영화배우
+
+idealist [n] 이상주의자 / [a] 이상주의적인, 관념론적인
+
+skirt [n] 치마, 스커트
+
+bus [n] 버스
+
+mixture [n] 혼합물
+
+recede [v] 물러나다
+
+often [ad] 흔히, 자주
+
+dominate [v] 지배하다
+
+influence [n] 영향 / [v] 영향을 주다
+
+qualify [v] 자격을 얻다, 취득하다; ~에게 자격을 주다 , 권한을 주다
+
+advocate [v] 옹호하다 / [n] 지지자, 신봉자
+
+infancy [n] 유아기, 초기
+
+tiger [n] 호랑이
+
+undergo [v] (시련을) 경험하다, 겪다 ; ~을 받다
+
+hi [int] 안녕
+
+guitar [n] 기타
+
+shirt [n] 셔츠
+
+pig [n] 돼지
+
+patent [n] 특허권 / [a] 특허의
+
+malice [n] 악의, 해 할 마음
+
+there [ad] 그 곳에, 거기에 / [v] (be동사와 함께)~이 있다
+
+time [n] 시간, 시각, 곱하기, ~배, ~번
+
+earth [n] 지구, 땅
+
+term [n] 조건 ; 용어 ; 기간 / [v] ~로 칭하다, 용어짓다
+
+convert [v] 변하다
+
+red [a] 빨간, 붉은색의
+
+torture [n] 고문, 고뇌 / [v] 고문하다, 고통을 주다
+
+apprehend [v] 체포하다
+
+grumble [v] 불평하다, 투덜 거리다; 우르릉거리다 / [n] 불만 사항
+
+within [prep] (특정한 기간/거리) 안쪽에, ~이내에 / [ad] 내부에서, 안에서
+
+bench [n] 벤치, 긴 의자
+
+commence [v] 시작하다 ; 학위를 받다
+
+here [ad] 여기에서, 여기에
+
+miracle [n] 기적
+
+entertain [v] 기쁘게 하다, 접대하다
+
+repair [v] 수리하다, 수선하다 / [n] 수리
+
+coffee [n] 커피
+
+shame [n] 수치, 치욕 / [v] 창피스럽게[부끄럽게] 하다
+
+bath [n] 목욕
+
+adhere [v] 들러붙다 ; 지지하다
+
+cruelty [n] 잔인함
+
+back [n] 뒤, 등 / [v] 돌아오다
+
+cake [n] 케이크
+
+vulgar [a] 저속한, 통속적인
+
+sphere [n] 구체, 구형 ; 영역, 분야, 지역
+
+monkey [n] 원숭이
+
+song [n] 노래
+
+candy [n] 사탕, 캔디
+
+modify [v] 변경하다, 수정하다
+
+film [n] 필름, 영화
+
+broadcast [n] 방송 / [v] 널리알리다, 방송하다 ; 광고하다
+
+simultaneous [a] 동시의, 동시에 일어나는
+
+meter [n] (길이.거리의 측정 단위) 미터
+
+poster [n] 포스터
+
+wistful [a] 탐내는 듯한, 애석해 하는
+
+stir [v] 휘젓다 ; 자극하다, 분발하다 / [n] 소란,소동
+
+supermarket [n] 슈퍼마켓
+
+young [a] 젊은, 어린
+
+grasp [v] 붙잡다, 움켜잡다 ; 이해하다 / [n] 붙잡음
+
+bed [n] 침대
+
+verse [n] 운문, 시
+
+truck [n] 트럭
+
+wither [v] 시들다, 움츠려들다
+
+cute [a] 귀여운
+
+cold [a] 추운, 차가운
+
+permit [v] 허락하다, 허용하다
+
+organ [n] (생물의, 정치적인) 장기,기관; 오르간
+
+balloon [n] 풍선
+
+please [ad] 제발, 미안하지만 / [v] ~를 기쁘게 하다
+
+power [n] 권위, 권력 ; 힘, 동력 / [v] 동력을 공급하다, ~의 힘이 되다
+
+chicken [n] 닭, 닭고기
+
+bewilder [v] 당황하게 하다
+
+white [a] 흰색의
+
+clothes [n] 옷
+
+reaction [n] 반동, 반응
+
+affection [n] 애정, 호의
+
+engine [n] (기계의)엔진
+
+reverse [v] 뒤집다, 거꾸로 하다 / [n] (정)반대
+
+independence [n] 독립(심)
+
+confound [v] 당혹하게 만들다; …이 틀렸음을 입증하다; (적을) 물리치다
+
+fund [n] 자금, 기금; 돈 / [v] 자금[기금]을 대다
+
+yellow [n] 노란색 / [a] 노란색의
+
+assemble [v] 모으다, 집합하다
+
+yeah [int] 네
+
+storm [n] 폭풍우
+
+floor [n] 마루, 바닥
+
+local [a] 지방의
+
+among [prep] ~사이에, ~가운데
+
+green [n] 녹색 / [a] 녹색의
+
+approximate [a] 대략의, 거의 정확한, 근사치인 / [v] 비슷하다[가깝다]
+
+wall [n] 벽, 담
+
+imperial [a] 제국의, 황제의
+
+analysis [n] 분석, 분해
+
+hospitality [n] 환대
+
+compete [v] 경쟁하다, 겨루다
+
+not [ad] ~아니다
+
+favor [n] 호의, 친절한 행위, 지지 / [v] 찬성하다, 돕다
+
+relax [v] 늦추다, 편하게 하다
+
+sinister [a] 불길한
+
+disgust [n] 혐오 / [v] 구역질나다, 혐오감을 유발하다
+
+courage [n] 용기
+
+few [a] 거의 없는
+
+she [pron] 그녀는, 그녀가
+
+geometry [n] 기하학
+
+fool [n] 바보
+
+Christmas [n] 크리스 마스
+
+monopoly [n] 독점
+
+pang [n] 심한 고통
+
+prosecution [n] 기소, 고발 ; 수행
+
+dignity [n] 위엄
+
+solitude [n] 고독, 독거
+
+algebra [n] 대수(학)
+
+bomb [n] 폭탄 / [v] 폭격하다
+
+plausible [a] 그럴듯한
+
+age [n] 나이, 연령
+
+horse [n] 말
+
+people [n] 사람들
+
+clock [n] 시계, 탁상시계
+
+tempt [v] 유혹하다, 부추기다
+
+foot [n] 발
+
+where [conj] ~곳 / [ad] 어디에
+
+he [pron] 그가, 그는
+
+come [v] 오다
+
+every [a] 매~, 모든
+
+excess [n] 초과, 과잉
+
+sacred [a] 신성한
+
+sincerity [n] 신실, 성실
+
+personality [n] 개성
+
+germ [n] 세균 ; 기원, 초기
+
+collapse [n] 붕괴 / [v] 붕괴하다
+
+street [n] 거리, 길
+
+vacuum [n] 진공; 공백 / [v] 진공청소기로 청소하다
+
+embark [v] 배를 타다 ; 시작하다
+
+conscience [n] 양심
+
+today [n] 오늘 / [ad] 오늘
+
+act [v] 행동하다 / [n] 행동, 행위
+
+you [pron] 너, 너희들, 당신(들), (일반적으로)사람들
+
+aunt [n] 숙모, 고모, 이모, 아주머니
+
+again [ad] 또, 다시 한 번
+
+due [a] ~ 때문에; ~하기로 예정된 / [n] ~에게 마땅히 주어져야(또는 내야) 하는 것;회비
+
+finger [n] 손가락
+
+strawberry [n] 딸기
+
+disinterested [a] 사심없는, 공평한
+
+point [n] (뾰족한)끝 / [v] ~를 가리키다
+
+half [n] 반, 절반
+
+orbit [n] 궤도; 영향권 / [v] 궤도를 돌다
+
+banana [n] 바나나
+
+thing [n] 물건
+
+coarse [a] 조잡한, 거친, 야비한
+
+neutral [a] 중립의 / [n] 중립
+
+inquire [v] 묻다, 질문하다
+
+stature [n] 키, 신장 ; 위상
+
+sit [v] 앉다
+
+thirst [n] 목마름, 갈망 / [v] 갈망하다
+
+taxi [n] 택시
+
+thank [v] ~에게 고맙다고 하다
+
+contagion [n] 전염(병)
+
+girl [n] 소녀
+
+bag [n] 자루, 가방
+
+bread [n] 빵
+
+net [n] 그물 / [a] 정미(正味)의, 순~
+
+rank [n] 계급, 등급, 지위 / [v] 정렬하다, 배열하다
+
+temper [n] 기질 ; 기분 ; 노여움
+
+sin [n] 죄, 죄악; 죄를 지음 / [v] 죄를 짓다
+
+grape [n] 포도
+
+petty [a] 작은, 마음이 좁은, 하찮은

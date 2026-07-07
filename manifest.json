@@ -1,0 +1,21 @@
+{
+  "short_name": "VocabMaster",
+  "name": "VocabMaster 영단어 학습기",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#0d0e15",
+  "theme_color": "#4f9eff",
+  "display": "standalone",
+  "orientation": "portrait"
+}
