@@ -838,4 +838,48 @@ function showFinalResult() {
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
   initInputView();
+
+  // ── PWA 앱 설치 알림 모달 제어 로직 ──
+  let deferredPrompt;
+  const installModal = document.getElementById('pwa-install-modal');
+  const btnInstall = document.getElementById('btn-pwa-install');
+  const btnClose = document.getElementById('btn-pwa-close');
+
+  // 브라우저의 기본 설치 알림 조건 충족 시 가로채기
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Chrome/Android 등의 기본 프롬프트 방지
+    e.preventDefault();
+    deferredPrompt = e;
+    
+    // 이미 설치한 사용자인지 또는 거절 이력 검증하여 모달 띄우기
+    if (!localStorage.getItem('pwa_install_rejected')) {
+      setTimeout(() => {
+        if (installModal) installModal.classList.remove('hidden');
+      }, 2000); // 페이지 진입 2초 후 부드럽게 띄우기
+    }
+  });
+
+  if (btnInstall) {
+    btnInstall.onclick = async () => {
+      if (!deferredPrompt) return;
+      
+      // 기기 기본 설치 창 호출
+      deferredPrompt.prompt();
+      
+      // 사용자 수락 여부 확인
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`PWA 설치 선택 결과: ${outcome}`);
+      
+      if (installModal) installModal.classList.add('hidden');
+      deferredPrompt = null;
+    };
+  }
+
+  if (btnClose) {
+    btnClose.onclick = () => {
+      if (installModal) installModal.classList.add('hidden');
+      // 사용자가 끈 이력 기억 (매번 뜨지 않도록 배려)
+      localStorage.setItem('pwa_install_rejected', 'true');
+    };
+  }
 });
