@@ -122,7 +122,7 @@ greedy [a] 욕심 많은
 clean [a] 청결한, 깨끗한 ; 살균의, 위생적인 / [v] 깨끗하게 하다
 crash [n] 굉음, 추락, 충돌 / [v] 충돌하다
 leap [v] 껑충 뛰다, 뛰어넘다 / [n] 도약, 점프
-though [conj] ~임에도 불구하고 / [ad] 그러나
+thought [conj] ~임에도 불구하고 / [ad] 그러나
 store [n] 가게, 저장 / [v] 따로 떼어두다, 저장하다
 bathroom [n] 욕실
 foolish [a] 어리석은, 바보 같은
@@ -1042,6 +1042,7 @@ coast [n] 해안
 report [n] 보고 / [v] 보고하다
 import [v] 수입하다 / [n] 수입품
 wide [a] 넓은, 너른; 폭이~인 / [ad] 완전히, 있는 대로 다, 활짝
+busy [a] 바쁜
 base [n] 기초, 근거 ; 맨 아래 부분 / [v] ...에 근거지[본부/본사]를 두다`,
 
   "기초 영단어 Day 4": `include [v] 포함하다
@@ -1250,15 +1251,15 @@ beggar [n] 거지`
 function loadDBList(textarea) {
   const statusEl = document.getElementById('worddb-status');
   
-  // 마이그레이션 버전 3 키를 검사하여 신규 데이터셋(Day 1 ~ Day 4) 강제 동기화
-  const isMigrated = localStorage.getItem('vocab_db_version_3');
+  // 마이그레이션 버전 4 키를 검사하여 신규 데이터셋(Day 1 ~ Day 4) 강제 동기화
+  const isMigrated = localStorage.getItem('vocab_db_version_4');
   if (!isMigrated) {
     localStorage.removeItem('vocab_db_initialized');
     localStorage.removeItem('vocab_file_기초 영단어 Day 1');
     localStorage.removeItem('vocab_file_기초 영단어 Day 2');
     localStorage.removeItem('vocab_file_기초 영단어 Day 3');
     localStorage.removeItem('vocab_file_기초 영단어 Day 4');
-    localStorage.setItem('vocab_db_version_3', 'true');
+    localStorage.setItem('vocab_db_version_4', 'true');
   }
 
   // 최초 로드 또는 마이그레이션 리셋 시 기본 단어 세트 저장소에 등록
