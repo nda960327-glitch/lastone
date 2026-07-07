@@ -305,6 +305,42 @@ function initInputView() {
   // DB 목록 로딩 (서버 API)
   loadDBList(textarea);
 
+  // ── 웹용 단어 파일 업로드 및 브라우저 DB(LocalStorage) 저장 ──
+  const fileInput = document.getElementById('btn-upload-db-file');
+  const triggerBtn = document.getElementById('btn-trigger-upload');
+
+  if (triggerBtn && fileInput) {
+    triggerBtn.onclick = () => {
+      fileInput.click();
+    };
+
+    fileInput.onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const title = file.name.replace(/\.txt$/i, '');
+      const reader = new FileReader();
+
+      reader.onload = (event) => {
+        const text = event.target.result;
+        if (!text.trim()) {
+          alert('내용이 비어 있는 텍스트 파일입니다.');
+          return;
+        }
+
+        // 브라우저 저장소에 영구 저장 (Vercel 환경 동작의 핵심)
+        localStorage.setItem(`vocab_file_${title}`, text);
+        refreshDBList(textarea); // 단어 목록 새로고침
+        
+        // 업로드 완료 시 알림 및 선택 편의
+        alert(`"${title}" 단어장이 목록에 추가되었습니다.`);
+        fileInput.value = ''; // 초기화
+      };
+
+      reader.readAsText(file, 'UTF-8');
+    };
+  }
+
   // 학습 시작
   document.getElementById('btn-start').onclick = () => {
     const words = parseWords(textarea.value);
@@ -319,81 +355,69 @@ function initInputView() {
   };
 }
 
-// DB 폴더 파일 목록 로딩 (서버 API 사용)
-async function loadDBList(textarea) {
-  const listEl  = document.getElementById('worddb-list');
+// 기본 내장 단어 데이터 세트
+const DEFAULT_DATABASES = {
+  "기초 영단어 Day 1": `abandon [v] 포기하다 / [v] 버리다
+ability [n] 능력
+absent [adj] 결석한 / [adj] 부재한
+accept [v] 받아들이다
+accident [n] 사고 / [n] 우연
+achieve [v] 달성하다
+act [v] 행동하다 / [n] 행위
+add [v] 더하다 / [v] 추가하다
+admire [v] 감탄하다 / [v] 존경하다
+adult [n] 성인 / [adj] 성인의`,
+  "기초 영단어 Day 2": `amount [n] 양 / [n] 총액
+ancient [adj] 고대의 / [adj] 오래된
+angry [adj] 화난
+announce [v] 발표하다 / [v] 알리다
+another [adj] 또 다른 / [pron] 또 다른 것
+answer [v] 대답하다 / [n] 대답
+anxious [adj] 불안한 / [adj] 간절히 바라는`
+};
+
+// 로컬 저장소 기반 단어 리스트 로드
+function loadDBList(textarea) {
   const statusEl = document.getElementById('worddb-status');
-
-  try {
-    const res = await fetch('/api/db-list');
-    if (!res.ok) throw new Error('서버 응답 오류');
-    const files = await res.json();
-
-    if (files.length === 0) {
-      if (statusEl) statusEl.textContent = 'DB 폴더에 txt 파일이 없습니다';
-      return;
+  
+  // 최초 로드 시 기본 단어 세트 저장소에 등록
+  if (!localStorage.getItem('vocab_db_initialized')) {
+    for (const [title, content] of Object.entries(DEFAULT_DATABASES)) {
+      localStorage.setItem(`vocab_file_${title}`, content);
     }
-
-    if (statusEl) statusEl.textContent = '';
-    renderDBList(files, textarea);
-
-  } catch (e) {
-    console.warn('서버가 꺼져 있음. 자동 기동 시도 및 장치 판별 중...', e);
-    
-    // 모바일(핸드폰) 접속 판별
-    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      if (statusEl) {
-        statusEl.innerHTML = '📶 <b>컴퓨터에서 서버가 켜져 있는지 확인해 주세요</b><br><span style="font-size:11px; color:var(--text2);">컴퓨터 폴더 내 <b>"VocabMaster 실행하기.vbs"</b>를 켠 상태로, 핸드폰과 컴퓨터가 같은 공유기(Wi-Fi)에 연결되어야 단어를 불러올 수 있습니다.</span>';
-      }
-      return; // 모바일은 프로토콜 기동 생략
-    }
-
-    if (statusEl) {
-      statusEl.innerHTML = '⚙️ 로컬 API 서버 자동 기동 시도 중...';
-    }
-
-    // PC 환경: 숨김 iframe을 통해 프로토콜 호출
-    let iframe = document.getElementById('server-launcher-iframe');
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.id = 'server-launcher-iframe';
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-    }
-    iframe.src = 'vocabmaster://run';
-
-    // 1.5초 대기 후 서버 연결 재시도
-    setTimeout(async () => {
-      try {
-        const res = await fetch('/api/db-list');
-        if (res.ok) {
-          const files = await res.json();
-          if (statusEl) statusEl.textContent = '';
-          renderDBList(files, textarea);
-        } else {
-          throw new Error();
-        }
-      } catch (err) {
-        if (statusEl) {
-          statusEl.innerHTML = '⚠️ 로컬 API 서버 연결에 실패했습니다.<br><span style="font-size:11px; color:var(--text2);">폴더 내부의 <b>"VocabMaster 실행하기.vbs"</b>를 직접 더블클릭하여 실행해 주세요.</span>';
-        }
-      }
-    }, 1500);
+    localStorage.setItem('vocab_db_initialized', 'true');
   }
+
+  refreshDBList(textarea);
 }
 
-// 선택된 DB 파일 세트 목록을 관리할 배열
-let selectedDBFiles = [];
-
-// DB 파일 목록 렌더링 (다중 선택형)
-function renderDBList(files, textarea) {
+// 저장된 단어 목록을 화면에 갱신하여 렌더링
+function refreshDBList(textarea) {
   const listEl = document.getElementById('worddb-list');
+  const statusEl = document.getElementById('worddb-status');
   listEl.innerHTML = '';
-  selectedDBFiles = []; // 초기화
+  selectedDBFiles = [];
 
-  // 다중 선택 완료 후 병합해서 불러오는 버튼용 컨테이너 추가
+  // 로컬 저장소에 저장된 모든 단어 파일 키 가져오기
+  const keys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('vocab_file_')) {
+      keys.push(key.replace('vocab_file_', ''));
+    }
+  }
+
+  // 한글 오름차순 정렬
+  keys.sort((a, b) => a.localeCompare(b, 'ko'));
+
+  if (keys.length === 0) {
+    if (statusEl) statusEl.textContent = '등록된 단어장이 없습니다. 파일을 추가해 주세요.';
+    return;
+  }
+
+  if (statusEl) statusEl.textContent = '';
+
+  // 병합 불러오기 버튼 래퍼 생성
   let actionWrapper = document.getElementById('worddb-action-wrapper');
   if (!actionWrapper) {
     actionWrapper = document.createElement('div');
@@ -401,43 +425,52 @@ function renderDBList(files, textarea) {
     actionWrapper.className = 'worddb-action-wrapper';
     listEl.parentNode.insertBefore(actionWrapper, listEl.nextSibling);
   }
-  
+
   actionWrapper.innerHTML = `
     <button id="btn-merge-db" class="btn-ghost" style="border-color: rgba(79,158,255,0.4); color: var(--blue);" disabled>
-      선택한 파일 합쳐서 불러오기 (0개)
+      선택한 단어장 합쳐서 불러오기 (0개)
     </button>
   `;
 
   const btnMerge = document.getElementById('btn-merge-db');
 
-  files.forEach(filename => {
-    const displayName = filename.replace(/\.txt$/i, '');
-
+  keys.forEach(title => {
     const item = document.createElement('button');
     item.className = 'worddb-item';
     item.innerHTML = `
       <span class="worddb-item-checkbox"></span>
-      <span class="worddb-item-name">${esc(displayName)}</span>
+      <span class="worddb-item-name">${esc(title)}</span>
+      <span class="worddb-item-delete" title="삭제" style="margin-left: 8px; color: var(--red); font-weight: bold; cursor: pointer;">✕</span>
     `;
 
-    item.onclick = () => {
-      const idx = selectedDBFiles.indexOf(filename);
+    // 체크박스 클릭 토글 이벤트
+    item.onclick = (e) => {
+      // 삭제 버튼 클릭 시 이벤트 분기
+      if (e.target.classList.contains('worddb-item-delete')) {
+        e.stopPropagation();
+        if (confirm(`"${title}" 단어장을 삭제하시겠습니까?`)) {
+          localStorage.removeItem(`vocab_file_${title}`);
+          refreshDBList(textarea);
+        }
+        return;
+      }
+
+      const idx = selectedDBFiles.indexOf(title);
       if (idx > -1) {
         selectedDBFiles.splice(idx, 1);
         item.classList.remove('active');
       } else {
-        selectedDBFiles.push(filename);
+        selectedDBFiles.push(title);
         item.classList.add('active');
       }
 
-      // 버튼 상태 업데이트
       if (selectedDBFiles.length > 0) {
         btnMerge.disabled = false;
-        btnMerge.textContent = `선택한 파일 합쳐서 불러오기 (${selectedDBFiles.length}개)`;
+        btnMerge.textContent = `선택한 단어장 합쳐서 불러오기 (${selectedDBFiles.length}개)`;
         btnMerge.style.background = 'rgba(79,158,255,0.15)';
       } else {
         btnMerge.disabled = true;
-        btnMerge.textContent = '선택한 파일 합쳐서 불러오기 (0개)';
+        btnMerge.textContent = '선택한 단어장 합쳐서 불러오기 (0개)';
         btnMerge.style.background = 'transparent';
       }
     };
@@ -445,30 +478,21 @@ function renderDBList(files, textarea) {
     listEl.appendChild(item);
   });
 
-  // 합쳐서 불러오기 실행
-  btnMerge.onclick = async () => {
+  // 선택한 단어장 병합 로드
+  btnMerge.onclick = () => {
     if (selectedDBFiles.length === 0) return;
     
     let combinedText = '';
-    btnMerge.disabled = true;
-    btnMerge.textContent = '불러오는 중...';
-
-    for (const filename of selectedDBFiles) {
-      try {
-        const res = await fetch(`/DB/${encodeURIComponent(filename)}`);
-        const text = await res.text();
-        combinedText += text.trim() + '\n';
-      } catch (e) {
-        console.error(`${filename} 로딩 실패:`, e);
+    selectedDBFiles.forEach(title => {
+      const content = localStorage.getItem(`vocab_file_${title}`);
+      if (content) {
+        combinedText += content.trim() + '\n';
       }
-    }
+    });
 
     textarea.value = combinedText.trim();
     textarea.dispatchEvent(new Event('input'));
     textarea.focus();
-
-    btnMerge.disabled = false;
-    btnMerge.textContent = `선택한 파일 합쳐서 불러오기 (${selectedDBFiles.length}개)`;
   };
 }
 

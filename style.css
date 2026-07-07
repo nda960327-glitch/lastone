@@ -253,6 +253,15 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   box-shadow: inset 0 0 0 2px rgba(255,255,255,0.85);
 }
 .worddb-item-name { font-weight: 700; }
+.worddb-item-delete {
+  transition: color 0.15s ease, transform 0.15s ease;
+  opacity: 0.6;
+}
+.worddb-item-delete:hover {
+  color: #ef4444 !important;
+  transform: scale(1.2);
+  opacity: 1;
+}
 
 .worddb-action-wrapper {
   margin-top: 10px;

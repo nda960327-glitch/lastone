@@ -39,7 +39,11 @@
     <div class="glass-card input-card">
       <div class="card-header">
         <h2>단어 목록 입력</h2>
-        <button id="btn-load-example" class="btn-ghost">📋 예시</button>
+        <div class="header-actions" style="display: flex; gap: 8px;">
+          <input type="file" id="btn-upload-db-file" accept=".txt" style="display: none;">
+          <button id="btn-trigger-upload" class="btn-ghost" style="border-color: rgba(168,85,247,0.4); color: var(--purple);">➕ 단어장 추가</button>
+          <button id="btn-load-example" class="btn-ghost">📋 예시</button>
+        </div>
       </div>
 
       <!-- 단어 DB 목록 -->
