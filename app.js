@@ -338,11 +338,38 @@ async function loadDBList(textarea) {
     renderDBList(files, textarea);
 
   } catch (e) {
-    console.warn('DB 로딩 실패 (서버가 실행 중인지 확인):', e);
+    console.warn('서버가 꺼져 있음. 자동 실행을 시도합니다...', e);
     if (statusEl) {
-      statusEl.innerHTML =
-        '⚠️ <b>VocabMaster 시작.bat</b>을 실행한 뒤 새로고침 하세요';
+      statusEl.innerHTML = '⚙️ 로컬 API 서버 자동 기동 중...';
     }
+
+    // 숨김 처리된 iframe을 통해 로컬 서버 등록 프로토콜 호출 (보안 차단 회피)
+    let iframe = document.getElementById('server-launcher-iframe');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = 'server-launcher-iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+    iframe.src = 'vocabmaster://run';
+
+    // 1.5초 대기 후 서버가 켜졌는지 재시도
+    setTimeout(async () => {
+      try {
+        const res = await fetch('/api/db-list');
+        if (res.ok) {
+          const files = await res.json();
+          if (statusEl) statusEl.textContent = '';
+          renderDBList(files, textarea);
+        } else {
+          throw new Error();
+        }
+      } catch (err) {
+        if (statusEl) {
+          statusEl.innerHTML = '⚠️ 로컬 서버 자동 기동 실패. <b>VocabMaster 시작.bat</b>을 수동으로 켜주세요.';
+        }
+      }
+    }, 1500);
   }
 }
 
