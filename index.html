@@ -81,6 +81,13 @@
           </svg>
         </button>
       </div>
+      
+      <!-- 뇌과학 효과 및 사용법 링크 -->
+      <div class="info-link-container" style="text-align: center; margin-top: 20px;">
+        <button id="btn-show-info" class="btn-ghost" style="color: var(--text2); font-size: 13px; text-decoration: underline; border: none; background: transparent;">
+          💡 이 앱의 효과 및 사용법 읽기
+        </button>
+      </div>
     </div>
   </section>
 
@@ -289,6 +296,46 @@
         <button id="btn-pwa-close" class="btn-secondary">나중에</button>
         <button id="btn-pwa-install" class="btn-primary">설치하기</button>
       </div>
+    </div>
+  </div>
+
+  <!-- 💡 뇌과학 효과 및 사용법 설명서 모달 -->
+  <div id="info-modal" class="pwa-modal hidden">
+    <div class="pwa-modal-content glass-card" style="max-width: 500px; max-height: 85vh; overflow-y: auto; text-align: left; align-items: flex-start; padding: 28px;">
+      <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+        <h3 style="margin: 0; font-size: 18px; color: var(--blue);">🧠 뇌과학 암기 효과 & 사용법</h3>
+        <button id="btn-info-close" style="background: transparent; border: none; color: var(--text2); font-size: 20px; cursor: pointer; padding: 0 4px;">✕</button>
+      </div>
+
+      <div style="font-size: 13.5px; line-height: 1.68; color: var(--text1); display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <h4 style="color: #fff; margin-bottom: 6px; font-size: 14.5px;">⏱️ 아예 모르는 200단어, 암기 소요 시간은?</h4>
+          <p style="color: var(--text2);">
+            기존의 깜지 쓰기나 눈으로만 읽는 방식은 200단어 암기에 <b>최소 6~8시간</b>이 걸리며 금방 망각합니다. 
+            하지만 본 앱의 과학적 훈련을 통하면 <b>평균 2시간 ~ 2시간 반</b> 만에 200단어를 완전 장기기억으로 뇌에 각인시킬 수 있습니다.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: #fff; margin-bottom: 6px; font-size: 14.5px;">🚀 뇌과학이 입증하는 본 앱의 3대 효과</h4>
+          <ul style="padding-left: 18px; margin: 0; color: var(--text2); display: flex; flex-direction: column; gap: 6px;">
+            <li><b>청각 프라이밍 (2초 음성 선출력):</b> 스펠링이 뜨기 전 2초간 귀로 발음을 먼저 들을 때 뇌의 청각 피질이 강하게 자극받아 스펠링 예측 회로를 활성화시키고 암기 효율을 극대화합니다.</li>
+            <li><b>능동적 회상 (Active Recall):</b> 객관식이 아닌, 뜻 확인 버튼을 누르기 전 뇌가 주관적으로 정답을 떠올리려고 끙끙대는 과정에서 신경망 시냅스가 단단히 결속됩니다.</li>
+            <li><b>지연 누적 복습 (Spaced Cumulative Review):</b> 50단위로 단어를 잘라 외우고, 새 구간 진입 전 앞서 배운 내용을 점진적으로 합쳐서(예: 1~100, 1~150) 테스트하므로 망각 곡선을 원천 무력화합니다.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: #fff; margin-bottom: 6px; font-size: 14.5px;">💡 효과를 극대화하는 3단계 사용법</h4>
+          <ol style="padding-left: 18px; margin: 0; color: var(--text2); display: flex; flex-direction: column; gap: 6px;">
+            <li>단어 리스트를 로드한 뒤, 화면 하단에 생기는 <b>[1 ~ 50]</b> 구간 버튼을 눌러 가볍게 첫 번째 테스트를 칩니다. (모르는 단어는 망설임 없이 X 표시)</li>
+            <li>그 다음 <b>[51 ~ 100]</b>을 푼 뒤, 바로 새 단어로 가지 않고 <b>[1 ~ 100 (누적)]</b> 복습 코스를 쳐서 전 단계를 단단히 굳힙니다.</li>
+            <li>동일한 방식으로 50개 단위 진입과 누적 코스를 번갈아 훈련해 나가면, 200단어가 순식간에 머릿속에 영구 정착됩니다.</li>
+          </ol>
+        </div>
+      </div>
+
+      <button id="btn-info-ok" class="btn-primary" style="width: 100%; margin-top: 24px; padding: 12px;">확인했습니다</button>
     </div>
   </div>
 

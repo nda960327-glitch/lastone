@@ -1061,6 +1061,30 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('pwa_install_rejected', 'true');
     };
   }
+
+  // ── 💡 뇌과학 효과 및 사용법 설명서 모달 제어 ──
+  const infoModal = document.getElementById('info-modal');
+  const btnShowInfo = document.getElementById('btn-show-info');
+  const btnInfoClose = document.getElementById('btn-info-close');
+  const btnInfoOk = document.getElementById('btn-info-ok');
+
+  if (btnShowInfo && infoModal) {
+    btnShowInfo.onclick = () => {
+      infoModal.classList.remove('hidden');
+    };
+  }
+
+  if (btnInfoClose && infoModal) {
+    btnInfoClose.onclick = () => {
+      infoModal.classList.add('hidden');
+    };
+  }
+
+  if (btnInfoOk && infoModal) {
+    btnInfoOk.onclick = () => {
+      infoModal.classList.add('hidden');
+    };
+  }
 });
 
 // ── 테스트 상태 실시간 저장/복원 함수 ──
