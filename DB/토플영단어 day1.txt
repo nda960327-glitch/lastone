@@ -1,0 +1,401 @@
+여섯 번째로 요청하신 200개의 단어 목록입니다. 영문 동의어를 제외하고, 한 단어의 여러 품사와 뜻은 슬래시(/)로 구분하여 보기 좋게 정리했습니다.
+
+codify [v] (체계적으로) 정리하다 ; (법률 등을) 성문화 하다
+
+impunity [n] 처벌받지 않음
+
+assault [v] 공격하다, 공격을 가하다 / [n] 강습, 습격, 공격, 폭행
+
+central [a] 중심의, 기본적인
+
+accusation [n] 고발, 비난, 기소
+
+satisfy [v] 만족시키다
+
+stand for [phr] ~를 나타내다, ~을 상징하다; ~을 대표하다
+
+recurring [a] 되풀이되는 ; (수학) 순환하는
+
+mastery [n] 전문 기술, 숙달, 지배력, 승리, 전문기술
+
+pledge [n] 맹세, 담보, 보증
+
+high [a] 높은 ; 극도의, 극심한 / [ad] 높이, 높은 곳에
+
+arrange [v] 가지런히 하다, 배열하다
+
+cumulate [v] 쌓아 올리다, 모으다, 쌓다, 축적하다
+
+density [n] 농도, 밀도
+
+completely [ad] 완전히
+
+pigment [n] 색소, 색깔
+
+purveyor [n] 공급업자, 납품 상인
+
+whereby [ad] 무엇에 의하여, 어떻게 하여
+
+miraculous [a] 기적적인, 놀랄만한
+
+upbraid [v] 신랄하게 비난하다
+
+voracious [a] 탐욕적인, 게걸스럽게 먹는
+
+pervasive [a] 퍼지는, 널리 미치는
+
+precision [n] 정확, 정밀
+
+overcast [a] 구름 뒤덮인,흐린
+
+depose [v] 쫓아내다 ; 증언하다(법)
+
+oversight [n] 간과, 태만, 부주의 ; 감독, 감시
+
+fume [n] 증기, 연기 / [v] 몹시 화를 내다, (화가 나서) 씩씩대다
+
+soften [v] 부드러워지다, 약해지다, 부드럽게 하다
+
+thoroughly [ad] 철저히, 완전히, 철저하게, 대단히
+
+consequent [a] 결과로서 일어나는, 결과로 일어나는
+
+paltry [a] 사소한, 하찮은
+
+refined [a] 정제된, 세련된
+
+aimless [a] 목적 없는, 목표 없는
+
+lag [v] 꾸물거리다; 처지다, 뒤떨어지다 / [n] 뒤처짐
+
+prophetic [a] 예언적인, 예언자의
+
+meddlesome [a] 간섭하기 좋아하는, 간섭하길 좋아하는, 참견하기 좋아하는
+
+tamper [v] 참견하다, 간섭하다
+
+moody [a] 변덕스러운 ; 침울한
+
+auxiliary [a] 보조의, 부가의
+
+seep [v] 스며 나오다, 새다
+
+intertwine [v] 뒤엉키다, 뒤얽히다, 엮이다
+
+motif [n] (미술, 문학) 주제, 테마
+
+mandatory [a] 의무의, 강제의
+
+inconspicuous [a] 눈에 띄지 않는
+
+woe [n] 비애, 고뇌
+
+shallow [a] 얕은, 피상적인, 얄팍한
+
+barter [v] 교환하다, 교역하다
+
+balmy [a] 향기로운, 진정시키는 ; 아늑한
+
+frequent [a] 빈번한, 상습적인
+
+impetus [n] 힘, 운동량, 탄력
+
+constrain [v] 강요하다, 강제하다,구속하다
+
+omit [v] 생략하다
+
+submerse [v] (물에) 가라앉다, 하강하다
+
+pressing [a] 긴급한 ; 집요한, 간청하는
+
+ambiguous [a] 모호한, 애매한
+
+dismal [a] 음침한, 음울한, 침울한
+
+sensational [a] 세상을 들끓게 하는 ; 감각의, 지각의, 세상을 놀라게 하는
+
+impartially [ad] 공명정대하게, 편견 없이
+
+egoism [n] 이기주의 ; 자만
+
+on the spot [phr] 즉시,즉각; 현장에서
+
+enlist [v] 도움을 얻다, 협력을 얻다 ; 징집하다
+
+mad [a] 미친 ; 열광적인
+
+senseless [a] 무감각한 ; 무의미한 ; 무분별한
+
+corroborate [v] 확증하다
+
+verbose [a] 말이 많은, 말 많은
+
+in earnest [phr] 진지하게, 진심으로
+
+touch off [phr] 야기하다
+
+shred [v] (갈기갈기) 찢다 / [n] 조각
+
+suspicion [n] 혐의, 의심
+
+coherent [a] 논리적인, 일관성 있는, 논리 정연한
+
+apparel [n] 옷, 의복, 의상
+
+clout [n] 권력, 영향력 / [v] 때리다
+
+tissue [n] (세포)조직 ; 얇은 천
+
+goodwill [n] 친절, 온정, 친선, 호의
+
+advent [n] 출현, 도래
+
+stylus [n] 바늘, 첨필, 가느다란 펜
+
+horrible [a] 무서운, 끔찍한
+
+molten [a] 녹은, 용해된
+
+pool [n] 모임 / [v] 모이다
+
+it followed that [phr] 그 결과로서 ~가 되었다, 그 결과로서 ~가 되다
+
+ferry [n] 나루터, 나룻배 / [v] 수송하다, 운송하다, 나르다
+
+inexorable [a] 냉혹한 ; 멈출 수 없는, 거침없는
+
+asymmetric [a] 균형을 잃은; 비대칭의
+
+escalate [v] 차츰 확대되다, 단계적으로 확대되다, 확대되다, 차츰 확대되다, 차츰 확대하다
+
+lay down [v] 내려놓다; (무기 등을) 버리다, 사임하다; 정하다, 규정하다
+
+lengthen [v] 길게 하다, 늘이다, 연장하다, 늘이다(늘리다)
+
+fragment [n] 파편, 조각
+
+reprove [v] 꾸짖다
+
+henceforth [ad] 앞으로, 차후, 지금부터, 이후로
+
+deviation [n] 탈선, 일탈, 벗어남, 편차
+
+dispatch [v] 파견(발송)하다, 보내다 ; (일을) 급히 처리하다 / [n] 파견, 발송
+
+aptitude [n] 경향, 습성 ; 적성
+
+pragmatic [a] 실용적인
+
+passionate [a] 열렬한, 격렬한, 열정적인
+
+genuinely [ad] 정말로, 성실하게, 진정으로, 진짜로
+
+applicability [n] 적절함, 적절성, 적용 가능성, 적용성
+
+hoard [n] 저장 / [v] 저장하다
+
+altitude [n] 높이, 고도
+
+ambling [a] 느긋한, 느린 걸음의
+
+monetary [a] 화폐의, 금전상의
+
+disruption [n] 붕괴, 혼란, 중단, 분열
+
+alliance [n] 동맹, 연합
+
+inflate [v] 부풀게 하다, 팽창시키다, 팽창하다
+
+proprietor [n] 소유주, 사업자
+
+pose [v] (위협.문제 등을)제기하다, 제출하다, 야기하다 / [n] 포즈(자세)
+
+barge [n] 배 / [v] 밀치고 가다
+
+assessment [n] 평가, (과세를 위한) 조사, 사정
+
+mammoth [a] 거대한 / [n] 매머드
+
+constrict [v] 압축하다, 죄다
+
+hallmark [n] 특징 ; 품질 보증 마크
+
+take place [phr] 일어나다, 발생하다
+
+hallow [v] 신성하게 하다,신성한 것으로 숭배하다
+
+dilapidated [a] 황폐한 ; 다 허물어져 가는
+
+refinement [n] 정제, 정밀, 세련됨
+
+ratify [v] 확인하다, 승인하다
+
+snug [a] 아늑한
+
+elaborate [a] 정교한, 공들인 / [v] 정성들여 만들다, 정교하게 만들다
+
+blur [n] 더러움, 얼룩, 흐릿한 형체 / [v] 희미해지다, 흐릿하게 만들다, 흐릿해지다
+
+stagger [v] 비틀거리다
+
+pungent [a] 찌르는, 날카로운, 신랄한, 매운
+
+opulent [a] 비옥한, 풍부한
+
+convergence [n] 집중성,집합점,수렴
+
+petition [v] ~에 청원하다 / [n] 청원, 탄원
+
+likelihood [n] 가망, 가능성
+
+deter [v] 단념시키다, 제지하다
+
+uneasy [a] 불편한; 불안한; 어수선한
+
+federal [a] 연방의, 연합의
+
+ability [n] 능력, 재주, 수완
+
+partition [n] 분할, 분배 / [v] 분할하다
+
+worldly [a] 세속적인, 속세의
+
+cumbersome [a] 다루기 힘든, 버거운 ; 성가신, 다루기 어려운
+
+acquaintance [n] (얕은) 교우관계, 아는 사람
+
+resemblance [n] 유사점, 닮음, 유사함, 비슷함
+
+connotation [n] 암시, 함축 ; (논리) 내포
+
+emulate [v] 모방하다 ; 겨루다
+
+inadequate [a] 부적당(불충분)한, 부적당한, 부적당한, 불충분한
+
+extraneous [a] 외래의, 이질적인 ; 관련이 없는, 관련없는
+
+uninterested [a] 관계없는, 공평한 ; 무관심한
+
+weariness [n] 피로, 피곤, 싫증
+
+pact [n] 협정, 조약, 약속
+
+unbearable [a] 견딜 수 없는, 참기 어려운, 견디기 어려운, 참을 수 없는
+
+rove [v] 돌아다니다, 어슬렁거리다 / [n] 배회
+
+contaminate [v] 오염시키다, 더럽히다
+
+at hand [phr] 사용 가능한, 사용할 수 있는
+
+jeopardy [n] 위험
+
+pedestrian [n] 보행자 / [a] 도보의, 보행하는
+
+slack [a] 늘어진, 느슨한
+
+associated [a] 연관된, 조합의
+
+refine [v] 정제하다, 정련하다, 다듬다
+
+margin [n] 가장자리, 물가 ; 판매수익, 이윤
+
+lead to [phr] 결과를 초래하다
+
+longevity [n] 장수, 수명
+
+assembly [n] 의회, 하원 ; 조립
+
+abject [a] 비열한, 비굴한, 절망적인
+
+interwind [v] 한데 감다, 얽히(게 하)다
+
+villain [n] 악당, 놈
+
+spacious [a] 넓은 ; 풍부한, 널찍한
+
+sturdy [a] 억센, 튼튼한
+
+bizarre [a] 기괴한, 별난
+
+praiseworthy [a] 칭찬할 만한
+
+arid [a] 건조한, 메마른
+
+assail [v] 맹렬히 공격하다, 습격하다
+
+elapse [v] 경과하다 / [n] (시간) 경과
+
+depreciation [n] 가치하락
+
+lax [a] 느슨한, 늘어진, 해이한
+
+broad [a] 폭이 넓은
+
+promising [a] 가망있는, 유망한
+
+pitiful [a] 가엾은, 처량한 ; 인정 많은, 동정적인, 측은한
+
+formulate [v] 명확히 말하다, 공식화 하다
+
+incorporation [n] 혼합, 포함
+
+belly [n] (신체)배 / [v] 부풀다
+
+standstill [n] 정지, 답보 상태
+
+sensible [a] 분별있는, 현명한, 합리적인, 분별력 있는
+
+consort [n] (통치자의) 배우자; 합주단, 합창대 / [v] (나쁜 사람)과 교제하다, 사귀다, 어울리다; 일치하다, 조화하다
+
+equitable [a] 공정한, 공평한
+
+embed [v] 끼워넣다, 묻다 ; 깊이 새겨두다, 박다
+
+intersect [v] 교차하다, 가로지르다
+
+obsolete [a] 구식의, 쓸모 없어진
+
+deviate [v] 빗나가다, 벗어나다
+
+touching [a] 감동적인, 애처로운
+
+enrage [v] 성나게 하다
+
+gigantic [a] 거인 같은, 거대한
+
+fluctuation [n] 파동, 동요, 변동, (사람 마음의)동요
+
+short-lived [a] 단기간의, 오래가지 못하는, 단기적인
+
+emergent [a] 뜻밖의, 의외의 ; 신생의
+
+disentangle [v] 엉킨것을 풀다, 문제를 해결하다
+
+jettison [v] 버리다; 투하하다, 포기하다 / [n] 포기
+
+expertise [n] 전문적 기술(지식), 전문지식, 전문기술
+
+conduit [n] 도관, 선, 전선관
+
+inconsistent [a] 일치하지 않는, 모순된
+
+comparatively [ad] 비교적, 꽤
+
+dweller [n] 거주자, 주민
+
+regardless [a] 부주의한, 관심 없는, 개의치 않고
+
+scrutinize [v] 세밀히 조사하다, 정밀히 조사하다
+
+wonder [v] 놀라다, 이상히 여기다 / [n] 경이
+
+cross-hatching [n] 음영
+
+arithmetic [n] 산수,셈
+
+as a whole [phr] 전체적으로
+
+verdict [n] (배심원의) 평결
+
+extinct [a] 멸종된, 단절된
