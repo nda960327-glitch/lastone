@@ -46,10 +46,15 @@
         </div>
       </div>
 
-      <!-- 단어 DB 목록 -->
+      <!-- 단어 DB 목록 (목록형 드롭다운 메뉴) -->
       <div class="worddb-panel">
         <span id="worddb-status" class="worddb-status"></span>
-        <div id="worddb-list" class="worddb-list"></div>
+        <div class="select-wrap" style="position: relative; margin-top: 6px;">
+          <select id="worddb-select" class="worddb-select" style="width: 100%; padding: 12px; border-radius: 8px; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); color: var(--text1); font-size: 13.5px; font-weight: 600; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none;">
+            <option value="">📂 내장 단어장 선택하기...</option>
+          </select>
+          <div style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text2); font-size: 11px;">▼</div>
+        </div>
       </div>
 
       <div class="format-hint">
