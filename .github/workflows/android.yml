@@ -1,0 +1,52 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Install Cordova
+      run: npm install -g cordova
+
+    - name: Create Cordova Project
+      run: |
+        cordova create build-android com.vocabmaster.app VocabMaster
+        cd build-android
+        cordova platform add android
+        # 기존 PWA 파일 복사
+        rm -rf www/*
+        cp -r ../* www/ || true
+        # 불필요한 빌드 스크립트 등은 복사 대상에서 제외
+        rm -rf www/build-android
+        rm -rf www/.git
+        rm -rf www/.github
+
+    - name: Build Android APK
+      run: |
+        cd build-android
+        cordova build android --device
+
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: VocabMaster-APK
+        path: build-android/platforms/android/app/build/outputs/apk/debug/app-debug.apk
