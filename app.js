@@ -308,8 +308,8 @@ function initInputView() {
 
     const n = words.length;
 
-    // 50개 이하일 경우 구간 분할 필요 없음
-    if (n <= 50) {
+    // 20개 이하일 경우 구간 분할 필요 없음
+    if (n <= 20) {
       panel.classList.add('hidden');
       return;
     }
@@ -317,7 +317,7 @@ function initInputView() {
     panel.classList.remove('hidden');
     listContainer.innerHTML = '';
 
-    const step = 50;
+    const step = 20;
     const ranges = [];
 
     // 1. 순차 분할 구간 정의 (예: 1~50, 51~100...)
