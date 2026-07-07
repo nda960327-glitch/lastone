@@ -338,12 +338,23 @@ async function loadDBList(textarea) {
     renderDBList(files, textarea);
 
   } catch (e) {
-    console.warn('서버가 꺼져 있음. 자동 실행을 시도합니다...', e);
-    if (statusEl) {
-      statusEl.innerHTML = '⚙️ 로컬 API 서버 자동 기동 중...';
+    console.warn('서버가 꺼져 있음. 자동 기동 시도 및 장치 판별 중...', e);
+    
+    // 모바일(핸드폰) 접속 판별
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      if (statusEl) {
+        statusEl.innerHTML = '📶 <b>컴퓨터에서 서버가 켜져 있는지 확인해 주세요</b><br><span style="font-size:11px; color:var(--text2);">컴퓨터 폴더 내 <b>"VocabMaster 실행하기.vbs"</b>를 켠 상태로, 핸드폰과 컴퓨터가 같은 공유기(Wi-Fi)에 연결되어야 단어를 불러올 수 있습니다.</span>';
+      }
+      return; // 모바일은 프로토콜 기동 생략
     }
 
-    // 숨김 처리된 iframe을 통해 로컬 서버 등록 프로토콜 호출 (보안 차단 회피)
+    if (statusEl) {
+      statusEl.innerHTML = '⚙️ 로컬 API 서버 자동 기동 시도 중...';
+    }
+
+    // PC 환경: 숨김 iframe을 통해 프로토콜 호출
     let iframe = document.getElementById('server-launcher-iframe');
     if (!iframe) {
       iframe = document.createElement('iframe');
@@ -353,7 +364,7 @@ async function loadDBList(textarea) {
     }
     iframe.src = 'vocabmaster://run';
 
-    // 1.5초 대기 후 서버가 켜졌는지 재시도
+    // 1.5초 대기 후 서버 연결 재시도
     setTimeout(async () => {
       try {
         const res = await fetch('/api/db-list');
@@ -366,7 +377,7 @@ async function loadDBList(textarea) {
         }
       } catch (err) {
         if (statusEl) {
-          statusEl.innerHTML = '⚠️ 로컬 서버 자동 기동 실패. <b>VocabMaster 시작.bat</b>을 수동으로 켜주세요.';
+          statusEl.innerHTML = '⚠️ 로컬 API 서버 연결에 실패했습니다.<br><span style="font-size:11px; color:var(--text2);">폴더 내부의 <b>"VocabMaster 실행하기.vbs"</b>를 직접 더블클릭하여 실행해 주세요.</span>';
         }
       }
     }, 1500);
