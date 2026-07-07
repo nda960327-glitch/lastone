@@ -2,171 +2,207 @@
 // VocabMaster — app.js
 // =============================================
 
-// ---- 예시 데이터 ----
-const EXAMPLE_WORDS = `abandon [v] 포기하다 / [v] 버리다
-ability [n] 능력
-absolute [adj] 절대적인
-absorb [v] 흡수하다
-abstract [adj] 추상적인 / [n] 요약
-abundant [adj] 풍부한
-accept [v] 받아들이다
-accompany [v] 동반하다
-achieve [v] 달성하다
-acquire [v] 습득하다
-adapt [v] 적응하다
-affect [v] 영향을 미치다
-aggressive [adj] 공격적인
-allow [v] 허락하다
-analyze [v] 분석하다
-announce [v] 발표하다
-apply [v] 지원하다 / [v] 적용하다
-approach [n] 접근법 / [v] 다가가다
-appropriate [adj] 적절한
-assume [v] 가정하다
-benefit [n] 이익 / [v] 혜택을 받다
-challenge [n] 도전 / [v] 도전하다
-complex [adj] 복잡한 / [n] 복합체
-consider [v] 고려하다
-define [v] 정의하다`.trim();
-
-// ---- 단어 DB (하드코딩) ----
-const WORD_DB = [
-  {
-    name: '기초 동사',
-    words: `go [v] 가다
-come [v] 오다
-see [v] 보다
-look [v] 보다 / [v] 보이다
-know [v] 알다
-think [v] 생각하다
-get [v] 얻다 / [v] 되다
-make [v] 만들다
-give [v] 주다
-take [v] 가져가다 / [v] 취하다
-use [v] 사용하다
-find [v] 찾다 / [v] 발견하다
-tell [v] 말하다
-ask [v] 묻다
-work [v] 일하다 / [n] 일
-seem [v] 보이다
-feel [v] 느끼다
-try [v] 시도하다
-leave [v] 떠나다 / [v] 남기다
-call [v] 부르다 / [v] 전화하다
-keep [v] 유지하다 / [v] 계속하다
-let [v] 허락하다
-begin [v] 시작하다
-show [v] 보여주다
-hear [v] 듣다
-play [v] 놀다 / [v] 연주하다
-run [v] 달리다 / [v] 운영하다
-move [v] 이동하다 / [v] 감동시키다
-live [v] 살다
-believe [v] 믿다`
-  },
-  {
-    name: '기초 형용사',
-    words: `good [adj] 좋은
-bad [adj] 나쁜
-big [adj] 큰
-small [adj] 작은
-new [adj] 새로운
-old [adj] 오래된 / [adj] 나이 든
-great [adj] 훌륭한
-high [adj] 높은
-low [adj] 낮은
-long [adj] 긴
-short [adj] 짧은 / [adj] 키가 작은
-right [adj] 옳은 / [adj] 오른쪽의
-wrong [adj] 틀린
-hard [adj] 어려운 / [adj] 단단한
-easy [adj] 쉬운
-fast [adj] 빠른
-slow [adj] 느린
-happy [adj] 행복한
-sad [adj] 슬픈
-beautiful [adj] 아름다운
-important [adj] 중요한
-different [adj] 다른
-real [adj] 진짜의
-strong [adj] 강한
-free [adj] 자유로운 / [adj] 무료의`
-  },
-  {
-    name: 'TOEIC 핵심',
-    words: `accommodate [v] 수용하다 / [v] 적응시키다
-acquire [v] 습득하다 / [v] 인수하다
-allocate [v] 할당하다
-anticipate [v] 예상하다 / [v] 기대하다
-assess [v] 평가하다
-collaborate [v] 협력하다
-commence [v] 시작하다
-compensate [v] 보상하다
-comply [v] 따르다 / [v] 준수하다
-conduct [v] 실시하다 / [n] 행동
-consolidate [v] 통합하다 / [v] 강화하다
-coordinate [v] 조정하다 / [v] 조율하다
-dedicate [v] 헌신하다 / [v] 바치다
-delegate [v] 위임하다 / [n] 대표자
-distribute [v] 배포하다 / [v] 분배하다
-enforce [v] 시행하다 / [v] 강요하다
-enhance [v] 향상시키다
-establish [v] 설립하다 / [v] 확립하다
-evaluate [v] 평가하다
-facilitate [v] 촉진하다 / [v] 용이하게 하다
-generate [v] 생성하다 / [v] 창출하다
-implement [v] 시행하다 / [v] 구현하다
-leverage [v] 활용하다 / [n] 영향력
-maintain [v] 유지하다 / [v] 주장하다
-negotiate [v] 협상하다
-optimize [v] 최적화하다
-oversee [v] 감독하다
-prioritize [v] 우선시하다
-procure [v] 조달하다 / [v] 획득하다
-regulate [v] 규제하다 / [v] 조절하다
-revise [v] 수정하다 / [v] 개정하다
-streamline [v] 간소화하다 / [v] 효율화하다
-submit [v] 제출하다 / [v] 복종하다
-supervise [v] 감독하다
-sustain [v] 지속하다 / [v] 유지하다
-terminate [v] 종료하다 / [v] 해고하다
-utilize [v] 활용하다 / [v] 이용하다
-verify [v] 확인하다 / [v] 검증하다`
-  },
-  {
-    name: '학술 어휘',
-    words: `abstract [adj] 추상적인 / [n] 초록
-ambiguous [adj] 모호한
-analyze [v] 분석하다
-hypothesis [n] 가설
-phenomenon [n] 현상
-paradigm [n] 패러다임 / [n] 전형적인 예
-empirical [adj] 경험적인 / [adj] 실증적인
-coherent [adj] 일관된 / [adj] 논리적인
-synthesize [v] 종합하다 / [v] 합성하다
-methodology [n] 방법론
-quantitative [adj] 정량적인
-qualitative [adj] 정성적인
-inference [n] 추론 / [n] 결론
-implication [n] 함의 / [n] 영향
-variable [n] 변수 / [adj] 가변적인
-correlation [n] 상관관계
-substantial [adj] 상당한 / [adj] 실질적인
-controversial [adj] 논란이 많은
-comprehensive [adj] 포괄적인 / [adj] 종합적인
-theoretical [adj] 이론적인
-explicit [adj] 명시적인 / [adj] 노골적인
-implicit [adj] 암묵적인 / [adj] 절대적인
-preliminary [adj] 예비의 / [n] 예선
-subsequent [adj] 이후의 / [adj] 뒤따르는
-hierarchical [adj] 계층적인
-concurrent [adj] 동시의 / [adj] 병행하는
-arbitrary [adj] 임의적인 / [adj] 독단적인
-fundamental [adj] 근본적인 / [n] 기본
-perspective [n] 관점 / [n] 원근법
-ambivalent [adj] 양가적인 / [adj] 모순된 감정의`
-  }
-];
+// ---- 예시 데이터 (기초 영단어 day1 전체) ----
+const EXAMPLE_WORDS = `skill [n] 기술
+cash [n] 현금
+replace [v] 대체하다, 바꾸다
+further [a] 그 이상의, 여분의 / [ad] 더 멀리, 게다가
+engage [v] 종사하다 ; 고용하다 ; 약혼하다, 약속하다
+invent [v] 발명하다
+throw [v] 던지다
+overhear [v] 우연히 듣다, 엿듣다
+flood [n] 홍수, 범람, 쇄도 / [v] 범람하다, 침수하다
+universe [n] 우주, 전세계
+subject [n] 주제 ; 실험대상 ; 신하 / [v] 드러내다, 노출시키다 / [a] ~하기 쉬운, 영향을 받는
+background [n] 배경
+marble [n] 대리석
+sleep [v] 자다
+arrest [v] 체포하다, 검거하다 / [n] 체포
+locate [v] 놓다 , 위치하다 ; 찾아내다
+important [a] 중요한
+pull [v] 잡아당기다, 끌다; 뽑다 / [n] 끌기, 끌어당기기
+candle [n] 양초, 촛불
+lantern [n] 랜턴
+beer [n] 맥주
+happy [a] 행복한, 기쁜
+none [pron] 아무도 ~않다 / [a] 아무도 ~않다 / [ad] 아무도 ~않다
+drown [v] 물에 빠지다, 익사하다
+especially [ad] 특별히
+grab [v] 붙잡다
+dull [a] 흐릿한 ; 무딘, 둔한 ; 따분한
+expect [v] 기대하다, 예기하다
+sharp [a] 날카로운 ; 급격한
+state [n] 상태 ; 나라, 국가 / [v] 진술하다, 주장하다
+clever [a] 영리한, 현명한
+heat [n] 열, 더위 / [v] 가열하다, 데우다
+handshake [n] 악수
+musician [n] 음악가
+interest [n] 흥미, 이익 ; 이자 / [v] 관심을 갖게 하다
+complain [v] 불평하다 ; 한탄하다
+instrument [n] 기계, 기구
+frog [n] 개구리
+reason [n] 이유, 원인, 이성 / [v] 추론하다, 사고하다
+peaceful [a] 평온한, 조용한
+possible [a] 가능한
+toward [prep] ~쪽으로, ~를 향하여
+angry [a] 성난, 노한
+danger [n] 위험
+section [n] 부분, 구역, 분할
+bottom [n] 바닥, 아래, 밑바닥 / [v] 근거를 두다.
+pick [v] 고르다, 선택하다, 줍다 / [n] 선택권
+beast [n] 짐승
+beach [n] 해안
+method [n] 방법, 방식, 체계
+hurt [v] 다치게 하다 / [n] 부상
+library [n] 도서관
+earning [n] 소득
+battle [n] 전투 / [v] 싸우다
+chance [n] 우연 ; 가능성 ; 기회
+evil [a] 나쁜, 사악한
+but [ad] 단지, 다만 / [prep] ~을 제외하고 / [conj] 그러나
+revival [n] 재생, 회복, 부활
+ground [n] 기초, 근거 ; 지면, 땅, 운동장 / [v] 근거를 두다
+towel [n] 수건, 타월
+step [n] 걸음 ; 정도, 수준 / [v] 걷다
+system [n] 체계, 조직 ; 방식
+precious [a] 귀중한, 값어치 있는
+purpose [n] 목적, 용도
+surprise [v] 놀라게 하다 / [n] 놀람, 놀라운 일
+stay [v] 머무르다, 체류하다 ; 유지하다
+mankind [n] 인류, 인간
+problem [n] 문제, 과제, 고민
+comb [n] 빗 / [v] 빗질하다 ; 찾다
+monk [n] 승려
+entire [a] 전체의
+past [a] 과거의 / [prep] ~을 지나서 / [n] 과거
+hop [n] 깡충 뛰기 / [v] 한발로 뛰다
+fact [n] 사실
+symbol [n] 상징
+track [v] 추적하다 / [n] 지나간 자취, 흔적
+fortunately [ad] 운좋게, 다행히
+activity [n] 활동, 활기
+math [n] 수학
+resource [n] 자원, 수단
+greeting [n] 인사, 환영
+site [n] 위치, 장소
+fun [n] 재미, 즐거움 / [a] 즐거운
+quarter [n] 4분의 1 ; 부분 ; 구역 ; 거주지
+snake [n] 뱀 / [v] (뱀처럼) 구불구불 가다
+merry [a] 명랑한, 즐거운
+throat [n] 목구멍
+salt [n] 소금
+telephone [n] 전화
+temperature [n] 온도, 열
+turn [n] 차례, 전환 / [v] 변하다, 달라지다 ; 방향을 바꾸다
+religious [a] 종교적인 ; 독실한
+explain [v] 설명하다, 해명하다
+collect [v] 모으다, 수집하다
+deserve [v] ~받을 만하다, ~할 가치가 있다
+prepare [v] 준비하다, 각오하다
+shadow [n] 그림자 / [v] 그늘지게 하다 ; 뒤를 따라가다
+sink [v] 아래로 가라앉다
+laundry [n] 세탁물
+flute [n] 플룻, 피리
+envelope [n] 봉투 / [v] 감싸다, 뒤덮다
+independent [a] 독립적인, 자주의 ; 독자적인
+surface [n] 표면 / [v] (어둠 속이나 숨어 있던 곳에서) 나오다 ,모습을 드러내다
+powder [n] 가루, 화약
+rainbow [n] 무지개
+spade [n] 삽
+umbrella [n] 우산 / [a] 포괄적인
+license [n] 면허
+raise [n] 인상, 증가 / [v] 기르다, 사육하다 ; 올리다 ; 야기하다
+damage [n] 손해, 피해 / [v] 손해를 입히다
+gesture [n] 몸짓
+couple [n] 한쌍
+taste [n] 맛, 취향 / [v] 맛보다
+folk [n] 사람들 / [a] 민속의, 전통의
+luck [n] 행운
+greedy [a] 욕심 많은
+clean [a] 청결한, 깨끗한 ; 살균의, 위생적인 / [v] 깨끗하게 하다
+crash [n] 굉음, 추락, 충돌 / [v] 충돌하다
+leap [v] 껑충 뛰다, 뛰어넘다 / [n] 도약, 점프
+though [conj] ~임에도 불구하고 / [ad] 그러나
+store [n] 가게, 저장 / [v] 따로 떼어두다, 저장하다
+bathroom [n] 욕실
+foolish [a] 어리석은, 바보 같은
+republic [n] 공화국
+daughter [n] 딸
+dictionary [n] 사전
+sheet [n] 시트, 종이 한장 ; 평평한 지역
+without [prep] ~없이, 제외하고
+weather [n] 날씨, 기후 / [v] (어려움 등을) 견디다 ; 풍화하다
+semester [n] 학기
+fear [n] 두려움, 공포 / [v] 두려워하다
+afraid [a] 두려운
+sick [a] 병든 ; 싫증난
+president [n] 대통령, 장(長)
+cloudy [a] 구름이 낀
+furniture [n] 가구
+ostrich [n] 타조
+culture [n] 문화 / [v] 배양하다
+certain [a] 특정한 ; 자신하는 , 확실한
+treat [v] 대접하다, 다루다
+weak [a] 약한, 허약한
+howl [v] 울부짖다
+stadium [n] 경기장
+french [n] 프랑스 사람, 프랑스어
+below [prep] ~보다 아래에 / [ad] ~보다 아래에
+torch [n] 횃불 / [v] 방화하다
+area [n] 범위, 영역 ; 지역
+fare [n] 운임 ; 승객
+wealth [n] 부, 재산 ; 풍부
+democracy [n] 민주주의, 민주정치, 자치
+trick [n] 장난 ; 속임수 ; 묘기, 재주 / [v] 속이다
+goal [n] 목적, 목표, 골
+foreign [a] 외국의, 익숙치 않은
+astonish [v] 놀라게 하다
+harmful [a] 해로운
+voyage [n] 항해, 항행 / [v] 항해하다
+dig [v] 파다
+brown [a] 갈색의 / [n] 갈색
+invite [v] 초대하다
+photographer [n] 사진사
+rate [v] 평가하다 , 등급을 매기다 / [n] 속도 ; 비율 ; 가격, 요금
+own [v] 소유하다 / [a] 자기자신의, 고유한
+iceberg [n] 빙산
+delight [n] 황홀경, 기쁨 / [v] 기쁘게 하다
+rat [n] 쥐, 들쥐
+promise [n] 약속 / [v] 약속하다
+art [n] 예술, 미술 ; 기술
+castle [n] 성
+sophomore [n] 2학년생
+memory [n] 기억, 추억
+return [v] 돌아오다; 돌려주다, 반납하다, 되돌아가다 / [n] 돌아옴, 귀환; 반납
+correctly [ad] 적당하게, 알맞게
+scare [n] 공포 / [v] 두려워하게 하다, 깜짝 놀라게 하다
+pleasant [a] 기분 좋은, 유쾌한
+handsome [a] 잘생긴, 멋진
+disappoint [v] 좌절시키다
+joy [n] 기쁨
+date [n] 날짜 ; 약속 / [v] ~의 연대를 추정하다
+puzzle [n] 수수께끼, 당황 / [v] 당혹하게 하다
+badly [ad] 나쁘게, 심하게 ; 서투르게
+route [n] 길, 노선, 항로
+weight [n] 무게 ; 중요성
+energy [n] 힘, 활기
+fault [n] 결점, 흠 ; 단층 (지질학)
+hero [n] 영웅
+tail [n] 꼬리, 끝 / [v] 첨부하다 ; 미행하다
+devil [n] 악마
+neighbor [n] 이웃사람
+vacation [n] 휴가
+tooth [n] 이
+rope [n] 밧줄
+merchant [n] 상인
+force [n] 힘, 세력 / [v] 강제하다, 강요하다
+price [n] 가격, 가치
+follow [v] 뒤따르다 ; ~의 결과로 일어나다
+canal [n] 운하
+occur [v] 일어나다, 생기다
+grave [n] 무덤 / [a] 중대한, 근엄한 ; 엄숙한
+mail [n] 우편물 / [v] 발송하다
+coal [n] 석탄`.trim();
 
 // ---- 상태 (State) ----
 const App = {
@@ -429,31 +465,423 @@ function initInputView() {
 
 // 기본 내장 단어 데이터 세트
 const DEFAULT_DATABASES = {
-  "기초 영단어 Day 1": `abandon [v] 포기하다 / [v] 버리다
-ability [n] 능력
-absent [adj] 결석한 / [adj] 부재한
-accept [v] 받아들이다
-accident [n] 사고 / [n] 우연
-achieve [v] 달성하다
-act [v] 행동하다 / [n] 행위
-add [v] 더하다 / [v] 추가하다
-admire [v] 감탄하다 / [v] 존경하다
-adult [n] 성인 / [adj] 성인의`,
-  "기초 영단어 Day 2": `amount [n] 양 / [n] 총액
-ancient [adj] 고대의 / [adj] 오래된
-angry [adj] 화난
-announce [v] 발표하다 / [v] 알리다
-another [adj] 또 다른 / [pron] 또 다른 것
-answer [v] 대답하다 / [n] 대답
-anxious [adj] 불안한 / [adj] 간절히 바라는`
+  "기초 영단어 Day 1": `skill [n] 기술
+cash [n] 현금
+replace [v] 대체하다, 바꾸다
+further [a] 그 이상의, 여분의 / [ad] 더 멀리, 게다가
+engage [v] 종사하다 ; 고용하다 ; 약혼하다, 약속하다
+invent [v] 발명하다
+throw [v] 던지다
+overhear [v] 우연히 듣다, 엿듣다
+flood [n] 홍수, 범람, 쇄도 / [v] 범람하다, 침수하다
+universe [n] 우주, 전세계
+subject [n] 주제 ; 실험대상 ; 신하 / [v] 드러내다, 노출시키다 / [a] ~하기 쉬운, 영향을 받는
+background [n] 배경
+marble [n] 대리석
+sleep [v] 자다
+arrest [v] 체포하다, 검거하다 / [n] 체포
+locate [v] 놓다 , 위치하다 ; 찾아내다
+important [a] 중요한
+pull [v] 잡아당기다, 끌다; 뽑다 / [n] 끌기, 끌어당기기
+candle [n] 양초, 촛불
+lantern [n] 랜턴
+beer [n] 맥주
+happy [a] 행복한, 기쁜
+none [pron] 아무도 ~않다 / [a] 아무도 ~않다 / [ad] 아무도 ~않다
+drown [v] 물에 빠지다, 익사하다
+especially [ad] 특별히
+grab [v] 붙잡다
+dull [a] 흐릿한 ; 무딘, 둔한 ; 따분한
+expect [v] 기대하다, 예기하다
+sharp [a] 날카로운 ; 급격한
+state [n] 상태 ; 나라, 국가 / [v] 진술하다, 주장하다
+clever [a] 영리한, 현명한
+heat [n] 열, 더위 / [v] 가열하다, 데우다
+handshake [n] 악수
+musician [n] 음악가
+interest [n] 흥미, 이익 ; 이자 / [v] 관심을 갖게 하다
+complain [v] 불평하다 ; 한탄하다
+instrument [n] 기계, 기구
+frog [n] 개구리
+reason [n] 이유, 원인, 이성 / [v] 추론하다, 사고하다
+peaceful [a] 평온한, 조용한
+possible [a] 가능한
+toward [prep] ~쪽으로, ~를 향하여
+angry [a] 성난, 노한
+danger [n] 위험
+section [n] 부분, 구역, 분할
+bottom [n] 바닥, 아래, 밑바닥 / [v] 근거를 두다.
+pick [v] 고르다, 선택하다, 줍다 / [n] 선택권
+beast [n] 짐승
+beach [n] 해안
+method [n] 방법, 방식, 체계
+hurt [v] 다치게 하다 / [n] 부상
+library [n] 도서관
+earning [n] 소득
+battle [n] 전투 / [v] 싸우다
+chance [n] 우연 ; 가능성 ; 기회
+evil [a] 나쁜, 사악한
+but [ad] 단지, 다만 / [prep] ~을 제외하고 / [conj] 그러나
+revival [n] 재생, 회복, 부활
+ground [n] 기초, 근거 ; 지면, 땅, 운동장 / [v] 근거를 두다
+towel [n] 수건, 타월
+step [n] 걸음 ; 정도, 수준 / [v] 걷다
+system [n] 체계, 조직 ; 방식
+precious [a] 귀중한, 값어치 있는
+purpose [n] 목적, 용도
+surprise [v] 놀라게 하다 / [n] 놀람, 놀라운 일
+stay [v] 머무르다, 체류하다 ; 유지하다
+mankind [n] 인류, 인간
+problem [n] 문제, 과제, 고민
+comb [n] 빗 / [v] 빗질하다 ; 찾다
+monk [n] 승려
+entire [a] 전체의
+past [a] 과거의 / [prep] ~을 지나서 / [n] 과거
+hop [n] 깡충 뛰기 / [v] 한발로 뛰다
+fact [n] 사실
+symbol [n] 상징
+track [v] 추적하다 / [n] 지나간 자취, 흔적
+fortunately [ad] 운좋게, 다행히
+activity [n] 활동, 활기
+math [n] 수학
+resource [n] 자원, 수단
+greeting [n] 인사, 환영
+site [n] 위치, 장소
+fun [n] 재미, 즐거움 / [a] 즐거운
+quarter [n] 4분의 1 ; 부분 ; 구역 ; 거주지
+snake [n] 뱀 / [v] (뱀처럼) 구불구불 가다
+merry [a] 명랑한, 즐거운
+throat [n] 목구멍
+salt [n] 소금
+telephone [n] 전화
+temperature [n] 온도, 열
+turn [n] 차례, 전환 / [v] 변하다, 달라지다 ; 방향을 바꾸다
+religious [a] 종교적인 ; 독실한
+explain [v] 설명하다, 해명하다
+collect [v] 모으다, 수집하다
+deserve [v] ~받을 만하다, ~할 가치가 있다
+prepare [v] 준비하다, 각오하다
+shadow [n] 그림자 / [v] 그늘지게 하다 ; 뒤를 따라가다
+sink [v] 아래로 가라앉다
+laundry [n] 세탁물
+flute [n] 플룻, 피리
+envelope [n] 봉투 / [v] 감싸다, 뒤덮다
+independent [a] 독립적인, 자주의 ; 독자적인
+surface [n] 표면 / [v] (어둠 속이나 숨어 있던 곳에서) 나오다 ,모습을 드러내다
+powder [n] 가루, 화약
+rainbow [n] 무지개
+spade [n] 삽
+umbrella [n] 우산 / [a] 포괄적인
+license [n] 면허
+raise [n] 인상, 증가 / [v] 기르다, 사육하다 ; 올리다 ; 야기하다
+damage [n] 손해, 피해 / [v] 손해를 입히다
+gesture [n] 몸짓
+couple [n] 한쌍
+taste [n] 맛, 취향 / [v] 맛보다
+folk [n] 사람들 / [a] 민속의, 전통의
+luck [n] 행운
+greedy [a] 욕심 많은
+clean [a] 청결한, 깨끗한 ; 살균의, 위생적인 / [v] 깨끗하게 하다
+crash [n] 굉음, 추락, 충돌 / [v] 충돌하다
+leap [v] 껑충 뛰다, 뛰어넘다 / [n] 도약, 점프
+though [conj] ~임에도 불구하고 / [ad] 그러나
+store [n] 가게, 저장 / [v] 따로 떼어두다, 저장하다
+bathroom [n] 욕실
+foolish [a] 어리석은, 바보 같은
+republic [n] 공화국
+daughter [n] 딸
+dictionary [n] 사전
+sheet [n] 시트, 종이 한장 ; 평평한 지역
+without [prep] ~없이, 제외하고
+weather [n] 날씨, 기후 / [v] (어려움 등을) 견디다 ; 풍화하다
+semester [n] 학기
+fear [n] 두려움, 공포 / [v] 두려워하다
+afraid [a] 두려운
+sick [a] 병든 ; 싫증난
+president [n] 대통령, 장(長)
+cloudy [a] 구름이 낀
+furniture [n] 가구
+ostrich [n] 타조
+culture [n] 문화 / [v] 배양하다
+certain [a] 특정한 ; 자신하는 , 확실한
+treat [v] 대접하다, 다루다
+weak [a] 약한, 허약한
+howl [v] 울부짖다
+stadium [n] 경기장
+french [n] 프랑스 사람, 프랑스어
+below [prep] ~보다 아래에 / [ad] ~보다 아래에
+torch [n] 횃불 / [v] 방화하다
+area [n] 범위, 영역 ; 지역
+fare [n] 운임 ; 승객
+wealth [n] 부, 재산 ; 풍부
+democracy [n] 민주주의, 민주정치, 자치
+trick [n] 장난 ; 속임수 ; 묘기, 재주 / [v] 속이다
+goal [n] 목적, 목표, 골
+foreign [a] 외국의, 익숙치 않은
+astonish [v] 놀라게 하다
+harmful [a] 해로운
+voyage [n] 항해, 항행 / [v] 항해하다
+dig [v] 파다
+brown [a] 갈색의 / [n] 갈색
+invite [v] 초대하다
+photographer [n] 사진사
+rate [v] 평가하다 , 등급을 매기다 / [n] 속도 ; 비율 ; 가격, 요금
+own [v] 소유하다 / [a] 자기자신의, 고유한
+iceberg [n] 빙산
+delight [n] 황홀경, 기쁨 / [v] 기쁘게 하다
+rat [n] 쥐, 들쥐
+promise [n] 약속 / [v] 약속하다
+art [n] 예술, 미술 ; 기술
+castle [n] 성
+sophomore [n] 2학년생
+memory [n] 기억, 추억
+return [v] 돌아오다; 돌려주다, 반납하다, 되돌아가다 / [n] 돌아옴, 귀환; 반납
+correctly [ad] 적당하게, 알맞게
+scare [n] 공포 / [v] 두려워하게 하다, 깜짝 놀라게 하다
+pleasant [a] 기분 좋은, 유쾌한
+handsome [a] 잘생긴, 멋진
+disappoint [v] 좌절시키다
+joy [n] 기쁨
+date [n] 날짜 ; 약속 / [v] ~의 연대를 추정하다
+puzzle [n] 수수께끼, 당황 / [v] 당혹하게 하다
+badly [ad] 나쁘게, 심하게 ; 서투르게
+route [n] 길, 노선, 항로
+weight [n] 무게 ; 중요성
+energy [n] 힘, 활기
+fault [n] 결점, 흠 ; 단층 (지질학)
+hero [n] 영웅
+tail [n] 꼬리, 끝 / [v] 첨부하다 ; 미행하다
+devil [n] 악마
+neighbor [n] 이웃사람
+vacation [n] 휴가
+tooth [n] 이
+rope [n] 밧줄
+merchant [n] 상인
+force [n] 힘, 세력 / [v] 강제하다, 강요하다
+price [n] 가격, 가치
+follow [v] 뒤따르다 ; ~의 결과로 일어나다
+canal [n] 운하
+occur [v] 일어나다, 생기다
+grave [n] 무덤 / [a] 중대한, 근엄한 ; 엄숙한
+mail [n] 우편물 / [v] 발송하다
+coal [n] 석탄`,
+  "기초 영단어 Day 2": `include [v] 포함하다
+suck [v] 빨다
+bottle [n] 병
+terrible [a] 무서운, 끔찍한
+triumph [n] 승리, 정복, 대성공 / [v] 승리를 거두다
+hesitate [v] 주저하다, 망설이다
+history [n] 역사
+press [v] 누르다, 밀어붙이다 / [n] 압박; 정기간행물
+pair [n] 한 쌍 / [v] 짝을 짓다
+piece [n] 조각 / [v] 연결하다, 결합하다
+slave [n] 노예
+regular [a] 규칙적인, 정기적인 ; 보통의
+dear [a] 친애하는
+steady [a] 지속적인 ; 안정된, 확고한
+equal [a] 같은, 동등한 / [v] ~과 같다
+feather [n] 깃털
+traffic [n] 교통 ; 거래
+serious [a] 심각한, 진지한 ; 중대한
+interesting [a] 흥미로운, 재미있는
+blow [n] 강타, 타격 / [v] (바람이)불다
+exit [n] 출구
+deal [v] 다루다 / [n] 거래 ; 합의
+ache [n] 아픔 / [v] 아프다
+fill [v] 채우다 , 신청서를 작성하다 ; 이행하다
+nation [n] 국가
+shake [v] 흔들리다, 진동하다
+simple [a] 간단한, 순진한, 꾸밈없는
+speech [n] 말, 연설
+amuse [v] 즐겁게 하다
+fog [n] 안개, 흐림
+nearly [ad] 거의, 대략
+tower [n] 탑
+explore [v] 탐험(탐구)하다, 연구하다
+sometime [ad] 언젠가 ; 가끔
+suitcase [n] 여행가방
+nephew [n] 조카
+crazy [a] 미친
+downtown [n] 번화가
+tax [n] 세금 / [v] 세금을 부과하다, 과세하다
+giant [n] 거인 / [a] 거대한, 위대한
+officer [n] 공무원, 장교
+pill [n] 알약
+alphabet [n] 알파벳, 문자
+race [n] 경주, 경쟁 ; 민족, 인종
+excellent [a] 훌륭한, 뛰어난
+fat [a] 살찐, 뚱뚱한 ; 지방이 많은, 기름기가 많은
+british [n] 영국인 / [a] 영국의
+spirit [n] 정신, 영혼
+safely [ad] 안전하게, 무사히
+check [v] 조사하다 ; 검토하다 / [n] 검사
+patient [a] 인내심 있는 / [n] 환자
+liberty [n] 자유, 해방
+drum [n] 북 / [v] 드럼을 치다
+garage [n] 차고
+adventure [n] 모험
+bet [v] (돈을) 걸다 / [n] 내기; 내기 돈
+seed [n] 씨앗 / [v] 씨를 뿌리다
+unless [conj] 만약 ~하지 않으면
+draw [v] 끌다 ; 그리다 ; (결론을) 끌어내다
+anyway [ad] 어쨌든, 아무튼
+pardon [v] 사면하다 / [n] 용서
+wise [a] 슬기로운, 현명한
+coeducation [n] 남녀공학
+composer [n] 작곡가
+bubble [n] 거품
+palace [n] 궁전
+hurray [n] 만세
+saw [n] 톱 / [v] 톱으로 켜다
+choose [v] 고르다, 선택하다
+protect [v] 보호하다, 지키다
+ceremony [n] 의식
+object [v] 반대하다, 항의하다 / [n] 목적 ; 물건, 사물
+lay [v] 눕히다, 놓다
+fierce [a] 사나운, 난폭한
+forward [ad] 앞으로 / [a] 진보적인, 향후의
+hurry [v] 서두르다 / [n] 서두름
+early [ad] 초창기에, 일찍, 조기에 / [a] 초기의, 이른
+abuse [v] 남용하다 ; 학대하다 / [n] 학대
+destroy [v] 파괴하다
+circle [n] 원 ; 집단 / [v] 돌다, 선회하다
+competent [a] 적합한, 유능한, 능숙한
+funeral [n] 장례식
+lead [n] 선두,우세 ; 납 [léd] / [v] 안내하다; 연결되다
+dialogue [n] 대화 / [v] 대화하다
+lock [n] 자물쇠 / [v] 잠그다
+appear [v] ~인 것으로 보이다 ; 나타나다
+charge [v] (의무,책임을) 지우다 ; 고발하다 / [n] 요금, 비용 ; 혐의, 기소
+continue [v] 계속하다
+primary [a] 주요한 : 근본적인
+similar [a] 비슷한, 유사한
+probably [ad] 아마
+nickname [n] 별명, 애칭
+useless [a] 쓸모없는
+hang [v] 걸다, 매달다 ; 교수형에 처하다
+strange [a] 낯선, 이상한
+hand [v] 주다, 건네주다 / [n] 손, 도움
+hardly [ad] 거의 ~ 아니다
+mostly [ad] 대부분, 주로
+angle [n] 각도
+booth [n] 노점, 작은 방
+clap [n] 박수 ; 파열음 / [v] 손뼉을 치다, 두드리다
+excited [a] 흥분한
+burden [n] 무거운 짐 , 부담 / [v] ~을 지우다, 부담주다
+petal [n] 꽃잎
+hollow [a] 텅 빈, 공허한
+kindergarten [n] 유치원
+unity [n] 통일, 단일
+scar [n] 상처, 흉터
+harvest [n] 수확 / [v] 수확하다
+popular [a] 대중적인, 서민의 ; 널리 퍼져 있는
+doll [n] 인형
+sigh [v] 한숨을 쉬다, 한숨 짓다; 한숨을 쉬며 말하다 / [n] 한숨, 한숨 소리
+accident [n] 우연 ; 사고
+various [a] 여러 가지의, 다양한
+become [v] ~이 되다
+army [n] 육군, 군대
+wild [a] 야생의, 거친
+shade [v] 그늘지게 하다, 가리다 / [n] 그늘 ; 빛깔, 색조
+biology [n] 생물학
+borrow [v] 빌리다
+build [v] 짓다, 건축하다
+gather [v] 모으다, 수확하다
+wake [v] 깨다, 일어나다 ; 깨우다 / [n] 후류, 배가 지나간 흔적
+exchange [v] 교환하다, 바꾸다 / [n] 교환
+trip [n] 여행
+pray [v] 기원하다, 빌다
+mile [n] 마일 (1.609 km)
+balance [n] 균형 / [v] 균형을 잡다
+brain [n] 두뇌, 지력
+shout [v] 외치다, 고함치다
+drag [v] 질질 끌다
+sword [n] 칼
+trust [n] 신임, 신뢰 / [v] 신뢰하다
+appetite [n] 식욕, 욕구
+contest [n] 경쟁, 논쟁 / [v] 다투다, 이의를 제기하다
+successful [a] 성공한, 성공적인
+stomach [n] 복부, 위
+charming [a] 매력적인
+type [n] 유형, 양식, 전형
+pilgrim [n] 순례자 ; 나그네, 방랑자
+invader [n] 침략자
+admiral [n] 제독, 해군대장
+diligent [a] 근면한, 부지런한
+heaven [n] 하늘, 천국
+touch [v] 접촉하다; 감동시키다 / [n] 접촉 ; 촉감
+survive [v] 살아남다, 잔존하다
+bend [v] 구부리다, 휘다
+waste [v] 낭비하다, 허비하다 / [n] 쓰레기
+solar [a] 태양의
+debt [n] 빚, 채무, 은혜
+fence [n] 울타리 / [v] 울타리를 치다
+scratch [v] 할퀴다, 긁다 / [n] 흠집, 상처
+push [n] 밀기; 추진 / [v] 추진하다, 밀다
+feast [n] 축제
+tradition [n] 전통, 관습
+rudely [ad] 무례하게, 불쑥
+close [a] 면밀한, 가까운 / [v] 닫다, 마감하다
+prison [n] 감옥, 교도소
+slide [v] 미끄러지다
+short [a] 짧은 ; 부족한 ; 작은
+sample [n] 견본, 예
+event [n] 사건, 행사
+metal [n] 금속
+yell [n] 외침 / [v] 외치다
+pretend [v] ~인체 하다, 가장하다
+pause [v] 잠시 멈추다, 중단하다 / [n] 중지, 중간 휴식
+servant [n] 하인
+describe [v] 묘사하다, 설명하다
+war [n] 전쟁
+ancestor [n] 선조, 조상
+almost [ad] 거의
+reach [n] 구역, 범위 / [v] 도달하다, 손을 뻗다
+edge [n] 가장자리, 모서리
+pumpkin [n] 호박
+huge [a] 큰, 거대한, 막대한
+creek [n] 작은 만, 시내
+very [ad] 매우, 아주 / [a] 바로 그
+fur [n] 모피, 부드러운 털
+loaf [n] 빵 한 덩어리
+apart [ad] 떨어져서, 따로
+record [n] 기록, 증거 / [v] 기록하다, 녹음하다
+sand [n] 모래, 모래밭
+dish [n] 접시; 요리
+lonely [a] 외로운, 고독한
+sore [a] 아픈; 슬픈 / [n] 상처
+jewel [n] 보석
+mystery [n] 신비, 불가사의
+lift [v] 들어 올리다 / [n] 승강기, 엘리베이터
+cemetery [n] 공동묘지
+dream [n] 꿈 / [v] 꿈 꾸다, 상상하다
+lesson [n] 학과, 교훈
+float [v] 뜨다 ; (마음 속에)떠오르다
+bike [n] 자전거
+seat [n] 자리, 좌석 / [v] 앉히다, 앉다
+department [n] 부서
+deer [n] 사슴
+privilege [n] 특권, 혜택 / [v] 특권을 주다
+vote [n] 투표 / [v] 투표하다
+bury [v] 묻다 , 매장하다
+beggar [n] 거지`
 };
 
-// 로컬 서버용 ps1 스크립트 소스 (텍스트 데이터)
-// 로컬 저장소 기반 단어 리스트 로드
+// 로컬 저장소 기반 단어 리스트 로드 및 구버전 데이터 강제 마이그레이션
 function loadDBList(textarea) {
   const statusEl = document.getElementById('worddb-status');
   
-  // 최초 로드 시 기본 단어 세트 저장소에 등록
+  // 마이그레이션 버전 2 키를 검사하여 신규 day1/day2 데이터셋 강제 동기화
+  const isMigrated = localStorage.getItem('vocab_db_version_2');
+  if (!isMigrated) {
+    localStorage.removeItem('vocab_db_initialized');
+    // 기존에 있던 구버전 기본 파일 목록 소거
+    localStorage.removeItem('vocab_file_기초 영단어 Day 1');
+    localStorage.removeItem('vocab_file_기초 영단어 Day 2');
+    localStorage.setItem('vocab_db_version_2', 'true');
+  }
+
+  // 최초 로드 또는 마이그레이션 리셋 시 기본 단어 세트 저장소에 등록
   if (!localStorage.getItem('vocab_db_initialized')) {
     for (const [title, content] of Object.entries(DEFAULT_DATABASES)) {
       localStorage.setItem(`vocab_file_${title}`, content);
