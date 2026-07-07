@@ -377,9 +377,91 @@ answer [v] 대답하다 / [n] 대답
 anxious [adj] 불안한 / [adj] 간절히 바라는`
 };
 
-// 로컬 저장소 기반 단어 리스트 로드
-function loadDBList(textarea) {
+// 로컬 서버용 ps1 스크립트 소스 (텍스트 데이터)
+const RUNNER_PS1_CONTENT = `# VocabMaster 로컬 서버 (PowerShell HTTP Server)
+$port = 8765
+$root = $PSScriptRoot
+
+$listener = [System.Net.HttpListener]::new()
+$listener.Prefixes.Add("http://localhost:$port/")
+$listener.Start()
+
+Write-Host "VocabMaster 서버 시작: http://localhost:$port" -ForegroundColor Cyan
+Write-Host "종료하려면 이 창을 닫으세요." -ForegroundColor Yellow
+
+# 브라우저 자동 오픈
+Start-Process "http://localhost:$port/index.html"
+
+while ($listener.IsListening) {
+    try {
+        $ctx = $listener.GetContext()
+        $req = $ctx.Request
+        $res = $ctx.Response
+
+        $urlPath = $req.Url.LocalPath
+
+        # DB 폴더 파일 목록 API
+        if ($urlPath -eq "/api/db-list") {
+            $dbPath = Join-Path $root "DB"
+            if (Test-Path $dbPath) {
+                $files = Get-ChildItem -Path $dbPath -Filter "*.txt" |
+                         Sort-Object Name |
+                         ForEach-Object { '\"' + $_.Name + '\"' }
+                $json = "[" + ($files -join ",") + "]"
+            } else {
+                $json = "[]"
+            }
+            $bytes = [System.Text.Encoding]::UTF8.GetBytes($json)
+            $res.ContentType = "application/json; charset=utf-8"
+            $res.Headers.Add("Access-Control-Allow-Origin", "*")
+            $res.ContentLength64 = $bytes.Length
+            $res.OutputStream.Write($bytes, 0, $bytes.Length)
+        }
+        # 정적 파일 서빙
+        else {
+            $filePath = Join-Path $root ($urlPath.TrimStart('/').Replace('/', '\\'))
+
+            if (Test-Path $filePath -PathType Leaf) {
+                $bytes = [System.IO.File]::ReadAllBytes($filePath)
+                $ext = [System.IO.Path]::GetExtension($filePath).ToLower()
+                $mime = switch ($ext) {
+                    ".html" { "text/html; charset=utf-8" }
+                    ".js"   { "application/javascript; charset=utf-8" }
+                    ".css"  { "text/css; charset=utf-8" }
+                    ".txt"  { "text/plain; charset=utf-8" }
+                    ".json" { "application/json; charset=utf-8" }
+                    default { "application/octet-stream" }
+                }
+                $res.ContentType = $mime
+                $res.Headers.Add("Access-Control-Allow-Origin", "*")
+                $res.ContentLength64 = $bytes.Length
+                $res.OutputStream.Write($bytes, 0, $bytes.Length)
+            } else {
+                $res.StatusCode = 404
+                $msg = [System.Text.Encoding]::UTF8.GetBytes("Not Found")
+                $res.OutputStream.Write($msg, 0, $msg.Length)
+            }
+        }
+
+        $res.OutputStream.Close()
+    } catch {
+        if ($listener.IsListening) { Write-Host "오류: $_" -ForegroundColor Red }
+    }
+}
+`;
+
+// 로컬 서버 조용히 켜주는 vbs 런처 소스 (텍스트 데이터)
+const RUNNER_VBS_CONTENT = `Set shell = CreateObject("WScript.Shell")
+currentDir = CreateObject("Scripting.FileSystemObject").GetParentFolderName(WScript.ScriptPosition)
+shell.Run "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & currentDir & "\server.ps1""", 0, false
+WScript.Sleep 500
+shell.Run """" & currentDir & "\index.html"""
+`;
+
+// 로컬 저장소 기반 단어 리스트 로드 및 로컬 서버 동기화 핑테스트
+async function loadDBList(textarea) {
   const statusEl = document.getElementById('worddb-status');
+  const downloadZone = document.getElementById('launcher-download-zone');
   
   // 최초 로드 시 기본 단어 세트 저장소에 등록
   if (!localStorage.getItem('vocab_db_initialized')) {
@@ -389,7 +471,75 @@ function loadDBList(textarea) {
     localStorage.setItem('vocab_db_initialized', 'true');
   }
 
+  // 1. 로컬 API 서버와 연동 가능한 상태인지 조용히 핑 테스트
+  try {
+    const res = await fetch('/api/db-list');
+    if (res.ok) {
+      const files = await res.json();
+      // 연동 성공 시, 서버 내의 단어장들도 localStorage에 동적 덮어쓰기/갱신 보존
+      for (const filename of files) {
+        try {
+          const txtRes = await fetch(`/DB/${encodeURIComponent(filename)}`);
+          const text = await txtRes.text();
+          const title = filename.replace(/\.txt$/i, '');
+          localStorage.setItem(`vocab_file_${title}`, text);
+        } catch (err) {
+          console.warn('파일 파싱 실패:', filename);
+        }
+      }
+      if (statusEl) {
+        statusEl.innerHTML = '⚡ <b>로컬 단어장 폴더 연동 완료</b>';
+        statusEl.style.color = 'var(--blue)';
+      }
+      if (downloadZone) downloadZone.classList.add('hidden'); // 성공 시 다운로드 존 불필요
+    } else {
+      throw new Error();
+    }
+  } catch (e) {
+    // 2. 서버가 꺼져 있거나 웹 배포망(Vercel 등)에서 실행한 경우
+    console.log('로컬 서버 오프라인 또는 웹 실행 상태. 기본 단어 및 로컬 저장 단어 목록을 활용합니다.');
+    if (statusEl) {
+      statusEl.innerHTML = 'ℹ️ <b>웹 보관함 단어장</b>';
+      statusEl.style.color = 'var(--text2)';
+    }
+    if (downloadZone) {
+      downloadZone.classList.remove('hidden'); // 다운로드 권장 UI 노출
+      setupLauncherDownloader();
+    }
+  }
+
   refreshDBList(textarea);
+}
+
+// 런처 파일 세트 로컬 즉시 다운로드 바인딩
+function setupLauncherDownloader() {
+  const btn = document.getElementById('btn-download-launcher');
+  if (!btn || btn.dataset.bound) return;
+  btn.dataset.bound = 'true';
+
+  btn.onclick = () => {
+    // 1. server.ps1 다운로드
+    triggerBlobDownload('server.ps1', RUNNER_PS1_CONTENT);
+    
+    // 2. VocabMaster 실행하기.vbs 다운로드
+    setTimeout(() => {
+      triggerBlobDownload('VocabMaster 실행하기.vbs', RUNNER_VBS_CONTENT);
+      alert('두 파일이 무사히 내려받아졌습니다!\n\n[📥 필수 조치 사항]\n1. 컴퓨터 바탕화면에 새 폴더를 만듭니다.\n2. 그 폴더 안에 내려받은 파일 2개를 모두 넣습니다.\n3. 같은 폴더 안에 "DB" 라는 새 폴더를 만들고 txt 파일을 넣으세요.\n4. "VocabMaster 실행하기.vbs"를 켜면 연동이 가동됩니다.');
+    }, 500);
+  };
+}
+
+// 브라우저 텍스트 파일 저장 기능 트리거
+function triggerBlobDownload(filename, content) {
+  const blob = new Blob([content], { type: 'text/plain;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 // 저장된 단어 목록을 화면에 갱신하여 렌더링
