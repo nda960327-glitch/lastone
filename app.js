@@ -170,13 +170,14 @@ ambivalent [adj] 양가적인 / [adj] 모순된 감정의`
 
 // ---- 상태 (State) ----
 const App = {
-  words:      [],   // 전체 단어 객체 배열
-  testPool:   [],   // 현재 라운드 테스트 풀 (오답만 남음)
-  round:      1,
-  phase:      'input',
-  studyAbort: null, // AbortController
-  paused:     false,
-  resumeFn:   null,
+  words:             [],   // 전체 단어 객체 배열
+  testPool:          [],   // 현재 라운드 테스트 풀 (오답만 남음)
+  round:             1,
+  phase:             'input',
+  studyAbort:        null, // AbortController
+  paused:            false,
+  resumeFn:          null,
+  currentTestIndex:  0,    // 복원용: 현재 라운드에서 진행 중인 단어 인덱스
 };
 
 // =============================================
@@ -604,6 +605,7 @@ function clearStudyCard() {
 // =============================================
 function startTest() {
   App.phase = 'test';
+  App.currentTestIndex = 0;
 
   // 첫 라운드: 전체 단어 셔플 / 이후 라운드: 오답 단어 셔플
   if (App.round === 1) {
@@ -611,6 +613,8 @@ function startTest() {
   } else {
     App.testPool = shuffle(App.testPool);
   }
+
+  saveProgress();
 
   showView('view-test');
   document.getElementById('test-round').textContent = App.round;
@@ -626,16 +630,25 @@ async function runTestRound() {
   for (let i = 0; i < pool.length; i++) {
     const wordObj = pool[i];
 
-    // 진행 상태 업데이트
-    document.getElementById('test-current').textContent = i + 1;
-    document.getElementById('test-total').textContent   = pool.length;
-    const pct = ((i + 1) / pool.length * 100).toFixed(1);
-    document.getElementById('test-progress-fill').style.width = pct + '%';
+    // 현재 진행 단어 위치 저장 (복원용)
+    App.currentTestIndex = i;
+    saveProgress();
 
-    // 단어 표시 및 TTS 자동 재생 (이전 재생음은 정지)
+    // 단어 및 힌트 영역 초기 비우기
+    document.getElementById('test-word').textContent = '';
+    const posHintEl = document.getElementById('test-pos-hint');
+    posHintEl.textContent = '';
+    posHintEl.classList.add('hidden');
+
+    // TTS 음성 재생 선출력 (이전 재생음 정지)
     window.speechSynthesis.cancel();
-    document.getElementById('test-word').textContent = wordObj.word;
     speak(wordObj.word);
+
+    // 0.2초 대기 후 스펠링 및 품사 개수 정보 표시
+    await sleep(200);
+    document.getElementById('test-word').textContent = wordObj.word;
+    posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
+    posHintEl.classList.remove('hidden');
 
     // 뜻 숨김, 확인 버튼 표시
     document.getElementById('reveal-zone').classList.remove('hidden');
@@ -674,6 +687,8 @@ async function runTestRound() {
 
   // 라운드 완료
   App.testPool = wrongThisRound;
+  App.currentTestIndex = 0; // 초기화
+  saveProgress();
   showRoundResult(correctThisRound, wrongThisRound.length);
 }
 
@@ -758,6 +773,7 @@ function showRoundResult(correct, wrong) {
 // ⑤ 최종 결과 화면
 // =============================================
 function showFinalResult() {
+  clearProgress();
   showView('view-final');
 
   const all       = App.words;
@@ -827,6 +843,7 @@ function showFinalResult() {
 
   // 처음부터 다시
   document.getElementById('btn-restart').onclick = () => {
+    clearProgress();
     App.words    = [];
     App.testPool = [];
     App.round    = 1;
@@ -844,6 +861,18 @@ function showFinalResult() {
 document.addEventListener('DOMContentLoaded', () => {
   initInputView();
 
+  // ── 진행 상태 복원 감지 및 체크 ──
+  const saved = localStorage.getItem('vocab_trainer_progress');
+  if (saved) {
+    setTimeout(() => {
+      if (confirm('이전에 테스트 중이던 기록이 있습니다.\n이어서 마저 진행하시겠습니까?')) {
+        restoreProgress(saved);
+      } else {
+        clearProgress();
+      }
+    }, 300);
+  }
+
   // ── PWA 앱 설치 알림 모달 제어 로직 ──
   let deferredPrompt;
   const installModal = document.getElementById('pwa-install-modal');
@@ -852,29 +881,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 브라우저의 기본 설치 알림 조건 충족 시 가로채기
   window.addEventListener('beforeinstallprompt', (e) => {
-    // Chrome/Android 등의 기본 프롬프트 방지
     e.preventDefault();
     deferredPrompt = e;
     
-    // 이미 설치한 사용자인지 또는 거절 이력 검증하여 모달 띄우기
     if (!localStorage.getItem('pwa_install_rejected')) {
       setTimeout(() => {
         if (installModal) installModal.classList.remove('hidden');
-      }, 2000); // 페이지 진입 2초 후 부드럽게 띄우기
+      }, 2000);
     }
   });
 
   if (btnInstall) {
     btnInstall.onclick = async () => {
       if (!deferredPrompt) return;
-      
-      // 기기 기본 설치 창 호출
       deferredPrompt.prompt();
-      
-      // 사용자 수락 여부 확인
       const { outcome } = await deferredPrompt.userChoice;
       console.log(`PWA 설치 선택 결과: ${outcome}`);
-      
       if (installModal) installModal.classList.add('hidden');
       deferredPrompt = null;
     };
@@ -883,8 +905,138 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnClose) {
     btnClose.onclick = () => {
       if (installModal) installModal.classList.add('hidden');
-      // 사용자가 끈 이력 기억 (매번 뜨지 않도록 배려)
       localStorage.setItem('pwa_install_rejected', 'true');
     };
   }
 });
+
+// ── 테스트 상태 실시간 저장/복원 함수 ──
+function saveProgress() {
+  const data = {
+    words: App.words,
+    testPool: App.testPool,
+    round: App.round,
+    phase: App.phase,
+    currentTestIndex: App.currentTestIndex
+  };
+  localStorage.setItem('vocab_trainer_progress', JSON.stringify(data));
+}
+
+function clearProgress() {
+  localStorage.removeItem('vocab_trainer_progress');
+}
+
+function restoreProgress(jsonStr) {
+  try {
+    const data = JSON.parse(jsonStr);
+    App.words = data.words || [];
+    App.testPool = data.testPool || [];
+    App.round = data.round || 1;
+    App.phase = data.phase || 'input';
+    App.currentTestIndex = data.currentTestIndex || 0;
+
+    if (App.testPool.length > 0) {
+      showView('view-test');
+      document.getElementById('test-round').textContent = App.round;
+      
+      // 진행 상태 UI 복원
+      const pool = App.testPool;
+      const i = App.currentTestIndex;
+      document.getElementById('test-current').textContent = i + 1;
+      document.getElementById('test-total').textContent   = pool.length;
+      const pct = ((i + 1) / pool.length * 100).toFixed(1);
+      document.getElementById('test-progress-fill').style.width = pct + '%';
+      
+      // 테스트 라운드 실행 루프를 이전 중단 지점 인덱스(i)부터 이어서 수행
+      resumeTestRound(i);
+    }
+  } catch (e) {
+    console.error('테스트 상태 복원 실패:', e);
+    clearProgress();
+  }
+}
+
+// 중단 시점의 인덱스부터 테스트 라운드 재개
+async function resumeTestRound(startIndex) {
+  const pool = App.testPool;
+  const wrongThisRound = [];
+  let correctThisRound = 0;
+
+  // 이전 단어들 중에서 이미 맞춘(passed) 것들의 시도 횟수를 반영
+  for (let j = 0; j < startIndex; j++) {
+    const wordObj = pool[j];
+    if (wordObj.passed) {
+      correctThisRound++;
+    } else {
+      wrongThisRound.push(wordObj);
+    }
+  }
+
+  for (let i = startIndex; i < pool.length; i++) {
+    const wordObj = pool[i];
+    App.currentTestIndex = i;
+    saveProgress();
+
+    // 진행 상태 업데이트
+    document.getElementById('test-current').textContent = i + 1;
+    document.getElementById('test-total').textContent   = pool.length;
+    const pct = ((i + 1) / pool.length * 100).toFixed(1);
+    document.getElementById('test-progress-fill').style.width = pct + '%';
+
+    // 단어 및 힌트 영역 초기 비우기
+    document.getElementById('test-word').textContent = '';
+    const posHintEl = document.getElementById('test-pos-hint');
+    posHintEl.textContent = '';
+    posHintEl.classList.add('hidden');
+
+    // TTS 음성 재생 선출력 (이전 재생음 정지)
+    window.speechSynthesis.cancel();
+    speak(wordObj.word);
+
+    // 0.2초 대기 후 스펠링 및 품사 개수 정보 표시
+    await sleep(200);
+    document.getElementById('test-word').textContent = wordObj.word;
+    posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
+    posHintEl.classList.remove('hidden');
+
+    // 뜻 숨김, 확인 버튼 표시
+    document.getElementById('reveal-zone').classList.remove('hidden');
+    document.getElementById('answer-zone').classList.add('hidden');
+
+    // 뜻 확인 버튼 대기
+    await waitForClick('btn-reveal');
+
+    // 뜻 공개
+    document.getElementById('reveal-zone').classList.add('hidden');
+    document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings);
+    document.getElementById('answer-zone').classList.remove('hidden');
+
+    // O / X 버튼 활성화
+    setOXDisabled(false);
+
+    // O 또는 X 클릭 대기
+    const result = await waitForOX();
+
+    // 클릭 후 버튼 비활성화 (더블클릭 방지)
+    setOXDisabled(true);
+
+    // 다음 문제로 넘어가기 전 오디오 정지
+    window.speechSynthesis.cancel();
+
+    if (result === 'O') {
+      wordObj.passed = true;
+      correctThisRound++;
+    } else {
+      wordObj.attempts++;
+      wrongThisRound.push(wordObj);
+    }
+
+    await sleep(180);
+  }
+
+  // 라운드 완료
+  App.testPool = wrongThisRound;
+  App.currentTestIndex = 0; // 초기화
+  saveProgress();
+  showRoundResult(correctThisRound, wrongThisRound.length);
+}
