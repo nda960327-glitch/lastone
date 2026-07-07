@@ -632,8 +632,10 @@ async function runTestRound() {
     const pct = ((i + 1) / pool.length * 100).toFixed(1);
     document.getElementById('test-progress-fill').style.width = pct + '%';
 
-    // 단어 표시
+    // 단어 표시 및 TTS 자동 재생 (이전 재생음은 정지)
+    window.speechSynthesis.cancel();
     document.getElementById('test-word').textContent = wordObj.word;
+    speak(wordObj.word);
 
     // 뜻 숨김, 확인 버튼 표시
     document.getElementById('reveal-zone').classList.remove('hidden');
@@ -655,6 +657,9 @@ async function runTestRound() {
 
     // 클릭 후 버튼 비활성화 (더블클릭 방지)
     setOXDisabled(true);
+
+    // 다음 문제로 넘어가기 전 오디오 정지
+    window.speechSynthesis.cancel();
 
     if (result === 'O') {
       wordObj.passed = true;
