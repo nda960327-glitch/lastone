@@ -1739,46 +1739,44 @@ function startWordTimer(durationMs, onTimeout) {
   const textEl = document.getElementById('timer-seconds-text');
 
   if (wrapper) wrapper.classList.remove('hidden');
+  if (textEl) {
+    textEl.style.display = 'none'; // 숫자 카운트다운 텍스트 숨김
+  }
+
   if (fillEl) {
+    // 1. 애니메이션 초기화 (100%로 꽉 채움)
     fillEl.style.transition = 'none';
     fillEl.style.width = '100%';
-    fillEl.style.background = 'linear-gradient(90deg, #3b82f6, #6366f1)';
+    fillEl.style.background = 'linear-gradient(90deg, #3b82f6, #6366f1)'; // 편안한 파란색 유지
+
+    // 브라우저 렌더링 강제 리플로우 (초기화 즉시 반영)
+    void fillEl.offsetWidth;
+
+    // 2. 3초(3000ms) 대기 후, 나머지 시간 동안 서서히 줄어드는 애니메이션
+    const delayMs = 3000;
+    const shrinkMs = Math.max(0, durationMs - delayMs);
+
+    fillEl.style.transition = `width ${shrinkMs}ms linear ${delayMs}ms`;
+    fillEl.style.width = '0%';
   }
-  if (textEl) {
-    textEl.textContent = '15.0초';
-    textEl.style.color = 'var(--text1)';
-  }
 
-  const startTime = Date.now();
-
-  activeTimerInterval = setInterval(() => {
-    const elapsed = Date.now() - startTime;
-    const remaining = Math.max(0, durationMs - elapsed);
-    const pct = (remaining / durationMs) * 100;
-
-    if (fillEl) {
-      fillEl.style.width = `${pct}%`;
-    }
-
-    if (textEl) {
-      textEl.textContent = `${(remaining / 1000).toFixed(1)}초`;
-      if (remaining < 3000) textEl.style.color = '#f59e0b';
-    }
-
-    if (remaining <= 0) {
-      stopWordTimer();
-      if (onTimeout) onTimeout();
-    }
-  }, 50);
+  activeTimerInterval = setTimeout(() => {
+    stopWordTimer();
+    if (onTimeout) onTimeout();
+  }, durationMs);
 }
 
 function stopWordTimer() {
   if (activeTimerInterval) {
-    clearInterval(activeTimerInterval);
+    clearTimeout(activeTimerInterval);
     activeTimerInterval = null;
   }
   const wrapper = document.getElementById('timer-bar-wrapper');
+  const fillEl = document.getElementById('test-timer-fill');
   if (wrapper) wrapper.classList.add('hidden');
+  if (fillEl) {
+    fillEl.style.transition = 'none';
+  }
 }
 
 function handleWordTimeout() {
