@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v32';
+const CACHE_NAME = 'vocabmaster-v33';
 const ASSETS = [
   '/',
   '/index.html',

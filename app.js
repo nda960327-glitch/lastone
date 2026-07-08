@@ -1635,11 +1635,11 @@ function startWordTimer(durationMs, onTimeout) {
   if (fillEl) {
     fillEl.style.transition = 'none';
     fillEl.style.width = '100%';
-    fillEl.style.background = 'linear-gradient(90deg, #10b981, #f59e0b, #ef4444)';
+    fillEl.style.background = 'linear-gradient(90deg, #3b82f6, #6366f1)';
   }
   if (textEl) {
-    textEl.textContent = '10.0초';
-    textEl.style.color = '#fbbf24';
+    textEl.textContent = '15.0초';
+    textEl.style.color = 'var(--text1)';
   }
 
   const startTime = Date.now();
@@ -1651,16 +1651,11 @@ function startWordTimer(durationMs, onTimeout) {
 
     if (fillEl) {
       fillEl.style.width = `${pct}%`;
-      if (pct < 30) {
-        fillEl.style.background = '#ef4444';
-      } else if (pct < 60) {
-        fillEl.style.background = '#f59e0b';
-      }
     }
 
     if (textEl) {
       textEl.textContent = `${(remaining / 1000).toFixed(1)}초`;
-      if (remaining < 3000) textEl.style.color = '#ef4444';
+      if (remaining < 3000) textEl.style.color = '#f59e0b';
     }
 
     if (remaining <= 0) {
@@ -1742,7 +1737,7 @@ async function runTestRound() {
     posHintEl.innerHTML = posHintHTML(wordObj.meanings);
     posHintEl.classList.remove('hidden');
     document.getElementById('reveal-zone').classList.remove('hidden');
-    startWordTimer(10000, handleWordTimeout);
+    startWordTimer(15000, handleWordTimeout);
 
     const revealResult = await waitForRevealOrPrev();
     if (revealResult === 'PREV') {
@@ -2131,7 +2126,7 @@ async function resumeTestRound(startIndex) {
     posHintEl.innerHTML = posHintHTML(wordObj.meanings);
     posHintEl.classList.remove('hidden');
     document.getElementById('reveal-zone').classList.remove('hidden');
-    startWordTimer(10000, handleWordTimeout);
+    startWordTimer(15000, handleWordTimeout);
 
     const revealResult = await waitForRevealOrPrev();
     if (revealResult === 'PREV') {
