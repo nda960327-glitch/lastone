@@ -96,62 +96,8 @@
     </div>
   </section>
 
-  <!-- ② 학습 화면 (자동재생) -->
-  <section id="view-study" class="view">
-    <div class="view-topbar">
-      <div class="round-pill">Round <span id="study-round">1</span> · 학습</div>
-      <div class="progress-label">
-        <span id="study-current">1</span> / <span id="study-total">50</span>
-      </div>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="study-progress-fill"></div>
-    </div>
 
-    <div class="study-card glass-card" id="study-card">
-      <!-- Phase 1: 단서 — 오디오 배지 (TTS + 스펠링 동시) -->
-      <div class="audio-badge hidden" id="study-listening">
-        <div class="wave-bars">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-        <span class="audio-badge-label">🔊 음성 재생 중</span>
-      </div>
 
-      <!-- Phase 2: 회상 — 스펠링 유지, 뜻 가림 -->
-      <div class="recall-hint hidden" id="study-recall-hint">
-        <span>💭</span>
-        <span>뜻을 떠올려보세요</span>
-      </div>
-
-      <!-- Phase 1~3: 스펠링 -->
-      <div class="study-word" id="study-word"></div>
-
-      <!-- Phase 3: 확인 — 품사/뜻 동시 노출 -->
-      <div class="study-meanings" id="study-meanings"></div>
-
-      <!-- Phase 3: 다음 단어 버튼 -->
-      <div id="study-next-wrap" class="hidden">
-        <button id="btn-study-next" class="btn-next-word">
-          다음 단어
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <div class="study-controls">
-      <button id="btn-study-pause" class="btn-secondary">
-        <span id="pause-icon">⏸</span>
-        <span id="pause-label">일시정지</span>
-      </button>
-      <button id="btn-study-skip" class="btn-ghost">테스트로 바로 이동 →</button>
-    </div>
-  </section>
 
   <!-- ③ 테스트 화면 -->
   <section id="view-test" class="view">
