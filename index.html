@@ -252,12 +252,18 @@
           <div class="summary-val danger" id="final-hard">0</div>
           <div class="summary-key">2회↑ 오답</div>
         </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <div class="summary-val" style="color: #f59e0b;" id="final-hard-3">0</div>
+          <div class="summary-key">3회↑ 오답</div>
+        </div>
       </div>
     </div>
 
     <div class="final-actions">
       <button id="btn-toggle-table" class="btn-secondary">📋 성적표 보기</button>
-      <button id="btn-retry-hard" class="btn-primary hidden">🔁 오답 노트 재시험</button>
+      <button id="btn-retry-hard" class="btn-primary hidden" style="background: linear-gradient(135deg, #f43f5e, #e11d48); box-shadow: 0 4px 20px rgba(244, 63, 94, 0.35);">🔁 2회↑ 오답 재시험</button>
+      <button id="btn-retry-hard-3" class="btn-primary hidden" style="background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);">🔥 3회↑ 오답 재시험</button>
     </div>
 
     <div class="table-section hidden" id="table-section">
@@ -367,7 +373,7 @@
             <li><b style="color:#fff;">&ldquo;뜻 확인하기&rdquo;를</b> 누러 정답을 확인한 뒤, 알고 있었으면 <b style="color:#5eead4;">O</b>, 몰랐으면 <b style="color:#f87171;">X</b>를 누릅니다.<br>
               <span style="font-size:12px;">→ 애매하면 과감하게 X! 어차피 다음 라운드에서 다시 나옵니다.</span></li>
             <li>Round가 끝나면 <b style="color:#fff;">X한 단어만</b> 자동으로 다음 라운드에 나옵니다. X가 0개가 될 때까지 반복하면 완성!</li>
-            <li>최종 성적표에서 <b style="color:#f87171;">2번 이상 틀린 단어</b>가 있으면 오답노트 재시험으로 완벽하게 마무리하세요.</li>
+            <li>최종 성적표에서 <b style="color:#f87171;">2번 이상 또는 3번 이상 틀린 단어</b>를 선택해 오답노트 재시험으로 완벽하게 마무리하세요.</li>
           </ol>
         </div>
 

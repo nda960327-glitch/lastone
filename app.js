@@ -1840,29 +1840,53 @@ function showFinalResult() {
   clearProgress();
   showView('view-final');
 
-  const all       = App.words;
-  const hardWords = all.filter(w => w.attempts >= 2);
+  const all        = App.words;
+  const hardWords2 = all.filter(w => w.attempts >= 2);
+  const hardWords3 = all.filter(w => w.attempts >= 3);
 
   document.getElementById('final-total').textContent  = all.length;
   document.getElementById('final-rounds').textContent = App.round;
-  document.getElementById('final-hard').textContent   = hardWords.length;
+  
+  const elHard2 = document.getElementById('final-hard');
+  if (elHard2) elHard2.textContent = hardWords2.length;
+  const elHard3 = document.getElementById('final-hard-3');
+  if (elHard3) elHard3.textContent = hardWords3.length;
 
   const tableSection = document.getElementById('table-section');
   document.getElementById('btn-toggle-table').onclick = () => {
     tableSection.classList.toggle('hidden');
   };
 
-  const btnRetry = document.getElementById('btn-retry-hard');
-  if (hardWords.length > 0) {
-    btnRetry.classList.remove('hidden');
-    btnRetry.onclick = () => {
-      App.words    = hardWords.map(w => ({ ...w, attempts: 0, passed: false }));
-      App.testPool = [];
-      App.round    = 1;
-      startTest();
-    };
-  } else {
-    btnRetry.classList.add('hidden');
+  const btnRetry2 = document.getElementById('btn-retry-hard');
+  if (btnRetry2) {
+    if (hardWords2.length > 0) {
+      btnRetry2.classList.remove('hidden');
+      btnRetry2.innerHTML = `🔁 2회↑ 오답 재시험 (${hardWords2.length}개)`;
+      btnRetry2.onclick = () => {
+        App.words    = hardWords2.map(w => ({ ...w, attempts: 0, passed: false }));
+        App.testPool = [];
+        App.round    = 1;
+        startTest();
+      };
+    } else {
+      btnRetry2.classList.add('hidden');
+    }
+  }
+
+  const btnRetry3 = document.getElementById('btn-retry-hard-3');
+  if (btnRetry3) {
+    if (hardWords3.length > 0) {
+      btnRetry3.classList.remove('hidden');
+      btnRetry3.innerHTML = `🔥 3회↑ 오답 재시험 (${hardWords3.length}개)`;
+      btnRetry3.onclick = () => {
+        App.words    = hardWords3.map(w => ({ ...w, attempts: 0, passed: false }));
+        App.testPool = [];
+        App.round    = 1;
+        startTest();
+      };
+    } else {
+      btnRetry3.classList.add('hidden');
+    }
   }
 
   document.getElementById('btn-download-csv').onclick = () => {
@@ -1884,7 +1908,9 @@ function showFinalResult() {
   const sorted = [...all].sort((a, b) => b.attempts - a.attempts);
   sorted.forEach((w, idx) => {
     const tr = document.createElement('tr');
-    if (w.attempts >= 2) {
+    if (w.attempts >= 3) {
+      tr.style.background = 'rgba(245, 158, 11, 0.15)';
+    } else if (w.attempts === 2) {
       tr.style.background = 'rgba(239, 68, 68, 0.08)';
     }
     const meaningsStr = w.meanings.map(m => `<span class="pos-badge">[${esc(m.pos)}]</span> ${esc(m.meaning)}`).join('<br>');
@@ -1892,7 +1918,7 @@ function showFinalResult() {
       <td>${idx + 1}</td>
       <td style="font-weight: 700;">${esc(w.word)}</td>
       <td style="text-align: left;">${meaningsStr}</td>
-      <td style="font-weight: bold; color: ${w.attempts >= 2 ? 'var(--red)' : w.attempts > 0 ? 'var(--text1)' : 'var(--text2)'}">${w.attempts}회</td>
+      <td style="font-weight: bold; color: ${w.attempts >= 3 ? '#f59e0b' : w.attempts === 2 ? 'var(--red)' : w.attempts > 0 ? 'var(--text1)' : 'var(--text2)'}">${w.attempts}회</td>
     `;
     tbody.appendChild(tr);
   });
