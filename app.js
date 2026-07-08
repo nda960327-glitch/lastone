@@ -1639,7 +1639,6 @@ async function runTestRound() {
       listenZone.classList.add('hidden');
     }
     document.getElementById('test-word').textContent = wordObj.word;
-    const btnSpeak = document.getElementById('btn-speak-again');
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
       btnSpeak.onclick = () => speak(wordObj.word);
@@ -1981,7 +1980,6 @@ async function resumeTestRound(startIndex) {
       listenZone.classList.add('hidden');
     }
     document.getElementById('test-word').textContent = wordObj.word;
-    const btnSpeak = document.getElementById('btn-speak-again');
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
       btnSpeak.onclick = () => speak(wordObj.word);
