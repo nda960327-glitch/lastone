@@ -1538,8 +1538,13 @@ function startTest() {
     return;
   }
 
-  App.testPool = shuffle([...App.words]);
-  App.round = 1;
+  // ▶ Round 1은 전체 단어 셔플, Round 2+는 이전 라운드의 오답만 사용
+  if (App.round === 1) {
+    App.testPool = shuffle([...App.words]);
+  } else {
+    // 오답은 이미 App.testPool에 세팅되어 있음
+    App.testPool = shuffle([...App.testPool]);
+  }
   App.currentTestIndex = 0;
 
   showView('view-test');
@@ -1731,30 +1736,27 @@ function speak(text) {
 // ④ 라운드 결과 화면
 // =============================================
 function showRoundResult(correct, wrong) {
+  // X가 0개이면 최종 성적표로
+  if (wrong === 0) {
+    showFinalResult();
+    return;
+  }
+
+  // 오답이 남았으면 라운드 결과 화면 표시
   showView('view-result');
   document.getElementById('round-correct').textContent = correct;
   document.getElementById('round-wrong').textContent   = wrong;
 
-  const emoji = wrong === 0
-    ? '🎉'
-    : correct >= wrong ? '💪' : '📖';
+  const emoji = correct >= wrong ? '💪' : '📖';
   document.getElementById('round-result-emoji').textContent = emoji;
+  document.getElementById('round-message').textContent = `${wrong}개 단어를 다시 테스트합니다. 화이팅!`;
 
-  const msg = wrong === 0
-    ? '완벽합니다! 모든 단어를 암기했습니다. 최종 성적표를 확인하세요.'
-    : `${wrong}개 단어를 다시 학습하고 테스트합니다. 화이팅!`;
-  document.getElementById('round-message').textContent = msg;
-
+  App.round++;
   const btnNext = document.getElementById('btn-next-round');
-
-  if (wrong === 0) {
-    btnNext.textContent = '🏆 성적표 보기';
-    btnNext.onclick = showFinalResult;
-  } else {
-    App.round++;
-    btnNext.innerHTML = `Round ${App.round} 테스트 시작 →`;
-    btnNext.onclick = () => startTest();
-  }
+  btnNext.innerHTML = `Round ${App.round} 시작 →`;
+  btnNext.onclick = () => {
+    startTest();
+  };
 }
 
 // =============================================
@@ -1778,7 +1780,8 @@ function showFinalResult() {
 
   const btnRetry = document.getElementById('btn-retry-hard');
   if (hardWords.length > 0) {
-    btnRetry.classList.onclick = () => {
+    btnRetry.classList.remove('hidden');
+    btnRetry.onclick = () => {
       App.words    = hardWords.map(w => ({ ...w, attempts: 0, passed: false }));
       App.testPool = [];
       App.round    = 1;
