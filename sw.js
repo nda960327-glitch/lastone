@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v49';
+const CACHE_NAME = 'vocabmaster-v50'; // 캐시 버전 업데이트: 동적 가변 타이머 로직 및 Boss Mode UI 갱신 반영
 const ASSETS = [
   '/',
   '/index.html',

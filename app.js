@@ -1794,11 +1794,8 @@ function startWordTimer(durationMs, onTimeout) {
     // 브라우저 렌더링 강제 리플로우 (초기화 즉시 반영)
     void fillEl.offsetWidth;
 
-    // 2. 3초(3000ms) 대기 후, 나머지 시간 동안 서서히 줄어드는 애니메이션
-    const delayMs = 3000;
-    const shrinkMs = Math.max(0, durationMs - delayMs);
-
-    fillEl.style.transition = `width ${shrinkMs}ms linear ${delayMs}ms`;
+    // [변경점: Step 4] 전체 시간 동안 서서히 줄어드는 애니메이션 (3초 대기 삭제, linear 적용)
+    fillEl.style.transition = `width ${durationMs}ms linear`;
     fillEl.style.width = '0%';
   }
 
