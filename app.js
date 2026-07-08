@@ -1615,6 +1615,8 @@ async function runTestRound() {
     if (btnPrev) btnPrev.disabled = false;
 
     document.getElementById('test-word').textContent = '';
+    const btnSpeak = document.getElementById('btn-speak-again');
+    if (btnSpeak) btnSpeak.classList.add('hidden');
     const posHintEl = document.getElementById('test-pos-hint');
     posHintEl.textContent = '';
     posHintEl.classList.add('hidden');
@@ -1637,6 +1639,11 @@ async function runTestRound() {
       listenZone.classList.add('hidden');
     }
     document.getElementById('test-word').textContent = wordObj.word;
+    const btnSpeak = document.getElementById('btn-speak-again');
+    if (btnSpeak) {
+      btnSpeak.classList.remove('hidden');
+      btnSpeak.onclick = () => speak(wordObj.word);
+    }
     posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
     posHintEl.classList.remove('hidden');
     document.getElementById('reveal-zone').classList.remove('hidden');
@@ -1950,6 +1957,8 @@ async function resumeTestRound(startIndex) {
     }
 
     document.getElementById('test-word').textContent = '';
+    const btnSpeak = document.getElementById('btn-speak-again');
+    if (btnSpeak) btnSpeak.classList.add('hidden');
     const posHintEl = document.getElementById('test-pos-hint');
     posHintEl.textContent = '';
     posHintEl.classList.add('hidden');
@@ -1972,6 +1981,11 @@ async function resumeTestRound(startIndex) {
       listenZone.classList.add('hidden');
     }
     document.getElementById('test-word').textContent = wordObj.word;
+    const btnSpeak = document.getElementById('btn-speak-again');
+    if (btnSpeak) {
+      btnSpeak.classList.remove('hidden');
+      btnSpeak.onclick = () => speak(wordObj.word);
+    }
     posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
     posHintEl.classList.remove('hidden');
     document.getElementById('reveal-zone').classList.remove('hidden');
