@@ -235,7 +235,7 @@ function saveWordStates() {
   App.words.forEach((w, idx) => {
     // 단어+인덱스를 키로 사용하여 동일 단어가 여러 개 있어도 구분
     const wordKey = `${idx}_${w.word}`;
-    states[wordKey] = { passed: w.passed, attempts: w.attempts, streak: w.streak || 0 };
+    states[wordKey] = { passed: w.passed, attempts: w.attempts };
   });
   localStorage.setItem(key, JSON.stringify(states));
 }
@@ -253,7 +253,6 @@ function loadWordStates(words) {
       if (states[wordKey]) {
         w.passed = states[wordKey].passed;
         w.attempts = states[wordKey].attempts;
-        w.streak = states[wordKey].streak || 0;
       }
     });
   } catch (e) {
@@ -317,8 +316,7 @@ function parseWords(text) {
         word,
         meanings,
         passed: false,
-        attempts: 0,
-        streak: 0
+        attempts: 0
       });
     }
   }
@@ -1746,11 +1744,11 @@ function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
   rangeWords.forEach(w => w.passed = false);
   const weakWords = rangeWords.filter(w => {
     if (isFinalBoss) {
-      // 최종 보스전: 과거에 2번 이상 틀렸고, 아직 연속 3번을 맞추지 못한 단어
-      return (w.attempts || 0) >= 2 && (w.streak || 0) < 3;
+      // 최종 보스전: 과거에 2번 이상 틀렸던 단어
+      return (w.attempts || 0) >= 2;
     } else {
-      // 중그룹 복습: 과거에 2번 이상 틀렸고, 아직 연속 2번을 맞추지 못한 단어
-      return (w.attempts || 0) >= 2 && (w.streak || 0) < 2;
+      // 중그룹 복습: 과거에 2번 이상 틀렸던 단어
+      return (w.attempts || 0) >= 2;
     }
   });
 
@@ -1995,7 +1993,6 @@ async function runTestRound() {
         const prevWord = pool[i - 1];
         if (prevWord.passed) {
           prevWord.passed = false;
-          prevWord.streak = Math.max(0, (prevWord.streak || 1) - 1);
           correctThisRound = Math.max(0, correctThisRound - 1);
         } else {
           prevWord.attempts = Math.max(0, prevWord.attempts - 1);
@@ -2008,12 +2005,10 @@ async function runTestRound() {
 
     if (result === 'O') {
       wordObj.passed = true;
-      wordObj.streak = (wordObj.streak || 0) + 1; // 연속 정답 횟수 증가
       correctThisRound++;
     } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT' || result === 'X_DICTATION') {
       if (result !== 'X_DICTATION') {
         wordObj.attempts++;
-        wordObj.streak = 0; // 강등
       }
       wrongThisRound.push(wordObj);
     }
@@ -2072,7 +2067,6 @@ function waitForDictationOrPrev(wordObj) {
         // 오답 강제 제어 (Lock)
         if (failedCount === 0) {
           wordObj.attempts = (wordObj.attempts || 0) + 1;
-          wordObj.streak = 0;
           if (typeof saveProgress === 'function') saveProgress();
         }
         
@@ -2414,7 +2408,6 @@ async function resumeTestRound(startIndex) {
     if (revealResult === 'SKIP' || revealResult === 'TIMEOUT') {
       stopWordTimer();
       wordObj.attempts++;
-      wordObj.streak = 0; // 강등
       wrongThisRound.push(wordObj);
       window.speechSynthesis.cancel();
       continue;
@@ -2437,7 +2430,6 @@ async function resumeTestRound(startIndex) {
         const prevWord = pool[i - 1];
         if (prevWord.passed) {
           prevWord.passed = false;
-          prevWord.streak = Math.max(0, (prevWord.streak || 1) - 1);
           correctThisRound = Math.max(0, correctThisRound - 1);
         } else {
           prevWord.attempts = Math.max(0, prevWord.attempts - 1);
@@ -2450,11 +2442,9 @@ async function resumeTestRound(startIndex) {
 
     if (result === 'O') {
       wordObj.passed = true;
-      wordObj.streak = (wordObj.streak || 0) + 1; // 연속 정답 횟수 증가
       correctThisRound++;
     } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT') {
       wordObj.attempts++;
-      wordObj.streak = 0; // 강등
       wrongThisRound.push(wordObj);
     }
 
