@@ -1644,7 +1644,6 @@ async function runTestRound() {
       listenZone.classList.remove('hidden');
     }
 
-    window.speechSynthesis.cancel();
     speak(wordObj.word);
 
     await sleep(2000);
@@ -1997,7 +1996,6 @@ async function resumeTestRound(startIndex) {
       listenZone.classList.remove('hidden');
     }
 
-    window.speechSynthesis.cancel();
     speak(wordObj.word);
 
     await sleep(2000);
