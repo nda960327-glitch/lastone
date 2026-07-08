@@ -1807,7 +1807,8 @@ function showFinalResult() {
 
   const tbody = document.getElementById('result-tbody');
   tbody.innerHTML = '';
-  all.forEach((w, idx) => {
+  const sorted = [...all].sort((a, b) => b.attempts - a.attempts);
+  sorted.forEach((w, idx) => {
     const tr = document.createElement('tr');
     if (w.attempts >= 3) {
       tr.style.background = 'rgba(239, 68, 68, 0.08)';
@@ -1817,7 +1818,7 @@ function showFinalResult() {
       <td>${idx + 1}</td>
       <td style="font-weight: 700;">${esc(w.word)}</td>
       <td style="text-align: left;">${meaningsStr}</td>
-      <td style="font-weight: bold; color: ${w.attempts >= 3 ? 'var(--red)' : 'var(--text2)'}">${w.attempts}회</td>
+      <td style="font-weight: bold; color: ${w.attempts >= 3 ? 'var(--red)' : w.attempts > 0 ? 'var(--text1)' : 'var(--text2)'}">${w.attempts}회</td>
     `;
     tbody.appendChild(tr);
   });
