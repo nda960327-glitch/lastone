@@ -128,44 +128,58 @@
       <div class="test-listening-zone hidden" id="test-listening-zone">
         <span class="headset-icon">🎧</span>
         <span class="headset-text">발음을 듣고 스펠링을 맞춰보세요</span>
+            <!-- 숨겨진 textarea (파싱용, 화면에 안 보임) -->
+      <textarea id="word-input" style="display:none;" spellcheck="false"></textarea>
+
+      <!-- 분할 학습 패널 -->
+      <div id="range-select-panel" class="range-select-panel hidden">
+        <div class="range-title">🧩 분할 및 누적 학습 선택</div>
+        <div id="range-buttons-list" class="range-buttons-list"></div>
+      </div>
+
+      <div class="card-footer">
+        <span id="word-count" class="word-count">단어장을 선택하세요</span>
+        <button id="btn-start" class="btn-primary" disabled>
+          <span>학습 시작</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="info-link-container" style="text-align: center; margin-top: 20px;">
+        <button id="btn-show-info" class="btn-ghost" style="color: var(--text2); font-size: 13px; text-decoration: underline; border: none; background: transparent;">
+          💡 이 앱의 효과 및 사용법 읽기
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ③ 테스트 화면 -->
+  <section id="view-test" class="view">
+    <div class="view-topbar">
+      <div class="round-pill">Round <span id="test-round">1</span> · 테스트</div>
+      <div class="progress-label">
+        <span id="test-current">1</span> / <span id="test-total">50</span>
+      </div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="test-progress-fill"></div>
+    </div>
+
+    <div class="test-card glass-card">
+      <!-- 2초 음성 청취 동안 노출할 헤드셋 표시기 -->
+      <div class="test-listening-zone hidden" id="test-listening-zone">
+        <span class="headset-icon">🎧</span>
+        <span class="headset-text">발음을 듣고 스펠링을 맞춰보세요</span>
       </div>
 
       <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin: 10px 0;">
         <div class="test-word" id="test-word" style="margin: 0;"></div>
         <button id="btn-speak-again" class="btn-ghost hidden" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; padding: 0; transition: all 0.2s;" title="발음 다시 듣기">🔊</button>
-      </div>
-      <div class="test-pos-hint" id="test-pos-hint"></div>
-
-      <div class="reveal-zone" id="reveal-zone">
-        <button id="btn-reveal" class="btn-reveal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-            <circle cx="12" cy="12" r="3"/>
-          </svg>
-          뜻 확인하기
-        </button>
-      </div>
-
-      <div class="answer-zone hidden" id="answer-zone">
-        <div class="test-meanings" id="test-meanings"></div>
-        <div class="ox-buttons">
-          <button id="btn-correct" class="btn-o">
-            <span class="ox-label">O</span>
-            <span class="ox-sub">알고 있어요</span>
-          </button>
-          <button id="btn-wrong" class="btn-x">
-            <span class="ox-label">X</span>
-            <span class="ox-sub">몰랐어요</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 이전/다음 단어 버튼 -->
-    <div class="test-actions-footer">
-      <button id="btn-prev-word" class="btn-secondary btn-prev">
-        <span>◀ 이전 단어</span>
-      </button>
       </div>
       <div class="test-pos-hint" id="test-pos-hint"></div>
 
