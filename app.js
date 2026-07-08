@@ -1780,15 +1780,27 @@ function setOXDisabled(disabled) {
   document.getElementById('btn-wrong').disabled   = disabled;
 }
 
+let currentUtterance = null; // 가비지 컬렉션(GC)으로 인한 음성 멈춤 방지 전역 참조
+
 function speak(text) {
   try {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'en-US';
-      utterance.rate = 0.85;
-      utterance.onerror = () => {};
-      window.speechSynthesis.speak(utterance);
+      window.speechSynthesis.resume(); // Chrome/Edge 일시정지 상태 멈춤 버그 해제
+      
+      currentUtterance = new SpeechSynthesisUtterance(text);
+      currentUtterance.lang = 'en-US';
+      currentUtterance.rate = 0.85;
+      currentUtterance.onerror = (e) => console.warn('TTS error:', e);
+      currentUtterance.onend = () => { currentUtterance = null; };
+      
+      // cancel() 직후 speak() 호출 시 Chrome에서 새 음성까지 취소되는 레이스 컨디션 방지
+      setTimeout(() => {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.speak(currentUtterance);
+          window.speechSynthesis.resume();
+        }
+      }, 50);
     }
   } catch(e) {
     console.warn('TTS error:', e);
