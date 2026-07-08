@@ -433,6 +433,20 @@ function initInputView() {
       newGrid.appendChild(btn);
     }
 
+    const btnAllNew = document.createElement('button');
+    btnAllNew.className = 'btn-range-item';
+    btnAllNew.innerHTML = `
+      <span class="range-btn-label">1 ~ ${n} 전체단어</span>
+      <span class="range-btn-count">${n}개 전체 새 학습</span>
+    `;
+    btnAllNew.onclick = () => {
+      App.words = words.slice();
+      App.round = 1;
+      App.testPool = [];
+      startTest();
+    };
+    newGrid.appendChild(btnAllNew);
+
     // ── 섹션 2: 🔥 취약점 집중 복습 (40단어 중그룹 + 전체 대그룹) ──
     const titleReview = document.createElement('div');
     titleReview.className = 'range-section-title weakness-review';
@@ -458,24 +472,22 @@ function initInputView() {
         <span class="range-btn-label">${start}~${end} 취약점 복습</span>
         <span class="range-btn-count">오답만 집중</span>
       `;
-      btn.onclick = () => startWeaknessReview(i, end);
+      btn.onclick = () => startWeaknessReview(i, end, false);
       reviewGrid.appendChild(btn);
     }
 
-    // 대그룹 (전체 하프타임 오답 총정리) — 중그룹이 2개 이상일 때만 표시
-    const midGroupCount = Math.ceil(n / MID);
-    if (midGroupCount >= 2) {
-      const btn = document.createElement('button');
-      btn.className = 'btn-range-item btn-review weakness-focus';
-      btn.dataset.start = '0';
-      btn.dataset.end = String(n);
-      btn.innerHTML = `
-        <span class="range-btn-label">1~${n} 전체 취약점 총정리</span>
-        <span class="range-btn-count">하프타임 오답 정리</span>
-      `;
-      btn.onclick = () => startWeaknessReview(0, n);
-      reviewGrid.appendChild(btn);
-    }
+    // 그룹 C: 최종 보스전 총정리 (대그룹)
+    const btnFinal = document.createElement('button');
+    btnFinal.className = 'btn-range-item btn-review weakness-focus';
+    btnFinal.dataset.start = '0';
+    btnFinal.dataset.end = String(n);
+    btnFinal.dataset.final = 'true';
+    btnFinal.innerHTML = `
+      <span class="range-btn-label">1~${n} 최종 취약점 총정리</span>
+      <span class="range-btn-count">최종 보스전 (마스터 단계)</span>
+    `;
+    btnFinal.onclick = () => startWeaknessReview(0, n, true);
+    reviewGrid.appendChild(btnFinal);
   }
 
   // DB 목록 로딩 (드롭다운 연동)
@@ -1700,7 +1712,7 @@ function startTest() {
 }
 
 // ── 취약점 집중 복습 시작 ──
-function startWeaknessReview(startIdx, endIdx) {
+function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
   // 1. 안전성: 기존 타이머/음성 초기화
   stopWordTimer();
   window.speechSynthesis.cancel();
@@ -1711,13 +1723,21 @@ function startWeaknessReview(startIdx, endIdx) {
   loadWordStates(allWords);
   const rangeWords = allWords.slice(startIdx, endIdx);
 
-  // 3. 임시 플래그(passed) 초기화 및 오답 필터링: 2번 이상 틀렸고(attempts >= 2) 아직 완벽히 암기하지 못한(streak < 2) 진짜 취약 단어만 추출
+  // 3. 임시 플래그(passed) 초기화 및 오답 필터링
   rangeWords.forEach(w => w.passed = false);
-  const weakWords = rangeWords.filter(w => (w.attempts || 0) >= 2 && (w.streak || 0) < 2);
+  const weakWords = rangeWords.filter(w => {
+    if (isFinalBoss) {
+      // 최종 보스전: 과거에 2번 이상 틀렸고, 아직 연속 3번을 맞추지 못한 단어
+      return (w.attempts || 0) >= 2 && (w.streak || 0) < 3;
+    } else {
+      // 중그룹 복습: 과거에 2번 이상 틀렸고, 아직 연속 2번을 맞추지 못한 단어
+      return (w.attempts || 0) >= 2 && (w.streak || 0) < 2;
+    }
+  });
 
   // 4. 엣지 케이스: 취약 단어 0개
   if (weakWords.length === 0) {
-    alert('🎉 완벽합니다! 이 구간에는 2번 이상 틀린 취약 단어가 없습니다.');
+    alert('🎉 완벽합니다! 복습할 취약 단어가 없습니다.');
     return;
   }
 
