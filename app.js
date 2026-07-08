@@ -1711,13 +1711,13 @@ function startWeaknessReview(startIdx, endIdx) {
   loadWordStates(allWords);
   const rangeWords = allWords.slice(startIdx, endIdx);
 
-  // 3. 임시 플래그(passed) 초기화 및 오답 필터링: streak < 2 인 단어만 추출
+  // 3. 임시 플래그(passed) 초기화 및 오답 필터링: 2번 이상 틀렸고(attempts >= 2) 아직 완벽히 암기하지 못한(streak < 2) 진짜 취약 단어만 추출
   rangeWords.forEach(w => w.passed = false);
-  const weakWords = rangeWords.filter(w => (w.streak || 0) < 2);
+  const weakWords = rangeWords.filter(w => (w.attempts || 0) >= 2 && (w.streak || 0) < 2);
 
   // 4. 엣지 케이스: 취약 단어 0개
   if (weakWords.length === 0) {
-    alert('🎉 완벽합니다! 해당 구간은 마스터하셨습니다.');
+    alert('🎉 완벽합니다! 이 구간에는 2번 이상 틀린 취약 단어가 없습니다.');
     return;
   }
 
