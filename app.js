@@ -383,12 +383,6 @@ function initInputView() {
     });
   }
 
-  // 예시 불러오기
-  document.getElementById('btn-load-example').onclick = () => {
-    textarea.value = EXAMPLE_WORDS;
-    updateCount();
-  };
-
   // DB 목록 로딩 (드롭다운 연동)
   loadDBList(textarea);
 
@@ -430,7 +424,7 @@ function initInputView() {
   document.getElementById('btn-start').onclick = () => {
     const words = parseWords(textarea.value);
     if (words.length === 0) {
-      alert('단어를 입력해주세요.');
+      alert('단어장을 선택해주세요.');
       return;
     }
     App.words    = words;
@@ -1482,12 +1476,13 @@ function loadDBList(textarea) {
 
 // 저장된 단어 목록을 드롭다운(Select Box)에 갱신하여 렌더링
 function refreshDBList(textarea) {
-  const selectEl = document.getElementById('worddb-select');
-  const statusEl = document.getElementById('worddb-status');
+  const selectBasic = document.getElementById('select-basic-db');
+  const selectTofl  = document.getElementById('select-tofl-db');
   
-  if (!selectEl) return;
+  if (!selectBasic || !selectTofl) return;
 
-  selectEl.innerHTML = '<option value="">📂 내장 단어장 선택하기...</option>';
+  selectBasic.innerHTML = '<option value="" style="background:#1e1b4b;color:#fff;">선택하기...</option>';
+  selectTofl.innerHTML  = '<option value="" style="background:#1e1b4b;color:#fff;">선택하기...</option>';
 
   const keys = [];
   for (let i = 0; i < localStorage.length; i++) {
@@ -1496,57 +1491,35 @@ function refreshDBList(textarea) {
       keys.push(key.replace('vocab_file_', ''));
     }
   }
-
   keys.sort((a, b) => a.localeCompare(b, 'ko'));
-
-  if (keys.length === 0) {
-    if (statusEl) statusEl.textContent = '등록된 단어장이 없습니다. 파일을 추가해 주세요.';
-    return;
-  }
 
   keys.forEach(title => {
     const opt = document.createElement('option');
     opt.value = title;
-    opt.textContent = `📖 ${title}`;
-    selectEl.appendChild(opt);
+    opt.textContent = title;
+    opt.style.background = '#1e1b4b';
+    opt.style.color = '#ffffff';
+
+    if (title.startsWith('토플')) {
+      selectTofl.appendChild(opt);
+    } else {
+      selectBasic.appendChild(opt);
+    }
   });
 
-  selectEl.onchange = (e) => {
+  function onSelectChange(e, otherSelect) {
     const selectedTitle = e.target.value;
     if (!selectedTitle) return;
-
+    otherSelect.value = '';
     const content = localStorage.getItem(`vocab_file_${selectedTitle}`);
     if (content) {
       textarea.value = content.trim();
       textarea.dispatchEvent(new Event('input'));
     }
-  };
-
-  // 선택한 단어장 삭제 버튼
-  let deleteBtn = document.getElementById('btn-delete-selected-db');
-  if (!deleteBtn) {
-    deleteBtn = document.createElement('button');
-    deleteBtn.id = 'btn-delete-selected-db';
-    deleteBtn.className = 'btn-ghost';
-    deleteBtn.style.cssText = 'border: none; background: transparent; color: var(--red); font-size: 11px; text-decoration: underline; margin-top: 8px; cursor: pointer; display: block; width: 100%; text-align: right;';
-    deleteBtn.textContent = '🗑️ 선택한 단어장 삭제';
-    selectEl.parentNode.appendChild(deleteBtn);
   }
 
-  deleteBtn.onclick = () => {
-    const selectedTitle = selectEl.value;
-    if (!selectedTitle) {
-      alert('삭제할 단어장을 먼저 목록에서 선택해 주세요.');
-      return;
-    }
-    if (confirm(`"${selectedTitle}" 단어장을 삭제하시겠습니까?\n(기본 내장 단어장인 경우 새로고침 시 복구됩니다)`)) {
-      localStorage.removeItem(`vocab_file_${selectedTitle}`);
-      selectEl.value = '';
-      refreshDBList(textarea);
-      textarea.value = '';
-      textarea.dispatchEvent(new Event('input'));
-    }
-  };
+  selectBasic.onchange = (e) => onSelectChange(e, selectTofl);
+  selectTofl.onchange  = (e) => onSelectChange(e, selectBasic);
 }
 
 // =============================================
@@ -1591,9 +1564,7 @@ async function runTestRound() {
     document.getElementById('test-progress-fill').style.width = pct + '%';
 
     const btnPrev = document.getElementById('btn-prev-word');
-    if (btnPrev) {
-      btnPrev.disabled = (i === 0);
-    }
+    if (btnPrev) btnPrev.disabled = false;
 
     document.getElementById('test-word').textContent = '';
     const posHintEl = document.getElementById('test-pos-hint');
@@ -1668,10 +1639,11 @@ async function runTestRound() {
     if (result === 'O') {
       wordObj.passed = true;
       correctThisRound++;
-    } else {
+    } else if (result === 'X' || result === 'SKIP') {
       wordObj.attempts++;
       wrongThisRound.push(wordObj);
     }
+    // PREV—already handled above
 
     await sleep(180);
   }
@@ -1690,22 +1662,22 @@ function waitForOXOrPrev() {
     const btnPrev = document.getElementById('btn-prev-word');
     if (btnPrev) {
       btnPrev.onclick = () => {
-        oxResolver('PREV');
-        oxResolver = null;
+        if (oxResolver) { oxResolver('PREV'); oxResolver = null; }
+      };
+    }
+
+    const btnNext = document.getElementById('btn-next-word');
+    if (btnNext) {
+      btnNext.onclick = () => {
+        if (oxResolver) { oxResolver('SKIP'); oxResolver = null; }
       };
     }
 
     document.getElementById('btn-correct').onclick = () => {
-      if (oxResolver) {
-        oxResolver('O');
-        oxResolver = null;
-      }
+      if (oxResolver) { oxResolver('O'); oxResolver = null; }
     };
     document.getElementById('btn-wrong').onclick = () => {
-      if (oxResolver) {
-        oxResolver('X');
-        oxResolver = null;
-      }
+      if (oxResolver) { oxResolver('X'); oxResolver = null; }
     };
   });
 }
@@ -1718,16 +1690,19 @@ function waitForRevealOrPrev() {
     const btnPrev = document.getElementById('btn-prev-word');
     if (btnPrev) {
       btnPrev.onclick = () => {
-        revealResolver('PREV');
-        revealResolver = null;
+        if (revealResolver) { revealResolver('PREV'); revealResolver = null; }
+      };
+    }
+
+    const btnNext = document.getElementById('btn-next-word');
+    if (btnNext) {
+      btnNext.onclick = () => {
+        if (revealResolver) { revealResolver('SKIP'); revealResolver = null; }
       };
     }
 
     document.getElementById('btn-reveal').onclick = () => {
-      if (revealResolver) {
-        revealResolver('REVEAL');
-        revealResolver = null;
-      }
+      if (revealResolver) { revealResolver('REVEAL'); revealResolver = null; }
     };
   });
 }
@@ -1738,10 +1713,18 @@ function setOXDisabled(disabled) {
 }
 
 function speak(text) {
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'en-US';
-  utterance.rate = 0.85;
-  window.speechSynthesis.speak(utterance);
+  try {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.85;
+      utterance.onerror = () => {};
+      window.speechSynthesis.speak(utterance);
+    }
+  } catch(e) {
+    console.warn('TTS error:', e);
+  }
 }
 
 // =============================================
