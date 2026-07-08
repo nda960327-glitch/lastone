@@ -280,6 +280,9 @@ function parseWords(text) {
 
 // 뷰 전환
 function showView(viewId) {
+  if (viewId !== 'view-test' && typeof stopWordTimer === 'function') {
+    stopWordTimer();
+  }
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById(viewId).classList.add('active');
   App.phase = viewId.replace('view-', '');
@@ -1610,12 +1613,83 @@ function startTest() {
   runTestRound();
 }
 
+let activeTimerInterval = null;
+
+function startWordTimer(durationMs, onTimeout) {
+  stopWordTimer();
+
+  const wrapper = document.getElementById('timer-bar-wrapper');
+  const fillEl = document.getElementById('test-timer-fill');
+  const textEl = document.getElementById('timer-seconds-text');
+
+  if (wrapper) wrapper.classList.remove('hidden');
+  if (fillEl) {
+    fillEl.style.transition = 'none';
+    fillEl.style.width = '100%';
+    fillEl.style.background = 'linear-gradient(90deg, #10b981, #f59e0b, #ef4444)';
+  }
+  if (textEl) {
+    textEl.textContent = '10.0초';
+    textEl.style.color = '#fbbf24';
+  }
+
+  const startTime = Date.now();
+
+  activeTimerInterval = setInterval(() => {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, durationMs - elapsed);
+    const pct = (remaining / durationMs) * 100;
+
+    if (fillEl) {
+      fillEl.style.width = `${pct}%`;
+      if (pct < 30) {
+        fillEl.style.background = '#ef4444';
+      } else if (pct < 60) {
+        fillEl.style.background = '#f59e0b';
+      }
+    }
+
+    if (textEl) {
+      textEl.textContent = `${(remaining / 1000).toFixed(1)}초`;
+      if (remaining < 3000) textEl.style.color = '#ef4444';
+    }
+
+    if (remaining <= 0) {
+      stopWordTimer();
+      if (onTimeout) onTimeout();
+    }
+  }, 50);
+}
+
+function stopWordTimer() {
+  if (activeTimerInterval) {
+    clearInterval(activeTimerInterval);
+    activeTimerInterval = null;
+  }
+  const wrapper = document.getElementById('timer-bar-wrapper');
+  if (wrapper) wrapper.classList.add('hidden');
+}
+
+function handleWordTimeout() {
+  if (App.phase !== 'test') return;
+  if (typeof revealResolver === 'function' && revealResolver) {
+    const r = revealResolver;
+    revealResolver = null;
+    r('TIMEOUT');
+  } else if (typeof oxResolver === 'function' && oxResolver) {
+    const r = oxResolver;
+    oxResolver = null;
+    r('TIMEOUT');
+  }
+}
+
 async function runTestRound() {
   const pool = App.testPool;
   const wrongThisRound = [];
   let correctThisRound = 0;
 
   for (let i = 0; i < pool.length; i++) {
+    stopWordTimer();
     const wordObj = pool[i];
     App.currentTestIndex = i;
     saveProgress();
@@ -1659,9 +1733,11 @@ async function runTestRound() {
     posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
     posHintEl.classList.remove('hidden');
     document.getElementById('reveal-zone').classList.remove('hidden');
+    startWordTimer(10000, handleWordTimeout);
 
     const revealResult = await waitForRevealOrPrev();
     if (revealResult === 'PREV') {
+      stopWordTimer();
       if (i > 0) {
         const prevWord = pool[i - 1];
         if (prevWord.passed) {
@@ -1676,6 +1752,13 @@ async function runTestRound() {
       window.speechSynthesis.cancel();
       continue;
     }
+    if (revealResult === 'SKIP' || revealResult === 'TIMEOUT') {
+      stopWordTimer();
+      wordObj.attempts++;
+      wrongThisRound.push(wordObj);
+      window.speechSynthesis.cancel();
+      continue;
+    }
 
     document.getElementById('reveal-zone').classList.add('hidden');
     document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings);
@@ -1684,6 +1767,7 @@ async function runTestRound() {
     setOXDisabled(false);
 
     const result = await waitForOXOrPrev();
+    stopWordTimer();
     setOXDisabled(true);
 
     window.speechSynthesis.cancel();
@@ -1706,7 +1790,7 @@ async function runTestRound() {
     if (result === 'O') {
       wordObj.passed = true;
       correctThisRound++;
-    } else if (result === 'X' || result === 'SKIP') {
+    } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT') {
       wordObj.attempts++;
       wrongThisRound.push(wordObj);
     }
@@ -1913,7 +1997,7 @@ function showFinalResult() {
     } else if (w.attempts === 2) {
       tr.style.background = 'rgba(239, 68, 68, 0.08)';
     }
-    const meaningsStr = w.meanings.map(m => `<span class="pos-badge">[${esc(m.pos)}]</span> ${esc(m.meaning)}`).join('<br>');
+    const meaningsStr = w.meanings.map(m => `<span class="pos-badge ${getPosClass(m.pos)}">[${esc(m.pos)}]</span> ${esc(m.meaning)}`).join('<br>');
     tr.innerHTML = `
       <td>${idx + 1}</td>
       <td style="font-weight: 700;">${esc(w.word)}</td>
@@ -1992,6 +2076,7 @@ async function resumeTestRound(startIndex) {
   }
 
   for (let i = startIndex; i < pool.length; i++) {
+    stopWordTimer();
     const wordObj = pool[i];
     App.currentTestIndex = i;
     saveProgress();
@@ -2037,9 +2122,11 @@ async function resumeTestRound(startIndex) {
     posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
     posHintEl.classList.remove('hidden');
     document.getElementById('reveal-zone').classList.remove('hidden');
+    startWordTimer(10000, handleWordTimeout);
 
     const revealResult = await waitForRevealOrPrev();
     if (revealResult === 'PREV') {
+      stopWordTimer();
       if (i > 0) {
         const prevWord = pool[i - 1];
         if (prevWord.passed) {
@@ -2054,6 +2141,13 @@ async function resumeTestRound(startIndex) {
       window.speechSynthesis.cancel();
       continue;
     }
+    if (revealResult === 'SKIP' || revealResult === 'TIMEOUT') {
+      stopWordTimer();
+      wordObj.attempts++;
+      wrongThisRound.push(wordObj);
+      window.speechSynthesis.cancel();
+      continue;
+    }
 
     document.getElementById('reveal-zone').classList.add('hidden');
     document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings);
@@ -2062,6 +2156,7 @@ async function resumeTestRound(startIndex) {
     setOXDisabled(false);
 
     const result = await waitForOXOrPrev();
+    stopWordTimer();
     setOXDisabled(true);
 
     window.speechSynthesis.cancel();
@@ -2084,7 +2179,7 @@ async function resumeTestRound(startIndex) {
     if (result === 'O') {
       wordObj.passed = true;
       correctThisRound++;
-    } else {
+    } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT') {
       wordObj.attempts++;
       wrongThisRound.push(wordObj);
     }
@@ -2175,6 +2270,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 홈으로 이동 버튼 핸들러
   const goHomeHandler = () => {
     if (confirm('홈으로 이동하시겠습니까? (현재 진행 중인 학습 데이터는 초기화됩니다)')) {
+      if (typeof stopWordTimer === 'function') stopWordTimer();
+      if (typeof revealResolver === 'function' && revealResolver) { revealResolver('PREV'); revealResolver = null; }
+      if (typeof oxResolver === 'function' && oxResolver) { oxResolver('PREV'); oxResolver = null; }
       App.words    = [];
       App.testPool = [];
       App.round    = 1;
