@@ -1869,7 +1869,10 @@ async function runTestRound() {
     document.getElementById('reveal-zone').classList.remove('hidden');
     startWordTimer(15000, handleWordTimeout);
 
-    // 5초 타이머 강제 로직 (Fast-Failing)
+    // 동적 가변 타이머 로직 (Fast-Failing)
+    // 기준 타임아웃(ms) = 5000 + ((wordObj.meanings.length - 1) * 2000)
+    const dynamicTimeoutMs = 5000 + ((wordObj.meanings.length - 1) * 2000);
+
     let autoRevealTriggered = false;
     let autoRevealTimeout = setTimeout(() => {
       autoRevealTriggered = true;
@@ -1878,7 +1881,7 @@ async function runTestRound() {
       
       const btnReveal = document.getElementById('btn-reveal');
       if (btnReveal) btnReveal.click(); // 강제 오픈
-    }, 5000);
+    }, dynamicTimeoutMs);
 
     const revealResult = await waitForRevealOrPrev();
     clearTimeout(autoRevealTimeout);
