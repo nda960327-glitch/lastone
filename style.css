@@ -530,8 +530,8 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 .pos-badge {
   display: inline-block;
   border-radius: 8px;
-  padding: 4px 12px;
-  font-size: 16px;
+  padding: 5px 14px;
+  font-size: 18px;
   font-weight: 800;
   font-family: 'Courier New', monospace;
   flex-shrink: 0;
@@ -636,13 +636,16 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  background: transparent !important;
-  border: none !important;
-  padding: 4px 0 !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #e2e8f0 !important;
+  padding: 6px 16px !important;
+  border-radius: 20px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
   margin-top: -8px;
   margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
 
 /* ─ 리스닝 헤드셋 노출 공간 ─ */
