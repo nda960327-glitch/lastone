@@ -1959,6 +1959,7 @@ async function runTestRound() {
     if (revealResult === 'SKIP' || revealResult === 'TIMEOUT') {
       stopWordTimer();
       wordObj.attempts++;
+      saveWordStates();
       wrongThisRound.push(wordObj);
       window.speechSynthesis.cancel();
       continue;
@@ -1996,6 +1997,7 @@ async function runTestRound() {
           correctThisRound = Math.max(0, correctThisRound - 1);
         } else {
           prevWord.attempts = Math.max(0, prevWord.attempts - 1);
+          saveWordStates();
           wrongThisRound.pop();
         }
         i = i - 2;
@@ -2009,6 +2011,7 @@ async function runTestRound() {
     } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT' || result === 'X_DICTATION') {
       if (result !== 'X_DICTATION') {
         wordObj.attempts++;
+        saveWordStates();
       }
       wrongThisRound.push(wordObj);
     }
@@ -2067,6 +2070,7 @@ function waitForDictationOrPrev(wordObj) {
         // 오답 강제 제어 (Lock)
         if (failedCount === 0) {
           wordObj.attempts = (wordObj.attempts || 0) + 1;
+          saveWordStates();
           if (typeof saveProgress === 'function') saveProgress();
         }
         
@@ -2408,6 +2412,7 @@ async function resumeTestRound(startIndex) {
     if (revealResult === 'SKIP' || revealResult === 'TIMEOUT') {
       stopWordTimer();
       wordObj.attempts++;
+      saveWordStates();
       wrongThisRound.push(wordObj);
       window.speechSynthesis.cancel();
       continue;
@@ -2433,6 +2438,7 @@ async function resumeTestRound(startIndex) {
           correctThisRound = Math.max(0, correctThisRound - 1);
         } else {
           prevWord.attempts = Math.max(0, prevWord.attempts - 1);
+          saveWordStates();
           wrongThisRound.pop();
         }
         i = i - 2;
@@ -2445,6 +2451,7 @@ async function resumeTestRound(startIndex) {
       correctThisRound++;
     } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT') {
       wordObj.attempts++;
+      saveWordStates();
       wrongThisRound.push(wordObj);
     }
 
