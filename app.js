@@ -317,6 +317,15 @@ function meaningHTML(meanings) {
   }).join('');
 }
 
+// 품사 힌트 HTML 생성 (단어 스펠링 공개 시 품사 뱃지만 큼직하고 다채롭게 표시)
+function posHintHTML(meanings) {
+  const uniquePosList = [...new Set(meanings.map(m => m.pos))];
+  return uniquePosList.map(pos => {
+    const posClass = getPosClass(pos);
+    return `<span class="pos-badge ${posClass}" style="font-size: 20px !important; padding: 6px 16px !important; margin: 0 4px !important; box-shadow: 0 4px 14px rgba(0,0,0,0.3) !important; font-weight: 900 !important;">[${esc(pos)}]</span>`;
+  }).join('');
+}
+
 // =============================================
 // ① 입력 화면
 // =============================================
@@ -1730,7 +1739,7 @@ async function runTestRound() {
       btnSpeak.classList.remove('hidden');
       btnSpeak.onclick = () => speak(wordObj.word);
     }
-    posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
+    posHintEl.innerHTML = posHintHTML(wordObj.meanings);
     posHintEl.classList.remove('hidden');
     document.getElementById('reveal-zone').classList.remove('hidden');
     startWordTimer(10000, handleWordTimeout);
@@ -2119,7 +2128,7 @@ async function resumeTestRound(startIndex) {
       btnSpeak.classList.remove('hidden');
       btnSpeak.onclick = () => speak(wordObj.word);
     }
-    posHintEl.textContent = `품사: ${wordObj.meanings.length}개`;
+    posHintEl.innerHTML = posHintHTML(wordObj.meanings);
     posHintEl.classList.remove('hidden');
     document.getElementById('reveal-zone').classList.remove('hidden');
     startWordTimer(10000, handleWordTimeout);
