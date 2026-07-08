@@ -1800,6 +1800,7 @@ function stopWordTimer() {
   if (wrapper) wrapper.classList.add('hidden');
   if (fillEl) {
     fillEl.style.transition = 'none';
+    fillEl.classList.remove('timer-warning');
   }
 }
 
@@ -1868,7 +1869,20 @@ async function runTestRound() {
     document.getElementById('reveal-zone').classList.remove('hidden');
     startWordTimer(15000, handleWordTimeout);
 
+    // 5초 타이머 강제 로직 (Fast-Failing)
+    let autoRevealTriggered = false;
+    let autoRevealTimeout = setTimeout(() => {
+      autoRevealTriggered = true;
+      const fillEl = document.getElementById('test-timer-fill');
+      if (fillEl) fillEl.classList.add('timer-warning');
+      
+      const btnReveal = document.getElementById('btn-reveal');
+      if (btnReveal) btnReveal.click(); // 강제 오픈
+    }, 5000);
+
     const revealResult = await waitForRevealOrPrev();
+    clearTimeout(autoRevealTimeout);
+
     if (revealResult === 'PREV') {
       stopWordTimer();
       if (i > 0) {
@@ -1898,6 +1912,11 @@ async function runTestRound() {
     document.getElementById('answer-zone').classList.remove('hidden');
 
     setOXDisabled(false);
+
+    // 강제로 오픈된 경우 O 버튼 잠금 (꼼수 방지)
+    if (autoRevealTriggered) {
+      document.getElementById('btn-correct').disabled = true;
+    }
 
     const result = await waitForOXOrPrev();
     stopWordTimer();

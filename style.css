@@ -980,3 +980,27 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   50% { transform: translateY(-8px); }
 }
 
+/* ============================================
+   추가: 5초 룰 타임아웃 경고 애니메이션
+   ============================================ */
+@keyframes timerWarningBlink {
+  0% { background: linear-gradient(90deg, #f43f5e, #e11d48); opacity: 1; }
+  50% { background: linear-gradient(90deg, #f43f5e, #e11d48); opacity: 0.5; }
+  100% { background: linear-gradient(90deg, #f43f5e, #e11d48); opacity: 1; }
+}
+
+.timer-warning {
+  animation: timerWarningBlink 0.8s infinite !important;
+  box-shadow: 0 0 15px rgba(244, 63, 94, 0.6) !important;
+}
+
+.btn-o:disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+.btn-o:disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
