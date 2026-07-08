@@ -1862,6 +1862,23 @@ async function runTestRound() {
     posHintEl.classList.add('hidden');
     document.getElementById('test-meanings').innerHTML = '';
 
+    // Boss Mode 시각 효과 렌더링 분기
+    const testCard = document.querySelector('.test-card');
+    let bossBadge = document.getElementById('boss-mode-badge');
+    if ((wordObj.attempts || 0) >= 4) {
+      if (testCard) testCard.classList.add('boss-mode');
+      if (!bossBadge) {
+        bossBadge = document.createElement('span');
+        bossBadge.id = 'boss-mode-badge';
+        bossBadge.className = 'boss-badge';
+        bossBadge.textContent = '💀 극상위 오답';
+        if (testCard) testCard.insertBefore(bossBadge, testCard.firstChild);
+      }
+    } else {
+      if (testCard) testCard.classList.remove('boss-mode');
+      if (bossBadge) bossBadge.remove();
+    }
+
     if (isDictationMode) {
       document.getElementById('test-word').classList.add('hidden');
       document.querySelector('.ox-buttons').classList.add('hidden');
