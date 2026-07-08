@@ -252,40 +252,80 @@
     </div>
   </div>
 
-  <!-- 💡 뇌과학 효과 및 사용법 설명서 모달 -->
+  <!-- 학습 시간 안내 및 사용법 모달 -->
   <div id="info-modal" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card" style="max-width: 500px; max-height: 85vh; overflow-y: auto; text-align: left; align-items: flex-start; padding: 28px;">
       <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
-        <h3 style="margin: 0; font-size: 18px; color: var(--blue);">🧠 뇌과학 암기 효과 & 사용법</h3>
+        <h3 style="margin: 0; font-size: 18px; color: var(--blue);">학습 시간 안내 &amp; 사용법</h3>
         <button id="btn-info-close" style="background: transparent; border: none; color: var(--text2); font-size: 20px; cursor: pointer; padding: 0 4px;">✕</button>
       </div>
+      <div style="font-size: 13.5px; line-height: 1.68; color: var(--text1); display: flex; flex-direction: column; gap: 20px;">
 
-      <div style="font-size: 13.5px; line-height: 1.68; color: var(--text1); display: flex; flex-direction: column; gap: 16px;">
         <div>
-          <h4 style="color: #fff; margin-bottom: 6px; font-size: 14.5px;">⏱️ 아예 모르는 200단어, 암기 소요 시간은?</h4>
-          <p style="color: var(--text2);">
-            기존의 깜지 쓰기나 눈으로만 읽는 방식은 200단어 암기에 <b>최소 6~8시간</b>이 걸리며 금방 망각합니다. 
-            하지만 본 앱의 과학적 훈련을 통하면 <b>평균 2시간 ~ 2시간 반</b> 만에 200단어를 완전 장기기억으로 뇌에 각인시킬 수 있습니다.
+          <h4 style="color: #fff; margin-bottom: 8px; font-size: 14.5px;">⌛ 아예 모르는 200단어, 실제로 얼마나 걸릴까?</h4>
+          <p style="color: var(--text2); margin-bottom: 10px;">
+            단어 1개당 흐름: <b style="color:#fff;">TTS 2초 → 스펙링 확인 → 뜻 떠올리기 → O/X 선택</b><br>
+            이 과정이 단어 1개당 평균 <b style="color:#fff;">약 12~13초</b>가 소요됩니다.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 13px;">
+            <div style="display: flex; justify-content: space-between; color: var(--text2);">
+              <span>Round 1 <span style="font-size:11px;">(200단어 전체)</span></span>
+              <span style="color:#fff; font-weight:700;">약 43분</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; color: var(--text2);">
+              <span>Round 2 <span style="font-size:11px;">(오답 ~150개)</span></span>
+              <span style="color:#fff; font-weight:700;">약 32분</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; color: var(--text2);">
+              <span>Round 3 <span style="font-size:11px;">(오답 ~90개)</span></span>
+              <span style="color:#fff; font-weight:700;">약 19분</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; color: var(--text2);">
+              <span>Round 4 <span style="font-size:11px;">(오답 ~45개)</span></span>
+              <span style="color:#fff; font-weight:700;">약 10분</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; color: var(--text2);">
+              <span>Round 5~6 <span style="font-size:11px;">(마무리)</span></span>
+              <span style="color:#fff; font-weight:700;">약 6분</span>
+            </div>
+            <div style="border-top: 1px solid var(--border); padding-top: 8px; margin-top: 4px; display: flex; justify-content: space-between;">
+              <span style="color: var(--blue); font-weight: 700;">총 예상 소요 시간</span>
+              <span style="color: var(--blue); font-weight: 800; font-size: 15px;">약 1시간 50분 ~ 2시간 10분</span>
+            </div>
+          </div>
+          <p style="color: var(--text2); margin-top: 8px; font-size: 12px;">
+            기존 꺜지 쓰기·눈으로만 읽기는 200단어에 <b>6~8시간</b> 이상 걸리면서도 금방 잊어버립니다. 이 앱은 <b>절반 이하의 시간</b>으로 장기기억에 각인시킵니다.
           </p>
         </div>
 
         <div>
-          <h4 style="color: #fff; margin-bottom: 6px; font-size: 14.5px;">🚀 뇌과학이 입증하는 본 앱의 3대 효과</h4>
-          <ul style="padding-left: 18px; margin: 0; color: var(--text2); display: flex; flex-direction: column; gap: 6px;">
-            <li><b>청각 프라이밍 (2초 음성 선출력):</b> 스펠링이 뜨기 전 2초간 귀로 발음을 먼저 들을 때 뇌의 청각 피질이 강하게 자극받아 스펠링 예측 회로를 활성화시키고 암기 효율을 극대화합니다.</li>
-            <li><b>능동적 회상 (Active Recall):</b> 객관식이 아닌, 뜻 확인 버튼을 누르기 전 뇌가 주관적으로 정답을 떠올리려고 끙끙대는 과정에서 신경망 시냅스가 단단히 결속됩니다.</li>
-            <li><b>지연 누적 복습 (Spaced Cumulative Review):</b> 20단위로 단어를 촘촘하게 잘라 외우고, 새 구간 진입 전 앞서 배운 내용을 점진적으로 합쳐서(예: 1~40, 1~60) 테스트하므로 망각 곡선을 원천 무력화합니다.</li>
+          <h4 style="color: #fff; margin-bottom: 8px; font-size: 14.5px;">왕 왜 이렇게 빠르게 외워질까? — 3가지 원리</h4>
+          <ul style="padding-left: 18px; margin: 0; color: var(--text2); display: flex; flex-direction: column; gap: 8px;">
+            <li><b style="color:#fff;">① 청각 프라이밍 (TTS 2초 선출력)</b><br>
+              스펙링이 뒤기 전 2초간 발음을 먼저 귀로 들으면, 뇌의 청각 피질이 선제 자극되어 스펙링을 볼 때 기억 회로가 훨씬 강하게 결합됩니다.</li>
+            <li><b style="color:#fff;">② 능동적 회상 (Active Recall)</b><br>
+              &ldquo;뜻 확인하기&rdquo; 버튼을 누르기 전, 뜻을 스스로 끼끼대며 떠올리는 그 짧은 순간이 수십 번 읽는 것보다 기억을 훨씬 강하게 만들어줍니다.</li>
+            <li><b style="color:#fff;">③ 오답 반복 (틀린 것만 재시험)</b><br>
+              X를 누른 단어만 골라 Round 2, 3을 반복하므로 시간 낙비 없이 약한 부분만 집중 훈련합니다. X가 0개가 될 때까지 자동으로 반복됩니다.</li>
           </ul>
         </div>
 
         <div>
-          <h4 style="color: #fff; margin-bottom: 6px; font-size: 14.5px;">💡 효과를 극대화하는 3단계 사용법</h4>
-          <ol style="padding-left: 18px; margin: 0; color: var(--text2); display: flex; flex-direction: column; gap: 6px;">
-            <li>단어 리스트를 로드한 뒤, 화면 하단에 생기는 <b>[1 ~ 20]</b> 구간 버튼을 눌러 가볍게 첫 번째 테스트를 칩니다. (모르는 단어는 망설임 없이 X 표시)</li>
-            <li>그 다음 <b>[21 ~ 40]</b>을 푼 뒤, 바로 새 단어로 가지 않고 <b>[1 ~ 40 (누적)]</b> 복습 코스를 쳐서 전 단계를 단단히 굳힙니다.</li>
-            <li>동일한 방식으로 20개 단위 진입과 누적 코스를 번갈아 훈련해 나가면, 200단어가 순식간에 머릿속에 영구 정착됩니다.</li>
+          <h4 style="color: #fff; margin-bottom: 8px; font-size: 14.5px;">이렇게 하면 가장 효과적입니다</h4>
+          <ol style="padding-left: 18px; margin: 0; color: var(--text2); display: flex; flex-direction: column; gap: 8px;">
+            <li>단어장을 선택하고 <b style="color:#fff;">학습 시작</b>을 누릅니다.<br>
+              <span style="font-size:12px;">→ TTS가 발음을 들려주면, 스펙링을 보고 뜻을 머릿속으로 떠올려보세요.</span></li>
+            <li><b style="color:#fff;">&ldquo;뜻 확인하기&rdquo;를</b> 누러 정답을 확인한 뒤, 알고 있었으면 <b style="color:#5eead4;">O</b>, 몰랐으면 <b style="color:#f87171;">X</b>를 누릅니다.<br>
+              <span style="font-size:12px;">→ 애매하면 과감하게 X! 어차피 다음 라운드에서 다시 나옵니다.</span></li>
+            <li>Round가 끝나면 <b style="color:#fff;">X한 단어만</b> 자동으로 다음 라운드에 나옵니다. X가 0개가 될 때까지 반복하면 완성!</li>
+            <li>최종 성적표에서 <b style="color:#f87171;">3번 이상 틀린 단어</b>가 있으면 오답노트 재시험으로 완벽하게 마무리하세요.</li>
           </ol>
         </div>
+
+      </div>
+      <button id="btn-info-ok" class="btn-primary" style="width: 100%; margin-top: 24px; padding: 12px;">확인했습니다</button>
+    </div>
+  </div>
       </div>
 
       <button id="btn-info-ok" class="btn-primary" style="width: 100%; margin-top: 24px; padding: 12px;">확인했습니다</button>
