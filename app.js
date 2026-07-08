@@ -1474,15 +1474,20 @@ function loadDBList(textarea) {
   refreshDBList(textarea);
 }
 
-// 저장된 단어 목록을 드롭다운(Select Box)에 갱신하여 렌더링
 function refreshDBList(textarea) {
   const selectBasic = document.getElementById('select-basic-db');
   const selectTofl  = document.getElementById('select-tofl-db');
-  
+  const selectUser  = document.getElementById('select-user-db');
+  const userSection = document.getElementById('user-db-section');
+  const deleteBtn   = document.getElementById('btn-delete-user-db');
+
   if (!selectBasic || !selectTofl) return;
+
+  const BUILTIN_KEYS = new Set(Object.keys(DEFAULT_DATABASES));
 
   selectBasic.innerHTML = '<option value="" style="background:#1e1b4b;color:#fff;">선택하기...</option>';
   selectTofl.innerHTML  = '<option value="" style="background:#1e1b4b;color:#fff;">선택하기...</option>';
+  if (selectUser) selectUser.innerHTML = '<option value="" style="background:#1e1b4b;color:#fff;">선택하기...</option>';
 
   const keys = [];
   for (let i = 0; i < localStorage.length; i++) {
@@ -1493,6 +1498,8 @@ function refreshDBList(textarea) {
   }
   keys.sort((a, b) => a.localeCompare(b, 'ko'));
 
+  let hasUserDB = false;
+
   keys.forEach(title => {
     const opt = document.createElement('option');
     opt.value = title;
@@ -1502,15 +1509,32 @@ function refreshDBList(textarea) {
 
     if (title.startsWith('토플')) {
       selectTofl.appendChild(opt);
-    } else {
+    } else if (BUILTIN_KEYS.has(title)) {
       selectBasic.appendChild(opt);
+    } else {
+      // 사용자가 직접 추가한 단어장
+      if (selectUser) selectUser.appendChild(opt);
+      hasUserDB = true;
     }
   });
 
-  function onSelectChange(e, otherSelect) {
+  // "내 단어장" 섹션 표시 여부
+  if (userSection) {
+    userSection.style.display = hasUserDB ? 'block' : 'none';
+  }
+
+  // 공통 선택 핸들러 — 한 드롭다운 선택 시 나머지 초기화
+  function onSelectChange(e, others) {
     const selectedTitle = e.target.value;
+    others.forEach(sel => { if (sel) sel.value = ''; });
+
+    // 삭제 버튼: 내 단어장 드롭다운에서 선택했을 때만 표시
+    if (deleteBtn) {
+      const isUserSelect = (e.target === selectUser);
+      deleteBtn.style.display = (isUserSelect && selectedTitle) ? 'block' : 'none';
+    }
+
     if (!selectedTitle) return;
-    otherSelect.value = '';
     const content = localStorage.getItem(`vocab_file_${selectedTitle}`);
     if (content) {
       textarea.value = content.trim();
@@ -1518,8 +1542,27 @@ function refreshDBList(textarea) {
     }
   }
 
-  selectBasic.onchange = (e) => onSelectChange(e, selectTofl);
-  selectTofl.onchange  = (e) => onSelectChange(e, selectBasic);
+  selectBasic.onchange = (e) => onSelectChange(e, [selectTofl, selectUser]);
+  selectTofl.onchange  = (e) => onSelectChange(e, [selectBasic, selectUser]);
+  if (selectUser) {
+    selectUser.onchange = (e) => onSelectChange(e, [selectBasic, selectTofl]);
+  }
+
+  // 삭제 버튼 핸들러
+  if (deleteBtn) {
+    deleteBtn.onclick = () => {
+      const selectedTitle = selectUser ? selectUser.value : '';
+      if (!selectedTitle) return;
+      if (confirm(`"${selectedTitle}" 단어장을 삭제하시겠습니까?`)) {
+        localStorage.removeItem(`vocab_file_${selectedTitle}`);
+        if (selectUser) selectUser.value = '';
+        deleteBtn.style.display = 'none';
+        textarea.value = '';
+        textarea.dispatchEvent(new Event('input'));
+        refreshDBList(textarea);
+      }
+    };
+  }
 }
 
 // =============================================
