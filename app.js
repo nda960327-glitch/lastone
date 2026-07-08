@@ -205,6 +205,7 @@ mail [n] 우편물 / [v] 발송하다
 coal [n] 석탄`.trim();
 
 // ---- 상태 (State) ----
+let isDictationMode = false;
 const App = {
   words:             [],   // 전체 단어 객체 배열
   testPool:          [],   // 현재 라운드 테스트 풀 (오답만 남음)
@@ -526,6 +527,24 @@ function initInputView() {
       reader.readAsText(file, 'UTF-8');
     };
   }
+
+  // Dictation 모드 테스트 시작
+  document.getElementById('btn-dictation').onclick = () => {
+    const textarea = document.getElementById('word-input');
+    const words = parseWords(textarea.value);
+    if (words.length === 0) {
+      alert('단어장을 선택해주세요.');
+      return;
+    }
+    App.words = words;
+    isDictationMode = true;
+    App.round = 4;
+    App.phase = 'TEST';
+    App.testPool = App.words.slice(0, 200);
+    App.currentTestIndex = 0;
+    showView('view-test');
+    runTestRound();
+  };
 
   // 테스트 시작
   document.getElementById('btn-start').onclick = () => {
@@ -1844,17 +1863,45 @@ async function runTestRound() {
     posHintEl.classList.add('hidden');
     document.getElementById('test-meanings').innerHTML = '';
 
-    document.getElementById('reveal-zone').classList.add('hidden');
-    document.getElementById('answer-zone').classList.add('hidden');
+    if (isDictationMode) {
+      document.getElementById('test-word').classList.add('hidden');
+      document.querySelector('.ox-buttons').classList.add('hidden');
+      
+      // 뜻 숨김 상태로 시작
+      document.getElementById('reveal-zone').classList.remove('hidden');
+      document.getElementById('answer-zone').classList.add('hidden');
+      document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings);
+      
+      document.getElementById('dictation-zone').classList.remove('hidden');
+      
+      // 뜻 확인하기 클릭 시 뜻 노출
+      const btnReveal = document.getElementById('btn-reveal');
+      if (btnReveal) {
+        btnReveal.onclick = () => {
+          document.getElementById('reveal-zone').classList.add('hidden');
+          document.getElementById('answer-zone').classList.remove('hidden');
+        };
+      }
+    } else {
+      document.getElementById('test-word').classList.remove('hidden');
+      const oxBtns = document.querySelector('.ox-buttons');
+      if (oxBtns) oxBtns.classList.remove('hidden');
+      const dicZone = document.getElementById('dictation-zone');
+      if (dicZone) dicZone.classList.add('hidden');
+      document.getElementById('reveal-zone').classList.add('hidden');
+      document.getElementById('answer-zone').classList.add('hidden');
+    }
 
     const listenZone = document.getElementById('test-listening-zone');
-    if (listenZone) {
+    if (listenZone && !isDictationMode) {
       listenZone.classList.remove('hidden');
     }
 
     speak(wordObj.word);
 
-    await sleep(2000);
+    if (!isDictationMode) {
+      await sleep(2000);
+    }
 
     if (listenZone) {
       listenZone.classList.add('hidden');
@@ -1865,26 +1912,35 @@ async function runTestRound() {
       btnSpeak.onclick = () => speak(wordObj.word);
     }
     posHintEl.textContent = `품사 ${wordObj.meanings.length}개`;
-    posHintEl.classList.remove('hidden');
+    if (!isDictationMode) {
+      posHintEl.classList.remove('hidden');
+    }
     document.getElementById('reveal-zone').classList.remove('hidden');
-    startWordTimer(15000, handleWordTimeout);
+    if (!isDictationMode) {
+      startWordTimer(15000, handleWordTimeout);
+    }
 
     // 동적 가변 타이머 로직 (Fast-Failing)
     // 기준 타임아웃(ms) = 5000 + ((wordObj.meanings.length - 1) * 2000)
     const dynamicTimeoutMs = 5000 + ((wordObj.meanings.length - 1) * 2000);
 
     let autoRevealTriggered = false;
-    let autoRevealTimeout = setTimeout(() => {
-      autoRevealTriggered = true;
-      const fillEl = document.getElementById('test-timer-fill');
-      if (fillEl) fillEl.classList.add('timer-warning');
-      
-      const btnReveal = document.getElementById('btn-reveal');
-      if (btnReveal) btnReveal.click(); // 강제 오픈
-    }, dynamicTimeoutMs);
+    let autoRevealTimeout = null;
+    let revealResult = 'O'; 
 
-    const revealResult = await waitForRevealOrPrev();
-    clearTimeout(autoRevealTimeout);
+    if (!isDictationMode) {
+      autoRevealTimeout = setTimeout(() => {
+        autoRevealTriggered = true;
+        const fillEl = document.getElementById('test-timer-fill');
+        if (fillEl) fillEl.classList.add('timer-warning');
+        
+        const btnReveal = document.getElementById('btn-reveal');
+        if (btnReveal) btnReveal.click(); // 강제 오픈
+      }, dynamicTimeoutMs);
+
+      revealResult = await waitForRevealOrPrev();
+      if (autoRevealTimeout) clearTimeout(autoRevealTimeout);
+    }
 
     if (revealResult === 'PREV') {
       stopWordTimer();
@@ -1910,9 +1966,11 @@ async function runTestRound() {
       continue;
     }
 
-    document.getElementById('reveal-zone').classList.add('hidden');
-    document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings);
-    document.getElementById('answer-zone').classList.remove('hidden');
+    if (!isDictationMode) {
+      document.getElementById('reveal-zone').classList.add('hidden');
+      document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings);
+      document.getElementById('answer-zone').classList.remove('hidden');
+    }
 
     setOXDisabled(false);
 
@@ -1921,7 +1979,12 @@ async function runTestRound() {
       document.getElementById('btn-correct').disabled = true;
     }
 
-    const result = await waitForOXOrPrev();
+    let result = 'O';
+    if (isDictationMode) {
+      result = await waitForDictationOrPrev(wordObj);
+    } else {
+      result = await waitForOXOrPrev();
+    }
     stopWordTimer();
     setOXDisabled(true);
 
@@ -1947,9 +2010,11 @@ async function runTestRound() {
       wordObj.passed = true;
       wordObj.streak = (wordObj.streak || 0) + 1; // 연속 정답 횟수 증가
       correctThisRound++;
-    } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT') {
-      wordObj.attempts++;
-      wordObj.streak = 0; // 강등
+    } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT' || result === 'X_DICTATION') {
+      if (result !== 'X_DICTATION') {
+        wordObj.attempts++;
+        wordObj.streak = 0; // 강등
+      }
       wrongThisRound.push(wordObj);
     }
     // PREV—already handled above
@@ -1964,6 +2029,83 @@ async function runTestRound() {
 }
 
 let oxResolver = null;
+
+function waitForDictationOrPrev(wordObj) {
+  return new Promise(resolve => {
+    oxResolver = resolve; // Reusing oxResolver for PREV button support
+    
+    const inputEl = document.getElementById('dictation-input');
+    const feedbackEl = document.getElementById('dictation-feedback');
+    const submitBtn = document.getElementById('btn-dictation-submit');
+    const btnPrev = document.getElementById('btn-prev-word');
+    
+    if (btnPrev) {
+      btnPrev.onclick = () => {
+        if (oxResolver) { oxResolver('PREV'); oxResolver = null; }
+      };
+    }
+
+    inputEl.value = '';
+    inputEl.style.borderColor = 'rgba(255,255,255,0.2)';
+    feedbackEl.textContent = '';
+    feedbackEl.style.color = '';
+    inputEl.focus();
+
+    let failedCount = 0;
+
+    const checkAnswer = () => {
+      const val = inputEl.value.trim().toLowerCase();
+      const ans = wordObj.word.trim().toLowerCase();
+      
+      if (val === ans) {
+        window.speechSynthesis.cancel(); // TTS 즉시 중단
+        inputEl.style.borderColor = '#10b981'; // Green
+        feedbackEl.textContent = '정답!';
+        feedbackEl.style.color = '#10b981';
+        setTimeout(() => {
+          if (oxResolver) {
+            oxResolver(failedCount > 0 ? 'X_DICTATION' : 'O');
+            oxResolver = null;
+          }
+        }, 150);
+      } else {
+        // 오답 강제 제어 (Lock)
+        if (failedCount === 0) {
+          wordObj.attempts = (wordObj.attempts || 0) + 1;
+          wordObj.streak = 0;
+          if (typeof saveProgress === 'function') saveProgress();
+        }
+        
+        failedCount++;
+        
+        // Error sound
+        const audio = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
+        audio.play().catch(e=>console.log(e));
+        
+        inputEl.style.borderColor = '#ef4444'; // Red
+        if (failedCount === 1) {
+          feedbackEl.innerHTML = '틀렸습니다. 다시 한 번 시도해 보세요!';
+          feedbackEl.style.color = '#ef4444';
+          inputEl.value = ''; // 1회 틀렸을 때 입력창 비워주기
+        } else {
+          feedbackEl.innerHTML = `정답: <span style="color:#ef4444;">${wordObj.word}</span>`;
+          feedbackEl.style.color = '#fff';
+        }
+      }
+    };
+
+    inputEl.onkeydown = (e) => {
+      if (e.key === 'Enter') {
+        checkAnswer();
+      }
+    };
+    
+    if (submitBtn) {
+      submitBtn.onclick = checkAnswer;
+    }
+  });
+}
+
 function waitForOXOrPrev() {
   return new Promise(resolve => {
     oxResolver = resolve;
@@ -2087,90 +2229,55 @@ function showFinalResult() {
   clearProgress();
   showView('view-final');
 
-  const all        = App.words;
-  const hardWords2 = all.filter(w => w.attempts >= 2);
-  const hardWords3 = all.filter(w => w.attempts >= 3);
-
-  document.getElementById('final-total').textContent  = all.length;
-  document.getElementById('final-rounds').textContent = App.round;
-  
-  const elHard2 = document.getElementById('final-hard');
-  if (elHard2) elHard2.textContent = hardWords2.length;
-  const elHard3 = document.getElementById('final-hard-3');
-  if (elHard3) elHard3.textContent = hardWords3.length;
+  const all = App.words;
+  const wrongWords = all.filter(w => w.attempts > 0);
 
   const tableSection = document.getElementById('table-section');
-  document.getElementById('btn-toggle-table').onclick = () => {
-    tableSection.classList.toggle('hidden');
-  };
-
-  const btnRetry2 = document.getElementById('btn-retry-hard');
-  if (btnRetry2) {
-    if (hardWords2.length > 0) {
-      btnRetry2.classList.remove('hidden');
-      btnRetry2.innerHTML = `🔁 2회↑ 오답 재시험 (${hardWords2.length}개)`;
-      btnRetry2.onclick = () => {
-        App.words    = hardWords2.map(w => ({ ...w, attempts: 0, passed: false }));
-        App.testPool = [];
-        App.round    = 1;
-        startTest();
-      };
-    } else {
-      btnRetry2.classList.add('hidden');
-    }
-  }
-
-  const btnRetry3 = document.getElementById('btn-retry-hard-3');
-  if (btnRetry3) {
-    if (hardWords3.length > 0) {
-      btnRetry3.classList.remove('hidden');
-      btnRetry3.innerHTML = `🔥 3회↑ 오답 재시험 (${hardWords3.length}개)`;
-      btnRetry3.onclick = () => {
-        App.words    = hardWords3.map(w => ({ ...w, attempts: 0, passed: false }));
-        App.testPool = [];
-        App.round    = 1;
-        startTest();
-      };
-    } else {
-      btnRetry3.classList.add('hidden');
-    }
-  }
+  if (tableSection) tableSection.classList.remove('hidden');
 
   document.getElementById('btn-download-csv').onclick = () => {
-    let csv = '\ufeff번호,단어,뜻,오답 시도 횟수,통과여부\n';
-    all.forEach((w, idx) => {
+    let csv = '\ufeff번호,단어,뜻,오답 시도 횟수\n';
+    wrongWords.forEach((w, idx) => {
       const meaningsStr = w.meanings.map(m => `[${m.pos}] ${m.meaning}`).join(' / ');
-      csv += `${idx + 1},"${w.word}","${meaningsStr}",${w.attempts},${w.passed ? 'O' : 'X'}\n`;
+      csv += `${idx + 1},"${w.word}","${meaningsStr}",${w.attempts}\n`;
     });
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `VocabMaster_성적표_Round${App.round}.csv`;
+    a.download = `VocabMaster_오답성적표.csv`;
     a.click();
   };
 
   const tbody = document.getElementById('result-tbody');
   tbody.innerHTML = '';
-  const sorted = [...all].sort((a, b) => b.attempts - a.attempts);
-  sorted.forEach((w, idx) => {
+  
+  if (wrongWords.length === 0) {
     const tr = document.createElement('tr');
-    if (w.attempts >= 3) {
-      tr.style.background = 'rgba(245, 158, 11, 0.15)';
-    } else if (w.attempts === 2) {
-      tr.style.background = 'rgba(239, 68, 68, 0.08)';
-    }
-    const meaningsStr = w.meanings.map(m => `<span class="pos-badge ${getPosClass(m.pos)}">[${esc(m.pos)}]</span> ${esc(m.meaning)}`).join('<br>');
-    tr.innerHTML = `
-      <td>${idx + 1}</td>
-      <td style="font-weight: 700;">${esc(w.word)}</td>
-      <td style="text-align: left;">${meaningsStr}</td>
-      <td style="font-weight: bold; color: ${w.attempts >= 3 ? '#f59e0b' : w.attempts === 2 ? 'var(--red)' : w.attempts > 0 ? 'var(--text1)' : 'var(--text2)'}">${w.attempts}회</td>
-    `;
+    tr.innerHTML = `<td colspan="4" style="text-align:center; padding: 30px; font-weight:bold; color:#10b981; font-size: 18px;">🎉 오답이 한 개도 없습니다. 완벽합니다! 🎉</td>`;
     tbody.appendChild(tr);
-  });
+  } else {
+    const sorted = [...wrongWords].sort((a, b) => b.attempts - a.attempts);
+    sorted.forEach((w, idx) => {
+      const tr = document.createElement('tr');
+      if (w.attempts >= 3) {
+        tr.style.background = 'rgba(245, 158, 11, 0.15)';
+      } else if (w.attempts === 2) {
+        tr.style.background = 'rgba(239, 68, 68, 0.08)';
+      }
+      const meaningsStr = w.meanings.map(m => `<span class="pos-badge ${getPosClass(m.pos)}">[${esc(m.pos)}]</span> ${esc(m.meaning)}`).join('<br>');
+      tr.innerHTML = `
+        <td>${idx + 1}</td>
+        <td style="font-weight: 700;">${esc(w.word)}</td>
+        <td style="text-align: left;">${meaningsStr}</td>
+        <td style="font-weight: bold; color: ${w.attempts >= 3 ? '#f59e0b' : w.attempts === 2 ? 'var(--red)' : 'var(--text1)'}">${w.attempts}회</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
 
   document.getElementById('btn-restart').onclick = () => {
+    isDictationMode = false; // restart
     App.words    = [];
     App.testPool = [];
     App.round    = 1;
@@ -2459,6 +2566,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof stopWordTimer === 'function') stopWordTimer();
       if (typeof revealResolver === 'function' && revealResolver) { revealResolver('PREV'); revealResolver = null; }
       if (typeof oxResolver === 'function' && oxResolver) { oxResolver('PREV'); oxResolver = null; }
+      isDictationMode = false; // reset
       App.words    = [];
       App.testPool = [];
       App.round    = 1;
