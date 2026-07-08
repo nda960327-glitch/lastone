@@ -2195,6 +2195,25 @@ async function resumeTestRound(startIndex) {
 document.addEventListener('DOMContentLoaded', () => {
   initInputView();
 
+  // ── 전체화면 진입 (상태바/배터리/시계 숨기기) ──
+  // 브라우저에서 접속 시 첫 터치/클릭으로 Fullscreen API 호출
+  function tryFullscreen() {
+    const el = document.documentElement;
+    const rfs = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+    if (rfs && !document.fullscreenElement && !document.webkitFullscreenElement) {
+      rfs.call(el).catch(() => {});
+    }
+    document.removeEventListener('click', tryFullscreen);
+    document.removeEventListener('touchstart', tryFullscreen);
+  }
+  // PWA standalone 모드가 아닐 때만 (PWA는 manifest display:fullscreen으로 자동 처리)
+  if (!window.matchMedia('(display-mode: fullscreen)').matches &&
+      !window.matchMedia('(display-mode: standalone)').matches &&
+      !window.navigator.standalone) {
+    document.addEventListener('click', tryFullscreen, { once: true });
+    document.addEventListener('touchstart', tryFullscreen, { once: true });
+  }
+
   const saved = localStorage.getItem('vocab_trainer_progress');
   if (saved) {
     setTimeout(() => {

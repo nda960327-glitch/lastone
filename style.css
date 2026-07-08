@@ -38,6 +38,11 @@ body {
   font-family: 'Inter', 'Noto Sans KR', sans-serif;
   color: var(--text1);
   min-height: 100vh;
+  /* 전체화면 시 상태바/노치 영역까지 배경 확장 */
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
   background:
     radial-gradient(ellipse 60% 50% at 15% 40%, rgba(79,158,255,.07) 0%, transparent 70%),
     radial-gradient(ellipse 50% 40% at 85% 20%, rgba(168,85,247,.07) 0%, transparent 70%),
