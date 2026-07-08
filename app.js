@@ -234,7 +234,7 @@ function saveWordStates() {
   App.words.forEach((w, idx) => {
     // 단어+인덱스를 키로 사용하여 동일 단어가 여러 개 있어도 구분
     const wordKey = `${idx}_${w.word}`;
-    states[wordKey] = { passed: w.passed, attempts: w.attempts };
+    states[wordKey] = { passed: w.passed, attempts: w.attempts, streak: w.streak || 0 };
   });
   localStorage.setItem(key, JSON.stringify(states));
 }
@@ -252,6 +252,7 @@ function loadWordStates(words) {
       if (states[wordKey]) {
         w.passed = states[wordKey].passed;
         w.attempts = states[wordKey].attempts;
+        w.streak = states[wordKey].streak || 0;
       }
     });
   } catch (e) {
@@ -315,7 +316,8 @@ function parseWords(text) {
         word,
         meanings,
         passed: false,
-        attempts: 0
+        attempts: 0,
+        streak: 0
       });
     }
   }
@@ -1708,12 +1710,12 @@ function startWeaknessReview(startIdx, endIdx) {
   loadWordStates(allWords);
   const rangeWords = allWords.slice(startIdx, endIdx);
 
-  // 3. 오답 필터링: passed === false OR attempts > 0
-  const weakWords = rangeWords.filter(w => !w.passed || w.attempts > 0);
+  // 3. 오답 필터링: streak < 2 인 단어만 (연속 2번 맞춘 단어는 완벽 암기로 간주해 영구 제외)
+  const weakWords = rangeWords.filter(w => (w.streak || 0) < 2);
 
   // 4. 엣지 케이스: 취약 단어 0개
   if (weakWords.length === 0) {
-    alert('🎉 완벽합니다! 해당 구간은 이미 완벽하게 학습하셨습니다.');
+    alert('🎉 완벽합니다! 해당 구간은 마스터하셨습니다.');
     return;
   }
 
@@ -1886,6 +1888,7 @@ async function runTestRound() {
         const prevWord = pool[i - 1];
         if (prevWord.passed) {
           prevWord.passed = false;
+          prevWord.streak = Math.max(0, (prevWord.streak || 1) - 1);
           correctThisRound = Math.max(0, correctThisRound - 1);
         } else {
           prevWord.attempts = Math.max(0, prevWord.attempts - 1);
@@ -1898,9 +1901,11 @@ async function runTestRound() {
 
     if (result === 'O') {
       wordObj.passed = true;
+      wordObj.streak = (wordObj.streak || 0) + 1; // 연속 정답 횟수 증가
       correctThisRound++;
     } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT') {
       wordObj.attempts++;
+      wordObj.streak = 0; // 강등
       wrongThisRound.push(wordObj);
     }
     // PREV—already handled above
@@ -2258,6 +2263,7 @@ async function resumeTestRound(startIndex) {
     if (revealResult === 'SKIP' || revealResult === 'TIMEOUT') {
       stopWordTimer();
       wordObj.attempts++;
+      wordObj.streak = 0; // 강등
       wrongThisRound.push(wordObj);
       window.speechSynthesis.cancel();
       continue;
@@ -2280,6 +2286,7 @@ async function resumeTestRound(startIndex) {
         const prevWord = pool[i - 1];
         if (prevWord.passed) {
           prevWord.passed = false;
+          prevWord.streak = Math.max(0, (prevWord.streak || 1) - 1);
           correctThisRound = Math.max(0, correctThisRound - 1);
         } else {
           prevWord.attempts = Math.max(0, prevWord.attempts - 1);
@@ -2292,9 +2299,11 @@ async function resumeTestRound(startIndex) {
 
     if (result === 'O') {
       wordObj.passed = true;
+      wordObj.streak = (wordObj.streak || 0) + 1; // 연속 정답 횟수 증가
       correctThisRound++;
     } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT') {
       wordObj.attempts++;
+      wordObj.streak = 0; // 강등
       wrongThisRound.push(wordObj);
     }
 
