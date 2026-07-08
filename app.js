@@ -2171,4 +2171,20 @@ document.addEventListener('DOMContentLoaded', () => {
       infoModal.classList.add('hidden');
     };
   }
+
+  // 홈으로 이동 버튼 핸들러
+  const goHomeHandler = () => {
+    if (confirm('홈으로 이동하시겠습니까? (현재 진행 중인 학습 데이터는 초기화됩니다)')) {
+      App.words    = [];
+      App.testPool = [];
+      App.round    = 1;
+      const wi = document.getElementById('word-input');
+      if (wi) wi.value = '';
+      showView('view-input');
+    }
+  };
+  const btnHomeTest = document.getElementById('btn-home-test');
+  if (btnHomeTest) btnHomeTest.onclick = goHomeHandler;
+  const btnHomeResult = document.getElementById('btn-home-result');
+  if (btnHomeResult) btnHomeResult.onclick = goHomeHandler;
 });
