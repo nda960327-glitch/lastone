@@ -1678,9 +1678,10 @@ function startTest() {
     return;
   }
 
-  // ── localStorage에서 영구 저장된 단어 상태 복원 ──
+  // ── localStorage에서 영구 저장된 단어 상태 복원 및 임시 플래그 리셋 ──
   if (App.round === 1) {
     loadWordStates(App.words);
+    App.words.forEach(w => w.passed = false);
   }
 
   // ▶ Round 1은 전체 단어 셔플, Round 2+는 이전 라운드의 오답만 사용
@@ -1710,7 +1711,8 @@ function startWeaknessReview(startIdx, endIdx) {
   loadWordStates(allWords);
   const rangeWords = allWords.slice(startIdx, endIdx);
 
-  // 3. 오답 필터링: streak < 2 인 단어만 (연속 2번 맞춘 단어는 완벽 암기로 간주해 영구 제외)
+  // 3. 임시 플래그(passed) 초기화 및 오답 필터링: streak < 2 인 단어만 추출
+  rangeWords.forEach(w => w.passed = false);
   const weakWords = rangeWords.filter(w => (w.streak || 0) < 2);
 
   // 4. 엣지 케이스: 취약 단어 0개
