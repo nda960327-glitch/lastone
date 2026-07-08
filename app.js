@@ -290,14 +290,28 @@ function esc(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+// 품사별 색상 구분을 위한 CSS 클래스 반환
+function getPosClass(pos) {
+  const p = pos.toLowerCase().replace(/\./g, '').trim();
+  if (['n', 'noun', '명', '명사'].includes(p)) return 'pos-n';
+  if (['v', 'verb', '동', '동사'].includes(p)) return 'pos-v';
+  if (['a', 'adj', 'adjective', '형', '형용사'].includes(p)) return 'pos-a';
+  if (['ad', 'adv', 'adverb', '부', '부사'].includes(p)) return 'pos-ad';
+  if (['prep', 'preposition', '전', '전치사'].includes(p)) return 'pos-prep';
+  if (['conj', 'conjunction', '접', '접속사'].includes(p)) return 'pos-conj';
+  if (['phr', 'phrase', 'idiom', '숙어', '구', '관용구'].includes(p)) return 'pos-phr';
+  return 'pos-default';
+}
+
 // 뜻 HTML 생성
 function meaningHTML(meanings) {
-  return meanings.map(m =>
-    `<div class="meaning-line">
-       <span class="pos-badge">[${esc(m.pos)}]</span>
+  return meanings.map(m => {
+    const posClass = getPosClass(m.pos);
+    return `<div class="meaning-line">
+       <span class="pos-badge ${posClass}">[${esc(m.pos)}]</span>
        <span>${esc(m.meaning)}</span>
-     </div>`
-  ).join('');
+     </div>`;
+  }).join('');
 }
 
 // =============================================
