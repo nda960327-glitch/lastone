@@ -1730,33 +1730,34 @@ function startTest() {
 
 // ── 취약점 집중 복습 시작 ──
 function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
-  // 1. 안전성: 기존 타이머/음성 초기화
-  stopWordTimer();
-  window.speechSynthesis.cancel();
-
-  // 2. 해당 구간의 전체 단어 로드
+  // 1. 해당 구간의 전체 단어 로드
   const allWords = parseWords(document.getElementById('word-input').value);
   // localStorage에서 영구 상태 복원
   loadWordStates(allWords);
   const rangeWords = allWords.slice(startIdx, endIdx);
 
-  // 3. 임시 플래그(passed) 초기화 및 오답 필터링
+  // 2. 임시 플래그(passed) 무시 및 오답 필터링
+  // passed === true 상태와 무관하게 오로지 attempts 이력으로만 필터링합니다.
   rangeWords.forEach(w => w.passed = false);
   const weakWords = rangeWords.filter(w => {
     if (isFinalBoss) {
-      // 최종 보스전: 과거에 2번 이상 틀렸던 단어
-      return (w.attempts || 0) >= 2;
+      // 대그룹 총정리: 과거에 3번 이상 틀린 단어
+      return (w.attempts || 0) >= 3;
     } else {
-      // 중그룹 복습: 과거에 2번 이상 틀렸던 단어
+      // 중그룹 복습: 과거에 2번 이상 틀린 단어
       return (w.attempts || 0) >= 2;
     }
   });
 
-  // 4. 엣지 케이스: 취약 단어 0개
+  // 3. 방어 로직: 취약 단어 0개일 경우 처리
   if (weakWords.length === 0) {
-    alert('🎉 완벽합니다! 복습할 취약 단어가 없습니다.');
+    alert('🎉 대단합니다! 복습할 취약 단어가 없습니다.');
     return;
   }
+
+  // 4. 테스트 화면 진입 전 상태 초기화
+  stopWordTimer();
+  window.speechSynthesis.cancel();
 
   // 5. 기존 테스트 루프 재사용
   App.words = rangeWords;         // 전체 구간 참조 유지
