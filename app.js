@@ -1841,7 +1841,7 @@ function showFinalResult() {
   showView('view-final');
 
   const all       = App.words;
-  const hardWords = all.filter(w => w.attempts >= 3);
+  const hardWords = all.filter(w => w.attempts >= 2);
 
   document.getElementById('final-total').textContent  = all.length;
   document.getElementById('final-rounds').textContent = App.round;
@@ -1884,7 +1884,7 @@ function showFinalResult() {
   const sorted = [...all].sort((a, b) => b.attempts - a.attempts);
   sorted.forEach((w, idx) => {
     const tr = document.createElement('tr');
-    if (w.attempts >= 3) {
+    if (w.attempts >= 2) {
       tr.style.background = 'rgba(239, 68, 68, 0.08)';
     }
     const meaningsStr = w.meanings.map(m => `<span class="pos-badge">[${esc(m.pos)}]</span> ${esc(m.meaning)}`).join('<br>');
@@ -1892,7 +1892,7 @@ function showFinalResult() {
       <td>${idx + 1}</td>
       <td style="font-weight: 700;">${esc(w.word)}</td>
       <td style="text-align: left;">${meaningsStr}</td>
-      <td style="font-weight: bold; color: ${w.attempts >= 3 ? 'var(--red)' : w.attempts > 0 ? 'var(--text1)' : 'var(--text2)'}">${w.attempts}회</td>
+      <td style="font-weight: bold; color: ${w.attempts >= 2 ? 'var(--red)' : w.attempts > 0 ? 'var(--text1)' : 'var(--text2)'}">${w.attempts}회</td>
     `;
     tbody.appendChild(tr);
   });
