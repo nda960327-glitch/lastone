@@ -214,7 +214,51 @@ const App = {
   paused:            false,
   resumeFn:          null,
   currentTestIndex:  0,    // 복원용: 현재 라운드에서 진행 중인 단어 인덱스
+  currentDBName:     '',   // 현재 선택된 단어장 이름 (영구 저장 키로 사용)
 };
+
+// =============================================
+// 단어 상태 영구 저장 (localStorage) — 세션 간 passed/attempts 유지
+// =============================================
+
+// 저장 키: vocab_word_states_{단어장이름}
+function getWordStatesKey() {
+  return App.currentDBName ? `vocab_word_states_${App.currentDBName}` : '';
+}
+
+// 현재 App.words의 passed/attempts 상태를 localStorage에 영구 저장
+function saveWordStates() {
+  const key = getWordStatesKey();
+  if (!key || App.words.length === 0) return;
+  const states = {};
+  App.words.forEach((w, idx) => {
+    // 단어+인덱스를 키로 사용하여 동일 단어가 여러 개 있어도 구분
+    const wordKey = `${idx}_${w.word}`;
+    states[wordKey] = { passed: w.passed, attempts: w.attempts };
+  });
+  localStorage.setItem(key, JSON.stringify(states));
+}
+
+// localStorage에서 단어 상태를 복원하여 words 배열에 적용
+function loadWordStates(words) {
+  const key = getWordStatesKey();
+  if (!key) return words;
+  const raw = localStorage.getItem(key);
+  if (!raw) return words;
+  try {
+    const states = JSON.parse(raw);
+    words.forEach((w, idx) => {
+      const wordKey = `${idx}_${w.word}`;
+      if (states[wordKey]) {
+        w.passed = states[wordKey].passed;
+        w.attempts = states[wordKey].attempts;
+      }
+    });
+  } catch (e) {
+    console.warn('단어 상태 복원 실패:', e);
+  }
+  return words;
+}
 
 // =============================================
 // 유틸리티
@@ -336,7 +380,7 @@ function initInputView() {
 
   textarea.addEventListener('input', updateCount);
 
-  // 동적 20단위 학습 구간 리스트 렌더링
+  // ── 동적 학습 구간 렌더링 (소그룹 + 중그룹 취약점 + 대그룹 총정리) ──
   function renderRangeButtons(words) {
     const panel = document.getElementById('range-select-panel');
     const listContainer = document.getElementById('range-buttons-list');
@@ -353,52 +397,83 @@ function initInputView() {
     panel.classList.remove('hidden');
     listContainer.innerHTML = '';
 
-    const step = 20;
-    const ranges = [];
+    const SMALL = 20;  // 소그룹 단위
+    const MID   = 40;  // 중그룹 단위
 
-    // 1. 순차 분할 구간 정의 (예: 1~20, 21~40...)
-    for (let i = 0; i < n; i += step) {
+    // ── 섹션 1: 📖 소그룹 새 학습 (20단어 단위) ──
+    const titleNew = document.createElement('div');
+    titleNew.className = 'range-section-title new-learn';
+    titleNew.textContent = '📖 소그룹 새 학습';
+    listContainer.appendChild(titleNew);
+
+    const newGrid = document.createElement('div');
+    newGrid.className = 'range-buttons-grid';
+    listContainer.appendChild(newGrid);
+
+    for (let i = 0; i < n; i += SMALL) {
       const start = i + 1;
-      const end = Math.min(i + step, n);
-      ranges.push({
-        label: `${start} ~ ${end}`,
-        startIdx: i,
-        endIdx: end,
-        isCumulative: false
-      });
+      const end = Math.min(i + SMALL, n);
+      const count = end - i;
 
-      // 2. 누적 구간 정의 (2구간 이상일 때부터 앞의 누적 복습 구간 생성: 1~40, 1~60...)
-      if (i > 0) {
-        ranges.push({
-          label: `1 ~ ${end} (누적)`,
-          startIdx: 0,
-          endIdx: end,
-          isCumulative: true
-        });
-      }
-    }
-
-    // 3. 버튼 렌더링 및 클릭 이벤트 매핑
-    ranges.forEach(r => {
       const btn = document.createElement('button');
-      btn.className = `btn-range-item${r.isCumulative ? ' cumulative' : ''}`;
-      
-      const count = r.endIdx - r.startIdx;
+      btn.className = 'btn-range-item';
       btn.innerHTML = `
-        <span class="range-btn-label">${r.label}</span>
+        <span class="range-btn-label">${start} ~ ${end}</span>
         <span class="range-btn-count">${count}개 단어</span>
       `;
-
       btn.onclick = () => {
-        const slicedWords = words.slice(r.startIdx, r.endIdx);
+        const slicedWords = words.slice(i, end);
         App.words = slicedWords;
         App.round = 1;
         App.testPool = [];
         startTest();
       };
+      newGrid.appendChild(btn);
+    }
 
-      listContainer.appendChild(btn);
-    });
+    // ── 섹션 2: 🔥 취약점 집중 복습 (40단어 중그룹 + 전체 대그룹) ──
+    const titleReview = document.createElement('div');
+    titleReview.className = 'range-section-title weakness-review';
+    titleReview.textContent = '🔥 취약점 집중 복습';
+    listContainer.appendChild(titleReview);
+
+    const reviewGrid = document.createElement('div');
+    reviewGrid.className = 'range-buttons-grid';
+    listContainer.appendChild(reviewGrid);
+
+    // 중그룹 (40단위 묶음)
+    for (let i = 0; i < n; i += MID) {
+      const start = i + 1;
+      const end = Math.min(i + MID, n);
+      // 마지막 구간이 너무 작으면(20개 미만) 이전 구간에 합산되므로 생략
+      if (end - i < SMALL && i > 0) continue;
+
+      const btn = document.createElement('button');
+      btn.className = 'btn-range-item btn-review weakness-focus';
+      btn.dataset.start = String(i);
+      btn.dataset.end = String(end);
+      btn.innerHTML = `
+        <span class="range-btn-label">${start}~${end} 취약점 복습</span>
+        <span class="range-btn-count">오답만 집중</span>
+      `;
+      btn.onclick = () => startWeaknessReview(i, end);
+      reviewGrid.appendChild(btn);
+    }
+
+    // 대그룹 (전체 하프타임 오답 총정리) — 중그룹이 2개 이상일 때만 표시
+    const midGroupCount = Math.ceil(n / MID);
+    if (midGroupCount >= 2) {
+      const btn = document.createElement('button');
+      btn.className = 'btn-range-item btn-review weakness-focus';
+      btn.dataset.start = '0';
+      btn.dataset.end = String(n);
+      btn.innerHTML = `
+        <span class="range-btn-label">1~${n} 전체 취약점 총정리</span>
+        <span class="range-btn-count">하프타임 오답 정리</span>
+      `;
+      btn.onclick = () => startWeaknessReview(0, n);
+      reviewGrid.appendChild(btn);
+    }
   }
 
   // DB 목록 로딩 (드롭다운 연동)
@@ -1553,6 +1628,8 @@ function refreshDBList(textarea) {
     }
 
     if (!selectedTitle) return;
+    // ── 단어장 이름을 App에 저장 (영구 저장 키로 사용) ──
+    App.currentDBName = selectedTitle;
     const content = localStorage.getItem(`vocab_file_${selectedTitle}`);
     if (content) {
       textarea.value = content.trim();
@@ -1599,6 +1676,11 @@ function startTest() {
     return;
   }
 
+  // ── localStorage에서 영구 저장된 단어 상태 복원 ──
+  if (App.round === 1) {
+    loadWordStates(App.words);
+  }
+
   // ▶ Round 1은 전체 단어 셔플, Round 2+는 이전 라운드의 오답만 사용
   if (App.round === 1) {
     App.testPool = shuffle([...App.words]);
@@ -1611,6 +1693,39 @@ function startTest() {
   showView('view-test');
   document.getElementById('test-round').textContent = App.round;
   
+  runTestRound();
+}
+
+// ── 취약점 집중 복습 시작 ──
+function startWeaknessReview(startIdx, endIdx) {
+  // 1. 안전성: 기존 타이머/음성 초기화
+  stopWordTimer();
+  window.speechSynthesis.cancel();
+
+  // 2. 해당 구간의 전체 단어 로드
+  const allWords = parseWords(document.getElementById('word-input').value);
+  // localStorage에서 영구 상태 복원
+  loadWordStates(allWords);
+  const rangeWords = allWords.slice(startIdx, endIdx);
+
+  // 3. 오답 필터링: passed === false OR attempts > 0
+  const weakWords = rangeWords.filter(w => !w.passed || w.attempts > 0);
+
+  // 4. 엣지 케이스: 취약 단어 0개
+  if (weakWords.length === 0) {
+    alert('🎉 완벽합니다! 해당 구간은 이미 완벽하게 학습하셨습니다.');
+    return;
+  }
+
+  // 5. 기존 테스트 루프 재사용
+  App.words = rangeWords;         // 전체 구간 참조 유지
+  App.testPool = shuffle([...weakWords]);  // 취약 단어만 테스트 풀에
+  App.round = 1;
+  App.currentTestIndex = 0;
+
+  // 6. 테스트 화면 전환 및 루프 시작
+  showView('view-test');
+  document.getElementById('test-round').textContent = App.round;
   runTestRound();
 }
 
@@ -1890,6 +2005,9 @@ function speak(text) {
 // ④ 라운드 결과 화면
 // =============================================
 function showRoundResult(correct, wrong) {
+  // ── 라운드 종료 시 단어 상태 영구 저장 ──
+  saveWordStates();
+
   // X가 0개이면 최종 성적표로
   if (wrong === 0) {
     showFinalResult();
@@ -1917,6 +2035,8 @@ function showRoundResult(correct, wrong) {
 // ⑤ 최종 결과 화면
 // =============================================
 function showFinalResult() {
+  // ── 최종 완료 시 단어 상태 영구 저장 ──
+  saveWordStates();
   clearProgress();
   showView('view-final');
 

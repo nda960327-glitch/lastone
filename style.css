@@ -210,9 +210,15 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   letter-spacing: -0.01em;
 }
 .range-buttons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.range-buttons-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 8px;
+  margin-bottom: 8px;
 }
 .btn-range-item {
   display: flex;
@@ -235,14 +241,36 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   color: #fff;
   transform: translateY(-1px);
 }
-.btn-range-item.cumulative {
-  background: rgba(79, 158, 255, 0.04);
-  border-color: rgba(79, 158, 255, 0.15);
+
+/* ── 취약점 집중 복습 버튼 (Amber/Orange 계열) ── */
+.btn-review.weakness-focus {
+  background: rgba(251, 191, 36, 0.08);
+  border: 1.5px solid rgba(251, 191, 36, 0.35);
+  color: #fbbf24;
 }
-.btn-range-item.cumulative:hover {
-  background: rgba(79, 158, 255, 0.12);
-  border-color: rgba(79, 158, 255, 0.4);
+.btn-review.weakness-focus:hover {
+  background: rgba(251, 191, 36, 0.18);
+  border-color: rgba(251, 191, 36, 0.6);
+  color: #fef08a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.15);
 }
+.btn-review.weakness-focus .range-btn-count {
+  color: rgba(251, 191, 36, 0.7);
+}
+
+/* 섹션 구분 타이틀 */
+.range-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.range-section-title:first-child { margin-top: 0; }
+.range-section-title.new-learn { color: var(--blue); }
+.range-section-title.weakness-review { color: #fbbf24; }
+
 .range-btn-label { font-weight: 700; }
 .range-btn-count {
   font-size: 11px;
