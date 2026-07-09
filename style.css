@@ -1027,8 +1027,10 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   box-shadow: 0 0 15px rgba(244, 63, 94, 0.6) !important;
 }
 
-.btn-o:disabled {
-  opacity: 0.3 !important;
+.btn-o:disabled, .btn-x:disabled {
+  background: #4b5563 !important;
+  color: #9ca3af !important;
+  opacity: 0.7 !important;
   cursor: not-allowed !important;
   transform: none !important;
   box-shadow: none !important;

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v63'; // 캐시 버전 업데이트: 5초 메타인지 강제 타이머 로직 적용
+const CACHE_NAME = 'vocabmaster-v64'; // 캐시 버전 업데이트: 다이내믹 타이머 및 이전 단어 방지 로직
 const ASSETS = [
   '/',
   '/index.html',

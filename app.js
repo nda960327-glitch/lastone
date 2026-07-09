@@ -1850,8 +1850,9 @@ async function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
 
 let activeTimerInterval = null;
 let activeWarningTimeout = null;
+let activeDisableTimeout = null;
 
-function startWordTimer(durationMs, onTimeout) {
+function startWordTimer(totalMs, disableOMs, onDisableO, onTimeout) {
   stopWordTimer();
 
   const wrapper = document.getElementById('timer-bar-wrapper');
@@ -1872,15 +1873,20 @@ function startWordTimer(durationMs, onTimeout) {
     // 브라우저 렌더링 강제 리플로우 (초기화 즉시 반영)
     void fillEl.offsetWidth;
 
-    // 2초(2000ms) 대기 후, 남은 시간 동안 서서히 줄어드는 애니메이션
-    const delayMs = 2000;
-    const shrinkMs = Math.max(0, durationMs - delayMs);
-    fillEl.style.transition = `width ${shrinkMs}ms linear ${delayMs}ms`;
+    // 즉시 남은 시간 동안 서서히 줄어드는 애니메이션 (대기 시간 없음)
+    fillEl.style.transition = `width ${totalMs}ms linear`;
     fillEl.style.width = '0%';
   }
 
-  // 남은 시간이 2초 이하로 떨어지는 시점에 경고 표시 (durationMs - 2000)
-  const warningMs = Math.max(0, durationMs - 2000);
+  // O 버튼 잠금 처리 타이머
+  if (disableOMs > 0) {
+    activeDisableTimeout = setTimeout(() => {
+      if (onDisableO) onDisableO();
+    }, disableOMs);
+  }
+
+  // 남은 시간이 2초 이하로 떨어지는 시점에 경고 표시
+  const warningMs = Math.max(0, totalMs - 2000);
   activeWarningTimeout = setTimeout(() => {
     if (fillEl) fillEl.classList.add('timer-warning');
   }, warningMs);
@@ -1888,7 +1894,7 @@ function startWordTimer(durationMs, onTimeout) {
   activeTimerInterval = setTimeout(() => {
     stopWordTimer();
     if (onTimeout) onTimeout();
-  }, durationMs);
+  }, totalMs);
 }
 
 function stopWordTimer() {
@@ -1899,6 +1905,10 @@ function stopWordTimer() {
   if (activeWarningTimeout) {
     clearTimeout(activeWarningTimeout);
     activeWarningTimeout = null;
+  }
+  if (activeDisableTimeout) {
+    clearTimeout(activeDisableTimeout);
+    activeDisableTimeout = null;
   }
   const wrapper = document.getElementById('timer-bar-wrapper');
   const fillEl = document.getElementById('test-timer-fill');
@@ -2002,7 +2012,11 @@ async function runTestRound() {
 
     speak(wordObj.word);
 
-    if (!isDictationMode) {
+    // [이전 단어 꼼수 방지] 이미 정답/오답 처리가 끝난 단어인지 확인
+    const isAlreadyGraded = !!wordObj._alreadyGraded;
+
+    // Auditory Priming 대기 (이미 채점된 단어는 대기 없음)
+    if (!isDictationMode && !isAlreadyGraded) {
       await sleep(2000);
     }
 
@@ -2020,41 +2034,71 @@ async function runTestRound() {
     }
     document.getElementById('reveal-zone').classList.remove('hidden');
 
-    let autoRevealTriggered = false;
     let revealResult = 'O'; 
+    App.isOButtonLocked = false; // 글로벌 잠금 플래그
 
     if (!isDictationMode) {
-      // 7초 타이머: 2초 대기 + 5초 카운트다운
-      startWordTimer(7000, () => {
-        autoRevealTriggered = true;
-        const btnReveal = document.getElementById('btn-reveal');
-        if (btnReveal) btnReveal.click(); // 강제 오픈
-      });
+      if (!isAlreadyGraded) {
+        // 다이내믹 타이머 설정
+        let totalMs = 7000;
+        let disableOMs = 4000;
+        const mLen = wordObj.meanings.length;
+        if (mLen === 1) {
+          totalMs = 5000;
+          disableOMs = 3000;
+        } else if (mLen === 2) {
+          totalMs = 6000;
+          disableOMs = 4000;
+        }
+
+        startWordTimer(
+          totalMs, 
+          disableOMs, 
+          () => {
+            // O 버튼 비활성화 타임아웃
+            App.isOButtonLocked = true;
+            const btnCorrect = document.getElementById('btn-correct');
+            if (btnCorrect) btnCorrect.disabled = true;
+          },
+          () => {
+            // 전체 타임아웃
+            if (typeof revealResolver === 'function' && revealResolver) {
+              const r = revealResolver; revealResolver = null; r('TIMEOUT');
+            } else if (typeof oxResolver === 'function' && oxResolver) {
+              const r = oxResolver; oxResolver = null; r('TIMEOUT');
+            }
+          }
+        );
+      } else {
+        // 이미 채점된 단어면 타이머 바를 아예 숨기거나 정지 상태로 둠
+        stopWordTimer();
+      }
 
       revealResult = await waitForRevealOrPrev();
     }
 
+    // [이전 단어] 처리: reveal 단계에서 이전 단어 클릭
     if (revealResult === 'PREV') {
       stopWordTimer();
       if (i > 0) {
-        const prevWord = pool[i - 1];
-        if (prevWord.passed) {
-          prevWord.passed = false;
-          correctThisRound = Math.max(0, correctThisRound - 1);
-        } else {
-          prevWord.attempts = Math.max(0, prevWord.attempts - 1);
-          wrongThisRound.pop();
-        }
         i = i - 2;
+      } else {
+        i = -1; // so it loops back to 0
       }
       window.speechSynthesis.cancel();
       continue;
     }
+
+    // 타임아웃 시 강제 오답(X) 처리 및 자동 넘김
     if (revealResult === 'SKIP' || revealResult === 'TIMEOUT') {
       stopWordTimer();
-      wordObj.attempts++;
-      saveWordStates();
-      wrongThisRound.push(wordObj);
+      if (!isAlreadyGraded) {
+        wordObj.attempts++;
+        wordObj.passed = false;
+        wordObj._alreadyGraded = true;
+        saveWordStates();
+        wrongThisRound.push(wordObj);
+      }
       window.speechSynthesis.cancel();
       continue;
     }
@@ -2067,9 +2111,13 @@ async function runTestRound() {
 
     setOXDisabled(false);
 
-    // 강제로 오픈된 경우 O 버튼 잠금 (꼼수 방지)
-    if (autoRevealTriggered) {
+    // 강제 잠금 상태거나 이미 채점된 단어면 O 버튼 잠금
+    if (App.isOButtonLocked || isAlreadyGraded) {
       document.getElementById('btn-correct').disabled = true;
+    }
+    // 이미 채점된 단어는 X 버튼도 잠금
+    if (isAlreadyGraded) {
+      document.getElementById('btn-wrong').disabled = true;
     }
 
     let result = 'O';
@@ -2083,33 +2131,31 @@ async function runTestRound() {
 
     window.speechSynthesis.cancel();
 
+    // [이전 단어] 처리: O/X 단계에서 이전 단어 클릭
     if (result === 'PREV') {
       if (i > 0) {
-        const prevWord = pool[i - 1];
-        if (prevWord.passed) {
-          prevWord.passed = false;
-          correctThisRound = Math.max(0, correctThisRound - 1);
-        } else {
-          prevWord.attempts = Math.max(0, prevWord.attempts - 1);
-          saveWordStates();
-          wrongThisRound.pop();
-        }
         i = i - 2;
+      } else {
+        i = -1;
       }
       continue;
     }
 
-    if (result === 'O') {
-      wordObj.passed = true;
-      correctThisRound++;
-    } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT' || result === 'X_DICTATION') {
-      if (result !== 'X_DICTATION') {
-        wordObj.attempts++;
-        saveWordStates();
+    // [결과 처리]
+    if (!isAlreadyGraded) {
+      if (result === 'O') {
+        wordObj.passed = true;
+        correctThisRound++;
+      } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT' || result === 'X_DICTATION') {
+        if (result !== 'X_DICTATION') {
+          wordObj.attempts++;
+          saveWordStates();
+        }
+        wordObj.passed = false;
+        wrongThisRound.push(wordObj);
       }
-      wrongThisRound.push(wordObj);
+      wordObj._alreadyGraded = true;
     }
-    // PREV—already handled above
 
     await sleep(180);
   }
