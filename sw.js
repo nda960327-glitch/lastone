@@ -1,12 +1,11 @@
-const CACHE_NAME = 'vocabmaster-v54'; // 캐시 버전 업데이트: 앱 리브랜딩 (DOACore)
+const CACHE_NAME = 'vocabmaster-v55'; // 캐시 버전 업데이트: 아이콘 변경
 const ASSETS = [
   '/',
   '/index.html',
   '/style.css',
   '/app.js',
   '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png'
+  '/icon.jpg'
 ];
 
 self.addEventListener('install', (e) => {

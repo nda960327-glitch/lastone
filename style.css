@@ -132,14 +132,17 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   gap: 18px;
   padding: 28px 0 32px;
 }
-.brand-icon {
-  font-size: 52px;
+.brand-icon-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  object-fit: cover;
   filter: drop-shadow(0 4px 16px rgba(79,158,255,.5));
-  animation: iconFloat 3s ease infinite;
+  animation: iconFloat 3s ease-in-out infinite;
 }
 @keyframes iconFloat {
-  0%,100% { transform:translateY(0) rotate(-3deg); }
-  50%      { transform:translateY(-6px) rotate(3deg); }
+  0%,100% { transform:translateY(0) rotate(-2deg); }
+  50%      { transform:translateY(-8px) rotate(2deg); }
 }
 .brand-title {
   font-size: 34px;
