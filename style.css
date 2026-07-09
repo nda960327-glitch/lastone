@@ -219,7 +219,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 .range-buttons-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
   gap: 8px;
   margin-bottom: 8px;
 }
@@ -237,6 +237,8 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   font-weight: 600;
   transition: all 0.15s ease;
   cursor: pointer;
+  word-break: keep-all;
+  text-align: center;
 }
 .btn-range-item:hover {
   background: rgba(168, 85, 247, 0.1);
@@ -1143,5 +1145,12 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   #btn-install-pwa, #btn-toggle-add {
     font-size: 0.75rem !important;
     padding: 6px 12px !important;
+  }
+  .btn-range-item {
+    font-size: 11.5px;
+    padding: 8px 6px;
+  }
+  .range-btn-count {
+    font-size: 10px;
   }
 }
