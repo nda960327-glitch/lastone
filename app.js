@@ -368,24 +368,9 @@ function meaningHTML(meanings) {
 // =============================================
 function initInputView() {
   const textarea = document.getElementById('word-input');
-  const countEl  = document.getElementById('word-count');
 
   function updateCount() {
     const words = parseWords(textarea.value);
-    const n = words.length;
-    if (n === 0) {
-      countEl.textContent = '단어장을 선택하세요';
-      countEl.style.color = 'var(--text2)';
-    } else {
-      countEl.textContent = `${n}개 단어`;
-      countEl.style.color = 'var(--blue)';
-    }
-
-    const btnStart = document.getElementById('btn-start');
-    if (btnStart) {
-      btnStart.disabled = (n === 0);
-    }
-
     renderRangeButtons(words);
   }
 
@@ -554,18 +539,7 @@ function initInputView() {
     runTestRound();
   };
 
-  // 테스트 시작
-  document.getElementById('btn-start').onclick = () => {
-    const words = parseWords(textarea.value);
-    if (words.length === 0) {
-      alert('단어장을 선택해주세요.');
-      return;
-    }
-    App.words    = words;
-    App.round    = 1;
-    App.testPool = [];
-    startTest();
-  };
+
 }
 
 // 기본 내장 단어 데이터 세트 (Day 1 ~ Day 4, 토플 Day 1)
@@ -2319,8 +2293,7 @@ function showFinalResult() {
     App.testPool = [];
     App.round    = 1;
     document.getElementById('word-input').value = '';
-    document.getElementById('word-count').textContent = '0개 단어';
-    document.getElementById('word-count').style.color = 'var(--text2)';
+
     showView('view-input');
   };
 }
