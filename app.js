@@ -2343,7 +2343,9 @@ function showFinalResult() {
     App.words    = [];
     App.testPool = [];
     App.round    = 1;
-    document.getElementById('word-input').value = '';
+    // document.getElementById('word-input').value = '';
+    const wi = document.getElementById('word-input');
+    if (wi) wi.dispatchEvent(new Event('input'));
 
     showView('view-input');
   };
@@ -2631,7 +2633,7 @@ document.addEventListener('DOMContentLoaded', () => {
       App.testPool = [];
       App.round    = 1;
       const wi = document.getElementById('word-input');
-      if (wi) wi.value = '';
+      if (wi) wi.dispatchEvent(new Event('input'));
       showView('view-input');
     }
   };
