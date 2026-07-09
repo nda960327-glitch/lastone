@@ -249,9 +249,9 @@ function saveWordStates() {
   if (!key || App.words.length === 0) return;
   const states = {};
   App.words.forEach((w, idx) => {
-    // 단어+인덱스를 키로 사용하여 동일 단어가 여러 개 있어도 구분
+    // 단어+인덱스 키로 사용하여 동일 단어가 여러 번 있어도 구분
     const wordKey = `${idx}_${w.word}`;
-    states[wordKey] = { passed: w.passed, attempts: w.attempts };
+    states[wordKey] = { passed: w.passed, attempts: w.attempts, totalFails: w.totalFails || 0 };
   });
   localStorage.setItem(key, JSON.stringify(states));
 }
@@ -269,6 +269,7 @@ function loadWordStates(words) {
       if (states[wordKey]) {
         w.passed = states[wordKey].passed;
         w.attempts = states[wordKey].attempts;
+        w.totalFails = states[wordKey].totalFails || 0;
       }
     });
   } catch (e) {
@@ -332,7 +333,8 @@ function parseWords(text) {
         word,
         meanings,
         passed: false,
-        attempts: 0
+        attempts: 0,
+        totalFails: 0
       });
     }
   }
@@ -1816,15 +1818,15 @@ async function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
   const rangeWords = allWords.slice(startIdx, endIdx);
 
   // 2. 임시 플래그(passed) 무시 및 오답 필터링
-  // passed === true 상태와 무관하게 오로지 attempts 이력으로만 필터링합니다.
+  // passed === true 상태와 무관하게 오로지 totalFails 이력으로만 필터링합니다.
   rangeWords.forEach(w => w.passed = false);
   const weakWords = rangeWords.filter(w => {
     if (isFinalBoss) {
-      // 대그룹 총정리: 과거에 3번 이상 틀린 단어
-      return (w.attempts || 0) >= 3;
+      // 대그룹 총정리: 누적 오답 4회 이상 단어
+      return (w.totalFails || 0) >= 4;
     } else {
-      // 중그룹 복습: 과거에 2번 이상 틀린 단어
-      return (w.attempts || 0) >= 2;
+      // 중그룹 복습: 누적 오답 2회 이상 단어
+      return (w.totalFails || 0) >= 2;
     }
   });
 
@@ -2057,6 +2059,11 @@ async function runTestRound(startIndex = 0) {
     }
     const testWordEl = document.getElementById('test-word');
     testWordEl.textContent = wordObj.word;
+    if ((wordObj.totalFails || 0) >= 6) {
+      testWordEl.style.color = '#ef4444';
+    } else {
+      testWordEl.style.color = '#ffffff';
+    }
     const wLen = wordObj.word.length;
     if (wLen <= 6) {
       testWordEl.style.fontSize = 'clamp(3.5rem, 20vw, 6rem)';
@@ -2144,6 +2151,7 @@ async function runTestRound(startIndex = 0) {
       stopWordTimer();
       if (!isAlreadyGraded) {
         wordObj.attempts++;
+        wordObj.totalFails = (wordObj.totalFails || 0) + 1;
         wordObj.passed = false;
         wordObj._alreadyGraded = true;
         saveWordStates();
@@ -2201,6 +2209,7 @@ async function runTestRound(startIndex = 0) {
       } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT' || result === 'X_DICTATION') {
         if (result !== 'X_DICTATION') {
           wordObj.attempts++;
+          wordObj.totalFails = (wordObj.totalFails || 0) + 1;
           saveWordStates();
         }
         wordObj.passed = false;

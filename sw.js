@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v80'; // 캐시 버전 업데이트: 긴 단어 폰트 사이즈 대폭 상향 조정
+const CACHE_NAME = 'vocabmaster-v81'; // 캐시 버전 업데이트: 누적 오답 횟수(totalFails) 도입 및 단계별 취약점 필터링 적용
 const ASSETS = [
   '/',
   '/index.html',
