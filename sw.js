@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v53'; // 캐시 버전 업데이트: 앱 리브랜딩 (NODOA Core)
+const CACHE_NAME = 'vocabmaster-v54'; // 캐시 버전 업데이트: 앱 리브랜딩 (DOACore)
 const ASSETS = [
   '/',
   '/index.html',
