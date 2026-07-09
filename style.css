@@ -965,8 +965,8 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
    Responsive
    ============================================ */
 @media (max-width:400px) {
-  .study-word, .test-word {
-    font-size: clamp(1.5rem, 10vw, 2.2rem) !important;
+  .study-word {
+    font-size: clamp(2rem, 12vw, 3rem) !important;
   }
 }
 

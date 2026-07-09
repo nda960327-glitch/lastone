@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v72'; // 캐시 버전 업데이트: 한글 뜻 단어 단위 줄바꿈(keep-all) 및 가독성 레이아웃 최적화
+const CACHE_NAME = 'vocabmaster-v73'; // 캐시 버전 업데이트: 모바일에서 영단어 폰트 크기를 제한하던 미디어 쿼리 삭제 및 폰트 극대화 복구
 const ASSETS = [
   '/',
   '/index.html',
