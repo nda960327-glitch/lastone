@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v75'; // 캐시 버전 업데이트: 품사별 미닝 카드(Meaning Card) 디자인 도입 및 레이아웃 개선
+const CACHE_NAME = 'vocabmaster-v76'; // 캐시 버전 업데이트: 긴 영단어 말줄임표 삭제 및 글자 수 비례 동적 폰트 사이즈 적용
 const ASSETS = [
   '/',
   '/index.html',

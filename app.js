@@ -2055,7 +2055,16 @@ async function runTestRound(startIndex = 0) {
     if (wrapper && !isDictationMode) {
       wrapper.classList.remove('hidden');
     }
-    document.getElementById('test-word').textContent = wordObj.word;
+    const testWordEl = document.getElementById('test-word');
+    testWordEl.textContent = wordObj.word;
+    const wLen = wordObj.word.length;
+    if (wLen <= 8) {
+      testWordEl.style.fontSize = 'clamp(2.5rem, 12vw, 4.5rem)';
+    } else if (wLen <= 11) {
+      testWordEl.style.fontSize = 'clamp(1.8rem, 9vw, 3.5rem)';
+    } else {
+      testWordEl.style.fontSize = 'clamp(1.2rem, 7vw, 2.5rem)';
+    }
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
       btnSpeak.onclick = () => speak(wordObj.word);

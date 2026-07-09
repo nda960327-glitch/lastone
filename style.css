@@ -730,10 +730,8 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   text-shadow: 0 2px 20px rgba(168,85,247,0.4);
   width: 100%;
   box-sizing: border-box;
-  padding: 0 10px;
+  padding: 0 5px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .speaker-icon-btn {
@@ -1005,7 +1003,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 @media (max-width:520px) {
   .meaning-line { font-size:18px; }
   .test-meanings .meaning-line { font-size:20px; }
-  .study-card, .test-card { padding:36px 24px; }
+  .study-card, .test-card { padding:36px 12px; width: 100%; max-width: 95vw; box-sizing: border-box; }
   .round-result-card { padding:36px 24px; }
   .stat-value { font-size:40px; }
   .ox-buttons { gap:12px; }
