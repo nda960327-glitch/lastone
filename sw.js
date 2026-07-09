@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v68'; // 캐시 버전 업데이트: O/X 버튼 강제 노출 및 폰트 사이즈 극대화, 구버전 코드 제거
+const CACHE_NAME = 'vocabmaster-v69'; // 캐시 버전 업데이트: null 참조 에러 해결 및 O/X 버튼 hidden 클래스 제거 로직 보완
 const ASSETS = [
   '/',
   '/index.html',

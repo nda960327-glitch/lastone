@@ -1989,7 +1989,8 @@ async function runTestRound(startIndex = 0) {
 
     if (isDictationMode) {
       document.getElementById('test-word').classList.add('hidden');
-      document.getElementById('ox-buttons-container').style.display = 'none';
+      const oxC1 = document.getElementById('ox-buttons-container');
+      if (oxC1) { oxC1.style.display = 'none'; oxC1.classList.add('hidden'); }
       
       // 뜻 숨김 상태로 시작
       document.getElementById('btn-reveal').classList.remove('hidden');
@@ -2008,7 +2009,8 @@ async function runTestRound(startIndex = 0) {
       }
     } else {
       document.getElementById('test-word').classList.remove('hidden');
-      document.getElementById('ox-buttons-container').style.display = 'none';
+      const oxC2 = document.getElementById('ox-buttons-container');
+      if (oxC2) { oxC2.style.display = 'none'; oxC2.classList.add('hidden'); }
       const dicZone = document.getElementById('dictation-zone');
       if (dicZone) dicZone.classList.add('hidden');
       document.getElementById('btn-reveal').classList.add('hidden');
@@ -2042,7 +2044,7 @@ async function runTestRound(startIndex = 0) {
     if (!isDictationMode) {
       posHintEl.classList.remove('hidden');
     }
-    document.getElementById('reveal-zone').classList.remove('hidden');
+    document.getElementById('btn-reveal').classList.remove('hidden');
 
     let revealResult = 'O'; 
     App.isOButtonLocked = false; // 글로벌 잠금 플래그
@@ -2073,7 +2075,7 @@ async function runTestRound(startIndex = 0) {
             // [수정] 강제 오픈: O버튼이 비활성화되는 정확히 그 시점에 강제로 뜻 노출
             const btnReveal = document.getElementById('btn-reveal');
             // 이미 열려있지 않은 경우에만 클릭
-            if (btnReveal && !document.getElementById('reveal-zone').classList.contains('hidden')) {
+            if (btnReveal && !btnReveal.classList.contains('hidden')) {
               btnReveal.click();
             }
           },
@@ -2121,9 +2123,11 @@ async function runTestRound(startIndex = 0) {
     }
 
     if (!isDictationMode) {
-      document.getElementById('reveal-zone').classList.add('hidden');
+      document.getElementById('btn-reveal').classList.add('hidden');
       document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings);
-      document.getElementById('answer-zone').classList.remove('hidden');
+      document.getElementById('test-meanings').classList.remove('hidden');
+      const oxC3 = document.getElementById('ox-buttons-container');
+      if (oxC3) { oxC3.style.display = 'flex'; oxC3.classList.remove('hidden'); }
     }
 
     setOXDisabled(false);
