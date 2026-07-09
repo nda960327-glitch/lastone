@@ -578,9 +578,15 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 .study-meanings.visible { opacity:1; transform:translateY(0); }
 
 .meaning-line {
-  display:flex; align-items:center; gap:10px;
+  display:flex; align-items:flex-start; gap:10px;
   font-size:22px; font-weight:500; color:var(--text1);
   font-family:'Noto Sans KR',sans-serif;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+}
+.meaning-line > span:last-child {
+  flex: 1;
 }
 
 /* 품사 뱃지 크기 확대 및 스타일 */
@@ -804,8 +810,20 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   animation:viewIn .3s ease;
 }
 
-.test-meanings { display:flex; flex-direction:column; align-items:center; gap:12px; }
-.test-meanings .meaning-line { font-size:26px; }
+.test-meanings { display:flex; flex-direction:column; align-items:center; gap:12px; width: 100%; }
+.test-meanings .meaning-line {
+  font-size: 26px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+}
+.test-meanings .meaning-line > span:last-child {
+  flex: 1;
+}
 
 .ox-buttons { display:flex; gap:20px; }
 
