@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v84'; // 캐시 버전 업데이트: localStorage(doacore_total_fails) 기반 오답 기록 독립 영구 저장 및 병합 로직 추가
+const CACHE_NAME = 'vocabmaster-v85'; // 캐시 버전 업데이트: 이전 단어 이동 시 O/X 답변 수정(Overwrite) 허용 및 누적 데이터 복구(totalFails 증감) 로직 추가
 const ASSETS = [
   '/',
   '/index.html',
