@@ -2059,7 +2059,7 @@ async function runTestRound(startIndex = 0) {
     testWordEl.textContent = wordObj.word;
     const wLen = wordObj.word.length;
     if (wLen <= 8) {
-      testWordEl.style.fontSize = 'clamp(2.5rem, 12vw, 4.5rem)';
+      testWordEl.style.fontSize = 'clamp(3rem, 18vw, 5.5rem)';
     } else if (wLen <= 11) {
       testWordEl.style.fontSize = 'clamp(1.8rem, 9vw, 3.5rem)';
     } else {

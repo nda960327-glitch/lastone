@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v76'; // 캐시 버전 업데이트: 긴 영단어 말줄임표 삭제 및 글자 수 비례 동적 폰트 사이즈 적용
+const CACHE_NAME = 'vocabmaster-v77'; // 캐시 버전 업데이트: 시각적 계층(Visual Hierarchy) 및 폰트 황금 비율 자동화 적용
 const ASSETS = [
   '/',
   '/index.html',
