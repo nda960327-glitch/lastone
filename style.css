@@ -556,12 +556,16 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 
 /* Study word */
 .study-word {
-  font-size:56px; font-weight:900; letter-spacing:-.03em;
+  font-size: clamp(1.8rem, 8vw, 3.5rem); font-weight:900; letter-spacing:-.03em;
   text-align:center;
   background:linear-gradient(135deg, #fff 60%, #b8d0ff 100%);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
   opacity:0; transform:translateY(10px);
   transition:opacity .4s ease, transform .4s ease;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  word-break: break-word;
 }
 .study-word.visible { opacity:1; transform:translateY(0); }
 
@@ -680,9 +684,13 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 .test-word {
-  font-size:60px; font-weight:900; letter-spacing:-.03em; text-align:center;
+  font-size: clamp(1.8rem, 8vw, 3.5rem); font-weight:900; letter-spacing:-.03em; text-align:center;
   color: #ffffff;
   text-shadow: 0 2px 20px rgba(168,85,247,0.4);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  word-break: break-word;
 }
 
 .test-pos-hint {
@@ -910,9 +918,13 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 /* ============================================
    Responsive
    ============================================ */
+@media (max-width:400px) {
+  .study-word, .test-word {
+    font-size: clamp(1.5rem, 10vw, 2.2rem) !important;
+  }
+}
+
 @media (max-width:520px) {
-  .study-word  { font-size:40px; }
-  .test-word   { font-size:50px; }
   .meaning-line { font-size:18px; }
   .test-meanings .meaning-line { font-size:20px; }
   .study-card, .test-card { padding:36px 24px; }
