@@ -2622,6 +2622,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  const devModal = document.getElementById('modal-developer-story');
+  const btnShowDev = document.getElementById('btn-developer-story');
+  const btnDevClose = document.getElementById('btn-developer-story-close');
+  const btnDevOk = document.getElementById('btn-developer-story-ok');
+
+  if (btnShowDev && devModal) {
+    btnShowDev.onclick = () => devModal.classList.remove('hidden');
+  }
+  if (btnDevClose && devModal) {
+    btnDevClose.onclick = () => devModal.classList.add('hidden');
+  }
+  if (btnDevOk && devModal) {
+    btnDevOk.onclick = () => devModal.classList.add('hidden');
+  }
+
   // 홈으로 이동 버튼 핸들러
   const goHomeHandler = () => {
     if (confirm('홈으로 이동하시겠습니까? (현재 진행 중인 학습 데이터는 초기화됩니다)')) {

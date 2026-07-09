@@ -101,9 +101,12 @@
 
 
 
-      <div class="info-link-container" style="text-align: center; margin-top: 20px;">
+      <div class="info-link-container" style="text-align: center; margin-top: 20px; display: flex; flex-direction: column; gap: 12px; align-items: center;">
         <button id="btn-show-info" class="btn-ghost" style="color: var(--text2); font-size: 13px; text-decoration: underline; border: none; background: transparent;">
           💡 이 앱의 효과 및 사용법 읽기
+        </button>
+        <button id="btn-developer-story" class="btn-ghost" style="color: var(--text2); font-size: 13px; text-decoration: underline; border: none; background: transparent;">
+          👨‍💻 DOACore 탄생 비화
         </button>
       </div>
     </div>
@@ -344,6 +347,23 @@
 
       </div>
       <button id="btn-info-ok" class="btn-primary" style="width: 100%; margin-top: 24px; padding: 12px;">확인했습니다</button>
+    </div>
+  </div>
+
+  <!-- 개발자 스토리 모달 -->
+  <div id="modal-developer-story" class="pwa-modal hidden">
+    <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 400px; width: 90%; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+        <h3 style="font-size: 18px; margin: 0; line-height: 1.4;">🧠 7시간을 외워도 절반을 틀리던 뇌, 그 한계를 해킹하다.</h3>
+        <button id="btn-developer-story-close" style="background: transparent; border: none; color: var(--text2); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0; margin-left: 10px;">✖</button>
+      </div>
+      <div class="developer-story-content" style="font-size: 14.5px; line-height: 1.8; color: var(--text1); display: flex; flex-direction: column; gap: 16px;">
+        <p style="margin: 0;">안녕하세요, 개발자 노도아입니다.</p>
+        <p style="margin: 0;">저는 과거 영어학원에서 7시간을 꼬박 외워도 기초 영단어 100개조차 제대로 맞추지 못하던 뼈아픈 기억이 있습니다. 무식하게 뇌를 혹사시키는 대신 '뇌과학'을 파고들어 직접 시스템을 설계하기로 결심했습니다.</p>
+        <p style="margin: 0;">돌을 하나하나 맨몸으로 나르는 것보다, 초반에 답답하고 고생스럽더라도 <b style="color: crimson;">'도르래'</b>를 먼저 만드는 것이 결국 거대한 건축물을 완성하는 유일한 비결이라는 것을 깨달았기 때문입니다.</p>
+        <p style="margin: 0;">단 한 번의 오답도 절대 놓치지 않는 <b style="color: crimson;">'집요한 오답 추적'</b> 훈련소, <b style="color: crimson;">'DOACore'</b>는 그렇게 탄생했습니다. 포기하지 않고 만든 이 완벽한 도르래가, 무식한 암기에 고통받는 뇌를 구원해 줄 것이라 확신합니다.</p>
+      </div>
+      <button id="btn-developer-story-ok" class="btn-primary" style="width: 100%; margin-top: 24px; padding: 12px;">닫기</button>
     </div>
   </div>
 
