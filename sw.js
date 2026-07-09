@@ -1,10 +1,12 @@
-const CACHE_NAME = 'vocabmaster-v56'; // 캐시 버전 업데이트: manifest.json 규격 수정
+const CACHE_NAME = 'vocabmaster-v57'; // 캐시 버전 업데이트: PWA PNG 아이콘 규격 정상화
 const ASSETS = [
   '/',
   '/index.html',
   '/style.css',
   '/app.js',
   '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png',
   '/icon.jpg'
 ];
 
