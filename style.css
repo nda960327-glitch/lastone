@@ -1091,3 +1091,31 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   background: rgba(255, 255, 255, 0.08);
   color: var(--purple);
 }
+
+/* ============================================
+   Footer Info Pill Buttons
+   ============================================ */
+.footer-info-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.info-pill-btn {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a0aec0;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.info-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
