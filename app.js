@@ -412,6 +412,17 @@ function initInputView() {
     const SMALL = 20;  // 소그룹 단위
     const MID   = 40;  // 중그룹 단위
 
+    function getBadgeHTML(sectionKey) {
+      if (!App.currentDBName) return '';
+      const key = `${App.currentDBName}_${sectionKey}`;
+      let progress = {};
+      try { progress = JSON.parse(localStorage.getItem('vocab_progress') || '{}'); } catch(e){}
+      const status = progress[key];
+      if (status === 'in_progress') return `<span class="progress-badge in-progress">진행중 🏃‍♂️</span>`;
+      if (status === 'completed') return `<span class="progress-badge completed">완벽 👑</span>`;
+      return '';
+    }
+
     // ── 섹션 1: 📖 소그룹 새 학습 (20단어 단위) ──
     const titleNew = document.createElement('div');
     titleNew.className = 'range-section-title new-learn';
@@ -428,9 +439,10 @@ function initInputView() {
       const count = end - i;
 
       const btn = document.createElement('button');
+      const sectionKey = `${start}~${end}`;
       btn.className = 'btn-range-item';
       btn.innerHTML = `
-        <span class="range-btn-label">${start} ~ ${end}</span>
+        <span class="range-btn-label">${start} ~ ${end} ${getBadgeHTML(sectionKey)}</span>
         <span class="range-btn-count">${count}개 단어</span>
       `;
       btn.onclick = () => {
@@ -445,9 +457,10 @@ function initInputView() {
     }
 
     const btnAllNew = document.createElement('button');
+    const sectionKeyAll = `1~${n} 전체단어`;
     btnAllNew.className = 'btn-range-item';
     btnAllNew.innerHTML = `
-      <span class="range-btn-label">1 ~ ${n} 전체단어</span>
+      <span class="range-btn-label">1 ~ ${n} 전체단어 ${getBadgeHTML(sectionKeyAll)}</span>
       <span class="range-btn-count">${n}개 전체 새 학습</span>
     `;
     btnAllNew.onclick = () => {
@@ -480,8 +493,9 @@ function initInputView() {
       btn.className = 'btn-range-item btn-review weakness-focus';
       btn.dataset.start = String(i);
       btn.dataset.end = String(end);
+      const sectionKeyReview = `${start}~${end} 취약점 복습`;
       btn.innerHTML = `
-        <span class="range-btn-label">${start}~${end} 취약점 복습</span>
+        <span class="range-btn-label">${start}~${end} 취약점 복습 ${getBadgeHTML(sectionKeyReview)}</span>
         <span class="range-btn-count">오답만 집중</span>
       `;
       btn.onclick = () => {
@@ -497,8 +511,9 @@ function initInputView() {
     btnFinal.dataset.start = '0';
     btnFinal.dataset.end = String(n);
     btnFinal.dataset.final = 'true';
+    const sectionKeyFinal = `1~${n} 최종 취약점 총정리`;
     btnFinal.innerHTML = `
-      <span class="range-btn-label">1~${n} 최종 취약점 총정리</span>
+      <span class="range-btn-label">1~${n} 최종 취약점 총정리 ${getBadgeHTML(sectionKeyFinal)}</span>
       <span class="range-btn-count">최종 보스전 (마스터 단계)</span>
     `;
     btnFinal.onclick = () => {
@@ -506,6 +521,13 @@ function initInputView() {
       startWeaknessReview(0, n, true);
     };
     reviewGrid.appendChild(btnFinal);
+
+    // Dictation 버튼 뱃지 및 표시 구간 업데이트
+    const dictationBtn = document.getElementById('btn-dictation');
+    if (dictationBtn) {
+      const dictBadge = getBadgeHTML('dictation');
+      dictationBtn.innerHTML = `<span>📝 1~${Math.min(n, 200)} 스펠링 듣고 쓰기 ${dictBadge}</span>`;
+    }
   }
 
   // DB 목록 로딩 (드롭다운 연동)

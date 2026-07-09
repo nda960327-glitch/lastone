@@ -278,6 +278,26 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   font-weight: 400;
 }
 
+.progress-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.progress-badge.in-progress {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+.progress-badge.completed {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
 
 /* 헤더 버튼 그룹 */
 .header-btns { display:flex; align-items:center; gap:8px; }

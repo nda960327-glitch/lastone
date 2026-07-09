@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v51'; // 캐시 버전 업데이트: 안드로이드 네비게이션 바(소프트키) 테마 동기화 (standalone 설정)
+const CACHE_NAME = 'vocabmaster-v52'; // 캐시 버전 업데이트: 진척도(Progress) 뱃지 UI 렌더링
 const ASSETS = [
   '/',
   '/index.html',
