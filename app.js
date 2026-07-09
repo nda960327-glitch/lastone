@@ -1849,6 +1849,7 @@ async function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
 }
 
 let activeTimerInterval = null;
+let activeWarningTimeout = null;
 
 function startWordTimer(durationMs, onTimeout) {
   stopWordTimer();
@@ -1871,10 +1872,18 @@ function startWordTimer(durationMs, onTimeout) {
     // 브라우저 렌더링 강제 리플로우 (초기화 즉시 반영)
     void fillEl.offsetWidth;
 
-    // [변경점: Step 4] 전체 시간 동안 서서히 줄어드는 애니메이션 (3초 대기 삭제, linear 적용)
-    fillEl.style.transition = `width ${durationMs}ms linear`;
+    // 2초(2000ms) 대기 후, 남은 시간 동안 서서히 줄어드는 애니메이션
+    const delayMs = 2000;
+    const shrinkMs = Math.max(0, durationMs - delayMs);
+    fillEl.style.transition = `width ${shrinkMs}ms linear ${delayMs}ms`;
     fillEl.style.width = '0%';
   }
+
+  // 남은 시간이 2초 이하로 떨어지는 시점에 경고 표시 (durationMs - 2000)
+  const warningMs = Math.max(0, durationMs - 2000);
+  activeWarningTimeout = setTimeout(() => {
+    if (fillEl) fillEl.classList.add('timer-warning');
+  }, warningMs);
 
   activeTimerInterval = setTimeout(() => {
     stopWordTimer();
@@ -1886,6 +1895,10 @@ function stopWordTimer() {
   if (activeTimerInterval) {
     clearTimeout(activeTimerInterval);
     activeTimerInterval = null;
+  }
+  if (activeWarningTimeout) {
+    clearTimeout(activeWarningTimeout);
+    activeWarningTimeout = null;
   }
   const wrapper = document.getElementById('timer-bar-wrapper');
   const fillEl = document.getElementById('test-timer-fill');
@@ -2006,30 +2019,19 @@ async function runTestRound() {
       posHintEl.classList.remove('hidden');
     }
     document.getElementById('reveal-zone').classList.remove('hidden');
-    if (!isDictationMode) {
-      startWordTimer(15000, handleWordTimeout);
-    }
-
-    // 동적 가변 타이머 로직 (Fast-Failing)
-    // 기준 타임아웃(ms) = 5000 + ((wordObj.meanings.length - 1) * 2000)
-    const dynamicTimeoutMs = 5000 + ((wordObj.meanings.length - 1) * 2000);
 
     let autoRevealTriggered = false;
-    let autoRevealTimeout = null;
     let revealResult = 'O'; 
 
     if (!isDictationMode) {
-      autoRevealTimeout = setTimeout(() => {
+      // 7초 타이머: 2초 대기 + 5초 카운트다운
+      startWordTimer(7000, () => {
         autoRevealTriggered = true;
-        const fillEl = document.getElementById('test-timer-fill');
-        if (fillEl) fillEl.classList.add('timer-warning');
-        
         const btnReveal = document.getElementById('btn-reveal');
         if (btnReveal) btnReveal.click(); // 강제 오픈
-      }, dynamicTimeoutMs);
+      });
 
       revealResult = await waitForRevealOrPrev();
-      if (autoRevealTimeout) clearTimeout(autoRevealTimeout);
     }
 
     if (revealResult === 'PREV') {

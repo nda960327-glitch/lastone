@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v62'; // 캐시 버전 업데이트: 앱 사용법 모달 콘텐츠 및 CSS 리뉴얼 반영
+const CACHE_NAME = 'vocabmaster-v63'; // 캐시 버전 업데이트: 5초 메타인지 강제 타이머 로직 적용
 const ASSETS = [
   '/',
   '/index.html',
