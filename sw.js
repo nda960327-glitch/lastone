@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v65'; // 캐시 버전 업데이트: 모바일 네비게이션 바 다크 테마 동기화
+const CACHE_NAME = 'vocabmaster-v66'; // 캐시 버전 업데이트: 강제 뜻 공개 및 O/X 버튼 노출 로직 수정
 const ASSETS = [
   '/',
   '/index.html',

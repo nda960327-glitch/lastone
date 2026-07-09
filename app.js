@@ -2059,6 +2059,13 @@ async function runTestRound() {
             App.isOButtonLocked = true;
             const btnCorrect = document.getElementById('btn-correct');
             if (btnCorrect) btnCorrect.disabled = true;
+
+            // [수정] 강제 오픈: O버튼이 비활성화되는 정확히 그 시점에 강제로 뜻 노출
+            const btnReveal = document.getElementById('btn-reveal');
+            // 이미 열려있지 않은 경우에만 클릭
+            if (btnReveal && !document.getElementById('reveal-zone').classList.contains('hidden')) {
+              btnReveal.click();
+            }
           },
           () => {
             // 전체 타임아웃
