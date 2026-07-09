@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v83'; // 캐시 버전 업데이트: 전역 상태(Global State) 도입으로 totalFails 홈 화면 복귀 시 증발 버그 해결 및 Fallback 적용
+const CACHE_NAME = 'vocabmaster-v84'; // 캐시 버전 업데이트: localStorage(doacore_total_fails) 기반 오답 기록 독립 영구 저장 및 병합 로직 추가
 const ASSETS = [
   '/',
   '/index.html',

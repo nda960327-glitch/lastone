@@ -252,7 +252,7 @@ function saveWordStates() {
   App.words.forEach((w) => {
     // 단어+고유 인덱스 키로 사용하여 부분 추출 시에도 일관된 키 유지
     const wordKey = `${w.originalIndex}_${w.word}`;
-    states[wordKey] = { passed: w.passed, attempts: w.attempts, totalFails: w.totalFails || 0 };
+    states[wordKey] = { passed: w.passed, attempts: w.attempts };
   });
   localStorage.setItem(key, JSON.stringify(states));
 }
@@ -270,7 +270,6 @@ function loadWordStates(words) {
       if (states[wordKey]) {
         w.passed = states[wordKey].passed;
         w.attempts = states[wordKey].attempts;
-        w.totalFails = states[wordKey].totalFails || 0;
       }
     });
   } catch (e) {
@@ -340,6 +339,10 @@ function parseWords(text) {
       });
     }
   }
+  let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
+  list.forEach(w => {
+    w.totalFails = failData[w.word] || 0;
+  });
   return list;
 }
 
@@ -1821,6 +1824,7 @@ async function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
 
   // 2. 임시 플래그(passed) 무시 및 오답 필터링
   // passed === true 상태와 무관하게 오로지 totalFails 이력으로만 필터링합니다.
+  console.log("로컬스토리지 오답 데이터:", localStorage.getItem('doacore_total_fails'));
   rangeWords.forEach(w => w.passed = false);
   const weakWords = rangeWords.filter(w => {
     if (isFinalBoss) {
@@ -2153,7 +2157,10 @@ async function runTestRound(startIndex = 0) {
       stopWordTimer();
       if (!isAlreadyGraded) {
         wordObj.attempts++;
-        wordObj.totalFails = (wordObj.totalFails || 0) + 1;
+        let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
+        failData[wordObj.word] = (failData[wordObj.word] || 0) + 1;
+        localStorage.setItem('doacore_total_fails', JSON.stringify(failData));
+        wordObj.totalFails = failData[wordObj.word];
         wordObj.passed = false;
         wordObj._alreadyGraded = true;
         saveWordStates();
@@ -2211,7 +2218,10 @@ async function runTestRound(startIndex = 0) {
       } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT' || result === 'X_DICTATION') {
         if (result !== 'X_DICTATION') {
           wordObj.attempts++;
-          wordObj.totalFails = (wordObj.totalFails || 0) + 1;
+          let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
+        failData[wordObj.word] = (failData[wordObj.word] || 0) + 1;
+        localStorage.setItem('doacore_total_fails', JSON.stringify(failData));
+        wordObj.totalFails = failData[wordObj.word];
           saveWordStates();
         }
         wordObj.passed = false;
@@ -2487,7 +2497,13 @@ function showFinalResult() {
     const wi = document.getElementById('word-input');
     if (wi) wi.dispatchEvent(new Event('input'));
 
-    showView('view-input');
+    let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
+      if (App.allWords) {
+        App.allWords.forEach(w => {
+          w.totalFails = failData[w.word] || 0;
+        });
+      }
+      showView('view-input');
   };
 }
 
@@ -2666,6 +2682,12 @@ document.addEventListener('DOMContentLoaded', () => {
       App.round    = 1;
       const wi = document.getElementById('word-input');
       if (wi) wi.dispatchEvent(new Event('input'));
+      let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
+      if (App.allWords) {
+        App.allWords.forEach(w => {
+          w.totalFails = failData[w.word] || 0;
+        });
+      }
       showView('view-input');
     }
   };
