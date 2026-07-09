@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v59'; // 캐시 버전 업데이트: 메인 서브 타이틀 및 메타데이터 문구 수정
+const CACHE_NAME = 'vocabmaster-v60'; // 캐시 버전 업데이트: CSS 및 HTML 수정 반영
 const ASSETS = [
   '/',
   '/index.html',
