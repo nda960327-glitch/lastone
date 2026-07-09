@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v74'; // 캐시 버전 업데이트: 헤드셋(프라이밍) 화면일 때 타이머 바 및 안내 텍스트 숨김 처리
+const CACHE_NAME = 'vocabmaster-v75'; // 캐시 버전 업데이트: 품사별 미닝 카드(Meaning Card) 디자인 도입 및 레이아웃 개선
 const ASSETS = [
   '/',
   '/index.html',

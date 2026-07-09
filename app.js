@@ -371,7 +371,7 @@ function getPosClass(pos) {
 function meaningHTML(meanings) {
   return meanings.map(m => {
     const posClass = getPosClass(m.pos);
-    return `<div class="meaning-line">
+    return `<div class="meaning-card ${posClass}">
        <span class="pos-badge ${posClass}">[${esc(m.pos)}]</span>
        <span>${esc(m.meaning)}</span>
      </div>`;
