@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v81'; // 캐시 버전 업데이트: 누적 오답 횟수(totalFails) 도입 및 단계별 취약점 필터링 적용
+const CACHE_NAME = 'vocabmaster-v82'; // 캐시 버전 업데이트: 단어 고유 인덱스(originalIndex) 기반 상태 추적으로 취약점 필터링 버그 수정
 const ASSETS = [
   '/',
   '/index.html',

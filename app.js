@@ -248,9 +248,9 @@ function saveWordStates() {
   const key = getWordStatesKey();
   if (!key || App.words.length === 0) return;
   const states = {};
-  App.words.forEach((w, idx) => {
-    // 단어+인덱스 키로 사용하여 동일 단어가 여러 번 있어도 구분
-    const wordKey = `${idx}_${w.word}`;
+  App.words.forEach((w) => {
+    // 단어+고유 인덱스 키로 사용하여 부분 추출 시에도 일관된 키 유지
+    const wordKey = `${w.originalIndex}_${w.word}`;
     states[wordKey] = { passed: w.passed, attempts: w.attempts, totalFails: w.totalFails || 0 };
   });
   localStorage.setItem(key, JSON.stringify(states));
@@ -264,8 +264,8 @@ function loadWordStates(words) {
   if (!raw) return words;
   try {
     const states = JSON.parse(raw);
-    words.forEach((w, idx) => {
-      const wordKey = `${idx}_${w.word}`;
+    words.forEach((w) => {
+      const wordKey = `${w.originalIndex}_${w.word}`;
       if (states[wordKey]) {
         w.passed = states[wordKey].passed;
         w.attempts = states[wordKey].attempts;
@@ -330,6 +330,7 @@ function parseWords(text) {
 
     if (word && meanings.length > 0) {
       list.push({
+        originalIndex: list.length,
         word,
         meanings,
         passed: false,
