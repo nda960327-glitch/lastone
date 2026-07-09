@@ -1148,6 +1148,81 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   text-decoration: none;
 }
 
+/* ---- Guide Modal Styles ---- */
+.guide-content {
+  line-height: 1.6;
+  color: var(--text1);
+  font-size: 14px;
+}
+.guide-content p {
+  margin-bottom: 16px;
+}
+.guide-title {
+  font-size: 16px;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.guide-intro {
+  font-style: italic;
+  color: var(--text2);
+  margin-bottom: 20px;
+}
+.trust-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid var(--purple);
+  padding: 16px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 24px;
+}
+.trust-box h3 {
+  font-size: 15px;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.trust-box p {
+  margin-bottom: 10px;
+}
+.trust-box p:last-child {
+  margin-bottom: 0;
+}
+.section-heading {
+  font-size: 15px;
+  color: #fff;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+.guide-content b {
+  color: var(--orange);
+}
+.science-list, .step-list {
+  padding-left: 18px;
+  margin-bottom: 24px;
+}
+.science-list li, .step-list li {
+  margin-bottom: 16px;
+  color: var(--text2);
+}
+.science-list li b, .step-list li b {
+  color: #fff;
+}
+.final-cheer {
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+  color: var(--text2);
+  margin-bottom: 0 !important;
+}
+.final-cheer b {
+  color: var(--green);
+  font-size: 15px;
+  display: block;
+  margin-bottom: 6px;
+}
+
 @media (max-width: 480px) {
   .section-header {
     justify-content: flex-end !important;
