@@ -32,7 +32,7 @@
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-html { background: var(--bg); }
+html, body { background-color: var(--bg); }
 
 body {
   font-family: 'Inter', 'Noto Sans KR', sans-serif;
@@ -43,11 +43,10 @@ body {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   padding-bottom: env(safe-area-inset-bottom);
-  background:
+  background-image:
     radial-gradient(ellipse 60% 50% at 15% 40%, rgba(79,158,255,.07) 0%, transparent 70%),
     radial-gradient(ellipse 50% 40% at 85% 20%, rgba(168,85,247,.07) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 55% 85%, rgba(34,211,238,.05) 0%, transparent 70%),
-    var(--bg);
+    radial-gradient(ellipse 40% 40% at 55% 85%, rgba(34,211,238,.05) 0%, transparent 70%);
 }
 
 #app {

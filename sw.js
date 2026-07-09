@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v64'; // 캐시 버전 업데이트: 다이내믹 타이머 및 이전 단어 방지 로직
+const CACHE_NAME = 'vocabmaster-v65'; // 캐시 버전 업데이트: 모바일 네비게이션 바 다크 테마 동기화
 const ASSETS = [
   '/',
   '/index.html',
