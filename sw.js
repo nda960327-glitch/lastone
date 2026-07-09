@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v85'; // 캐시 버전 업데이트: 이전 단어 이동 시 O/X 답변 수정(Overwrite) 허용 및 누적 데이터 복구(totalFails 증감) 로직 추가
+const CACHE_NAME = 'vocabmaster-v86'; // 캐시 버전 업데이트: 1~200 전체 범위 누적 오답 2회 이상 복습 버튼 추가 및 최종 보스전 텍스트 수정
 const ASSETS = [
   '/',
   '/index.html',

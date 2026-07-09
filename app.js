@@ -512,6 +512,23 @@ function initInputView() {
       reviewGrid.appendChild(btn);
     }
 
+    // 그룹 C-1: 전체 취약점 복습 (2회 이상)
+    const btnReviewAllMid = document.createElement('button');
+    btnReviewAllMid.id = 'btn-review-all-mid';
+    btnReviewAllMid.className = 'btn-range-item btn-review weakness-focus';
+    btnReviewAllMid.dataset.start = '0';
+    btnReviewAllMid.dataset.end = String(n);
+    const sectionKeyReviewAllMid = `1~${n} 전체 취약점 복습`;
+    btnReviewAllMid.innerHTML = `
+      <span class="range-btn-label">1~${n} 전체 취약점 복습 ${getBadgeHTML(sectionKeyReviewAllMid)}</span>
+      <span class="range-btn-count">전체 범위 오답 집중 (2회 이상)</span>
+    `;
+    btnReviewAllMid.onclick = () => {
+      App.currentSection = `1~${n} 전체 취약점 복습`;
+      startWeaknessReview(0, n, false);
+    };
+    reviewGrid.appendChild(btnReviewAllMid);
+
     // 그룹 C: 최종 보스전 총정리 (대그룹)
     const btnFinal = document.createElement('button');
     btnFinal.className = 'btn-range-item btn-review weakness-focus';
@@ -521,7 +538,7 @@ function initInputView() {
     const sectionKeyFinal = `1~${n} 최종 취약점 총정리`;
     btnFinal.innerHTML = `
       <span class="range-btn-label">1~${n} 최종 취약점 총정리 ${getBadgeHTML(sectionKeyFinal)}</span>
-      <span class="range-btn-count">최종 보스전 (마스터 단계)</span>
+      <span class="range-btn-count">최종 보스전 (악성 오답 4회 이상)</span>
     `;
     btnFinal.onclick = () => {
       App.currentSection = `1~${n} 최종 취약점 총정리`;
