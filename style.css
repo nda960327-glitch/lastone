@@ -1023,31 +1023,71 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   box-shadow: none !important;
 }
 
- / *   B o s s   M o d e   * / 
- . t e s t - c a r d . b o s s - m o d e   { 
-     b o r d e r :   2 p x   s o l i d   c r i m s o n   ! i m p o r t a n t ; 
-     b o x - s h a d o w :   0   0   2 5 p x   r g b a ( 2 2 0 ,   2 0 ,   6 0 ,   0 . 6 )   ! i m p o r t a n t ; 
-     a n i m a t i o n :   p u l s e - r e d   2 s   i n f i n i t e   a l t e r n a t e ; 
- } 
- 
- @ k e y f r a m e s   p u l s e - r e d   { 
-     0 %   {   b o x - s h a d o w :   0   0   1 5 p x   r g b a ( 2 2 0 ,   2 0 ,   6 0 ,   0 . 4 ) ;   } 
-     1 0 0 %   {   b o x - s h a d o w :   0   0   3 5 p x   r g b a ( 2 2 0 ,   2 0 ,   6 0 ,   0 . 8 ) ;   } 
- } 
- 
- . b o s s - b a d g e   { 
-     d i s p l a y :   b l o c k ; 
-     b a c k g r o u n d :   c r i m s o n ; 
-     c o l o r :   w h i t e ; 
-     p a d d i n g :   6 p x   1 2 p x ; 
-     b o r d e r - r a d i u s :   8 p x ; 
-     f o n t - w e i g h t :   9 0 0 ; 
-     f o n t - s i z e :   1 4 p x ; 
-     m a r g i n :   - 1 0 p x   a u t o   1 5 p x ; 
-     w i d t h :   m a x - c o n t e n t ; 
-     t e x t - t r a n s f o r m :   u p p e r c a s e ; 
-     l e t t e r - s p a c i n g :   1 p x ; 
-     b o x - s h a d o w :   0   4 p x   1 0 p x   r g b a ( 2 2 0 ,   2 0 ,   6 0 ,   0 . 5 ) ; 
- } 
-  
- 
+/* Boss Mode */
+.test-card.boss-mode {
+  border: 2px solid crimson !important;
+  box-shadow: 0 0 25px rgba(220, 20, 60, 0.6) !important;
+  animation: pulse-red 2s infinite alternate;
+}
+
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 15px rgba(220, 20, 60, 0.4); }
+  100% { box-shadow: 0 0 35px rgba(220, 20, 60, 0.8); }
+}
+
+.boss-badge {
+  display: block;
+  background: crimson;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 14px;
+  margin: -10px auto 15px;
+  width: max-content;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(220, 20, 60, 0.5);
+}
+
+/* ============================================
+   Dropdown Add Voca Styling
+   ============================================ */
+.dropdown-add-voca {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: var(--surface);
+  min-width: 200px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  animation: fadeIn 0.2s ease;
+}
+
+.dropdown-content button {
+  background: transparent;
+  border: none;
+  color: var(--text1);
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 13.5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.dropdown-content button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--purple);
+}

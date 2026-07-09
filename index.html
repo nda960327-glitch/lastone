@@ -42,7 +42,13 @@
         <h2>단어장 선택</h2>
         <div class="header-actions">
           <input type="file" id="btn-upload-db-file" accept=".txt" style="display: none;">
-          <button id="btn-trigger-upload" class="btn-ghost" style="border-color: rgba(168,85,247,0.4); color: var(--purple);">➕ 단어장 추가</button>
+          <div class="dropdown-add-voca" style="position: relative; display: inline-block;">
+            <button id="btn-toggle-add" class="btn-ghost" style="border-color: rgba(168,85,247,0.4); color: var(--purple);">➕ 단어장 추가</button>
+            <div id="dropdown-add-menu" class="dropdown-content hidden">
+              <button id="btn-upload-direct">📁 바로 단어장 파일(.txt) 올리기</button>
+              <button id="btn-show-guide">❓ 파일 양식 및 AI 프롬프트 안내</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -367,6 +373,32 @@
         <p style="margin: 0;">단 한 번의 오답도 절대 놓치지 않는 <b style="color: crimson;">'집요한 오답 추적'</b> 훈련소, <b style="color: crimson;">'DOACore'</b>는 그렇게 탄생했습니다. 포기하지 않고 만든 이 완벽한 도르래가, 무식한 암기에 고통받는 뇌를 구원해 줄 것이라 확신합니다.</p>
       </div>
       <button id="btn-developer-story-ok" class="btn-primary" style="width: 100%; margin-top: 24px; padding: 12px;">닫기</button>
+    </div>
+  </div>
+
+  <!-- 양식 가이드 모달 -->
+  <div id="modal-format-guide" class="pwa-modal hidden">
+    <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 420px; width: 90%; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <h3 style="font-size: 17px; margin: 0; line-height: 1.4; color: var(--text1);">📝 DOACore 단어장 txt 파일 양식 가이드</h3>
+        <button id="btn-format-guide-close" style="background: transparent; border: none; color: var(--text2); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0; margin-left: 10px;">✖</button>
+      </div>
+      <div style="font-size: 14px; line-height: 1.6; color: var(--text2); display: flex; flex-direction: column; gap: 12px;">
+        <p style="margin: 0;">메모장(.txt)에 아래 양식처럼 <strong>[스펠링] [품사약어] [한글뜻]</strong> 순서로 적어주세요. 띄어쓰기로 구분합니다.</p>
+        <div style="background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; font-family: monospace; color: var(--text1); font-size: 13px;">
+          (예시)<br>
+          apple [n] 사과<br>
+          run [v] 달리다<br>
+          beautiful [a] 아름다운
+        </div>
+        <div style="margin-top: 8px;">
+          <p style="margin: 0 0 8px 0; font-weight: bold; color: var(--purple);">💡 [꿀팁] 챗GPT나 AI에게 아래 프롬프트를 복사해서 부탁하면 1초 만에 만들어줍니다!</p>
+          <div class="ai-prompt-box" style="background: #1e1e24; border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 8px; color: #a5b4fc; font-size: 12.5px; user-select: all; cursor: text; line-height: 1.5;">
+            "단어 100개를 [스펠링] [품사약어] [한글뜻] 형식의 띄어쓰기로 구분된 순수 텍스트로만 출력해줘. (예: apple [n] 사과)"
+          </div>
+        </div>
+      </div>
+      <button id="btn-format-guide-ok" class="btn-primary" style="width: 100%; margin-top: 20px; padding: 10px;">닫기</button>
     </div>
   </div>
 

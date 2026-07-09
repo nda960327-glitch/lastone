@@ -535,10 +535,39 @@ function initInputView() {
 
   // ── 웹용 단어 파일 업로드 및 브라우저 DB(LocalStorage) 저장 ──
   const fileInput = document.getElementById('btn-upload-db-file');
-  const triggerBtn = document.getElementById('btn-trigger-upload');
+  const btnToggleAdd = document.getElementById('btn-toggle-add');
+  const dropdownAddMenu = document.getElementById('dropdown-add-menu');
+  const btnUploadDirect = document.getElementById('btn-upload-direct');
+  const btnShowGuide = document.getElementById('btn-show-guide');
+  const modalFormatGuide = document.getElementById('modal-format-guide');
+  const btnFormatGuideClose = document.getElementById('btn-format-guide-close');
+  const btnFormatGuideOk = document.getElementById('btn-format-guide-ok');
 
-  if (triggerBtn && fileInput) {
-    triggerBtn.onclick = () => {
+  if (btnToggleAdd && dropdownAddMenu) {
+    btnToggleAdd.onclick = (e) => {
+      e.stopPropagation();
+      dropdownAddMenu.classList.toggle('hidden');
+    };
+    document.addEventListener('click', (e) => {
+      if (!dropdownAddMenu.contains(e.target) && e.target !== btnToggleAdd) {
+        dropdownAddMenu.classList.add('hidden');
+      }
+    });
+  }
+
+  if (btnShowGuide && modalFormatGuide) {
+    btnShowGuide.onclick = () => {
+      if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
+      modalFormatGuide.classList.remove('hidden');
+    };
+    const closeModal = () => modalFormatGuide.classList.add('hidden');
+    if (btnFormatGuideClose) btnFormatGuideClose.onclick = closeModal;
+    if (btnFormatGuideOk) btnFormatGuideOk.onclick = closeModal;
+  }
+
+  if (btnUploadDirect && fileInput) {
+    btnUploadDirect.onclick = () => {
+      if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
       fileInput.click();
     };
 
