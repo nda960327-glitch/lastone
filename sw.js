@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v50'; // 캐시 버전 업데이트: 동적 가변 타이머 로직 및 Boss Mode UI 갱신 반영
+const CACHE_NAME = 'vocabmaster-v51'; // 캐시 버전 업데이트: 안드로이드 네비게이션 바(소프트키) 테마 동기화 (standalone 설정)
 const ASSETS = [
   '/',
   '/index.html',
