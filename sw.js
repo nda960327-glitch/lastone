@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v78'; // 캐시 버전 업데이트: UI 최종 폴리싱 (헤드셋 중앙정렬, 미닝 카드 디테일, 표 테이블 디자인, 긴 단어 폰트 개선)
+const CACHE_NAME = 'vocabmaster-v79'; // 캐시 버전 업데이트: 헤드셋 화면 앱솔루트 중앙 정렬 및 뜻 폰트 사이즈 추가 확대
 const ASSETS = [
   '/',
   '/index.html',

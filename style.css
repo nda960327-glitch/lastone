@@ -595,7 +595,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 .meaning-card {
   display: flex; align-items: center; gap: 15px;
   padding: 14px 18px; border-radius: 12px; margin-bottom: 8px; width: 100%; box-sizing: border-box;
-  font-size: clamp(1.15rem, 5vw, 1.4rem); font-weight: 500; color: var(--text1);
+  font-size: clamp(1.3rem, 5.5vw, 1.6rem); font-weight: 500; color: var(--text1);
   font-family: 'Noto Sans KR', sans-serif;
   word-break: keep-all; overflow-wrap: break-word; line-height: 1.5;
 }
@@ -720,6 +720,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   min-height:340px;
   display:flex; flex-direction:column;
   align-items:center; justify-content:center; gap:28px;
+  position: relative;
 }
 
 .test-word {
@@ -776,15 +777,18 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 
 /* ─ 리스닝 헤드셋 노출 공간 ─ */
 .test-listening-zone {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  flex: 1;
   gap: 16px;
   margin: 0;
   animation: viewIn 0.3s ease;
+  z-index: 10;
+  border-radius: inherit;
+  background: var(--bg2);
 }
 .headset-icon {
   font-size: 64px;
