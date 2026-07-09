@@ -1119,3 +1119,17 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
+
+#btn-install-pwa {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}

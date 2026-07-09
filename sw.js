@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v57'; // 캐시 버전 업데이트: PWA PNG 아이콘 규격 정상화
+const CACHE_NAME = 'vocabmaster-v58'; // 캐시 버전 업데이트: 앱 다운로드 버튼 위치 및 디자인 변경, 아이콘 이름 수정
 const ASSETS = [
   '/',
   '/index.html',
