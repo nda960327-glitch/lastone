@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v66'; // 캐시 버전 업데이트: 강제 뜻 공개 및 O/X 버튼 노출 로직 수정
+const CACHE_NAME = 'vocabmaster-v67'; // 캐시 버전 업데이트: 스피커 아이콘 위치 이동 및 단어 영역 독립
 const ASSETS = [
   '/',
   '/index.html',

@@ -154,11 +154,13 @@
         </div>
       </div>
 
-      <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin: 10px 0;">
+      <div style="width: 100%; text-align: center; margin: 10px 0;">
         <div class="test-word" id="test-word" style="margin: 0;"></div>
-        <button id="btn-speak-again" class="btn-ghost hidden" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; padding: 0; transition: all 0.2s;" title="발음 다시 듣기">🔊</button>
       </div>
-      <div class="test-pos-hint" id="test-pos-hint"></div>
+      <div class="badge-speaker-container" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 5px; margin-bottom: 15px;">
+        <div class="test-pos-hint" id="test-pos-hint" style="margin: 0;"></div>
+        <button id="btn-speak-again" class="speaker-icon-btn hidden" title="발음 다시 듣기">🔊</button>
+      </div>
 
       <div class="reveal-zone" id="reveal-zone">
         <button id="btn-reveal" class="btn-reveal">
