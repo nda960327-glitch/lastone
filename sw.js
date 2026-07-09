@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v55'; // 캐시 버전 업데이트: 아이콘 변경
+const CACHE_NAME = 'vocabmaster-v56'; // 캐시 버전 업데이트: manifest.json 규격 수정
 const ASSETS = [
   '/',
   '/index.html',
