@@ -373,8 +373,18 @@ function initInputView() {
   function updateCount() {
     const words = parseWords(textarea.value);
     const n = words.length;
-    countEl.textContent = `${n}개 단어`;
-    countEl.style.color = n > 0 ? 'var(--blue)' : 'var(--text2)';
+    if (n === 0) {
+      countEl.textContent = '단어장을 선택하세요';
+      countEl.style.color = 'var(--text2)';
+    } else {
+      countEl.textContent = `${n}개 단어`;
+      countEl.style.color = 'var(--blue)';
+    }
+
+    const btnStart = document.getElementById('btn-start');
+    if (btnStart) {
+      btnStart.disabled = (n === 0);
+    }
 
     renderRangeButtons(words);
   }
@@ -389,8 +399,8 @@ function initInputView() {
 
     const n = words.length;
 
-    // 20개 이하일 경우 구간 분할 필요 없음
-    if (n <= 20) {
+    // 단어가 없으면 패널 숨김
+    if (n === 0) {
       panel.classList.add('hidden');
       return;
     }
@@ -1658,7 +1668,21 @@ function refreshDBList(textarea) {
       deleteBtn.style.display = (isUserSelect && selectedTitle) ? 'block' : 'none';
     }
 
-    if (!selectedTitle) return;
+    const rangeTitleEl = document.querySelector('.range-title');
+    const rangePanel = document.getElementById('range-select-panel');
+
+    if (!selectedTitle) {
+      if (rangeTitleEl) rangeTitleEl.textContent = '🧠 학습 구간 선택';
+      if (rangePanel) rangePanel.classList.add('hidden');
+      textarea.value = '';
+      textarea.dispatchEvent(new Event('input'));
+      return;
+    }
+
+    if (rangeTitleEl) {
+      rangeTitleEl.textContent = `🧠 [${selectedTitle}] 학습 구간`;
+    }
+
     // ── 단어장 이름을 App에 저장 (영구 저장 키로 사용) ──
     App.currentDBName = selectedTitle;
     const content = localStorage.getItem(`vocab_file_${selectedTitle}`);
