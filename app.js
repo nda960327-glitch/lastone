@@ -1990,19 +1990,15 @@ async function runTestRound(startIndex = 0) {
     }
 
 
-    // ⭐️ [버그 픽스] 타이머 바 상태 완벽 초기화 & 증발 방지
+    // ⭐️ [버그 픽스] 타이머 바 상태 완벽 초기화 & 증발 방지 (듣기 단계에선 무조건 숨김)
     const wrapper = document.getElementById('timer-bar-wrapper');
     const fillEl = document.getElementById('test-timer-fill');
     if (wrapper) {
-      if (isDictationMode) {
-        wrapper.classList.add('hidden');
-      } else {
-        wrapper.classList.remove('hidden'); // 무조건 강제 노출
-        if (fillEl) {
-          fillEl.style.transition = 'none';
-          fillEl.style.width = '100%';
-          fillEl.classList.remove('timer-warning');
-        }
+      wrapper.classList.add('hidden'); // 헤드셋 단계에선 무조건 숨김
+      if (fillEl) {
+        fillEl.style.transition = 'none';
+        fillEl.style.width = '100%';
+        fillEl.classList.remove('timer-warning');
       }
     }
 
@@ -2053,6 +2049,11 @@ async function runTestRound(startIndex = 0) {
 
     if (listenZone) {
       listenZone.classList.add('hidden');
+    }
+    
+    // 헤드셋(프라이밍) 단계가 끝나고 스펠링 공개될 때 타이머 노출
+    if (wrapper && !isDictationMode) {
+      wrapper.classList.remove('hidden');
     }
     document.getElementById('test-word').textContent = wordObj.word;
     if (btnSpeak) {

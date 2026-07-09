@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v73'; // 캐시 버전 업데이트: 모바일에서 영단어 폰트 크기를 제한하던 미디어 쿼리 삭제 및 폰트 극대화 복구
+const CACHE_NAME = 'vocabmaster-v74'; // 캐시 버전 업데이트: 헤드셋(프라이밍) 화면일 때 타이머 바 및 안내 텍스트 숨김 처리
 const ASSETS = [
   '/',
   '/index.html',
