@@ -2569,11 +2569,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const installModal = document.getElementById('pwa-install-modal');
   const btnInstall = document.getElementById('btn-pwa-install');
   const btnClose = document.getElementById('btn-pwa-close');
+  const btnInstallPwa = document.getElementById('btn-install-pwa');
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
     
+    if (btnInstallPwa) btnInstallPwa.style.display = 'inline-block';
+
     if (!localStorage.getItem('pwa_install_rejected')) {
       setTimeout(() => {
         if (installModal) installModal.classList.remove('hidden');
@@ -2581,15 +2584,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`PWA 설치 선택 결과: ${outcome}`);
+    if (installModal) installModal.classList.add('hidden');
+    if (btnInstallPwa) btnInstallPwa.style.display = 'none';
+    deferredPrompt = null;
+  };
+
   if (btnInstall) {
-    btnInstall.onclick = async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log(`PWA 설치 선택 결과: ${outcome}`);
-      if (installModal) installModal.classList.add('hidden');
-      deferredPrompt = null;
-    };
+    btnInstall.onclick = handleInstallClick;
+  }
+  
+  if (btnInstallPwa) {
+    btnInstallPwa.onclick = handleInstallClick;
   }
 
   if (btnClose) {
