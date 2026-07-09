@@ -1795,6 +1795,8 @@ async function startTest() {
   } else {
     // 오답은 이미 App.testPool에 세팅되어 있음
     App.testPool = shuffle([...App.testPool]);
+    // ⭐️ 라운드 전환 시 _alreadyGraded 플래그 리셋 ⭐️
+    App.testPool.forEach(w => w._alreadyGraded = false);
   }
   App.currentTestIndex = 0;
 
@@ -1985,6 +1987,23 @@ async function runTestRound(startIndex = 0) {
     } else {
       if (testCard) testCard.classList.remove('boss-mode');
       if (bossBadge) bossBadge.remove();
+    }
+
+
+    // ⭐️ [버그 픽스] 타이머 바 상태 완벽 초기화 & 증발 방지
+    const wrapper = document.getElementById('timer-bar-wrapper');
+    const fillEl = document.getElementById('test-timer-fill');
+    if (wrapper) {
+      if (isDictationMode) {
+        wrapper.classList.add('hidden');
+      } else {
+        wrapper.classList.remove('hidden'); // 무조건 강제 노출
+        if (fillEl) {
+          fillEl.style.transition = 'none';
+          fillEl.style.width = '100%';
+          fillEl.classList.remove('timer-warning');
+        }
+      }
     }
 
     if (isDictationMode) {

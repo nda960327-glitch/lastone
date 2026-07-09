@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v70'; // 캐시 버전 업데이트: 품사별 타이머 1초 연장
+const CACHE_NAME = 'vocabmaster-v71'; // 캐시 버전 업데이트: 라운드 2 진입 시 타이머 바 증발 현상(UI 초기화 및 _alreadyGraded) 완벽 픽스
 const ASSETS = [
   '/',
   '/index.html',
