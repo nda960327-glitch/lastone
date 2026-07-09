@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v69'; // 캐시 버전 업데이트: null 참조 에러 해결 및 O/X 버튼 hidden 클래스 제거 로직 보완
+const CACHE_NAME = 'vocabmaster-v70'; // 캐시 버전 업데이트: 품사별 타이머 1초 연장
 const ASSETS = [
   '/',
   '/index.html',

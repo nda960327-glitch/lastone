@@ -2052,15 +2052,15 @@ async function runTestRound(startIndex = 0) {
     if (!isDictationMode) {
       if (!isAlreadyGraded) {
         // 다이내믹 타이머 설정
-        let totalMs = 7000;
-        let disableOMs = 4000;
+        let totalMs = 8000;
+        let disableOMs = 5000;
         const mLen = wordObj.meanings.length;
         if (mLen === 1) {
-          totalMs = 5000;
-          disableOMs = 3000;
-        } else if (mLen === 2) {
           totalMs = 6000;
           disableOMs = 4000;
+        } else if (mLen === 2) {
+          totalMs = 7000;
+          disableOMs = 5000;
         }
 
         startWordTimer(
