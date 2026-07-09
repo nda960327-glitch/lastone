@@ -162,7 +162,7 @@
         <button id="btn-speak-again" class="speaker-icon-btn hidden" title="발음 다시 듣기">🔊</button>
       </div>
 
-      <div class="reveal-zone" id="reveal-zone">
+      <div class="action-area" id="action-area" style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 10px; width: 100%;">
         <button id="btn-reveal" class="btn-reveal">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -170,11 +170,8 @@
           </svg>
           뜻 확인하기
         </button>
-      </div>
-
-      <div class="answer-zone hidden" id="answer-zone">
-        <div class="test-meanings" id="test-meanings"></div>
-        <div class="ox-buttons">
+        <div class="test-meanings hidden" id="test-meanings" style="font-size: 1.5rem; text-align: center;"></div>
+        <div class="ox-buttons hidden" id="ox-buttons-container" style="display: none; justify-content: center; gap: 20px;">
           <button id="btn-correct" class="btn-o">
             <span class="ox-label">O</span>
             <span class="ox-sub">알고 있어요</span>

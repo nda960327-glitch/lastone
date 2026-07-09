@@ -1932,12 +1932,23 @@ function handleWordTimeout() {
   }
 }
 
-async function runTestRound() {
+async function runTestRound(startIndex = 0) {
   const pool = App.testPool;
   const wrongThisRound = [];
   let correctThisRound = 0;
 
-  for (let i = 0; i < pool.length; i++) {
+  if (startIndex > 0) {
+    for (let j = 0; j < startIndex; j++) {
+      const wordObj = pool[j];
+      if (wordObj.passed) {
+        correctThisRound++;
+      } else {
+        wrongThisRound.push(wordObj);
+      }
+    }
+  }
+
+  for (let i = startIndex; i < pool.length; i++) {
     stopWordTimer();
     const wordObj = pool[i];
     App.currentTestIndex = i;
@@ -1978,11 +1989,11 @@ async function runTestRound() {
 
     if (isDictationMode) {
       document.getElementById('test-word').classList.add('hidden');
-      document.querySelector('.ox-buttons').classList.add('hidden');
+      document.getElementById('ox-buttons-container').style.display = 'none';
       
       // 뜻 숨김 상태로 시작
-      document.getElementById('reveal-zone').classList.remove('hidden');
-      document.getElementById('answer-zone').classList.add('hidden');
+      document.getElementById('btn-reveal').classList.remove('hidden');
+      document.getElementById('test-meanings').classList.add('hidden');
       document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings);
       
       document.getElementById('dictation-zone').classList.remove('hidden');
@@ -1991,18 +2002,17 @@ async function runTestRound() {
       const btnReveal = document.getElementById('btn-reveal');
       if (btnReveal) {
         btnReveal.onclick = () => {
-          document.getElementById('reveal-zone').classList.add('hidden');
-          document.getElementById('answer-zone').classList.remove('hidden');
+          document.getElementById('btn-reveal').classList.add('hidden');
+          document.getElementById('test-meanings').classList.remove('hidden');
         };
       }
     } else {
       document.getElementById('test-word').classList.remove('hidden');
-      const oxBtns = document.querySelector('.ox-buttons');
-      if (oxBtns) oxBtns.classList.remove('hidden');
+      document.getElementById('ox-buttons-container').style.display = 'none';
       const dicZone = document.getElementById('dictation-zone');
       if (dicZone) dicZone.classList.add('hidden');
-      document.getElementById('reveal-zone').classList.add('hidden');
-      document.getElementById('answer-zone').classList.add('hidden');
+      document.getElementById('btn-reveal').classList.add('hidden');
+      document.getElementById('test-meanings').classList.add('hidden');
     }
 
     const listenZone = document.getElementById('test-listening-zone');
@@ -2470,7 +2480,7 @@ function restoreProgress(jsonStr) {
       const pct = ((i + 1) / pool.length * 100).toFixed(1);
       document.getElementById('test-progress-fill').style.width = pct + '%';
       
-      resumeTestRound(i);
+      runTestRound(i);
     }
   } catch (e) {
     console.error('테스트 상태 복원 실패:', e);
@@ -2478,140 +2488,7 @@ function restoreProgress(jsonStr) {
   }
 }
 
-async function resumeTestRound(startIndex) {
-  const pool = App.testPool;
-  const wrongThisRound = [];
-  let correctThisRound = 0;
 
-  for (let j = 0; j < startIndex; j++) {
-    const wordObj = pool[j];
-    if (wordObj.passed) {
-      correctThisRound++;
-    } else {
-      wrongThisRound.push(wordObj);
-    }
-  }
-
-  for (let i = startIndex; i < pool.length; i++) {
-    stopWordTimer();
-    const wordObj = pool[i];
-    App.currentTestIndex = i;
-    saveProgress();
-
-    document.getElementById('test-current').textContent = i + 1;
-    document.getElementById('test-total').textContent   = pool.length;
-    const pct = ((i + 1) / pool.length * 100).toFixed(1);
-    document.getElementById('test-progress-fill').style.width = pct + '%';
-
-    const btnPrev = document.getElementById('btn-prev-word');
-    if (btnPrev) {
-      btnPrev.disabled = (i === 0);
-    }
-
-    document.getElementById('test-word').textContent = '';
-    const btnSpeak = document.getElementById('btn-speak-again');
-    if (btnSpeak) btnSpeak.classList.add('hidden');
-    const posHintEl = document.getElementById('test-pos-hint');
-    posHintEl.textContent = '';
-    posHintEl.classList.add('hidden');
-    document.getElementById('test-meanings').innerHTML = '';
-
-    document.getElementById('reveal-zone').classList.add('hidden');
-    document.getElementById('answer-zone').classList.add('hidden');
-
-    const listenZone = document.getElementById('test-listening-zone');
-    if (listenZone) {
-      listenZone.classList.remove('hidden');
-    }
-
-    speak(wordObj.word);
-
-    await sleep(2000);
-
-    if (listenZone) {
-      listenZone.classList.add('hidden');
-    }
-    document.getElementById('test-word').textContent = wordObj.word;
-    if (btnSpeak) {
-      btnSpeak.classList.remove('hidden');
-      btnSpeak.onclick = () => speak(wordObj.word);
-    }
-    posHintEl.textContent = `품사 ${wordObj.meanings.length}개`;
-    posHintEl.classList.remove('hidden');
-    document.getElementById('reveal-zone').classList.remove('hidden');
-    startWordTimer(15000, handleWordTimeout);
-
-    const revealResult = await waitForRevealOrPrev();
-    if (revealResult === 'PREV') {
-      stopWordTimer();
-      if (i > 0) {
-        const prevWord = pool[i - 1];
-        if (prevWord.passed) {
-          prevWord.passed = false;
-          correctThisRound = Math.max(0, correctThisRound - 1);
-        } else {
-          prevWord.attempts = Math.max(0, prevWord.attempts - 1);
-          wrongThisRound.pop();
-        }
-        i = i - 2;
-      }
-      window.speechSynthesis.cancel();
-      continue;
-    }
-    if (revealResult === 'SKIP' || revealResult === 'TIMEOUT') {
-      stopWordTimer();
-      wordObj.attempts++;
-      saveWordStates();
-      wrongThisRound.push(wordObj);
-      window.speechSynthesis.cancel();
-      continue;
-    }
-
-    document.getElementById('reveal-zone').classList.add('hidden');
-    document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings);
-    document.getElementById('answer-zone').classList.remove('hidden');
-
-    setOXDisabled(false);
-
-    const result = await waitForOXOrPrev();
-    stopWordTimer();
-    setOXDisabled(true);
-
-    window.speechSynthesis.cancel();
-
-    if (result === 'PREV') {
-      if (i > 0) {
-        const prevWord = pool[i - 1];
-        if (prevWord.passed) {
-          prevWord.passed = false;
-          correctThisRound = Math.max(0, correctThisRound - 1);
-        } else {
-          prevWord.attempts = Math.max(0, prevWord.attempts - 1);
-          saveWordStates();
-          wrongThisRound.pop();
-        }
-        i = i - 2;
-      }
-      continue;
-    }
-
-    if (result === 'O') {
-      wordObj.passed = true;
-      correctThisRound++;
-    } else if (result === 'X' || result === 'SKIP' || result === 'TIMEOUT') {
-      wordObj.attempts++;
-      saveWordStates();
-      wrongThisRound.push(wordObj);
-    }
-
-    await sleep(180);
-  }
-
-  App.testPool = wrongThisRound;
-  App.currentTestIndex = 0;
-  saveProgress();
-  showRoundResult(correctThisRound, wrongThisRound.length);
-}
 
 // =============================================
 // 초기화

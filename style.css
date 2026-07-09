@@ -684,7 +684,10 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 .test-word {
-  font-size: clamp(1.8rem, 8vw, 3.5rem); font-weight:900; letter-spacing:-.03em; text-align:center;
+  font-size: clamp(3rem, 15vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -.03em;
+  text-align: center;
   color: #ffffff;
   text-shadow: 0 2px 20px rgba(168,85,247,0.4);
   width: 100%;
