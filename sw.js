@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v60'; // 캐시 버전 업데이트: CSS 및 HTML 수정 반영
+const CACHE_NAME = 'vocabmaster-v61'; // 캐시 버전 업데이트: 액션 버튼 우측 정렬 수정 반영
 const ASSETS = [
   '/',
   '/index.html',

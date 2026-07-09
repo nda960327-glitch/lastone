@@ -1150,10 +1150,10 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 
 @media (max-width: 480px) {
   .section-header {
-    justify-content: center !important;
+    justify-content: flex-end !important;
   }
   .header-action-buttons {
-    justify-content: center;
+    justify-content: flex-end;
   }
   #btn-install-pwa, #btn-toggle-add {
     font-size: 0.75rem !important;
