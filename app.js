@@ -2063,7 +2063,7 @@ async function runTestRound(startIndex = 0) {
     } else if (wLen <= 11) {
       testWordEl.style.fontSize = 'clamp(1.8rem, 9vw, 3.5rem)';
     } else {
-      testWordEl.style.fontSize = 'clamp(1.2rem, 7vw, 2.5rem)';
+      testWordEl.style.fontSize = 'clamp(2rem, 10vw, 3rem)';
     }
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
@@ -2454,7 +2454,7 @@ function showFinalResult() {
       } else if (w.attempts === 2) {
         tr.style.background = 'rgba(239, 68, 68, 0.08)';
       }
-      const meaningsStr = w.meanings.map(m => `<span class="pos-badge ${getPosClass(m.pos)}">[${esc(m.pos)}]</span> ${esc(m.meaning)}`).join('<br>');
+      const meaningsStr = w.meanings.map(m => `[${esc(m.pos)}] ${esc(m.meaning)}`).join('<br>');
       tr.innerHTML = `
         <td>${idx + 1}</td>
         <td style="font-weight: 700;">${esc(w.word)}</td>

@@ -593,9 +593,9 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
    미닝 카드 (Meaning Card)
    ============================================= */
 .meaning-card {
-  display: flex; align-items: flex-start; gap: 15px;
-  padding: 10px 14px; border-radius: 12px; margin-bottom: 8px; width: 100%; box-sizing: border-box;
-  font-size: clamp(1rem, 4.5vw, 1.2rem); font-weight: 500; color: var(--text1);
+  display: flex; align-items: center; gap: 15px;
+  padding: 14px 18px; border-radius: 12px; margin-bottom: 8px; width: 100%; box-sizing: border-box;
+  font-size: clamp(1.15rem, 5vw, 1.4rem); font-weight: 500; color: var(--text1);
   font-family: 'Noto Sans KR', sans-serif;
   word-break: keep-all; overflow-wrap: break-word; line-height: 1.5;
 }
@@ -604,14 +604,14 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 /* 미닝 카드 품사별 포인트 컬러 */
-.meaning-card.pos-n { background: rgba(59, 130, 246, 0.1); border-left: 5px solid #3b82f6; }
-.meaning-card.pos-v { background: rgba(239, 68, 68, 0.1); border-left: 5px solid #ef4444; }
-.meaning-card.pos-a { background: rgba(16, 185, 129, 0.1); border-left: 5px solid #10b981; }
-.meaning-card.pos-ad { background: rgba(245, 158, 11, 0.1); border-left: 5px solid #f59e0b; }
-.meaning-card.pos-prep { background: rgba(168, 85, 247, 0.1); border-left: 5px solid #a855f7; }
-.meaning-card.pos-conj { background: rgba(236, 72, 153, 0.1); border-left: 5px solid #ec4899; }
-.meaning-card.pos-phr { background: rgba(6, 182, 212, 0.1); border-left: 5px solid #06b6d4; }
-.meaning-card.pos-default { background: rgba(255, 255, 255, 0.05); border-left: 5px solid #94a3b8; }
+.meaning-card.pos-n { background: rgba(59, 130, 246, 0.1); }
+.meaning-card.pos-v { background: rgba(239, 68, 68, 0.1); }
+.meaning-card.pos-a { background: rgba(16, 185, 129, 0.1); }
+.meaning-card.pos-ad { background: rgba(245, 158, 11, 0.1); }
+.meaning-card.pos-prep { background: rgba(168, 85, 247, 0.1); }
+.meaning-card.pos-conj { background: rgba(236, 72, 153, 0.1); }
+.meaning-card.pos-phr { background: rgba(6, 182, 212, 0.1); }
+.meaning-card.pos-default { background: rgba(255, 255, 255, 0.05); }
 
 /* 미닝 카드 내부의 품사 뱃지 투명화 */
 .meaning-card .pos-badge {
@@ -778,9 +778,12 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 .test-listening-zone {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  width: 100%;
+  flex: 1;
   gap: 16px;
-  margin: 20px 0;
+  margin: 0;
   animation: viewIn 0.3s ease;
 }
 .headset-icon {
@@ -980,6 +983,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   padding:13px 16px;
   border-bottom:1px solid rgba(255,255,255,.04);
   color:var(--text1); vertical-align:middle;
+  word-break: keep-all;
 }
 .result-table tr:last-child td { border-bottom:none; }
 .result-table tr:hover td { background:var(--glass); }

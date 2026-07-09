@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v77'; // 캐시 버전 업데이트: 시각적 계층(Visual Hierarchy) 및 폰트 황금 비율 자동화 적용
+const CACHE_NAME = 'vocabmaster-v78'; // 캐시 버전 업데이트: UI 최종 폴리싱 (헤드셋 중앙정렬, 미닝 카드 디테일, 표 테이블 디자인, 긴 단어 폰트 개선)
 const ASSETS = [
   '/',
   '/index.html',
