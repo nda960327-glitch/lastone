@@ -2058,12 +2058,14 @@ async function runTestRound(startIndex = 0) {
     const testWordEl = document.getElementById('test-word');
     testWordEl.textContent = wordObj.word;
     const wLen = wordObj.word.length;
-    if (wLen <= 8) {
-      testWordEl.style.fontSize = 'clamp(3rem, 18vw, 5.5rem)';
-    } else if (wLen <= 11) {
-      testWordEl.style.fontSize = 'clamp(1.8rem, 9vw, 3.5rem)';
+    if (wLen <= 6) {
+      testWordEl.style.fontSize = 'clamp(3.5rem, 20vw, 6rem)';
+    } else if (wLen <= 9) {
+      testWordEl.style.fontSize = 'clamp(3rem, 16vw, 5rem)';
+    } else if (wLen <= 12) {
+      testWordEl.style.fontSize = 'clamp(2.5rem, 13vw, 4.5rem)';
     } else {
-      testWordEl.style.fontSize = 'clamp(2rem, 10vw, 3rem)';
+      testWordEl.style.fontSize = 'clamp(2rem, 11vw, 3.5rem)';
     }
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
