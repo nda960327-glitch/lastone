@@ -216,11 +216,27 @@ const App = {
   resumeFn:          null,
   currentTestIndex:  0,    // 복원용: 현재 라운드에서 진행 중인 단어 인덱스
   currentDBName:     '',   // 현재 선택된 단어장 이름 (영구 저장 키로 사용)
+  currentSection:    '',   // 현재 학습 중인 구간 (진척도 저장용)
 };
 
 // =============================================
 // 단어 상태 영구 저장 (localStorage) — 세션 간 passed/attempts 유지
 // =============================================
+
+// =============================================
+// 섹션별 학습 진척도 (Progress) 저장
+// =============================================
+function recordProgress(status) {
+  if (!App.currentDBName || !App.currentSection) return;
+  const key = `${App.currentDBName}_${App.currentSection}`;
+  try {
+    let progress = JSON.parse(localStorage.getItem('vocab_progress') || '{}');
+    progress[key] = status;
+    localStorage.setItem('vocab_progress', JSON.stringify(progress));
+  } catch(e) {
+    console.warn('진척도 저장 실패:', e);
+  }
+}
 
 // 저장 키: vocab_word_states_{단어장이름}
 function getWordStatesKey() {
@@ -418,6 +434,7 @@ function initInputView() {
         <span class="range-btn-count">${count}개 단어</span>
       `;
       btn.onclick = () => {
+        App.currentSection = `${start}~${end}`;
         const slicedWords = words.slice(i, end);
         App.words = slicedWords;
         App.round = 1;
@@ -434,6 +451,7 @@ function initInputView() {
       <span class="range-btn-count">${n}개 전체 새 학습</span>
     `;
     btnAllNew.onclick = () => {
+      App.currentSection = `1~${n} 전체단어`;
       App.words = words.slice();
       App.round = 1;
       App.testPool = [];
@@ -466,7 +484,10 @@ function initInputView() {
         <span class="range-btn-label">${start}~${end} 취약점 복습</span>
         <span class="range-btn-count">오답만 집중</span>
       `;
-      btn.onclick = () => startWeaknessReview(i, end, false);
+      btn.onclick = () => {
+        App.currentSection = `${start}~${end} 취약점 복습`;
+        startWeaknessReview(i, end, false);
+      };
       reviewGrid.appendChild(btn);
     }
 
@@ -480,7 +501,10 @@ function initInputView() {
       <span class="range-btn-label">1~${n} 최종 취약점 총정리</span>
       <span class="range-btn-count">최종 보스전 (마스터 단계)</span>
     `;
-    btnFinal.onclick = () => startWeaknessReview(0, n, true);
+    btnFinal.onclick = () => {
+      App.currentSection = `1~${n} 최종 취약점 총정리`;
+      startWeaknessReview(0, n, true);
+    };
     reviewGrid.appendChild(btnFinal);
   }
 
@@ -529,6 +553,8 @@ function initInputView() {
       alert('단어장을 선택해주세요.');
       return;
     }
+    App.currentSection = 'dictation';
+    recordProgress('in_progress');
     App.words = words;
     isDictationMode = true;
     App.round = 4;
@@ -1692,7 +1718,8 @@ function refreshDBList(textarea) {
 // =============================================
 // ② 학습 화면 (자동재생 루프)
 // =============================================
-function startTest() {
+async function startTest() {
+  recordProgress('in_progress');
   const textarea = document.getElementById('word-input');
   const rawWords = parseWords(textarea.value);
   
@@ -1727,7 +1754,8 @@ function startTest() {
 }
 
 // ── 취약점 집중 복습 시작 ──
-function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
+async function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
+  recordProgress('in_progress');
   // 1. 해당 구간의 전체 단어 로드
   const allWords = parseWords(document.getElementById('word-input').value);
   // localStorage에서 영구 상태 복원
@@ -2208,8 +2236,8 @@ function showRoundResult(correct, wrong) {
   // ── 라운드 종료 시 단어 상태 영구 저장 ──
   saveWordStates();
 
-  // X가 0개이면 최종 성적표로
-  if (wrong === 0) {
+  // X가 0개이거나 딕테이션 모드이면 최종 성적표로 (딕테이션은 재시험 없음)
+  if (wrong === 0 || isDictationMode) {
     showFinalResult();
     return;
   }
@@ -2237,6 +2265,7 @@ function showRoundResult(correct, wrong) {
 function showFinalResult() {
   // ── 최종 완료 시 단어 상태 영구 저장 ──
   saveWordStates();
+  recordProgress('completed');
   clearProgress();
   showView('view-final');
 
