@@ -207,6 +207,7 @@ coal [n] 석탄`.trim();
 // ---- 상태 (State) ----
 let isDictationMode = false;
 const App = {
+  allWords:          [],
   words:             [],   // 전체 단어 객체 배열
   testPool:          [],   // 현재 라운드 테스트 풀 (오답만 남음)
   round:             1,

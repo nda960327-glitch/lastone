@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v82'; // 캐시 버전 업데이트: 단어 고유 인덱스(originalIndex) 기반 상태 추적으로 취약점 필터링 버그 수정
+const CACHE_NAME = 'vocabmaster-v83'; // 캐시 버전 업데이트: 전역 상태(Global State) 도입으로 totalFails 홈 화면 복귀 시 증발 버그 해결 및 Fallback 적용
 const ASSETS = [
   '/',
   '/index.html',
