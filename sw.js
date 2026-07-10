@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v96'; // 캐시 버전 업데이트: 누락된 DEFAULT_DATABASES 선언 복구 (진짜 해결)
+const CACHE_NAME = 'vocabmaster-v97'; // 캐시 버전 업데이트: 수동 단어 추가 모달, 로고 새로고침, 백그라운드 오디오 차단
 const ASSETS = [
   '/',
   '/index.html',

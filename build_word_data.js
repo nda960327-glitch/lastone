@@ -43,7 +43,10 @@ currentCategory = '';
 currentDay = -1;
 toeflLines.forEach(processLine);
 
-let out = 'const words = ' + JSON.stringify(words, null, 2) + ';\n\n';
+let out = 'let _staticWords = ' + JSON.stringify(words, null, 2) + ';\n';
+out += 'let _customWords = [];\n';
+out += 'try { _customWords = JSON.parse(localStorage.getItem("doacore_custom_words") || "[]"); } catch(e) {}\n';
+out += 'const words = _staticWords.concat(_customWords);\n\n';
 
 out += `(function verifyCounts() {
   const counts = { basic: {}, toefl: {} };

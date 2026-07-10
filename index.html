@@ -30,7 +30,7 @@
   <!-- ① 입력 화면 -->
   <section id="view-input" class="view active">
     <header class="brand">
-      <img src="icon.jpg" class="brand-icon-img" alt="DOACore Logo">
+      <img src="icon.jpg" class="brand-icon-img" alt="DOACore Logo" id="btn-main-logo" style="cursor: pointer;">
       <div>
         <h1 class="brand-title">DOACore</h1>
         <p class="brand-sub">DOACore: 인지공학 기반 영단어 각인 엔진</p>
@@ -253,6 +253,36 @@
 <script src="app.js"></script>
 
   <!-- PWA 앱 설치 알림 팝업 모달 -->
+  <div id="modal-add-word" class="pwa-modal hidden">
+    <div class="pwa-modal-content" style="max-width: 400px; padding: 20px; border-radius: 12px; background: var(--bg-card); color: #fff; text-align: left;">
+      <h3 style="margin-top:0; font-size: 1.2rem; margin-bottom: 15px; color: var(--purple);">➕ 수동 단어 추가</h3>
+      <div style="margin-bottom: 10px;">
+        <label style="display:block; font-size:0.9rem; margin-bottom:5px; color:var(--text2);">영단어 입력</label>
+        <input type="text" id="add-word-en" placeholder="ex) apple" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: #fff; font-size: 1rem;">
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label style="display:block; font-size:0.9rem; margin-bottom:5px; color:var(--text2);">품사</label>
+        <select id="add-word-pos" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: #fff; font-size: 1rem;">
+          <option value="n" style="color:black;">n (명사)</option>
+          <option value="v" style="color:black;">v (동사)</option>
+          <option value="a" style="color:black;">a (형용사)</option>
+          <option value="ad" style="color:black;">ad (부사)</option>
+          <option value="prep" style="color:black;">prep (전치사)</option>
+          <option value="conj" style="color:black;">conj (접속사)</option>
+          <option value="phr" style="color:black;">phr (숙어/관용구)</option>
+        </select>
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label style="display:block; font-size:0.9rem; margin-bottom:5px; color:var(--text2);">한글 뜻</label>
+        <input type="text" id="add-word-ko" placeholder="ex) 사과" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: #fff; font-size: 1rem;">
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button id="btn-add-word-cancel" class="btn-ghost" style="padding: 10px 16px; border-radius: 6px;">취소</button>
+        <button id="btn-add-word-submit" class="btn-primary" style="padding: 10px 16px; border-radius: 6px;">등록하기</button>
+      </div>
+    </div>
+  </div>
+
   <div id="pwa-install-modal" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card">
       <div class="pwa-modal-icon">📱</div>

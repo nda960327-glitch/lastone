@@ -209,6 +209,20 @@ let isDictationMode = false;
 let currentCategory = 'toefl';
 let currentDay = null;
 
+let currentAudio = null;
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+  }
+});
+
 
 function populateDaySelector() {
   const daySelector = document.getElementById('day-selector');
@@ -671,24 +685,60 @@ function initInputView() {
   }
 
   const btnAddManual = document.getElementById('btn-add-word-manual');
-  if (btnAddManual) {
+  const modalAddWord = document.getElementById('modal-add-word');
+  const btnAddWordCancel = document.getElementById('btn-add-word-cancel');
+  const btnAddWordSubmit = document.getElementById('btn-add-word-submit');
+  
+  if (btnAddManual && modalAddWord) {
     btnAddManual.onclick = () => {
       if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
-      alert('단어 수동 추가 기능은 준비 중입니다. 차후 단어/뜻/품사를 받아 배열에 저장하는 기능이 연결될 예정입니다.');
-      // [수동 단어 추가 로직 뼈대]
-      // 1. 모달창 띄우기 (입력 폼)
-      // 2. 유저 입력 데이터 가져오기 (newWord, newMeaning, newPos)
-      // 3. 글로벌 배열 푸시
-      // App.words.push({
-      //   originalIndex: App.words.length + 1,
-      //   word: newWord,
-      //   meaning: newMeaning,
-      //   partOfSpeech: [newPos],
-      //   passed: false,
-      //   attempts: 0
-      // });
-      // 4. 로컬 스토리지 또는 IndexedDB 저장
-      // saveWordStatesIDB();
+      modalAddWord.classList.remove('hidden');
+    };
+    
+    btnAddWordCancel.onclick = () => {
+      modalAddWord.classList.add('hidden');
+    };
+    
+    btnAddWordSubmit.onclick = () => {
+      const en = document.getElementById('add-word-en').value.trim();
+      const pos = document.getElementById('add-word-pos').value;
+      const ko = document.getElementById('add-word-ko').value.trim();
+      
+      if (!en || !ko) {
+        alert("단어와 뜻을 모두 입력해주세요.");
+        return;
+      }
+      
+      const newWord = {
+        word: en,
+        partOfSpeech: [pos],
+        meaning: ko,
+        totalFails: 0,
+        category: currentCategory,
+        day: 'custom'
+      };
+      
+      // Push to in-memory App.words if needed (already parsed logic)
+      // Save to localStorage
+      try {
+        const customWords = JSON.parse(localStorage.getItem('doacore_custom_words') || '[]');
+        customWords.push(newWord);
+        localStorage.setItem('doacore_custom_words', JSON.stringify(customWords));
+        
+        // Add to words pool and App.words
+        words.push(newWord);
+        App.allWords = words.slice();
+        alert(`"${en}" 단어가 수동으로 등록되었습니다!`);
+        modalAddWord.classList.add('hidden');
+        
+        document.getElementById('add-word-en').value = '';
+        document.getElementById('add-word-ko').value = '';
+        
+        // Refresh range buttons
+        updateCount();
+      } catch(e) {
+        console.error("수동 단어 추가 에러:", e);
+      }
     };
   }
 
@@ -1441,6 +1491,7 @@ function waitForDictationOrPrev(wordObj) {
         
         // Error sound
         const audio = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
+        currentAudio = audio;
         audio.play().catch(e=>console.log(e));
         
         inputEl.style.borderColor = '#ef4444'; // Red

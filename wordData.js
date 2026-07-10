@@ -1,4 +1,4 @@
-const words = [
+let _staticWords = [
   {
     "word": "danger",
     "partOfSpeech": [
@@ -67670,6 +67670,9 @@ const words = [
     "day": 13
   }
 ];
+let _customWords = [];
+try { _customWords = JSON.parse(localStorage.getItem("doacore_custom_words") || "[]"); } catch(e) {}
+const words = _staticWords.concat(_customWords);
 
 (function verifyCounts() {
   const counts = { basic: {}, toefl: {} };
