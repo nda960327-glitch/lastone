@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v151'; // 캐시 업데이트: 파스텔 배경색 살짝 진하게, 다크모드 메인 버튼 원래 그라데이션 복구
+const CACHE_NAME = 'vocabmaster-v152'; // 캐시 업데이트: 받아쓰기 진입 시 이전 학습 루프와 충돌하는 동시성 버그(Race Condition) 완벽 수정
 const ASSETS = [
   '/',
   '/index.html',

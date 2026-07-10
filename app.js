@@ -889,6 +889,9 @@ function initInputView() {
       alert('단어장을 선택해주세요.');
       return;
     }
+    App.studyAbort = false; App.testSessionId = Date.now();
+    App.isOButtonLocked = false;
+    App.isPenaltyTime = false;
     App.currentSection = 'dictation';
     recordProgress('in_progress');
     App.words = words;
@@ -1219,7 +1222,7 @@ function refreshDBList(textarea) {
 // ② 학습 화면 (자동재생 루프)
 // =============================================
 async function startTest() {
-  App.studyAbort = false;
+  App.studyAbort = false; App.testSessionId = Date.now();
   recordProgress('in_progress');
   const textarea = document.getElementById('word-input');
   const rawWords = getFilteredWords();
@@ -1258,7 +1261,7 @@ async function startTest() {
 
 // ── 취약점 집중 복습 시작 ──
 async function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
-  App.studyAbort = false;
+  App.studyAbort = false; App.testSessionId = Date.now();
   recordProgress('in_progress');
   // 1. 해당 구간의 전체 단어 로드
   const allWords = getFilteredWords();
@@ -1400,6 +1403,7 @@ function handleWordTimeout() {
 }
 
 async function runTestRound(startIndex = 0) {
+  const currentSessionId = App.testSessionId;
   const pool = App.testPool;
   const wrongThisRound = [];
   let correctThisRound = 0;
@@ -1417,7 +1421,7 @@ async function runTestRound(startIndex = 0) {
 
   for (let i = startIndex; i < pool.length; i++) {
     isTimeUp = false;
-    if (App.studyAbort) return;
+    if (App.studyAbort || App.testSessionId !== currentSessionId) return;
     stopWordTimer();
     const wordObj = pool[i];
     App.currentTestIndex = i;
@@ -1521,11 +1525,12 @@ if (posHintEl) posHintEl.classList.add('hidden');
     if (!isDictationMode && !isAlreadyGraded) {
       await sleep(2000);
     }
+    if (App.studyAbort || App.testSessionId !== currentSessionId) return;
 
     if (listenZone) {
       listenZone.classList.add('hidden');
     }
-    
+
     // 헤드셋(프라이밍) 단계가 끝나고 스펠링 공개될 때 타이머 노출
     if (wrapper && !isDictationMode) {
       wrapper.classList.remove('hidden');
@@ -1695,7 +1700,7 @@ if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display =
     window.speechSynthesis.cancel();
 
     // [이전 단어] 처리: O/X 단계에서 이전 단어 클릭
-    if (result === 'ABORT' || App.studyAbort) return;
+    if (result === "ABORT" || App.studyAbort || App.testSessionId !== currentSessionId) return;
 
     if (result === 'PREV') {
       if (i > 0) {
