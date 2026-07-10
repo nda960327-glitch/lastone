@@ -2167,7 +2167,6 @@ function restoreProgress(jsonStr) {
 
   // 홈으로 이동 버튼 핸들러
   
-});
 
 // ���� Swipe Logic ����
 let isSwipeMode = false;
@@ -2243,6 +2242,4 @@ let isDragging = false;
       swipeStartX = 0;
       swipeCurrentX = 0;
     });
-  }
-});
-
+  }

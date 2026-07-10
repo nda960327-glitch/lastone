@@ -1338,26 +1338,35 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 /* Meaning Row with background color */
+/* Meaning Row with clean design */
 .meaning-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.02), 0 4px 12px rgba(0,0,0,0.15);
 }
-
-.meaning-row.pos-bg-n { background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2); }
-.meaning-row.pos-bg-v { background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.2); }
-.meaning-row.pos-bg-a { background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); }
-.meaning-row.pos-bg-ad { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2); }
-.meaning-row.pos-bg-prep { background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.2); }
-.meaning-row.pos-bg-conj { background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.2); }
-.meaning-row.pos-bg-phr { background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.2); }
-.meaning-row.pos-bg-default { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }
+.meaning-text {
+  font-size: 21px;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.4;
+  text-align: center;
+  word-break: keep-all;
+}
+.pos-badge {
+  font-size: 13.5px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
 @media (max-width: 480px) {
   .section-header { justify-content: stretch !important; }
   .header-action-buttons { flex-direction: column !important; align-items: stretch !important; justify-content: stretch !important; width: 100% !important; gap: 8px !important; }

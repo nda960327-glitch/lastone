@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v110'; // 캐시 업데이트: Day 드롭다운 메뉴에 현재 선택된 카테고리 이름 표시 추가
+const CACHE_NAME = 'vocabmaster-v111'; // 캐시 업데이트: 단어 뜻 카드 디자인 개선 및 스와이프 로직 충돌 버그 수정
 const ASSETS = [
   '/',
   '/index.html',
