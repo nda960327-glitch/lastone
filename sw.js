@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v149'; // 캐시 업데이트: 상단 DB 선택 버튼 테두리 적용, 받아쓰기 진입 시 이전 상태(studyAbort) 초기화 누락 수정
+const CACHE_NAME = 'vocabmaster-v150'; // 캐시 업데이트: 로고 아이콘 필터, 품사 텍스트 크기 강조, 기본테마 투명 버튼 색상, 점검영역 제목 색상 픽스
 const ASSETS = [
   '/',
   '/index.html',

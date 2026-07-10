@@ -1561,7 +1561,7 @@ if (posHintEl) posHintEl.classList.add('hidden');
       btnSpeak.classList.remove('hidden');
       if (btnSpeak) btnSpeak.onclick = () => speak(wordObj.word);
     }
-if (posHintEl) posHintEl.textContent = `품사 ${wordObj.meanings.length}개`;
+if (posHintEl) posHintEl.innerHTML = `품사 <span style="font-size: 1.3em; color: var(--primary-color); font-weight: 900;">${wordObj.meanings.length}</span>개`;
     if (!isDictationMode) {
 if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display = 'block'; }
     }
