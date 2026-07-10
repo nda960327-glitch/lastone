@@ -45,7 +45,7 @@
     <!-- Day 선택 드롭다운 -->
     <div style="margin-bottom: 16px; padding: 0 4px;">
       <div class="select-wrap" style="position: relative;">
-        <select id="day-selector" style="width: 100%; padding: 12px 36px 12px 14px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #ffffff; font-size: 14px; font-weight: 600; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; backdrop-filter: blur(10px);">
+        <select id="day-selector" style="width: 100%; padding: 16px 36px 16px 16px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 16px; font-weight: 700; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
           <option value="" style="background:#1e1b4b; color:#fff;">Day 선택...</option>
         </select>
         <div style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text2); font-size: 11px;">▼</div>
@@ -53,20 +53,21 @@
     </div>
 
     <div class="glass-card input-card">
-      <div class="section-header" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
-        <div class="header-action-buttons" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; width: 100%; justify-content: flex-end; padding-right: 4px;">
-          <button id="btn-install-pwa" style="display: none;">📱 앱 다운로드</button>
-          <input type="file" id="btn-upload-db-file" accept=".txt" style="display: none;">
-          <div class="dropdown-add-voca" style="position: relative; display: inline-block;">
-            <button id="btn-toggle-add" class="btn-ghost" style="border-color: rgba(168,85,247,0.4); color: var(--purple);">➕ 단어장 추가</button>
-            <div id="dropdown-add-menu" class="dropdown-content hidden">
-              <button id="btn-add-word-manual">✍️ 수동으로 새 단어 추가</button>
-              <button id="btn-upload-direct">📁 바로 단어장 파일(.txt) 올리기</button>
-              <button id="btn-show-guide">❓ 파일 양식 및 AI 프롬프트 안내</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- 내 단어장 추가 메뉴 -->
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+      <button id="btn-add-word-manual" style="width: 100%; padding: 16px; border-radius: 12px; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 10px; transition: all 0.2s;">
+        <span style="font-size: 1.2rem;">✍️</span> 수동으로 새 단어 추가
+      </button>
+      <button id="btn-upload-direct" style="width: 100%; padding: 16px; border-radius: 12px; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 10px; transition: all 0.2s;">
+        <span style="font-size: 1.2rem;">📁</span> 바로 단어장 파일(.txt) 올리기
+      </button>
+      <button id="btn-install-pwa" style="display: none; width: 100%; padding: 16px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; text-align: left; align-items: center; gap: 10px;">
+        <span style="font-size: 1.2rem;">📱</span> 앱 다운로드
+      </button>
+      <input type="file" id="btn-upload-db-file" accept=".txt" style="display: none;">
+    </div>
+
+    <div class="glass-card input-card">
 
 
 

@@ -688,6 +688,13 @@ function initInputView() {
     if (btnFormatGuideOk) btnFormatGuideOk.onclick = closeModal;
   }
 
+  if (btnUploadDirect) {
+    btnUploadDirect.onclick = () => {
+      const fileInput = document.getElementById('btn-upload-db-file');
+      if (fileInput) fileInput.click();
+    };
+  }
+
   const btnAddManual = document.getElementById('btn-add-word-manual');
   const modalAddWord = document.getElementById('modal-add-word');
   const btnAddWordCancel = document.getElementById('btn-add-word-cancel');

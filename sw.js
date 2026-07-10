@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v98'; // 캐시 업데이트: 파싱 에러 완화, 뜻 박스 UI, 1~N 텍스트 동적화
+const CACHE_NAME = 'vocabmaster-v99'; // 캐시 업데이트: 백그라운드 TTS 차단 및 드롭다운 UI 수정
 const ASSETS = [
   '/',
   '/index.html',
