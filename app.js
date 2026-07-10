@@ -246,9 +246,14 @@ function populateDaySelector() {
   }
   
   sortedDays.forEach(day => {
+    let titlePrefix = '';
+    if (currentCategory === 'toefl') titlePrefix = '🔥 토플 영단어 - ';
+    else if (currentCategory === 'basic') titlePrefix = '🌱 기초 영단어 - ';
+    else if (currentCategory === 'custom-upload') titlePrefix = '📁 업로드 단어장 - ';
+    
     const opt = document.createElement('option');
     opt.value = day;
-    opt.textContent = isNaN(day) ? day : `Day ${day}`;
+    opt.textContent = titlePrefix + (isNaN(day) ? day : `Day ${day}`);
     opt.style.background = '#1e1b4b';
     opt.style.color = '#fff';
     daySelector.appendChild(opt);

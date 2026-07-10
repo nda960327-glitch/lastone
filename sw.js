@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v109'; // 캐시 업데이트: 스와이프 기능 및 애니메이션, 토글 버튼 추가
+const CACHE_NAME = 'vocabmaster-v110'; // 캐시 업데이트: Day 드롭다운 메뉴에 현재 선택된 카테고리 이름 표시 추가
 const ASSETS = [
   '/',
   '/index.html',
