@@ -2225,6 +2225,7 @@ let isVerticalScroll = false;
   if (testCard) {
     testCard.addEventListener('touchstart', (e) => {
       if (!isSwipeMode) return;
+      if (e.target.closest('button')) return; // 버튼 터치 시 스와이프 무시
       isDragging = true;
       swipeStartX = e.touches[0].clientX;
       testCard.classList.add('dragging');
@@ -2232,10 +2233,11 @@ let isVerticalScroll = false;
 
     testCard.addEventListener('touchmove', (e) => {
       if (!isSwipeMode || !isDragging) return;
+      if (e.target.closest('button')) return; // 혹시라도 이동 중 버튼 위라면 무시
       swipeCurrentX = e.touches[0].clientX;
       const deltaX = swipeCurrentX - swipeStartX;
       const rotateDeg = deltaX * 0.05;
-      testCard.style.transform = "translate(" + deltaX + "px, 0) rotate(" + rotateDeg + "deg)";
+      testCard.style.transform = `translate(${deltaX}px, 0) rotate(${rotateDeg}deg)`;
 
       if (deltaX > 20) {
         testCard.style.boxShadow = '0 0 40px rgba(74, 222, 128, 0.4)';
@@ -2248,21 +2250,22 @@ let isVerticalScroll = false;
 
     testCard.addEventListener('touchend', (e) => {
       if (!isSwipeMode || !isDragging) return;
+      if (e.target.closest('button')) return;
       isDragging = false;
       testCard.classList.remove('dragging');
 
       const deltaX = swipeCurrentX - swipeStartX;
-      const threshold = window.innerWidth * 0.25;
+      const threshold = 80; // 고정 임계치 80px로 변경
 
       if (deltaX > threshold) {
-        testCard.style.transform = "translate(" + window.innerWidth + "px, 0) rotate(15deg)";
+        testCard.style.transform = `translate(1000px, 0) rotate(15deg)`;
         setTimeout(() => {
           document.getElementById('btn-correct').click();
           testCard.style.transform = '';
           testCard.style.boxShadow = '';
         }, 150);
       } else if (deltaX < -threshold) {
-        testCard.style.transform = "translate(-" + window.innerWidth + "px, 0) rotate(-15deg)";
+        testCard.style.transform = `translate(-1000px, 0) rotate(-15deg)`;
         setTimeout(() => {
           document.getElementById('btn-wrong').click();
           testCard.style.transform = '';
