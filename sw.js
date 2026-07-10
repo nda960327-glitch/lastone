@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v132'; // 캐시 업데이트: 뜻 숨기기 모드 스위치 UI 누락 픽스
+const CACHE_NAME = 'vocabmaster-v133'; // 캐시 업데이트: 가독성 대비 완벽 적용 및 3종 테마 시스템 전면 재구축
 const ASSETS = [
   '/',
   '/index.html',

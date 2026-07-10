@@ -958,7 +958,7 @@ function initInputView() {
 
         tr.innerHTML = `
           <td style="padding: 10px 8px; font-weight: 600; color: #a78bfa;">${w.word}</td>
-          <td style="padding: 10px 8px; color: var(--text2); font-size: 13px;">[${w.partOfSpeech.join(', ')}]</td>
+          <td style="padding: 10px 8px; color: var(--text-sub); font-size: 13px;">[${w.partOfSpeech.join(', ')}]</td>
           <td style="padding: 10px 8px;">
             <span class="${isHideMeaningMode ? 'blur-meaning' : ''}" onclick="if(this.classList.contains('blur-meaning')) this.classList.toggle('revealed')">
               ${w.meaning}
@@ -1102,7 +1102,7 @@ function loadDBList(textarea) {
 
   if (statusEl) {
     statusEl.innerHTML = 'ℹ️ <b>웹 보관함 단어장</b>';
-    statusEl.style.color = 'var(--text2)';
+    statusEl.style.color = 'var(--text-sub)';
   }
 
   refreshDBList(textarea);
@@ -1119,9 +1119,9 @@ function refreshDBList(textarea) {
 
   const BUILTIN_KEYS = new Set(Object.keys(DEFAULT_DATABASES));
 
-  selectBasic.innerHTML = '<option value="" style="background:var(--dropdown-hover);color:var(--text1);">선택하기...</option>';
-  selectTofl.innerHTML  = '<option value="" style="background:var(--dropdown-hover);color:var(--text1);">선택하기...</option>';
-  if (selectUser) selectUser.innerHTML = '<option value="" style="background:var(--dropdown-hover);color:var(--text1);">선택하기...</option>';
+  selectBasic.innerHTML = '<option value="" style="background:var(--dropdown-hover);color:var(--text-main);">선택하기...</option>';
+  selectTofl.innerHTML  = '<option value="" style="background:var(--dropdown-hover);color:var(--text-main);">선택하기...</option>';
+  if (selectUser) selectUser.innerHTML = '<option value="" style="background:var(--dropdown-hover);color:var(--text-main);">선택하기...</option>';
 
   const keys = [];
   for (let i = 0; i < localStorage.length; i++) {
@@ -1540,7 +1540,7 @@ if (posHintEl) posHintEl.classList.add('hidden');
     if ((wordObj.totalFails || 0) >= 6) {
       testWordEl.style.color = '#ef4444';
     } else {
-      testWordEl.style.color = 'var(--text1)';
+      testWordEl.style.color = 'var(--text-main)';
     }
     const wLen = wordObj.word.length;
     if (wLen <= 6) {
@@ -1999,7 +1999,7 @@ function showFinalResult() {
         <td>${idx + 1}</td>
         <td style="font-weight: 700;">${esc(w.word)}</td>
         <td style="text-align: left;">${meaningsStr}</td>
-        <td style="font-weight: bold; color: ${w.attempts >= 3 ? '#f59e0b' : w.attempts === 2 ? 'var(--red)' : 'var(--text1)'}">${w.attempts}회</td>
+        <td style="font-weight: bold; color: ${w.attempts >= 3 ? '#f59e0b' : w.attempts === 2 ? 'var(--red)' : 'var(--text-main)'}">${w.attempts}회</td>
       `;
       tbody.appendChild(tr);
     });
@@ -2413,8 +2413,8 @@ let isVerticalScroll = false;
     document.body.setAttribute('data-theme', theme);
     localStorage.setItem('vocab_theme', theme);
     themeBtns.forEach(btn => {
-      if (btn.dataset.theme === theme) btn.style.borderColor = 'var(--text1)';
-      else btn.style.borderColor = 'var(--border)';
+      if (btn.dataset.theme === theme) btn.style.borderColor = 'var(--text-main)';
+      else btn.style.borderColor = 'var(--box-border)';
     });
   }
   

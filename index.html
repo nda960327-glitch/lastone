@@ -39,31 +39,31 @@
       </div>
       <!-- 스와이프 모드 토글 (상단 배치) -->
             <!-- 설정 버튼 -->
-      <button id="btn-settings" style="position: absolute; right: 0; top: 0; background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); cursor: pointer; color: var(--text1); font-size: 16px; display: flex; align-items: center; justify-content: center; z-index: 100; pointer-events: auto; transform: translateY(6px);">
+      <button id="btn-settings" style="position: absolute; right: 0; top: 0; background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); cursor: pointer; color: var(--text-main); font-size: 16px; display: flex; align-items: center; justify-content: center; z-index: 100; pointer-events: auto; transform: translateY(6px);">
         ⚙️ 설정
       </button>
 
       <!-- 설정 메뉴 (드롭다운) -->
       <div id="settings-dropdown" class="hidden" style="position: absolute; right: 0; top: 50px; background: var(--dropdown-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; z-index: 101; backdrop-filter: blur(10px); min-width: 180px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); pointer-events: auto;">
-        <h4 style="margin: 0 0 12px 0; font-size: 14px; color: var(--text2); text-align: left; padding-bottom: 8px; border-bottom: 1px solid var(--border);">환경 설정</h4>
+        <h4 style="margin: 0 0 12px 0; font-size: 14px; color: var(--text-sub); text-align: left; padding-bottom: 8px; border-bottom: 1px solid var(--box-border);">환경 설정</h4>
         <!-- 테마 선택기 -->
-        <h4 style="margin: 16px 0 12px 0; font-size: 14px; color: var(--text2); text-align: left; padding-bottom: 8px; border-bottom: 1px solid var(--border);">테마 (스킨)</h4>
+        <h4 style="margin: 16px 0 12px 0; font-size: 14px; color: var(--text-sub); text-align: left; padding-bottom: 8px; border-bottom: 1px solid var(--box-border);">테마 (스킨)</h4>
         <div id="theme-selector" style="display: flex; gap: 8px; justify-content: space-between; margin-bottom: 12px; pointer-events: auto;">
-          <button class="theme-btn" data-theme="dark" style="width: 28px; height: 28px; border-radius: 50%; background: #07071a; border: 2px solid var(--border); cursor: pointer;" title="다크 모드"></button>
-          <button class="theme-btn" data-theme="blue-white" style="width: 28px; height: 28px; border-radius: 50%; background: #f0f7ff; border: 2px solid var(--border); cursor: pointer;" title="블루화이트"></button>
-          <button class="theme-btn" data-theme="pink-white" style="width: 28px; height: 28px; border-radius: 50%; background: #fff1f2; border: 2px solid var(--border); cursor: pointer;" title="핑크화이트"></button>
-          <button class="theme-btn" data-theme="green-white" style="width: 28px; height: 28px; border-radius: 50%; background: #f0fdf4; border: 2px solid var(--border); cursor: pointer;" title="그린화이트"></button>
+          <button class="theme-btn" data-theme="dark" style="width: 28px; height: 28px; border-radius: 50%; background: #07071a; border: 2px solid var(--box-border); cursor: pointer;" title="다크 모드"></button>
+          <button class="theme-btn" data-theme="blue" style="width: 28px; height: 28px; border-radius: 50%; background: #f0f7ff; border: 2px solid var(--box-border); cursor: pointer;" title="블루화이트"></button>
+          <button class="theme-btn" data-theme="pink" style="width: 28px; height: 28px; border-radius: 50%; background: #fff1f2; border: 2px solid var(--box-border); cursor: pointer;" title="핑크화이트"></button>
+          <button class="theme-btn" data-theme="green" style="width: 28px; height: 28px; border-radius: 50%; background: #f0fdf4; border: 2px solid var(--box-border); cursor: pointer;" title="그린화이트"></button>
         </div>
         <!-- 스와이프 모드 토글 -->
         <label for="swipe-toggle-checkbox" class="swipe-toggle-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; pointer-events: auto;">
-          <span style="font-size: 14px; color: var(--text1); font-weight: 700;">스와이프 모드</span>
+          <span style="font-size: 14px; color: var(--text-main); font-weight: 700;">스와이프 모드</span>
           <div class="toggle-switch">
             <input type="checkbox" id="swipe-toggle-checkbox">
             <span class="slider round" style="box-shadow: none;"></span>
           </div>
         </label>
         <!-- 초기화하기 -->
-        <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); text-align: center;">
+        <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--box-border); text-align: center;">
           <button id="btn-reset-progress" style="width: 100%; padding: 8px; background: transparent; border: 1px solid var(--red); color: var(--red); border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.2s;">
             🚨 학습 기록 전체 초기화
           </button>
@@ -81,10 +81,10 @@
     <!-- Day 선택 드롭다운 -->
     <div id="day-selector-container" style="margin-bottom: 16px; padding: 0 4px;">
       <div class="select-wrap" style="position: relative;">
-        <select id="day-selector" style="width: 100%; padding: 16px 36px 16px 16px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid var(--border); color: var(--text1); font-size: 16px; font-weight: 700; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-          <option value="" style="background:#1e1b4b; color: var(--text1);">Day 선택...</option>
+        <select id="day-selector" style="width: 100%; padding: 16px 36px 16px 16px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid var(--box-border); color: var(--text-main); font-size: 16px; font-weight: 700; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          <option value="" style="background:#1e1b4b; color: var(--text-main);">Day 선택...</option>
         </select>
-        <div style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text2); font-size: 11px;">▼</div>
+        <div style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text-sub); font-size: 11px;">▼</div>
       </div>
     </div>
     
@@ -145,7 +145,7 @@
   <section id="view-test" class="view">
     <div class="view-topbar">
       <div style="display: flex; align-items: center; gap: 8px;">
-        <button id="btn-home-test" class="btn-ghost" style="padding: 6px 12px; font-size: 13px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; display: flex; align-items: center; gap: 4px; color: var(--text1); font-weight: 600;" title="홈으로 가기">🏠 홈으로</button>
+        <button id="btn-home-test" class="btn-ghost" style="padding: 6px 12px; font-size: 13px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; display: flex; align-items: center; gap: 4px; color: var(--text-main); font-weight: 600;" title="홈으로 가기">🏠 홈으로</button>
         <div class="round-pill">Round <span id="test-round">1</span> · 테스트</div>
       </div>
       <div class="progress-label">
@@ -168,8 +168,8 @@
       <!-- 15초 타임라인 바 -->
       <div id="timer-bar-wrapper" class="timer-bar-wrapper hidden" style="width: 100%; max-width: 440px; margin-bottom: 8px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 13px; font-weight: 700;">
-          <span style="color: var(--text2); display: flex; align-items: center; gap: 4px;">⚡ 5초 직관 테스트 (바로 떠오르지 않으면 X)</span>
-          <span id="timer-seconds-text" style="color: var(--text1); font-family: monospace; font-size: 15px; font-weight: 800;">15.0초</span>
+          <span style="color: var(--text-sub); display: flex; align-items: center; gap: 4px;">⚡ 5초 직관 테스트 (바로 떠오르지 않으면 X)</span>
+          <span id="timer-seconds-text" style="color: var(--text-main); font-family: monospace; font-size: 15px; font-weight: 800;">15.0초</span>
         </div>
         <div style="width: 100%; height: 8px; background: rgba(0,0,0,0.35); border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12);">
           <div id="test-timer-fill" style="width: 100%; height: 100%; background: linear-gradient(90deg, #3b82f6, #6366f1); transition: width 0.05s linear; border-radius: 4px;"></div>
@@ -205,7 +205,7 @@
       <!-- Dictation Zone -->
       <div id="dictation-zone" class="hidden" style="display:flex; flex-direction:column; align-items:center; gap:16px; width:100%; margin-top: 16px;">
         <div style="position: relative; width: 100%; max-width: 360px;">
-          <input type="text" id="dictation-input" placeholder="스펠링을 입력하고 Enter를 누르세요" autocomplete="off" style="width:100%; padding:18px 24px; font-size:20px; font-weight: 500; text-align:center; border-radius:16px; border:2px solid rgba(255,255,255,0.15); background:rgba(0,0,0,0.3); color: var(--text1); outline:none; transition: all 0.3s ease; box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);" />
+          <input type="text" id="dictation-input" placeholder="스펠링을 입력하고 Enter를 누르세요" autocomplete="off" style="width:100%; padding:18px 24px; font-size:20px; font-weight: 500; text-align:center; border-radius:16px; border:2px solid rgba(255,255,255,0.15); background:rgba(0,0,0,0.3); color: var(--text-main); outline:none; transition: all 0.3s ease; box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);" />
           <div id="dictation-feedback" style="font-size:16px; font-weight:700; margin-top: 12px; min-height: 24px; text-align: center;"></div>
         </div>
       </div>
@@ -293,15 +293,15 @@
 
   <!-- PWA 앱 설치 알림 팝업 모달 -->
   <div id="modal-add-word" class="pwa-modal hidden">
-    <div class="pwa-modal-content" style="max-width: 400px; padding: 20px; border-radius: 12px; background: var(--bg-card); color: var(--text1); text-align: left;">
+    <div class="pwa-modal-content" style="max-width: 400px; padding: 20px; border-radius: 12px; background: var(--bg-card); color: var(--text-main); text-align: left;">
       <h3 style="margin-top:0; font-size: 1.2rem; margin-bottom: 15px; color: var(--purple);">➕ 수동 단어 추가</h3>
       <div style="margin-bottom: 10px;">
-        <label style="display:block; font-size:0.9rem; margin-bottom:5px; color:var(--text2);">영단어 입력</label>
-        <input type="text" id="add-word-en" placeholder="ex) apple" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text1); font-size: 1rem;">
+        <label style="display:block; font-size:0.9rem; margin-bottom:5px; color:var(--text-sub);">영단어 입력</label>
+        <input type="text" id="add-word-en" placeholder="ex) apple" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--box-border); background: var(--input-bg); color: var(--text-main); font-size: 1rem;">
       </div>
       <div style="margin-bottom: 10px;">
-        <label style="display:block; font-size:0.9rem; margin-bottom:5px; color:var(--text2);">품사</label>
-        <select id="add-word-pos" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text1); font-size: 1rem;">
+        <label style="display:block; font-size:0.9rem; margin-bottom:5px; color:var(--text-sub);">품사</label>
+        <select id="add-word-pos" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--box-border); background: var(--input-bg); color: var(--text-main); font-size: 1rem;">
           <option value="n" style="color:black;">n (명사)</option>
           <option value="v" style="color:black;">v (동사)</option>
           <option value="a" style="color:black;">a (형용사)</option>
@@ -312,8 +312,8 @@
         </select>
       </div>
       <div style="margin-bottom: 20px;">
-        <label style="display:block; font-size:0.9rem; margin-bottom:5px; color:var(--text2);">한글 뜻</label>
-        <input type="text" id="add-word-ko" placeholder="ex) 사과" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text1); font-size: 1rem;">
+        <label style="display:block; font-size:0.9rem; margin-bottom:5px; color:var(--text-sub);">한글 뜻</label>
+        <input type="text" id="add-word-ko" placeholder="ex) 사과" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--box-border); background: var(--input-bg); color: var(--text-main); font-size: 1rem;">
       </div>
       <div style="display: flex; justify-content: flex-end; gap: 10px;">
         <button id="btn-add-word-cancel" class="btn-ghost" style="padding: 10px 16px; border-radius: 6px;">취소</button>
@@ -337,9 +337,9 @@
   <!-- 학습 시간 안내 및 사용법 모달 -->
   <div id="info-modal" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card" style="max-width: 500px; max-height: 85vh; overflow-y: auto; text-align: left; align-items: flex-start; padding: 28px;">
-      <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+      <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; border-bottom: 1px solid var(--box-border); padding-bottom: 12px; margin-bottom: 16px;">
         <h3 style="margin: 0; font-size: 18px; color: var(--blue);">학습 시간 안내 &amp; 사용법</h3>
-        <button id="btn-info-close" style="background: transparent; border: none; color: var(--text2); font-size: 20px; cursor: pointer; padding: 0 4px;">✕</button>
+        <button id="btn-info-close" style="background: transparent; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; padding: 0 4px;">✕</button>
       </div>
       <div class="guide-content">
         <h2 class="guide-title">🧠 DOACore : 뇌과학이 증명한 '단기 기억' 해킹 시스템</h2>
@@ -383,9 +383,9 @@
     <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 400px; width: 90%; margin: 0 auto;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
         <h3 style="font-size: 18px; margin: 0; line-height: 1.4;">🧠 7시간을 외워도 절반을 틀리던 뇌, 그 한계를 해킹하다.</h3>
-        <button id="btn-developer-story-close" style="background: transparent; border: none; color: var(--text2); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0; margin-left: 10px;">✖</button>
+        <button id="btn-developer-story-close" style="background: transparent; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0; margin-left: 10px;">✖</button>
       </div>
-      <div class="developer-story-content" style="font-size: 14.5px; line-height: 1.8; color: var(--text1); display: flex; flex-direction: column; gap: 16px;">
+      <div class="developer-story-content" style="font-size: 14.5px; line-height: 1.8; color: var(--text-main); display: flex; flex-direction: column; gap: 16px;">
         <p style="margin: 0;">안녕하세요, 개발자 노도아입니다.</p>
         <p style="margin: 0;">저는 과거 영어학원에서 7시간을 꼬박 외워도 기초 영단어 100개조차 제대로 맞추지 못하던 뼈아픈 기억이 있습니다. 무식하게 뇌를 혹사시키는 대신 '뇌과학'을 파고들어 직접 시스템을 설계하기로 결심했습니다.</p>
         <p style="margin: 0;">돌을 하나하나 맨몸으로 나르는 것보다, 초반에 답답하고 고생스럽더라도 <b style="color: crimson;">'도르래'</b>를 먼저 만드는 것이 결국 거대한 건축물을 완성하는 유일한 비결이라는 것을 깨달았기 때문입니다.</p>
@@ -400,15 +400,15 @@
   <div id="modal-word-list" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 650px; width: 95%; max-height: 85vh; display: flex; flex-direction: column; margin: 0 auto;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-        <h3 id="word-list-title" style="font-size: 18px; margin: 0; line-height: 1.4; color: var(--text1); font-weight: 700;">📋 단어장 미리보기</h3>
+        <h3 id="word-list-title" style="font-size: 18px; margin: 0; line-height: 1.4; color: var(--text-main); font-weight: 700;">📋 단어장 미리보기</h3>
         <div style="display: flex; gap: 10px; align-items: center;">
           <button id="btn-word-list-delete-all" class="btn-ghost hidden" style="border-color: rgba(244,63,94,0.4); color: #f43f5e; padding: 6px 10px; font-size: 13px;">🗑️ 이 단어장 삭제</button>
-          <button id="btn-word-list-close" style="background: transparent; border: none; color: var(--text2); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0;">✖</button>
+          <button id="btn-word-list-close" style="background: transparent; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0;">✖</button>
         </div>
       </div>
       <div style="flex-grow: 1; overflow-y: auto; padding-right: 4px;" class="custom-scrollbar">
         <div style="margin-bottom: 12px; display: flex; align-items: center; justify-content: flex-end;">
-          <label for="hide-meaning-toggle" style="display: flex; align-items: center; cursor: pointer; color: var(--text1); font-size: 14px; font-weight: 700; gap: 10px;">
+          <label for="hide-meaning-toggle" style="display: flex; align-items: center; cursor: pointer; color: var(--text-main); font-size: 14px; font-weight: 700; gap: 10px;">
             <div class="toggle-switch">
               <input type="checkbox" id="hide-meaning-toggle">
               <span class="slider round"></span>
@@ -416,9 +416,9 @@
             <span>👁️ 뜻 숨기기 모드</span>
           </label>
         </div>
-        <table style="width: 100%; border-collapse: collapse; font-size: 14.5px; text-align: left; color: var(--text1);">
+        <table style="width: 100%; border-collapse: collapse; font-size: 14.5px; text-align: left; color: var(--text-main);">
           <thead>
-            <tr style="border-bottom: 1px solid var(--border-h); color: var(--text2);">
+            <tr style="border-bottom: 1px solid var(--border-h); color: var(--text-sub);">
               <th style="padding: 10px 8px; font-weight: 600; width: 25%;">단어</th>
               <th style="padding: 10px 8px; font-weight: 600; width: 15%;">품사</th>
               <th style="padding: 10px 8px; font-weight: 600; width: 45%;">뜻</th>
@@ -437,12 +437,12 @@
   <div id="modal-format-guide" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 420px; width: 90%; margin: 0 auto;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-        <h3 style="font-size: 17px; margin: 0; line-height: 1.4; color: var(--text1);">📝 DOACore 단어장 txt 파일 양식 가이드</h3>
-        <button id="btn-format-guide-close" style="background: transparent; border: none; color: var(--text2); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0; margin-left: 10px;">✖</button>
+        <h3 style="font-size: 17px; margin: 0; line-height: 1.4; color: var(--text-main);">📝 DOACore 단어장 txt 파일 양식 가이드</h3>
+        <button id="btn-format-guide-close" style="background: transparent; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0; margin-left: 10px;">✖</button>
       </div>
-      <div style="font-size: 14px; line-height: 1.6; color: var(--text2); display: flex; flex-direction: column; gap: 12px;">
+      <div style="font-size: 14px; line-height: 1.6; color: var(--text-sub); display: flex; flex-direction: column; gap: 12px;">
         <p style="margin: 0;">메모장(.txt)에 아래 양식처럼 <strong>[스펠링] [품사약어] [한글뜻]</strong> 순서로 적어주세요. 띄어쓰기로 구분합니다.</p>
-        <div style="background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; font-family: monospace; color: var(--text1); font-size: 13px;">
+        <div style="background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; font-family: monospace; color: var(--text-main); font-size: 13px;">
           (예시)<br>
           apple [n] 사과<br>
           run [v] 달리다<br>
