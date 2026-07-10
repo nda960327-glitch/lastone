@@ -1341,23 +1341,25 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 /* Meaning Row with clean design */
 .meaning-row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 16px;
-  padding: 16px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.02), 0 4px 12px rgba(0,0,0,0.15);
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 .meaning-text {
-  font-size: 21px;
-  font-weight: 700;
-  color: #f8fafc;
-  line-height: 1.4;
-  text-align: center;
+  font-size: 19px;
+  font-weight: 500;
+  color: #e2e8f0;
+  line-height: 1.3;
+  text-align: left;
   word-break: keep-all;
 }
 .pos-badge {

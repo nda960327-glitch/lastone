@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v114'; // 캐시 업데이트: DOM 요소 부재 시 발생하는 치명적 오류 수정 (버튼 클릭 마비, 스와이프 마비 해결)
+const CACHE_NAME = 'vocabmaster-v115'; // 캐시 업데이트: 스와이프 모드 토글 이동 및 단어 뜻 카드 디자인 더 작고 얇게 변경
 const ASSETS = [
   '/',
   '/index.html',
