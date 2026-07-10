@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v138'; // 캐시 업데이트: 뜻 개수에 따른 차등 타이머 및 페널티 UI 로직 적용
+const CACHE_NAME = 'vocabmaster-v139'; // 캐시 업데이트: UI 컨테이너 분리 및 렌더링 초기화 버그 픽스
 const ASSETS = [
   '/',
   '/index.html',
