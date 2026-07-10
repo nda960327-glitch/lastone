@@ -544,14 +544,14 @@ function initInputView() {
     }
 
     const btnAllNew = document.createElement('button');
-    const sectionKeyAll = `1~${n} 전체단어`;
+    const sectionKeyAll = `전체 단어 새 학습`;
     btnAllNew.className = 'btn-range-item';
     btnAllNew.innerHTML = `
-      <span class="range-btn-label">1 ~ ${n} 전체단어 ${getBadgeHTML(sectionKeyAll)}</span>
-      <span class="range-btn-count">${n}개 전체 새 학습</span>
+      <span class="range-btn-label">전체 단어 (총 ${n}개) 새 학습 ${getBadgeHTML(sectionKeyAll)}</span>
+      <span class="range-btn-count">전체 범위 새 학습</span>
     `;
     if (btnAllNew) btnAllNew.onclick = () => {
-      App.currentSection = `1~${n} 전체단어`;
+      App.currentSection = `전체 단어 새 학습`;
       App.words = words.slice();
       App.round = 1;
       App.testPool = [];
@@ -598,13 +598,13 @@ function initInputView() {
     btnReviewAllMid.className = 'btn-range-item btn-review weakness-focus';
     btnReviewAllMid.dataset.start = '0';
     btnReviewAllMid.dataset.end = String(n);
-    const sectionKeyReviewAllMid = `1~${n} 전체 취약점 복습`;
+    const sectionKeyReviewAllMid = `전체 단어 취약점 복습`;
     btnReviewAllMid.innerHTML = `
-      <span class="range-btn-label">1~${n} 전체 취약점 복습 ${getBadgeHTML(sectionKeyReviewAllMid)}</span>
+      <span class="range-btn-label">전체 단어 취약점 복습 ${getBadgeHTML(sectionKeyReviewAllMid)}</span>
       <span class="range-btn-count">전체 범위 오답 집중 (2회 이상)</span>
     `;
     if (btnReviewAllMid) btnReviewAllMid.onclick = () => {
-      App.currentSection = `1~${n} 전체 취약점 복습`;
+      App.currentSection = `전체 단어 취약점 복습`;
       startWeaknessReview(0, n, false);
     };
     reviewGrid.appendChild(btnReviewAllMid);
@@ -615,13 +615,13 @@ function initInputView() {
     btnFinal.dataset.start = '0';
     btnFinal.dataset.end = String(n);
     btnFinal.dataset.final = 'true';
-    const sectionKeyFinal = `1~${n} 최종 취약점 총정리`;
+    const sectionKeyFinal = `최종 취약점 총정리`;
     btnFinal.innerHTML = `
-      <span class="range-btn-label">1~${n} 최종 취약점 총정리 ${getBadgeHTML(sectionKeyFinal)}</span>
+      <span class="range-btn-label">최종 취약점 총정리 ${getBadgeHTML(sectionKeyFinal)}</span>
       <span class="range-btn-count">최종 보스전 (악성 오답 4회 이상)</span>
     `;
     if (btnFinal) btnFinal.onclick = () => {
-      App.currentSection = `1~${n} 최종 취약점 총정리`;
+      App.currentSection = `최종 취약점 총정리`;
       startWeaknessReview(0, n, true);
     };
     reviewGrid.appendChild(btnFinal);
@@ -715,7 +715,7 @@ function initInputView() {
     isDictationMode = true;
     App.round = 4;
     App.phase = 'TEST';
-    App.testPool = App.words.slice(0, 200);
+    App.testPool = App.words.slice();
     App.currentTestIndex = 0;
     showView('view-test');
     runTestRound();

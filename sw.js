@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v93'; // 캐시 버전 업데이트: DEFAULT_DATABASES 누락 버그 및 텍스트 덮어쓰기 버그 해결
+const CACHE_NAME = 'vocabmaster-v94'; // 캐시 버전 업데이트: 전체 범위 버튼 하드코딩(1~200) 제거 및 동적 풀 연동
 const ASSETS = [
   '/',
   '/index.html',
