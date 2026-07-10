@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v107'; // 캐시 업데이트: 커스텀 단어장 탭 이름 및 디자인 통일성 개선
+const CACHE_NAME = 'vocabmaster-v108'; // 캐시 업데이트: 모바일 디스플레이 레이아웃 최적화 (버튼 정렬 및 텍스트 줄바꿈 방지)
 const ASSETS = [
   '/',
   '/index.html',

@@ -1304,35 +1304,6 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 .final-cheer b {
   color: var(--green);
-  font-size: 15px;
-  display: block;
-  margin-bottom: 6px;
-}
-
-@media (max-width: 480px) {
-  .section-header {
-    justify-content: flex-end !important;
-  }
-  .header-action-buttons {
-    justify-content: flex-end;
-  }
-  #btn-install-pwa, #btn-toggle-add {
-    font-size: 0.75rem !important;
-    padding: 6px 12px !important;
-  }
-  .btn-range-item {
-    font-size: 11.5px;
-    padding: 8px 6px;
-  }
-  .range-btn-count {
-    font-size: 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  #app {
-    margin-top: 12vh;
-  }
 }
 
 /* ── 카테고리 탭 UI ── */
@@ -1387,3 +1358,17 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 .meaning-row.pos-bg-conj { background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.2); }
 .meaning-row.pos-bg-phr { background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.2); }
 .meaning-row.pos-bg-default { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }
+@media (max-width: 480px) {
+  .section-header { justify-content: stretch !important; }
+  .header-action-buttons { flex-direction: column !important; align-items: stretch !important; justify-content: stretch !important; width: 100% !important; gap: 8px !important; }
+  .header-action-buttons > * { width: 100% !important; margin: 0 !important; }
+  .dropdown-add-voca { width: 100% !important; }
+  #btn-install-pwa, #btn-toggle-add, #btn-view-all-words, #btn-add-word-manual-direct { font-size: 0.9rem !important; padding: 12px !important; width: 100% !important; }
+  .footer-info-links { flex-direction: column !important; align-items: stretch !important; width: 100% !important; padding: 0 4px; gap: 8px !important; }
+  .info-pill-btn { width: 100% !important; text-align: center; padding: 12px !important; }
+  #btn-dictation { padding: 16px 8px !important; }
+  #btn-dictation span { white-space: normal !important; word-break: keep-all !important; display: inline-block; line-height: 1.4; font-size: 0.95rem; }
+  .btn-range-item { font-size: 11.5px; padding: 8px 6px; }
+  .range-btn-count { font-size: 10px; }
+}
+
