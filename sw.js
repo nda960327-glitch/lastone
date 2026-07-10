@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v117'; // 캐시 업데이트: 스와이프 토글 헤더 이동 및 뜻 컬러박스 적용
+const CACHE_NAME = 'vocabmaster-v118'; // 캐시 업데이트: 스와이프 토글 클릭 안되는 버그 수정 (label for 속성 추가 및 스타일 충돌 해결)
 const ASSETS = [
   '/',
   '/index.html',
