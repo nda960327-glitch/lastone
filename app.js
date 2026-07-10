@@ -254,7 +254,7 @@ function populateDaySelector() {
     const opt = document.createElement('option');
     opt.value = day;
     opt.textContent = titlePrefix + (isNaN(day) ? day : `Day ${day}`);
-    opt.style.background = '#1e1b4b';
+    opt.style.background = 'var(--dropdown-hover)';
     opt.style.color = '#fff';
     daySelector.appendChild(opt);
   });
@@ -1115,9 +1115,9 @@ function refreshDBList(textarea) {
 
   const BUILTIN_KEYS = new Set(Object.keys(DEFAULT_DATABASES));
 
-  selectBasic.innerHTML = '<option value="" style="background:#1e1b4b;color:#fff;">선택하기...</option>';
-  selectTofl.innerHTML  = '<option value="" style="background:#1e1b4b;color:#fff;">선택하기...</option>';
-  if (selectUser) selectUser.innerHTML = '<option value="" style="background:#1e1b4b;color:#fff;">선택하기...</option>';
+  selectBasic.innerHTML = '<option value="" style="background:var(--dropdown-hover);color:var(--text1);">선택하기...</option>';
+  selectTofl.innerHTML  = '<option value="" style="background:var(--dropdown-hover);color:var(--text1);">선택하기...</option>';
+  if (selectUser) selectUser.innerHTML = '<option value="" style="background:var(--dropdown-hover);color:var(--text1);">선택하기...</option>';
 
   const keys = [];
   for (let i = 0; i < localStorage.length; i++) {
@@ -1134,7 +1134,7 @@ function refreshDBList(textarea) {
     const opt = document.createElement('option');
     opt.value = title;
     opt.textContent = title;
-    opt.style.background = '#1e1b4b';
+    opt.style.background = 'var(--dropdown-hover)';
     opt.style.color = '#ffffff';
 
     if (title.startsWith('토플')) {
@@ -1525,7 +1525,7 @@ if (posHintEl) posHintEl.classList.add('hidden');
     if ((wordObj.totalFails || 0) >= 6) {
       testWordEl.style.color = '#ef4444';
     } else {
-      testWordEl.style.color = '#ffffff';
+      testWordEl.style.color = 'var(--text1)';
     }
     const wLen = wordObj.word.length;
     if (wLen <= 6) {
@@ -2348,3 +2348,25 @@ let isVerticalScroll = false;
     });
   }
 })();
+
+(function() { 
+  const themeBtns = document.querySelectorAll('.theme-btn');
+  function applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('vocab_theme', theme);
+    themeBtns.forEach(btn => {
+      if (btn.dataset.theme === theme) btn.style.borderColor = 'var(--text1)';
+      else btn.style.borderColor = 'var(--border)';
+    });
+  }
+  
+  const savedTheme = localStorage.getItem('vocab_theme') || 'dark';
+  applyTheme(savedTheme);
+
+  themeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyTheme(btn.dataset.theme);
+    });
+  });
+ })();

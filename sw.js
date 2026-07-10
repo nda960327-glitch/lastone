@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v125'; // 캐시 업데이트: 스와이프 Haptic 진동 추가 및 렌더링 동기화
+const CACHE_NAME = 'vocabmaster-v126'; // 캐시 업데이트: 블루화이트, 핑크화이트 등 전면 글로벌 스킨(테마) 시스템 및 UI 추가
 const ASSETS = [
   '/',
   '/index.html',
