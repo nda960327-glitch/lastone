@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v157'; // UI 업데이트: 받아쓰기 버튼 레드 톤으로 통일, 스피커 배경 테두리 제거
+const CACHE_NAME = 'vocabmaster-v158'; // 긴급 핫픽스: 긴 단어 overflow로 인한 모바일 브라우저 축소 버그 수정
 const ASSETS = [
   '/',
   '/index.html',
