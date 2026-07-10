@@ -237,10 +237,10 @@ function populateDaySelector() {
   });
   
   daySelector.innerHTML = '';
-  const sortedDays = Array.from(days).sort((a, b) => a - b);
+  const sortedDays = Array.from(days).sort((a, b) => isNaN(a) || isNaN(b) ? String(a).localeCompare(String(b)) : a - b);
   
   if (sortedDays.length === 0) {
-    daySelector.innerHTML = '<option value="">Day 없음</option>';
+    daySelector.innerHTML = '<option value="">단어장 없음</option>';
     currentDay = null;
     return;
   }
@@ -248,7 +248,7 @@ function populateDaySelector() {
   sortedDays.forEach(day => {
     const opt = document.createElement('option');
     opt.value = day;
-    opt.textContent = `Day ${day}`;
+    opt.textContent = isNaN(day) ? day : `Day ${day}`;
     opt.style.background = '#1e1b4b';
     opt.style.color = '#fff';
     daySelector.appendChild(opt);
@@ -465,7 +465,8 @@ function initInputView() {
   if (daySelector) {
     daySelector.addEventListener('change', (e) => {
       if (!e.target.value) return;
-      currentDay = parseInt(e.target.value, 10);
+      const val = e.target.value;
+      currentDay = isNaN(val) ? val : parseInt(val, 10);
       App.currentDBName = `${currentCategory}_day${currentDay}`;
       updateDictationBtnText();
       updateCount();
@@ -492,7 +493,7 @@ function initInputView() {
       activeTab.style.background = '';
     }
 
-    if (catName === 'toefl' || catName === 'basic') {
+    if (catName === 'toefl' || catName === 'basic' || catName === 'custom-upload') {
       if (daySelectorContainer) daySelectorContainer.style.display = '';
       populateDaySelector();
     } else {

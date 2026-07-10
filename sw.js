@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v102'; // 캐시 업데이트: 학습 루프 중단(Abort) 완벽 적용 및 백그라운드 재생 차단
+const CACHE_NAME = 'vocabmaster-v103'; // 캐시 업데이트: 내가 추가한 단어장 탭의 드롭다운 활성화 및 파일명 연동
 const ASSETS = [
   '/',
   '/index.html',
