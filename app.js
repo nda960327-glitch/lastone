@@ -384,16 +384,36 @@ function getPosClass(pos) {
 // 뜻 HTML 생성
 
 function meaningHTML(meanings, wordObj) {
-  if (wordObj && wordObj.partOfSpeech && wordObj.meaning) {
-    const posBadges = wordObj.partOfSpeech.map(p => `<span class="pos-badge ${p}">[${p}]</span>`).join('');
-    return `<div class="meaning-card ${wordObj.partOfSpeech[0]}">${posBadges}<span class="meaning-text">${wordObj.meaning}</span></div>`;
+  try {
+    if (wordObj && wordObj.partOfSpeech && wordObj.meaning) {
+      const parts = wordObj.meaning.split('/').map(s => s.trim());
+      if (wordObj.partOfSpeech.length === parts.length) {
+        return wordObj.partOfSpeech.map((p, i) => `
+          <div class="meaning-card" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px;">
+            <span class="pos-badge pos-${p.toLowerCase().replace(/[^a-z]/g,'')}">[${p}]</span>
+            <span class="meaning-text">${parts[i]}</span>
+          </div>
+        `).join('');
+      } else {
+        const posBadges = wordObj.partOfSpeech.map(p => `<span class="pos-badge pos-${p.toLowerCase().replace(/[^a-z]/g,'')}">[${p}]</span>`).join('');
+        return `
+          <div class="meaning-card" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px;">
+            ${posBadges}
+            <span class="meaning-text">${wordObj.meaning}</span>
+          </div>
+        `;
+      }
+    }
+    return meanings.map(m => `
+      <div class="meaning-card" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px;">
+        <span class="pos-badge pos-${m.pos.toLowerCase().replace(/[^a-z]/g,'')}">[${m.pos}]</span>
+        <span class="meaning-text">${m.meaning}</span>
+      </div>
+    `).join('');
+  } catch(e) {
+    console.error('meaningHTML rendering error:', e);
+    return '<div class="meaning-card">Error rendering meaning</div>';
   }
-  return meanings.map(m => `
-    <div class="meaning-card ${getPosClass(m.pos)}">
-      <span class="pos-badge ${getPosClass(m.pos)}">[${esc(m.pos)}]</span>
-      <span class="meaning-text">${esc(m.meaning)}</span>
-    </div>
-  `).join('');
 }
 
 
@@ -1662,6 +1682,29 @@ function restoreProgress(jsonStr) {
 // 초기화
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
+  const goHomeHandler = () => {
+    if (confirm('테스트를 중단하고 홈으로 돌아가시겠습니까?')) {
+      if (App.studyAbort) App.studyAbort.abort();
+      if (oxResolver) { oxResolver('PREV'); oxResolver = null; }
+      isDictationMode = false; // reset
+      App.words    = [];
+      App.testPool = [];
+      App.round    = 1;
+      const wi = document.getElementById('word-input');
+      if (wi) wi.dispatchEvent(new Event('input'));
+      let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
+      if (App.allWords) {
+        App.allWords.forEach(w => {
+          w.totalFails = failData[w.word] || 0;
+        });
+      }
+      showView('view-input');
+    }
+  };
+  const btnHomeTest = document.getElementById('btn-home-test');
+  if (btnHomeTest) btnHomeTest.onclick = goHomeHandler;
+  const btnHomeResult = document.getElementById('btn-home-result');
+  if (btnHomeResult) btnHomeResult.onclick = goHomeHandler;
   initInputView();
 
   // ── 전체화면 진입 (상태바/배터리/시계 숨기기) ──
@@ -1777,28 +1820,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 홈으로 이동 버튼 핸들러
-  const goHomeHandler = () => {
-    if (confirm('홈으로 이동하시겠습니까? (현재 진행 중인 학습 데이터는 초기화됩니다)')) {
-      if (typeof stopWordTimer === 'function') stopWordTimer();
-      if (typeof revealResolver === 'function' && revealResolver) { revealResolver('PREV'); revealResolver = null; }
-      if (typeof oxResolver === 'function' && oxResolver) { oxResolver('PREV'); oxResolver = null; }
-      isDictationMode = false; // reset
-      App.words    = [];
-      App.testPool = [];
-      App.round    = 1;
-      const wi = document.getElementById('word-input');
-      if (wi) wi.dispatchEvent(new Event('input'));
-      let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
-      if (App.allWords) {
-        App.allWords.forEach(w => {
-          w.totalFails = failData[w.word] || 0;
-        });
-      }
-      showView('view-input');
-    }
-  };
-  const btnHomeTest = document.getElementById('btn-home-test');
-  if (btnHomeTest) btnHomeTest.onclick = goHomeHandler;
-  const btnHomeResult = document.getElementById('btn-home-result');
-  if (btnHomeResult) btnHomeResult.onclick = goHomeHandler;
+  
 });

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v91'; // 캐시 버전 업데이트: 듣고 쓰기 버튼 텍스트 포맷 수정
+const CACHE_NAME = 'vocabmaster-v92'; // 캐시 버전 업데이트: 품사 뱃지 렌더링 복구 및 홈 버튼 크래시 해결
 const ASSETS = [
   '/',
   '/index.html',
