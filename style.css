@@ -1365,3 +1365,25 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   color: #fff;
   box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
 }
+
+/* Meaning Row with background color */
+.meaning-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.meaning-row.pos-bg-n { background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2); }
+.meaning-row.pos-bg-v { background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.2); }
+.meaning-row.pos-bg-a { background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); }
+.meaning-row.pos-bg-ad { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2); }
+.meaning-row.pos-bg-prep { background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.2); }
+.meaning-row.pos-bg-conj { background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.2); }
+.meaning-row.pos-bg-phr { background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.2); }
+.meaning-row.pos-bg-default { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }

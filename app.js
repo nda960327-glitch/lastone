@@ -402,28 +402,33 @@ function meaningHTML(meanings, wordObj) {
     if (wordObj && wordObj.partOfSpeech && wordObj.meaning) {
       const parts = wordObj.meaning.split('/').map(s => s.trim());
       if (wordObj.partOfSpeech.length === parts.length) {
-        return wordObj.partOfSpeech.map((p, i) => `
-          <div class="meaning-card" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px;">
-            <span class="pos-badge pos-${p.toLowerCase().replace(/[^a-z]/g,'')}">[${p}]</span>
+        return wordObj.partOfSpeech.map((p, i) => {
+          const pClass = p.toLowerCase().replace(/[^a-z]/g,'');
+          return `
+          <div class="meaning-row pos-bg-${pClass || 'default'}">
+            <span class="pos-badge pos-${pClass}">[${p}]</span>
             <span class="meaning-text">${parts[i]}</span>
           </div>
-        `).join('');
+        `}).join('');
       } else {
+        const pClass = wordObj.partOfSpeech[0] ? wordObj.partOfSpeech[0].toLowerCase().replace(/[^a-z]/g,'') : 'default';
         const posBadges = wordObj.partOfSpeech.map(p => `<span class="pos-badge pos-${p.toLowerCase().replace(/[^a-z]/g,'')}">[${p}]</span>`).join('');
         return `
-          <div class="meaning-card" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px;">
+          <div class="meaning-row pos-bg-${pClass}">
             ${posBadges}
             <span class="meaning-text">${wordObj.meaning}</span>
           </div>
         `;
       }
     }
-    return meanings.map(m => `
-      <div class="meaning-card" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px;">
-        <span class="pos-badge pos-${m.pos.toLowerCase().replace(/[^a-z]/g,'')}">[${m.pos}]</span>
+    return meanings.map(m => {
+      const pClass = m.pos.toLowerCase().replace(/[^a-z]/g,'');
+      return `
+      <div class="meaning-row pos-bg-${pClass || 'default'}">
+        <span class="pos-badge pos-${pClass}">[${m.pos}]</span>
         <span class="meaning-text">${m.meaning}</span>
       </div>
-    `).join('');
+    `}).join('');
   } catch(e) {
     console.error('meaningHTML rendering error:', e);
     return '<div class="meaning-card">Error rendering meaning</div>';
@@ -558,14 +563,14 @@ function initInputView() {
     }
 
     const btnAllNew = document.createElement('button');
-    const sectionKeyAll = `전체 단어 새 학습`;
+    const sectionKeyAll = `1~${n} 전체 단어 새 학습`;
     btnAllNew.className = 'btn-range-item';
     btnAllNew.innerHTML = `
-      <span class="range-btn-label">전체 단어 (총 ${n}개) 새 학습 ${getBadgeHTML(sectionKeyAll)}</span>
+      <span class="range-btn-label">1~${n} 전체 단어 새 학습 ${getBadgeHTML(sectionKeyAll)}</span>
       <span class="range-btn-count">전체 범위 새 학습</span>
     `;
     if (btnAllNew) btnAllNew.onclick = () => {
-      App.currentSection = `전체 단어 새 학습`;
+      App.currentSection = `1~${n} 전체 단어 새 학습`;
       App.words = words.slice();
       App.round = 1;
       App.testPool = [];
@@ -612,13 +617,13 @@ function initInputView() {
     btnReviewAllMid.className = 'btn-range-item btn-review weakness-focus';
     btnReviewAllMid.dataset.start = '0';
     btnReviewAllMid.dataset.end = String(n);
-    const sectionKeyReviewAllMid = `전체 단어 취약점 복습`;
+    const sectionKeyReviewAllMid = `1~${n} 전체 취약점 복습`;
     btnReviewAllMid.innerHTML = `
-      <span class="range-btn-label">전체 단어 취약점 복습 ${getBadgeHTML(sectionKeyReviewAllMid)}</span>
+      <span class="range-btn-label">1~${n} 전체 취약점 복습 ${getBadgeHTML(sectionKeyReviewAllMid)}</span>
       <span class="range-btn-count">전체 범위 오답 집중 (2회 이상)</span>
     `;
     if (btnReviewAllMid) btnReviewAllMid.onclick = () => {
-      App.currentSection = `전체 단어 취약점 복습`;
+      App.currentSection = `1~${n} 전체 취약점 복습`;
       startWeaknessReview(0, n, false);
     };
     reviewGrid.appendChild(btnReviewAllMid);
@@ -629,13 +634,13 @@ function initInputView() {
     btnFinal.dataset.start = '0';
     btnFinal.dataset.end = String(n);
     btnFinal.dataset.final = 'true';
-    const sectionKeyFinal = `최종 취약점 총정리`;
+    const sectionKeyFinal = `1~${n} 최종 취약점 총정리`;
     btnFinal.innerHTML = `
-      <span class="range-btn-label">최종 취약점 총정리 ${getBadgeHTML(sectionKeyFinal)}</span>
+      <span class="range-btn-label">1~${n} 최종 취약점 총정리 ${getBadgeHTML(sectionKeyFinal)}</span>
       <span class="range-btn-count">최종 보스전 (악성 오답 4회 이상)</span>
     `;
     if (btnFinal) btnFinal.onclick = () => {
-      App.currentSection = `최종 취약점 총정리`;
+      App.currentSection = `1~${n} 최종 취약점 총정리`;
       startWeaknessReview(0, n, true);
     };
     reviewGrid.appendChild(btnFinal);
@@ -644,8 +649,7 @@ function initInputView() {
     const dictationBtn = document.getElementById('btn-dictation');
     if (dictationBtn) {
       const dictBadge = getBadgeHTML('dictation');
-      const catName = currentCategory === 'toefl' ? '토플 영단어' : '기초 영단어';
-      dictationBtn.innerHTML = `<span id="dictation-btn-text">📄 [${catName} ${currentDay} day] 전체 스펠링 듣고 쓰기 ${dictBadge}</span>`;
+      dictationBtn.innerHTML = `<span id="dictation-btn-text">🎧 전체 단어 스펠링 듣고 쓰기 ${dictBadge}</span>`;
     }
   }
 

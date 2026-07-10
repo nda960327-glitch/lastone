@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v97'; // 캐시 버전 업데이트: 수동 단어 추가 모달, 로고 새로고침, 백그라운드 오디오 차단
+const CACHE_NAME = 'vocabmaster-v98'; // 캐시 업데이트: 파싱 에러 완화, 뜻 박스 UI, 1~N 텍스트 동적화
 const ASSETS = [
   '/',
   '/index.html',

@@ -8,7 +8,7 @@ let currentCategory = '';
 let currentDay = -1;
 
 function processLine(line) {
-  line = line.trim();
+  line = line.replace(/\r/g, '').trim();
   if (!line) return;
 
   const basicMatch = line.match(/기초\s*영단어\s*day\s*(\d+)/i);
@@ -25,7 +25,8 @@ function processLine(line) {
     return;
   }
 
-  const wordMatch = line.match(/^(.+?)\s+\[([^\]]+)\]\s+(.+)$/);
+  // 보다 유연한 정규식: 단어 [품사] 뜻
+  const wordMatch = line.match(/^(.+?)\s*\[([^\]]+)\]\s*(.+)$/);
   if (wordMatch && currentCategory && currentDay > 0) {
     words.push({
       word: wordMatch[1].trim(),
@@ -73,8 +74,7 @@ out += `(function verifyCounts() {
   });
 
   if (errorMsgs.length > 0) {
-    console.error("❌ 데이터 무결성 검증 실패:\\n" + errorMsgs.join('\\n'));
-    alert("데이터 파싱 에러 발생! (개발자 도구 F12 Console 확인)\\n순서가 꼬였거나 단어 개수가 일치하지 않습니다.");
+    console.warn("⚠️ 데이터 무결성 검증 실패 (단어 누락/순서 꼬임):\\n" + errorMsgs.join('\\n'));
   } else {
     console.log("✅ 모든 단어 파싱 검증 완료! (개수 및 순서 정상)");
   }

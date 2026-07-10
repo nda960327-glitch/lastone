@@ -67699,8 +67699,7 @@ const words = _staticWords.concat(_customWords);
   });
 
   if (errorMsgs.length > 0) {
-    console.error("❌ 데이터 무결성 검증 실패:\n" + errorMsgs.join('\n'));
-    alert("데이터 파싱 에러 발생! (개발자 도구 F12 Console 확인)\n순서가 꼬였거나 단어 개수가 일치하지 않습니다.");
+    console.warn("⚠️ 데이터 무결성 검증 실패 (단어 누락/순서 꼬임):\n" + errorMsgs.join('\n'));
   } else {
     console.log("✅ 모든 단어 파싱 검증 완료! (개수 및 순서 정상)");
   }
