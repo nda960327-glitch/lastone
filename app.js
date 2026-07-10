@@ -1025,6 +1025,7 @@ function refreshDBList(textarea) {
 // ② 학습 화면 (자동재생 루프)
 // =============================================
 async function startTest() {
+  App.studyAbort = false;
   recordProgress('in_progress');
   const textarea = document.getElementById('word-input');
   const rawWords = getFilteredWords();
@@ -1063,6 +1064,7 @@ async function startTest() {
 
 // ── 취약점 집중 복습 시작 ──
 async function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
+  App.studyAbort = false;
   recordProgress('in_progress');
   // 1. 해당 구간의 전체 단어 로드
   const allWords = getFilteredWords();
@@ -1207,6 +1209,7 @@ async function runTestRound(startIndex = 0) {
   }
 
   for (let i = startIndex; i < pool.length; i++) {
+    if (App.studyAbort) return;
     stopWordTimer();
     const wordObj = pool[i];
     App.currentTestIndex = i;
@@ -1448,6 +1451,8 @@ async function runTestRound(startIndex = 0) {
     window.speechSynthesis.cancel();
 
     // [이전 단어] 처리: O/X 단계에서 이전 단어 클릭
+    if (result === 'ABORT' || App.studyAbort) return;
+
     if (result === 'PREV') {
       if (i > 0) {
         i = i - 2;
@@ -1841,8 +1846,11 @@ function restoreProgress(jsonStr) {
 document.addEventListener('DOMContentLoaded', () => {
   const goHomeHandler = () => {
     if (confirm('테스트를 중단하고 홈으로 돌아가시겠습니까?')) {
-      if (App.studyAbort) App.studyAbort.abort();
-      if (oxResolver) { oxResolver('PREV'); oxResolver = null; }
+      App.studyAbort = true;
+      if (oxResolver) { oxResolver('ABORT'); oxResolver = null; }
+      stopWordTimer();
+      window.speechSynthesis.cancel();
+      if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
       isDictationMode = false; // reset
       App.words    = [];
       App.testPool = [];
