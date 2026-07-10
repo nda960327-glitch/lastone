@@ -1,309 +1,30 @@
 const words = [
   {
-    "word": "skill",
+    "word": "danger",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "기술",
+    "meaning": "위험",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "cash",
+    "word": "furniture",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "현금",
+    "meaning": "가구",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "replace",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "대체하다, 바꾸다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "further",
-    "partOfSpeech": [
-      "a",
-      "ad"
-    ],
-    "meaning": "그 이상의, 여분의, 더 멀리, 게다가",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "engage",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "종사하다 ; 고용하다 ; 약혼하다, 약속하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "invent",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "발명하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "throw",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "던지다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "overhear",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "우연히 듣다, 엿듣다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "flood",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "홍수, 범람, 쇄도, 범람하다, 침수하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "universe",
+    "word": "greeting",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "우주, 전세계",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "subject",
-    "partOfSpeech": [
-      "n",
-      "v",
-      "a"
-    ],
-    "meaning": "주제 ; 실험대상 ; 신하, 드러내다, 노출시키다, ~하기 쉬운, 영향을 받는",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "background",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "배경",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "marble",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "대리석",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "sleep",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "자다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "arrest",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "체포하다, 검거하다, 체포",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "locate",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "놓다 , 위치하다 ; 찾아내다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "important",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "중요한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "pull",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "잡아당기다, 끌다; 뽑다, 끌기, 끌어당기기",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "candle",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "양초, 촛불",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "lantern",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "랜턴",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "beer",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "맥주",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "happy",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "행복한, 기쁜",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "none",
-    "partOfSpeech": [
-      "pron",
-      "a",
-      "ad"
-    ],
-    "meaning": "아무도 ~않다, 아무도 ~않다, 아무도 ~않다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "drown",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "물에 빠지다, 익사하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "especially",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "특별히",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "grab",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "붙잡다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "dull",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "흐릿한 ; 무딘, 둔한 ; 따분한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "expect",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "기대하다, 예기하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "sharp",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "날카로운 ; 급격한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "state",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "상태 ; 나라, 국가, 진술하다, 주장하다",
+    "meaning": "인사, 환영",
     "totalFails": 0,
     "category": "basic",
     "day": 1
@@ -319,63 +40,61 @@ const words = [
     "day": 1
   },
   {
-    "word": "heat",
+    "word": "none",
     "partOfSpeech": [
-      "n",
-      "v"
+      "pron"
     ],
-    "meaning": "열, 더위, 가열하다, 데우다",
+    "meaning": "아무도 ~않다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "handshake",
+    "word": "none",
     "partOfSpeech": [
-      "n"
+      "a"
     ],
-    "meaning": "악수",
+    "meaning": "아무도 ~않다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "musician",
+    "word": "none",
     "partOfSpeech": [
-      "n"
+      "ad"
     ],
-    "meaning": "음악가",
+    "meaning": "아무도 ~않다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "interest",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "흥미, 이익 ; 이자, 관심을 갖게 하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "complain",
+    "word": "own",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "불평하다 ; 한탄하다",
+    "meaning": "소유하다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "instrument",
+    "word": "own",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "자기자신의, 고유한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "activity",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "기계, 기구",
+    "meaning": "활동, 활기",
     "totalFails": 0,
     "category": "basic",
     "day": 1
@@ -391,42 +110,461 @@ const words = [
     "day": 1
   },
   {
-    "word": "reason",
+    "word": "certain",
     "partOfSpeech": [
-      "n",
+      "a"
+    ],
+    "meaning": "특정한 ; 자신하는 , 확실한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "sophomore",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "2학년생",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "devil",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "악마",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "heat",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "열, 더위",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "heat",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "이유, 원인, 이성, 추론하다, 사고하다",
+    "meaning": "가열하다, 데우다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "peaceful",
+    "word": "turn",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "차례, 전환",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "turn",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "변하다, 달라지다 ; 방향을 바꾸다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "rope",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "밧줄",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "bathroom",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "욕실",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "happy",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "평온한, 조용한",
+    "meaning": "행복한, 기쁜",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "possible",
+    "word": "universe",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "우주, 전세계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "problem",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "문제, 과제, 고민",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "track",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "추적하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "track",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "지나간 자취, 흔적",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "prepare",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "준비하다, 각오하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "independent",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "가능한",
+    "meaning": "독립적인, 자주의 ; 독자적인",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "toward",
+    "word": "temperature",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "온도, 열",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "monk",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "승려",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "without",
     "partOfSpeech": [
       "prep"
     ],
-    "meaning": "~쪽으로, ~를 향하여",
+    "meaning": "~없이, 제외하고",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "puzzle",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수수께끼, 당황",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "puzzle",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "당혹하게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "math",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수학",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "trick",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "장난 ; 속임수 ; 묘기, 재주",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "trick",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "속이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "powder",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가루, 화약",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "pick",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "고르다, 선택하다, 줍다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "pick",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "선택권",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "rate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "평가하다 , 등급을 매기다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "rate",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "속도 ; 비율 ; 가격, 요금",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "vacation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "휴가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "fun",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "재미, 즐거움",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "fun",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "즐거운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "torch",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "횃불",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "torch",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "방화하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "hurt",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "다치게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "hurt",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "부상",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "pleasant",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "기분 좋은, 유쾌한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "shadow",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "그림자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "shadow",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "그늘지게 하다 ; 뒤를 따라가다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "cloudy",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "구름이 낀",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "republic",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "공화국",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "occur",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "일어나다, 생기다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "bottom",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "바닥, 아래, 밑바닥",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "bottom",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "근거를 두다.",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "date",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "날짜 ; 약속",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "date",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~의 연대를 추정하다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
@@ -442,43 +580,971 @@ const words = [
     "day": 1
   },
   {
-    "word": "danger",
+    "word": "sharp",
     "partOfSpeech": [
-      "n"
+      "a"
     ],
-    "meaning": "위험",
+    "meaning": "날카로운 ; 급격한",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "section",
+    "word": "goal",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "부분, 구역, 분할",
+    "meaning": "목적, 목표, 골",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "bottom",
+    "word": "mankind",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "인류, 인간",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "towel",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수건, 타월",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "battle",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "전투",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "battle",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "바닥, 아래, 밑바닥, 근거를 두다.",
+    "meaning": "싸우다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "pick",
+    "word": "raise",
     "partOfSpeech": [
-      "v",
       "n"
     ],
-    "meaning": "고르다, 선택하다, 줍다, 선택권",
+    "meaning": "인상, 증가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "raise",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "기르다, 사육하다 ; 올리다 ; 야기하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "snake",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "뱀",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "snake",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(뱀처럼) 구불구불 가다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "system",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "체계, 조직 ; 방식",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "fortunately",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "운좋게, 다행히",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "handshake",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "악수",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "stay",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "머무르다, 체류하다 ; 유지하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "fault",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "결점, 흠 ; 단층 (지질학)",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "religious",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "종교적인 ; 독실한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "especially",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "특별히",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "badly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "나쁘게, 심하게 ; 서투르게",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "marble",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "대리석",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "follow",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "뒤따르다 ; ~의 결과로 일어나다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "foolish",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "어리석은, 바보 같은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "pull",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "잡아당기다, 끌다; 뽑다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "pull",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "끌기, 끌어당기기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "correctly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "적당하게, 알맞게",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "joy",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기쁨",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "further",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "그 이상의, 여분의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "further",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "더 멀리, 게다가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "greedy",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "욕심 많은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "daughter",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "딸",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "sleep",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "자다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "dictionary",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사전",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "lantern",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "랜턴",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "salt",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "소금",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "scare",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "공포",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "scare",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "두려워하게 하다, 깜짝 놀라게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "fare",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "운임 ; 승객",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "beer",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "맥주",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "step",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "걸음 ; 정도, 수준",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "step",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "걷다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "chance",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "우연 ; 가능성 ; 기회",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "important",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "중요한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "revival",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "재생, 회복, 부활",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "fear",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "두려움, 공포",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "fear",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "두려워하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "force",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "힘, 세력",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "force",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "강제하다, 강요하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "hop",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "깡충 뛰기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "hop",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "한발로 뛰다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "castle",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "성",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "dig",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "파다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "replace",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "대체하다, 바꾸다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "culture",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "문화",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "culture",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "배양하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "below",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "~보다 아래에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "below",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "~보다 아래에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "interest",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "흥미, 이익 ; 이자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "interest",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "관심을 갖게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "rat",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "쥐, 들쥐",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "luck",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "행운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "price",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가격, 가치",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "flute",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "플룻, 피리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "peaceful",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "평온한, 조용한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "weather",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "날씨, 기후",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "weather",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(어려움 등을) 견디다 ; 풍화하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "energy",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "힘, 활기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "democracy",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "민주주의, 민주정치, 자치",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "engage",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "종사하다 ; 고용하다 ; 약혼하다, 약속하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "weight",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "무게 ; 중요성",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "throw",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "던지다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "method",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "방법, 방식, 체계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "return",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "돌아오다; 돌려주다, 반납하다, 되돌아가다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "return",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "돌아옴, 귀환; 반납",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "telephone",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "전화",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "wealth",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "부, 재산 ; 풍부",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "toward",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "~쪽으로, ~를 향하여",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "iceberg",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "빙산",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "skill",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기술",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "fact",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사실",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "sheet",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "시트, 종이 한장 ; 평평한 지역",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "art",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "예술, 미술 ; 기술",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "invite",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "초대하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "canal",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "운하",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "expect",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "기대하다, 예기하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "brown",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "갈색의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "brown",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "갈색",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "ground",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기초, 근거 ; 지면, 땅, 운동장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "ground",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "근거를 두다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "entire",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "전체의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "though",
+    "partOfSpeech": [
+      "conj"
+    ],
+    "meaning": "~임에도 불구하고",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "though",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "그러나",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "quarter",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "4분의 1 ; 부분 ; 구역 ; 거주지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "damage",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "손해, 피해",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "damage",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "손해를 입히다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "promise",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "약속",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "promise",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "약속하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "throat",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "목구멍",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "ostrich",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "타조",
     "totalFails": 0,
     "category": "basic",
     "day": 1
@@ -504,63 +1570,221 @@ const words = [
     "day": 1
   },
   {
-    "word": "method",
+    "word": "section",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "방법, 방식, 체계",
+    "meaning": "부분, 구역, 분할",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "hurt",
+    "word": "photographer",
     "partOfSpeech": [
-      "v",
       "n"
     ],
-    "meaning": "다치게 하다, 부상",
+    "meaning": "사진사",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "library",
+    "word": "dull",
     "partOfSpeech": [
-      "n"
+      "a"
     ],
-    "meaning": "도서관",
+    "meaning": "흐릿한 ; 무딘, 둔한 ; 따분한",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "earning",
+    "word": "spade",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "소득",
+    "meaning": "삽",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "battle",
+    "word": "crash",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "굉음, 추락, 충돌",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "crash",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "전투, 싸우다",
+    "meaning": "충돌하다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "chance",
+    "word": "musician",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "우연 ; 가능성 ; 기회",
+    "meaning": "음악가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "folk",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사람들",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "folk",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "민속의, 전통의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "reason",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "이유, 원인, 이성",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "reason",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "추론하다, 사고하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "taste",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "맛, 취향",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "taste",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "맛보다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "overhear",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "우연히 듣다, 엿듣다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "tooth",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "voyage",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "항해, 항행",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "voyage",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "항해하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "harmful",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "해로운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "comb",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "빗",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "comb",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "빗질하다 ; 찾다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "grave",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "무덤",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "grave",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "중대한, 근엄한 ; 엄숙한",
     "totalFails": 0,
     "category": "basic",
     "day": 1
@@ -576,75 +1800,51 @@ const words = [
     "day": 1
   },
   {
-    "word": "but",
-    "partOfSpeech": [
-      "ad",
-      "prep",
-      "conj"
-    ],
-    "meaning": "단지, 다만, ~을 제외하고, 그러나",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "revival",
+    "word": "state",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "재생, 회복, 부활",
+    "meaning": "상태 ; 나라, 국가",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "ground",
+    "word": "state",
     "partOfSpeech": [
-      "n",
       "v"
     ],
-    "meaning": "기초, 근거 ; 지면, 땅, 운동장, 근거를 두다",
+    "meaning": "진술하다, 주장하다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "towel",
+    "word": "tail",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "수건, 타월",
+    "meaning": "꼬리, 끝",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "step",
+    "word": "tail",
     "partOfSpeech": [
-      "n",
       "v"
     ],
-    "meaning": "걸음 ; 정도, 수준, 걷다",
+    "meaning": "첨부하다 ; 미행하다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "system",
+    "word": "memory",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "체계, 조직 ; 방식",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "precious",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "귀중한, 값어치 있는",
+    "meaning": "기억, 추억",
     "totalFails": 0,
     "category": "basic",
     "day": 1
@@ -662,713 +1862,19 @@ const words = [
   {
     "word": "surprise",
     "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "놀라게 하다, 놀람, 놀라운 일",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "stay",
-    "partOfSpeech": [
       "v"
     ],
-    "meaning": "머무르다, 체류하다 ; 유지하다",
+    "meaning": "놀라게 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
   },
   {
-    "word": "mankind",
+    "word": "surprise",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "인류, 인간",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "problem",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "문제, 과제, 고민",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "comb",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "빗, 빗질하다 ; 찾다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "monk",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "승려",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "entire",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "전체의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "past",
-    "partOfSpeech": [
-      "a",
-      "prep",
-      "n"
-    ],
-    "meaning": "과거의, ~을 지나서, 과거",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "hop",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "깡충 뛰기, 한발로 뛰다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "fact",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "사실",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "symbol",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "상징",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "track",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "추적하다, 지나간 자취, 흔적",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "fortunately",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "운좋게, 다행히",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "activity",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "활동, 활기",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "math",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "수학",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "resource",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "자원, 수단",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "greeting",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "인사, 환영",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "site",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "위치, 장소",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "fun",
-    "partOfSpeech": [
-      "n",
-      "a"
-    ],
-    "meaning": "재미, 즐거움, 즐거운",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "quarter",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "4분의 1 ; 부분 ; 구역 ; 거주지",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "snake",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "뱀, (뱀처럼) 구불구불 가다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "merry",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "명랑한, 즐거운",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "throat",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "목구멍",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "salt",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "소금",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "telephone",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "전화",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "temperature",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "온도, 열",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "turn",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "차례, 전환, 변하다, 달라지다 ; 방향을 바꾸다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "religious",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "종교적인 ; 독실한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "explain",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "설명하다, 해명하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "collect",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "모으다, 수집하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "deserve",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "~받을 만하다, ~할 가치가 있다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "prepare",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "준비하다, 각오하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "shadow",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "그림자, 그늘지게 하다 ; 뒤를 따라가다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "sink",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "아래로 가라앉다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "laundry",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "세탁물",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "flute",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "플룻, 피리",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "envelope",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "봉투, 감싸다, 뒤덮다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "independent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "독립적인, 자주의 ; 독자적인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "surface",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "표면, (어둠 속이나 숨어 있던 곳에서) 나오다 ,모습을 드러내다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "powder",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "가루, 화약",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "rainbow",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "무지개",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "spade",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "삽",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "umbrella",
-    "partOfSpeech": [
-      "n",
-      "a"
-    ],
-    "meaning": "우산, 포괄적인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "license",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "면허",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "raise",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "인상, 증가, 기르다, 사육하다 ; 올리다 ; 야기하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "damage",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "손해, 피해, 손해를 입히다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "gesture",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "몸짓",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "couple",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "한쌍",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "taste",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "맛, 취향, 맛보다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "folk",
-    "partOfSpeech": [
-      "n",
-      "a"
-    ],
-    "meaning": "사람들, 민속의, 전통의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "luck",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "행운",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "greedy",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "욕심 많은",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "clean",
-    "partOfSpeech": [
-      "a",
-      "v"
-    ],
-    "meaning": "청결한, 깨끗한 ; 살균의, 위생적인, 깨끗하게 하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "crash",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "굉음, 추락, 충돌, 충돌하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "leap",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "껑충 뛰다, 뛰어넘다, 도약, 점프",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "though",
-    "partOfSpeech": [
-      "conj",
-      "ad"
-    ],
-    "meaning": "~임에도 불구하고, 그러나",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "store",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "가게, 저장, 따로 떼어두다, 저장하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "bathroom",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "욕실",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "foolish",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "어리석은, 바보 같은",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "republic",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "공화국",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "daughter",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "딸",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "dictionary",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "사전",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "sheet",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "시트, 종이 한장 ; 평평한 지역",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "without",
-    "partOfSpeech": [
-      "prep"
-    ],
-    "meaning": "~없이, 제외하고",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "weather",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "날씨, 기후, (어려움 등을) 견디다 ; 풍화하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "semester",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "학기",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "fear",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "두려움, 공포, 두려워하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "afraid",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "두려운",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "sick",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "병든 ; 싫증난",
+    "meaning": "놀람, 놀라운 일",
     "totalFails": 0,
     "category": "basic",
     "day": 1
@@ -1384,52 +1890,11 @@ const words = [
     "day": 1
   },
   {
-    "word": "cloudy",
+    "word": "astonish",
     "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "구름이 낀",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "furniture",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "가구",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "ostrich",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "타조",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "culture",
-    "partOfSpeech": [
-      "n",
       "v"
     ],
-    "meaning": "문화, 배양하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "certain",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "특정한 ; 자신하는 , 확실한",
+    "meaning": "놀라게 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
@@ -1440,6 +1905,686 @@ const words = [
       "v"
     ],
     "meaning": "대접하다, 다루다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "instrument",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기계, 기구",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "possible",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "가능한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "site",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "위치, 장소",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "earning",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "소득",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "envelope",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "봉투",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "envelope",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "감싸다, 뒤덮다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "flood",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "홍수, 범람, 쇄도",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "flood",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "범람하다, 침수하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "coal",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "석탄",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "library",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "도서관",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "route",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "길, 노선, 항로",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "umbrella",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "우산",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "umbrella",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "포괄적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "handsome",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "잘생긴, 멋진",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "leap",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "껑충 뛰다, 뛰어넘다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "leap",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "도약, 점프",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "license",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "면허",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "subject",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "주제 ; 실험대상 ; 신하",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "subject",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "드러내다, 노출시키다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "subject",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "~하기 쉬운, 영향을 받는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "sick",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "병든 ; 싫증난",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "delight",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "황홀경, 기쁨",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "delight",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "기쁘게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "hero",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "영웅",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "couple",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "한쌍",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "merchant",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "상인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "but",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "단지, 다만",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "but",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "~을 제외하고",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "but",
+    "partOfSpeech": [
+      "conj"
+    ],
+    "meaning": "그러나",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "candle",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "양초, 촛불",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "precious",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "귀중한, 값어치 있는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "explain",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "설명하다, 해명하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "arrest",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "체포하다, 검거하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "arrest",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "체포",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "laundry",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "세탁물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "surface",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "표면",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "surface",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(어둠 속이나 숨어 있던 곳에서) 나오다 ,모습을 드러내다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "grab",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "붙잡다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "stadium",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경기장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "complain",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "불평하다 ; 한탄하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "semester",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "학기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "neighbor",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "이웃사람",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "disappoint",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "좌절시키다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "french",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "프랑스 사람, 프랑스어",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "foreign",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "외국의, 익숙치 않은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "collect",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "모으다, 수집하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "past",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "과거의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "past",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "~을 지나서",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "past",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "과거",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "resource",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "자원, 수단",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "sink",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "아래로 가라앉다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "symbol",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "상징",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "locate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "놓다 , 위치하다 ; 찾아내다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "cash",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "현금",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "rainbow",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "무지개",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "drown",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "물에 빠지다, 익사하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "background",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "배경",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "invent",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "발명하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "afraid",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "두려운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "merry",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "명랑한, 즐거운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "clean",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "청결한, 깨끗한 ; 살균의, 위생적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "clean",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "깨끗하게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "mail",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "우편물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "mail",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "발송하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "store",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가게, 저장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "store",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "따로 떼어두다, 저장하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "gesture",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "몸짓",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 1
+  },
+  {
+    "word": "deserve",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~받을 만하다, ~할 가치가 있다",
     "totalFails": 0,
     "category": "basic",
     "day": 1
@@ -1465,48 +2610,6 @@ const words = [
     "day": 1
   },
   {
-    "word": "stadium",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "경기장",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "french",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "프랑스 사람, 프랑스어",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "below",
-    "partOfSpeech": [
-      "prep",
-      "ad"
-    ],
-    "meaning": "~보다 아래에, ~보다 아래에",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "torch",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "횃불, 방화하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
     "word": "area",
     "partOfSpeech": [
       "n"
@@ -1517,1545 +2620,21 @@ const words = [
     "day": 1
   },
   {
-    "word": "fare",
+    "word": "harvest",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "운임 ; 승객",
+    "meaning": "수확",
     "totalFails": 0,
     "category": "basic",
-    "day": 1
+    "day": 2
   },
   {
-    "word": "wealth",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "부, 재산 ; 풍부",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "democracy",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "민주주의, 민주정치, 자치",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "trick",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "장난 ; 속임수 ; 묘기, 재주, 속이다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "goal",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "목적, 목표, 골",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "foreign",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "외국의, 익숙치 않은",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "harmful",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "해로운",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "voyage",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "항해, 항행, 항해하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "dig",
+    "word": "harvest",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "파다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "brown",
-    "partOfSpeech": [
-      "a",
-      "n"
-    ],
-    "meaning": "갈색의, 갈색",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "invite",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "초대하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "photographer",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "사진사",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "rate",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "평가하다 , 등급을 매기다, 속도 ; 비율 ; 가격, 요금",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "own",
-    "partOfSpeech": [
-      "v",
-      "a"
-    ],
-    "meaning": "소유하다, 자기자신의, 고유한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "iceberg",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "빙산",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "delight",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "황홀경, 기쁨, 기쁘게 하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "rat",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "쥐, 들쥐",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "promise",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "약속, 약속하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "art",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "예술, 미술 ; 기술",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "castle",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "성",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "sophomore",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "2학년생",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "memory",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "기억, 추억",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "return",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "돌아오다; 돌려주다, 반납하다, 되돌아가다, 돌아옴, 귀환; 반납",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "correctly",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "적당하게, 알맞게",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "scare",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "공포, 두려워하게 하다, 깜짝 놀라게 하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "pleasant",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "기분 좋은, 유쾌한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "handsome",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "잘생긴, 멋진",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "disappoint",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "좌절시키다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "joy",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "기쁨",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "date",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "날짜 ; 약속, ~의 연대를 추정하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "puzzle",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "수수께끼, 당황, 당혹하게 하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "badly",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "나쁘게, 심하게 ; 서투르게",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "route",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "길, 노선, 항로",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "weight",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "무게 ; 중요성",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "energy",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "힘, 활기",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "fault",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "결점, 흠 ; 단층 (지질학)",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "hero",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "영웅",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "tail",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "꼬리, 끝, 첨부하다 ; 미행하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "devil",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "악마",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "neighbor",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "이웃사람",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "vacation",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "휴가",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "tooth",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "이",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "rope",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "밧줄",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "merchant",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "상인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "force",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "힘, 세력, 강제하다, 강요하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "price",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "가격, 가치",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "follow",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "뒤따르다 ; ~의 결과로 일어나다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "canal",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "운하",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "occur",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "일어나다, 생기다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "grave",
-    "partOfSpeech": [
-      "n",
-      "a"
-    ],
-    "meaning": "무덤, 중대한, 근엄한 ; 엄숙한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "mail",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "우편물, 발송하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "coal",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "석탄",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 1
-  },
-  {
-    "word": "include",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "포함하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "suck",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "빨다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "bottle",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "병",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "terrible",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "무서운, 끔찍한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "triumph",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "승리, 정복, 대성공, 승리를 거두다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "hesitate",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "주저하다, 망설이다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "history",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "역사",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "press",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "누르다, 밀어붙이다, 압박; 정기간행물",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "pair",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "한 쌍, 짝을 짓다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "piece",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "조각, 연결하다, 결합하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "slave",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "노예",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "regular",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "규칙적인, 정기적인 ; 보통의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "dear",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "친애하는",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "steady",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "지속적인 ; 안정된, 확고한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "equal",
-    "partOfSpeech": [
-      "a",
-      "v"
-    ],
-    "meaning": "같은, 동등한, ~과 같다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "feather",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "깃털",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "traffic",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "교통 ; 거래",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "serious",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "심각한, 진지한 ; 중대한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "interesting",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "흥미로운, 재미있는",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "blow",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "강타, 타격, (바람이)불다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "exit",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "출구",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "deal",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "다루다, 거래 ; 합의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "ache",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "아픔, 아프다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "fill",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "채우다 , 신청서를 작성하다 ; 이행하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "nation",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "국가",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "shake",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "흔들리다, 진동하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "simple",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "간단한, 순진한, 꾸밈없는",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "speech",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "말, 연설",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "amuse",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "즐겁게 하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "fog",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "안개, 흐림",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "nearly",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "거의, 대략",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "tower",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "탑",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "explore",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "탐험(탐구)하다, 연구하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "sometime",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "언젠가 ; 가끔",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "suitcase",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "여행가방",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "nephew",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "조카",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "crazy",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "미친",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "downtown",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "번화가",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "tax",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "세금, 세금을 부과하다, 과세하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "giant",
-    "partOfSpeech": [
-      "n",
-      "a"
-    ],
-    "meaning": "거인, 거대한, 위대한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "officer",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "공무원, 장교",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "pill",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "알약",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "alphabet",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "알파벳, 문자",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "race",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "경주, 경쟁 ; 민족, 인종",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "excellent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "훌륭한, 뛰어난",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "fat",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "살찐, 뚱뚱한 ; 지방이 많은, 기름기가 많은",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "british",
-    "partOfSpeech": [
-      "n",
-      "a"
-    ],
-    "meaning": "영국인, 영국의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "spirit",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "정신, 영혼",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "safely",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "안전하게, 무사히",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "check",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "조사하다 ; 검토하다, 검사",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "patient",
-    "partOfSpeech": [
-      "a",
-      "n"
-    ],
-    "meaning": "인내심 있는, 환자",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "liberty",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "자유, 해방",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "drum",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "북, 드럼을 치다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "garage",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "차고",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "adventure",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "모험",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "bet",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "(돈을) 걸다, 내기; 내기 돈",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "seed",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "씨앗, 씨를 뿌리다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "unless",
-    "partOfSpeech": [
-      "conj"
-    ],
-    "meaning": "만약 ~하지 않으면",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "draw",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "끌다 ; 그리다 ; (결론을) 끌어내다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "anyway",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "어쨌든, 아무튼",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "pardon",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "사면하다, 용서",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "wise",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "슬기로운, 현명한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "coeducation",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "남녀공학",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "composer",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "작곡가",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "bubble",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "거품",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "palace",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "궁전",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "hurray",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "만세",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "saw",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "톱, 톱으로 켜다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "choose",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "고르다, 선택하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "protect",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "보호하다, 지키다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "ceremony",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "의식",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "object",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "반대하다, 항의하다, 목적 ; 물건, 사물",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "lay",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "눕히다, 놓다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "fierce",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "사나운, 난폭한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "forward",
-    "partOfSpeech": [
-      "ad",
-      "a"
-    ],
-    "meaning": "앞으로, 진보적인, 향후의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "hurry",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "서두르다, 서두름",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "early",
-    "partOfSpeech": [
-      "ad",
-      "a"
-    ],
-    "meaning": "초창기에, 일찍, 조기에, 초기의, 이른",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "abuse",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "남용하다 ; 학대하다, 학대",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "destroy",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "파괴하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "circle",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "원 ; 집단, 돌다, 선회하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "competent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "적합한, 유능한, 능숙한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "funeral",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "장례식",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "lead",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "선두,우세 ; 납 [léd], 안내하다; 연결되다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "dialogue",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "대화, 대화하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "lock",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "자물쇠, 잠그다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "appear",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "~인 것으로 보이다 ; 나타나다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "charge",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "(의무,책임을) 지우다 ; 고발하다, 요금, 비용 ; 혐의, 기소",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "continue",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "계속하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "primary",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "주요한 : 근본적인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "similar",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "비슷한, 유사한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "probably",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "아마",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "nickname",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "별명, 애칭",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "useless",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "쓸모없는",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "hang",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "걸다, 매달다 ; 교수형에 처하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "strange",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "낯선, 이상한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "hand",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "주다, 건네주다, 손, 도움",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "hardly",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "거의 ~ 아니다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "mostly",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "대부분, 주로",
+    "meaning": "수확하다",
     "totalFails": 0,
     "category": "basic",
     "day": 2
@@ -3071,119 +2650,6 @@ const words = [
     "day": 2
   },
   {
-    "word": "booth",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "노점, 작은 방",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "clap",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "박수 ; 파열음, 손뼉을 치다, 두드리다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "excited",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "흥분한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "burden",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "무거운 짐 , 부담, ~을 지우다, 부담주다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "petal",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "꽃잎",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "hollow",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "텅 빈, 공허한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "kindergarten",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "유치원",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "unity",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "통일, 단일",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "scar",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "상처, 흉터",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "harvest",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "수확, 수확하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "popular",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "대중적인, 서민의 ; 널리 퍼져 있는",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
     "word": "doll",
     "partOfSpeech": [
       "n"
@@ -3194,863 +2660,31 @@ const words = [
     "day": 2
   },
   {
-    "word": "sigh",
+    "word": "booth",
     "partOfSpeech": [
-      "v",
       "n"
     ],
-    "meaning": "한숨을 쉬다, 한숨 짓다; 한숨을 쉬며 말하다, 한숨, 한숨 소리",
+    "meaning": "노점, 작은 방",
     "totalFails": 0,
     "category": "basic",
     "day": 2
   },
   {
-    "word": "accident",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "우연 ; 사고",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "various",
+    "word": "useless",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "여러 가지의, 다양한",
+    "meaning": "쓸모없는",
     "totalFails": 0,
     "category": "basic",
     "day": 2
   },
   {
-    "word": "become",
+    "word": "fill",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "~이 되다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "army",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "육군, 군대",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "wild",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "야생의, 거친",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "shade",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "그늘지게 하다, 가리다, 그늘 ; 빛깔, 색조",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "biology",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "생물학",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "borrow",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "빌리다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "build",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "짓다, 건축하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "gather",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "모으다, 수확하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "wake",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "깨다, 일어나다 ; 깨우다, 후류, 배가 지나간 흔적",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "exchange",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "교환하다, 바꾸다, 교환",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "trip",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "여행",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "pray",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "기원하다, 빌다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "mile",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "마일 (1.609 km)",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "balance",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "균형, 균형을 잡다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "brain",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "두뇌, 지력",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "shout",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "외치다, 고함치다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "drag",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "질질 끌다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "sword",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "칼",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "trust",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "신임, 신뢰, 신뢰하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "appetite",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "식욕, 욕구",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "contest",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "경쟁, 논쟁, 다투다, 이의를 제기하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "successful",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "성공한, 성공적인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "stomach",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "복부, 위",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "charming",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "매력적인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "type",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "유형, 양식, 전형",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "pilgrim",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "순례자 ; 나그네, 방랑자",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "invader",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "침략자",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "admiral",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "제독, 해군대장",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "diligent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "근면한, 부지런한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "heaven",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "하늘, 천국",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "touch",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "접촉하다; 감동시키다, 접촉 ; 촉감",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "survive",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "살아남다, 잔존하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "bend",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "구부리다, 휘다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "waste",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "낭비하다, 허비하다, 쓰레기",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "solar",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "태양의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "debt",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "빚, 채무, 은혜",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "fence",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "울타리, 울타리를 치다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "scratch",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "할퀴다, 긁다, 흠집, 상처",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "push",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "밀기; 추진, 추진하다, 밀다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "feast",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "축제",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "tradition",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "전통, 관습",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "rudely",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "무례하게, 불쑥",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "close",
-    "partOfSpeech": [
-      "a",
-      "v"
-    ],
-    "meaning": "면밀한, 가까운, 닫다, 마감하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "prison",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "감옥, 교도소",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "slide",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "미끄러지다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "short",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "짧은 ; 부족한 ; 작은",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "sample",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "견본, 예",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "event",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "사건, 행사",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "metal",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "금속",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "yell",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "외침, 외치다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "pretend",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "~인체 하다, 가장하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "pause",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "잠시 멈추다, 중단하다, 중지, 중간 휴식",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "servant",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "하인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "describe",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "묘사하다, 설명하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "war",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "전쟁",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "ancestor",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "선조, 조상",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "almost",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "거의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "reach",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "구역, 범위, 도달하다, 손을 뻗다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "edge",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "가장자리, 모서리",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "pumpkin",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "호박",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "huge",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "큰, 거대한, 막대한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "creek",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "작은 만, 시내",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "very",
-    "partOfSpeech": [
-      "ad",
-      "a"
-    ],
-    "meaning": "매우, 아주, 바로 그",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "fur",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "모피, 부드러운 털",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "loaf",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "빵 한 덩어리",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "apart",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "떨어져서, 따로",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "record",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "기록, 증거, 기록하다, 녹음하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "sand",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "모래, 모래밭",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "dish",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "접시; 요리",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "lonely",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "외로운, 고독한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "sore",
-    "partOfSpeech": [
-      "a",
-      "n"
-    ],
-    "meaning": "아픈; 슬픈, 상처",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "jewel",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "보석",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "mystery",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "신비, 불가사의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "lift",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "들어 올리다, 승강기, 엘리베이터",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "cemetery",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "공동묘지",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "dream",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "꿈, 꿈 꾸다, 상상하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "lesson",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "학과, 교훈",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "float",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "뜨다 ; (마음 속에)떠오르다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "bike",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "자전거",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "seat",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "자리, 좌석, 앉히다, 앉다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 2
-  },
-  {
-    "word": "department",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "부서",
+    "meaning": "채우다 , 신청서를 작성하다 ; 이행하다",
     "totalFails": 0,
     "category": "basic",
     "day": 2
@@ -4066,12 +2700,901 @@ const words = [
     "day": 2
   },
   {
-    "word": "privilege",
+    "word": "touch",
     "partOfSpeech": [
-      "n",
       "v"
     ],
-    "meaning": "특권, 혜택, 특권을 주다",
+    "meaning": "접촉하다; 감동시키다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "touch",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "접촉 ; 촉감",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "war",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "전쟁",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "deal",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "다루다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "deal",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "거래 ; 합의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "ceremony",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "의식",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "ancestor",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "선조, 조상",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "downtown",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "번화가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "nation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "국가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "garage",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "차고",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "lesson",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "학과, 교훈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "saw",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "톱",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "saw",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "톱으로 켜다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "apart",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "떨어져서, 따로",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "piece",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "조각",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "piece",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "연결하다, 결합하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "nephew",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "조카",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "giant",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "거인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "giant",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "거대한, 위대한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "choose",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "고르다, 선택하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "hand",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "주다, 건네주다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "hand",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "손, 도움",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "competent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "적합한, 유능한, 능숙한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "creek",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "작은 만, 시내",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "spirit",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정신, 영혼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "dream",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "꿈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "dream",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "꿈 꾸다, 상상하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "charming",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "매력적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "stomach",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "복부, 위",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "fur",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "모피, 부드러운 털",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "hurray",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "만세",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "alphabet",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "알파벳, 문자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "diligent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "근면한, 부지런한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "continue",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "계속하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "similar",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "비슷한, 유사한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pair",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "한 쌍",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pair",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "짝을 짓다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pause",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "잠시 멈추다, 중단하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pause",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "중지, 중간 휴식",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "tower",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "탑",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "biology",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "생물학",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "mostly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "대부분, 주로",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "shade",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "그늘지게 하다, 가리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "shade",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "그늘 ; 빛깔, 색조",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "borrow",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "빌리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "reach",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "구역, 범위",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "reach",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "도달하다, 손을 뻗다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pumpkin",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "호박",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "lock",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "자물쇠",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "lock",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "잠그다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "describe",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "묘사하다, 설명하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "terrible",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "무서운, 끔찍한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "charge",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(의무,책임을) 지우다 ; 고발하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "charge",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "요금, 비용 ; 혐의, 기소",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "tax",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "세금",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "tax",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "세금을 부과하다, 과세하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "admiral",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "제독, 해군대장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "palace",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "궁전",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "sometime",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "언젠가 ; 가끔",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "dear",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "친애하는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "dialogue",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "대화",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "dialogue",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "대화하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pilgrim",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "순례자 ; 나그네, 방랑자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "event",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사건, 행사",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "balance",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "균형",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "balance",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "균형을 잡다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "loaf",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "빵 한 덩어리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "slave",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "노예",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "contest",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경쟁, 논쟁",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "contest",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "다투다, 이의를 제기하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "bet",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(돈을) 걸다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "bet",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "내기; 내기 돈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "yell",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "외침",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "yell",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "외치다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "strange",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "낯선, 이상한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "record",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기록, 증거",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "record",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "기록하다, 녹음하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "blow",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "강타, 타격",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "blow",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(바람이)불다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "wise",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "슬기로운, 현명한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "slide",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "미끄러지다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "nearly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "거의, 대략",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "lift",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "들어 올리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "lift",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "승강기, 엘리베이터",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "funeral",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "장례식",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "interesting",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "흥미로운, 재미있는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "various",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "여러 가지의, 다양한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "primary",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "주요한 : 근본적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "abuse",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "남용하다 ; 학대하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "abuse",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "학대",
     "totalFails": 0,
     "category": "basic",
     "day": 2
@@ -4079,20 +3602,979 @@ const words = [
   {
     "word": "vote",
     "partOfSpeech": [
-      "n",
-      "v"
+      "n"
     ],
-    "meaning": "투표, 투표하다",
+    "meaning": "투표",
     "totalFails": 0,
     "category": "basic",
     "day": 2
   },
   {
-    "word": "bury",
+    "word": "vote",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "묻다 , 매장하다",
+    "meaning": "투표하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "sample",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "견본, 예",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "coeducation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "남녀공학",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "protect",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "보호하다, 지키다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "feast",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "축제",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "seat",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "자리, 좌석",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "seat",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "앉히다, 앉다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "mystery",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "신비, 불가사의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "lay",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "눕히다, 놓다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "sword",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "칼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "excellent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "훌륭한, 뛰어난",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "debt",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "빚, 채무, 은혜",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "nickname",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "별명, 애칭",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "fierce",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "사나운, 난폭한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "race",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경주, 경쟁 ; 민족, 인종",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "explore",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "탐험(탐구)하다, 연구하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "serious",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "심각한, 진지한 ; 중대한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "metal",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "금속",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "steady",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "지속적인 ; 안정된, 확고한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "solar",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "태양의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "trip",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "여행",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "tradition",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "전통, 관습",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "popular",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "대중적인, 서민의 ; 널리 퍼져 있는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "huge",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "큰, 거대한, 막대한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "drum",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "북",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "drum",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "드럼을 치다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "scratch",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "할퀴다, 긁다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "scratch",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "흠집, 상처",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "fat",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "살찐, 뚱뚱한 ; 지방이 많은, 기름기가 많은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "excited",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "흥분한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "ache",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "아픔",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "ache",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "아프다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "bend",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "구부리다, 휘다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "mile",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "마일 (1.609 km)",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "hurry",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "서두르다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "hurry",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "서두름",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "gather",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "모으다, 수확하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "department",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "부서",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "exchange",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "교환하다, 바꾸다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "exchange",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "교환",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "bottle",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "병",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "hollow",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "텅 빈, 공허한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "accident",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "우연 ; 사고",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "privilege",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "특권, 혜택",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "privilege",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "특권을 주다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "object",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "반대하다, 항의하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "object",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "목적 ; 물건, 사물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "drag",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "질질 끌다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "suitcase",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "여행가방",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "check",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "조사하다 ; 검토하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "check",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "검사",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "destroy",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "파괴하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "hang",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "걸다, 매달다 ; 교수형에 처하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "become",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~이 되다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pardon",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "사면하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pardon",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "용서",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "adventure",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "모험",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "seed",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "씨앗",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "seed",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "씨를 뿌리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "brain",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "두뇌, 지력",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "very",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "매우, 아주",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "very",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "바로 그",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "suck",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "빨다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "safely",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "안전하게, 무사히",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "feather",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "깃털",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "fog",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "안개, 흐림",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "draw",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "끌다 ; 그리다 ; (결론을) 끌어내다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "rudely",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "무례하게, 불쑥",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "forward",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "앞으로",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "forward",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "진보적인, 향후의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "exit",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "출구",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "close",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "면밀한, 가까운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "close",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "닫다, 마감하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "cemetery",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "공동묘지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "push",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "밀기; 추진",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "push",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "추진하다, 밀다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "simple",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "간단한, 순진한, 꾸밈없는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "sore",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "아픈; 슬픈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "sore",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "상처",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "anyway",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "어쨌든, 아무튼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "british",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "영국인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "british",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "영국의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "wild",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "야생의, 거친",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "hardly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "거의 ~ 아니다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "triumph",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "승리, 정복, 대성공",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "triumph",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "승리를 거두다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "shake",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "흔들리다, 진동하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "heaven",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "하늘, 천국",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "lead",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "선두,우세 ; 납 [léd]",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "lead",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "안내하다; 연결되다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "early",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "초창기에, 일찍, 조기에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "early",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "초기의, 이른",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "jewel",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "보석",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "include",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "포함하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "traffic",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "교통 ; 거래",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "lonely",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "외로운, 고독한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "petal",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "꽃잎",
     "totalFails": 0,
     "category": "basic",
     "day": 2
@@ -4108,103 +4590,601 @@ const words = [
     "day": 2
   },
   {
-    "word": "immediately",
+    "word": "scar",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "상처, 흉터",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "appetite",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "식욕, 욕구",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "bike",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "자전거",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "officer",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "공무원, 장교",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "sigh",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "한숨을 쉬다, 한숨 짓다; 한숨을 쉬며 말하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "sigh",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "한숨, 한숨 소리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "liberty",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "자유, 해방",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "appear",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~인 것으로 보이다 ; 나타나다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "float",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "뜨다 ; (마음 속에)떠오르다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "prison",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "감옥, 교도소",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "successful",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "성공한, 성공적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "probably",
     "partOfSpeech": [
       "ad"
     ],
-    "meaning": "즉시, 당장",
+    "meaning": "아마",
     "totalFails": 0,
     "category": "basic",
-    "day": 3
+    "day": 2
   },
   {
-    "word": "custom",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "전통",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "appointment",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "약속 ; 임명",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "dollar",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "달러",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "allow",
+    "word": "shout",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "허락하다",
+    "meaning": "외치다, 고함치다",
     "totalFails": 0,
     "category": "basic",
-    "day": 3
+    "day": 2
   },
   {
-    "word": "present",
+    "word": "wake",
     "partOfSpeech": [
-      "n",
-      "a",
       "v"
     ],
-    "meaning": "현재, 선물, 존재하는 ; 현재의, 증정하다, 주다",
+    "meaning": "깨다, 일어나다 ; 깨우다",
     "totalFails": 0,
     "category": "basic",
-    "day": 3
+    "day": 2
   },
   {
-    "word": "forest",
+    "word": "wake",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "숲",
+    "meaning": "후류, 배가 지나간 흔적",
     "totalFails": 0,
     "category": "basic",
-    "day": 3
+    "day": 2
   },
   {
-    "word": "potato",
+    "word": "edge",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "감자",
+    "meaning": "가장자리, 모서리",
     "totalFails": 0,
     "category": "basic",
-    "day": 3
+    "day": 2
   },
   {
-    "word": "office",
+    "word": "bubble",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "사무실, 회사",
+    "meaning": "거품",
     "totalFails": 0,
     "category": "basic",
-    "day": 3
+    "day": 2
   },
   {
-    "word": "series",
+    "word": "type",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "일련, 연속",
+    "meaning": "유형, 양식, 전형",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "hesitate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "주저하다, 망설이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "crazy",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "미친",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "patient",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "인내심 있는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "patient",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "환자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "dish",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "접시; 요리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "history",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "역사",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "amuse",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "즐겁게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "short",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "짧은 ; 부족한 ; 작은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "army",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "육군, 군대",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "composer",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "작곡가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "servant",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "하인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "survive",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "살아남다, 잔존하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "sand",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "모래, 모래밭",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "kindergarten",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "유치원",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "build",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "짓다, 건축하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pray",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "기원하다, 빌다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "clap",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "박수 ; 파열음",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "clap",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "손뼉을 치다, 두드리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "regular",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "규칙적인, 정기적인 ; 보통의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "unless",
+    "partOfSpeech": [
+      "conj"
+    ],
+    "meaning": "만약 ~하지 않으면",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "almost",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "거의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "burden",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "무거운 짐 , 부담",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "burden",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~을 지우다, 부담주다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "press",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "누르다, 밀어붙이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "press",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "압박; 정기간행물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "trust",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "신임, 신뢰",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "trust",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "신뢰하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "invader",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "침략자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "speech",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "말, 연설",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pill",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "알약",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "waste",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "낭비하다, 허비하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "waste",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "쓰레기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "fence",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "울타리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "fence",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "울타리를 치다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "equal",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "같은, 동등한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "equal",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~과 같다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "pretend",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~인체 하다, 가장하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "unity",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "통일, 단일",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "bury",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "묻다 , 매장하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "circle",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "원 ; 집단",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "circle",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "돌다, 선회하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 2
+  },
+  {
+    "word": "actually",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "사실상, 실제로",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -4220,804 +5200,6 @@ const words = [
     "day": 3
   },
   {
-    "word": "bone",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "뼈",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "private",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "사적인, 개인적인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "gain",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "얻다, 획득하다, 이익, 증가",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "education",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "교육, 훈련",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "control",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "억제, 통제, 지배하다 ; 통제하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "cover",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "~를 덮다, 감추다 ; ~를 포함하다 ; ~를 다루다, 덮개",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "chase",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "뒤쫓다, 추구하다, 추적, 추격",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "smell",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "냄새, 냄새를 맡다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "government",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "정부",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "boring",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "지루한, 따분한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "several",
-    "partOfSpeech": [
-      "a",
-      "pron"
-    ],
-    "meaning": "각각의, 몇몇의, 몇몇",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "proud",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "거만한, 자존심 있는 ; 자랑스러운",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "shock",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "충격, 충돌, 충격 주다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "calm",
-    "partOfSpeech": [
-      "a",
-      "v"
-    ],
-    "meaning": "침착한, 차분한; 잔잔한, 진정시키다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "pulse",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "맥박, 맥박치다, 고동치다, 활기가 넘치다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "hide",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "동물의 가죽, 숨기다, 감추다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "million",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "100만, 백만",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "silk",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "비단",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "wood",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "나무, 숲",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "recently",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "최근에",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "besides",
-    "partOfSpeech": [
-      "prep",
-      "ad"
-    ],
-    "meaning": "그 외에도, 게다가",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "absent",
-    "partOfSpeech": [
-      "a",
-      "v",
-      "결근"
-    ],
-    "meaning": "결석한, 부재의, 결석, 하다, 불참하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "relative",
-    "partOfSpeech": [
-      "n",
-      "a"
-    ],
-    "meaning": "친척, 비교상의, 상대적인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "accept",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "받아들이다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "fair",
-    "partOfSpeech": [
-      "a",
-      "ad",
-      "n"
-    ],
-    "meaning": "공평한, 공정한, 공정하게, 타당하게, 박람회, 전시회",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "outline",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "윤곽, 약도, 윤곽을 그리다, 요약하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "mayor",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "시장",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "coil",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "코일, 감긴 것, 고리, (고리 모양으로) 감다, 휘감다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "hunger",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "굶주림",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "since",
-    "partOfSpeech": [
-      "ad",
-      "conj",
-      "prep"
-    ],
-    "meaning": "그 후, 그 이래, ~이기 때문에, 왜냐하면, 그 후, 그 이래, 그 후, 그 이래",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "stress",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "강조 ; 압력 ;긴장, 부담감, 강조하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "delicious",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "맛있는",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "flat",
-    "partOfSpeech": [
-      "a",
-      "n"
-    ],
-    "meaning": "평평한, 납작한, 평평한 부분",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "instead",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "대신에",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "joke",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "농담, 농담을 하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "voice",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "목소리",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "bridge",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "다리, 다리를 놓다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "list",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "명부, 리스트를 작성하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "detective",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "탐정, 수사관",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "pigeon",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "비둘기",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "journey",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "여행",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "shrug",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "어깨를 으쓱하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "wagon",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "짐마차, 화물기차",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "thumb",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "엄지손가락",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "group",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "집단, 정리하다, 배열하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "shine",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "빛나다, 빛남",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "dry",
-    "partOfSpeech": [
-      "a",
-      "v"
-    ],
-    "meaning": "마른, 건조한; 비가 오지 않은, 마르다; 말리다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "refuse",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "거절하다, 거부하다, 쓰레기",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "chief",
-    "partOfSpeech": [
-      "n",
-      "a"
-    ],
-    "meaning": "우두머리, 주요한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "niece",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "여자조카",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "arrive",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "도착하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "increase",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "늘리다, 불리다, 증가",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "tear",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "찢다, 자르다, 눈물",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "struggle",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "싸우다, 발버둥치다, 분투하다, 분투, 노력",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "twice",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "두번",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "opinion",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "의견, 견해",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "behind",
-    "partOfSpeech": [
-      "ad",
-      "prep"
-    ],
-    "meaning": "~의 뒤에, ~의 뒤에",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "solution",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "해결(책) ; 용매, 용액",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "ticket",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "표, 입장권",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "normal",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "표준의, 평균의, 정상인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "actually",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "사실상, 실제로",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "hobby",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "취미, 오락, 놀이",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "empty",
-    "partOfSpeech": [
-      "a",
-      "v"
-    ],
-    "meaning": "빈, 공허한, 비우다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "eraser",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "지우개",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "desert",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "버리다, 사막",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "habit",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "버릇, 습관, 관습",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "understand",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "이해하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "vegetable",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "야채",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "afterward",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "후에, 나중에",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "grand",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "웅장한, 웅대한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "ocean",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "대양",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "sweet",
-    "partOfSpeech": [
-      "a",
-      "n"
-    ],
-    "meaning": "달콤한, 단 것, 사탕 및 초콜릿류",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "pal",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "친구",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "select",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "고르다, 선택하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "plate",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "접시, 판, 도금하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "rapidly",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "급속히, 빨리, 순식간에",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
     "word": "knee",
     "partOfSpeech": [
       "n"
@@ -5028,106 +5210,61 @@ const words = [
     "day": 3
   },
   {
-    "word": "turtle",
+    "word": "office",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "바다거북",
+    "meaning": "사무실, 회사",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "dark",
+    "word": "favorite",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "어두운",
+    "meaning": "좋아하는, 마음에 드는",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "pretty",
-    "partOfSpeech": [
-      "a",
-      "ad"
-    ],
-    "meaning": "매력적인, 예쁜, 귀여운, 어느정도, 꽤; 아주, 매우",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "information",
+    "word": "favorite",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "정보, 지식",
+    "meaning": "좋아하는 사람, 좋아하는 물건",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "graduate",
+    "word": "sow",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
-    "meaning": "졸업하다, 학위를 수여하다, 대학졸업자",
+    "meaning": "씨를 뿌리다",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "produce",
+    "word": "struggle",
     "partOfSpeech": [
-      "v",
-      "n",
-      "품"
+      "v"
     ],
-    "meaning": "생산(산출)하다, 일으키다, 생산물, , (특히) 농작물",
+    "meaning": "싸우다, 발버둥치다, 분투하다",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "concert",
+    "word": "struggle",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "음악회",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "crop",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "농작물",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "along",
-    "partOfSpeech": [
-      "prep",
-      "ad"
-    ],
-    "meaning": "~을 따라서, ~을 지나서, ~을 따라서, ~을 지나서",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "passenger",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "승객",
+    "meaning": "분투, 노력",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -5135,41 +5272,39 @@ const words = [
   {
     "word": "once",
     "partOfSpeech": [
-      "conj",
+      "conj"
+    ],
+    "meaning": "일단 ~하면",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "once",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "일단 ~하면, 이전에, 일찍이, 한번",
+    "meaning": "이전에, 일찍이, 한번",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "engineer",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "기사; 기술자,수리공, 제작하다; 조작하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "birth",
+    "word": "chief",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "출생",
+    "meaning": "우두머리",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "ceiling",
+    "word": "chief",
     "partOfSpeech": [
-      "n"
+      "a"
     ],
-    "meaning": "천장",
+    "meaning": "주요한",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -5185,21 +5320,211 @@ const words = [
     "day": 3
   },
   {
-    "word": "seldom",
+    "word": "fever",
     "partOfSpeech": [
-      "ad"
+      "n"
     ],
-    "meaning": "거의~하지 않는",
+    "meaning": "열",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "celebrate",
+    "word": "flame",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정열, 불길",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "flame",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "축하하다, 찬양하다",
+    "meaning": "타오르다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "shock",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "충격, 충돌",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "shock",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "충격 주다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "master",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "주인, 지배자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "master",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "숙달하다, 정통하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "trouble",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "근심, 걱정 ; 문제",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "trouble",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "괴롭히다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "million",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "100만, 백만",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "relative",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "친척",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "relative",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "비교상의, 상대적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "navy",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "해군",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "coil",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "코일, 감긴 것, 고리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "coil",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(고리 모양으로) 감다, 휘감다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "control",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "억제, 통제",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "control",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "지배하다 ; 통제하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "import",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "수입하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "import",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수입품",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "empty",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "빈, 공허한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "empty",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "비우다",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -5215,21 +5540,21 @@ const words = [
     "day": 3
   },
   {
-    "word": "sugar",
+    "word": "passport",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "설탕",
+    "meaning": "여권",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "sight",
+    "word": "series",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "광경, 경치",
+    "meaning": "일련, 연속",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -5245,6 +5570,146 @@ const words = [
     "day": 3
   },
   {
+    "word": "rapidly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "급속히, 빨리, 순식간에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "data",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "자료",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "crop",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "농작물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pop",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "대중음악",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pop",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "갑자기 등장하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "along",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "~을 따라서, ~을 지나서",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "along",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "~을 따라서, ~을 지나서",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "joke",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "농담",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "joke",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "농담을 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "kind",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "친절한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "kind",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "종류",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "reply",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "대답",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "reply",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "대답하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "government",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정부",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
     "word": "continent",
     "partOfSpeech": [
       "n"
@@ -5255,95 +5720,361 @@ const words = [
     "day": 3
   },
   {
-    "word": "trouble",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "근심, 걱정 ; 문제, 괴롭히다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "grammar",
+    "word": "wish",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "문법",
+    "meaning": "소원",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "industrial",
+    "word": "wish",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "원하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "hunger",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "굶주림",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "hobby",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "취미, 오락, 놀이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "body",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "몸, 신체",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "graduate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "졸업하다, 학위를 수여하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "graduate",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "대학졸업자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "niece",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "여자조카",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "sculpture",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "조각품, 조소",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "detective",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "탐정, 수사관",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "custom",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "전통",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pass",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "지나가다, 통과하다; 나아가다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pass",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "합격",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "advice",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "충고",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "concert",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "음악회",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "stress",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "강조 ; 압력 ;긴장, 부담감",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "stress",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "강조하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "base",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기초, 근거 ; 맨 아래 부분",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "base",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "...에 근거지[본부/본사]를 두다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "silent",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "산업의, 공업의",
+    "meaning": "말없는, 고요한",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "space",
+    "word": "atom",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "원자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pal",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "친구",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "twin",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "한 쌍의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "twin",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "쌍둥이의 한 사람",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "believe",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "공간, 간격을 두다",
+    "meaning": "믿다",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "favorite",
+    "word": "wood",
     "partOfSpeech": [
-      "a",
       "n"
     ],
-    "meaning": "좋아하는, 마음에 드는, 좋아하는 사람, 좋아하는 물건",
+    "meaning": "나무, 숲",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "planet",
+    "word": "twice",
     "partOfSpeech": [
-      "n"
+      "ad"
     ],
-    "meaning": "행성",
+    "meaning": "두번",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "monument",
+    "word": "tough",
     "partOfSpeech": [
-      "n"
+      "a"
     ],
-    "meaning": "기념비, 기념물",
+    "meaning": "튼튼한, 강인한",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "count",
+    "word": "stair",
     "partOfSpeech": [
-      "v",
       "n"
     ],
-    "meaning": "총 수를 세다, 계산하다, (총계를 알기 위한) 셈, 계산; 총수, 총계",
+    "meaning": "계단",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "town",
+    "word": "gift",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "읍, 도시",
+    "meaning": "선물 ; 재능",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "judge",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "재판관",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "judge",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "재판하다, 판단하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "gun",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "총",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "hide",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "동물의 가죽",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "hide",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "숨기다, 감추다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "stone",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "돌",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -5359,11 +6090,661 @@ const words = [
     "day": 3
   },
   {
-    "word": "port",
+    "word": "potato",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "항구",
+    "meaning": "감자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "busy",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "바쁜",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "journey",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "여행",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "understand",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "이해하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "grammar",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "문법",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "produce",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "생산(산출)하다, 일으키다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "produce",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "생산물[품], (특히) 농작물[농산물]",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "temple",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "절, 사원",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "thumb",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "엄지손가락",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "delicious",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "맛있는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "industrial",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "산업의, 공업의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "feed",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "먹을 것을 주다 ; 먹다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "feed",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "먹이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "valuable",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "가치가 있는, 값비싼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "robber",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "강도",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "jar",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "항아리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "boring",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "지루한, 따분한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "dry",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "마른, 건조한; 비가 오지 않은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "dry",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "마르다; 말리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "dark",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "어두운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "sweet",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "달콤한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "sweet",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "단 것, 사탕 및 초콜릿류",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "german",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "독일사람, 독일어",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "chopstick",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "젓가락",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "diary",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "일기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "engineer",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기사; 기술자,수리공",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "engineer",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "제작하다; 조작하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "stripe",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "줄무늬, 줄",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "birth",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "출생",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "ahead",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "앞에, 앞으로",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "ahead",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "유리한 지위에 있는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "afterward",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "후에, 나중에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "allow",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "허락하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "proud",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "거만한, 자존심 있는 ; 자랑스러운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "behind",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "~의 뒤에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "behind",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "~의 뒤에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "besides",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "그 외에도",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "besides",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "게다가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "list",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "명부",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "list",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "리스트를 작성하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "forest",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "숲",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "wonderful",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "훌륭한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "explode",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "폭발하다, 격발하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "coast",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "해안",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "shrug",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "어깨를 으쓱하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "attend",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "참석하다 ; 돌보다 ; (결과로) 수반하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pretty",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "매력적인, 예쁜, 귀여운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pretty",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "어느정도, 꽤; 아주, 매우",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "plate",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "접시, 판",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "plate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "도금하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "present",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "현재, 선물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "present",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "존재하는 ; 현재의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "present",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "증정하다, 주다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "dollar",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "달러",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "supply",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "공급하다 ; 보충하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "supply",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "공급, 보급",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "count",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "총 수를 세다, 계산하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "count",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "(총계를 알기 위한) 셈, 계산; 총수, 총계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "wagon",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "짐마차, 화물기차",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "calm",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "침착한, 차분한; 잔잔한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "calm",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "진정시키다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "normal",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "표준의, 평균의, 정상인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "habit",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "버릇, 습관, 관습",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "arrive",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "도착하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "monument",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기념비, 기념물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "opinion",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "의견, 견해",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -5389,16 +6770,6 @@ const words = [
     "day": 3
   },
   {
-    "word": "sow",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "씨를 뿌리다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
     "word": "politely",
     "partOfSpeech": [
       "ad"
@@ -5409,293 +6780,11 @@ const words = [
     "day": 3
   },
   {
-    "word": "bow",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "구부리다 ; 굽히다, 활 ; 절",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "quiet",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "조용한, 고요한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "plant",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "식물, 공장, 식물을 심다, 건설하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "advice",
+    "word": "sight",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "충고",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "judge",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "재판관, 재판하다, 판단하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "body",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "몸, 신체",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "robber",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "강도",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "ride",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "타다, 타고 가다; 승마하다, (차량) 타고 가기",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "valuable",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "가치가 있는, 값비싼",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "whisper",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "속삭이다; 은밀히 말하다, 속삭임, 소곤거리는 소리",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "fever",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "열",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "temple",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "절, 사원",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "stone",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "돌",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "reply",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "대답, 대답하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "wonderful",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "훌륭한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "cool",
-    "partOfSpeech": [
-      "a",
-      "v"
-    ],
-    "meaning": "서늘한, 냉정한, 차게하다, 가라앉히다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "low",
-    "partOfSpeech": [
-      "a",
-      "ad"
-    ],
-    "meaning": "낮은; 바닥 가까이의, 낮게, 아래로",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "attend",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "참석하다 ; 돌보다 ; (결과로) 수반하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "stripe",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "줄무늬, 줄",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "experience",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "경험, 경험하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "inning",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "회 (回)",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "atom",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "원자",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "guard",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "보호하다 ; 경계하다, 경계, 경호인",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "such",
-    "partOfSpeech": [
-      "a",
-      "pron"
-    ],
-    "meaning": "그런, 그러한, 그러한 것",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "wish",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "소원, 원하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "gift",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "선물 ; 재능",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "gun",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "총",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "superstition",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "미신",
+    "meaning": "광경, 경치",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -5703,62 +6792,69 @@ const words = [
   {
     "word": "enough",
     "partOfSpeech": [
-      "a",
-      "ad",
+      "a"
+    ],
+    "meaning": "충분한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "enough",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "충분히",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "enough",
+    "partOfSpeech": [
       "pron"
     ],
-    "meaning": "충분한, 충분히, 충분한 양",
+    "meaning": "충분한 양",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "load",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "짐 ; 압박, 짐 싣다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "explode",
+    "word": "celebrate",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "폭발하다, 격발하다",
+    "meaning": "축하하다, 찬양하다",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "god",
+    "word": "ocean",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "신",
+    "meaning": "대양",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "dawn",
+    "word": "experience",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "새벽",
+    "meaning": "경험",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "valley",
+    "word": "experience",
     "partOfSpeech": [
-      "n"
+      "v"
     ],
-    "meaning": "골짜기, 계곡",
+    "meaning": "경험하다",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -5766,268 +6862,59 @@ const words = [
   {
     "word": "intimate",
     "partOfSpeech": [
-      "a",
-      "n"
-    ],
-    "meaning": "친밀한, 친숙한, 애정깊은, 친구",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "flashlight",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "카메라의 플래시",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "navy",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "해군",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "riddle",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "수수께끼",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "flame",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "정열, 불길, 타오르다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "german",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "독일사람, 독일어",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "stair",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "계단",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "pop",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "대중음악, 갑자기 등장하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "college",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "단과대학, 전문학교",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "comedy",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "희극, 코미디",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "master",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "주인, 지배자, 숙달하다, 정통하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "hometown",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "고향",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "diary",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "일기",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "pass",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "지나가다, 통과하다; 나아가다, 합격",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "twin",
-    "partOfSpeech": [
-      "a",
-      "n"
-    ],
-    "meaning": "한 쌍의, 쌍둥이의 한 사람",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "chopstick",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "젓가락",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "passport",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "여권",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "tough",
-    "partOfSpeech": [
       "a"
     ],
-    "meaning": "튼튼한, 강인한",
+    "meaning": "친밀한, 친숙한, 애정깊은",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "turkey",
+    "word": "intimate",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "칠면조",
+    "meaning": "친구",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "statue",
+    "word": "outline",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "상, 모습, 인물상",
+    "meaning": "윤곽, 약도",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "worry",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "걱정하다; 걱정하게 만들다, 걱정, 우려",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "believe",
+    "word": "outline",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "믿다",
+    "meaning": "윤곽을 그리다, 요약하다",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "silent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "말없는, 고요한",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "feed",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "먹을 것을 주다 ; 먹다, 먹이",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "supply",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "공급하다 ; 보충하다, 공급, 보급",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "data",
+    "word": "port",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "자료",
+    "meaning": "항구",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "turtle",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "바다거북",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -6035,21 +6922,39 @@ const words = [
   {
     "word": "fight",
     "partOfSpeech": [
-      "n",
-      "v"
+      "n"
     ],
-    "meaning": "싸움, 결투, 논쟁, 싸우다",
+    "meaning": "싸움, 결투, 논쟁",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "gray",
+    "word": "fight",
     "partOfSpeech": [
-      "n",
-      "a"
+      "v"
     ],
-    "meaning": "회색, 회색의",
+    "meaning": "싸우다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "bridge",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "다리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "bridge",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "다리를 놓다",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -6057,31 +6962,19 @@ const words = [
   {
     "word": "future",
     "partOfSpeech": [
-      "n",
-      "a"
-    ],
-    "meaning": "미래, 미래의",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "sculpture",
-    "partOfSpeech": [
       "n"
     ],
-    "meaning": "조각품, 조소",
+    "meaning": "미래",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "ahead",
+    "word": "future",
     "partOfSpeech": [
-      "ad",
       "a"
     ],
-    "meaning": "앞에, 앞으로, 유리한 지위에 있는",
+    "meaning": "미래의",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -6097,22 +6990,551 @@ const words = [
     "day": 3
   },
   {
-    "word": "kind",
+    "word": "appointment",
     "partOfSpeech": [
-      "a",
       "n"
     ],
-    "meaning": "친절한, 종류",
+    "meaning": "약속 ; 임명",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "jar",
+    "word": "mayor",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "항아리",
+    "meaning": "시장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "dawn",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "새벽",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "silk",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "비단",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "eraser",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "지우개",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "guard",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "보호하다 ; 경계하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "guard",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경계, 경호인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "group",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "집단",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "group",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "정리하다, 배열하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "bone",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "뼈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "gain",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "얻다, 획득하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "gain",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "이익, 증가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "town",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "읍, 도시",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "flashlight",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "카메라의 플래시",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "select",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "고르다, 선택하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "fair",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "공평한, 공정한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "fair",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "공정하게, 타당하게",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "fair",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "박람회, 전시회",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "solution",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "해결(책) ; 용매, 용액",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "low",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "낮은; 바닥 가까이의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "low",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "낮게, 아래로",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "planet",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "행성",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "gray",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "회색",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "gray",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "회색의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "quiet",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "조용한, 고요한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "private",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "사적인, 개인적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "chase",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "뒤쫓다, 추구하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "chase",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "추적, 추격",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "cover",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~를 덮다, 감추다 ; ~를 포함하다 ; ~를 다루다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "cover",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "덮개",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pigeon",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "비둘기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "grand",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "웅장한, 웅대한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "immediately",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "즉시, 당장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "turkey",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "칠면조",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "tear",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "찢다, 자르다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "tear",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "눈물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "hometown",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "고향",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "space",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "공간",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "space",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "간격을 두다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "ride",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "타다, 타고 가다; 승마하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "ride",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "(차량) 타고 가기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "plant",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "식물, 공장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "plant",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "식물을 심다, 건설하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "several",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "각각의, 몇몇의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "several",
+    "partOfSpeech": [
+      "pron"
+    ],
+    "meaning": "몇몇",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "report",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "보고",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "report",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "보고하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "recently",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "최근에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "riddle",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수수께끼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "absent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "결석한, 부재의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "absent",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "결석[결근]하다, 불참하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "inning",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "회 (回)",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "wide",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "넓은, 너른; 폭이~인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "wide",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "완전히, 있는 대로 다, 활짝",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "superstition",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "미신",
     "totalFails": 0,
     "category": "basic",
     "day": 3
@@ -6128,68 +7550,3144 @@ const words = [
     "day": 3
   },
   {
-    "word": "coast",
+    "word": "god",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "해안",
+    "meaning": "신",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "report",
+    "word": "seldom",
     "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "보고, 보고하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "import",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "수입하다, 수입품",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 3
-  },
-  {
-    "word": "wide",
-    "partOfSpeech": [
-      "a",
       "ad"
     ],
-    "meaning": "넓은, 너른; 폭이~인, 완전히, 있는 대로 다, 활짝",
+    "meaning": "거의~하지 않는",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "busy",
+    "word": "shine",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "빛나다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "shine",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "빛남",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "information",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정보, 지식",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "desert",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "버리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "desert",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사막",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "such",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "바쁜",
+    "meaning": "그런, 그러한",
     "totalFails": 0,
     "category": "basic",
     "day": 3
   },
   {
-    "word": "base",
+    "word": "such",
     "partOfSpeech": [
-      "n",
-      "v"
+      "pron"
     ],
-    "meaning": "기초, 근거 ; 맨 아래 부분, ...에 근거지[본부/본사]를 두다",
+    "meaning": "그러한 것",
     "totalFails": 0,
     "category": "basic",
     "day": 3
+  },
+  {
+    "word": "smell",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "냄새",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "smell",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "냄새를 맡다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "ticket",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "표, 입장권",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "whisper",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "속삭이다; 은밀히 말하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "whisper",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "속삭임, 소곤거리는 소리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "worry",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "걱정하다; 걱정하게 만들다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "worry",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "걱정, 우려",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "statue",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "상, 모습, 인물상",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "load",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "짐 ; 압박",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "load",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "짐 싣다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "flat",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "평평한, 납작한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "flat",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "평평한 부분",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "passenger",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "승객",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "instead",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "대신에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "education",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "교육, 훈련",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "bow",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "구부리다 ; 굽히다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "bow",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "활 ; 절",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "since",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "그 후, 그 이래",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "since",
+    "partOfSpeech": [
+      "conj"
+    ],
+    "meaning": "~이기 때문에, 왜냐하면, 그 후, 그 이래",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "since",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "그 후, 그 이래",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "sugar",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "설탕",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "comedy",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "희극, 코미디",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "cool",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "서늘한, 냉정한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "cool",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "차게하다, 가라앉히다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "vegetable",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "야채",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "valley",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "골짜기, 계곡",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "refuse",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "거절하다, 거부하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "refuse",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "쓰레기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "accept",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "받아들이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "voice",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "목소리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "increase",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "늘리다, 불리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "increase",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "증가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pulse",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "맥박",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "pulse",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "맥박치다, 고동치다, 활기가 넘치다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "college",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "단과대학, 전문학교",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "ceiling",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "천장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 3
+  },
+  {
+    "word": "suddenly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "갑자기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bless",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "축복하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "tiny",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "미세한, 아주 작은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "rid",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "제거하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "branch",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가지, 지부",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "branch",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "갈라지다, 나뉘다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "later",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "더 늦은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "later",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "후에, 나중에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "shoulder",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "어깨",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "smoke",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "담배를 피우다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "smoke",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "연기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "grass",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "풀, 잔디",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "pet",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "애완동물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "home",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가정, 고향",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "stare",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "응시하다, 노려보다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "stare",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "응시",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "shut",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "닫다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "health",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "건강",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bedside",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "침대 곁",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bookstore",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "서점",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "dumb",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "벙어리의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "wet",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "젖은, 축축한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "wet",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "적시다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "guest",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "손님",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "coin",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "동전, 화폐",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "coin",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "만들다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "straight",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "직접적인, 곧은, 똑바로 선 ; 솔직한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "straight",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "곧장 ; 즉시",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "crown",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "왕관, 왕위",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bill",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "계산서 ; 지폐 ; 새 부리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "cotton",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "솜, 면화",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "carve",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "새기다, 조각하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "tie",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "끈, 매듭 ; 인연, 관계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "tie",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "연결하다, 묶다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "suburb",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "교외, 주변",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "election",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "선거",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "contrary",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "반대의, 반대되는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "blanket",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "담요",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "famous",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "유명한, 잘 알려진",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "dye",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "염료, 물감",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "dye",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "염색하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "alarm",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "놀람, 공포 ; 경보",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "alarm",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "놀라게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "village",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "마을",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "remember",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "기억하다, 생각해내다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "roar",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "고함소리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "roar",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "으르렁 거리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "machine",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "oath",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "맹세, 서약",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "revolution",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "혁명",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "deep",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "깊은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "deep",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "깊게",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "burn",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "타다, 태우다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "exactly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "정확히",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "respect",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "존경하다, 중요시하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "respect",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "존경",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "introduce",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "소개하다, 도입하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "offer",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "제공하다, 제출하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "offer",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "제안",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "able",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "유능한 ; 할 수 있는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "obtain",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "얻다, 손에 넣다, 획득하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hospital",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "병원",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "steal",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "훔치다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "add",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "더하다, 보태다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hastily",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "서둘러서",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bowl",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사발, 그릇",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "travel",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "여행하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "travel",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "여행",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "single",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "단 하나의 ; 혼자의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "spot",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "더럽히다 ; 발견하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "spot",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "반점, 얼룩 ; 장소",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "gaze",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "바라보다, 응시하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "gaze",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "응시",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "climate",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기후",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "life",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "살아 있음, 삶, 목숨, 생물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "design",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "계획",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "design",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "만들다, 고안하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "cheap",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "값싼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "else",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "그밖에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "poor",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "가난한, 열악한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "wear",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "옷을 입다 ; 닳게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "wear",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "착용 ; 마모, 손상",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "prince",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "왕자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hit",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "치다, 때리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hit",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "치기, 강타, 타격",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "agree",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "동의하다, 일치하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "degree",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정도, 범위 ; 등급, 단계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "pitch",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "던지다 ; 무언가를 세우다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "properly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "적당히, 올바르게, 적절히",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "saying",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "격언",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sunshine",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "햇빛",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "tool",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "도구, 기구",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "drop",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "떨어지다, 떨어뜨리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "century",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "세기, 100년, 백년",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "watch",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "손목시계, 감시",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "watch",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "지켜보다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "senior",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "선배",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "senior",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "손위의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "decrease",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "축소, 감소",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "decrease",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "줄다, 감소하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "mistake",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "잘못, 틀림, 오해",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "mistake",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "오해하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "owl",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "올빼미",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "shape",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "모양",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "shape",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "만들다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bean",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "콩",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "row",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "줄, 열",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "row",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "노를 젓다, 배를 젓다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "shower",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "샤워기, 샤워실, 샤워 ; 소나기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "shower",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "샤워를 하다 ; 쏟아져 내리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "homesick",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "고향을 그리워하는, 향수병의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "cookie",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "쿠키",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "prove",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "증명하다, 입증하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "excuse",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "용서하다 ; 변명하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "excuse",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "변명, 이유, 핑계거리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "drugstore",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "약국",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hunter",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사냥꾼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "idea",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "생각, 이념",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "front",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정면, 앞부분",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "front",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "맨앞의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "front",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~쪽으로 마주하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "holiday",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "휴일, 휴가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "science",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "과학",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "dirty",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "더러운, 불결한, 비열한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "job",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "일, 직무",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bar",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "방해하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bar",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "막대기 ; 법정",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "parade",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "행렬",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "belong to",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~에 속하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "public",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "공중의, 공공의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "public",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "공중, 대중",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "grain",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "곡식, 낟알 ; 알갱이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "examination",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "시험, 조사",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "grade",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "학년 ; 정도, 수준",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "grade",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "나누다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "noble",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "귀족의, 고상한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "noble",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "귀족",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "figure",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "숫자 ; 모양 ; 인물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "figure",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "생각하다, 상상하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "미워하다, 싫어하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hate",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "혐오",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "crack",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "부수다, 깨뜨리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "crack",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "갈라진 틈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "thin",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "얇은, 야윈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "maybe",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "어쩌면, 아마",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sniff",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "코를 킁킁거리다, 냄새를 맡다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "refrigerator",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "냉장고",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "unlike",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "서로 다른",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "unlike",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "~와 다른, ~와 달리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sunrise",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "해돋이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "wool",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "양모",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "fail",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "실패하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "fail",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "실패, 낙제, 불합격",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "ruin",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "폐허, 파멸",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "ruin",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "파괴하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "nod",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "끄덕이다, 인사하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "nod",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "끄덕임",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "elementary",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "기본의, 초보의 ; 초등교육의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "colorful",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "다채로운, 화려한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sad",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "슬픈, 슬퍼하는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "log",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "통나무;일지[기록]",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "log",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "일지에 기록하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "stethoscope",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "청진기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "guide",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "안내하다, 지도하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "guide",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "안내인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "thief",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "도둑",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "match",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경기; 짝; 성냥",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "match",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "대등하다 ; 조화시키다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sentence",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "문장; 형벌, 형",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sentence",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(형을)선고하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "cost",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "비용",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "husband",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "남편",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "TRUE",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "정말의, 진실한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "factory",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "공장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "athlete",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "운동선수",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "except",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "제외하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "except",
+    "partOfSpeech": [
+      "prep"
+    ],
+    "meaning": "~을 제외하고는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "tongue",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "혀 ; 언어",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "difficult",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "어려운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "compulsory",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "강제적인, 의무적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "settler",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "이주민",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "amount",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "양, 액수, 총계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "amount",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "총계가 ~에 이르다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "rule",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "규정, 규칙",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "rule",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "통치하다, 다스리다, 지배하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "imagine",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "상상하다, 생각하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "alone",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "홀로, 다만",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "alone",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "단지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hawk",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "매",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "fruit",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "과일 ; 생산물, 결과",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "silly",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "어리석은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "nuclear",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "핵의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "nature",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "성질 , 특징, 본질 ; 자연",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "deck",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "갑판",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "wound",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "상처, 부상",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "wound",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "상처를 입히다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "tightly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "단단히",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "gallery",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "화랑",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "trousers",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "바지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "vain",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "공허한, 실속없는 ; 자만심이 강한, 잘난척하는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hole",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "구멍",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "worth",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가치",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "worth",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "~에 가치가 있는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "relay",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "릴레이 경주, 계주",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "relay",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "전달하다; 중계하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "hydrogen",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수소",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "principal",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "주요한, 주된",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "principal",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "장관, 교장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "indeed",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "정말로",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "leak",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "새다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "leak",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "새는 곳[구멍/틈]",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "honest",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "정직한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "limit",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "한계, 경계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "limit",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "제한하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "handle",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "손잡이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "handle",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "다루다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "review",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "비평, 논평 ; 재조사",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "review",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "논평하다, 재검토하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "marry",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "결혼하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "answer",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "대답",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "answer",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "대답하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "receive",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "받다, 얻다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "plane",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수평면 ; 비행기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "basement",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "최하부, 지하",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "post",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기둥",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "post",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(게시, 전단을) 붙이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "cousin",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사촌",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "chest",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가슴",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "view",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "바라보다, 조사하다, 간주하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "view",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "전망, 조망 ; 관점",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "common",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "공통의, 공동의, 보통의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "effect",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "결과 ; 효과, 영향",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "language",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "언어",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "might",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "힘",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "horizon",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수평선",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "pepper",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "후추",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "square",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정사각형 ; 광장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "square",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "정사각형의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "halt",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "멈추다, 서다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "halt",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "멈춤, 중단",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "suffer",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "고통을 받다, 고민하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "spend",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "소비하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "source",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "근원, 원천 ; 공급지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "theater",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "극장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "insect",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "곤충",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "prairie",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "대초원",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "mouse",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "생쥐",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "main",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "주요한, 주된",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "comparison",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "비교, 대조",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "uniform",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "일관성 있는, 일정한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "uniform",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "제복, 군복, 교복, 유니폼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "error",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "실수, 오류",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "remove",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "제거하다, 없애다 ; 움직이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "heart",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "핵심 , 심장",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sail",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "항해하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sail",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "돛",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "soldier",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "군인, 병사",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "foundation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기초, 토대 ; 설립, 창설",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "competition",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경쟁, 시합",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sound",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "건전한, 정상적인 ; 합리적인 ; 튼튼한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sound",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "소리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "sound",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "소리나다, ~처럼 보이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "break",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "깨뜨리다, 부수다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "break",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "(짧은)휴식",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bite",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "물다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "bite",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "물기, 무는 행위",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "create",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "만들다, 창작하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "exercise",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(권력 등을) 행사하다 ; 훈련하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
+  },
+  {
+    "word": "exercise",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "운동, 연습",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 4
   },
   {
     "word": "whole",
@@ -6234,10 +10732,19 @@ const words = [
   {
     "word": "above",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "(위치가) 위에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "above",
+    "partOfSpeech": [
       "prep"
     ],
-    "meaning": "(위치가) 위에, (위치,지위) ~보다 위에 ; (수·나이 ) ~보다 많은, ~을 넘는",
+    "meaning": "(위치,지위) ~보다 위에 ; (수·나이 ) ~보다 많은, ~을 넘는",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6295,10 +10802,19 @@ const words = [
   {
     "word": "address",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "(문제·상황) 고심하다,다루다; 연설하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "address",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "(문제·상황) 고심하다,다루다; 연설하다, 연설 ; 주소",
+    "meaning": "연설 ; 주소",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6316,10 +10832,19 @@ const words = [
   {
     "word": "matter",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "물질, 물체 ; 문제, 사건",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "matter",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "물질, 물체 ; 문제, 사건, 중요하다",
+    "meaning": "중요하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6337,10 +10862,19 @@ const words = [
   {
     "word": "slip",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "미끄러지다 ; (비밀 등이)새다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "slip",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "미끄러지다 ; (비밀 등이)새다, 미끄러짐 ; 실수",
+    "meaning": "미끄러짐 ; 실수",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6348,10 +10882,19 @@ const words = [
   {
     "word": "mention",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "말하다, 언급하다 ; 인용하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "mention",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "말하다, 언급하다 ; 인용하다, 언급, 인용",
+    "meaning": "언급, 인용",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6359,10 +10902,19 @@ const words = [
   {
     "word": "order",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "명령하다, 지시하다 ; 정리하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "order",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "명령하다, 지시하다 ; 정리하다, 명령 ; 순서, 정렬 ; 질서",
+    "meaning": "명령 ; 순서, 정렬 ; 질서",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6370,10 +10922,19 @@ const words = [
   {
     "word": "sign",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "신호, 부호 ; 징조",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "sign",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "신호, 부호 ; 징조, 서명하다 ,승인하다 ; 신호하다, 몸짓하다",
+    "meaning": "서명하다 ,승인하다 ; 신호하다, 몸짓하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6391,11 +10952,29 @@ const words = [
   {
     "word": "either",
     "partOfSpeech": [
-      "pron",
-      "ad",
+      "pron"
+    ],
+    "meaning": "둘 중 하나",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "either",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "~도 또한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "either",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "둘 중 하나, ~도 또한, 어느 한쪽의",
+    "meaning": "어느 한쪽의",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6403,10 +10982,19 @@ const words = [
   {
     "word": "puritan",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "청교도, 엄격한 사람",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "puritan",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "청교도, 엄격한 사람, 딱딱한, 엄격한",
+    "meaning": "딱딱한, 엄격한",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6484,10 +11072,19 @@ const words = [
   {
     "word": "prize",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "상, 상품",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "prize",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "상, 상품, 소중하게 여기다",
+    "meaning": "소중하게 여기다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6525,10 +11122,19 @@ const words = [
   {
     "word": "schedule",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "일정, 스케줄",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "schedule",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "일정, 스케줄, 일정을 잡다, 예정하다",
+    "meaning": "일정을 잡다, 예정하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6536,10 +11142,19 @@ const words = [
   {
     "word": "rest",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "휴식; (관사 the와 더불어) 나머지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "rest",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "휴식; (관사 the와 더불어) 나머지, 쉬다, 휴식을 취하다, 자다",
+    "meaning": "쉬다, 휴식을 취하다, 자다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6547,10 +11162,19 @@ const words = [
   {
     "word": "treasure",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "보물, 보배",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "treasure",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "보물, 보배, 귀하게 여기다",
+    "meaning": "귀하게 여기다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6578,10 +11202,19 @@ const words = [
   {
     "word": "project",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "계획하다 ; 돌출하다 ; 투영하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "project",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "계획하다 ; 돌출하다 ; 투영하다, 계획, 일, 작업",
+    "meaning": "계획, 일, 작업",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6599,11 +11232,29 @@ const words = [
   {
     "word": "upset",
     "partOfSpeech": [
-      "v",
-      "n",
+      "v"
+    ],
+    "meaning": "당황하게 하다, 뒤엎다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "upset",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "혼란, 전복",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "upset",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "당황하게 하다, 뒤엎다, 혼란, 전복, 속상한, 화난",
+    "meaning": "속상한, 화난",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6651,10 +11302,19 @@ const words = [
   {
     "word": "march",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "행진",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "march",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "행진, 행진하다",
+    "meaning": "행진하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6662,10 +11322,19 @@ const words = [
   {
     "word": "scream",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "소리치다, 비명지르다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "scream",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "소리치다, 비명지르다, 절규, 비명",
+    "meaning": "절규, 비명",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6673,10 +11342,19 @@ const words = [
   {
     "word": "miss",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "놓치다 ; 그리워하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "miss",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "놓치다 ; 그리워하다, ~양(Mrs, Ms)",
+    "meaning": "~양(Mrs, Ms)",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6684,10 +11362,19 @@ const words = [
   {
     "word": "bother",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "걱정하다, 근심하다, 괴롭히다, 잔소리하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "bother",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "걱정하다, 근심하다, 괴롭히다, 잔소리하다, 성가심, 귀찮음",
+    "meaning": "성가심, 귀찮음",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6805,10 +11492,19 @@ const words = [
   {
     "word": "need",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "필요로 하다, 요구하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "need",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "필요로 하다, 요구하다, 필요 ; 빈곤",
+    "meaning": "필요 ; 빈곤",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6856,10 +11552,19 @@ const words = [
   {
     "word": "cage",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "새장, 우리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "cage",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "새장, 우리, 우리에 가두다",
+    "meaning": "우리에 가두다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6887,10 +11592,19 @@ const words = [
   {
     "word": "flow",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "흐르다, 솟다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "flow",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "흐르다, 솟다, 흐름, 유동",
+    "meaning": "흐름, 유동",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6918,10 +11632,19 @@ const words = [
   {
     "word": "search",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "찾다, 탐색하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "search",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "찾다, 탐색하다, 탐색, 조사",
+    "meaning": "탐색, 조사",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6929,10 +11652,19 @@ const words = [
   {
     "word": "special",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "특별한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "special",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "특별한, 특별한 것, 특별 상품; 특집 방송",
+    "meaning": "특별한 것, 특별 상품; 특집 방송",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -6980,10 +11712,19 @@ const words = [
   {
     "word": "score",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "20 ; 득점, 점수 ; 악보",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "score",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "20 ; 득점, 점수 ; 악보, 얻다;득점을 올리다, 하다; 득점을 매기다,기록하다",
+    "meaning": "얻다;득점을 올리다, 하다; 득점을 매기다,기록하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7011,11 +11752,19 @@ const words = [
   {
     "word": "center",
     "partOfSpeech": [
-      "n",
-      "v",
-      "중앙"
+      "n"
     ],
-    "meaning": "중심, 중심지, 집중 시키다,(…의) 중심, 에 두다",
+    "meaning": "중심, 중심지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "center",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "집중 시키다,(…의) 중심[중앙]에 두다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7033,10 +11782,19 @@ const words = [
   {
     "word": "shoot",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "쏘다, 사격하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "shoot",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "쏘다, 사격하다, 식물의 생장, 새싹",
+    "meaning": "식물의 생장, 새싹",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7054,11 +11812,19 @@ const words = [
   {
     "word": "win",
     "partOfSpeech": [
-      "v",
-      "쟁취",
+      "v"
+    ],
+    "meaning": "이기다; (경기 등에서 이겨 무엇을) 따다[타다/차지[쟁취]하다]",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "win",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "이기다; (경기 등에서 이겨 무엇을) 따다[타다/차지, 하다], 승리",
+    "meaning": "승리",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7086,10 +11852,19 @@ const words = [
   {
     "word": "general",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "대장, 장군",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "general",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "대장, 장군, 일반의, 대체적인",
+    "meaning": "일반의, 대체적인",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7107,10 +11882,19 @@ const words = [
   {
     "word": "chain",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "사슬 ; 연속",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "chain",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "사슬 ; 연속, 묶다",
+    "meaning": "묶다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7128,10 +11912,19 @@ const words = [
   {
     "word": "capital",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "주요한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "capital",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "주요한, 자본 ; 수도 ; 대문자",
+    "meaning": "자본 ; 수도 ; 대문자",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7139,10 +11932,19 @@ const words = [
   {
     "word": "cough",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "기침",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "cough",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "기침, 기침을 하다",
+    "meaning": "기침을 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7150,10 +11952,19 @@ const words = [
   {
     "word": "paint",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "그리다, 페인트를 칠하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "paint",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "그리다, 페인트를 칠하다, 페인트, 그림물감",
+    "meaning": "페인트, 그림물감",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7161,10 +11972,19 @@ const words = [
   {
     "word": "rein",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "고삐",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "rein",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "고삐, 통제하다, 억제하다",
+    "meaning": "통제하다, 억제하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7172,10 +11992,19 @@ const words = [
   {
     "word": "adult",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "어른의, 성인의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "adult",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "어른의, 성인의, 어른, 성인",
+    "meaning": "어른, 성인",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7183,10 +12012,19 @@ const words = [
   {
     "word": "repeat",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "되풀이 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "repeat",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "되풀이 하다, 반복, 되풀이",
+    "meaning": "반복, 되풀이",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7214,10 +12052,19 @@ const words = [
   {
     "word": "neither",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "~도 아니고 ~도 아니다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "neither",
+    "partOfSpeech": [
       "pron"
     ],
-    "meaning": "~도 아니고 ~도 아니다, (둘 중) 어느 것도 ~아니다(명사지만, 동사를 부정으로 같이 해석해야함)",
+    "meaning": "(둘 중) 어느 것도 ~아니다(명사지만, 동사를 부정으로 같이 해석해야함)",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7245,10 +12092,19 @@ const words = [
   {
     "word": "care",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "걱정, 주의 , 배려, 돌봄",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "care",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "걱정, 주의 , 배려, 돌봄, 걱정하다",
+    "meaning": "걱정하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7286,10 +12142,19 @@ const words = [
   {
     "word": "board",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "판자 ; 위원회",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "board",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "판자 ; 위원회, 타다",
+    "meaning": "타다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7307,10 +12172,19 @@ const words = [
   {
     "word": "comfort",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "위로하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "comfort",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "위로하다, 위로, 위안, 편안함",
+    "meaning": "위로, 위안, 편안함",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7318,10 +12192,19 @@ const words = [
   {
     "word": "nurse",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "간호하다 ; 양육하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "nurse",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "간호하다 ; 양육하다, 간호사, 유모",
+    "meaning": "간호사, 유모",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7329,7 +12212,16 @@ const words = [
   {
     "word": "beyond",
     "partOfSpeech": [
-      "prep",
+      "prep"
+    ],
+    "meaning": "~의 저쪽에, ~이상으로",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "beyond",
+    "partOfSpeech": [
       "ad"
     ],
     "meaning": "~의 저쪽에, ~이상으로",
@@ -7340,10 +12232,19 @@ const words = [
   {
     "word": "junior",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "손 아래의, 연하의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "junior",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "손 아래의, 연하의, 연소자",
+    "meaning": "연소자",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7351,10 +12252,19 @@ const words = [
   {
     "word": "stem",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "줄기, 대",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "stem",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "줄기, 대, 막다, 저지하다 ; 유래하다",
+    "meaning": "막다, 저지하다 ; 유래하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7372,10 +12282,19 @@ const words = [
   {
     "word": "dive",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "다이빙하다, 잠수하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "dive",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "다이빙하다, 잠수하다, 다이빙, (물 속으로)뛰어들기",
+    "meaning": "다이빙, (물 속으로)뛰어들기",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7433,10 +12352,19 @@ const words = [
   {
     "word": "nail",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "손톱, 발톱 ; 못",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "nail",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "손톱, 발톱 ; 못, 박다, 못질하다",
+    "meaning": "박다, 못질하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7454,10 +12382,19 @@ const words = [
   {
     "word": "cause",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "원인,이유",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "cause",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "원인,이유, 야기하다, 초래하다",
+    "meaning": "야기하다, 초래하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7535,10 +12472,19 @@ const words = [
   {
     "word": "however",
     "partOfSpeech": [
-      "conj",
+      "conj"
+    ],
+    "meaning": "=no matter how",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "however",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "=no matter how, 그러나; 아무리 ~ 해도",
+    "meaning": "그러나; 아무리 ~ 해도",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7596,10 +12542,19 @@ const words = [
   {
     "word": "guess",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "추측하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "guess",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "추측",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7637,10 +12592,19 @@ const words = [
   {
     "word": "whistle",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "휘파람",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "whistle",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "휘파람, 휘파람을 불다",
+    "meaning": "휘파람을 불다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7718,10 +12682,19 @@ const words = [
   {
     "word": "mind",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "마음",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "mind",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "마음, 주의하다 ; 언짢게 여기다",
+    "meaning": "주의하다 ; 언짢게 여기다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7739,10 +12712,19 @@ const words = [
   {
     "word": "climb",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "오르다 , 올라가다 ; 기어오르다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "climb",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "오르다 , 올라가다 ; 기어오르다, 등반",
+    "meaning": "등반",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7760,10 +12742,19 @@ const words = [
   {
     "word": "rear",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "기르다, 사육하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "rear",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "기르다, 사육하다, 후방, 뒤쪽",
+    "meaning": "후방, 뒤쪽",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7771,10 +12762,19 @@ const words = [
   {
     "word": "loud",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "시끄러운, 큰소리를 내는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "loud",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "시끄러운, 큰소리를 내는, 큰소리로",
+    "meaning": "큰소리로",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7782,11 +12782,19 @@ const words = [
   {
     "word": "clear",
     "partOfSpeech": [
-      "a",
-      "보기",
+      "a"
+    ],
+    "meaning": "알아듣기[보기] 쉬운, 분명한, 확실한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "clear",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "알아듣기, 쉬운, 분명한, 확실한, 치우다 : (어떤 장소에서 사람들을) 내보내다",
+    "meaning": "치우다 : (어떤 장소에서 사람들을) 내보내다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7814,11 +12822,29 @@ const words = [
   {
     "word": "bound",
     "partOfSpeech": [
-      "n",
-      "v",
+      "n"
+    ],
+    "meaning": "범위, 경계, 한계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "bound",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(공이) 튀다 ; (경제 등이) 회복되다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "bound",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "범위, 경계, 한계, (공이) 튀다 ; (경제 등이) 회복되다, ~로 향하는; 꼭 ~할 것 같은",
+    "meaning": "~로 향하는; 꼭 ~할 것 같은",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7836,10 +12862,19 @@ const words = [
   {
     "word": "practice",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "관습 ; 연습 ; 실행",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "practice",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "관습 ; 연습 ; 실행, 실행하다 ; 연습하다",
+    "meaning": "실행하다 ; 연습하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7847,10 +12882,19 @@ const words = [
   {
     "word": "bear",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "낳다 ; 견디다 ; 산출하다 ; 운반하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "bear",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "낳다 ; 견디다 ; 산출하다 ; 운반하다, 곰",
+    "meaning": "곰",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7858,8 +12902,7 @@ const words = [
   {
     "word": "wink",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "윙크하다; (빛이)깜빡거리다",
     "totalFails": 0,
@@ -7867,12 +12910,31 @@ const words = [
     "day": 5
   },
   {
+    "word": "wink",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "윙크",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
     "word": "complete",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "전체의, 완전한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "complete",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "전체의, 완전한, 완료하다",
+    "meaning": "완료하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7960,10 +13022,19 @@ const words = [
   {
     "word": "least",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "가장 적은, 최소한의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "least",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "가장 적은, 최소한의, 가장 적은 양, 것",
+    "meaning": "가장 적은 양, 것",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7971,10 +13042,19 @@ const words = [
   {
     "word": "stage",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "단계, 무대",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "stage",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "단계, 무대, 상연하다, 연출하다",
+    "meaning": "상연하다, 연출하다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -7992,10 +13072,19 @@ const words = [
   {
     "word": "beat",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "이기다; 통제하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "beat",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "이기다; 통제하다, 고동, 맥박; (북 등의) 울림",
+    "meaning": "고동, 맥박; (북 등의) 울림",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -8043,10 +13132,19 @@ const words = [
   {
     "word": "remain",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "남다, 잔존하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "remain",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "남다, 잔존하다, (pl)잔존물, 유물",
+    "meaning": "(pl)잔존물, 유물",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -8054,10 +13152,19 @@ const words = [
   {
     "word": "ditch",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "도랑",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "ditch",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "도랑, 참여하지 않다",
+    "meaning": "참여하지 않다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -8065,10 +13172,19 @@ const words = [
   {
     "word": "change",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "바꾸다, 변하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "change",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "바꾸다, 변하다, 변화 ; 잔돈",
+    "meaning": "변화 ; 잔돈",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -8076,10 +13192,19 @@ const words = [
   {
     "word": "while",
     "partOfSpeech": [
-      "conj",
+      "conj"
+    ],
+    "meaning": "반면에 ; …하는 동안에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "while",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "반면에 ; …하는 동안에, 잠깐, 잠시",
+    "meaning": "잠깐, 잠시",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -8167,10 +13292,19 @@ const words = [
   {
     "word": "swing",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "그네, 진동",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 5
+  },
+  {
+    "word": "swing",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "그네, 진동, 흔들리다",
+    "meaning": "흔들리다",
     "totalFails": 0,
     "category": "basic",
     "day": 5
@@ -8278,10 +13412,19 @@ const words = [
   {
     "word": "scan",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "조사하다, 정밀검사하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "scan",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "조사하다, 정밀검사하다, 정밀 검사",
+    "meaning": "정밀 검사",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8289,10 +13432,19 @@ const words = [
   {
     "word": "plague",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "전염병",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "plague",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "전염병, 애태우다, 괴롭히다",
+    "meaning": "애태우다, 괴롭히다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8340,10 +13492,19 @@ const words = [
   {
     "word": "advance",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "나아가다, 진보하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "advance",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "진보",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8411,10 +13572,19 @@ const words = [
   {
     "word": "mark",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "표시하다 ; 주목하다 ; 흔적을 남기다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "mark",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "표시하다 ; 주목하다 ; 흔적을 남기다, 표시, 기호 ; 흔적",
+    "meaning": "표시, 기호 ; 흔적",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8450,12 +13620,31 @@ const words = [
     "day": 6
   },
   {
-    "word": "exploit",
+    "word": "acquire",
     "partOfSpeech": [
-      "n",
       "v"
     ],
-    "meaning": "위업, 업적, 이용하다, 개발하다; 착취하다",
+    "meaning": "얻다, 획득하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "exploit",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "위업, 업적",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "exploit",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "이용하다, 개발하다; 착취하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8503,10 +13692,19 @@ const words = [
   {
     "word": "want",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "원하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "want",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "원하다, 부족 ; 필요, 결핍",
+    "meaning": "부족 ; 필요, 결핍",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8544,10 +13742,19 @@ const words = [
   {
     "word": "focus",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "집중하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "focus",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "집중하다, 주목, 집중",
+    "meaning": "주목, 집중",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8565,10 +13772,19 @@ const words = [
   {
     "word": "assist",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "돕다; 도움이 되다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "assist",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "돕다; 도움이 되다, 어시스트,도움",
+    "meaning": "어시스트,도움",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8576,11 +13792,29 @@ const words = [
   {
     "word": "last",
     "partOfSpeech": [
-      "a",
-      "v",
+      "a"
+    ],
+    "meaning": "마지막의 ; 최근의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "last",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "지속하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "last",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "마지막의 ; 최근의, 지속하다, 최후로",
+    "meaning": "최후로",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8668,10 +13902,19 @@ const words = [
   {
     "word": "issue",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "발행 ; 논쟁 ; 논점",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "issue",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "발행 ; 논쟁 ; 논점, 발행하다",
+    "meaning": "발행하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8719,10 +13962,19 @@ const words = [
   {
     "word": "bid",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "(경매 따위에서) 입찰",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "bid",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "(경매 따위에서) 입찰, 명령하다 ; 말하다",
+    "meaning": "명령하다 ; 말하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8730,10 +13982,19 @@ const words = [
   {
     "word": "mix",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "혼합물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "mix",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "혼합물, 섞다, 혼합하다",
+    "meaning": "섞다, 혼합하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8771,10 +14032,19 @@ const words = [
   {
     "word": "guarantee",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "보증, 담보 ; 약속",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "guarantee",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "보증, 담보 ; 약속, 보증하다",
+    "meaning": "보증하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8782,10 +14052,19 @@ const words = [
   {
     "word": "final",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "최후의, 궁극적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "final",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "최후의, 궁극적인, 결승전, 기말시험",
+    "meaning": "결승전, 기말시험",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8813,10 +14092,19 @@ const words = [
   {
     "word": "measure",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "측정하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "measure",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "측정하다, 조치, 척도",
+    "meaning": "조치, 척도",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8854,10 +14142,19 @@ const words = [
   {
     "word": "savage",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "야만의, 미개한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "savage",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "야만의, 미개한, 미개인;야만인",
+    "meaning": "미개인;야만인",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8865,10 +14162,19 @@ const words = [
   {
     "word": "hunt",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "사냥하다, 추적하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "hunt",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사냥",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8896,10 +14202,19 @@ const words = [
   {
     "word": "prompt",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "신속한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "prompt",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "신속한, 자극하다, (감정)유발하다 ; 재촉하다",
+    "meaning": "자극하다, (감정)유발하다 ; 재촉하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -8957,10 +14272,19 @@ const words = [
   {
     "word": "ravage",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "파괴 ; 약탈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "ravage",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "파괴 ; 약탈, 황폐하게 하다",
+    "meaning": "황폐하게 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9088,10 +14412,19 @@ const words = [
   {
     "word": "narrow",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "얇은, 가는 ; 좁은, 한정된",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "narrow",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "얇은, 가는 ; 좁은, 한정된, 좁아지다, 한정하다",
+    "meaning": "좁아지다, 한정하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9159,11 +14492,29 @@ const words = [
   {
     "word": "right",
     "partOfSpeech": [
-      "a",
-      "n",
+      "a"
+    ],
+    "meaning": "적당한, 옳은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "right",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "권리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "right",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "적당한, 옳은, 권리, 정확히,바로,꼭",
+    "meaning": "정확히,바로,꼭",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9181,10 +14532,19 @@ const words = [
   {
     "word": "rebel",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "배반하다, 반역하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "rebel",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "배반하다, 반역하다, 반항아,;반역자; 반대자",
+    "meaning": "반항아,;반역자; 반대자",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9252,10 +14612,19 @@ const words = [
   {
     "word": "delay",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "연기, 지체",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "delay",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "연기, 지체, 연기하다 ; 지연시키다",
+    "meaning": "연기하다 ; 지연시키다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9283,10 +14652,19 @@ const words = [
   {
     "word": "well",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "아주, 잘",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "well",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "아주, 잘, 우물",
+    "meaning": "우물",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9314,10 +14692,19 @@ const words = [
   {
     "word": "school",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "학파, 학교, 수업",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "school",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "학파, 학교, 수업, 교육하다",
+    "meaning": "교육하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9365,10 +14752,19 @@ const words = [
   {
     "word": "curse",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "저주",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "curse",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "저주, 저주하다, 괴롭히다",
+    "meaning": "저주하다, 괴롭히다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9376,10 +14772,19 @@ const words = [
   {
     "word": "award",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "상, 경품",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "award",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "상, 경품, (심사하여) 주다, 수여하다",
+    "meaning": "(심사하여) 주다, 수여하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9407,10 +14812,19 @@ const words = [
   {
     "word": "jump",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "뛰다, 뛰어오르다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "jump",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "뛰다, 뛰어오르다, 도약, 뜀",
+    "meaning": "도약, 뜀",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9418,10 +14832,19 @@ const words = [
   {
     "word": "throb",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "(심장이) 뛰다, 두근거리다, 고동치다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "throb",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "(심장이) 뛰다, 두근거리다, 고동치다, 진동,욱신거림",
+    "meaning": "진동,욱신거림",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9449,10 +14872,19 @@ const words = [
   {
     "word": "moderate",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "절제하는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "moderate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "절제하는, 절제하다",
+    "meaning": "절제하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9500,10 +14932,19 @@ const words = [
   {
     "word": "challenge",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "문제, 어려움, 도전",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "challenge",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "문제, 어려움, 도전, 도전하다 ; 반박하다",
+    "meaning": "도전하다 ; 반박하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9611,10 +15052,19 @@ const words = [
   {
     "word": "process",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "과정, 방법",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "process",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "과정, 방법, 가공하다; 처리하다",
+    "meaning": "가공하다; 처리하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9702,10 +15152,19 @@ const words = [
   {
     "word": "shelter",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "피난(처)",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "shelter",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "피난(처), 피난하다",
+    "meaning": "피난하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9733,10 +15192,19 @@ const words = [
   {
     "word": "vertical",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "수직의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "vertical",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수직",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9774,10 +15242,19 @@ const words = [
   {
     "word": "fall",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "가을 ; 멸망 ; 폭포",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "fall",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "가을 ; 멸망 ; 폭포, 떨어지다, 감소하다",
+    "meaning": "떨어지다, 감소하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9785,10 +15262,19 @@ const words = [
   {
     "word": "sting",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "독침, 찔린상처",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "sting",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "독침, 찔린상처, 쏘다, 찌르다",
+    "meaning": "쏘다, 찌르다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9816,10 +15302,19 @@ const words = [
   {
     "word": "good",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "상당한, 친절한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "good",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "상당한, 친절한, 선 ; 이익 ; 상품",
+    "meaning": "선 ; 이익 ; 상품",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9827,10 +15322,19 @@ const words = [
   {
     "word": "contact",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "접촉",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "contact",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "접촉, 접촉하다",
+    "meaning": "접촉하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9838,10 +15342,19 @@ const words = [
   {
     "word": "spring",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "(계절)봄 ; 샘 ; 탄력",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "spring",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "(계절)봄 ; 샘 ; 탄력, 튀어오르다",
+    "meaning": "튀어오르다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9849,10 +15362,19 @@ const words = [
   {
     "word": "key",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "열쇠 ; 해답",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "key",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "열쇠 ; 해답, 중요한",
+    "meaning": "중요한",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9950,10 +15472,19 @@ const words = [
   {
     "word": "standard",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "표준",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "standard",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "표준, 표준의, 보통의",
+    "meaning": "표준의, 보통의",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9971,10 +15502,19 @@ const words = [
   {
     "word": "only",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "유일한, 단 하나의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "only",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "유일한, 단 하나의, 오직, 겨우, 단지",
+    "meaning": "오직, 겨우, 단지",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -9982,10 +15522,19 @@ const words = [
   {
     "word": "scorn",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "경멸하다, 모욕하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "scorn",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경멸",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -10043,10 +15592,19 @@ const words = [
   {
     "word": "sum",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "합계, 요점",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "sum",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "합계, 요점, 합계하다, 요약하다",
+    "meaning": "합계하다, 요약하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -10054,10 +15612,19 @@ const words = [
   {
     "word": "proof",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "증거",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "proof",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "증거, ~에 견디어 내는",
+    "meaning": "~에 견디어 내는",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -10095,10 +15662,19 @@ const words = [
   {
     "word": "account",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "평가, 서술 ; 이야기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "account",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "평가, 서술 ; 이야기, 생각하다; 설명하다",
+    "meaning": "생각하다; 설명하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -10136,10 +15712,19 @@ const words = [
   {
     "word": "divide",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "나누다, 분할하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "divide",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "나누다, 분할하다, 차이점",
+    "meaning": "차이점",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -10167,10 +15752,19 @@ const words = [
   {
     "word": "mine",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "광산 ; 나의 것",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "mine",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "광산 ; 나의 것, 채굴하다",
+    "meaning": "채굴하다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -10238,10 +15832,19 @@ const words = [
   {
     "word": "model",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "견본, 모형 ; 모범",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "model",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "견본, 모형 ; 모범, (~을 본떠서)~을 만들다",
+    "meaning": "(~을 본떠서)~을 만들다",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -10279,10 +15882,19 @@ const words = [
   {
     "word": "summon",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "호출하다, 소환하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 6
+  },
+  {
+    "word": "summon",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "호출하다, 소환하다, (복수로) 소환장, 호출",
+    "meaning": "(복수로) 소환장, 호출",
     "totalFails": 0,
     "category": "basic",
     "day": 6
@@ -10330,10 +15942,19 @@ const words = [
   {
     "word": "range",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "범위, 한도 ; 산맥",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "range",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "범위, 한도 ; 산맥, 분포하다",
+    "meaning": "분포하다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10401,10 +16022,19 @@ const words = [
   {
     "word": "recall",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "상기하다, 기억해 내다 ; 생각나게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "recall",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기억",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10472,10 +16102,19 @@ const words = [
   {
     "word": "trap",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "덫, 올가미",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "trap",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "덫, 올가미, 덫을 놓다",
+    "meaning": "덫을 놓다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10483,10 +16122,19 @@ const words = [
   {
     "word": "fit",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "적응시키다, 맞추다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "fit",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "적응시키다, 맞추다, 건강한; 적합한",
+    "meaning": "건강한; 적합한",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10534,11 +16182,29 @@ const words = [
   {
     "word": "near",
     "partOfSpeech": [
-      "prep",
-      "ad",
+      "prep"
+    ],
+    "meaning": "~의 가까이에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "near",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "~의 가까이에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "near",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "~의 가까이에, 가까운",
+    "meaning": "가까운",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10546,10 +16212,19 @@ const words = [
   {
     "word": "ridicule",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "비웃다, 조롱하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "ridicule",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "비웃다, 조롱하다, 비웃음",
+    "meaning": "비웃음",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10557,10 +16232,19 @@ const words = [
   {
     "word": "channel",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "수로로 나르다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "channel",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "수로로 나르다, 해협, 수로, 경로",
+    "meaning": "해협, 수로, 경로",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10618,10 +16302,19 @@ const words = [
   {
     "word": "periodical",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "정기(간행)의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "periodical",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "정기(간행)의, 정기간행물",
+    "meaning": "정기간행물",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10669,10 +16362,19 @@ const words = [
   {
     "word": "extreme",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "극도의, 지나친",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "extreme",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "극도의, 지나친, 극도, 과도",
+    "meaning": "극도, 과도",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10680,10 +16382,19 @@ const words = [
   {
     "word": "speed",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "서두르게 하다, 빠르게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "speed",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "서두르게 하다, 빠르게 하다, 빠르기, 속력",
+    "meaning": "빠르기, 속력",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10721,10 +16432,19 @@ const words = [
   {
     "word": "bloom",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "꽃",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "bloom",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "꽃, 꽃피다",
+    "meaning": "꽃피다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10732,11 +16452,29 @@ const words = [
   {
     "word": "better",
     "partOfSpeech": [
-      "a",
-      "ad",
+      "a"
+    ],
+    "meaning": "더 좋은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "better",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "보다 잘, 더",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "better",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "더 좋은, 보다 잘, 더, 개선하다",
+    "meaning": "개선하다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10744,10 +16482,19 @@ const words = [
   {
     "word": "claim",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "요구하다, 청구하다 ; 주장하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "claim",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "요구하다, 청구하다 ; 주장하다, 요구, 청구",
+    "meaning": "요구, 청구",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10755,10 +16502,19 @@ const words = [
   {
     "word": "fast",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "빠른, 신속한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "fast",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "빠른, 신속한, 빨리",
+    "meaning": "빨리",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10786,10 +16542,19 @@ const words = [
   {
     "word": "export",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "수출하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "export",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "수출하다, 수출(품)",
+    "meaning": "수출(품)",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10817,10 +16582,19 @@ const words = [
   {
     "word": "interrupt",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "가로막다, 저지하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "interrupt",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "가로막다, 저지하다, 일시정지, 중단",
+    "meaning": "일시정지, 중단",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10828,10 +16602,19 @@ const words = [
   {
     "word": "alien",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "외국의, 이질의 ; 우주의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "alien",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "외국의, 이질의 ; 우주의, 외국인, 우주인",
+    "meaning": "외국인, 우주인",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10859,10 +16642,19 @@ const words = [
   {
     "word": "share",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "할당, 몫",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "share",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "할당, 몫, 분배하다",
+    "meaning": "분배하다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10890,10 +16682,19 @@ const words = [
   {
     "word": "finance",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "자금을 공급하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "finance",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "자금을 공급하다, 재정, 재무",
+    "meaning": "재정, 재무",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10901,10 +16702,19 @@ const words = [
   {
     "word": "absolute",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "완전한, 완벽한; 절대적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "absolute",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "완전한, 완벽한; 절대적인, 절대적인 것",
+    "meaning": "절대적인 것",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10912,10 +16722,19 @@ const words = [
   {
     "word": "consent",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "동의하다, 찬성하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "consent",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "동의하다, 찬성하다, 동의, 일치",
+    "meaning": "동의, 일치",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10923,10 +16742,19 @@ const words = [
   {
     "word": "reward",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "보수, 보상",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "reward",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "보수, 보상, 보답하다, 보상하다",
+    "meaning": "보답하다, 보상하다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10934,10 +16762,19 @@ const words = [
   {
     "word": "contemporary",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "동시대의 ; 현대의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "contemporary",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "동시대의 ; 현대의, 동년배",
+    "meaning": "동년배",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10945,10 +16782,19 @@ const words = [
   {
     "word": "hint",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "암시하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "hint",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "암시하다, 힌트, 암시",
+    "meaning": "힌트, 암시",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10966,10 +16812,19 @@ const words = [
   {
     "word": "craft",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "기능, 솜씨 ; 선박, 항공기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "craft",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "기능, 솜씨 ; 선박, 항공기, 만들다",
+    "meaning": "만들다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -10987,11 +16842,29 @@ const words = [
   {
     "word": "light",
     "partOfSpeech": [
-      "n",
-      "a",
+      "n"
+    ],
+    "meaning": "빛, 불꽃",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "light",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "밝은 ; 가벼운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "light",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "빛, 불꽃, 밝은 ; 가벼운, 불을 켜다",
+    "meaning": "불을 켜다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11009,10 +16882,19 @@ const words = [
   {
     "word": "bribe",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "뇌물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "bribe",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "뇌물, 뇌물을 주다",
+    "meaning": "뇌물을 주다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11030,10 +16912,19 @@ const words = [
   {
     "word": "fine",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "세련된 ; 훌륭한 ; 가느다란, 정교한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "fine",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "세련된 ; 훌륭한 ; 가느다란, 정교한, 벌금",
+    "meaning": "벌금",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11141,10 +17032,19 @@ const words = [
   {
     "word": "glance",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "일견, 눈짓",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "glance",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "일견, 눈짓, 흘긋보다, 번득이다",
+    "meaning": "흘긋보다, 번득이다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11172,10 +17072,19 @@ const words = [
   {
     "word": "stick",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "막대",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "stick",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "막대, 찌르다, 꿰뚫다 ; 들러붙다",
+    "meaning": "찌르다, 꿰뚫다 ; 들러붙다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11183,10 +17092,19 @@ const words = [
   {
     "word": "study",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "공부",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "study",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "공부, 연구하다, 공부하다",
+    "meaning": "연구하다, 공부하다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11214,10 +17132,19 @@ const words = [
   {
     "word": "dispute",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "논쟁하다, 토의하다 ; 반박하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "dispute",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "논쟁",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11285,10 +17212,19 @@ const words = [
   {
     "word": "average",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "평균, 표준, 보통",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "average",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "평균, 표준, 보통, 평균의, 보통의",
+    "meaning": "평균의, 보통의",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11346,10 +17282,19 @@ const words = [
   {
     "word": "mold",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "틀, 성질 ; 곰팡이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "mold",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "틀, 성질 ; 곰팡이, 틀에 넣어 만들다",
+    "meaning": "틀에 넣어 만들다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11387,10 +17332,19 @@ const words = [
   {
     "word": "grudge",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "원한, 악의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "grudge",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "원한, 악의, 아까워하다, 주기 싫어하다, 시기하다",
+    "meaning": "아까워하다, 주기 싫어하다, 시기하다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11418,10 +17372,19 @@ const words = [
   {
     "word": "notice",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "통지, 통보 ; 주의, 주목",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "notice",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "통지, 통보 ; 주의, 주목, 알아채다",
+    "meaning": "알아채다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11429,10 +17392,19 @@ const words = [
   {
     "word": "campaign",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "(선거)운동, 전쟁",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "campaign",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "(선거)운동, 전쟁, 캠페인을 벌이다; 군사 작전 하다",
+    "meaning": "캠페인을 벌이다; 군사 작전 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11460,10 +17432,19 @@ const words = [
   {
     "word": "novel",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "새로운, 신기한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "novel",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "새로운, 신기한, 소설",
+    "meaning": "소설",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11501,10 +17482,19 @@ const words = [
   {
     "word": "release",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "풀어주다 ; 방출하다 ; 발표하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "release",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "풀어주다 ; 방출하다 ; 발표하다, 해방",
+    "meaning": "해방",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11572,10 +17562,19 @@ const words = [
   {
     "word": "benefit",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "이익 ; 원조, 도움",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "benefit",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "이익 ; 원조, 도움, ~의 이익이 되다",
+    "meaning": "~의 이익이 되다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11603,11 +17602,29 @@ const words = [
   {
     "word": "mean",
     "partOfSpeech": [
-      "v",
-      "a",
+      "v"
+    ],
+    "meaning": "의미하다, 의도하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "mean",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "인색한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "mean",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "의미하다, 의도하다, 인색한, 평균, 중간",
+    "meaning": "평균, 중간",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11875,10 +17892,19 @@ const words = [
   {
     "word": "start",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "출발하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "start",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "출발하다, 시작, 출발",
+    "meaning": "시작, 출발",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11946,10 +17972,19 @@ const words = [
   {
     "word": "manufacture",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "제조하다, 만들다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "manufacture",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "제조하다, 만들다, 제조, 제품",
+    "meaning": "제조, 제품",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11957,10 +17992,19 @@ const words = [
   {
     "word": "trend",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "방향, 성향 ; 동향",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "trend",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "방향, 성향 ; 동향, 기울다, 향하다",
+    "meaning": "기울다, 향하다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -11968,10 +18012,19 @@ const words = [
   {
     "word": "minute",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "미세한 ; 상세한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "minute",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "미세한 ; 상세한, (시간) 분",
+    "meaning": "(시간) 분",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -12009,10 +18062,19 @@ const words = [
   {
     "word": "risk",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "위험, 모험",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "risk",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "위험, 모험, 위험을 무릅 쓰고 ~하다",
+    "meaning": "위험을 무릅 쓰고 ~하다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -12130,10 +18192,19 @@ const words = [
   {
     "word": "dread",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "무서워하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "dread",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "무서워하다, 공포",
+    "meaning": "공포",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -12211,10 +18282,19 @@ const words = [
   {
     "word": "stumble",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "비틀거리기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "stumble",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "비틀거리기, 비틀거리다, 발을 헛디디다",
+    "meaning": "비틀거리다, 발을 헛디디다",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -12232,10 +18312,19 @@ const words = [
   {
     "word": "display",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "전시하다, 드러내다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "display",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "전시하다, 드러내다, (감정의)표시 ; 진열, 전시",
+    "meaning": "(감정의)표시 ; 진열, 전시",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -12263,10 +18352,19 @@ const words = [
   {
     "word": "commonplace",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "도처에 널려있는, 흔한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "commonplace",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "도처에 널려있는, 흔한, 흔히 있는 일, 다반사",
+    "meaning": "흔히 있는 일, 다반사",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -12274,10 +18372,19 @@ const words = [
   {
     "word": "pant",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "숨차다, 헐떡거리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "pant",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "숨차다, 헐떡거리다, 바지",
+    "meaning": "바지",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -12355,10 +18462,19 @@ const words = [
   {
     "word": "revolt",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "반란을 일으키다, 반항하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 7
+  },
+  {
+    "word": "revolt",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "반란",
     "totalFails": 0,
     "category": "basic",
     "day": 7
@@ -12386,10 +18502,19 @@ const words = [
   {
     "word": "over",
     "partOfSpeech": [
-      "prep",
+      "prep"
+    ],
+    "meaning": "~이상, 위에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "over",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "~이상, 위에, ~위쪽에, ~위를 덮어",
+    "meaning": "~위쪽에, ~위를 덮어",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12397,10 +18522,19 @@ const words = [
   {
     "word": "esteem",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "존경하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "esteem",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "존경하다, 존중",
+    "meaning": "존중",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12448,10 +18582,19 @@ const words = [
   {
     "word": "separate",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "나누다, 구별하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "separate",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "나누다, 구별하다, 갈라진",
+    "meaning": "갈라진",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12559,10 +18702,19 @@ const words = [
   {
     "word": "luxury",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "사치, 낭비",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "luxury",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "사치, 낭비, 사치의",
+    "meaning": "사치의",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12600,10 +18752,19 @@ const words = [
   {
     "word": "throng",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "군중",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "throng",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "군중, 떼지어 모이다",
+    "meaning": "떼지어 모이다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12661,10 +18822,19 @@ const words = [
   {
     "word": "conflict",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "다투다, 투쟁하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "conflict",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "다투다, 투쟁하다, 충돌, 다툼",
+    "meaning": "충돌, 다툼",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12742,10 +18912,19 @@ const words = [
   {
     "word": "constant",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "불변의, 끊임없는, 불변하는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "constant",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "불변의, 끊임없는, 불변하는, 불변의 것, 상수",
+    "meaning": "불변의 것, 상수",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12773,10 +18952,19 @@ const words = [
   {
     "word": "yield",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "산출하다, 낳다 ; 양보하다, 굴복하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "yield",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "산출하다, 낳다 ; 양보하다, 굴복하다, 산출(량), 수확",
+    "meaning": "산출(량), 수확",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12804,10 +18992,19 @@ const words = [
   {
     "word": "expert",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "전문가, 숙련가",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "expert",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "전문가, 숙련가, 숙련된",
+    "meaning": "숙련된",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12865,10 +19062,19 @@ const words = [
   {
     "word": "trace",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "자취, 발자국, 흔적",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "trace",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "자취, 발자국, 흔적, 추적하다 , 찾다",
+    "meaning": "추적하다 , 찾다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12896,10 +19102,19 @@ const words = [
   {
     "word": "sort",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "분류하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "sort",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "분류하다, 종류 ; 성질",
+    "meaning": "종류 ; 성질",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12967,10 +19182,19 @@ const words = [
   {
     "word": "stop",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "가로막다, 중단하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "stop",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "가로막다, 중단하다, 멈춤, 중단",
+    "meaning": "멈춤, 중단",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12978,11 +19202,29 @@ const words = [
   {
     "word": "long",
     "partOfSpeech": [
-      "a",
-      "v",
+      "a"
+    ],
+    "meaning": "긴; 장기적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "long",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "동경하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "long",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "긴; 장기적인, 동경하다, 오랫동안",
+    "meaning": "오랫동안",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -12990,10 +19232,19 @@ const words = [
   {
     "word": "extract",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "뽑다, 빼내다, 추출하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "extract",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "뽑다, 빼내다, 추출하다, 추출물",
+    "meaning": "추출물",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13001,10 +19252,19 @@ const words = [
   {
     "word": "venture",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "모험, 위험",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "venture",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "모험, 위험, 과감히 ~하다",
+    "meaning": "과감히 ~하다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13012,10 +19272,19 @@ const words = [
   {
     "word": "basic",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "기본의, 기초의 ; (화학)염기성의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "basic",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "기본의, 기초의 ; (화학)염기성의, 기초, 기본, 원리",
+    "meaning": "기초, 기본, 원리",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13023,10 +19292,19 @@ const words = [
   {
     "word": "individual",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "개인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "individual",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "개인, 개인의",
+    "meaning": "개인의",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13034,10 +19312,19 @@ const words = [
   {
     "word": "official",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "공무원",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "official",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "공무원, 공식의, 공무상의",
+    "meaning": "공식의, 공무상의",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13175,10 +19462,19 @@ const words = [
   {
     "word": "corrupt",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "타락한, 부정한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "corrupt",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "타락한, 부정한, 매수하다, 타락시키다",
+    "meaning": "매수하다, 타락시키다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13306,10 +19602,19 @@ const words = [
   {
     "word": "fluid",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "액체",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "fluid",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "액체, 유동성의",
+    "meaning": "유동성의",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13407,10 +19712,19 @@ const words = [
   {
     "word": "even",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "평평한, 같은 높이의 ; 한결 같은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "even",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "평평한, 같은 높이의 ; 한결 같은, ~조차, ~라도",
+    "meaning": "~조차, ~라도",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13438,10 +19752,19 @@ const words = [
   {
     "word": "face",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "얼굴, 외관",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "face",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "얼굴, 외관, 직면하다, 향하다",
+    "meaning": "직면하다, 향하다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13489,8 +19812,7 @@ const words = [
   {
     "word": "purchase",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "사다, 구입하다",
     "totalFails": 0,
@@ -13498,12 +19820,31 @@ const words = [
     "day": 8
   },
   {
-    "word": "juvenile",
+    "word": "purchase",
     "partOfSpeech": [
-      "a",
       "n"
     ],
-    "meaning": "어린, 청소년",
+    "meaning": "구입",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "juvenile",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "어린",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "juvenile",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "청소년",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13541,10 +19882,19 @@ const words = [
   {
     "word": "vow",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "맹세, 서약",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "vow",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "맹세, 서약, 맹세하다",
+    "meaning": "맹세하다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13592,10 +19942,19 @@ const words = [
   {
     "word": "structure",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "구조, 구성 ; 구조물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "structure",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "구조, 구성 ; 구조물, 조직화하다",
+    "meaning": "조직화하다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13603,10 +19962,19 @@ const words = [
   {
     "word": "drink",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "음료",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "drink",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "음료, 마시다",
+    "meaning": "마시다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13614,10 +19982,19 @@ const words = [
   {
     "word": "leave",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "떠나다 ; (뒤에)남기다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "leave",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "떠나다 ; (뒤에)남기다, 휴가",
+    "meaning": "휴가",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13645,10 +20022,19 @@ const words = [
   {
     "word": "taint",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "오염",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "taint",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "오염, 더럽히다",
+    "meaning": "더럽히다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13806,10 +20192,19 @@ const words = [
   {
     "word": "frame",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "뼈대, 구조, 틀",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "frame",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "뼈대, 구조, 틀, 뼈대를 만들다, 짜맞추다",
+    "meaning": "뼈대를 만들다, 짜맞추다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13837,10 +20232,19 @@ const words = [
   {
     "word": "sage",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "현인, 성인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "sage",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "현인, 성인, 현명한",
+    "meaning": "현명한",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13888,10 +20292,19 @@ const words = [
   {
     "word": "prospect",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "전망, 예상",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "prospect",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "전망, 예상, 답사하다",
+    "meaning": "답사하다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13949,10 +20362,19 @@ const words = [
   {
     "word": "implement",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "도구, 용구, 기구",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "implement",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "도구, 용구, 기구, 이행하다",
+    "meaning": "이행하다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13960,10 +20382,19 @@ const words = [
   {
     "word": "strain",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "잡아당기다, 긴장시키다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "strain",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "잡아당기다, 긴장시키다, 긴장 ; 혈통",
+    "meaning": "긴장 ; 혈통",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -13971,8 +20402,26 @@ const words = [
   {
     "word": "after",
     "partOfSpeech": [
-      "prep",
-      "ad",
+      "prep"
+    ],
+    "meaning": "~뒤에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "after",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "~뒤에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "after",
+    "partOfSpeech": [
       "conj"
     ],
     "meaning": "~뒤에",
@@ -14003,10 +20452,19 @@ const words = [
   {
     "word": "demand",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "요구, 수요",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "demand",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "요구, 수요, 요구하다",
+    "meaning": "요구하다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14024,10 +20482,19 @@ const words = [
   {
     "word": "access",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "접근; 통로",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "access",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "접근; 통로, 다가가다",
+    "meaning": "다가가다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14105,10 +20572,19 @@ const words = [
   {
     "word": "strike",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "치다 ; 부딪히다 ; 파업하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "strike",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "치다 ; 부딪히다 ; 파업하다, 파업 ; 타격",
+    "meaning": "파업 ; 타격",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14126,10 +20602,19 @@ const words = [
   {
     "word": "menace",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "협박, 위협",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "menace",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "협박, 위협, 위협하다",
+    "meaning": "위협하다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14157,10 +20642,19 @@ const words = [
   {
     "word": "scheme",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "계획 ; 음모",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "scheme",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "계획 ; 음모, 계획하다",
+    "meaning": "계획하다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14168,10 +20662,19 @@ const words = [
   {
     "word": "routine",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "일상적인 일",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "routine",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "일상적인 일, 일상의, 판에 박힌",
+    "meaning": "일상의, 판에 박힌",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14189,10 +20692,19 @@ const words = [
   {
     "word": "scent",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "냄새, 향기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "scent",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "냄새, 향기, 냄새맡다",
+    "meaning": "냄새맡다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14210,10 +20722,19 @@ const words = [
   {
     "word": "harm",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "손해, 해",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "harm",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "손해, 해, 해를 끼치다",
+    "meaning": "해를 끼치다",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14291,10 +20812,19 @@ const words = [
   {
     "word": "move",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "감동시키다 ; 이동하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "move",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "감동시키다 ; 이동하다, 동작, 운동",
+    "meaning": "동작, 운동",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14352,10 +20882,19 @@ const words = [
   {
     "word": "utmost",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "최대(최고)의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "utmost",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "최대(최고)의, 최대한도",
+    "meaning": "최대한도",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14373,10 +20912,19 @@ const words = [
   {
     "word": "trim",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "다듬다, 손질하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "trim",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "다듬다, 손질하다, 다듬기",
+    "meaning": "다듬기",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14384,10 +20932,19 @@ const words = [
   {
     "word": "resume",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "다시 시작하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 8
+  },
+  {
+    "word": "resume",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "다시 시작하다, 요약; 이력서",
+    "meaning": "요약; 이력서",
     "totalFails": 0,
     "category": "basic",
     "day": 8
@@ -14525,10 +21082,19 @@ const words = [
   {
     "word": "guilty",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "죄를 범한, 유죄의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "guilty",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "죄를 범한, 유죄의, 죄책감, 죄악감",
+    "meaning": "죄책감, 죄악감",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -14536,10 +21102,19 @@ const words = [
   {
     "word": "protest",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "항의하다 ; 단언하다, 주장하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "protest",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "항의하다 ; 단언하다, 주장하다, 항의, 시위",
+    "meaning": "항의, 시위",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -14547,10 +21122,19 @@ const words = [
   {
     "word": "plain",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "솔직한, 분명한 ; 꾸밈없는, 간소한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "plain",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "솔직한, 분명한 ; 꾸밈없는, 간소한, 평원,평지",
+    "meaning": "평원,평지",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -14668,11 +21252,29 @@ const words = [
   {
     "word": "abstract",
     "partOfSpeech": [
-      "a",
-      "n",
+      "a"
+    ],
+    "meaning": "추상적인, 난해한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "abstract",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "개요",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "abstract",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "추상적인, 난해한, 개요, 발췌하다 ; 요약하다",
+    "meaning": "발췌하다 ; 요약하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -14730,10 +21332,19 @@ const words = [
   {
     "word": "copy",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "복사, 복제",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "copy",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "복사, 복제, 복사하다",
+    "meaning": "복사하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -14791,10 +21402,19 @@ const words = [
   {
     "word": "disguise",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "변장하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "disguise",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "변장하다, 변장, 가장",
+    "meaning": "변장, 가장",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -14852,10 +21472,19 @@ const words = [
   {
     "word": "progress",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "전진, 진보",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "progress",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "전진, 진보, 전진하다, 진보하다",
+    "meaning": "전진하다, 진보하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -14873,10 +21502,19 @@ const words = [
   {
     "word": "scale",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "오르다 ; 저울에 달다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "scale",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "오르다 ; 저울에 달다, 규모 ; 비늘",
+    "meaning": "규모 ; 비늘",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15004,10 +21642,19 @@ const words = [
   {
     "word": "command",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "명령하다, 지시하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "command",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "명령",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15035,10 +21682,19 @@ const words = [
   {
     "word": "complex",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "정교한, 복잡한, 어려운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "complex",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "정교한, 복잡한, 어려운, 복합건물",
+    "meaning": "복합건물",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15056,10 +21712,19 @@ const words = [
   {
     "word": "praise",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "칭찬, 숭배",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "praise",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "칭찬, 숭배, 칭찬하다",
+    "meaning": "칭찬하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15077,10 +21742,19 @@ const words = [
   {
     "word": "preserve",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "보존하다, 보호하다 ; 지속하다, 유지하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "preserve",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "보존하다, 보호하다 ; 지속하다, 유지하다, 금렵지, 보호지",
+    "meaning": "금렵지, 보호지",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15088,10 +21762,19 @@ const words = [
   {
     "word": "potential",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "잠재적인, 가능한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "potential",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "잠재적인, 가능한, 잠재력",
+    "meaning": "잠재력",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15139,10 +21822,19 @@ const words = [
   {
     "word": "military",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "군대의, 육군의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "military",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "군대",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15308,6 +22000,16 @@ const words = [
     "day": 9
   },
   {
+    "word": "will",
+    "partOfSpeech": [
+      "aux. v"
+    ],
+    "meaning": "~ 할 것이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
     "word": "positive",
     "partOfSpeech": [
       "a"
@@ -15320,10 +22022,19 @@ const words = [
   {
     "word": "support",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "유지하다, 지지하다 ; 부양하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "support",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "유지하다, 지지하다 ; 부양하다, 지원,지지; 생계",
+    "meaning": "지원,지지; 생계",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15351,10 +22062,19 @@ const words = [
   {
     "word": "salute",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "인사, 경례",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "salute",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "인사, 경례, 인사하다, 경례하다",
+    "meaning": "인사하다, 경례하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15362,10 +22082,19 @@ const words = [
   {
     "word": "approach",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "접근, 해결 방법",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "approach",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "접근, 해결 방법, 접근하다",
+    "meaning": "접근하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15423,10 +22152,19 @@ const words = [
   {
     "word": "prime",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "전성(기) ; 소수(수학)",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "prime",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "전성(기) ; 소수(수학), 주요한",
+    "meaning": "주요한",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15434,8 +22172,7 @@ const words = [
   {
     "word": "attempt",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "시도하다",
     "totalFails": 0,
@@ -15443,12 +22180,31 @@ const words = [
     "day": 9
   },
   {
-    "word": "steep",
+    "word": "attempt",
     "partOfSpeech": [
-      "a",
       "n"
     ],
-    "meaning": "가파른, 절벽",
+    "meaning": "시도",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "steep",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "가파른",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "steep",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "절벽",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15476,10 +22232,19 @@ const words = [
   {
     "word": "bait",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "미끼, 유혹",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "bait",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "미끼, 유혹, 미끼로 꾀다",
+    "meaning": "미끼로 꾀다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15527,10 +22292,19 @@ const words = [
   {
     "word": "remedy",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "치료, 요법",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "remedy",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "치료, 요법, 고치다, 치료하다",
+    "meaning": "고치다, 치료하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15668,10 +22442,29 @@ const words = [
   {
     "word": "poison",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "독",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "poison",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "독, 독살하다",
+    "meaning": "독살하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "suppress",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "억압하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15679,10 +22472,19 @@ const words = [
   {
     "word": "faint",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "희미한 ; 나약한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "faint",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "희미한 ; 나약한, 기절하다",
+    "meaning": "기절하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15710,10 +22512,19 @@ const words = [
   {
     "word": "profit",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "이익",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "profit",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "이익, 이익을 보다",
+    "meaning": "이익을 보다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15741,10 +22552,19 @@ const words = [
   {
     "word": "material",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "물질의, 구체적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "material",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "물질의, 구체적인, 재료, 요소 ; 자료",
+    "meaning": "재료, 요소 ; 자료",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15762,10 +22582,19 @@ const words = [
   {
     "word": "despair",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "절망, 자포자기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "despair",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "절망, 자포자기, 절망하다, 체념하다",
+    "meaning": "절망하다, 체념하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15913,10 +22742,19 @@ const words = [
   {
     "word": "reproach",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "비난하다, 꾸짖다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "reproach",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "비난하다, 꾸짖다, 비난, 잔소리",
+    "meaning": "비난, 잔소리",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15974,10 +22812,19 @@ const words = [
   {
     "word": "merit",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "장점, 우수함",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "merit",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "장점, 우수함, ~할 만하다",
+    "meaning": "~할 만하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -15995,10 +22842,19 @@ const words = [
   {
     "word": "coat",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "표면을 덮다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "coat",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "표면을 덮다, 외투(코트)",
+    "meaning": "외투(코트)",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -16046,10 +22902,19 @@ const words = [
   {
     "word": "spare",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "부가적인, 추가의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "spare",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "부가적인, 추가의, (시간, 돈)등을 내주다 ; 절약하다",
+    "meaning": "(시간, 돈)등을 내주다 ; 절약하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -16057,10 +22922,19 @@ const words = [
   {
     "word": "sacrifice",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "희생",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "sacrifice",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "희생, 희생하다",
+    "meaning": "희생하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -16068,10 +22942,19 @@ const words = [
   {
     "word": "alert",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "경계하는 ; 깨어있는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "alert",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "경계하는 ; 깨어있는, 경고하다",
+    "meaning": "경고하다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -16227,6 +23110,16 @@ const words = [
     "day": 9
   },
   {
+    "word": "mechanism",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "도구 ; 구조",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
     "word": "sensitive",
     "partOfSpeech": [
       "a"
@@ -16299,10 +23192,19 @@ const words = [
   {
     "word": "resort",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "휴양지 ; 수단",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "resort",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "휴양지 ; 수단, 의지, 의존하다 (대안이 없어서 하는)",
+    "meaning": "의지, 의존하다 (대안이 없어서 하는)",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -16320,10 +23222,19 @@ const words = [
   {
     "word": "relish",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "(큰) 즐거움 기쁨; 소스, 조미료, 양념",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "relish",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "(큰) 즐거움 기쁨; 소스, 조미료, 양념, ( 어떤것을 대단히) 좋아하다, 즐기다",
+    "meaning": "( 어떤것을 대단히) 좋아하다, 즐기다",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -16351,10 +23262,19 @@ const words = [
   {
     "word": "look",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "보다, 주목하다 ;살피다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 9
+  },
+  {
+    "word": "look",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "보다, 주목하다 ;살피다, 보기",
+    "meaning": "보기",
     "totalFails": 0,
     "category": "basic",
     "day": 9
@@ -16472,10 +23392,19 @@ const words = [
   {
     "word": "decree",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "법령, 명령, 포고",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "decree",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "법령, 명령, 포고, 명령하다, 포고하다",
+    "meaning": "명령하다, 포고하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16483,10 +23412,19 @@ const words = [
   {
     "word": "lean",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "기대다, 의지하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "lean",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "기대다, 의지하다, 야윈",
+    "meaning": "야윈",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16544,10 +23482,19 @@ const words = [
   {
     "word": "way",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "방법, 길; 방식, 태도",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "way",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "방법, 길; 방식, 태도, 아주 멀리; 큰 차이로, 훨씬",
+    "meaning": "아주 멀리; 큰 차이로, 훨씬",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16565,7 +23512,16 @@ const words = [
   {
     "word": "till",
     "partOfSpeech": [
-      "prep",
+      "prep"
+    ],
+    "meaning": "~까지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "till",
+    "partOfSpeech": [
       "conj"
     ],
     "meaning": "~까지",
@@ -16696,10 +23652,19 @@ const words = [
   {
     "word": "head",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "머리, 고개",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "head",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "머리, 고개, (특정 방향으로) 가다",
+    "meaning": "(특정 방향으로) 가다[향하다]",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16737,10 +23702,19 @@ const words = [
   {
     "word": "conduct",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "행동",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "conduct",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "행동, 행동하다 ; 지도하다 ; (빛, 열을) 전도하다",
+    "meaning": "행동하다 ; 지도하다 ; (빛, 열을) 전도하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16748,10 +23722,19 @@ const words = [
   {
     "word": "associate",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "연합하다, 참가시키다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "associate",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "연합하다, 참가시키다, 동료, 친구",
+    "meaning": "동료, 친구",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16759,10 +23742,19 @@ const words = [
   {
     "word": "debate",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "논쟁, 토론",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "debate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "논쟁, 토론, 논쟁하다, 토론하다",
+    "meaning": "논쟁하다, 토론하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16780,10 +23772,19 @@ const words = [
   {
     "word": "dead",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "죽은; 더 이상 믿어지지 않는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "dead",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "죽은; 더 이상 믿어지지 않는, 죽은 사람들",
+    "meaning": "죽은 사람들",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16801,11 +23802,29 @@ const words = [
   {
     "word": "top",
     "partOfSpeech": [
-      "n",
-      "a",
+      "n"
+    ],
+    "meaning": "꼭대기, 정점",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "top",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "꼭대기의, 최고의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "top",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "꼭대기, 정점, 꼭대기의, 최고의, 꼭대기를 덮다",
+    "meaning": "꼭대기를 덮다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16853,10 +23872,19 @@ const words = [
   {
     "word": "defeat",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "쳐부수다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "defeat",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "쳐부수다, 패배",
+    "meaning": "패배",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16864,10 +23892,19 @@ const words = [
   {
     "word": "insult",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "모욕하다, 욕보이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "insult",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "모욕",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -16885,10 +23922,19 @@ const words = [
   {
     "word": "spur",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "동기, 원동력",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "spur",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "동기, 원동력, ~에 박차를 가하다",
+    "meaning": "~에 박차를 가하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17016,10 +24062,19 @@ const words = [
   {
     "word": "parallel",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "평행한 ; 유사한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "parallel",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "평행한 ; 유사한, ~에 평행하다",
+    "meaning": "~에 평행하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17077,10 +24132,19 @@ const words = [
   {
     "word": "concrete",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "구체적인; 콘크리트로 된",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "concrete",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "콘크리트",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17108,10 +24172,19 @@ const words = [
   {
     "word": "comment",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "주석, 논평",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "comment",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "주석, 논평, 논평하다, 견해를 밝히다",
+    "meaning": "논평하다, 견해를 밝히다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17149,10 +24222,19 @@ const words = [
   {
     "word": "distress",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "고민, 곤란",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "distress",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "고민, 곤란, 괴롭히다",
+    "meaning": "괴롭히다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17230,10 +24312,19 @@ const words = [
   {
     "word": "melancholy",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "우울한, 침울한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "melancholy",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "우울",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17281,10 +24372,19 @@ const words = [
   {
     "word": "stretch",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "늘리다, 뻗치다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "stretch",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "늘리다, 뻗치다, 범위",
+    "meaning": "범위",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17302,10 +24402,19 @@ const words = [
   {
     "word": "appropriate",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "적합한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "appropriate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "적합한, (무단)도용하다, 전용하다",
+    "meaning": "(무단)도용하다, 전용하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17353,10 +24462,19 @@ const words = [
   {
     "word": "capture",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "포획하다, 붙잡다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "capture",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "포획하다, 붙잡다, 생포, 포획",
+    "meaning": "생포, 포획",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17544,10 +24662,19 @@ const words = [
   {
     "word": "supplement",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "추가, 보충",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "supplement",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "추가, 보충, 보충하다",
+    "meaning": "보충하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17585,10 +24712,19 @@ const words = [
   {
     "word": "particular",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "특정한 ; 특별한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "particular",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "특정한 ; 특별한, 자세한 사실,사항",
+    "meaning": "자세한 사실,사항",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17666,10 +24802,19 @@ const words = [
   {
     "word": "rescue",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "구출하다, 구조하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "rescue",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "구출하다, 구조하다, 구출, 구조, 구제",
+    "meaning": "구출, 구조, 구제",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17807,10 +24952,19 @@ const words = [
   {
     "word": "countenance",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "표정, 안색",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "countenance",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "표정, 안색, 지지하다, 동의하다",
+    "meaning": "지지하다, 동의하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17818,10 +24972,29 @@ const words = [
   {
     "word": "transport",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "수송하다, 운송하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "transport",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "수송하다, 운송하다, 수송, 운송",
+    "meaning": "수송, 운송",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "apparent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "명백한, 분명한; ~인것처럼 보이는, 여겨지는",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17889,10 +25062,19 @@ const words = [
   {
     "word": "daring",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "대담한, 용감한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "daring",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "대담한, 용감한, 대담무쌍",
+    "meaning": "대담무쌍",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -17900,10 +25082,19 @@ const words = [
   {
     "word": "retort",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "쏘아붙이다, 응수(대꾸)하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "retort",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "쏘아붙이다, 응수(대꾸)하다, 응수, 대꾸",
+    "meaning": "응수, 대꾸",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18061,10 +25252,19 @@ const words = [
   {
     "word": "reserve",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "남겨두다 ; 예약하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "reserve",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "남겨두다 ; 예약하다, 비축물",
+    "meaning": "비축물",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18072,10 +25272,19 @@ const words = [
   {
     "word": "incline",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "경사, 비탈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "incline",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "경사, 비탈, 기울이다 ; ~하는 경향이 있다",
+    "meaning": "기울이다 ; ~하는 경향이 있다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18093,10 +25302,19 @@ const words = [
   {
     "word": "deliberate",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "신중한 ; 고의적인, 계획적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "deliberate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "신중한 ; 고의적인, 계획적인, 숙고하다, 신중히 생각하다",
+    "meaning": "숙고하다, 신중히 생각하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18107,6 +25325,16 @@ const words = [
       "v"
     ],
     "meaning": "차지하다, 점령하다; (마음을) 끌다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "path",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "길, 통로",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18144,10 +25372,19 @@ const words = [
   {
     "word": "cut",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "자르다, 절단하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "cut",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "자르다, 절단하다, 상처",
+    "meaning": "상처",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18195,10 +25432,19 @@ const words = [
   {
     "word": "plot",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "음모 ; 줄거리 ; 작은 구역",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "plot",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "음모 ; 줄거리 ; 작은 구역, 도모하다, 꾀하다",
+    "meaning": "도모하다, 꾀하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18216,10 +25462,19 @@ const words = [
   {
     "word": "ornament",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "장식하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "ornament",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "장식하다, 꾸밈, 장식",
+    "meaning": "꾸밈, 장식",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18247,10 +25502,19 @@ const words = [
   {
     "word": "disillusion",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "환멸",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "disillusion",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "환멸, 환멸을 느끼게 하다",
+    "meaning": "환멸을 느끼게 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18318,10 +25582,19 @@ const words = [
   {
     "word": "prey",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "희생자, 사냥감",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "prey",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "희생자, 사냥감, 잡아먹다",
+    "meaning": "잡아먹다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18379,10 +25652,19 @@ const words = [
   {
     "word": "sneer",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "냉소, 조소",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "sneer",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "냉소, 조소, 비웃다, 냉소하다",
+    "meaning": "비웃다, 냉소하다",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18390,10 +25672,19 @@ const words = [
   {
     "word": "alternative",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "대용이 되는 ; 양자택일의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "alternative",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "대용이 되는 ; 양자택일의, 대안, 선택여지",
+    "meaning": "대안, 선택여지",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18421,10 +25712,19 @@ const words = [
   {
     "word": "encounter",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "만나다, 마주치다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 10
+  },
+  {
+    "word": "encounter",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "만나다, 마주치다, 만남; 시합",
+    "meaning": "만남; 시합",
     "totalFails": 0,
     "category": "basic",
     "day": 10
@@ -18472,10 +25772,19 @@ const words = [
   {
     "word": "discharge",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "해방시키다 ; 방출하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "discharge",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "해방시키다 ; 방출하다, 방출, 배출",
+    "meaning": "방출, 배출",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -18503,10 +25812,19 @@ const words = [
   {
     "word": "stroll",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "산책",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "stroll",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "산책, 산책하다",
+    "meaning": "산책하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -18574,10 +25892,19 @@ const words = [
   {
     "word": "substitute",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "대리인, 대용품",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "substitute",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "대리인, 대용품, 대체하다 ; 대리하다, 대신하다",
+    "meaning": "대체하다 ; 대리하다, 대신하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -18705,10 +26032,19 @@ const words = [
   {
     "word": "retreat",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "물러가다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "retreat",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "물러가다, 퇴각, 은퇴",
+    "meaning": "퇴각, 은퇴",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -18736,10 +26072,19 @@ const words = [
   {
     "word": "counsel",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "조언하다, 충고하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "counsel",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "조언하다, 충고하다, 조언, 권고",
+    "meaning": "조언, 권고",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -18767,10 +26112,19 @@ const words = [
   {
     "word": "arctic",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "북극의, 극도로 추운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "arctic",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "북극의, 극도로 추운, 북극 ( the~)",
+    "meaning": "북극 ( the~)",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -18838,10 +26192,19 @@ const words = [
   {
     "word": "remark",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "의견을 말하다 ; 주목하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "remark",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "의견을 말하다 ; 주목하다, 소견",
+    "meaning": "소견",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -18899,10 +26262,19 @@ const words = [
   {
     "word": "solid",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "단단한, 견고한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "solid",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "단단한, 견고한, 고체, 고형물",
+    "meaning": "고체, 고형물",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -18940,10 +26312,19 @@ const words = [
   {
     "word": "research",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "연구, 조사",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "research",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "연구, 조사, 연구하다",
+    "meaning": "연구하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -18981,10 +26362,19 @@ const words = [
   {
     "word": "yet",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "아직",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "yet",
+    "partOfSpeech": [
       "conj"
     ],
-    "meaning": "아직, 그러나",
+    "meaning": "그러나",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19022,10 +26412,19 @@ const words = [
   {
     "word": "perpendicular",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "직각의, 수직적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "perpendicular",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수직",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19093,10 +26492,19 @@ const words = [
   {
     "word": "cure",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "치료, 치료법, 치료제",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "cure",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "치료, 치료법, 치료제, 치료하다",
+    "meaning": "치료하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19114,10 +26522,19 @@ const words = [
   {
     "word": "contrast",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "대조하다, 대조를 이루다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "contrast",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "대조하다, 대조를 이루다, 차이; 대조, 대비",
+    "meaning": "차이; 대조, 대비",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19165,10 +26582,19 @@ const words = [
   {
     "word": "stride",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "걸음, 일보, 한 단계",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "stride",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "걸음, 일보, 한 단계, 성큼성큼 걷다",
+    "meaning": "성큼성큼 걷다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19176,10 +26602,19 @@ const words = [
   {
     "word": "worship",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "예배, 숭배",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "worship",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "예배, 숭배, 숭배하다",
+    "meaning": "숭배하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19197,10 +26632,19 @@ const words = [
   {
     "word": "value",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "가치",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "value",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "가치, 존중하다",
+    "meaning": "존중하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19208,10 +26652,19 @@ const words = [
   {
     "word": "surrender",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "항복하다 ; 넘겨주다, 양도하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "surrender",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "항복하다 ; 넘겨주다, 양도하다, 항복, 굴복",
+    "meaning": "항복, 굴복",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19229,10 +26682,19 @@ const words = [
   {
     "word": "urge",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "재촉하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "urge",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "재촉하다, 충동",
+    "meaning": "충동",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19270,10 +26732,19 @@ const words = [
   {
     "word": "disregard",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "무시하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "disregard",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "무시하다, 무시 ; 무관심, 부주의",
+    "meaning": "무시 ; 무관심, 부주의",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19311,10 +26782,19 @@ const words = [
   {
     "word": "fancy",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "공상, 상상",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "fancy",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "공상, 상상, 화려한,장식이 많은",
+    "meaning": "화려한,장식이 많은",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19322,10 +26802,19 @@ const words = [
   {
     "word": "deposit",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "맡기다, 예금하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "deposit",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "맡기다, 예금하다, 퇴적물; 예금, 보증금",
+    "meaning": "퇴적물; 예금, 보증금",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19353,10 +26842,19 @@ const words = [
   {
     "word": "usher",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "안내하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "usher",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "안내하다, 안내원",
+    "meaning": "안내원",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19374,10 +26872,19 @@ const words = [
   {
     "word": "slumber",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "꾸벅꾸벅 졸다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "slumber",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "꾸벅꾸벅 졸다, 잠, 선잠",
+    "meaning": "잠, 선잠",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19415,10 +26922,19 @@ const words = [
   {
     "word": "burst",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "폭발하다, 터지다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "burst",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "폭발하다, 터지다, 파열, 폭발",
+    "meaning": "파열, 폭발",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19516,10 +27032,19 @@ const words = [
   {
     "word": "snare",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "함정, 덫",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "snare",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "함정, 덫, 덫으로 잡다",
+    "meaning": "덫으로 잡다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19527,10 +27052,19 @@ const words = [
   {
     "word": "experiment",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "실험, 시도",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "experiment",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "실험, 시도, 실험을 하다",
+    "meaning": "실험을 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19558,10 +27092,19 @@ const words = [
   {
     "word": "endeavor",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "노력하다, 시도하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "endeavor",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "노력",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19589,10 +27132,19 @@ const words = [
   {
     "word": "lack",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "부족, 결핍",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "lack",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "부족, 결핍, 결핍되다, 부족하다",
+    "meaning": "결핍되다, 부족하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19640,11 +27192,29 @@ const words = [
   {
     "word": "set",
     "partOfSpeech": [
-      "v",
-      "n",
+      "v"
+    ],
+    "meaning": "두다 ; 배치하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "set",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "한 벌",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "set",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "두다 ; 배치하다, 한 벌, 고정된",
+    "meaning": "고정된",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19652,10 +27222,19 @@ const words = [
   {
     "word": "regard",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "간주하다 ; 존중하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "regard",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "간주하다 ; 존중하다, 관심, 호감, 존경",
+    "meaning": "관심, 호감, 존경",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19723,10 +27302,19 @@ const words = [
   {
     "word": "lament",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "슬퍼하다, 비탄하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "lament",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "슬퍼하다, 비탄하다, 비탄, 한탄",
+    "meaning": "비탄, 한탄",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19764,10 +27352,19 @@ const words = [
   {
     "word": "reform",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "개혁하다, 개정하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "reform",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "개혁하다, 개정하다, 개혁, 개정",
+    "meaning": "개혁, 개정",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19815,10 +27412,19 @@ const words = [
   {
     "word": "compromise",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "타협",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "compromise",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "타협, 타협하다 ; 위태롭게 하다",
+    "meaning": "타협하다 ; 위태롭게 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19826,10 +27432,19 @@ const words = [
   {
     "word": "maximum",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "최대, 최대량",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "maximum",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "최대, 최대량, 최대의",
+    "meaning": "최대의",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19837,10 +27452,19 @@ const words = [
   {
     "word": "land",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "육지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "land",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "육지, 상륙하다, 착륙하다",
+    "meaning": "상륙하다, 착륙하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19878,10 +27502,19 @@ const words = [
   {
     "word": "drive",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "운전하다; 태워다 주다;(어떤 방향으로) 몰다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "drive",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "운전하다; 태워다 주다;(어떤 방향으로) 몰다, 드라이브; 욕구, 충동",
+    "meaning": "드라이브; 욕구, 충동",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19929,10 +27562,19 @@ const words = [
   {
     "word": "plow",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "쟁기",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "plow",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "쟁기, 갈다",
+    "meaning": "갈다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -19980,10 +27622,19 @@ const words = [
   {
     "word": "function",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "기능, 역할",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "function",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "기능, 역할, 작용하다, 작동하다",
+    "meaning": "작용하다, 작동하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20011,10 +27662,19 @@ const words = [
   {
     "word": "evidence",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "증거, 증명",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "evidence",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "증거, 증명, 증언하다, 증거가 되다",
+    "meaning": "증언하다, 증거가 되다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20032,10 +27692,19 @@ const words = [
   {
     "word": "stuff",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "물건, 일",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "stuff",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "물건, 일, 밀어넣다",
+    "meaning": "밀어넣다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20093,10 +27762,19 @@ const words = [
   {
     "word": "human",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "사람, 인간",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "human",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "사람, 인간, 인간의, 인간다운",
+    "meaning": "인간의, 인간다운",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20194,8 +27872,7 @@ const words = [
   {
     "word": "spin",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "회전시키다",
     "totalFails": 0,
@@ -20203,12 +27880,31 @@ const words = [
     "day": 11
   },
   {
+    "word": "spin",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "회전",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
     "word": "bond",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "연맹, 묶긴 것",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "bond",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "연맹, 묶긴 것, 접착시키다, 접착되다",
+    "meaning": "접착시키다, 접착되다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20226,10 +27922,19 @@ const words = [
   {
     "word": "suspect",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "추측하다 ; 의심하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "suspect",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "추측하다 ; 의심하다, 용의자",
+    "meaning": "용의자",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20237,10 +27942,19 @@ const words = [
   {
     "word": "note",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "주목하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "note",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "주목하다, 메모",
+    "meaning": "메모",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20248,10 +27962,19 @@ const words = [
   {
     "word": "aim",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "목표하다 ; 겨누다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "aim",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "목표하다 ; 겨누다, 목적",
+    "meaning": "목적",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20309,10 +28032,19 @@ const words = [
   {
     "word": "ally",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "동맹하다, 결연하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "ally",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "동맹",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20410,10 +28142,19 @@ const words = [
   {
     "word": "secure",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "안전한, 확고한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 11
+  },
+  {
+    "word": "secure",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "안전한, 확고한, 안전하게 하다 ; 확보하다",
+    "meaning": "안전하게 하다 ; 확보하다",
     "totalFails": 0,
     "category": "basic",
     "day": 11
@@ -20521,10 +28262,19 @@ const words = [
   {
     "word": "current",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "현재의, 지금의 ; 유행하는",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "current",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "현재의, 지금의 ; 유행하는, 해류, 기류",
+    "meaning": "해류, 기류",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20542,10 +28292,19 @@ const words = [
   {
     "word": "estimate",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "추산하다, 추정하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "estimate",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "추산하다, 추정하다, 추정; 견적서",
+    "meaning": "추정; 견적서",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20563,10 +28322,19 @@ const words = [
   {
     "word": "grant",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "승인하다, 허가하다, 주다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "grant",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "승인하다, 허가하다, 주다, 허가, 보조금",
+    "meaning": "허가, 보조금",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20634,10 +28402,19 @@ const words = [
   {
     "word": "peer",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "동료; 동등한 것",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "peer",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "동료; 동등한 것, ~에 필적하다",
+    "meaning": "~에 필적하다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20685,10 +28462,19 @@ const words = [
   {
     "word": "fundamental",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "기초적인, 근본적인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "fundamental",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "기초적인, 근본적인, 기초, 근본",
+    "meaning": "기초, 근본",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20696,10 +28482,19 @@ const words = [
   {
     "word": "disgrace",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "불명예",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "disgrace",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "불명예, 수치를 주다",
+    "meaning": "수치를 주다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20737,10 +28532,19 @@ const words = [
   {
     "word": "aid",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "도움",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "aid",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "도움, 도와주다",
+    "meaning": "도와주다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20768,10 +28572,19 @@ const words = [
   {
     "word": "awe",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "경외감, 외경심",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "awe",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "경외감, 외경심, 온통 경외심을 갖게 하다",
+    "meaning": "온통 경외심을 갖게 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20779,10 +28592,19 @@ const words = [
   {
     "word": "manifest",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "명백한, 분명한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "manifest",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "명백한, 분명한, 명백히 하다, 증명하다",
+    "meaning": "명백히 하다, 증명하다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20790,10 +28612,19 @@ const words = [
   {
     "word": "repose",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "휴식, 쉼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "repose",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "휴식, 쉼, 쉬게하다",
+    "meaning": "쉬게하다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20831,10 +28662,19 @@ const words = [
   {
     "word": "boast",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "자랑하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "boast",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "자랑",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20932,10 +28772,19 @@ const words = [
   {
     "word": "size",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "크기, 치수, 넓이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "size",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "크기, 치수, 넓이, 크기를 표시하다 ; 크기를 바꾸다",
+    "meaning": "크기를 표시하다 ; 크기를 바꾸다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20953,10 +28802,19 @@ const words = [
   {
     "word": "rich",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "풍부한 ; 부유한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "rich",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "풍부한 ; 부유한, 부자 (the~)",
+    "meaning": "부자 (the~)",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20964,10 +28822,19 @@ const words = [
   {
     "word": "reign",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "군림하다, 통치하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "reign",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "군림하다, 통치하다, 통치, 지배",
+    "meaning": "통치, 지배",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -20985,10 +28852,19 @@ const words = [
   {
     "word": "fuel",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "연료를 공급하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "fuel",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "연료",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21046,10 +28922,19 @@ const words = [
   {
     "word": "survey",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "조사하다, 둘러보다, 점검하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "survey",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "조사하다, 둘러보다, 점검하다, (설문) 조사; 측량",
+    "meaning": "(설문) 조사; 측량",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21057,10 +28942,19 @@ const words = [
   {
     "word": "ultimate",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "최후의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "ultimate",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "최후의, 궁극",
+    "meaning": "궁극",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21078,11 +28972,19 @@ const words = [
   {
     "word": "line",
     "partOfSpeech": [
-      "n",
-      "v",
-      "안감"
+      "n"
     ],
-    "meaning": "선; 라인; 주름살, (옷 같은 것에) 안, 을 대다; 나란히 서다",
+    "meaning": "선; 라인; 주름살",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "line",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(옷 같은 것에) 안[안감]을 대다; 나란히 서다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21090,10 +28992,19 @@ const words = [
   {
     "word": "torment",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "고통, 고뇌",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "torment",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "고통, 고뇌, 고문하다",
+    "meaning": "고문하다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21101,10 +29012,19 @@ const words = [
   {
     "word": "miniature",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "축소지도, 축소모형",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "miniature",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "축소지도, 축소모형, 소형의",
+    "meaning": "소형의",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21162,10 +29082,19 @@ const words = [
   {
     "word": "draft",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "도안, 초안; 징병, 징집",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "draft",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "도안, 초안; 징병, 징집, ~의 밑그림을 그리다",
+    "meaning": "~의 밑그림을 그리다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21173,10 +29102,19 @@ const words = [
   {
     "word": "exempt",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "면제하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "exempt",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "면제하다, 면제된",
+    "meaning": "면제된",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21224,10 +29162,19 @@ const words = [
   {
     "word": "lure",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "유혹하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "lure",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "유혹하다, 미끼",
+    "meaning": "미끼",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21245,10 +29192,19 @@ const words = [
   {
     "word": "sovereign",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "독립의, 최고의 권력을 가진",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "sovereign",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "독립의, 최고의 권력을 가진, 주권자, 군주, 국왕",
+    "meaning": "주권자, 군주, 국왕",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21326,10 +29282,19 @@ const words = [
   {
     "word": "appeal",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "호소하다 ; 상소하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "appeal",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "호소하다 ; 상소하다, 호소; 간청; 매력",
+    "meaning": "호소; 간청; 매력",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21337,10 +29302,19 @@ const words = [
   {
     "word": "help",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "원조, 도움",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "help",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "원조, 도움, 돕다",
+    "meaning": "돕다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21468,10 +29442,19 @@ const words = [
   {
     "word": "hard",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "굳은, 단단한 ; 곤란한, 어려운",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "hard",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "굳은, 단단한 ; 곤란한, 어려운, 열심히, 힘껏; 힘들게",
+    "meaning": "열심히, 힘껏; 힘들게",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21499,10 +29482,19 @@ const words = [
   {
     "word": "envy",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "시기, 질투",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "envy",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "시기, 질투, 부러워하다, 질투하다",
+    "meaning": "부러워하다, 질투하다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21560,10 +29552,19 @@ const words = [
   {
     "word": "budget",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "예산(안); 비용",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "budget",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "예산(안); 비용, 예산을 세우다",
+    "meaning": "예산을 세우다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21591,10 +29592,19 @@ const words = [
   {
     "word": "male",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "남성의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "male",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "남성의, 남성, 남자",
+    "meaning": "남성, 남자",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21712,10 +29722,19 @@ const words = [
   {
     "word": "contract",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "계약, 합정",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "contract",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "계약, 합정, 계약하다, 동의하다 ; 수축하다, 줄어들다",
+    "meaning": "계약하다, 동의하다 ; 수축하다, 줄어들다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21763,10 +29782,19 @@ const words = [
   {
     "word": "witness",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "목격하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "witness",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "목격하다, 증거, 증언, 목격자",
+    "meaning": "증거, 증언, 목격자",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21774,10 +29802,19 @@ const words = [
   {
     "word": "register",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "등록하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "register",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "등록하다, 등록부, 명부",
+    "meaning": "등록부, 명부",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21825,10 +29862,19 @@ const words = [
   {
     "word": "feature",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "특징, 특색 ; 용모, 생김새",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "feature",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "특징, 특색 ; 용모, 생김새, 특징을 이루다, 보여주다",
+    "meaning": "특징을 이루다, 보여주다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21839,6 +29885,26 @@ const words = [
       "v"
     ],
     "meaning": "학대하다, 괴롭히다 ; 박해하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "decline",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "감소하다, 줄어들다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "decline",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "감소, 하락, 축소",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21886,10 +29952,19 @@ const words = [
   {
     "word": "initial",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "처음의, 최초의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "initial",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "처음의, 최초의, 머리글자, 첫글자",
+    "meaning": "머리글자, 첫글자",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -21937,10 +30012,19 @@ const words = [
   {
     "word": "free",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "자유롭게 하다 , 해방하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "free",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "자유롭게 하다 , 해방하다, 자유로운",
+    "meaning": "자유로운",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22058,10 +30142,19 @@ const words = [
   {
     "word": "staple",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "주요산물, 기본 식품",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "staple",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "주요산물, 기본 식품, 중요한",
+    "meaning": "중요한",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22089,10 +30182,19 @@ const words = [
   {
     "word": "regret",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "후회",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "regret",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "후회, 후회하다",
+    "meaning": "후회하다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22130,10 +30232,19 @@ const words = [
   {
     "word": "censure",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "비난",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "censure",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "비난, 비난하다",
+    "meaning": "비난하다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22161,10 +30272,19 @@ const words = [
   {
     "word": "toll",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "사상자 수 ; 통행세",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "toll",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "사상자 수 ; 통행세, 종이 울리다",
+    "meaning": "종이 울리다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22172,10 +30292,19 @@ const words = [
   {
     "word": "exhaust",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "소모하다 ; 배기하다, 방출하다 ; 지치게 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "exhaust",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "소모하다 ; 배기하다, 방출하다 ; 지치게 하다, 피곤한, 지친",
+    "meaning": "피곤한, 지친",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22183,10 +30312,19 @@ const words = [
   {
     "word": "revenge",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "복수, 원한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "revenge",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "복수, 원한, 복수하다",
+    "meaning": "복수하다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22214,10 +30352,19 @@ const words = [
   {
     "word": "train",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "훈련하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "train",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "훈련하다, 기차",
+    "meaning": "기차",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22225,10 +30372,19 @@ const words = [
   {
     "word": "tame",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "길들인, 온순한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "tame",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "길들인, 온순한, 길들이다",
+    "meaning": "길들이다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22326,10 +30482,19 @@ const words = [
   {
     "word": "end",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "목적, 결과, 죽음, 끝",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "end",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "목적, 결과, 죽음, 끝, 끝내다",
+    "meaning": "끝내다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22337,10 +30502,19 @@ const words = [
   {
     "word": "stern",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "단호한 ; 괴로운 ; 무시무시한",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "stern",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "단호한 ; 괴로운 ; 무시무시한, (배, 물건의) 뒷부분",
+    "meaning": "(배, 물건의) 뒷부분",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22398,10 +30572,19 @@ const words = [
   {
     "word": "spell",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "(지속되는) 기간 ; 주문",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 12
+  },
+  {
+    "word": "spell",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "(지속되는) 기간 ; 주문, 철자를 맞게 쓰다;(나쁜 결과를) 가져오다",
+    "meaning": "철자를 맞게 쓰다;(나쁜 결과를) 가져오다",
     "totalFails": 0,
     "category": "basic",
     "day": 12
@@ -22537,16 +30720,6 @@ const words = [
     "day": 12
   },
   {
-    "word": "astonish",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "놀라게 하다",
-    "totalFails": 0,
-    "category": "basic",
-    "day": 13
-  },
-  {
     "word": "hi",
     "partOfSpeech": [
       "int"
@@ -22579,10 +30752,19 @@ const words = [
   {
     "word": "term",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "조건 ; 용어 ; 기간",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "term",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "조건 ; 용어 ; 기간, ~로 칭하다, 용어짓다",
+    "meaning": "~로 칭하다, 용어짓다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -22720,10 +30902,19 @@ const words = [
   {
     "word": "net",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "그물",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "net",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "그물, 정미(正味)의, 순~",
+    "meaning": "정미(正味)의, 순~",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -22751,10 +30942,19 @@ const words = [
   {
     "word": "grasp",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "붙잡다, 움켜잡다 ; 이해하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "grasp",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "붙잡다, 움켜잡다 ; 이해하다, 붙잡음",
+    "meaning": "붙잡음",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -22802,10 +31002,19 @@ const words = [
   {
     "word": "work",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "일, 직장, 사무실",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "work",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "일, 직장, 사무실, 일하다, 근무하다",
+    "meaning": "일하다, 근무하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -22823,10 +31032,19 @@ const words = [
   {
     "word": "back",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "뒤, 등",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "back",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "뒤, 등, 돌아오다",
+    "meaning": "돌아오다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -22844,10 +31062,19 @@ const words = [
   {
     "word": "yellow",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "노란색",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "yellow",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "노란색, 노란색의",
+    "meaning": "노란색의",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -22865,10 +31092,19 @@ const words = [
   {
     "word": "influence",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "영향",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "influence",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "영향, 영향을 주다",
+    "meaning": "영향을 주다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -22896,10 +31132,19 @@ const words = [
   {
     "word": "decay",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "부식하다, 썩다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "decay",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "부식하다, 썩다, 부패, 부식;(사회제도 등의) 쇠퇴",
+    "meaning": "부패, 부식;(사회제도 등의) 쇠퇴[퇴락]",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -22907,10 +31152,19 @@ const words = [
   {
     "word": "act",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "행동하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "act",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "행동하다, 행동, 행위",
+    "meaning": "행동, 행위",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23008,10 +31262,19 @@ const words = [
   {
     "word": "vacuum",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "진공; 공백",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "vacuum",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "진공; 공백, 진공청소기로 청소하다",
+    "meaning": "진공청소기로 청소하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23029,10 +31292,19 @@ const words = [
   {
     "word": "point",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "(뾰족한)끝",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "point",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "(뾰족한)끝, ~를 가리키다",
+    "meaning": "~를 가리키다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23080,10 +31352,19 @@ const words = [
   {
     "word": "sin",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "죄, 죄악; 죄를 지음",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "sin",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "죄, 죄악; 죄를 지음, 죄를 짓다",
+    "meaning": "죄를 짓다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23131,10 +31412,19 @@ const words = [
   {
     "word": "due",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "~ 때문에; ~하기로 예정된",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "due",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "~ 때문에; ~하기로 예정된, ~에게 마땅히 주어져야(또는 내야) 하는 것;회비",
+    "meaning": "~에게 마땅히 주어져야(또는 내야) 하는 것;회비",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23152,10 +31442,19 @@ const words = [
   {
     "word": "collapse",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "붕괴",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "collapse",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "붕괴, 붕괴하다",
+    "meaning": "붕괴하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23203,10 +31502,19 @@ const words = [
   {
     "word": "disgust",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "혐오",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "disgust",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "혐오, 구역질나다, 혐오감을 유발하다",
+    "meaning": "구역질나다, 혐오감을 유발하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23214,10 +31522,19 @@ const words = [
   {
     "word": "rank",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "계급, 등급, 지위",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "rank",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "계급, 등급, 지위, 정렬하다, 배열하다",
+    "meaning": "정렬하다, 배열하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23265,10 +31582,19 @@ const words = [
   {
     "word": "idealist",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "이상주의자",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "idealist",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "이상주의자, 이상주의적인, 관념론적인",
+    "meaning": "이상주의적인, 관념론적인",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23276,10 +31602,19 @@ const words = [
   {
     "word": "advocate",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "옹호하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "advocate",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "옹호하다, 지지자, 신봉자",
+    "meaning": "지지자, 신봉자",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23327,10 +31662,19 @@ const words = [
   {
     "word": "there",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "그 곳에, 거기에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "there",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "그 곳에, 거기에, (be동사와 함께)~이 있다",
+    "meaning": "(be동사와 함께)~이 있다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23348,10 +31692,19 @@ const words = [
   {
     "word": "thirst",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "목마름, 갈망",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "thirst",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "목마름, 갈망, 갈망하다",
+    "meaning": "갈망하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23359,10 +31712,19 @@ const words = [
   {
     "word": "please",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "제발, 미안하지만",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "please",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "제발, 미안하지만, ~를 기쁘게 하다",
+    "meaning": "~를 기쁘게 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23370,10 +31732,19 @@ const words = [
   {
     "word": "reverse",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "뒤집다, 거꾸로 하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "reverse",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "뒤집다, 거꾸로 하다, (정)반대",
+    "meaning": "(정)반대",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23401,11 +31772,19 @@ const words = [
   {
     "word": "fund",
     "partOfSpeech": [
-      "n",
-      "v",
-      "기금"
+      "n"
     ],
-    "meaning": "자금, 기금; 돈, 을 대다",
+    "meaning": "자금, 기금; 돈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "fund",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "자금[기금]을 대다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23443,10 +31822,19 @@ const words = [
   {
     "word": "neutral",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "중립의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "neutral",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "중립",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23564,10 +31952,19 @@ const words = [
   {
     "word": "favor",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "호의, 친절한 행위, 지지",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "favor",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "호의, 친절한 행위, 지지, 찬성하다, 돕다",
+    "meaning": "찬성하다, 돕다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23585,10 +31982,19 @@ const words = [
   {
     "word": "approximate",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "대략의, 거의 정확한, 근사치인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "approximate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "대략의, 거의 정확한, 근사치인, 비슷하다",
+    "meaning": "비슷하다[가깝다]",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23696,10 +32102,19 @@ const words = [
   {
     "word": "broadcast",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "방송",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "broadcast",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "방송, 널리알리다, 방송하다 ; 광고하다",
+    "meaning": "널리알리다, 방송하다 ; 광고하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23757,10 +32172,19 @@ const words = [
   {
     "word": "next",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "(to와 함께) ~의 옆에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "next",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "(to와 함께) ~의 옆에, 다음의",
+    "meaning": "다음의",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23878,10 +32302,19 @@ const words = [
   {
     "word": "utter",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "전적인, 완전한, 제대로된",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "utter",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "전적인, 완전한, 제대로된, 발언하다, 입을 열다",
+    "meaning": "발언하다, 입을 열다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23889,10 +32322,19 @@ const words = [
   {
     "word": "bomb",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "폭탄",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "bomb",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "폭탄, 폭격하다",
+    "meaning": "폭격하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -23950,10 +32392,19 @@ const words = [
   {
     "word": "tremble",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "떨다, 떨리다; 흔들리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "tremble",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "떨다, 떨리다; 흔들리다, 떪, 떨림, 전율",
+    "meaning": "떪, 떨림, 전율",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24011,10 +32462,19 @@ const words = [
   {
     "word": "stir",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "휘젓다 ; 자극하다, 분발하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "stir",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "휘젓다 ; 자극하다, 분발하다, 소란,소동",
+    "meaning": "소란,소동",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24052,10 +32512,19 @@ const words = [
   {
     "word": "torture",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "고문, 고뇌",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "torture",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "고문, 고뇌, 고문하다, 고통을 주다",
+    "meaning": "고문하다, 고통을 주다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24073,10 +32542,19 @@ const words = [
   {
     "word": "left",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "왼쪽",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "left",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "왼쪽, leave의 과거.과거 분사형",
+    "meaning": "leave의 과거.과거 분사형",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24094,10 +32572,19 @@ const words = [
   {
     "word": "repair",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "수리하다, 수선하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "repair",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "수리",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24185,10 +32672,19 @@ const words = [
   {
     "word": "where",
     "partOfSpeech": [
-      "conj",
+      "conj"
+    ],
+    "meaning": "~곳",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "where",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "~곳, 어디에",
+    "meaning": "어디에",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24196,10 +32692,19 @@ const words = [
   {
     "word": "power",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "권위, 권력 ; 힘, 동력",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "power",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "권위, 권력 ; 힘, 동력, 동력을 공급하다, ~의 힘이 되다",
+    "meaning": "동력을 공급하다, ~의 힘이 되다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24267,10 +32772,19 @@ const words = [
   {
     "word": "grumble",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "불평하다, 투덜 거리다; 우르릉거리다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "grumble",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "불평하다, 투덜 거리다; 우르릉거리다, 불만 사항",
+    "meaning": "불만 사항",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24358,10 +32872,19 @@ const words = [
   {
     "word": "green",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "녹색",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "green",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "녹색, 녹색의",
+    "meaning": "녹색의",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24419,10 +32942,19 @@ const words = [
   {
     "word": "orbit",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "궤도; 영향권",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "orbit",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "궤도; 영향권, 궤도를 돌다",
+    "meaning": "궤도를 돌다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24430,10 +32962,19 @@ const words = [
   {
     "word": "warrant",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "영장 ; 근거, 보증",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "warrant",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "영장 ; 근거, 보증, 단언하다, 보증하다",
+    "meaning": "단언하다, 보증하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24501,10 +33042,19 @@ const words = [
   {
     "word": "within",
     "partOfSpeech": [
-      "prep",
+      "prep"
+    ],
+    "meaning": "(특정한 기간/거리) 안쪽에, ~이내에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "within",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "(특정한 기간/거리) 안쪽에, ~이내에, 내부에서, 안에서",
+    "meaning": "내부에서, 안에서",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24512,11 +33062,19 @@ const words = [
   {
     "word": "shame",
     "partOfSpeech": [
-      "n",
-      "v",
-      "부끄럽게"
+      "n"
     ],
-    "meaning": "수치, 치욕, 창피스럽게, 하다",
+    "meaning": "수치, 치욕",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "shame",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "창피스럽게[부끄럽게] 하다",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24554,10 +33112,19 @@ const words = [
   {
     "word": "patent",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "특허권",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "patent",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "특허권, 특허의",
+    "meaning": "특허의",
     "totalFails": 0,
     "category": "basic",
     "day": 13
@@ -24585,7 +33152,16 @@ const words = [
   {
     "word": "today",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "오늘",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 13
+  },
+  {
+    "word": "today",
+    "partOfSpeech": [
       "ad"
     ],
     "meaning": "오늘",
@@ -24606,10 +33182,29 @@ const words = [
   {
     "word": "when",
     "partOfSpeech": [
-      "conj",
+      "conj"
+    ],
+    "meaning": "~할 때",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "when",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "~할 때, 언제",
+    "meaning": "언제",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "can",
+    "partOfSpeech": [
+      "aux. v"
+    ],
+    "meaning": "~할 수 있다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -24957,10 +33552,19 @@ const words = [
   {
     "word": "hope",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "희망, 기대",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "hope",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "희망, 기대, ~을 바라다, 희망하다",
+    "meaning": "~을 바라다, 희망하다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25058,10 +33662,19 @@ const words = [
   {
     "word": "off",
     "partOfSpeech": [
-      "prep",
+      "prep"
+    ],
+    "meaning": "(옷.신발 등을) 벗고, 멀리",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "off",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "(옷.신발 등을) 벗고, 멀리, (전기.가스등을) 꺼 놓고",
+    "meaning": "(전기.가스등을) 꺼 놓고",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25119,10 +33732,19 @@ const words = [
   {
     "word": "rain",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "비",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "rain",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "비, 비가 오다",
+    "meaning": "비가 오다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25140,10 +33762,19 @@ const words = [
   {
     "word": "out",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "밖에",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "out",
+    "partOfSpeech": [
       "prep"
     ],
-    "meaning": "밖에, 밖으로",
+    "meaning": "밖으로",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25171,10 +33802,19 @@ const words = [
   {
     "word": "that",
     "partOfSpeech": [
-      "pron",
+      "pron"
+    ],
+    "meaning": "저것, 그것",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "that",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "저것, 그것, 저~, 그~",
+    "meaning": "저~, 그~",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25232,10 +33872,19 @@ const words = [
   {
     "word": "across",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "~을 건너서",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "across",
+    "partOfSpeech": [
       "prep"
     ],
-    "meaning": "~을 건너서, ~을 가로질러",
+    "meaning": "~을 가로질러",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25243,10 +33892,19 @@ const words = [
   {
     "word": "dress",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "드레스, 옷",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "dress",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "드레스, 옷, 옷 입다",
+    "meaning": "옷 입다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25344,10 +34002,19 @@ const words = [
   {
     "word": "some",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "얼마간의, 약간의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "some",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "얼마간의, 약간의, 대략, ~쯤",
+    "meaning": "대략, ~쯤",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25415,10 +34082,19 @@ const words = [
   {
     "word": "lie",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "거짓말",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "lie",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "거짓말, 눕다",
+    "meaning": "눕다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25446,7 +34122,16 @@ const words = [
   {
     "word": "yesterday",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "어제",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "yesterday",
+    "partOfSpeech": [
       "ad"
     ],
     "meaning": "어제",
@@ -25567,10 +34252,19 @@ const words = [
   {
     "word": "walk",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "걷기, 산책",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "walk",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "걷기, 산책, 걷다",
+    "meaning": "걷다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25578,10 +34272,19 @@ const words = [
   {
     "word": "print",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "인쇄",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "print",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "인쇄, 인쇄하다, 발행하다, (프린터에서) 프린트하다",
+    "meaning": "인쇄하다, 발행하다, (프린터에서) 프린트하다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -25989,10 +34692,19 @@ const words = [
   {
     "word": "skate",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "스케이트",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "skate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "스케이트, 스케이트 타다",
+    "meaning": "스케이트 타다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -26000,10 +34712,19 @@ const words = [
   {
     "word": "all",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "모든",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "all",
+    "partOfSpeech": [
       "pron"
     ],
-    "meaning": "모든, 모두, 전부",
+    "meaning": "모두, 전부",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -26141,10 +34862,19 @@ const words = [
   {
     "word": "silver",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "은색의",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "silver",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "은",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -26212,10 +34942,19 @@ const words = [
   {
     "word": "tape",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "(테이프로) ~을 붙이다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "tape",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "(테이프로) ~을 붙이다, 접착용 테이프, 녹음용 테이프",
+    "meaning": "접착용 테이프, 녹음용 테이프",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -26233,10 +34972,19 @@ const words = [
   {
     "word": "gold",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "황금, 금",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "gold",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "황금, 금, 황금으로 만든",
+    "meaning": "황금으로 만든",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -26254,10 +35002,19 @@ const words = [
   {
     "word": "rose",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "장미",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "rose",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "장미, rise의 과거형",
+    "meaning": "rise의 과거형",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -26483,6 +35240,16 @@ const words = [
     "day": 14
   },
   {
+    "word": "must",
+    "partOfSpeech": [
+      "aux. v"
+    ],
+    "meaning": "~해야 한다, ~임에 틀림없다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
     "word": "cassette",
     "partOfSpeech": [
       "n"
@@ -26525,10 +35292,19 @@ const words = [
   {
     "word": "wind",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "바람",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "wind",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "바람, ~을 감다",
+    "meaning": "~을 감다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -26536,10 +35312,19 @@ const words = [
   {
     "word": "cream",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "크림",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "cream",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "크림, 크림색의",
+    "meaning": "크림색의",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -26567,10 +35352,19 @@ const words = [
   {
     "word": "snow",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "눈",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 14
+  },
+  {
+    "word": "snow",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "눈, 눈이 내리다",
+    "meaning": "눈이 내리다",
     "totalFails": 0,
     "category": "basic",
     "day": 14
@@ -26628,7 +35422,16 @@ const words = [
   {
     "word": "tomorrow",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "내일",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "tomorrow",
+    "partOfSpeech": [
       "ad"
     ],
     "meaning": "내일",
@@ -26829,10 +35632,19 @@ const words = [
   {
     "word": "love",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "사랑하다, 아주 좋아하다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "love",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "사랑",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -26863,6 +35675,16 @@ const words = [
       "n"
     ],
     "meaning": "코",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "may",
+    "partOfSpeech": [
+      "aux. v"
+    ],
+    "meaning": "~해도 좋다(허락), ~일지도 모른다(추측)",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -26900,10 +35722,19 @@ const words = [
   {
     "word": "about",
     "partOfSpeech": [
-      "prep",
+      "prep"
+    ],
+    "meaning": "~에 대하여",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "about",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "~에 대하여, 대략~, 약~",
+    "meaning": "대략~, 약~",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -26941,10 +35772,19 @@ const words = [
   {
     "word": "no",
     "partOfSpeech": [
-      "int",
+      "int"
+    ],
+    "meaning": "(대답에서) 아니오",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "no",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "(대답에서) 아니오, a. 하나도~없는",
+    "meaning": "a. 하나도~없는",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27052,10 +35892,19 @@ const words = [
   {
     "word": "show",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "보여주다",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "show",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "보여주다, 구경거리, 쇼, 전시회",
+    "meaning": "구경거리, 쇼, 전시회",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27101,6 +35950,16 @@ const words = [
     "day": 15
   },
   {
+    "word": "shall",
+    "partOfSpeech": [
+      "aux. v"
+    ],
+    "meaning": "~하겠다, ~할까요",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
     "word": "knock",
     "partOfSpeech": [
       "v"
@@ -27123,10 +35982,19 @@ const words = [
   {
     "word": "which",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "어느 것",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "which",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "어느 것, 어느~",
+    "meaning": "어느~",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27144,10 +36012,19 @@ const words = [
   {
     "word": "hundred",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "백",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "hundred",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "백, 백의",
+    "meaning": "백의",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27225,10 +36102,19 @@ const words = [
   {
     "word": "black",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "검은",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "black",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "검은, 검은색",
+    "meaning": "검은색",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27246,10 +36132,19 @@ const words = [
   {
     "word": "blue",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "파란, 푸른",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "blue",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "파란, 푸른, 파란색, 푸른색",
+    "meaning": "파란색, 푸른색",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27277,10 +36172,19 @@ const words = [
   {
     "word": "under",
     "partOfSpeech": [
-      "prep",
+      "prep"
+    ],
+    "meaning": "~의 밑에, (나이, 가격이)~아래인",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "under",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "~의 밑에, (나이, 가격이)~아래인, ~한 상태인",
+    "meaning": "~한 상태인",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27288,10 +36192,19 @@ const words = [
   {
     "word": "kid",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "어린아이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "kid",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "어린아이, 농담하다",
+    "meaning": "농담하다",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27369,10 +36282,19 @@ const words = [
   {
     "word": "switch",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "스위치",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "switch",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "스위치, ~을 바꾸다",
+    "meaning": "~을 바꾸다",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27400,10 +36322,19 @@ const words = [
   {
     "word": "shop",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "상점, 가게",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "shop",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "상점, 가게, 장을 보다, 물건을 사다",
+    "meaning": "장을 보다, 물건을 사다",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27551,10 +36482,19 @@ const words = [
   {
     "word": "thousand",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "천(1,000)",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "thousand",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "천(1,000), 천의",
+    "meaning": "천의",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27760,6 +36700,16 @@ const words = [
     "day": 15
   },
   {
+    "word": "do",
+    "partOfSpeech": [
+      "aux. v"
+    ],
+    "meaning": "의문문.부정문의 조동사",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
     "word": "chalk",
     "partOfSpeech": [
       "n"
@@ -27852,10 +36802,19 @@ const words = [
   {
     "word": "zero",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "영(0)",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "zero",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "영(0), 영의",
+    "meaning": "영의",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -27963,10 +36922,19 @@ const words = [
   {
     "word": "same",
     "partOfSpeech": [
-      "pron",
+      "pron"
+    ],
+    "meaning": "같은 것",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "same",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "같은 것, 같은, 똑같은",
+    "meaning": "같은, 똑같은",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -28064,10 +37032,19 @@ const words = [
   {
     "word": "cat",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "고양이",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "cat",
+    "partOfSpeech": [
       "conj"
     ],
-    "meaning": "고양이, ~까지",
+    "meaning": "~까지",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -28135,11 +37112,29 @@ const words = [
   {
     "word": "as",
     "partOfSpeech": [
-      "ad",
-      "conj",
+      "ad"
+    ],
+    "meaning": "~만큼",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "as",
+    "partOfSpeech": [
+      "conj"
+    ],
+    "meaning": "~할 때",
+    "totalFails": 0,
+    "category": "basic",
+    "day": 15
+  },
+  {
+    "word": "as",
+    "partOfSpeech": [
       "prep"
     ],
-    "meaning": "~만큼, ~할 때, ~하면서, ~로서",
+    "meaning": "~하면서, ~로서",
     "totalFails": 0,
     "category": "basic",
     "day": 15
@@ -28147,245 +37142,22 @@ const words = [
   {
     "word": "ring",
     "partOfSpeech": [
-      "n",
-      "v"
+      "n"
     ],
-    "meaning": "반지, (종.벨이)울리다, (종.벨을)치다",
+    "meaning": "반지",
     "totalFails": 0,
     "category": "basic",
     "day": 15
   },
   {
-    "word": "codify",
+    "word": "ring",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "(체계적으로) 정리하다 ; (법률 등을) 성문화 하다",
+    "meaning": "(종.벨이)울리다, (종.벨을)치다",
     "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "impunity",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "처벌받지 않음",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "assault",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "공격하다, 공격을 가하다, 강습, 습격, 공격, 폭행",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "central",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "중심의, 기본적인",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "accusation",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "고발, 비난, 기소",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "satisfy",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "만족시키다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "stand for",
-    "partOfSpeech": [
-      "phr"
-    ],
-    "meaning": "~를 나타내다, ~을 상징하다; ~을 대표하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "recurring",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "되풀이되는 ; (수학) 순환하는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "mastery",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "전문 기술, 숙달, 지배력, 승리, 전문기술",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pledge",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "맹세, 담보, 보증",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "high",
-    "partOfSpeech": [
-      "a",
-      "ad"
-    ],
-    "meaning": "높은 ; 극도의, 극심한, 높이, 높은 곳에",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "arrange",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "가지런히 하다, 배열하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "cumulate",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "쌓아 올리다, 모으다, 쌓다, 축적하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "density",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "농도, 밀도",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "completely",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "완전히",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pigment",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "색소, 색깔",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "purveyor",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "공급업자, 납품 상인",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "whereby",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "무엇에 의하여, 어떻게 하여",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "miraculous",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "기적적인, 놀랄만한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "upbraid",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "신랄하게 비난하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "voracious",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "탐욕적인, 게걸스럽게 먹는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pervasive",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "퍼지는, 널리 미치는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "precision",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "정확, 정밀",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
+    "category": "basic",
+    "day": 15
   },
   {
     "word": "overcast",
@@ -28393,1151 +37165,6 @@ const words = [
       "a"
     ],
     "meaning": "구름 뒤덮인,흐린",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "depose",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "쫓아내다 ; 증언하다(법)",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "oversight",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "간과, 태만, 부주의 ; 감독, 감시",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "fume",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "증기, 연기, 몹시 화를 내다, (화가 나서) 씩씩대다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "soften",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "부드러워지다, 약해지다, 부드럽게 하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "thoroughly",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "철저히, 완전히, 철저하게, 대단히",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "consequent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "결과로서 일어나는, 결과로 일어나는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "paltry",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "사소한, 하찮은",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "refined",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "정제된, 세련된",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "aimless",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "목적 없는, 목표 없는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "lag",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "꾸물거리다; 처지다, 뒤떨어지다, 뒤처짐",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "prophetic",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "예언적인, 예언자의",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "meddlesome",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "간섭하기 좋아하는, 간섭하길 좋아하는, 참견하기 좋아하는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "tamper",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "참견하다, 간섭하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "moody",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "변덕스러운 ; 침울한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "auxiliary",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "보조의, 부가의",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "seep",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "스며 나오다, 새다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "intertwine",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "뒤엉키다, 뒤얽히다, 엮이다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "motif",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "(미술, 문학) 주제, 테마",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "mandatory",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "의무의, 강제의",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "inconspicuous",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "눈에 띄지 않는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "woe",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "비애, 고뇌",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "shallow",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "얕은, 피상적인, 얄팍한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "barter",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "교환하다, 교역하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "balmy",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "향기로운, 진정시키는 ; 아늑한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "frequent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "빈번한, 상습적인",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "impetus",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "힘, 운동량, 탄력",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "constrain",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "강요하다, 강제하다,구속하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "omit",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "생략하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "submerse",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "(물에) 가라앉다, 하강하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pressing",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "긴급한 ; 집요한, 간청하는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "ambiguous",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "모호한, 애매한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "dismal",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "음침한, 음울한, 침울한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "sensational",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "세상을 들끓게 하는 ; 감각의, 지각의, 세상을 놀라게 하는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "impartially",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "공명정대하게, 편견 없이",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "egoism",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "이기주의 ; 자만",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "on the spot",
-    "partOfSpeech": [
-      "phr"
-    ],
-    "meaning": "즉시,즉각; 현장에서",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "enlist",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "도움을 얻다, 협력을 얻다 ; 징집하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "mad",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "미친 ; 열광적인",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "senseless",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "무감각한 ; 무의미한 ; 무분별한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "corroborate",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "확증하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "verbose",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "말이 많은, 말 많은",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "in earnest",
-    "partOfSpeech": [
-      "phr"
-    ],
-    "meaning": "진지하게, 진심으로",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "touch off",
-    "partOfSpeech": [
-      "phr"
-    ],
-    "meaning": "야기하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "shred",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "(갈기갈기) 찢다, 조각",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "suspicion",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "혐의, 의심",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "coherent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "논리적인, 일관성 있는, 논리 정연한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "apparel",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "옷, 의복, 의상",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "clout",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "권력, 영향력, 때리다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "tissue",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "(세포)조직 ; 얇은 천",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "goodwill",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "친절, 온정, 친선, 호의",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "advent",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "출현, 도래",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "stylus",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "바늘, 첨필, 가느다란 펜",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "horrible",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "무서운, 끔찍한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "molten",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "녹은, 용해된",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pool",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "모임, 모이다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "it followed that",
-    "partOfSpeech": [
-      "phr"
-    ],
-    "meaning": "그 결과로서 ~가 되었다, 그 결과로서 ~가 되다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "ferry",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "나루터, 나룻배, 수송하다, 운송하다, 나르다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "inexorable",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "냉혹한 ; 멈출 수 없는, 거침없는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "asymmetric",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "균형을 잃은; 비대칭의",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "escalate",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "차츰 확대되다, 단계적으로 확대되다, 확대되다, 차츰 확대되다, 차츰 확대하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "lay down",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "내려놓다; (무기 등을) 버리다, 사임하다; 정하다, 규정하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "lengthen",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "길게 하다, 늘이다, 연장하다, 늘이다(늘리다)",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "fragment",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "파편, 조각",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "reprove",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "꾸짖다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "henceforth",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "앞으로, 차후, 지금부터, 이후로",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "deviation",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "탈선, 일탈, 벗어남, 편차",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "dispatch",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "파견(발송)하다, 보내다 ; (일을) 급히 처리하다, 파견, 발송",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "aptitude",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "경향, 습성 ; 적성",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pragmatic",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "실용적인",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "passionate",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "열렬한, 격렬한, 열정적인",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "genuinely",
-    "partOfSpeech": [
-      "ad"
-    ],
-    "meaning": "정말로, 성실하게, 진정으로, 진짜로",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "applicability",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "적절함, 적절성, 적용 가능성, 적용성",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "hoard",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "저장, 저장하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "altitude",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "높이, 고도",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "ambling",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "느긋한, 느린 걸음의",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "monetary",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "화폐의, 금전상의",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "disruption",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "붕괴, 혼란, 중단, 분열",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "alliance",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "동맹, 연합",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "inflate",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "부풀게 하다, 팽창시키다, 팽창하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "proprietor",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "소유주, 사업자",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pose",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "(위협.문제 등을)제기하다, 제출하다, 야기하다, 포즈(자세)",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "barge",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "배, 밀치고 가다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "assessment",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "평가, (과세를 위한) 조사, 사정",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "mammoth",
-    "partOfSpeech": [
-      "a",
-      "n"
-    ],
-    "meaning": "거대한, 매머드",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "constrict",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "압축하다, 죄다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "hallmark",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "특징 ; 품질 보증 마크",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "take place",
-    "partOfSpeech": [
-      "phr"
-    ],
-    "meaning": "일어나다, 발생하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "hallow",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "신성하게 하다,신성한 것으로 숭배하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "dilapidated",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "황폐한 ; 다 허물어져 가는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "refinement",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "정제, 정밀, 세련됨",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "ratify",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "확인하다, 승인하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "snug",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "아늑한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "elaborate",
-    "partOfSpeech": [
-      "a",
-      "v"
-    ],
-    "meaning": "정교한, 공들인, 정성들여 만들다, 정교하게 만들다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "blur",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "더러움, 얼룩, 흐릿한 형체, 희미해지다, 흐릿하게 만들다, 흐릿해지다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "stagger",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "비틀거리다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pungent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "찌르는, 날카로운, 신랄한, 매운",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "opulent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "비옥한, 풍부한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "convergence",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "집중성,집합점,수렴",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "petition",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "~에 청원하다, 청원, 탄원",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "likelihood",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "가망, 가능성",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "deter",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "단념시키다, 제지하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "uneasy",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "불편한; 불안한; 어수선한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "federal",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "연방의, 연합의",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "ability",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "능력, 재주, 수완",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "partition",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "분할, 분배, 분할하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "worldly",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "세속적인, 속세의",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "cumbersome",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "다루기 힘든, 버거운 ; 성가신, 다루기 어려운",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "acquaintance",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "(얕은) 교우관계, 아는 사람",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "resemblance",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "유사점, 닮음, 유사함, 비슷함",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "connotation",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "암시, 함축 ; (논리) 내포",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "emulate",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "모방하다 ; 겨루다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "inadequate",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "부적당(불충분)한, 부적당한, 부적당한, 불충분한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "extraneous",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "외래의, 이질적인 ; 관련이 없는, 관련없는",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -29553,72 +37180,11 @@ const words = [
     "day": 1
   },
   {
-    "word": "weariness",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "피로, 피곤, 싫증",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pact",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "협정, 조약, 약속",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "unbearable",
+    "word": "sensational",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "견딜 수 없는, 참기 어려운, 견디기 어려운, 참을 수 없는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "rove",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "돌아다니다, 어슬렁거리다, 배회",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "contaminate",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "오염시키다, 더럽히다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "at hand",
-    "partOfSpeech": [
-      "phr"
-    ],
-    "meaning": "사용 가능한, 사용할 수 있는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "jeopardy",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "위험",
+    "meaning": "세상을 들끓게 하는 ; 감각의, 지각의, 세상을 놀라게 하는",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -29626,30 +37192,19 @@ const words = [
   {
     "word": "pedestrian",
     "partOfSpeech": [
-      "n",
-      "a"
+      "n"
     ],
-    "meaning": "보행자, 도보의, 보행하는",
+    "meaning": "보행자",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "slack",
+    "word": "pedestrian",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "늘어진, 느슨한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "associated",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "연관된, 조합의",
+    "meaning": "도보의, 보행하는",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -29665,31 +37220,71 @@ const words = [
     "day": 1
   },
   {
-    "word": "margin",
+    "word": "oversight",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "가장자리, 물가 ; 판매수익, 이윤",
+    "meaning": "간과, 태만, 부주의 ; 감독, 감시",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "lead to",
+    "word": "shred",
     "partOfSpeech": [
-      "phr"
+      "v"
     ],
-    "meaning": "결과를 초래하다",
+    "meaning": "(갈기갈기) 찢다",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "longevity",
+    "word": "shred",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "장수, 수명",
+    "meaning": "조각",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "upbraid",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "신랄하게 비난하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "purveyor",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "공급업자, 납품 상인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "deviation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "탈선, 일탈, 벗어남, 편차",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "horrible",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "무서운, 끔찍한",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -29705,91 +37300,11 @@ const words = [
     "day": 1
   },
   {
-    "word": "abject",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "비열한, 비굴한, 절망적인",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "interwind",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "한데 감다, 얽히(게 하)다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "villain",
+    "word": "dweller",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "악당, 놈",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "spacious",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "넓은 ; 풍부한, 널찍한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "sturdy",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "억센, 튼튼한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "bizarre",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "기괴한, 별난",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "praiseworthy",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "칭찬할 만한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "arid",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "건조한, 메마른",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "assail",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "맹렬히 공격하다, 습격하다",
+    "meaning": "거주자, 주민",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -29797,132 +37312,49 @@ const words = [
   {
     "word": "elapse",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
-    "meaning": "경과하다, (시간) 경과",
+    "meaning": "경과하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "depreciation",
+    "word": "elapse",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "가치하락",
+    "meaning": "(시간) 경과",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "lax",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "느슨한, 늘어진, 해이한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "broad",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "폭이 넓은",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "promising",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "가망있는, 유망한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "pitiful",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "가엾은, 처량한 ; 인정 많은, 동정적인, 측은한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "formulate",
+    "word": "submerse",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "명확히 말하다, 공식화 하다",
+    "meaning": "(물에) 가라앉다, 하강하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "incorporation",
+    "word": "hallow",
     "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "혼합, 포함",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "belly",
-    "partOfSpeech": [
-      "n",
       "v"
     ],
-    "meaning": "(신체)배, 부풀다",
+    "meaning": "신성하게 하다,신성한 것으로 숭배하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "standstill",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "정지, 답보 상태",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "sensible",
+    "word": "inconspicuous",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "분별있는, 현명한, 합리적인, 분별력 있는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "consort",
-    "partOfSpeech": [
-      "n",
-      "v"
-    ],
-    "meaning": "(통치자의) 배우자; 합주단, 합창대, (나쁜 사람)과 교제하다, 사귀다, 어울리다; 일치하다, 조화하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "equitable",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "공정한, 공평한",
+    "meaning": "눈에 띄지 않는",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -29938,172 +37370,171 @@ const words = [
     "day": 1
   },
   {
-    "word": "intersect",
+    "word": "lax",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "느슨한, 늘어진, 해이한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "codify",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "교차하다, 가로지르다",
+    "meaning": "(체계적으로) 정리하다 ; (법률 등을) 성문화 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "obsolete",
+    "word": "recurring",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "구식의, 쓸모 없어진",
+    "meaning": "되풀이되는 ; (수학) 순환하는",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "deviate",
+    "word": "clout",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "권력, 영향력",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "clout",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "빗나가다, 벗어나다",
+    "meaning": "때리다",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "touching",
+    "word": "dismal",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "감동적인, 애처로운",
+    "meaning": "음침한, 음울한, 침울한",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "enrage",
+    "word": "inexorable",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "냉혹한 ; 멈출 수 없는, 거침없는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "corroborate",
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "성나게 하다",
+    "meaning": "확증하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "gigantic",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "거인 같은, 거대한",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "fluctuation",
+    "word": "ability",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "파동, 동요, 변동, (사람 마음의)동요",
+    "meaning": "능력, 재주, 수완",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "short-lived",
+    "word": "ambling",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "단기간의, 오래가지 못하는, 단기적인",
+    "meaning": "느긋한, 느린 걸음의",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "emergent",
+    "word": "high",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "뜻밖의, 의외의 ; 신생의",
+    "meaning": "높은 ; 극도의, 극심한",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "disentangle",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "엉킨것을 풀다, 문제를 해결하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "jettison",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "버리다; 투하하다, 포기하다, 포기",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "expertise",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "전문적 기술(지식), 전문지식, 전문기술",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "conduit",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "도관, 선, 전선관",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "inconsistent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "일치하지 않는, 모순된",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 1
-  },
-  {
-    "word": "comparatively",
+    "word": "high",
     "partOfSpeech": [
       "ad"
     ],
-    "meaning": "비교적, 꽤",
+    "meaning": "높이, 높은 곳에",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "dweller",
+    "word": "woe",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "거주자, 주민",
+    "meaning": "비애, 고뇌",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "regardless",
+    "word": "sturdy",
     "partOfSpeech": [
       "a"
     ],
-    "meaning": "부주의한, 관심 없는, 개의치 않고",
+    "meaning": "억센, 튼튼한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "arrange",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "가지런히 하다, 배열하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "enlist",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "도움을 얻다, 협력을 얻다 ; 징집하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "aptitude",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경향, 습성 ; 적성",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -30119,22 +37550,641 @@ const words = [
     "day": 1
   },
   {
-    "word": "wonder",
+    "word": "impunity",
     "partOfSpeech": [
-      "v",
       "n"
     ],
-    "meaning": "놀라다, 이상히 여기다, 경이",
+    "meaning": "처벌받지 않음",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
   },
   {
-    "word": "cross-hatching",
+    "word": "tamper",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "참견하다, 간섭하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "weariness",
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "음영",
+    "meaning": "피로, 피곤, 싫증",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "escalate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "차츰 확대되다, 단계적으로 확대되다, 확대되다, 차츰 확대되다, 차츰 확대하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "altitude",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "높이, 고도",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "formulate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "명확히 말하다, 공식화 하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "mad",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "미친 ; 열광적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "villain",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "악당, 놈",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "henceforth",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "앞으로, 차후, 지금부터, 이후로",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "gigantic",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "거인 같은, 거대한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "dispatch",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "파견(발송)하다, 보내다 ; (일을) 급히 처리하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "dispatch",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "파견, 발송",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "associated",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "연관된, 조합의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "disentangle",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "엉킨것을 풀다, 문제를 해결하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "thoroughly",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "철저히, 완전히, 철저하게, 대단히",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "partition",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "분할, 분배",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "partition",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "분할하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "elaborate",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "정교한, 공들인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "elaborate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "정성들여 만들다, 정교하게 만들다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "advent",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "출현, 도래",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "emergent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "뜻밖의, 의외의 ; 신생의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "contaminate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "오염시키다, 더럽히다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "depose",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "쫓아내다 ; 증언하다(법)",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pitiful",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "가엾은, 처량한 ; 인정 많은, 동정적인, 측은한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "genuinely",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "정말로, 성실하게, 진정으로, 진짜로",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "federal",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "연방의, 연합의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "moody",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "변덕스러운 ; 침울한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "completely",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "완전히",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "rove",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "돌아다니다, 어슬렁거리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "rove",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "배회",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "jeopardy",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "위험",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "on the spot",
+    "partOfSpeech": [
+      "phr"
+    ],
+    "meaning": "즉시,즉각; 현장에서",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "margin",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가장자리, 물가 ; 판매수익, 이윤",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "unbearable",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "견딜 수 없는, 참기 어려운, 견디기 어려운, 참을 수 없는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "asymmetric",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "균형을 잃은; 비대칭의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "suspicion",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "혐의, 의심",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "satisfy",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "만족시키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "lead to",
+    "partOfSpeech": [
+      "phr"
+    ],
+    "meaning": "결과를 초래하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "fragment",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "파편, 조각",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "barter",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "교환하다, 교역하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "resemblance",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "유사점, 닮음, 유사함, 비슷함",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "frequent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "빈번한, 상습적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "incorporation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "혼합, 포함",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "hoard",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "저장",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "hoard",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "저장하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "mammoth",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "거대한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "mammoth",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "매머드",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "ferry",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "나루터, 나룻배",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "ferry",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "수송하다, 운송하다, 나르다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "mandatory",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "의무의, 강제의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "inadequate",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "부적당(불충분)한, 부적당한, 부적당한, 불충분한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "belly",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "(신체)배",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "belly",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "부풀다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "emulate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "모방하다 ; 겨루다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "spacious",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "넓은 ; 풍부한, 널찍한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "refined",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "정제된, 세련된",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "shallow",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "얕은, 피상적인, 얄팍한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "reprove",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "꾸짖다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "dilapidated",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "황폐한 ; 다 허물어져 가는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pledge",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "맹세, 담보, 보증",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "conduit",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "도관, 선, 전선관",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "enrage",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "성나게 하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "short-lived",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "단기간의, 오래가지 못하는, 단기적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "acquaintance",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "(얕은) 교우관계, 아는 사람",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -30150,11 +38200,301 @@ const words = [
     "day": 1
   },
   {
+    "word": "take place",
+    "partOfSpeech": [
+      "phr"
+    ],
+    "meaning": "일어나다, 발생하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "interwind",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "한데 감다, 얽히(게 하)다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "lag",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "꾸물거리다; 처지다, 뒤떨어지다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "lag",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "뒤처짐",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "balmy",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "향기로운, 진정시키는 ; 아늑한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "arid",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "건조한, 메마른",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "assault",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "공격하다, 공격을 가하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "assault",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "강습, 습격, 공격, 폭행",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "deviate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "빗나가다, 벗어나다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "impetus",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "힘, 운동량, 탄력",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "refinement",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정제, 정밀, 세련됨",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "intertwine",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "뒤엉키다, 뒤얽히다, 엮이다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "soften",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "부드러워지다, 약해지다, 부드럽게 하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "goodwill",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "친절, 온정, 친선, 호의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pungent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "찌르는, 날카로운, 신랄한, 매운",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "in earnest",
+    "partOfSpeech": [
+      "phr"
+    ],
+    "meaning": "진지하게, 진심으로",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
     "word": "as a whole",
     "partOfSpeech": [
       "phr"
     ],
     "meaning": "전체적으로",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "wonder",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "놀라다, 이상히 여기다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "wonder",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경이",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "intersect",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "교차하다, 가로지르다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "praiseworthy",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "칭찬할 만한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "likelihood",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가망, 가능성",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "senseless",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "무감각한 ; 무의미한 ; 무분별한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "stylus",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "바늘, 첨필, 가느다란 펜",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "broad",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "폭이 넓은",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "bizarre",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "기괴한, 별난",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "consequent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "결과로서 일어나는, 결과로 일어나는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "constrain",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "강요하다, 강제하다,구속하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "blur",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "더러움, 얼룩, 흐릿한 형체",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "blur",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "희미해지다, 흐릿하게 만들다, 흐릿해지다",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -30175,6 +38515,886 @@ const words = [
       "a"
     ],
     "meaning": "멸종된, 단절된",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pervasive",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "퍼지는, 널리 미치는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "depreciation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가치하락",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "precision",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정확, 정밀",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "meddlesome",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "간섭하기 좋아하는, 간섭하길 좋아하는, 참견하기 좋아하는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "cross-hatching",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "음영",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "worldly",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "세속적인, 속세의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "impartially",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "공명정대하게, 편견 없이",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "verbose",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "말이 많은, 말 많은",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "monetary",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "화폐의, 금전상의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "cumbersome",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "다루기 힘든, 버거운 ; 성가신, 다루기 어려운",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "coherent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "논리적인, 일관성 있는, 논리 정연한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "comparatively",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "비교적, 꽤",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "standstill",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "정지, 답보 상태",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pragmatic",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "실용적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "regardless",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "부주의한, 관심 없는, 개의치 않고",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "seep",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "스며 나오다, 새다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "abject",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "비열한, 비굴한, 절망적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "consort",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "(통치자의) 배우자; 합주단, 합창대",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "consort",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(나쁜 사람)과 교제하다, 사귀다, 어울리다; 일치하다, 조화하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "miraculous",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "기적적인, 놀랄만한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "proprietor",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "소유주, 사업자",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "expertise",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "전문적 기술(지식), 전문지식, 전문기술",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "accusation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "고발, 비난, 기소",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "opulent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "비옥한, 풍부한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "stand for",
+    "partOfSpeech": [
+      "phr"
+    ],
+    "meaning": "~를 나타내다, ~을 상징하다; ~을 대표하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "whereby",
+    "partOfSpeech": [
+      "ad"
+    ],
+    "meaning": "무엇에 의하여, 어떻게 하여",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "egoism",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "이기주의 ; 자만",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "mastery",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "전문 기술, 숙달, 지배력, 승리, 전문기술",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pact",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "협정, 조약, 약속",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "density",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "농도, 밀도",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "applicability",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "적절함, 적절성, 적용 가능성, 적용성",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "inconsistent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "일치하지 않는, 모순된",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "lengthen",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "길게 하다, 늘이다, 연장하다, 늘이다(늘리다)",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "omit",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "생략하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "aimless",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "목적 없는, 목표 없는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "snug",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "아늑한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "motif",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "(미술, 문학) 주제, 테마",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "barge",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "배",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "barge",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "밀치고 가다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "convergence",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "집중성,집합점,수렴",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pressing",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "긴급한 ; 집요한, 간청하는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "deter",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "단념시키다, 제지하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "alliance",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "동맹, 연합",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pool",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "모임",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pool",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "모이다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "auxiliary",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "보조의, 부가의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "fluctuation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "파동, 동요, 변동, (사람 마음의)동요",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "equitable",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "공정한, 공평한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "extraneous",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "외래의, 이질적인 ; 관련이 없는, 관련없는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "obsolete",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "구식의, 쓸모 없어진",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pose",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "(위협.문제 등을)제기하다, 제출하다, 야기하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pose",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "포즈(자세)",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "touching",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "감동적인, 애처로운",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "ratify",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "확인하다, 승인하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "it followed that",
+    "partOfSpeech": [
+      "phr"
+    ],
+    "meaning": "그 결과로서 ~가 되었다, 그 결과로서 ~가 되다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "ambiguous",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "모호한, 애매한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "jettison",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "버리다; 투하하다, 포기하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "jettison",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "포기",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "tissue",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "(세포)조직 ; 얇은 천",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "slack",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "늘어진, 느슨한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "assail",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "맹렬히 공격하다, 습격하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "at hand",
+    "partOfSpeech": [
+      "phr"
+    ],
+    "meaning": "사용 가능한, 사용할 수 있는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "uneasy",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "불편한; 불안한; 어수선한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "lay down",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "내려놓다; (무기 등을) 버리다, 사임하다; 정하다, 규정하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "stagger",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "비틀거리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "voracious",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "탐욕적인, 게걸스럽게 먹는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "assessment",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "평가, (과세를 위한) 조사, 사정",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "paltry",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "사소한, 하찮은",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "sensible",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "분별있는, 현명한, 합리적인, 분별력 있는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "inflate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "부풀게 하다, 팽창시키다, 팽창하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "constrict",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "압축하다, 죄다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "pigment",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "색소, 색깔",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "touch off",
+    "partOfSpeech": [
+      "phr"
+    ],
+    "meaning": "야기하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "promising",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "가망있는, 유망한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "prophetic",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "예언적인, 예언자의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "central",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "중심의, 기본적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "apparel",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "옷, 의복, 의상",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "fume",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "증기, 연기",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "fume",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "몹시 화를 내다, (화가 나서) 씩씩대다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "connotation",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "암시, 함축 ; (논리) 내포",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "cumulate",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "쌓아 올리다, 모으다, 쌓다, 축적하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "hallmark",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "특징 ; 품질 보증 마크",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "molten",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "녹은, 용해된",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "longevity",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "장수, 수명",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "disruption",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "붕괴, 혼란, 중단, 분열",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "petition",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "~에 청원하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "petition",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "청원, 탄원",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 1
+  },
+  {
+    "word": "passionate",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "열렬한, 격렬한, 열정적인",
     "totalFails": 0,
     "category": "toefl",
     "day": 1
@@ -30322,10 +39542,19 @@ const words = [
   {
     "word": "antiseptic",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "방부의, (매우)청결한, 소독된",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "antiseptic",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "방부의, (매우)청결한, 소독된, 방부제",
+    "meaning": "방부제",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -30363,10 +39592,19 @@ const words = [
   {
     "word": "tug",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "끌다, 당기다, 세게 당기다, 잡아끌다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "tug",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "끌다, 당기다, 세게 당기다, 잡아끌다, 세게 당김",
+    "meaning": "세게 당김",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -30404,10 +39642,19 @@ const words = [
   {
     "word": "stall",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "시간을 벌다, 지체하다, 지체시키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "stall",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "시간을 벌다, 지체하다, 지체시키다, 마구간",
+    "meaning": "마구간",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -30425,10 +39672,19 @@ const words = [
   {
     "word": "burrow",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "굴, 은신처",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "burrow",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "굴, 은신처, 굴을 파다",
+    "meaning": "굴을 파다",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -30546,10 +39802,19 @@ const words = [
   {
     "word": "provision",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "준비, 식량, 양식 ; (법률) 규정, 공급",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "provision",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "준비, 식량, 양식 ; (법률) 규정, 공급, 공급하다, 제공하다, 보급하다",
+    "meaning": "공급하다, 제공하다, 보급하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -30567,10 +39832,19 @@ const words = [
   {
     "word": "express",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "표현하다, 의사를 표현하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "express",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "표현하다, 의사를 표현하다, 급행의, 신속한",
+    "meaning": "급행의, 신속한",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -30638,10 +39912,19 @@ const words = [
   {
     "word": "smooth",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "평탄한, 매끄러운, 부드러운",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "smooth",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "평탄한, 매끄러운, 부드러운, 매끄럽게 하다, 부드럽게 하다",
+    "meaning": "매끄럽게 하다, 부드럽게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -30799,10 +40082,19 @@ const words = [
   {
     "word": "pack",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "싸다, 포장하다, 짐을 싸다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "pack",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "싸다, 포장하다, 짐을 싸다, 꾸러미, 보따리 ; (사냥개 등) 한 떼(무리)",
+    "meaning": "꾸러미, 보따리 ; (사냥개 등) 한 떼(무리)",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -30940,10 +40232,19 @@ const words = [
   {
     "word": "objective",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "객관적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "objective",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "객관적인, 목적, 목표",
+    "meaning": "목적, 목표",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -30951,10 +40252,19 @@ const words = [
   {
     "word": "lull",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "달래다, 진정시키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "lull",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "달래다, 진정시키다, 일시적인 고요, 진정",
+    "meaning": "일시적인 고요, 진정",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31002,10 +40312,19 @@ const words = [
   {
     "word": "ease",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "용이, 편함",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "ease",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "용이, 편함, 완화시키다, 용이하게 하다, 완화하다",
+    "meaning": "완화시키다, 용이하게 하다, 완화하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31033,8 +40352,7 @@ const words = [
   {
     "word": "derivative",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "파생의, 끌어낸, 파생물의",
     "totalFails": 0,
@@ -31042,12 +40360,31 @@ const words = [
     "day": 2
   },
   {
-    "word": "acclaim",
+    "word": "derivative",
     "partOfSpeech": [
-      "v",
       "n"
     ],
-    "meaning": "갈채하다, 환호하다, 갈채, 환호",
+    "meaning": "파생물",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "acclaim",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "갈채하다, 환호하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "acclaim",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "갈채, 환호",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31055,10 +40392,19 @@ const words = [
   {
     "word": "sweep",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "청소하다, 쓸다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "sweep",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "청소하다, 쓸다, 쓸기",
+    "meaning": "쓸기",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31076,10 +40422,19 @@ const words = [
   {
     "word": "instrumental",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "중요한; 악기에 의한 ; 악기의, 도구의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "instrumental",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "중요한; 악기에 의한 ; 악기의, 도구의, 기악곡",
+    "meaning": "기악곡",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31207,10 +40562,19 @@ const words = [
   {
     "word": "traverse",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "가로지르다, 횡단하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "traverse",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "가로지르다, 횡단하다, 횡단, 횡단 지역",
+    "meaning": "횡단, 횡단 지역",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31368,10 +40732,19 @@ const words = [
   {
     "word": "chisel",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "조각하다, 조각내다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "chisel",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "조각하다, 조각내다, 끌, 조각 칼, 조각",
+    "meaning": "끌, 조각 칼, 조각",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31389,10 +40762,19 @@ const words = [
   {
     "word": "startle",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "깜짝 놀라게하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "startle",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "깜짝 놀라게하다, 놀람",
+    "meaning": "놀람",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31490,10 +40872,19 @@ const words = [
   {
     "word": "moan",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "신음하다, 불평을 하다, 신음소리내다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "moan",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "신음소리",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31581,8 +40972,7 @@ const words = [
   {
     "word": "array",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "배열하다, 진열하다, 정렬하다",
     "totalFails": 0,
@@ -31590,12 +40980,31 @@ const words = [
     "day": 2
   },
   {
+    "word": "array",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "진열",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
     "word": "deluge",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "대홍수",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "deluge",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "대홍수, 범람시키다, 쇄도하다",
+    "meaning": "범람시키다, 쇄도하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31703,10 +41112,19 @@ const words = [
   {
     "word": "antecedent",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "선조; 선행 사건; 선례, 전례",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "antecedent",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "선조; 선행 사건; 선례, 전례, 선행된, 이전의",
+    "meaning": "선행된, 이전의",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31744,10 +41162,19 @@ const words = [
   {
     "word": "pit",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "구멍",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "pit",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "구멍, 움푹 들어가게 하다",
+    "meaning": "움푹 들어가게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31795,10 +41222,19 @@ const words = [
   {
     "word": "snatch",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "(와락) 붙잡다, 낚아채다, 붙잡다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "snatch",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "(와락) 붙잡다, 낚아채다, 붙잡다, 조각",
+    "meaning": "조각",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31816,10 +41252,19 @@ const words = [
   {
     "word": "motion",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "운동, 동작",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "motion",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "운동, 동작, 몸짓으로 알리다, 움직임으로 말하다",
+    "meaning": "몸짓으로 알리다, 움직임으로 말하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31907,10 +41352,19 @@ const words = [
   {
     "word": "purge",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "깨끗이 하다, 제거하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "purge",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "제거",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -31928,7 +41382,16 @@ const words = [
   {
     "word": "underneath",
     "partOfSpeech": [
-      "prep",
+      "prep"
+    ],
+    "meaning": "~의 아래에",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "underneath",
+    "partOfSpeech": [
       "ad"
     ],
     "meaning": "~의 아래에",
@@ -32049,10 +41512,19 @@ const words = [
   {
     "word": "graft",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "접목, 이식",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "graft",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "접목, 이식, 접목하다",
+    "meaning": "접목하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -32110,10 +41582,19 @@ const words = [
   {
     "word": "wangle",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "속임수로 손에 넣다, 용케 구하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "wangle",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "속임수로 손에 넣다, 용케 구하다, 교활한 책략, 치밀한 책략",
+    "meaning": "교활한 책략, 치밀한 책략",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -32171,10 +41652,19 @@ const words = [
   {
     "word": "blaze",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "불꽃, 섬광",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 2
+  },
+  {
+    "word": "blaze",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "불꽃, 섬광, 타오르다, 빛나다",
+    "meaning": "타오르다, 빛나다",
     "totalFails": 0,
     "category": "toefl",
     "day": 2
@@ -32212,10 +41702,19 @@ const words = [
   {
     "word": "taunt",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "비웃음",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "taunt",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "비웃음, 비웃다, 조롱하다",
+    "meaning": "비웃다, 조롱하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -32653,10 +42152,19 @@ const words = [
   {
     "word": "block",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "큰덩이 ; 받침대 ; 장애물",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "block",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "큰덩이 ; 받침대 ; 장애물, 막다",
+    "meaning": "막다",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -32774,10 +42282,19 @@ const words = [
   {
     "word": "brood",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "무리, 종족",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "brood",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "무리, 종족, 알을 품다 ; 곰곰이 생각하다",
+    "meaning": "알을 품다 ; 곰곰이 생각하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -32805,10 +42322,19 @@ const words = [
   {
     "word": "sweat",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "땀, 땀 흘림",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "sweat",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "땀, 땀 흘림, 땀 흘리게 하다, 땀흐르게 하다",
+    "meaning": "땀 흘리게 하다, 땀흐르게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -32846,10 +42372,19 @@ const words = [
   {
     "word": "surrounding",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "주변 환경",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "surrounding",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "주변 환경, 주위의, 주변의",
+    "meaning": "주위의, 주변의",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -32877,10 +42412,19 @@ const words = [
   {
     "word": "loose",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "헐거운, 풀린",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "loose",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "헐거운, 풀린, 풀다",
+    "meaning": "풀다",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -32918,10 +42462,19 @@ const words = [
   {
     "word": "fetter",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "구속하다, 제한하다, 속박하다, 족쇄를 채우다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "fetter",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "구속하다, 제한하다, 속박하다, 족쇄를 채우다, 속박, 구속; 족쇄",
+    "meaning": "속박, 구속; 족쇄",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -32929,10 +42482,19 @@ const words = [
   {
     "word": "season",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "(양념을) 넣다, 양념하다;맛을 내다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "season",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "(양념을) 넣다, 양념하다;맛을 내다, 계절",
+    "meaning": "계절",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -32950,10 +42512,19 @@ const words = [
   {
     "word": "jolt",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "갑자기 세게 흔들다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "jolt",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "갑자기 세게 흔들다, 충격",
+    "meaning": "충격",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -32961,11 +42532,29 @@ const words = [
   {
     "word": "notwithstanding",
     "partOfSpeech": [
-      "prep",
-      "conj",
+      "prep"
+    ],
+    "meaning": "그럼에도 불구하고",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "notwithstanding",
+    "partOfSpeech": [
+      "conj"
+    ],
+    "meaning": "~일 지라도",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "notwithstanding",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "그럼에도 불구하고, ~일 지라도",
+    "meaning": "그럼에도 불구하고",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33033,10 +42622,19 @@ const words = [
   {
     "word": "requisite",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "필요한, 없어서는 안될",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "requisite",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "필요한, 없어서는 안될, 필요품",
+    "meaning": "필요품",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33104,10 +42702,19 @@ const words = [
   {
     "word": "mess",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "혼란",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "mess",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "혼란, 더럽히다, 혼란스럽게 하다",
+    "meaning": "더럽히다, 혼란스럽게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33395,10 +43002,19 @@ const words = [
   {
     "word": "sway",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "흔들다, 동요시키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "sway",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "흔들다, 동요시키다, 흔들림",
+    "meaning": "흔들림",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33476,10 +43092,19 @@ const words = [
   {
     "word": "jeer",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "조롱하다, 야유하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "jeer",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "조롱",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33567,10 +43192,19 @@ const words = [
   {
     "word": "surge",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "쇄도하다, 급격히 증가하다 ; (파도처럼)밀려오다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "surge",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "쇄도하다, 급격히 증가하다 ; (파도처럼)밀려오다, 큰 파도",
+    "meaning": "큰 파도",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33588,10 +43222,19 @@ const words = [
   {
     "word": "flush",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "물로 씻어 내리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "flush",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "물로 씻어 내리다, 평평한",
+    "meaning": "평평한",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33639,10 +43282,19 @@ const words = [
   {
     "word": "terminal",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "최종적인, 궁극적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "terminal",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "최종적인, 궁극적인, 끝, 종점",
+    "meaning": "끝, 종점",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33680,10 +43332,19 @@ const words = [
   {
     "word": "expedient",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "방편, 처방, 방책",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "expedient",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "방편, 처방, 방책, 편리한, 유리한",
+    "meaning": "편리한, 유리한",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33691,10 +43352,19 @@ const words = [
   {
     "word": "slant",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "기울다. 경사지다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "slant",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "경사",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33712,10 +43382,19 @@ const words = [
   {
     "word": "compliment",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "칭찬하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "compliment",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "칭찬하다, 경의 ; 칭찬",
+    "meaning": "경의 ; 칭찬",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33743,10 +43422,19 @@ const words = [
   {
     "word": "litter",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "잡동사니, 쓰레기",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "litter",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "잡동사니, 쓰레기, 흐트러져 어지럽히다, 흩어져 어지럽히다, 어수선하게 만들다",
+    "meaning": "흐트러져 어지럽히다, 흩어져 어지럽히다, 어수선하게 만들다",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33824,10 +43512,19 @@ const words = [
   {
     "word": "just",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "타당한, 공정한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "just",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "타당한, 공정한, 단지,가까스로,간신히; 정확히, 딱",
+    "meaning": "단지,가까스로,간신히; 정확히, 딱",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -33905,10 +43602,19 @@ const words = [
   {
     "word": "cowardly",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "겁 많은, 소심한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "cowardly",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "겁 많은, 소심한, 비겁하게",
+    "meaning": "비겁하게",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -34006,10 +43712,19 @@ const words = [
   {
     "word": "bridle",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "굴레",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "bridle",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "굴레, 굴레를 씌우다",
+    "meaning": "굴레를 씌우다",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -34027,10 +43742,19 @@ const words = [
   {
     "word": "submarine",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "해저의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "submarine",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "해저의, 잠수함",
+    "meaning": "잠수함",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -34038,10 +43762,19 @@ const words = [
   {
     "word": "inverse",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "반대의, 역의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "inverse",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "반대의, 역의, 반대, 역",
+    "meaning": "반대, 역",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -34199,11 +43932,29 @@ const words = [
   {
     "word": "content",
     "partOfSpeech": [
-      "a",
-      "n",
+      "a"
+    ],
+    "meaning": "만족하는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "content",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "만족, 내용",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "content",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "만족하는, 만족, 내용, ~에 만족하다, 만족시키다",
+    "meaning": "~에 만족하다, 만족시키다",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -34231,10 +43982,19 @@ const words = [
   {
     "word": "boost",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "밀다 ; 증대시키다 ; 후원하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 3
+  },
+  {
+    "word": "boost",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "밀다 ; 증대시키다 ; 후원하다, 증가; 격려, 부양책",
+    "meaning": "증가; 격려, 부양책",
     "totalFails": 0,
     "category": "toefl",
     "day": 3
@@ -34352,10 +44112,19 @@ const words = [
   {
     "word": "mask",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "가장하다, 가면을 씌우다, 가리다, 숨기다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "mask",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가면",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -34483,10 +44252,19 @@ const words = [
   {
     "word": "fracture",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "분열 ; 골절",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "fracture",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "분열 ; 골절, 부수다, 금가게 하다",
+    "meaning": "부수다, 금가게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -34544,10 +44322,19 @@ const words = [
   {
     "word": "apprentice",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "도제, 연습공",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "apprentice",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "도제, 연습공, 도제로 삼다",
+    "meaning": "도제로 삼다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -34675,10 +44462,19 @@ const words = [
   {
     "word": "employ",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "쓰다, 고용하다, 소비하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "employ",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "쓰다, 고용하다, 소비하다, 고용, 사용",
+    "meaning": "고용, 사용",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -34696,10 +44492,19 @@ const words = [
   {
     "word": "perennial",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "장기간 계속되는, 장기적으로 계속되는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "perennial",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "장기간 계속되는, 장기적으로 계속되는, 다년생 식물",
+    "meaning": "다년생 식물",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -34837,10 +44642,19 @@ const words = [
   {
     "word": "beacon",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "표지로 인도하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "beacon",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "표지로 인도하다, 지표",
+    "meaning": "지표",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -34898,10 +44712,19 @@ const words = [
   {
     "word": "quiver",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "흔들리다, 떨다, 흔들다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "quiver",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "흔들리다, 떨다, 흔들다, 떨림, 가벼운 전율",
+    "meaning": "떨림, 가벼운 전율",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -34929,10 +44752,19 @@ const words = [
   {
     "word": "position",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "위치, 장소 ; 지위, 신분",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "position",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "위치, 장소 ; 지위, 신분, 배치하다",
+    "meaning": "배치하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35050,8 +44882,7 @@ const words = [
   {
     "word": "yawn",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "하품하다",
     "totalFails": 0,
@@ -35059,12 +44890,31 @@ const words = [
     "day": 4
   },
   {
-    "word": "wave",
+    "word": "yawn",
     "partOfSpeech": [
-      "v",
       "n"
     ],
-    "meaning": "파도치다, 물결치다, 파도,물결",
+    "meaning": "하품",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "wave",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "파도치다, 물결치다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "wave",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "파도,물결",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35072,10 +44922,19 @@ const words = [
   {
     "word": "reciprocal",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "상호간의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "reciprocal",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "상호간의, 상대 되는 것",
+    "meaning": "상대 되는 것",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35083,10 +44942,19 @@ const words = [
   {
     "word": "wax",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "밀랍, 왁스",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "wax",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "밀랍, 왁스, 달이 차다 ; 왕성해지다, 발전하다",
+    "meaning": "달이 차다 ; 왕성해지다, 발전하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35134,10 +45002,19 @@ const words = [
   {
     "word": "drill",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "연습, 훈련",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "drill",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "연습, 훈련, 구멍을 뚫다, 훈련하다",
+    "meaning": "구멍을 뚫다, 훈련하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35175,10 +45052,19 @@ const words = [
   {
     "word": "result",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "결과, 성과",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "result",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "결과, 성과, 생기다, 유래하다",
+    "meaning": "생기다, 유래하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35186,10 +45072,19 @@ const words = [
   {
     "word": "title",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "표제 ; 권리, 소유권",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "title",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "표제 ; 권리, 소유권, ~라고 이름 붙이다",
+    "meaning": "~라고 이름 붙이다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35197,10 +45092,19 @@ const words = [
   {
     "word": "dwarf",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "난쟁이; 왜소증 환자",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "dwarf",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "난쟁이; 왜소증 환자, 소형의",
+    "meaning": "소형의",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35288,10 +45192,19 @@ const words = [
   {
     "word": "secrete",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "분비하다 ; 비밀로 하다, 횡령하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "secrete",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "분비하다 ; 비밀로 하다, 횡령하다, 분비물",
+    "meaning": "분비물",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35429,10 +45342,19 @@ const words = [
   {
     "word": "dribble",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "(물방울이)똑똑 떨어지다, 공을 튀기다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "dribble",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "(물방울이)똑똑 떨어지다, 공을 튀기다, 똑똑 떨어짐",
+    "meaning": "똑똑 떨어짐",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35450,10 +45372,19 @@ const words = [
   {
     "word": "idle",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "한가한, 게으른",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "idle",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "한가한, 게으른, 게으름 피우다",
+    "meaning": "게으름 피우다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35491,10 +45422,19 @@ const words = [
   {
     "word": "wrangle",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "언쟁, 다툼",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "wrangle",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "언쟁, 다툼, 말다툼하다, 논쟁하다",
+    "meaning": "말다툼하다, 논쟁하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35592,10 +45532,19 @@ const words = [
   {
     "word": "luster",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "광택, 영광",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "luster",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "광택, 영광, 광을 내다, 광내다, 광택을 내다",
+    "meaning": "광을 내다, 광내다, 광택을 내다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35613,10 +45562,19 @@ const words = [
   {
     "word": "virgin",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "미혼여자, 처녀",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "virgin",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "미혼여자, 처녀, 처녀의, 깨끗한",
+    "meaning": "처녀의, 깨끗한",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35644,10 +45602,19 @@ const words = [
   {
     "word": "harness",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "(마차용)마구",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "harness",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "(마차용)마구, 마구를 채우다, (동력원 등으로) 이용하다, 마구를 달다",
+    "meaning": "마구를 채우다, (동력원 등으로) 이용하다, 마구를 달다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35745,10 +45712,19 @@ const words = [
   {
     "word": "spawn",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "낳다, 생산하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "spawn",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "낳다, 생산하다, 자손, 후손",
+    "meaning": "자손, 후손",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35776,10 +45752,19 @@ const words = [
   {
     "word": "piecemeal",
     "partOfSpeech": [
-      "ad",
+      "ad"
+    ],
+    "meaning": "하나씩, 차차",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "piecemeal",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "하나씩, 차차, 조금씩 하는; 조각난",
+    "meaning": "조금씩 하는; 조각난",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35837,10 +45822,19 @@ const words = [
   {
     "word": "polish",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "닦다, 광내다, 광을 내다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "polish",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "닦다, 광내다, 광을 내다, 광택",
+    "meaning": "광택",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -35928,10 +45922,19 @@ const words = [
   {
     "word": "pinpoint",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "정확한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "pinpoint",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "정확한, ~의 위치를 정확하게 나타내다",
+    "meaning": "~의 위치를 정확하게 나타내다",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -36009,10 +46012,19 @@ const words = [
   {
     "word": "delinquent",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "비행의, 죄를 범한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "delinquent",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "비행의, 죄를 범한, (청소년) 비행자",
+    "meaning": "(청소년) 비행자",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -36140,10 +46152,19 @@ const words = [
   {
     "word": "maneuver",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "기동하다, 움직이다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "maneuver",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "기동하다, 움직이다, 계획, 책략",
+    "meaning": "계획, 책략",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -36261,10 +46282,19 @@ const words = [
   {
     "word": "outlaw",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "불법화하다; 사회에서 매장하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 4
+  },
+  {
+    "word": "outlaw",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "불법화하다; 사회에서 매장하다, 무법자, 불량배",
+    "meaning": "무법자, 불량배",
     "totalFails": 0,
     "category": "toefl",
     "day": 4
@@ -36282,10 +46312,19 @@ const words = [
   {
     "word": "ballot",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "투표, 선거",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "ballot",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "투표, 선거, 무기명 투표를 실시하다",
+    "meaning": "무기명 투표를 실시하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36313,10 +46352,19 @@ const words = [
   {
     "word": "bulk",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "대부분; 크기, 부피, 두께",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "bulk",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "대부분; 크기, 부피, 두께, 커지게 하다, 커지다, 부풀게하다",
+    "meaning": "커지게 하다, 커지다, 부풀게하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36434,10 +46482,19 @@ const words = [
   {
     "word": "complement",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "보완물, 보충",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "complement",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "보완물, 보충, 보완하다",
+    "meaning": "보완하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36555,10 +46612,19 @@ const words = [
   {
     "word": "antique",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "고풍의(구식의)",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "antique",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "고풍의(구식의), 골동품",
+    "meaning": "골동품",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36586,10 +46652,19 @@ const words = [
   {
     "word": "drain",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "하수구, 배수",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "drain",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "하수구, 배수, 배수하다",
+    "meaning": "배수하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36657,10 +46732,19 @@ const words = [
   {
     "word": "whip",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "채찍질하다, 때리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "whip",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "채찍",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36678,10 +46762,19 @@ const words = [
   {
     "word": "shovel",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "삽, 부삽",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "shovel",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "삽, 부삽, 삽질하다, 삽으로 파다",
+    "meaning": "삽질하다, 삽으로 파다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36689,10 +46782,19 @@ const words = [
   {
     "word": "trigger",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "일으키다, 촉발시키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "trigger",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "일으키다, 촉발시키다, 방아쇠, 유인, 자극",
+    "meaning": "방아쇠, 유인, 자극",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36710,10 +46812,19 @@ const words = [
   {
     "word": "heed",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "경청, 유의, 주의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "heed",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "경청, 유의, 주의, 귀를 기울이다, 주의하다",
+    "meaning": "귀를 기울이다, 주의하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36751,10 +46862,19 @@ const words = [
   {
     "word": "stray",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "길잃다, 벗어나다, 딴 길로 들어서다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "stray",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "길잃다, 벗어나다, 딴 길로 들어서다, 길을 잃은, 빗나간",
+    "meaning": "길을 잃은, 빗나간",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -36912,10 +47032,19 @@ const words = [
   {
     "word": "gleam",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "어스레한 빛",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "gleam",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "어스레한 빛, 번쩍이다, 빛나다",
+    "meaning": "번쩍이다, 빛나다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37023,10 +47152,19 @@ const words = [
   {
     "word": "variable",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "변하기 쉬운, 가변성의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "variable",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "변하기 쉬운, 가변성의, 변수",
+    "meaning": "변수",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37094,10 +47232,19 @@ const words = [
   {
     "word": "laugh",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "웃다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "laugh",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "웃다, 웃음",
+    "meaning": "웃음",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37145,10 +47292,19 @@ const words = [
   {
     "word": "overthrow",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "뒤집어 엎다, 전복시키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "overthrow",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "뒤집어 엎다, 전복시키다, 타도, 전복",
+    "meaning": "타도, 전복",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37296,10 +47452,19 @@ const words = [
   {
     "word": "caption",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "표제, 제목, 설명",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "caption",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "표제, 제목, 설명, 자막을 넣다, 제목을 붙이다, 설명문을 달다",
+    "meaning": "자막을 넣다, 제목을 붙이다, 설명문을 달다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37367,10 +47532,19 @@ const words = [
   {
     "word": "quake",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "흔들리다, 떨다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "quake",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "흔들리다, 떨다, 진동, 지진",
+    "meaning": "진동, 지진",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37408,10 +47582,19 @@ const words = [
   {
     "word": "glue",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "접착시키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "glue",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "접착시키다, 접착제",
+    "meaning": "접착제",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37469,10 +47652,19 @@ const words = [
   {
     "word": "dare",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "감히 ~하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "dare",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "감히 ~하다, 도전, 모험",
+    "meaning": "도전, 모험",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37490,10 +47682,19 @@ const words = [
   {
     "word": "swamp",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "늪, 습지",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "swamp",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "늪, 습지, 침수시키다, 쇄도하다, 넘쳐나다",
+    "meaning": "침수시키다, 쇄도하다, 넘쳐나다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37501,10 +47702,19 @@ const words = [
   {
     "word": "obscure",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "모호한, 어두운, 불명료한, 불분명한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "obscure",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "모호한, 어두운, 불명료한, 불분명한, 모호하게 하다, 불분명하게 하다",
+    "meaning": "모호하게 하다, 불분명하게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37562,10 +47772,19 @@ const words = [
   {
     "word": "slope",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "경사",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "slope",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "경사, 경사지게하다",
+    "meaning": "경사지게하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37573,10 +47792,19 @@ const words = [
   {
     "word": "thrill",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "전율, 스릴",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "thrill",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "전율, 스릴, 오싹하게 하다",
+    "meaning": "오싹하게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37634,10 +47862,19 @@ const words = [
   {
     "word": "given",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "한정된, 정해진; 특정한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "given",
+    "partOfSpeech": [
       "prep"
     ],
-    "meaning": "한정된, 정해진; 특정한, ~을 고려해 볼 때",
+    "meaning": "~을 고려해 볼 때",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37675,10 +47912,19 @@ const words = [
   {
     "word": "quest",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "탐구, 탐색",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "quest",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "탐구, 탐색, 탐구하다, 탐색하다",
+    "meaning": "탐구하다, 탐색하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37726,10 +47972,19 @@ const words = [
   {
     "word": "wholesale",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "도매의, 대규모의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "wholesale",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "도매",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37769,7 +48024,7 @@ const words = [
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "대량으로 죽이다; 비격식 심하게 훼손하다",
+    "meaning": "대량으로 죽이다; 비격식 심하게 훼손하다[약화시키다]",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37847,10 +48102,19 @@ const words = [
   {
     "word": "lower",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "낮추다, 떨어뜨리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "lower",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "낮추다, 떨어뜨리다, 아래의",
+    "meaning": "아래의",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37858,10 +48122,19 @@ const words = [
   {
     "word": "pore",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "구멍",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "pore",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "구멍, 숙고하다 ; 응시하다",
+    "meaning": "숙고하다 ; 응시하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37879,10 +48152,19 @@ const words = [
   {
     "word": "liquid",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "액체",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "liquid",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "액체, 액체의, 액체 형태의, 액상의",
+    "meaning": "액체의, 액체 형태의, 액상의",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -37950,10 +48232,19 @@ const words = [
   {
     "word": "opposite",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "마주보고 있는, 반대편의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "opposite",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "반대",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -38031,11 +48322,19 @@ const words = [
   {
     "word": "inward",
     "partOfSpeech": [
-      "a",
-      "내부",
+      "a"
+    ],
+    "meaning": "안쪽의, 안의; 마음속의, 내심의, 안쪽[내부]으로 향한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "inward",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "안쪽의, 안의; 마음속의, 내심의, 안쪽, 으로 향한, 안쪽으로, 내부로",
+    "meaning": "안쪽으로, 내부로",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -38063,10 +48362,19 @@ const words = [
   {
     "word": "trickle",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "똑똑 떨어지다, 졸졸 흐르다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "trickle",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "똑똑 떨어지다, 졸졸 흐르다, 소량",
+    "meaning": "소량",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -38104,10 +48412,19 @@ const words = [
   {
     "word": "aggregate",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "합계, 총액",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "aggregate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "합계, 총액, 종합하다, 모으다, 집합하다",
+    "meaning": "종합하다, 모으다, 집합하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -38275,10 +48592,19 @@ const words = [
   {
     "word": "swallow",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "삼키다, 들이키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 5
+  },
+  {
+    "word": "swallow",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "삼키다, 들이키다, 제비",
+    "meaning": "제비",
     "totalFails": 0,
     "category": "toefl",
     "day": 5
@@ -38336,10 +48662,19 @@ const words = [
   {
     "word": "recompense",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "보답하다, 갚다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "recompense",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "보답하다, 갚다, 보수, 보답",
+    "meaning": "보수, 보답",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -38347,10 +48682,19 @@ const words = [
   {
     "word": "gloss",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "광택, 영광",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "gloss",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "광택, 영광, 광을 내다",
+    "meaning": "광을 내다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -38488,10 +48832,19 @@ const words = [
   {
     "word": "lavish",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "아끼지 않는, 후한 ; 호사스런, 사치스런",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "lavish",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "아끼지 않는, 후한 ; 호사스런, 사치스런, 아낌없이 주다 ; 낭비하다",
+    "meaning": "아낌없이 주다 ; 낭비하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -38499,8 +48852,7 @@ const words = [
   {
     "word": "adolescent",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "청소년기의, 청춘기의",
     "totalFails": 0,
@@ -38508,12 +48860,31 @@ const words = [
     "day": 6
   },
   {
+    "word": "adolescent",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "청소년",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
     "word": "characteristic",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "특성",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "characteristic",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "특성, 특징적인, 특유의",
+    "meaning": "특징적인, 특유의",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -38541,10 +48912,19 @@ const words = [
   {
     "word": "hoax",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "속임수, 사기",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "hoax",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "속임수, 사기, 속이다, 골탕먹이다",
+    "meaning": "속이다, 골탕먹이다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -38582,10 +48962,19 @@ const words = [
   {
     "word": "brute",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "짐승,금수",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "brute",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "짐승,금수, 야만적인",
+    "meaning": "야만적인",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -38803,10 +49192,19 @@ const words = [
   {
     "word": "slaughter",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "도살, 학살",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "slaughter",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "도살, 학살, 도살하다",
+    "meaning": "도살하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -38854,10 +49252,19 @@ const words = [
   {
     "word": "coordinate",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "조정하다; 대등하게 하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "coordinate",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "조정하다; 대등하게 하다, 동등한, 등위의",
+    "meaning": "동등한, 등위의",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -38875,10 +49282,19 @@ const words = [
   {
     "word": "forecast",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "예측, 예보",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "forecast",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "예측, 예보, 예측하다, 예보하다",
+    "meaning": "예측하다, 예보하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -38956,10 +49372,19 @@ const words = [
   {
     "word": "ideal",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "이상적인, 가장 알맞은, 완벽한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "ideal",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "이상적인, 가장 알맞은, 완벽한, 이상적인 인물, 전형, 이상",
+    "meaning": "이상적인 인물, 전형, 이상",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39027,10 +49452,19 @@ const words = [
   {
     "word": "escape",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "도피, 탈출",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "escape",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "도피, 탈출, 달아나다, 피하다",
+    "meaning": "달아나다, 피하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39048,10 +49482,19 @@ const words = [
   {
     "word": "perfect",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "완전한, 결점 없는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "perfect",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "완전한, 결점 없는, 완성하다",
+    "meaning": "완성하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39069,10 +49512,19 @@ const words = [
   {
     "word": "shift",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "변화, 교체, 추이, 교대",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "shift",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "변화, 교체, 추이, 교대, 바꾸다, 이동시키다",
+    "meaning": "바꾸다, 이동시키다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39220,10 +49672,19 @@ const words = [
   {
     "word": "breed",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "낳다 ; 기르다, 양육하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "breed",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "낳다 ; 기르다, 양육하다, 품종",
+    "meaning": "품종",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39251,10 +49712,19 @@ const words = [
   {
     "word": "institute",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "기관, 협회",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "institute",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "기관, 협회, 설립하다, 시작하다",
+    "meaning": "설립하다, 시작하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39372,11 +49842,29 @@ const words = [
   {
     "word": "counter",
     "partOfSpeech": [
-      "v",
-      "n",
+      "v"
+    ],
+    "meaning": "반대하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "counter",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "판매대",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "counter",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "반대하다, 판매대, 반대의 (ex: counter-clockwise)",
+    "meaning": "반대의 (ex: counter-clockwise)",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39464,10 +49952,9 @@ const words = [
   {
     "word": "uninitiated",
     "partOfSpeech": [
-      "n",
-      "경험"
+      "n"
     ],
-    "meaning": "미경험자, 초심자, 특별한 지식, 이 없는 사람들",
+    "meaning": "미경험자, 초심자, 특별한 지식[경험]이 없는 사람들",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39475,8 +49962,7 @@ const words = [
   {
     "word": "secret",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "비밀의, 은밀한",
     "totalFails": 0,
@@ -39484,12 +49970,31 @@ const words = [
     "day": 6
   },
   {
+    "word": "secret",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "비밀",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
     "word": "echo",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "울림, 메아리, 반향; 반복",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "echo",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "울림, 메아리, 반향; 반복, 울리다, 메아리치다",
+    "meaning": "울리다, 메아리치다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39507,10 +50012,19 @@ const words = [
   {
     "word": "myriad",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "무수",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "myriad",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "무수, 무수한",
+    "meaning": "무수한",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39538,10 +50052,19 @@ const words = [
   {
     "word": "founder",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "창립자, 설립자",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "founder",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "창립자, 설립자, 실패하다, 좌초되다;침몰하다",
+    "meaning": "실패하다, 좌초되다;침몰하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39589,10 +50112,19 @@ const words = [
   {
     "word": "slash",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "베인 상처; 긋기, 베기",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "slash",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "베인 상처; 긋기, 베기, 깊이 베다",
+    "meaning": "깊이 베다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39660,10 +50192,19 @@ const words = [
   {
     "word": "consummate",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "완성하다, 성취하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "consummate",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "완성하다, 성취하다, 뛰어난",
+    "meaning": "뛰어난",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39721,10 +50262,19 @@ const words = [
   {
     "word": "forge",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "용광로, 대장간",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "forge",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "용광로, 대장간, (쇠를) 만들다 ; ~로 나아가다",
+    "meaning": "(쇠를) 만들다 ; ~로 나아가다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39732,10 +50282,19 @@ const words = [
   {
     "word": "slander",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "중상모략, 욕설",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "slander",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "중상모략, 욕설, 중상 모략하다, 비방하다",
+    "meaning": "중상 모략하다, 비방하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39963,10 +50522,19 @@ const words = [
   {
     "word": "bias",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "편견, 선입견",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "bias",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "편견, 선입견, 편견을 갖게하다",
+    "meaning": "편견을 갖게하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -39994,10 +50562,9 @@ const words = [
   {
     "word": "precaution",
     "partOfSpeech": [
-      "n",
-      "수단"
+      "n"
     ],
-    "meaning": "예방책, 예방 조치, , 조심, 신중",
+    "meaning": "예방책, 예방 조치[수단], 조심, 신중",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -40115,10 +50682,19 @@ const words = [
   {
     "word": "dot",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "점찍다, 위치하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "dot",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "점찍다, 위치하다, 점 ; 소량",
+    "meaning": "점 ; 소량",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -40166,10 +50742,19 @@ const words = [
   {
     "word": "clasp",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "손에 움켜쥐다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "clasp",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "손에 움켜쥐다, 포옹",
+    "meaning": "포옹",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -40177,10 +50762,19 @@ const words = [
   {
     "word": "quarantine",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "격리, 검역",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "quarantine",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "격리, 검역, 검역하다",
+    "meaning": "검역하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -40208,10 +50802,19 @@ const words = [
   {
     "word": "gasp",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "헐떡거리다, 숨이 막히다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "gasp",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "헐떡거리다, 숨이 막히다, 헐떡거림",
+    "meaning": "헐떡거림",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -40269,10 +50872,19 @@ const words = [
   {
     "word": "solitary",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "고독한, 외로운",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "solitary",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "고독한, 외로운, 독신자",
+    "meaning": "독신자",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -40310,10 +50922,19 @@ const words = [
   {
     "word": "antarctic",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "남극의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 6
+  },
+  {
+    "word": "antarctic",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "남극",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -40334,16 +50955,6 @@ const words = [
       "v"
     ],
     "meaning": "정점에 이르다 ; (~으로) 끝이 나다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 6
-  },
-  {
-    "word": "acquire",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "얻다, 취득하다, 얻다, 획득하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 6
@@ -40381,10 +50992,19 @@ const words = [
   {
     "word": "harbor",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "항구, 피난처",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "harbor",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "항구, 피난처, 은신처를 제공하다, 정박하다",
+    "meaning": "은신처를 제공하다, 정박하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40432,10 +51052,19 @@ const words = [
   {
     "word": "commune",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "친하게 사귀다 ; 이야기하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "commune",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "친하게 사귀다 ; 이야기하다, 공동체",
+    "meaning": "공동체",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40463,10 +51092,19 @@ const words = [
   {
     "word": "crawl",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "기어가다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "crawl",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "기어가다, 기어감, 서행",
+    "meaning": "기어감, 서행",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40494,10 +51132,19 @@ const words = [
   {
     "word": "umpire",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "판정자, 심판",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "umpire",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "판정자, 심판, 심판하다",
+    "meaning": "심판하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40715,10 +51362,19 @@ const words = [
   {
     "word": "span",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "기간, 범위",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "span",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "기간, 범위, ~에 걸치다",
+    "meaning": "~에 걸치다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40796,10 +51452,19 @@ const words = [
   {
     "word": "delegate",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "대표, 대리자",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "delegate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "대표, 대리자, 파견하다, 위임하다",
+    "meaning": "파견하다, 위임하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40827,10 +51492,19 @@ const words = [
   {
     "word": "segregate",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "분리하다, 격리하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "segregate",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "분리하다, 격리하다, 분리된 것",
+    "meaning": "분리된 것",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40858,10 +51532,19 @@ const words = [
   {
     "word": "prestige",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "명성, 신망",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "prestige",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "명성, 신망, 명성이 있는, 이름난",
+    "meaning": "명성이 있는, 이름난",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40869,10 +51552,19 @@ const words = [
   {
     "word": "hover",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "하늘을 떠다니다; 맴돌다, 주저하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "hover",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "하늘을 떠다니다; 맴돌다, 주저하다, 배회, 망설임",
+    "meaning": "배회, 망설임",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40930,10 +51622,19 @@ const words = [
   {
     "word": "accessory",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "부속물; 장신구",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "accessory",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "부속물; 장신구, 보조적인, 부속의",
+    "meaning": "보조적인, 부속의",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -40951,10 +51652,19 @@ const words = [
   {
     "word": "equivalent",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "동등한, 맞먹는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "equivalent",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "동등한, 맞먹는, 균형, 대등한 물건",
+    "meaning": "균형, 대등한 물건",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41010,6 +51720,16 @@ const words = [
     "day": 7
   },
   {
+    "word": "path",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "통로, 길",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
     "word": "mirth",
     "partOfSpeech": [
       "n"
@@ -41042,10 +51762,19 @@ const words = [
   {
     "word": "salvage",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "구조(구제)하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "salvage",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "구조(구제)하다, 구조, 구제",
+    "meaning": "구조, 구제",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41113,10 +51842,19 @@ const words = [
   {
     "word": "form",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "만들다; 형성되다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "form",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "만들다; 형성되다, 모양",
+    "meaning": "모양",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41124,10 +51862,19 @@ const words = [
   {
     "word": "flash",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "번쩍임",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "flash",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "번쩍임, 번쩍이다, 빛나다",
+    "meaning": "번쩍이다, 빛나다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41165,10 +51912,19 @@ const words = [
   {
     "word": "feud",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "불화, 싸움",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "feud",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "불화, 싸움, 다투다",
+    "meaning": "다투다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41236,10 +51992,19 @@ const words = [
   {
     "word": "hatch",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "알을 까다 ; 음모를 꾸미다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "hatch",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "알을 까다 ; 음모를 꾸미다, 부화",
+    "meaning": "부화",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41337,10 +52102,19 @@ const words = [
   {
     "word": "glow",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "백열",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "glow",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "백열, 빛나다",
+    "meaning": "빛나다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41388,10 +52162,19 @@ const words = [
   {
     "word": "masquerade",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "가면, 가장",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "masquerade",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "가면, 가장, 가장(변장) 하다",
+    "meaning": "가장(변장) 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41469,10 +52252,19 @@ const words = [
   {
     "word": "sense",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "감각, 통찰력, 느낌",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "sense",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "감각, 통찰력, 느낌, 감지하다",
+    "meaning": "감지하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41480,10 +52272,19 @@ const words = [
   {
     "word": "scant",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "부족한, 불충분한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "scant",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "부족한, 불충분한, 줄이다, 아까워하다",
+    "meaning": "줄이다, 아까워하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41491,10 +52292,19 @@ const words = [
   {
     "word": "federate",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "연합하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "federate",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "연합하다, 연방의, 연합의",
+    "meaning": "연방의, 연합의",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41502,10 +52312,19 @@ const words = [
   {
     "word": "fashion",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "유행 ; 양식, 스타일",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "fashion",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "유행 ; 양식, 스타일, (모양을) 만들다 ; 맞추다",
+    "meaning": "(모양을) 만들다 ; 맞추다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41573,10 +52392,19 @@ const words = [
   {
     "word": "shield",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "보호하다 ; 숨기다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "shield",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "보호하다 ; 숨기다, 방패, 보호물",
+    "meaning": "방패, 보호물",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41614,10 +52442,19 @@ const words = [
   {
     "word": "blink",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "깜빡 거리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "blink",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "깜빡 거리다, 섬광, 깜빡임",
+    "meaning": "섬광, 깜빡임",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41655,10 +52492,19 @@ const words = [
   {
     "word": "blossom",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "꽃, 개화",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "blossom",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "꽃, 개화, 꽃을 피우다",
+    "meaning": "꽃을 피우다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41696,10 +52542,19 @@ const words = [
   {
     "word": "shimmer",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "희미하게 반짝이다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "shimmer",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "희미하게 반짝이다, 어렴풋한 빛",
+    "meaning": "어렴풋한 빛",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41717,10 +52572,19 @@ const words = [
   {
     "word": "lodge",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "숙박하다, 묵다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "lodge",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "숙박하다, 묵다, 오두막 집",
+    "meaning": "오두막 집",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41838,10 +52702,19 @@ const words = [
   {
     "word": "graphic",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "그림의, 사실적인, 생생한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "graphic",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "그림의, 사실적인, 생생한, 시각 예술 작품",
+    "meaning": "시각 예술 작품",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41849,10 +52722,19 @@ const words = [
   {
     "word": "smash",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "박살내다, 산산이 부수다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "smash",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "박살내다, 산산이 부수다, 분쇄",
+    "meaning": "분쇄",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -41960,10 +52842,19 @@ const words = [
   {
     "word": "probe",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "조사, 탐사",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "probe",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "조사, 탐사, 시험하다",
+    "meaning": "시험하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -42011,10 +52902,19 @@ const words = [
   {
     "word": "zone",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "지역",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "zone",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "지역, 지역으로 정해두다",
+    "meaning": "지역으로 정해두다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -42142,10 +53042,19 @@ const words = [
   {
     "word": "curb",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "재갈, 고삐",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "curb",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "재갈, 고삐, 제한(억제)하다",
+    "meaning": "제한(억제)하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -42183,10 +53092,19 @@ const words = [
   {
     "word": "program",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "계획을 짜다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "program",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "계획",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -42354,10 +53272,19 @@ const words = [
   {
     "word": "jest",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "농담, 익살",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 7
+  },
+  {
+    "word": "jest",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "농담, 익살, 농담하다; 조롱하다",
+    "meaning": "농담하다; 조롱하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 7
@@ -42475,10 +53402,19 @@ const words = [
   {
     "word": "stake",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "(막대기로)경계를 표시하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "stake",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "(막대기로)경계를 표시하다, 말뚝, 막대기 ; 이해관계, 내기",
+    "meaning": "말뚝, 막대기 ; 이해관계, 내기",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -42796,10 +53732,19 @@ const words = [
   {
     "word": "hypnotic",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "최면을 거는 듯한, 최면의, 몽롱한; 수면의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "hypnotic",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "최면을 거는 듯한, 최면의, 몽롱한; 수면의, 수면제",
+    "meaning": "수면제",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -42837,10 +53782,19 @@ const words = [
   {
     "word": "incense",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "향, 향내",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "incense",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "향, 향내, 향을 피우다",
+    "meaning": "향을 피우다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -42868,10 +53822,19 @@ const words = [
   {
     "word": "gush",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "세차게 흘러나오다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "gush",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "세차게 흘러나오다, 분출",
+    "meaning": "분출",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -42889,10 +53852,19 @@ const words = [
   {
     "word": "rupture",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "불화 ; 파열",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "rupture",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "불화 ; 파열, 찢다, 파열시키다",
+    "meaning": "찢다, 파열시키다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -42900,11 +53872,29 @@ const words = [
   {
     "word": "joint",
     "partOfSpeech": [
-      "v",
-      "a",
+      "v"
+    ],
+    "meaning": "연결하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "joint",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "공동의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "joint",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "연결하다, 공동의, 이음매",
+    "meaning": "이음매",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -42952,10 +53942,19 @@ const words = [
   {
     "word": "resolve",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "결정하다 ; 용해하다 ; 해결하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "resolve",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "결정하다 ; 용해하다 ; 해결하다, 결심, 결의, 다짐",
+    "meaning": "결심, 결의, 다짐",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43033,10 +54032,19 @@ const words = [
   {
     "word": "clash",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "충돌",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "clash",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "충돌, 충돌하다",
+    "meaning": "충돌하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43074,10 +54082,19 @@ const words = [
   {
     "word": "loot",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "전리품, 약탈품",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "loot",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "전리품, 약탈품, 훔치다, 약탈하다",
+    "meaning": "훔치다, 약탈하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43235,11 +54252,29 @@ const words = [
   {
     "word": "foul",
     "partOfSpeech": [
-      "a",
-      "v",
+      "a"
+    ],
+    "meaning": "더러운; 부정한, 반칙적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "foul",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "더럽히다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "foul",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "더러운; 부정한, 반칙적인, 더럽히다",
+    "meaning": "반칙",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43377,10 +54412,19 @@ const words = [
   {
     "word": "twinkle",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "반짝반짝 빛나다, 반짝거리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "twinkle",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "반짝반짝 빛나다, 반짝거리다, 반짝임, 반짝거림",
+    "meaning": "반짝임, 반짝거림",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43528,10 +54572,19 @@ const words = [
   {
     "word": "duplicate",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "복제한, 이중의, 중복의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "duplicate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "복제한, 이중의, 중복의, 복사하다, 복제하다; 반복하다",
+    "meaning": "복사하다, 복제하다; 반복하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43569,10 +54622,19 @@ const words = [
   {
     "word": "scoff",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "비웃다, 조롱하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "scoff",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "비웃다, 조롱하다, 비웃음",
+    "meaning": "비웃음",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43630,10 +54692,19 @@ const words = [
   {
     "word": "groom",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "마부, 신랑",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "groom",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "마부, 신랑, 가르치다, 훈련하다",
+    "meaning": "가르치다, 훈련하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43741,10 +54812,19 @@ const words = [
   {
     "word": "bare",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "발가벗은, 속이 빈, 헐벗은, 아무것도 안 덮인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "bare",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "발가벗은, 속이 빈, 헐벗은, 아무것도 안 덮인, 드러내다",
+    "meaning": "드러내다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43772,10 +54852,19 @@ const words = [
   {
     "word": "aging",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "나이 드는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "aging",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "나이 드는, 노화",
+    "meaning": "노화",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43853,10 +54942,19 @@ const words = [
   {
     "word": "correct",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "바로잡다, 고치다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "correct",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "바로잡다, 고치다, 옳은, 적절한, 맞는, 정확한",
+    "meaning": "옳은, 적절한, 맞는, 정확한",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -43994,10 +55092,19 @@ const words = [
   {
     "word": "sibling",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "형제, 자매",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "sibling",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "형제, 자매, 형제의",
+    "meaning": "형제의",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44055,10 +55162,19 @@ const words = [
   {
     "word": "numb",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "마비된, 감각을 잃은",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "numb",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "마비된, 감각을 잃은, 마비시키다",
+    "meaning": "마비시키다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44066,10 +55182,19 @@ const words = [
   {
     "word": "spark",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "야기하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "spark",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "야기하다, 불꽃, 번뜩임",
+    "meaning": "불꽃, 번뜩임",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44077,10 +55202,19 @@ const words = [
   {
     "word": "sanction",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "인가, 허가",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "sanction",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "인가, 허가, 인가하다",
+    "meaning": "인가하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44098,10 +55232,19 @@ const words = [
   {
     "word": "preliminary",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "예비의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "preliminary",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "예비의, 예비 행위",
+    "meaning": "예비 행위",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44239,10 +55382,19 @@ const words = [
   {
     "word": "desire",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "열망하다 ; 요구하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "desire",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "열망하다 ; 요구하다, 욕구, 욕망, 갈망",
+    "meaning": "욕구, 욕망, 갈망",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44310,10 +55462,19 @@ const words = [
   {
     "word": "retard",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "지체시키다, 지연시키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "retard",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "지체시키다, 지연시키다, 지연, 방해, 늦음",
+    "meaning": "지연, 방해, 늦음",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44351,10 +55512,19 @@ const words = [
   {
     "word": "additive",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "부가물, 첨가제, 첨가물",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "additive",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "부가물, 첨가제, 첨가물, 부가적인, 추가의, 부가의",
+    "meaning": "부가적인, 추가의, 부가의",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44382,10 +55552,19 @@ const words = [
   {
     "word": "border",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "경계, 국경, 가장자리",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "border",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "경계, 국경, 가장자리, 접경하다, 접하다",
+    "meaning": "접경하다, 접하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44393,10 +55572,19 @@ const words = [
   {
     "word": "fathom",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "깊이를 재다 ; (마음을) 헤아리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 8
+  },
+  {
+    "word": "fathom",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "깊이를 재다 ; (마음을) 헤아리다, 길(깊이의 단위)",
+    "meaning": "길(깊이의 단위)",
     "totalFails": 0,
     "category": "toefl",
     "day": 8
@@ -44424,10 +55612,19 @@ const words = [
   {
     "word": "request",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "요청하다, 요구하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "request",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "요청하다, 요구하다, 요구, 요망",
+    "meaning": "요구, 요망",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -44455,10 +55652,19 @@ const words = [
   {
     "word": "concern",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "우려, 걱정",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "concern",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "우려, 걱정, 관심을 갖다, 염려하다 ; 관계하다, 관여하다",
+    "meaning": "관심을 갖다, 염려하다 ; 관계하다, 관여하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -44476,10 +55682,19 @@ const words = [
   {
     "word": "outrage",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "(법률, 도덕)을 범하다, 모욕을 주다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "outrage",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "(법률, 도덕)을 범하다, 모욕을 주다, 침범, 난폭, 격노",
+    "meaning": "침범, 난폭, 격노",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -44487,10 +55702,19 @@ const words = [
   {
     "word": "signal",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "신호하다, 신호로 알리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "signal",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "신호",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -44558,10 +55782,19 @@ const words = [
   {
     "word": "safeguard",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "보호, 호위",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "safeguard",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "보호, 호위, 보호하다, 호위하다",
+    "meaning": "보호하다, 호위하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -44579,10 +55812,19 @@ const words = [
   {
     "word": "mount",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "오르다, 타다 ; 증가하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "mount",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "오르다, 타다 ; 증가하다, 산, 언덕",
+    "meaning": "산, 언덕",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -44650,10 +55892,19 @@ const words = [
   {
     "word": "jam",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "혼잡 ; 궁지",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "jam",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "혼잡 ; 궁지, 몰려들다, 가득 메우다, 한데모이다",
+    "meaning": "몰려들다, 가득 메우다, 한데모이다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -44721,10 +55972,19 @@ const words = [
   {
     "word": "detergent",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "세제",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "detergent",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "세제, 깨끗하게하는",
+    "meaning": "깨끗하게하는",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -44902,10 +56162,19 @@ const words = [
   {
     "word": "incentive",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "자극적인, 격려하는, 자극하는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "incentive",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "자극적인, 격려하는, 자극하는, 격려, 자극, 동기",
+    "meaning": "격려, 자극, 동기",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -44953,10 +56222,19 @@ const words = [
   {
     "word": "waver",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "나부끼다, 흔들리다, 망설이다, 동요하다, 흔들다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "waver",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "나부끼다, 흔들리다, 망설이다, 동요하다, 흔들다, 동요, 망설임",
+    "meaning": "동요, 망설임",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -45034,10 +56312,19 @@ const words = [
   {
     "word": "pinion",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "깃털",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "pinion",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "깃털, 속박하다, 고정하다",
+    "meaning": "속박하다, 고정하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -45275,10 +56562,19 @@ const words = [
   {
     "word": "camouflage",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "위장, 변장",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "camouflage",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "위장, 변장, 위장하다, 숨기다",
+    "meaning": "위장하다, 숨기다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -45306,10 +56602,19 @@ const words = [
   {
     "word": "variant",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "변형",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "variant",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "변형, 다른",
+    "meaning": "다른",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -45337,10 +56642,19 @@ const words = [
   {
     "word": "alloy",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "합금, 혼합",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "alloy",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "합금, 혼합, 혼합하다",
+    "meaning": "혼합하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -45618,10 +56932,19 @@ const words = [
   {
     "word": "brace",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "버티다, 떠받치다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "brace",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "버티다, 떠받치다, 버팀대, 받침대",
+    "meaning": "버팀대, 받침대",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -45729,10 +57052,19 @@ const words = [
   {
     "word": "wander",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "어슬렁거리다, 방랑하다, 돌아다니다, 해매다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "wander",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "어슬렁거리다, 방랑하다, 돌아다니다, 해매다, 유랑, 방랑",
+    "meaning": "유랑, 방랑",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -45800,10 +57132,19 @@ const words = [
   {
     "word": "marshal",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "육군원수",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "marshal",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "육군원수, 모으다, 결집시키다",
+    "meaning": "모으다, 결집시키다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -45941,10 +57282,19 @@ const words = [
   {
     "word": "murder",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "살해하다, 암살하다, 살인하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "murder",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "살인",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -45992,10 +57342,19 @@ const words = [
   {
     "word": "quarrel",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "싸움, 다툼, 논쟁",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "quarrel",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "싸움, 다툼, 논쟁, 다투다, 싸우다, 싸움",
+    "meaning": "다투다, 싸우다, 싸움",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -46053,10 +57412,19 @@ const words = [
   {
     "word": "ebb",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "썰물",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "ebb",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "썰물, 줄어들다, 감소하다, 줄이다",
+    "meaning": "줄어들다, 감소하다, 줄이다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -46064,10 +57432,19 @@ const words = [
   {
     "word": "longing",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "갈망, 동경",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "longing",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "갈망, 동경, 간절히 바라는, 동경하는",
+    "meaning": "간절히 바라는, 동경하는",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -46145,10 +57522,19 @@ const words = [
   {
     "word": "claw",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "발톱",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "claw",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "발톱, 발톱으로 할퀴다",
+    "meaning": "발톱으로 할퀴다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -46166,10 +57552,19 @@ const words = [
   {
     "word": "representative",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "전형적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "representative",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "전형적인, 대표자, 대표인, 대리인",
+    "meaning": "대표자, 대표인, 대리인",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -46297,10 +57692,19 @@ const words = [
   {
     "word": "trail",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "끌다 ; 추적하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "trail",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "끌다 ; 추적하다, 발자국, 흔적",
+    "meaning": "발자국, 흔적",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -46388,10 +57792,19 @@ const words = [
   {
     "word": "compact",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "밀집한, 간결한; 소형의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 9
+  },
+  {
+    "word": "compact",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "밀집한, 간결한; 소형의, 압축하다",
+    "meaning": "압축하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 9
@@ -46425,36 +57838,6 @@ const words = [
     "totalFails": 0,
     "category": "toefl",
     "day": 9
-  },
-  {
-    "word": "suppress",
-    "partOfSpeech": [
-      "v"
-    ],
-    "meaning": "억압하다, 진압하다",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 9
-  },
-  {
-    "word": "mechanism",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "기계장치, 도구 ; 구조",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 9
-  },
-  {
-    "word": "path",
-    "partOfSpeech": [
-      "n"
-    ],
-    "meaning": "통로, 길, 길, 통로",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 10
   },
   {
     "word": "violation",
@@ -46649,10 +58032,19 @@ const words = [
   {
     "word": "chart",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "도표, 차트",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "chart",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "도표, 차트, (지도 등을)작성하다, 계획을 세우다",
+    "meaning": "(지도 등을)작성하다, 계획을 세우다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -46850,10 +58242,19 @@ const words = [
   {
     "word": "real",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "실재하는, 현실의 ; 진짜의, 진정한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "real",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "실재하는, 현실의 ; 진짜의, 진정한, 현실, 진실",
+    "meaning": "현실, 진실",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -46921,10 +58322,19 @@ const words = [
   {
     "word": "premium",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "아주 높은, 고급의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "premium",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "아주 높은, 고급의, 보험료, 할증료",
+    "meaning": "보험료, 할증료",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -46952,10 +58362,19 @@ const words = [
   {
     "word": "likely",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "있음직한, ~할 것 같은",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "likely",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "있음직한, ~할 것 같은, 아마, 어쩌면",
+    "meaning": "아마, 어쩌면",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47063,10 +58482,19 @@ const words = [
   {
     "word": "string",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "끈, 실, 일련, 한 줄, 연속",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "string",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "끈, 실, 일련, 한 줄, 연속, 끈으로 묶다",
+    "meaning": "끈으로 묶다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47094,10 +58522,19 @@ const words = [
   {
     "word": "sour",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "시큼한, 신맛이 나는; 상한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "sour",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "시큼한, 신맛이 나는; 상한, 안 좋아지다; 틀어지다; 안좋아지게 만들다",
+    "meaning": "안 좋아지다; 틀어지다; 안좋아지게 만들다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47105,10 +58542,19 @@ const words = [
   {
     "word": "monitor",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "조사하다; 감시하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "monitor",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "조사하다; 감시하다, 모니터, 감시장치",
+    "meaning": "모니터, 감시장치",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47136,10 +58582,19 @@ const words = [
   {
     "word": "participant",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "참여자",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "participant",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "참여자, 참여하는",
+    "meaning": "참여하는",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47187,10 +58642,19 @@ const words = [
   {
     "word": "paramount",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "최고의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "paramount",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "최고의, 최고 권위자, 군주",
+    "meaning": "최고 권위자, 군주",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47228,10 +58692,19 @@ const words = [
   {
     "word": "combat",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "전투, 논쟁, 싸움",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "combat",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "전투, 논쟁, 싸움, ~와 싸우다",
+    "meaning": "~와 싸우다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47359,10 +58832,19 @@ const words = [
   {
     "word": "attire",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "차려 입히다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "attire",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "차려 입히다, 옷 차림새, 복장",
+    "meaning": "옷 차림새, 복장",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47390,10 +58872,19 @@ const words = [
   {
     "word": "hail",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "눈이 오다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "hail",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "눈이 오다, 우박",
+    "meaning": "우박",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47401,10 +58892,19 @@ const words = [
   {
     "word": "thaw",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "녹이다, 녹다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "thaw",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "녹이다, 녹다, 해동, 눈 녹음",
+    "meaning": "해동, 눈 녹음",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47452,8 +58952,7 @@ const words = [
   {
     "word": "cheer",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "환호하다, 갈채하다",
     "totalFails": 0,
@@ -47461,12 +58960,31 @@ const words = [
     "day": 10
   },
   {
+    "word": "cheer",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "환호",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
     "word": "partisan",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "일당, 추종자",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "partisan",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "일당, 추종자, 당파적인, 편파적인",
+    "meaning": "당파적인, 편파적인",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47534,10 +59052,19 @@ const words = [
   {
     "word": "contour",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "윤곽, 외형",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "contour",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "윤곽, 외형, 윤곽을 그리다",
+    "meaning": "윤곽을 그리다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47585,10 +59112,19 @@ const words = [
   {
     "word": "concomitant",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "동시에 일어나는, 수반되는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "concomitant",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "동시에 일어나는, 수반되는, 부대상황",
+    "meaning": "부대상황",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47786,10 +59322,19 @@ const words = [
   {
     "word": "shiver",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "떨림, 오한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "shiver",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "떨림, 오한, 떨다, 진동시키다",
+    "meaning": "떨다, 진동시키다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47797,10 +59342,19 @@ const words = [
   {
     "word": "limber",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "유연한, 잘 휘는; 경쾌한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "limber",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "유연한, 잘 휘는; 경쾌한, 유연하게 하다, 준비 운동 하다",
+    "meaning": "유연하게 하다, 준비 운동 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47818,10 +59372,19 @@ const words = [
   {
     "word": "stamp",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "짓밟다, 도장찍다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "stamp",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "짓밟다, 도장찍다, 도장, 우표",
+    "meaning": "도장, 우표",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47909,10 +59472,19 @@ const words = [
   {
     "word": "rival",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "경쟁자, 적수",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "rival",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "경쟁자, 적수, 경쟁하다",
+    "meaning": "경쟁하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47930,10 +59502,19 @@ const words = [
   {
     "word": "swivel",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "회전",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "swivel",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "회전, 회전하다, 회전시키다",
+    "meaning": "회전하다, 회전시키다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47941,10 +59522,19 @@ const words = [
   {
     "word": "overlap",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "부분적으로 겹치다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "overlap",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "부분적으로 겹치다, 부분적 중복",
+    "meaning": "부분적 중복",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -47962,10 +59552,19 @@ const words = [
   {
     "word": "mural",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "벽화",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "mural",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "벽화, 벽의",
+    "meaning": "벽의",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -48123,10 +59722,19 @@ const words = [
   {
     "word": "gross",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "거친, 커다란 ; 총계의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "gross",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "거친, 커다란 ; 총계의, 총액",
+    "meaning": "총액",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -48164,8 +59772,7 @@ const words = [
   {
     "word": "affront",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "모욕하다",
     "totalFails": 0,
@@ -48173,12 +59780,31 @@ const words = [
     "day": 10
   },
   {
-    "word": "flaunt",
+    "word": "affront",
     "partOfSpeech": [
-      "v",
       "n"
     ],
-    "meaning": "과시하다, 자랑, 과시",
+    "meaning": "모욕",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "flaunt",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "과시하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "flaunt",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "자랑, 과시",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -48216,10 +59842,19 @@ const words = [
   {
     "word": "scrub",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "덤불, 잡목숲",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "scrub",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "덤불, 잡목숲, 문지르다 ; 중지(연기)하다",
+    "meaning": "문지르다 ; 중지(연기)하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -48307,10 +59942,19 @@ const words = [
   {
     "word": "solace",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "위안,위로",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "solace",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "위안,위로, 위로하다",
+    "meaning": "위로하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -48338,10 +59982,19 @@ const words = [
   {
     "word": "frown",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "눈살을 찌푸리다, 인상을 찌푸리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "frown",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "눈살을 찌푸리다, 인상을 찌푸리다, 찡그린 얼굴",
+    "meaning": "찡그린 얼굴",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -48379,10 +60032,19 @@ const words = [
   {
     "word": "ban",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "금지하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 10
+  },
+  {
+    "word": "ban",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "금지하다, 금지령",
+    "meaning": "금지령",
     "totalFails": 0,
     "category": "toefl",
     "day": 10
@@ -48488,16 +60150,6 @@ const words = [
     "day": 10
   },
   {
-    "word": "apparent",
-    "partOfSpeech": [
-      "a"
-    ],
-    "meaning": "분명한, 누가봐도 알수있는, 명백한, 분명한; ~인것처럼 보이는, 여겨지는",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 10
-  },
-  {
     "word": "abbreviate",
     "partOfSpeech": [
       "v"
@@ -48520,10 +60172,19 @@ const words = [
   {
     "word": "nurture",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "양육하다, 보육하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "nurture",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "양육하다, 보육하다, 양육, 보육",
+    "meaning": "양육, 보육",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -48541,10 +60202,19 @@ const words = [
   {
     "word": "cluster",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "무리, 집단",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "cluster",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "무리, 집단, 무리를 이루다, 군생하다, 집단을 이루다",
+    "meaning": "무리를 이루다, 군생하다, 집단을 이루다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -48642,10 +60312,19 @@ const words = [
   {
     "word": "tense",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "팽팽한, 긴장한, 긴박한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "tense",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "팽팽한, 긴장한, 긴박한, 긴장시키다, 팽팽하게 하다",
+    "meaning": "긴장시키다, 팽팽하게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -48723,10 +60402,19 @@ const words = [
   {
     "word": "dim",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "모호한, 희미한, 어둑한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "dim",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "모호한, 희미한, 어둑한, 흐리게 하다",
+    "meaning": "흐리게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -48744,10 +60432,19 @@ const words = [
   {
     "word": "intrigue",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "흥미를 끌다 ; 음모를 꾸미다, 모함하다, 흥미를 이끌다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "intrigue",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "흥미를 끌다 ; 음모를 꾸미다, 모함하다, 흥미를 이끌다, 음모, 모함",
+    "meaning": "음모, 모함",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -48755,10 +60452,19 @@ const words = [
   {
     "word": "rash",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "성급한, 급한, 경솔한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "rash",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "성급한, 급한, 경솔한, 많음; 발진",
+    "meaning": "많음; 발진",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -48826,10 +60532,19 @@ const words = [
   {
     "word": "segment",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "단편, 조각",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "segment",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "단편, 조각, 분할하다",
+    "meaning": "분할하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -48847,10 +60562,19 @@ const words = [
   {
     "word": "trespass",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "불법,침해, 불법침입",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "trespass",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "불법,침해, 불법침입, 침입하다,침해하다",
+    "meaning": "침입하다,침해하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49048,10 +60772,19 @@ const words = [
   {
     "word": "pile",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "쌓아 올리다, 모으다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "pile",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "쌓아 올리다, 모으다, 퇴적, 더미",
+    "meaning": "퇴적, 더미",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49079,10 +60812,19 @@ const words = [
   {
     "word": "beam",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "광선, 빛줄기; 기둥",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "beam",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "광선, 빛줄기; 기둥, 빛나다, 빛을 비추다",
+    "meaning": "빛나다, 빛을 비추다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49130,10 +60872,19 @@ const words = [
   {
     "word": "silhouette",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "실루엣, 검은 윤곽, 외형",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "silhouette",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "실루엣, 검은 윤곽, 외형, 실루엣으로 나타내다",
+    "meaning": "실루엣으로 나타내다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49181,11 +60932,29 @@ const words = [
   {
     "word": "intermediate",
     "partOfSpeech": [
-      "a",
-      "n",
+      "a"
+    ],
+    "meaning": "중간의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "intermediate",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "중간물",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "intermediate",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "중간의, 중간물, 중재하다",
+    "meaning": "중재하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49283,11 +61052,29 @@ const words = [
   {
     "word": "chill",
     "partOfSpeech": [
-      "n",
-      "a",
+      "n"
+    ],
+    "meaning": "냉기",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "chill",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "냉담한, 차가운",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "chill",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "냉기, 냉담한, 차가운, 차가워지다",
+    "meaning": "차가워지다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49295,10 +61082,19 @@ const words = [
   {
     "word": "demise",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "서거, 사망",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "demise",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "서거, 사망, 통치권을 계승하다, 통치권을 물려주다",
+    "meaning": "통치권을 계승하다, 통치권을 물려주다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49346,10 +61142,19 @@ const words = [
   {
     "word": "limp",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "기운이 없는, 축 늘어진, 흐물흐물한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "limp",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "기운이 없는, 축 늘어진, 흐물흐물한, 다리를 절다, 절뚝거리다",
+    "meaning": "다리를 절다, 절뚝거리다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49407,10 +61212,19 @@ const words = [
   {
     "word": "pound",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "타격, 연타 ; 파운드",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "pound",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "타격, 연타 ; 파운드, 마구 치다",
+    "meaning": "마구 치다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49518,10 +61332,19 @@ const words = [
   {
     "word": "exterior",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "외부의, 표면의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "exterior",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "외부의, 표면의, 외부, 외관",
+    "meaning": "외부, 외관",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49559,10 +61382,19 @@ const words = [
   {
     "word": "kin",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "친척, 혈족관계, 혈연관계",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "kin",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "친척, 혈족관계, 혈연관계, 동족인, 동족의",
+    "meaning": "동족인, 동족의",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49670,10 +61502,19 @@ const words = [
   {
     "word": "criminal",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "범죄의, 죄 있는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "criminal",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "범죄의, 죄 있는, 범죄자",
+    "meaning": "범죄자",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49681,10 +61522,19 @@ const words = [
   {
     "word": "subsidiary",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "보조의, 종속적인, 부가의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "subsidiary",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "보조의, 종속적인, 부가의, 자회사, 부가물",
+    "meaning": "자회사, 부가물",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49772,10 +61622,19 @@ const words = [
   {
     "word": "gust",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "바람이 갑자기 강하게 불다., 바람이 갑자기 강하게 불다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "gust",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "바람이 갑자기 강하게 불다., 바람이 갑자기 강하게 불다, 돌풍, 폭풍, 세찬 바람",
+    "meaning": "돌풍, 폭풍, 세찬 바람",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49803,10 +61662,19 @@ const words = [
   {
     "word": "telling",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "효력이 있는, 뚜렷한, 현저한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "telling",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "효력이 있는, 뚜렷한, 현저한, 말하기, 이야기",
+    "meaning": "말하기, 이야기",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49824,10 +61692,19 @@ const words = [
   {
     "word": "original",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "원래의, 독창적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "original",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "원래의, 독창적인, 원본",
+    "meaning": "원본",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49855,10 +61732,19 @@ const words = [
   {
     "word": "many",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "많은, 다수의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "many",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "많은, 다수의, 많은 사람들, 다수의 사람들",
+    "meaning": "많은 사람들, 다수의 사람들",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49896,10 +61782,19 @@ const words = [
   {
     "word": "surmise",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "추측(생각)하다, 예측하다, 짐작하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "surmise",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "추측",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49917,10 +61812,19 @@ const words = [
   {
     "word": "boom",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "번성하다, 폭등하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "boom",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "번성하다, 폭등하다, 붐, (가격의) 폭등,호황, 갑작스런 인기",
+    "meaning": "붐, (가격의) 폭등,호황, 갑작스런 인기",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -49968,11 +61872,29 @@ const words = [
   {
     "word": "mute",
     "partOfSpeech": [
-      "a",
-      "n",
+      "a"
+    ],
+    "meaning": "벙어리의, 무언의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "mute",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "벙어리",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "mute",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "벙어리의, 무언의, 소리를 줄이다, 소리를 약하게 하다",
+    "meaning": "소리를 줄이다, 소리를 약하게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50100,10 +62022,19 @@ const words = [
   {
     "word": "ritual",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "의식의, 관습의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "ritual",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "의식의, 관습의, (종교적) 의식",
+    "meaning": "(종교적) 의식",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50121,10 +62052,19 @@ const words = [
   {
     "word": "daub",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "흠뻑 칠하다, 바르다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "daub",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "흠뻑 칠하다, 바르다, 진흙 반죽; 칠해 놓은 것",
+    "meaning": "진흙 반죽; 칠해 놓은 것",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50202,10 +62142,19 @@ const words = [
   {
     "word": "warp",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "뒤틀다, 휘게 하다, 비틀다, 구부리다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "warp",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "뒤틀다, 휘게 하다, 비틀다, 구부리다, (베틀의)날실",
+    "meaning": "(베틀의)날실",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50283,10 +62232,19 @@ const words = [
   {
     "word": "alternate",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "교체하다 ; 번갈아 일어나다, 대체하다, 번갈아가면서 하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "alternate",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "교체하다 ; 번갈아 일어나다, 대체하다, 번갈아가면서 하다, 번갈아 하는",
+    "meaning": "번갈아 하는",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50324,10 +62282,19 @@ const words = [
   {
     "word": "whirl",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "회전",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "whirl",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "회전, 빙빙 돌다, 회전하다",
+    "meaning": "빙빙 돌다, 회전하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50365,10 +62332,19 @@ const words = [
   {
     "word": "freight",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "화물",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "freight",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "화물, 화물을 싣다",
+    "meaning": "화물을 싣다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50406,10 +62382,19 @@ const words = [
   {
     "word": "dissent",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "의견을 달리하다, 반대하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "dissent",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "의견을 달리하다, 반대하다, 불찬성",
+    "meaning": "불찬성",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50497,10 +62482,19 @@ const words = [
   {
     "word": "impact",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "영향을 주다, 충격을주다, 영향을 미치다, 영향을 끼치다, 영향을주다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "impact",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "영향을 주다, 충격을주다, 영향을 미치다, 영향을 끼치다, 영향을주다, 충돌",
+    "meaning": "충돌",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50508,10 +62502,19 @@ const words = [
   {
     "word": "gala",
     "partOfSpeech": [
-      "a",
-      "n"
+      "a"
     ],
     "meaning": "축제의, 즐거운",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "gala",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "축제",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50529,10 +62532,19 @@ const words = [
   {
     "word": "station",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "역, 정거장; 위치, 장소",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 11
+  },
+  {
+    "word": "station",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "역, 정거장; 위치, 장소, 배치하다, 주둔시키다",
+    "meaning": "배치하다, 주둔시키다",
     "totalFails": 0,
     "category": "toefl",
     "day": 11
@@ -50540,10 +62552,19 @@ const words = [
   {
     "word": "converse",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "반대, 역",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "converse",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "반대, 역, 이야기하다",
+    "meaning": "이야기하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -50621,10 +62642,19 @@ const words = [
   {
     "word": "scruple",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "망설임, 양심의 가책",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "scruple",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "망설임, 양심의 가책, 꺼리다, 망설이다",
+    "meaning": "꺼리다, 망설이다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -50642,10 +62672,19 @@ const words = [
   {
     "word": "siege",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "포위 공격",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "siege",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "포위 공격, 둘러싸다, 포위하다",
+    "meaning": "둘러싸다, 포위하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -50663,10 +62702,19 @@ const words = [
   {
     "word": "pale",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "창백한; (색깔이) 엷은",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "pale",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "창백한; (색깔이) 엷은, 창백해지다",
+    "meaning": "창백해지다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -50774,10 +62822,19 @@ const words = [
   {
     "word": "sparkle",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "섬광, 불꽃",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "sparkle",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "섬광, 불꽃, 번쩍이다",
+    "meaning": "번쩍이다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -50785,10 +62842,19 @@ const words = [
   {
     "word": "wreck",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "난파, 조난",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "wreck",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "난파, 조난, 난파시키다",
+    "meaning": "난파시키다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -50946,10 +63012,19 @@ const words = [
   {
     "word": "dilute",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "희석하다, 묽게 하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "dilute",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "희석하다, 묽게 하다, 묽게한, 희석한, 희석된",
+    "meaning": "묽게한, 희석한, 희석된",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51157,10 +63232,19 @@ const words = [
   {
     "word": "throughout",
     "partOfSpeech": [
-      "prep",
+      "prep"
+    ],
+    "meaning": "-동안 죽; ~의 도처에",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "throughout",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "-동안 죽; ~의 도처에, 처음부터 끝까지",
+    "meaning": "처음부터 끝까지",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51208,10 +63292,19 @@ const words = [
   {
     "word": "vagrant",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "방랑하는",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "vagrant",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "방랑하는, 방랑(유랑)자",
+    "meaning": "방랑(유랑)자",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51349,10 +63442,19 @@ const words = [
   {
     "word": "accord",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "일치하다,부합하다(with); 부여하다(to)",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "accord",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "일치하다,부합하다(with); 부여하다(to), 합의",
+    "meaning": "합의",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51370,10 +63472,19 @@ const words = [
   {
     "word": "specific",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "특정한, 특정의, 특유의, 구체적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "specific",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "특정한, 특정의, 특유의, 구체적인, 특성, 특질",
+    "meaning": "특성, 특질",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51381,10 +63492,19 @@ const words = [
   {
     "word": "lease",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "임차하다, 임대하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "lease",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "임차하다, 임대하다, 임대차 계약",
+    "meaning": "임대차 계약",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51392,10 +63512,19 @@ const words = [
   {
     "word": "scoop",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "긁어 모으다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "scoop",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "긁어 모으다, 국자",
+    "meaning": "국자",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51483,10 +63612,19 @@ const words = [
   {
     "word": "wedge",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "억지로 밀어 넣다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "wedge",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "억지로 밀어 넣다, 쐐기",
+    "meaning": "쐐기",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51564,10 +63702,19 @@ const words = [
   {
     "word": "tow",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "끌다, 견인하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "tow",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "끌다, 견인하다, (자동차의) 견인, (보트의) 예인",
+    "meaning": "(자동차의) 견인, (보트의) 예인",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51575,11 +63722,29 @@ const words = [
   {
     "word": "fleet",
     "partOfSpeech": [
-      "a",
-      "n",
+      "a"
+    ],
+    "meaning": "빠른, 신속한, 쾌속의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "fleet",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "함대",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "fleet",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "빠른, 신속한, 쾌속의, 함대, 어느덧 지나가다",
+    "meaning": "어느덧 지나가다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51637,8 +63802,7 @@ const words = [
   {
     "word": "bump",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "충돌하다",
     "totalFails": 0,
@@ -51646,12 +63810,31 @@ const words = [
     "day": 12
   },
   {
-    "word": "acid",
+    "word": "bump",
     "partOfSpeech": [
-      "a",
       "n"
     ],
-    "meaning": "신맛의, 신랄한, 산성의, 산, 산성",
+    "meaning": "충돌",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "acid",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "신맛의, 신랄한, 산성의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "acid",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "산, 산성",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51689,10 +63872,19 @@ const words = [
   {
     "word": "recruit",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "얻다, 모집하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "recruit",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "얻다, 모집하다, 신병, 신입회원",
+    "meaning": "신병, 신입회원",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51830,10 +64022,19 @@ const words = [
   {
     "word": "cripple",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "불구가 되게 하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "cripple",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "불구가 되게 하다, 불구자, 장애인",
+    "meaning": "불구자, 장애인",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -51991,10 +64192,19 @@ const words = [
   {
     "word": "spite",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "악의, 심술",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "spite",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "악의, 심술, 괴롭히다",
+    "meaning": "괴롭히다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -52012,10 +64222,19 @@ const words = [
   {
     "word": "link",
     "partOfSpeech": [
-      "v",
-      "n"
+      "v"
     ],
     "meaning": "잇다, 연결하다 ; 관련짓다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "link",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "연결",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -52083,10 +64302,19 @@ const words = [
   {
     "word": "anchor",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "고정시키다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "anchor",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "고정시키다, 닻",
+    "meaning": "닻",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -52164,10 +64392,19 @@ const words = [
   {
     "word": "glide",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "활주, 미끄러지기",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "glide",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "활주, 미끄러지기, 미끄러지다",
+    "meaning": "미끄러지다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -52315,10 +64552,19 @@ const words = [
   {
     "word": "clog",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "(파이프, 도로) 막다, 막히다 ; (움직임을) 방해하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "clog",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "(파이프, 도로) 막다, 막히다 ; (움직임을) 방해하다, 고장, 방해물, 장애물",
+    "meaning": "고장, 방해물, 장애물",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -52436,10 +64682,19 @@ const words = [
   {
     "word": "bust",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "흉상 ; 가슴",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 12
+  },
+  {
+    "word": "bust",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "흉상 ; 가슴, 부수다; 잡다",
+    "meaning": "부수다; 잡다",
     "totalFails": 0,
     "category": "toefl",
     "day": 12
@@ -52565,17 +64820,6 @@ const words = [
     "day": 12
   },
   {
-    "word": "decline",
-    "partOfSpeech": [
-      "v",
-      "n"
-    ],
-    "meaning": "거절하다, 아래로 향하다, 감소하다, 줄어들다, 감소, 하락, 축소",
-    "totalFails": 0,
-    "category": "toefl",
-    "day": 12
-  },
-  {
     "word": "akin to",
     "partOfSpeech": [
       "phr"
@@ -52608,11 +64852,29 @@ const words = [
   {
     "word": "damp",
     "partOfSpeech": [
-      "a",
-      "n",
+      "a"
+    ],
+    "meaning": "축축한, 습기 찬",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "damp",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "습기",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "damp",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "축축한, 습기 찬, ~에 습기를 주다",
+    "meaning": "~에 습기를 주다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -52670,10 +64932,19 @@ const words = [
   {
     "word": "constituent",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "성분, 요소, (특정 선거구에 사는) 주민[유권자]",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "constituent",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "성분, 요소, (특정 선거구에 사는) 주민, 구성하는",
+    "meaning": "구성하는",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -52691,10 +64962,19 @@ const words = [
   {
     "word": "attribute",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "특징, 속성",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "attribute",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "특징, 속성, ~의 결과로 보다",
+    "meaning": "~의 결과로 보다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -52702,10 +64982,19 @@ const words = [
   {
     "word": "atrophy",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "위축, 퇴화",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "atrophy",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "위축, 퇴화, (신체의 일부가) 위축되다",
+    "meaning": "(신체의 일부가) 위축되다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -52775,7 +65064,7 @@ const words = [
     "partOfSpeech": [
       "n"
     ],
-    "meaning": "태도, 관계; (일정한 지점에서 나침반으로 측정한) 방향",
+    "meaning": "태도, 관계; (일정한 지점에서 나침반으로 측정한) 방향[방위]",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -52801,12 +65090,31 @@ const words = [
     "day": 13
   },
   {
-    "word": "bail",
+    "word": "acquire",
     "partOfSpeech": [
-      "n",
       "v"
     ],
-    "meaning": "보석, 보석금, 보석으로 풀어주다",
+    "meaning": "얻다, 취득하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "bail",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "보석, 보석금",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "bail",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "보석으로 풀어주다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -52892,12 +65200,31 @@ const words = [
     "day": 13
   },
   {
-    "word": "heap",
+    "word": "astonish",
     "partOfSpeech": [
-      "n",
       "v"
     ],
-    "meaning": "더미, 무더기, 많음, 쌓아올리다",
+    "meaning": "놀라게 하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "heap",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "더미, 무더기, 많음",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "heap",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "쌓아올리다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53015,10 +65342,19 @@ const words = [
   {
     "word": "trade",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "교역하다, 무역하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "trade",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "교역하다, 무역하다, 무역, 거래, 교역",
+    "meaning": "무역, 거래, 교역",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53046,10 +65382,19 @@ const words = [
   {
     "word": "hinder",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "방해하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "hinder",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "방해하다, 뒤쪽의",
+    "meaning": "뒤쪽의",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53127,10 +65472,19 @@ const words = [
   {
     "word": "cramp",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "경련, 위경련",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "cramp",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "경련, 위경련, 방해하다 ; 제한하다",
+    "meaning": "방해하다 ; 제한하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53218,10 +65572,19 @@ const words = [
   {
     "word": "gorge",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "잔뜩먹다, 실컷먹다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "gorge",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "잔뜩먹다, 실컷먹다, 골짜기, 협곡; 폭식,과식",
+    "meaning": "골짜기, 협곡; 폭식,과식",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53271,7 +65634,7 @@ const words = [
     "partOfSpeech": [
       "v"
     ],
-    "meaning": "~위에 가로놓이다",
+    "meaning": "~위에 가로놓이다[눕다]",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53329,10 +65692,19 @@ const words = [
   {
     "word": "document",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "기록하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "document",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "기록하다, 문서, 서류",
+    "meaning": "문서, 서류",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53340,10 +65712,19 @@ const words = [
   {
     "word": "pension",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "연금",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "pension",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "연금, 연금을 주다",
+    "meaning": "연금을 주다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53371,10 +65752,19 @@ const words = [
   {
     "word": "shudder",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "떨림, 전율",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "shudder",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "떨림, 전율, (공포, 추위로) 떨다",
+    "meaning": "(공포, 추위로) 떨다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53442,10 +65832,19 @@ const words = [
   {
     "word": "pioneer",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "선구자",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "pioneer",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "선구자, 개척하다",
+    "meaning": "개척하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53513,10 +65912,19 @@ const words = [
   {
     "word": "screen",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "칸막이, 보호물, 화면",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "screen",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "칸막이, 보호물, 화면, 가리다",
+    "meaning": "가리다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53524,10 +65932,19 @@ const words = [
   {
     "word": "terrestrial",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "인간",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "terrestrial",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "인간, 지구의, 육지의",
+    "meaning": "지구의, 육지의",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53535,10 +65952,19 @@ const words = [
   {
     "word": "gauge",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "평가하다, 판단하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "gauge",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "평가하다, 판단하다, 기준, 규격, 게이지",
+    "meaning": "기준, 규격, 게이지",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53556,10 +65982,19 @@ const words = [
   {
     "word": "mass",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "모임 ; 덩어리; (양이) 많은~",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "mass",
+    "partOfSpeech": [
       "a"
     ],
-    "meaning": "모임 ; 덩어리; (양이) 많은~, 대량의",
+    "meaning": "대량의",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53727,10 +66162,19 @@ const words = [
   {
     "word": "rebound",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "반향 ; 메아리",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "rebound",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "반향 ; 메아리, 튀어오르다 ; 회복하다",
+    "meaning": "튀어오르다 ; 회복하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53758,10 +66202,19 @@ const words = [
   {
     "word": "anger",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "노여움, 성남",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "anger",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "노여움, 성남, 성내다, 화나게 하다, 성나게 하다",
+    "meaning": "성내다, 화나게 하다, 성나게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -53909,10 +66362,19 @@ const words = [
   {
     "word": "erect",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "직립한, 수직의",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "erect",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "직립한, 수직의, 세우다, 건설하다",
+    "meaning": "세우다, 건설하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54060,10 +66522,19 @@ const words = [
   {
     "word": "stroke",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "일격, 타격,",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "stroke",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "일격, 타격,, 쓰다 듬다",
+    "meaning": "쓰다 듬다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54091,10 +66562,19 @@ const words = [
   {
     "word": "rot",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "썩다, 부패하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "rot",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "썩다, 부패하다, 부패, 부식",
+    "meaning": "부패, 부식",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54135,6 +66615,16 @@ const words = [
       "v"
     ],
     "meaning": "호소하다, 기원하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "apparent",
+    "partOfSpeech": [
+      "a"
+    ],
+    "meaning": "분명한, 누가봐도 알수있는",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54212,10 +66702,19 @@ const words = [
   {
     "word": "incidental",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "부수적인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "incidental",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "부수적인, 부수적인 일",
+    "meaning": "부수적인 일",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54223,10 +66722,19 @@ const words = [
   {
     "word": "champion",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "챔피언, 선수권 우승자",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "champion",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "챔피언, 선수권 우승자, 옹호하다, ~을 위해 싸우다",
+    "meaning": "옹호하다, ~을 위해 싸우다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54264,10 +66772,19 @@ const words = [
   {
     "word": "stain",
     "partOfSpeech": [
-      "v",
+      "v"
+    ],
+    "meaning": "더럽히다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "stain",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "더럽히다, 얼룩, 더러움",
+    "meaning": "얼룩, 더러움",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54333,6 +66850,16 @@ const words = [
     "day": 13
   },
   {
+    "word": "suppress",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "억압하다, 진압하다",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
     "word": "proper",
     "partOfSpeech": [
       "a"
@@ -54383,6 +66910,16 @@ const words = [
     "day": 13
   },
   {
+    "word": "mechanism",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "기계장치",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
     "word": "prowess",
     "partOfSpeech": [
       "n"
@@ -54395,10 +66932,19 @@ const words = [
   {
     "word": "disdain",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "경멸,오만",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "disdain",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "경멸,오만, 경멸하다",
+    "meaning": "경멸하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54406,11 +66952,29 @@ const words = [
   {
     "word": "transverse",
     "partOfSpeech": [
-      "a",
-      "n",
+      "a"
+    ],
+    "meaning": "가로지르는, 가로 놓인",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "transverse",
+    "partOfSpeech": [
+      "n"
+    ],
+    "meaning": "가로지르는 것; 고난, 역경",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "transverse",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "가로지르는, 가로 놓인, 가로지르는 것; 고난, 역경, 가로지르다",
+    "meaning": "가로지르다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54431,6 +66995,16 @@ const words = [
       "a"
     ],
     "meaning": "자비심 많은, 친절한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "decline",
+    "partOfSpeech": [
+      "v"
+    ],
+    "meaning": "거절하다, 아래로 향하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54468,10 +67042,19 @@ const words = [
   {
     "word": "still",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "움직이지 않는 ; 조용한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "still",
+    "partOfSpeech": [
       "ad"
     ],
-    "meaning": "움직이지 않는 ; 조용한, 아직도",
+    "meaning": "아직도",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54569,10 +67152,19 @@ const words = [
   {
     "word": "odd",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "이상한, 기묘한, 특이한",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "odd",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "이상한, 기묘한, 특이한, 나머지; 가능성 ( /-s)",
+    "meaning": "나머지; 가능성 ( /-s)",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54680,10 +67272,19 @@ const words = [
   {
     "word": "static",
     "partOfSpeech": [
-      "a",
+      "a"
+    ],
+    "meaning": "정지된",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "static",
+    "partOfSpeech": [
       "n"
     ],
-    "meaning": "정지된, (수신기의)잡음",
+    "meaning": "(수신기의)잡음",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54711,10 +67312,19 @@ const words = [
   {
     "word": "broach",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "구멍후비는 기구, 송곳, 꼬챙이",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "broach",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "구멍후비는 기구, 송곳, 꼬챙이, 구멍을 뚫다; (하기 힘든 이야기를) 꺼내다",
+    "meaning": "구멍을 뚫다; (하기 힘든 이야기를) 꺼내다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54752,10 +67362,19 @@ const words = [
   {
     "word": "roster",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "(등록)명부",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "roster",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "(등록)명부, 명부에 실리다",
+    "meaning": "명부에 실리다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54813,10 +67432,19 @@ const words = [
   {
     "word": "blot",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "얼룩 ; 오점",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "blot",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "얼룩 ; 오점, 더럽히다",
+    "meaning": "더럽히다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54894,10 +67522,19 @@ const words = [
   {
     "word": "craze",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "열광, 광기",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "craze",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "열광, 광기, 미치게 하다",
+    "meaning": "미치게 하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54905,10 +67542,19 @@ const words = [
   {
     "word": "flock",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "무리, 떼, 군중",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "flock",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "무리, 떼, 군중, 떼짓다, 모이다",
+    "meaning": "떼짓다, 모이다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -54966,10 +67612,19 @@ const words = [
   {
     "word": "bargain",
     "partOfSpeech": [
-      "n",
+      "n"
+    ],
+    "meaning": "매매",
+    "totalFails": 0,
+    "category": "toefl",
+    "day": 13
+  },
+  {
+    "word": "bargain",
+    "partOfSpeech": [
       "v"
     ],
-    "meaning": "매매, 흥정하다",
+    "meaning": "흥정하다",
     "totalFails": 0,
     "category": "toefl",
     "day": 13
@@ -55015,3 +67670,35 @@ const words = [
     "day": 13
   }
 ];
+
+(function verifyCounts() {
+  const counts = { basic: {}, toefl: {} };
+  words.forEach(w => {
+    if (!counts[w.category]) counts[w.category] = {};
+    counts[w.category][w.day] = (counts[w.category][w.day] || 0) + 1;
+  });
+
+  const expectedBasic = { 1:200, 2:200, 3:200, 4:200, 5:200, 6:200, 7:200, 8:200, 9:200, 10:200, 11:200, 12:200, 13:200, 14:200, 15:156 };
+  const expectedToefl = { 1:200, 2:200, 3:200, 4:200, 5:200, 6:200, 7:200, 8:200, 9:200, 10:200, 11:200, 12:200, 13:246 };
+
+  let errorMsgs = [];
+  Object.keys(expectedBasic).forEach(day => {
+    const d = parseInt(day);
+    if (counts['basic'][d] !== expectedBasic[d]) {
+      errorMsgs.push('[기초 영단어] Day ' + d + ' 개수 불일치: 예상 ' + expectedBasic[d] + ', 실제 ' + (counts['basic'][d]||0));
+    }
+  });
+  Object.keys(expectedToefl).forEach(day => {
+    const d = parseInt(day);
+    if (counts['toefl'][d] !== expectedToefl[d]) {
+      errorMsgs.push('[토플 영단어] Day ' + d + ' 개수 불일치: 예상 ' + expectedToefl[d] + ', 실제 ' + (counts['toefl'][d]||0));
+    }
+  });
+
+  if (errorMsgs.length > 0) {
+    console.error("❌ 데이터 무결성 검증 실패:\n" + errorMsgs.join('\n'));
+    alert("데이터 파싱 에러 발생! (개발자 도구 F12 Console 확인)\n순서가 꼬였거나 단어 개수가 일치하지 않습니다.");
+  } else {
+    console.log("✅ 모든 단어 파싱 검증 완료! (개수 및 순서 정상)");
+  }
+})();
