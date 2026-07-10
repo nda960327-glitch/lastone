@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v153'; // 캐시 업데이트: 드롭다운 글씨 색상, 모달창 가독성, 받아쓰기 버튼 블루 박스화, 스피커 아이콘 디자인 픽스
+const CACHE_NAME = 'vocabmaster-v154'; // 캐시 업데이트: 버튼 텍스트 중앙 정렬, 완벽합니다 팝업 그린 톤 강화, 스피커 아이콘 분리(학습 36px/받아쓰기 48px), 파스텔 배경 약간 더 진하게
 const ASSETS = [
   '/',
   '/index.html',

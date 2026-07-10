@@ -47,7 +47,7 @@
 }
 
 [data-theme="blue"] {
-  --bg-color: #E2F2FE;
+  --bg-color: #D4EAFA;
   --card-bg: #FFFFFF;
   --text-main: #334155; /* 부드러운 다크 그레이블루 */
   --glow-color: rgba(59, 130, 246, 0.3);
@@ -95,7 +95,7 @@
 }
 
 [data-theme="green"] {
-  --bg-color: #E0F9E8;
+  --bg-color: #D1FAE5;
   --bg2: #dcfce7;
   --card-bg: #ffffff;
   --glass-h: rgba(255, 255, 255, 1);
@@ -166,6 +166,8 @@ body {
 button { cursor:pointer; border:none; outline:none; font-family:inherit; transition:all .2s ease; }
 
 .btn-primary {
+  justify-content: center;
+  text-align: center;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -378,7 +380,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 .progress-badge.completed {
   background: rgba(74, 222, 128, 0.15);
   color: #4ade80;
-  border: 1px solid rgba(74, 222, 128, 0.3);
+  border: 1px solid rgba(34, 197, 94, 0.4);
 }
 
 
@@ -806,16 +808,22 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   background: rgba(255, 255, 255, 0.05);
   border: none;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 16px;
   padding: 0;
+  flex-shrink: 0;
   transition: all 0.2s ease;
   color: var(--text-main);
+}
+.dictation-mode-active .speaker-icon-btn {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
 }
 .speaker-icon-btn:hover {
   background: rgba(255, 255, 255, 0.15);
@@ -1360,7 +1368,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   color: var(--text-main);
 }
 .final-cheer {
-  background: rgba(74, 222, 128, 0.1);
+  background: rgba(34, 197, 94, 0.15);
   border: 1px solid rgba(74, 222, 128, 0.3);
   border-radius: 10px;
   padding: 14px;

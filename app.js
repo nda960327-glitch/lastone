@@ -1473,6 +1473,11 @@ if (posHintEl) posHintEl.classList.add('hidden');
       }
     }
 
+    const testCard = document.querySelector('.test-card');
+    if (testCard) {
+      if (isDictationMode) testCard.classList.add('dictation-mode-active');
+      else testCard.classList.remove('dictation-mode-active');
+    }
     if (isDictationMode) {
       document.getElementById('test-word').classList.add('hidden');
       const oxC1 = document.getElementById('ox-buttons-container');
