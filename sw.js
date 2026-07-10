@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v131'; // 캐시 업데이트: 로고 텍스트 대비 버그 픽스, 완전 초기화 기능, 단어 모달 뜻 숨기기 기능 추가
+const CACHE_NAME = 'vocabmaster-v132'; // 캐시 업데이트: 뜻 숨기기 모드 스위치 UI 누락 픽스
 const ASSETS = [
   '/',
   '/index.html',
