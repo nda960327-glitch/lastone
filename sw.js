@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v139'; // 캐시 업데이트: UI 컨테이너 분리 및 렌더링 초기화 버그 픽스
+const CACHE_NAME = 'vocabmaster-v140'; // 캐시 업데이트: SyntaxError로 인한 앱 먹통 해결
 const ASSETS = [
   '/',
   '/index.html',

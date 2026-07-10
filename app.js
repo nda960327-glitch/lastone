@@ -1578,9 +1578,6 @@ if (posHintEl) posHintEl.classList.remove('hidden');
           totalMs = 9000;
         } else {
           totalMs = 10000;
-        } else if (mLen === 2) {
-          totalMs = 7000;
-          disableOMs = 5000;
         }
 
         startWordTimer(
