@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v128'; // 캐시 업데이트: 스와이프 중앙 스탬프 UI 오류 완벽 수정
+const CACHE_NAME = 'vocabmaster-v129'; // 캐시 업데이트: 스와이프 글로벌 스탬프(예능 효과) UI 적용
 const ASSETS = [
   '/',
   '/index.html',

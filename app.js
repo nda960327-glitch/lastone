@@ -2307,7 +2307,7 @@ let isVerticalScroll = false;
         const isForceWrong = isTimeUp;
         const isActuallyO = deltaX > threshold && !isForceWrong;
         const isActuallyX = deltaX < -threshold || isForceWrong;
-        const centerStamp = document.getElementById('center-stamp');
+        const globalStamp = document.getElementById('global-stamp');
 
         testCard.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
         testCard.style.opacity = '0';
@@ -2316,18 +2316,14 @@ let isVerticalScroll = false;
           if (navigator.vibrate) navigator.vibrate(50);
           testCard.style.transform = `translate(100vw, 0) rotate(15deg)`;
           
-          if (centerStamp) {
-            centerStamp.textContent = 'O 안다';
-            centerStamp.style.color = 'var(--green)';
-            centerStamp.style.borderColor = 'var(--green)';
-            centerStamp.style.opacity = '1';
-            centerStamp.style.transform = 'translate(-50%, -50%) scale(1)';
+          if (globalStamp) {
+            globalStamp.textContent = "O";
+            globalStamp.className = "stamp-o stamp-show";
           }
           
           setTimeout(() => {
-            if (centerStamp) {
-              centerStamp.style.opacity = '0';
-              centerStamp.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            if (globalStamp) {
+              globalStamp.classList.remove('stamp-show');
             }
             document.getElementById('btn-correct').click();
             testCard.style.opacity = '1';
@@ -2337,18 +2333,14 @@ let isVerticalScroll = false;
           if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
           testCard.style.transform = `translate(${deltaX > 0 ? 100 : -100}vw, 0) rotate(${deltaX > 0 ? 15 : -15}deg)`;
           
-          if (centerStamp) {
-            centerStamp.textContent = isForceWrong ? 'X 시간초과' : 'X 모름';
-            centerStamp.style.color = 'var(--red)';
-            centerStamp.style.borderColor = 'var(--red)';
-            centerStamp.style.opacity = '1';
-            centerStamp.style.transform = 'translate(-50%, -50%) scale(1)';
+          if (globalStamp) {
+            globalStamp.textContent = "X";
+            globalStamp.className = "stamp-x stamp-show";
           }
           
           setTimeout(() => {
-            if (centerStamp) {
-              centerStamp.style.opacity = '0';
-              centerStamp.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            if (globalStamp) {
+              globalStamp.classList.remove('stamp-show');
             }
             document.getElementById('btn-wrong').click();
             testCard.style.opacity = '1';

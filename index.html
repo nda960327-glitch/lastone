@@ -16,8 +16,8 @@
   <link rel="apple-touch-icon" href="icon.jpg">
 </head>
 <body>
-  <!-- 중앙 고정 스탬프 -->
-  <div id="center-stamp" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.5); opacity: 0; pointer-events: none; z-index: 9999; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease-out; font-size: 80px; font-weight: 900; border-radius: 20px; padding: 20px 40px; border: 12px solid; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);"></div>
+  <!-- 글로벌 스탬프 -->
+  <div id="global-stamp"></div>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
