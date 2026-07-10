@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v156'; // 긴급 핫픽스 2: TypeError 중복 에러 해결
+const CACHE_NAME = 'vocabmaster-v157'; // UI 업데이트: 받아쓰기 버튼 레드 톤으로 통일, 스피커 배경 테두리 제거
 const ASSETS = [
   '/',
   '/index.html',
