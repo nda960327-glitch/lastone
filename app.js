@@ -876,6 +876,50 @@ function initInputView() {
     runTestRound();
   };
 
+  // 단어장 전체 미리보기 로직
+  const btnViewAllWords = document.getElementById('btn-view-all-words');
+  const modalWordList = document.getElementById('modal-word-list');
+  const btnWordListClose = document.getElementById('btn-word-list-close');
+  const btnWordListOk = document.getElementById('btn-word-list-ok');
+  const wordListTitle = document.getElementById('word-list-title');
+  const wordListTbody = document.getElementById('word-list-tbody');
+
+  if (btnViewAllWords) {
+    btnViewAllWords.addEventListener('click', () => {
+      const currentWords = getFilteredWords();
+      if (currentWords.length === 0) {
+        alert('단어가 존재하지 않습니다.');
+        return;
+      }
+      
+      let titlePrefix = '전체';
+      if (currentCategory === 'toefl') titlePrefix = '토플 영단어';
+      else if (currentCategory === 'basic') titlePrefix = '기초 영단어';
+      else if (currentCategory === 'custom-upload') titlePrefix = '내가 추가한 단어장';
+      else if (currentCategory === 'custom-manual') titlePrefix = '내 단어장';
+
+      let dayText = currentDay != null ? (isNaN(currentDay) ? currentDay : `Day ${currentDay}`) : '';
+      wordListTitle.textContent = `📋 ${titlePrefix} ${dayText} 미리보기 (${currentWords.length}개)`;
+      
+      wordListTbody.innerHTML = '';
+      currentWords.forEach(w => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
+        tr.innerHTML = `
+          <td style="padding: 10px 8px; font-weight: 600; color: #a78bfa;">${w.word}</td>
+          <td style="padding: 10px 8px; color: var(--text2); font-size: 13px;">[${w.partOfSpeech.join(', ')}]</td>
+          <td style="padding: 10px 8px;">${w.meaning}</td>
+        `;
+        wordListTbody.appendChild(tr);
+      });
+      
+      modalWordList.classList.remove('hidden');
+    });
+  }
+
+  const closeWordList = () => { if (modalWordList) modalWordList.classList.add('hidden'); };
+  if (btnWordListClose) btnWordListClose.addEventListener('click', closeWordList);
+  if (btnWordListOk) btnWordListOk.addEventListener('click', closeWordList);
 
 }
 

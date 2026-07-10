@@ -82,6 +82,9 @@
         <button id="btn-dictation" class="btn-primary" style="background: linear-gradient(135deg, #f43f5e, #e11d48); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3); width: 100%;">
           <span id="dictation-btn-text">🎧 전체 단어 스펠링 듣고 쓰기</span>
         </button>
+        <button id="btn-view-all-words" class="btn-primary" style="background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); width: 100%; margin-top: 10px;">
+          <span>📋 이 단어장의 전체 단어 미리보기</span>
+        </button>
       </div>
 
 
@@ -359,6 +362,31 @@
   </div>
 
   <!-- 양식 가이드 모달 -->
+  <!-- 전체 단어 목록 모달 -->
+  <div id="modal-word-list" class="pwa-modal hidden">
+    <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 600px; width: 95%; max-height: 85vh; display: flex; flex-direction: column; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <h3 id="word-list-title" style="font-size: 18px; margin: 0; line-height: 1.4; color: #fff; font-weight: 700;">📋 단어장 미리보기</h3>
+        <button id="btn-word-list-close" style="background: transparent; border: none; color: var(--text2); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0; margin-left: 10px;">✖</button>
+      </div>
+      <div style="flex-grow: 1; overflow-y: auto; padding-right: 4px;" class="custom-scrollbar">
+        <table style="width: 100%; border-collapse: collapse; font-size: 14.5px; text-align: left; color: #fff;">
+          <thead>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.2); color: var(--text2);">
+              <th style="padding: 10px 8px; font-weight: 600; width: 30%;">단어</th>
+              <th style="padding: 10px 8px; font-weight: 600; width: 20%;">품사</th>
+              <th style="padding: 10px 8px; font-weight: 600; width: 50%;">뜻</th>
+            </tr>
+          </thead>
+          <tbody id="word-list-tbody">
+            <!-- 동적 렌더링 -->
+          </tbody>
+        </table>
+      </div>
+      <button id="btn-word-list-ok" class="btn-primary" style="background: linear-gradient(135deg, #3b82f6, #2563eb); width: 100%; margin-top: 20px; padding: 12px; flex-shrink: 0;">닫기</button>
+    </div>
+  </div>
+
   <div id="modal-format-guide" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 420px; width: 90%; margin: 0 auto;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">

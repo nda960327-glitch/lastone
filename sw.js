@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v103'; // 캐시 업데이트: 내가 추가한 단어장 탭의 드롭다운 활성화 및 파일명 연동
+const CACHE_NAME = 'vocabmaster-v104'; // 캐시 업데이트: 전체 단어장 목록 미리보기 기능 및 모달창 추가
 const ASSETS = [
   '/',
   '/index.html',
