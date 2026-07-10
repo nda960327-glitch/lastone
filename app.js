@@ -959,7 +959,11 @@ function initInputView() {
         tr.innerHTML = `
           <td style="padding: 10px 8px; font-weight: 600; color: #a78bfa;">${w.word}</td>
           <td style="padding: 10px 8px; color: var(--text2); font-size: 13px;">[${w.partOfSpeech.join(', ')}]</td>
-          <td style="padding: 10px 8px;">${w.meaning}</td>
+          <td style="padding: 10px 8px;">
+            <span class="${isHideMeaningMode ? 'blur-meaning' : ''}" onclick="if(this.classList.contains('blur-meaning')) this.classList.toggle('revealed')">
+              ${w.meaning}
+            </span>
+          </td>
           ${manageTd}
         `;
         
@@ -2214,6 +2218,7 @@ function restoreProgress(jsonStr) {
 
 //  Swipe Logic 
 let isSwipeMode = false;
+let isHideMeaningMode = false;
 let isTimeUp = false;
 let swipeStartX = 0;
 let swipeStartY = 0;
@@ -2221,6 +2226,16 @@ let swipeCurrentX = 0;
 let isDragging = false;
 let isVerticalScroll = false;
 
+
+  
+  const hideMeaningToggle = document.getElementById('hide-meaning-toggle');
+  if (hideMeaningToggle) {
+    hideMeaningToggle.addEventListener('change', (e) => {
+      isHideMeaningMode = e.target.checked;
+      const btnViewAllWords = document.getElementById('btn-view-all-words');
+      if (btnViewAllWords) btnViewAllWords.click();
+    });
+  }
 
   const swipeToggle = document.getElementById('swipe-toggle-checkbox');
   const testCard = document.getElementById('test-card-el');
@@ -2379,15 +2394,7 @@ let isVerticalScroll = false;
       const confirmReset = confirm('정말로 모든 학습 기록(진행도, 오답 등)을 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.');
       if (confirmReset) {
         try {
-          if (typeof clearProgressIDB === 'function') await clearProgressIDB();
-          if (App && App.words) {
-            App.words.forEach(w => {
-              w.passed = 0;
-              w.attempts = 0;
-            });
-            if (typeof saveWordStatesIDB === 'function') await saveWordStatesIDB();
-          }
-          App.testPool = [];
+          localStorage.clear();
           alert('학습 기록이 성공적으로 초기화되었습니다.');
           location.reload();
         } catch (error) {

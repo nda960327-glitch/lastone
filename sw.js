@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v130'; // 캐시 업데이트: 전역 텍스트 색상 스킨 동기화 및 초기화 버튼 추가
+const CACHE_NAME = 'vocabmaster-v131'; // 캐시 업데이트: 로고 텍스트 대비 버그 픽스, 완전 초기화 기능, 단어 모달 뜻 숨기기 기능 추가
 const ASSETS = [
   '/',
   '/index.html',
