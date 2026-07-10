@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v111'; // 캐시 업데이트: 단어 뜻 카드 디자인 개선 및 스와이프 로직 충돌 버그 수정
+const CACHE_NAME = 'vocabmaster-v112'; // 캐시 업데이트: 설명서 및 개발 비화 버튼을 메인 카드 밖으로 이동
 const ASSETS = [
   '/',
   '/index.html',
