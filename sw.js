@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v126'; // 캐시 업데이트: 블루화이트, 핑크화이트 등 전면 글로벌 스킨(테마) 시스템 및 UI 추가
+const CACHE_NAME = 'vocabmaster-v127'; // 캐시 업데이트: 스와이프 중앙 고정 스탬프 및 타임아웃 꼼수 방지 로직 적용
 const ASSETS = [
   '/',
   '/index.html',

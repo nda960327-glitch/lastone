@@ -1371,9 +1371,19 @@ function stopWordTimer() {
 
 function handleWordTimeout() {
   if (App.phase !== 'test') return;
+  
+  if (isSwipeMode) {
+    isTimeUp = true;
+    return;
+  }
+
   if (typeof revealResolver === 'function' && revealResolver) {
     const r = revealResolver;
     revealResolver = null;
+    r('TIMEOUT');
+  } else if (typeof oxResolver === 'function' && oxResolver) {
+    const r = oxResolver;
+    oxResolver = null;
     r('TIMEOUT');
   } else if (typeof oxResolver === 'function' && oxResolver) {
     const r = oxResolver;
@@ -1399,6 +1409,7 @@ async function runTestRound(startIndex = 0) {
   }
 
   for (let i = startIndex; i < pool.length; i++) {
+    isTimeUp = false;
     if (App.studyAbort) return;
     stopWordTimer();
     const wordObj = pool[i];
@@ -2203,6 +2214,7 @@ function restoreProgress(jsonStr) {
 
 //  Swipe Logic 
 let isSwipeMode = false;
+let isTimeUp = false;
 let swipeStartX = 0;
 let swipeStartY = 0;
 let swipeCurrentX = 0;
