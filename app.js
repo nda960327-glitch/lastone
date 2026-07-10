@@ -2262,37 +2262,28 @@ let isVerticalScroll = false;
   if (testCard) {
     testCard.addEventListener('touchstart', (e) => {
       if (!isSwipeMode) return;
-      if (e.target.closest('button')) return; // 버튼 터치 시 스와이프 무시
+      if (e.target.closest('button')) return; 
       isDragging = true;
       swipeStartX = e.touches[0].clientX;
       testCard.classList.add('dragging');
-      // 사용자가 조작을 시작하면 5초 대기 타이머 해제
       if (typeof stopWordTimer === 'function') stopWordTimer();
     });
 
     testCard.addEventListener('touchmove', (e) => {
       if (!isSwipeMode || !isDragging) return;
-      if (e.target.closest('button')) return; // 혹시라도 이동 중 버튼 위라면 무시
+      if (e.target.closest('button')) return; 
       swipeCurrentX = e.touches[0].clientX;
       const deltaX = swipeCurrentX - swipeStartX;
       const rotateDeg = deltaX * 0.05;
       testCard.style.transform = `translate(${deltaX}px, 0) rotate(${rotateDeg}deg)`;
 
-      const stampO = document.getElementById('stamp-o');
-      const stampX = document.getElementById('stamp-x');
       const opacity = Math.min(Math.abs(deltaX) / 80, 1);
 
       if (deltaX > 0) {
-        if (stampO) stampO.style.opacity = opacity;
-        if (stampX) stampX.style.opacity = 0;
         testCard.style.boxShadow = `0 0 40px rgba(74, 222, 128, ${opacity * 0.4})`;
       } else if (deltaX < 0) {
-        if (stampO) stampO.style.opacity = 0;
-        if (stampX) stampX.style.opacity = opacity;
         testCard.style.boxShadow = `0 0 40px rgba(244, 63, 94, ${opacity * 0.4})`;
       } else {
-        if (stampO) stampO.style.opacity = 0;
-        if (stampX) stampX.style.opacity = 0;
         testCard.style.boxShadow = '';
       }
     });
@@ -2310,39 +2301,68 @@ let isVerticalScroll = false;
         testCard.style.transition = '';
         testCard.style.transform = '';
         testCard.style.boxShadow = '';
-        const stampO = document.getElementById('stamp-o');
-        const stampX = document.getElementById('stamp-x');
-        if (stampO) stampO.style.opacity = 0;
-        if (stampX) stampX.style.opacity = 0;
       }
 
-      if (deltaX > threshold) {
-        if (navigator.vibrate) navigator.vibrate(50);
+      if (deltaX > threshold || deltaX < -threshold) {
+        const isForceWrong = isTimeUp;
+        const isActuallyO = deltaX > threshold && !isForceWrong;
+        const isActuallyX = deltaX < -threshold || isForceWrong;
+        const centerStamp = document.getElementById('center-stamp');
+
         testCard.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
-        testCard.style.transform = `translate(100vw, 0) rotate(15deg)`;
         testCard.style.opacity = '0';
-        setTimeout(() => {
-          document.getElementById('btn-correct').click();
-          testCard.style.opacity = '1';
-          resetCard();
-        }, 600);
-      } else if (deltaX < -threshold) {
-        if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
-        testCard.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
-        testCard.style.transform = `translate(-100vw, 0) rotate(-15deg)`;
-        testCard.style.opacity = '0';
-        setTimeout(() => {
-          document.getElementById('btn-wrong').click();
-          testCard.style.opacity = '1';
-          resetCard();
-        }, 600);
+
+        if (isActuallyO) {
+          if (navigator.vibrate) navigator.vibrate(50);
+          testCard.style.transform = `translate(100vw, 0) rotate(15deg)`;
+          
+          if (centerStamp) {
+            centerStamp.textContent = 'O 안다';
+            centerStamp.style.color = 'var(--green)';
+            centerStamp.style.borderColor = 'var(--green)';
+            centerStamp.style.opacity = '1';
+            centerStamp.style.transform = 'translate(-50%, -50%) scale(1)';
+          }
+          
+          setTimeout(() => {
+            if (centerStamp) {
+              centerStamp.style.opacity = '0';
+              centerStamp.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            }
+            document.getElementById('btn-correct').click();
+            testCard.style.opacity = '1';
+            resetCard();
+          }, 600);
+        } else if (isActuallyX) {
+          if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
+          testCard.style.transform = `translate(${deltaX > 0 ? 100 : -100}vw, 0) rotate(${deltaX > 0 ? 15 : -15}deg)`;
+          
+          if (centerStamp) {
+            centerStamp.textContent = isForceWrong ? 'X 시간초과' : 'X 모름';
+            centerStamp.style.color = 'var(--red)';
+            centerStamp.style.borderColor = 'var(--red)';
+            centerStamp.style.opacity = '1';
+            centerStamp.style.transform = 'translate(-50%, -50%) scale(1)';
+          }
+          
+          setTimeout(() => {
+            if (centerStamp) {
+              centerStamp.style.opacity = '0';
+              centerStamp.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            }
+            document.getElementById('btn-wrong').click();
+            testCard.style.opacity = '1';
+            resetCard();
+          }, 600);
+        }
       } else {
         resetCard();
       }
       swipeStartX = 0;
       swipeCurrentX = 0;
     });
-  }
+  }
+
 
 // Settings Button Toggle Logic
 (function() {

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v127'; // 캐시 업데이트: 스와이프 중앙 고정 스탬프 및 타임아웃 꼼수 방지 로직 적용
+const CACHE_NAME = 'vocabmaster-v128'; // 캐시 업데이트: 스와이프 중앙 스탬프 UI 오류 완벽 수정
 const ASSETS = [
   '/',
   '/index.html',
