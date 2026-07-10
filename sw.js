@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v87'; // 캐시 버전 업데이트: 기존 데이터 wordData.js 분리, 카테고리 탭(토플/기초) 적용 및 데이터 로딩 로직 전면 개편
+const CACHE_NAME = 'vocabmaster-v88'; // 캐시 버전 업데이트: 신규 토플/기초 텍스트 데이터 4500여개 파싱 및 병합 완료
 const ASSETS = [
   '/',
   '/index.html',
