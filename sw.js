@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v135'; // 캐시 업데이트: 프리미엄 디자인 롤백
+const CACHE_NAME = 'vocabmaster-v136'; // 캐시 업데이트: 고객이 작성한 완벽한 DOACore 블루 테마 CSS 원본 적용
 const ASSETS = [
   '/',
   '/index.html',
