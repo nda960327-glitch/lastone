@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v108'; // 캐시 업데이트: 모바일 디스플레이 레이아웃 최적화 (버튼 정렬 및 텍스트 줄바꿈 방지)
+const CACHE_NAME = 'vocabmaster-v109'; // 캐시 업데이트: 스와이프 기능 및 애니메이션, 토글 버튼 추가
 const ASSETS = [
   '/',
   '/index.html',

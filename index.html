@@ -119,7 +119,18 @@
       <div class="progress-fill" id="test-progress-fill"></div>
     </div>
 
-    <div class="test-card glass-card">
+    <!-- 스와이프 모드 토글 -->
+    <div style="display: flex; justify-content: flex-end; align-items: center; margin-top: 10px; margin-bottom: 8px;">
+      <label class="swipe-toggle-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+        <span style="font-size: 13px; color: var(--text2); font-weight: 600;">🖐️ 스와이프 모드</span>
+        <div class="toggle-switch">
+          <input type="checkbox" id="swipe-toggle-checkbox">
+          <span class="slider round"></span>
+        </div>
+      </label>
+    </div>
+
+    <div id="test-card-el" class="test-card glass-card swipe-card" style="touch-action: pan-y;">
       <!-- 2초 음성 청취 동안 노출할 헤드셋 표시기 -->
       <div class="test-listening-zone hidden" id="test-listening-zone">
         <span class="headset-icon">🎧</span>

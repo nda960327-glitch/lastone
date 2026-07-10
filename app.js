@@ -2019,7 +2019,7 @@ function restoreProgress(jsonStr) {
 // =============================================
 // 초기화
 // =============================================
-document.addEventListener('DOMContentLoaded', () => {
+
   const goHomeHandler = () => {
     if (confirm('테스트를 중단하고 홈으로 돌아가시겠습니까?')) {
       App.studyAbort = true;
@@ -2163,3 +2163,81 @@ document.addEventListener('DOMContentLoaded', () => {
   // 홈으로 이동 버튼 핸들러
   
 });
+
+// ���� Swipe Logic ����
+let isSwipeMode = false;
+let swipeStartX = 0;
+let swipeCurrentX = 0;
+let isDragging = false;
+
+
+  const swipeToggle = document.getElementById('swipe-toggle-checkbox');
+  const testCard = document.getElementById('test-card-el');
+
+  if (swipeToggle) {
+    swipeToggle.addEventListener('change', (e) => {
+      isSwipeMode = e.target.checked;
+      if (!isSwipeMode && testCard) {
+        testCard.style.transform = '';
+        testCard.style.boxShadow = '';
+        testCard.classList.remove('dragging');
+      }
+    });
+  }
+
+  if (testCard) {
+    testCard.addEventListener('touchstart', (e) => {
+      if (!isSwipeMode) return;
+      isDragging = true;
+      swipeStartX = e.touches[0].clientX;
+      testCard.classList.add('dragging');
+    });
+
+    testCard.addEventListener('touchmove', (e) => {
+      if (!isSwipeMode || !isDragging) return;
+      swipeCurrentX = e.touches[0].clientX;
+      const deltaX = swipeCurrentX - swipeStartX;
+      const rotateDeg = deltaX * 0.05;
+      testCard.style.transform = "translate(" + deltaX + "px, 0) rotate(" + rotateDeg + "deg)";
+
+      if (deltaX > 20) {
+        testCard.style.boxShadow = '0 0 40px rgba(74, 222, 128, 0.4)';
+      } else if (deltaX < -20) {
+        testCard.style.boxShadow = '0 0 40px rgba(244, 63, 94, 0.4)';
+      } else {
+        testCard.style.boxShadow = '';
+      }
+    });
+
+    testCard.addEventListener('touchend', (e) => {
+      if (!isSwipeMode || !isDragging) return;
+      isDragging = false;
+      testCard.classList.remove('dragging');
+
+      const deltaX = swipeCurrentX - swipeStartX;
+      const threshold = window.innerWidth * 0.25;
+
+      if (deltaX > threshold) {
+        testCard.style.transform = "translate(" + window.innerWidth + "px, 0) rotate(15deg)";
+        setTimeout(() => {
+          document.getElementById('btn-correct').click();
+          testCard.style.transform = '';
+          testCard.style.boxShadow = '';
+        }, 150);
+      } else if (deltaX < -threshold) {
+        testCard.style.transform = "translate(-" + window.innerWidth + "px, 0) rotate(-15deg)";
+        setTimeout(() => {
+          document.getElementById('btn-wrong').click();
+          testCard.style.transform = '';
+          testCard.style.boxShadow = '';
+        }, 150);
+      } else {
+        testCard.style.transform = '';
+        testCard.style.boxShadow = '';
+      }
+      swipeStartX = 0;
+      swipeCurrentX = 0;
+    });
+  }
+});
+
