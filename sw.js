@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v120'; // 캐시 업데이트: 토글 버튼 CSS 오타(따옴표 누락)로 인한 렌더링/작동 불가 버그 완벽 수정
+const CACHE_NAME = 'vocabmaster-v121'; // 캐시 업데이트: 스와이프 모드 켜졌을 때 O/X 버튼 숨김 처리
 const ASSETS = [
   '/',
   '/index.html',

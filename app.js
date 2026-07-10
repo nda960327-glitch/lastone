@@ -1619,7 +1619,15 @@ if (posHintEl) posHintEl.classList.remove('hidden');
       document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings, wordObj);
       document.getElementById('test-meanings').classList.remove('hidden');
       const oxC3 = document.getElementById('ox-buttons-container');
-      if (oxC3) { oxC3.style.display = 'flex'; oxC3.classList.remove('hidden'); }
+      if (oxC3) { 
+        if (isSwipeMode) {
+          oxC3.style.display = 'none';
+          oxC3.classList.add('hidden');
+        } else {
+          oxC3.style.display = 'flex'; 
+          oxC3.classList.remove('hidden');
+        }
+      }
     }
 
     setOXDisabled(false);
@@ -2196,6 +2204,20 @@ let isVerticalScroll = false;
         testCard.style.transform = '';
         testCard.style.boxShadow = '';
         testCard.classList.remove('dragging');
+      }
+
+      const oxC = document.getElementById('ox-buttons-container');
+      const btnReveal = document.getElementById('btn-reveal');
+      if (oxC && btnReveal) {
+        if (isSwipeMode) {
+          oxC.style.display = 'none';
+          oxC.classList.add('hidden');
+        } else {
+          if (btnReveal.classList.contains('hidden') && document.getElementById('test-meanings') && !document.getElementById('test-meanings').classList.contains('hidden')) {
+            oxC.style.display = 'flex';
+            oxC.classList.remove('hidden');
+          }
+        }
       }
     });
   }
