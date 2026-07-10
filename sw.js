@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v104'; // 캐시 업데이트: 전체 단어장 목록 미리보기 기능 및 모달창 추가
+const CACHE_NAME = 'vocabmaster-v105'; // 캐시 업데이트: 단어장 미리보기 모달 UI 위치 변경 및 수동/업로드 단어 수정, 삭제 기능 추가
 const ASSETS = [
   '/',
   '/index.html',

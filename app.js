@@ -892,6 +892,18 @@ function initInputView() {
         return;
       }
       
+      const isCustom = currentCategory === 'custom-upload' || currentCategory === 'custom-manual';
+      const thManage = document.getElementById('th-manage');
+      const btnDeleteAll = document.getElementById('btn-word-list-delete-all');
+      
+      if (isCustom) {
+        if (thManage) thManage.classList.remove('hidden');
+        if (btnDeleteAll) btnDeleteAll.classList.remove('hidden');
+      } else {
+        if (thManage) thManage.classList.add('hidden');
+        if (btnDeleteAll) btnDeleteAll.classList.add('hidden');
+      }
+
       let titlePrefix = '전체';
       if (currentCategory === 'toefl') titlePrefix = '토플 영단어';
       else if (currentCategory === 'basic') titlePrefix = '기초 영단어';
@@ -899,19 +911,127 @@ function initInputView() {
       else if (currentCategory === 'custom-manual') titlePrefix = '내 단어장';
 
       let dayText = currentDay != null ? (isNaN(currentDay) ? currentDay : `Day ${currentDay}`) : '';
-      wordListTitle.textContent = `📋 ${titlePrefix} ${dayText} 미리보기 (${currentWords.length}개)`;
+      
+      const updateTitle = () => {
+        wordListTitle.textContent = `📋 ${titlePrefix} ${dayText} 미리보기 (${wordListTbody.children.length}개)`;
+      };
       
       wordListTbody.innerHTML = '';
       currentWords.forEach(w => {
         const tr = document.createElement('tr');
         tr.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
+        
+        let manageTd = '';
+        if (isCustom) {
+          manageTd = `
+            <td style="padding: 10px 8px; text-align: center; white-space: nowrap;">
+              <button class="btn-ghost btn-word-edit" style="padding: 4px 6px; color: #3b82f6; font-size: 13px; border-color: rgba(59,130,246,0.3); margin-right: 4px;">수정</button>
+              <button class="btn-ghost btn-word-delete" style="padding: 4px 6px; color: #f43f5e; font-size: 13px; border-color: rgba(244,63,94,0.3);">삭제</button>
+            </td>
+          `;
+        }
+
         tr.innerHTML = `
           <td style="padding: 10px 8px; font-weight: 600; color: #a78bfa;">${w.word}</td>
           <td style="padding: 10px 8px; color: var(--text2); font-size: 13px;">[${w.partOfSpeech.join(', ')}]</td>
           <td style="padding: 10px 8px;">${w.meaning}</td>
+          ${manageTd}
         `;
+        
+        if (isCustom) {
+          const btnEdit = tr.querySelector('.btn-word-edit');
+          const btnDel = tr.querySelector('.btn-word-delete');
+          
+          btnEdit.onclick = () => {
+            const currentFormat = `${w.word} [${w.partOfSpeech.join(', ')}] ${w.meaning}`;
+            const newText = prompt('단어를 수정하세요 (양식: 단어 [품사] 뜻)', currentFormat);
+            if (!newText || newText === currentFormat) return;
+            
+            const wordMatch = newText.match(/^(.+?)\s*\[([^\]]+)\]\s*(.+)$/);
+            if (!wordMatch) { alert('양식이 올바르지 않습니다. (예: apple [n] 사과)'); return; }
+            
+            const oldWord = w.word;
+            w.word = wordMatch[1].trim();
+            w.partOfSpeech = wordMatch[2].split(',').map(s=>s.trim());
+            w.meaning = wordMatch[3].trim();
+            
+            // Save to localStorage
+            let targetKey = currentCategory === 'custom-upload' ? 'doacore_upload_words' : 'doacore_custom_words';
+            let savedWords = JSON.parse(localStorage.getItem(targetKey) || '[]');
+            const idx = savedWords.findIndex(sw => sw.word === oldWord && sw.category === currentCategory && (currentCategory === 'custom-upload' ? sw.day === currentDay : true));
+            if (idx > -1) {
+              savedWords[idx] = w;
+              localStorage.setItem(targetKey, JSON.stringify(savedWords));
+            }
+            
+            // Update UI
+            tr.children[0].textContent = w.word;
+            tr.children[1].textContent = `[${w.partOfSpeech.join(', ')}]`;
+            tr.children[2].textContent = w.meaning;
+            
+            updateCount();
+          };
+          
+          btnDel.onclick = () => {
+            if (!confirm(`"${w.word}" 단어를 삭제하시겠습니까?`)) return;
+            
+            let targetKey = currentCategory === 'custom-upload' ? 'doacore_upload_words' : 'doacore_custom_words';
+            let savedWords = JSON.parse(localStorage.getItem(targetKey) || '[]');
+            
+            const idx = savedWords.findIndex(sw => sw.word === w.word && sw.category === currentCategory && (currentCategory === 'custom-upload' ? sw.day === currentDay : true));
+            if (idx > -1) {
+              savedWords.splice(idx, 1);
+              localStorage.setItem(targetKey, JSON.stringify(savedWords));
+            }
+            
+            const wordsIdx = words.findIndex(sw => sw.word === w.word && sw.category === currentCategory && (currentCategory === 'custom-upload' ? sw.day === currentDay : true));
+            if (wordsIdx > -1) words.splice(wordsIdx, 1);
+            App.allWords = words.slice();
+            
+            tr.remove();
+            updateTitle();
+            updateCount();
+            
+            if (wordListTbody.children.length === 0) {
+              if (currentCategory === 'custom-upload') populateDaySelector();
+              modalWordList.classList.add('hidden');
+            }
+          };
+        }
+        
         wordListTbody.appendChild(tr);
       });
+      
+      updateTitle();
+      
+      if (btnDeleteAll) {
+        btnDeleteAll.onclick = () => {
+          if (!confirm('정말 이 단어장 목록 전체를 삭제하시겠습니까?')) return;
+          
+          let targetKey = currentCategory === 'custom-upload' ? 'doacore_upload_words' : 'doacore_custom_words';
+          let savedWords = JSON.parse(localStorage.getItem(targetKey) || '[]');
+          
+          if (currentCategory === 'custom-upload') {
+            savedWords = savedWords.filter(sw => sw.day !== currentDay);
+          } else {
+            savedWords = []; // custom-manual 모두 삭제
+          }
+          localStorage.setItem(targetKey, JSON.stringify(savedWords));
+          
+          words = words.filter(sw => {
+             if (sw.category === currentCategory) {
+               if (currentCategory === 'custom-upload' && sw.day === currentDay) return false;
+               if (currentCategory === 'custom-manual') return false;
+             }
+             return true;
+          });
+          App.allWords = words.slice();
+          
+          modalWordList.classList.add('hidden');
+          if (currentCategory === 'custom-upload') populateDaySelector();
+          updateCount();
+        };
+      }
       
       modalWordList.classList.remove('hidden');
     });
