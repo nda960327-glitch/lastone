@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v148'; // 캐시 업데이트: 스피커 크기 키움, 홈 화면 학습 박스 가독성 픽스, OX버튼 전체 화이트 강제 적용
+const CACHE_NAME = 'vocabmaster-v149'; // 캐시 업데이트: 상단 DB 선택 버튼 테두리 적용, 받아쓰기 진입 시 이전 상태(studyAbort) 초기화 누락 수정
 const ASSETS = [
   '/',
   '/index.html',
