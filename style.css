@@ -804,15 +804,15 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 
 .speaker-icon-btn {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none;
   border-radius: 50%;
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 22px;
   padding: 0;
   transition: all 0.2s ease;
   color: var(--text-main);
@@ -1898,4 +1898,46 @@ body {
 [data-theme="blue"] .btn-primary:hover,
 [data-theme="green"] .btn-primary:hover {
   background: var(--primary-hover) !important;
+}
+
+
+/* 블루 계열 받아쓰기 버튼 (취약점 박스 디자인 참고) */
+.btn-dictation-blue {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1.5px solid rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+  padding: 16px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  width: 100%;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-dictation-blue:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #93c5fd;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15);
+}
+
+/* Light themes override for dictation button */
+[data-theme="pink"] .btn-dictation-blue,
+[data-theme="blue"] .btn-dictation-blue,
+[data-theme="green"] .btn-dictation-blue {
+  background: #EFF6FF !important;
+  border: 1.5px solid #93C5FD !important;
+  color: #1E40AF !important;
+}
+[data-theme="pink"] .btn-dictation-blue:hover,
+[data-theme="blue"] .btn-dictation-blue:hover,
+[data-theme="green"] .btn-dictation-blue:hover {
+  background: #DBEAFE !important;
+  border-color: #3B82F6 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }

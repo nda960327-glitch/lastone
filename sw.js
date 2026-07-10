@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v152'; // 캐시 업데이트: 받아쓰기 진입 시 이전 학습 루프와 충돌하는 동시성 버그(Race Condition) 완벽 수정
+const CACHE_NAME = 'vocabmaster-v153'; // 캐시 업데이트: 드롭다운 글씨 색상, 모달창 가독성, 받아쓰기 버튼 블루 박스화, 스피커 아이콘 디자인 픽스
 const ASSETS = [
   '/',
   '/index.html',

@@ -1142,7 +1142,7 @@ function refreshDBList(textarea) {
     opt.value = title;
     opt.textContent = title;
     opt.style.background = 'var(--dropdown-hover)';
-    opt.style.color = '#ffffff';
+    opt.style.color = 'var(--text-main)';
 
     if (title.startsWith('토플')) {
       selectTofl.appendChild(opt);
