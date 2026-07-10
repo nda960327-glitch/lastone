@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v90'; // 캐시 버전 업데이트: Day 기반 동적 렌더링 시스템 구현 완료
+const CACHE_NAME = 'vocabmaster-v91'; // 캐시 버전 업데이트: 듣고 쓰기 버튼 텍스트 포맷 수정
 const ASSETS = [
   '/',
   '/index.html',

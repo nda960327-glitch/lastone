@@ -417,7 +417,7 @@ function initInputView() {
     const dictText = document.getElementById('dictation-btn-text');
     if (dictText && currentDay !== null) {
       const catName = currentCategory === 'toefl' ? '토플 영단어' : '기초 영단어';
-      dictText.textContent = `🎧 [${catName} ${currentDay} Day] 전체 스펠링 듣고 쓰기`;
+      dictText.textContent = `📄 [${catName} ${currentDay} day] 전체 스펠링 듣고 쓰기`;
     }
   }
 
