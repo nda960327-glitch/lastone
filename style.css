@@ -623,73 +623,61 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 
 
 /* 품사 뱃지 크기 확대 및 스타일 */
-.pos-badge {
-  display: inline-block;
-  border-radius: 8px;
-  padding: 5px 14px;
-  font-size: 18px;
-  font-weight: 800;
-  font-family: 'Courier New', monospace;
-  flex-shrink: 0;
-  letter-spacing: 0.02em;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
 /* 명사 (n): 하늘색/파랑 (Blue/Cyan) */
-.pos-badge.pos-n {
-  background: rgba(59, 130, 246, 0.25) !important;
-  border: 1.5px solid rgba(96, 165, 250, 0.8) !important;
-  color: #60a5fa !important;
+.meaning-row.pos-bg-n {
+  background: rgba(59, 130, 246, 0.15) !important;
+  border: 1px solid rgba(96, 165, 250, 0.4) !important;
 }
+.pos-badge.pos-n { color: #60a5fa !important; background: transparent !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
 
 /* 동사 (v): 빨강/로즈 (Red/Rose) */
-.pos-badge.pos-v {
-  background: rgba(244, 63, 94, 0.25) !important;
-  border: 1.5px solid rgba(251, 113, 133, 0.8) !important;
-  color: #fb7185 !important;
+.meaning-row.pos-bg-v {
+  background: rgba(244, 63, 94, 0.15) !important;
+  border: 1px solid rgba(251, 113, 133, 0.4) !important;
 }
+.pos-badge.pos-v { color: #fb7185 !important; background: transparent !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
 
 /* 형용사 (a): 초록/에메랄드 (Green/Emerald) */
-.pos-badge.pos-a {
-  background: rgba(16, 185, 129, 0.25) !important;
-  border: 1.5px solid rgba(52, 211, 153, 0.8) !important;
-  color: #34d399 !important;
+.meaning-row.pos-bg-a {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border: 1px solid rgba(52, 211, 153, 0.4) !important;
 }
+.pos-badge.pos-a { color: #34d399 !important; background: transparent !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
 
 /* 부사 (ad): 노랑/주황 (Amber/Orange) */
-.pos-badge.pos-ad {
-  background: rgba(245, 158, 11, 0.25) !important;
-  border: 1.5px solid rgba(251, 191, 36, 0.8) !important;
-  color: #fbbf24 !important;
+.meaning-row.pos-bg-ad {
+  background: rgba(245, 158, 11, 0.15) !important;
+  border: 1px solid rgba(251, 191, 36, 0.4) !important;
 }
+.pos-badge.pos-ad { color: #fbbf24 !important; background: transparent !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
 
 /* 전치사 (prep): 보라/퍼플 (Purple/Violet) */
-.pos-badge.pos-prep {
-  background: rgba(168, 85, 247, 0.25) !important;
-  border: 1.5px solid rgba(192, 132, 252, 0.8) !important;
-  color: #c084fc !important;
+.meaning-row.pos-bg-prep {
+  background: rgba(168, 85, 247, 0.15) !important;
+  border: 1px solid rgba(192, 132, 252, 0.4) !important;
 }
+.pos-badge.pos-prep { color: #c084fc !important; background: transparent !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
 
 /* 접속사 (conj): 핑크/마젠타 (Pink/Magenta) */
-.pos-badge.pos-conj {
-  background: rgba(236, 72, 153, 0.25) !important;
-  border: 1.5px solid rgba(244, 114, 182, 0.8) !important;
-  color: #f472b6 !important;
+.meaning-row.pos-bg-conj {
+  background: rgba(236, 72, 153, 0.15) !important;
+  border: 1px solid rgba(244, 114, 182, 0.4) !important;
 }
+.pos-badge.pos-conj { color: #f472b6 !important; background: transparent !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
 
 /* 숙어/구 (phr): 청록/티얼 (Teal/Cyan) */
-.pos-badge.pos-phr {
-  background: rgba(6, 182, 212, 0.25) !important;
-  border: 1.5px solid rgba(34, 211, 238, 0.8) !important;
-  color: #22d3ee !important;
+.meaning-row.pos-bg-phr {
+  background: rgba(6, 182, 212, 0.15) !important;
+  border: 1px solid rgba(34, 211, 238, 0.4) !important;
 }
+.pos-badge.pos-phr { color: #22d3ee !important; background: transparent !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
 
 /* 기본/기타 (default) */
-.pos-badge.pos-default {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
-  color: #e2e8f0;
+.meaning-row.pos-bg-default {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
+.pos-badge.pos-default { color: #e2e8f0 !important; background: transparent !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
 
 .study-controls {
   display:flex; justify-content:center; gap:12px; margin-top:20px;

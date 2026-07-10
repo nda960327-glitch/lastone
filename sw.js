@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v116'; // 캐시 업데이트: 스와이프 로직 수정 (터치 초기화 누락 및 스크롤 이벤트 충돌 해결)
+const CACHE_NAME = 'vocabmaster-v117'; // 캐시 업데이트: 스와이프 토글 헤더 이동 및 뜻 컬러박스 적용
 const ASSETS = [
   '/',
   '/index.html',

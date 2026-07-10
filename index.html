@@ -29,12 +29,20 @@
 
   <!-- ① 입력 화면 -->
   <section id="view-input" class="view active">
-    <header class="brand">
+    <header class="brand" style="position: relative;">
       <img src="icon.jpg" class="brand-icon-img" alt="DOACore Logo" id="btn-main-logo" style="cursor: pointer;">
       <div>
         <h1 class="brand-title">DOACore</h1>
         <p class="brand-sub">DOACore: 인지공학 기반 영단어 각인 엔진</p>
       </div>
+      <!-- 스와이프 모드 토글 (상단 배치) -->
+      <label class="swipe-toggle-label" style="position: absolute; right: 0; top: 12px; display: flex; align-items: center; gap: 6px; cursor: pointer; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+        <span style="font-size: 11px; color: #f8fafc; font-weight: 600;">✋ 스와이프 모드</span>
+        <div class="toggle-switch" style="width: 32px; height: 18px;">
+          <input type="checkbox" id="swipe-toggle-checkbox">
+          <span class="slider round" style="box-shadow: none;"></span>
+        </div>
+      </label>
     </header>
 
     <div id="category-tabs" class="category-tabs-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
@@ -54,16 +62,6 @@
       </div>
     </div>
     
-    <!-- 스와이프 모드 토글 (메인 화면) -->
-    <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 12px; padding: 0 4px;">
-      <label class="swipe-toggle-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer; background: rgba(255,255,255,0.05); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
-        <span style="font-size: 13px; color: #f8fafc; font-weight: 600;">✋ 스와이프 모드</span>
-        <div class="toggle-switch" style="width: 36px; height: 20px;">
-          <input type="checkbox" id="swipe-toggle-checkbox">
-          <span class="slider round"></span>
-        </div>
-      </label>
-    </div>
 
     <div class="glass-card input-card">
       <div class="section-header" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
