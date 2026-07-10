@@ -1473,7 +1473,6 @@ if (posHintEl) posHintEl.classList.add('hidden');
       }
     }
 
-    testCard = document.querySelector('.test-card');
     if (testCard) {
       if (isDictationMode) testCard.classList.add('dictation-mode-active');
       else testCard.classList.remove('dictation-mode-active');
