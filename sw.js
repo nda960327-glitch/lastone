@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v118'; // 캐시 업데이트: 스와이프 토글 클릭 안되는 버그 수정 (label for 속성 추가 및 스타일 충돌 해결)
+const CACHE_NAME = 'vocabmaster-v119'; // 캐시 업데이트: 스와이프 토글 버튼 상단 여백 확보 및 크기 키움
 const ASSETS = [
   '/',
   '/index.html',
