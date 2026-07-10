@@ -825,13 +825,12 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   font-size: 24px;
 }
 .speaker-icon-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: scale(1.05);
+  background: transparent;
+  transform: scale(1.1);
 }
 .speaker-icon-btn:active {
   transform: scale(0.95);
 }
-
 .test-pos-hint {
   display: inline-flex;
   align-items: center;

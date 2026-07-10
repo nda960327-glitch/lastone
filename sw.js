@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v158'; // 긴급 핫픽스: 긴 단어 overflow로 인한 모바일 브라우저 축소 버그 수정
+const CACHE_NAME = 'vocabmaster-v159'; // UI 업데이트: 스피커 아이콘 터치 시 잔상(배경 테두리) 완벽 제거
 const ASSETS = [
   '/',
   '/index.html',
