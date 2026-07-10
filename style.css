@@ -47,7 +47,7 @@
 [data-theme="blue"] {
   --bg-color: #F0F9FF;
   --card-bg: #FFFFFF;
-  --text-main: #1E3A8A;
+  --text-main: #334155; /* 부드러운 다크 그레이블루 */
   --glow-color: rgba(59, 130, 246, 0.3);
   --btn-stroke: #BFDBFE;
   --o-bg: #DCFCE7; /* 연초록 파스텔 */
@@ -1721,6 +1721,7 @@ body {
   color: var(--text-main) !important;
 }
 
+/* O버튼 (자연스러운 컬러) */
 [data-theme="pink"] .btn-ox-new.btn-o,
 [data-theme="blue"] .btn-ox-new.btn-o {
   background-color: var(--o-bg) !important;
@@ -1728,12 +1729,15 @@ body {
   border-radius: 20px !important;
 }
 [data-theme="pink"] .btn-ox-new.btn-o .ox-mark,
+[data-theme="pink"] .btn-ox-new.btn-o .ox-label {
+  color: #7E22CE !important; /* 파스텔 보라 계열 진한색 */
+}
 [data-theme="blue"] .btn-ox-new.btn-o .ox-mark,
-[data-theme="pink"] .btn-ox-new.btn-o .ox-label,
 [data-theme="blue"] .btn-ox-new.btn-o .ox-label {
-  color: var(--text-main) !important;
+  color: #047857 !important; /* 파스텔 초록 계열 진한색 */
 }
 
+/* X버튼 (자연스러운 컬러) */
 [data-theme="pink"] .btn-ox-new.btn-x,
 [data-theme="blue"] .btn-ox-new.btn-x {
   background-color: var(--x-bg) !important;
@@ -1744,5 +1748,5 @@ body {
 [data-theme="blue"] .btn-ox-new.btn-x .ox-mark,
 [data-theme="pink"] .btn-ox-new.btn-x .ox-label,
 [data-theme="blue"] .btn-ox-new.btn-x .ox-label {
-  color: var(--text-main) !important;
+  color: #BE123C !important; /* 파스텔 레드 계열 진한색 */
 }

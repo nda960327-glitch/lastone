@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v144'; // 캐시 업데이트: 블루/핑크 글로우 파스텔 모드 적용
+const CACHE_NAME = 'vocabmaster-v145'; // 캐시 업데이트: 받아쓰기 레이아웃 픽스, O/X 버튼 및 블루테마 가독성 개선
 const ASSETS = [
   '/',
   '/index.html',
