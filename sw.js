@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v142'; // 캐시 업데이트: 타이머 실종 렌더링 버그 완벽 픽스
+const CACHE_NAME = 'vocabmaster-v143'; // 캐시 업데이트: 크리티컬 버그 4종 긴급 픽스
 const ASSETS = [
   '/',
   '/index.html',

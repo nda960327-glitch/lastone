@@ -1493,6 +1493,8 @@ if (posHintEl) posHintEl.classList.add('hidden');
         if (btnReveal) btnReveal.onclick = () => {
           document.getElementById('btn-reveal').classList.add('hidden');
           document.getElementById('test-meanings').classList.remove('hidden');
+      const hintEl = document.querySelector('.hint-text');
+      if (hintEl) hintEl.style.display = 'none';
         };
       }
     } else {
@@ -1561,7 +1563,7 @@ if (posHintEl) posHintEl.classList.add('hidden');
     }
 if (posHintEl) posHintEl.textContent = `품사 ${wordObj.meanings.length}개`;
     if (!isDictationMode) {
-if (posHintEl) posHintEl.classList.remove('hidden');
+if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display = 'block'; }
     }
     document.getElementById('btn-reveal').classList.remove('hidden');
 
