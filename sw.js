@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v150'; // 캐시 업데이트: 로고 아이콘 필터, 품사 텍스트 크기 강조, 기본테마 투명 버튼 색상, 점검영역 제목 색상 픽스
+const CACHE_NAME = 'vocabmaster-v151'; // 캐시 업데이트: 파스텔 배경색 살짝 진하게, 다크모드 메인 버튼 원래 그라데이션 복구
 const ASSETS = [
   '/',
   '/index.html',

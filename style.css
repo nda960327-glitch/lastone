@@ -47,7 +47,7 @@
 }
 
 [data-theme="blue"] {
-  --bg-color: #F0F9FF;
+  --bg-color: #E2F2FE;
   --card-bg: #FFFFFF;
   --text-main: #334155; /* 부드러운 다크 그레이블루 */
   --glow-color: rgba(59, 130, 246, 0.3);
@@ -69,7 +69,7 @@
 }
 
 [data-theme="pink"] {
-  --bg-color: #FFF0F5;
+  --bg-color: #FFE6EE;
   --card-bg: #FFFFFF;
   --text-main: #9D174D;
   --glow-color: rgba(236, 72, 153, 0.3);
@@ -95,7 +95,7 @@
 }
 
 [data-theme="green"] {
-  --bg-color: #f0fdf4;
+  --bg-color: #E0F9E8;
   --bg2: #dcfce7;
   --card-bg: #ffffff;
   --glass-h: rgba(255, 255, 255, 1);
@@ -1560,8 +1560,7 @@ body {
 }
 
 /* 버튼 hover 컬러 반영 */
-.btn-primary { background: var(--primary-color) !important; color: var(--card-bg) !important; border: none; }
-.btn-primary:hover { background: var(--primary-hover) !important; }
+
 
 
 /* =============================================
@@ -1881,4 +1880,22 @@ body {
 /* Make POS hint text slightly larger */
 #test-pos-hint {
   font-size: 17px !important;
+}
+
+/* Restored: Dynamic primary button styles per theme */
+:root .btn-primary, [data-theme="dark"] .btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--purple)) !important;
+  color: #ffffff !important;
+}
+[data-theme="pink"] .btn-primary,
+[data-theme="blue"] .btn-primary,
+[data-theme="green"] .btn-primary {
+  background: var(--primary-color) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+[data-theme="pink"] .btn-primary:hover,
+[data-theme="blue"] .btn-primary:hover,
+[data-theme="green"] .btn-primary:hover {
+  background: var(--primary-hover) !important;
 }
