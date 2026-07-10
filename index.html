@@ -42,6 +42,16 @@
       <button id="tab-basic" class="tab-btn">🌱 기초 영단어</button>
     </div>
 
+    <!-- Day 선택 드롭다운 -->
+    <div style="margin-bottom: 16px; padding: 0 4px;">
+      <div class="select-wrap" style="position: relative;">
+        <select id="day-selector" style="width: 100%; padding: 12px 36px 12px 14px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #ffffff; font-size: 14px; font-weight: 600; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; backdrop-filter: blur(10px);">
+          <option value="" style="background:#1e1b4b; color:#fff;">Day 선택...</option>
+        </select>
+        <div style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text2); font-size: 11px;">▼</div>
+      </div>
+    </div>
+
     <div class="glass-card input-card">
       <div class="section-header" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
         <div class="header-action-buttons" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; width: 100%; justify-content: flex-end; padding-right: 4px;">
@@ -65,9 +75,9 @@
         <div id="range-buttons-list" class="range-buttons-list"></div>
         
         <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 20px 0;" />
-        <div style="font-size: 14px; font-weight: 700; color: #f43f5e; margin-bottom: 10px; text-align: center;">🏆 최종 점검 (선택)</div>
+        <div style="font-size: 14px; font-weight: 700; color: #f43f5e; margin-bottom: 10px; text-align: center;">🎯 최종 점검 (듣기)</div>
         <button id="btn-dictation" class="btn-primary" style="background: linear-gradient(135deg, #f43f5e, #e11d48); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3); width: 100%;">
-          <span>📝 1~200 스펠링 듣고 쓰기</span>
+          <span id="dictation-btn-text">🎧 1~200 스펠링 듣고 쓰기</span>
         </button>
       </div>
 

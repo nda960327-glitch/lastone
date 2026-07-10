@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v89'; // 캐시 버전 업데이트: 앱 버튼 먹통 버그 수정(Null check 방어코드 추가) 및 Day 단위 파싱 추가
+const CACHE_NAME = 'vocabmaster-v90'; // 캐시 버전 업데이트: Day 기반 동적 렌더링 시스템 구현 완료
 const ASSETS = [
   '/',
   '/index.html',
