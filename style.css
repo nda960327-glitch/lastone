@@ -851,7 +851,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   animation: viewIn 0.3s ease;
   z-index: 10;
   border-radius: inherit;
-  background: var(--bg2);
+  background: var(--card-bg);
 }
 .headset-icon {
   font-size: 64px;
@@ -1663,11 +1663,11 @@ body {
 .pos-bg-default { background-color: rgba(255, 255, 255, 0.05) !important; color: #E2E8F0 !important; border-color: rgba(255, 255, 255, 0.1) !important; }
 
 /* 블루 모드 전용 품사 박스 (파스텔톤) */
-[data-theme="blue"] .pos-bg-n { background-color: #EFF6FF !important; color: #2563EB !important; border-color: #BFDBFE !important; }
-[data-theme="blue"] .pos-bg-v { background-color: #FEF2F2 !important; color: #EF4444 !important; border-color: #FECACA !important; }
-[data-theme="blue"] .pos-bg-a { background-color: #ECFDF5 !important; color: #10B981 !important; border-color: #A7F3D0 !important; }
-[data-theme="blue"] .pos-bg-ad { background-color: #F5F3FF !important; color: #8B5CF6 !important; border-color: #DDD6FE !important; }
-[data-theme="blue"] .pos-bg-default { background-color: #F8FAFC !important; color: #475569 !important; border-color: #E2E8F0 !important; }
+[data-theme="blue"] .pos-bg-n, [data-theme="pink"] .pos-bg-n, [data-theme="green"] .pos-bg-n { background-color: #EFF6FF !important; color: #2563EB !important; border-color: #BFDBFE !important; }
+[data-theme="blue"] .pos-bg-v, [data-theme="pink"] .pos-bg-v, [data-theme="green"] .pos-bg-v { background-color: #FEF2F2 !important; color: #EF4444 !important; border-color: #FECACA !important; }
+[data-theme="blue"] .pos-bg-a, [data-theme="pink"] .pos-bg-a, [data-theme="green"] .pos-bg-a { background-color: #ECFDF5 !important; color: #10B981 !important; border-color: #A7F3D0 !important; }
+[data-theme="blue"] .pos-bg-ad, [data-theme="pink"] .pos-bg-ad, [data-theme="green"] .pos-bg-ad { background-color: #F5F3FF !important; color: #8B5CF6 !important; border-color: #DDD6FE !important; }
+[data-theme="blue"] .pos-bg-default, [data-theme="pink"] .pos-bg-default, [data-theme="green"] .pos-bg-default { background-color: #F8FAFC !important; color: #475569 !important; border-color: #E2E8F0 !important; }
 
 .pos-badge {
   font-weight: 800;
@@ -1707,9 +1707,11 @@ body {
 /* ========================================= */
 
 [data-theme="pink"] .test-card,
-[data-theme="blue"] .test-card {
+[data-theme="blue"] .test-card,
+[data-theme="green"] .test-card {
+  background-color: var(--card-bg) !important;
   border-radius: 24px !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+  box-shadow: 0 10px 40px var(--glow-color, rgba(0,0,0,0.08)) !important;
   border: none !important;
 }
 
@@ -1730,11 +1732,11 @@ body {
 }
 [data-theme="pink"] .btn-ox-new.btn-o .ox-mark,
 [data-theme="pink"] .btn-ox-new.btn-o .ox-label {
-  color: #7E22CE !important; /* 파스텔 보라 계열 진한색 */
+  color: #FFFFFF !important;
 }
 [data-theme="blue"] .btn-ox-new.btn-o .ox-mark,
 [data-theme="blue"] .btn-ox-new.btn-o .ox-label {
-  color: #047857 !important; /* 파스텔 초록 계열 진한색 */
+  color: #FFFFFF !important;
 }
 
 /* X버튼 (자연스러운 컬러) */
@@ -1748,5 +1750,33 @@ body {
 [data-theme="blue"] .btn-ox-new.btn-x .ox-mark,
 [data-theme="pink"] .btn-ox-new.btn-x .ox-label,
 [data-theme="blue"] .btn-ox-new.btn-x .ox-label {
-  color: #BE123C !important; /* 파스텔 레드 계열 진한색 */
+  color: #FFFFFF !important;
 }
+
+/* UI Refinements */
+[data-theme="pink"] .test-card,
+[data-theme="blue"] .test-card,
+[data-theme="green"] .test-card {
+  background-color: var(--card-bg) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 40px var(--glow-color, rgba(0,0,0,0.08)) !important;
+  border: none !important;
+}
+.test-listening-zone {
+  background: var(--card-bg) !important;
+}
+[data-theme="pink"] .btn-ox-new.btn-o .ox-mark,
+[data-theme="blue"] .btn-ox-new.btn-o .ox-mark,
+[data-theme="pink"] .btn-ox-new.btn-o .ox-label,
+[data-theme="blue"] .btn-ox-new.btn-o .ox-label,
+[data-theme="pink"] .btn-ox-new.btn-x .ox-mark,
+[data-theme="blue"] .btn-ox-new.btn-x .ox-mark,
+[data-theme="pink"] .btn-ox-new.btn-x .ox-label,
+[data-theme="blue"] .btn-ox-new.btn-x .ox-label {
+  color: #FFFFFF !important;
+}
+[data-theme="green"] .pos-bg-n, [data-theme="pink"] .pos-bg-n { background-color: #EFF6FF !important; color: #2563EB !important; border-color: #BFDBFE !important; }
+[data-theme="green"] .pos-bg-v, [data-theme="pink"] .pos-bg-v { background-color: #FEF2F2 !important; color: #EF4444 !important; border-color: #FECACA !important; }
+[data-theme="green"] .pos-bg-a, [data-theme="pink"] .pos-bg-a { background-color: #ECFDF5 !important; color: #10B981 !important; border-color: #A7F3D0 !important; }
+[data-theme="green"] .pos-bg-ad, [data-theme="pink"] .pos-bg-ad { background-color: #F5F3FF !important; color: #8B5CF6 !important; border-color: #DDD6FE !important; }
+[data-theme="green"] .pos-bg-default, [data-theme="pink"] .pos-bg-default { background-color: #F8FAFC !important; color: #475569 !important; border-color: #E2E8F0 !important; }
