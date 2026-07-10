@@ -2229,6 +2229,8 @@ let isVerticalScroll = false;
       isDragging = true;
       swipeStartX = e.touches[0].clientX;
       testCard.classList.add('dragging');
+      // 사용자가 조작을 시작하면 5초 대기 타이머 해제
+      if (typeof stopWordTimer === 'function') stopWordTimer();
     });
 
     testCard.addEventListener('touchmove', (e) => {
@@ -2239,11 +2241,21 @@ let isVerticalScroll = false;
       const rotateDeg = deltaX * 0.05;
       testCard.style.transform = `translate(${deltaX}px, 0) rotate(${rotateDeg}deg)`;
 
-      if (deltaX > 20) {
-        testCard.style.boxShadow = '0 0 40px rgba(74, 222, 128, 0.4)';
-      } else if (deltaX < -20) {
-        testCard.style.boxShadow = '0 0 40px rgba(244, 63, 94, 0.4)';
+      const stampO = document.getElementById('stamp-o');
+      const stampX = document.getElementById('stamp-x');
+      const opacity = Math.min(Math.abs(deltaX) / 80, 1);
+
+      if (deltaX > 0) {
+        if (stampO) stampO.style.opacity = opacity;
+        if (stampX) stampX.style.opacity = 0;
+        testCard.style.boxShadow = `0 0 40px rgba(74, 222, 128, ${opacity * 0.4})`;
+      } else if (deltaX < 0) {
+        if (stampO) stampO.style.opacity = 0;
+        if (stampX) stampX.style.opacity = opacity;
+        testCard.style.boxShadow = `0 0 40px rgba(244, 63, 94, ${opacity * 0.4})`;
       } else {
+        if (stampO) stampO.style.opacity = 0;
+        if (stampX) stampX.style.opacity = 0;
         testCard.style.boxShadow = '';
       }
     });
@@ -2255,25 +2267,38 @@ let isVerticalScroll = false;
       testCard.classList.remove('dragging');
 
       const deltaX = swipeCurrentX - swipeStartX;
-      const threshold = 80; // 고정 임계치 80px로 변경
+      const threshold = 80;
 
-      if (deltaX > threshold) {
-        testCard.style.transform = `translate(1000px, 0) rotate(15deg)`;
-        setTimeout(() => {
-          document.getElementById('btn-correct').click();
-          testCard.style.transform = '';
-          testCard.style.boxShadow = '';
-        }, 150);
-      } else if (deltaX < -threshold) {
-        testCard.style.transform = `translate(-1000px, 0) rotate(-15deg)`;
-        setTimeout(() => {
-          document.getElementById('btn-wrong').click();
-          testCard.style.transform = '';
-          testCard.style.boxShadow = '';
-        }, 150);
-      } else {
+      function resetCard() {
+        testCard.style.transition = '';
         testCard.style.transform = '';
         testCard.style.boxShadow = '';
+        const stampO = document.getElementById('stamp-o');
+        const stampX = document.getElementById('stamp-x');
+        if (stampO) stampO.style.opacity = 0;
+        if (stampX) stampX.style.opacity = 0;
+      }
+
+      if (deltaX > threshold) {
+        testCard.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
+        testCard.style.transform = `translate(100vw, 0) rotate(15deg)`;
+        testCard.style.opacity = '0';
+        setTimeout(() => {
+          document.getElementById('btn-correct').click();
+          testCard.style.opacity = '1';
+          resetCard();
+        }, 200);
+      } else if (deltaX < -threshold) {
+        testCard.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
+        testCard.style.transform = `translate(-100vw, 0) rotate(-15deg)`;
+        testCard.style.opacity = '0';
+        setTimeout(() => {
+          document.getElementById('btn-wrong').click();
+          testCard.style.opacity = '1';
+          resetCard();
+        }, 200);
+      } else {
+        resetCard();
       }
       swipeStartX = 0;
       swipeCurrentX = 0;
