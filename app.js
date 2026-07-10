@@ -630,7 +630,8 @@ function initInputView() {
     const dictationBtn = document.getElementById('btn-dictation');
     if (dictationBtn) {
       const dictBadge = getBadgeHTML('dictation');
-      dictationBtn.innerHTML = `<span>📝 1~${Math.min(n, 200)} 스펠링 듣고 쓰기 ${dictBadge}</span>`;
+      const catName = currentCategory === 'toefl' ? '토플 영단어' : '기초 영단어';
+      dictationBtn.innerHTML = `<span id="dictation-btn-text">📄 [${catName} ${currentDay} day] 전체 스펠링 듣고 쓰기 ${dictBadge}</span>`;
     }
   }
 

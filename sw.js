@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v92'; // 캐시 버전 업데이트: 품사 뱃지 렌더링 복구 및 홈 버튼 크래시 해결
+const CACHE_NAME = 'vocabmaster-v93'; // 캐시 버전 업데이트: DEFAULT_DATABASES 누락 버그 및 텍스트 덮어쓰기 버그 해결
 const ASSETS = [
   '/',
   '/index.html',
