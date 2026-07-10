@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v155'; // 긴급 핫픽스: app.js 문법 오류(Syntax Error)로 인한 작동 중지 버그 수정
+const CACHE_NAME = 'vocabmaster-v156'; // 긴급 핫픽스 2: TypeError 중복 에러 해결
 const ASSETS = [
   '/',
   '/index.html',
