@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v154'; // 캐시 업데이트: 버튼 텍스트 중앙 정렬, 완벽합니다 팝업 그린 톤 강화, 스피커 아이콘 분리(학습 36px/받아쓰기 48px), 파스텔 배경 약간 더 진하게
+const CACHE_NAME = 'vocabmaster-v155'; // 긴급 핫픽스: app.js 문법 오류(Syntax Error)로 인한 작동 중지 버그 수정
 const ASSETS = [
   '/',
   '/index.html',
