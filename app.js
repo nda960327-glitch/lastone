@@ -1319,7 +1319,7 @@ function startWordTimer(totalMs, disableOMs, onDisableO, onTimeout) {
   }
 
   if (fillEl) {
-    // 1. 애니메이션 초기화 (100%로 꽉 채움)
+    fillEl.classList.remove('timer-penalty', 'timer-warning');
     fillEl.style.transition = 'none';
     fillEl.style.width = '100%';
     fillEl.style.background = 'linear-gradient(90deg, #3b82f6, #6366f1)'; // 편안한 파란색 유지
@@ -1563,17 +1563,21 @@ if (posHintEl) posHintEl.classList.remove('hidden');
     document.getElementById('btn-reveal').classList.remove('hidden');
 
     let revealResult = 'O'; 
-    App.isOButtonLocked = false; // 글로벌 잠금 플래그
+    App.isOButtonLocked = false;
+            App.isPenaltyTime = false; // 글로벌 잠금 플래그
 
     if (!isDictationMode) {
       if (!isAlreadyGraded) {
         // 다이내믹 타이머 설정
-        let totalMs = 8000;
+        let totalMs = 10000;
         let disableOMs = 5000;
-        const mLen = wordObj.meanings.length;
+        const mLen = wordObj.meanings ? wordObj.meanings.length : 1;
         if (mLen === 1) {
-          totalMs = 6000;
-          disableOMs = 4000;
+          totalMs = 7000;
+        } else if (mLen === 2) {
+          totalMs = 9000;
+        } else {
+          totalMs = 10000;
         } else if (mLen === 2) {
           totalMs = 7000;
           disableOMs = 5000;
@@ -1583,10 +1587,17 @@ if (posHintEl) posHintEl.classList.remove('hidden');
           totalMs, 
           disableOMs, 
           () => {
-            // O 버튼 비활성화 타임아웃
+            // O 버튼 비활성화 및 페널티 타임 돌입
             App.isOButtonLocked = true;
+            App.isPenaltyTime = true;
             const btnCorrect = document.getElementById('btn-correct');
-            if (btnCorrect) btnCorrect.disabled = true;
+            if (btnCorrect) {
+              btnCorrect.disabled = true;
+              btnCorrect.style.opacity = '0.5';
+              btnCorrect.style.pointerEvents = 'none';
+            }
+            const fillEl = document.getElementById('test-timer-fill');
+            if (fillEl) fillEl.classList.add('timer-penalty');
 
             // [수정] 강제 오픈: O버튼이 비활성화되는 정확히 그 시점에 강제로 뜻 노출
             const btnReveal = document.getElementById('btn-reveal');
@@ -2319,9 +2330,12 @@ let isVerticalScroll = false;
       }
 
       if (deltaX > threshold || deltaX < -threshold) {
-        const isForceWrong = isTimeUp;
+        // 페널티 타임이거나 isTimeUp이면 강제 오답(X) 처리
+        const isForceWrong = isTimeUp || App.isPenaltyTime;
+        // O 방향으로 밀어도 페널티 타임이면 isActuallyO는 false가 됨
         const isActuallyO = deltaX > threshold && !isForceWrong;
-        const isActuallyX = deltaX < -threshold || isForceWrong;
+        // 반대로 페널티 타임일 때 O 방향으로 밀면 강제로 X 처리를 해줌 (isActuallyX가 true가 되도록)
+        const isActuallyX = deltaX < -threshold || (deltaX > threshold && isForceWrong) || isForceWrong;
         const globalStamp = document.getElementById('global-stamp');
 
         testCard.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';

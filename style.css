@@ -1668,3 +1668,17 @@ body {
   justify-content: center;
   margin-top: 24px;
 }
+
+
+/* =============================================
+   PENALTY TIMER UI
+   ============================================= */
+@keyframes blinkPenalty {
+  0%, 100% { background-color: #EF4444; opacity: 1; }
+  50% { background-color: #DC2626; opacity: 0.6; }
+}
+
+.timer-penalty {
+  background: #EF4444 !important;
+  animation: blinkPenalty 0.2s infinite !important;
+}

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v137'; // 캐시 업데이트: 스크린샷과 100% 동일한 UI 적용 (둥근 알약 버튼, 파스텔톤 O/X 버튼, 관사 컬러 유지)
+const CACHE_NAME = 'vocabmaster-v138'; // 캐시 업데이트: 뜻 개수에 따른 차등 타이머 및 페널티 UI 로직 적용
 const ASSETS = [
   '/',
   '/index.html',
