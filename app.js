@@ -1408,8 +1408,8 @@ async function runTestRound(startIndex = 0) {
     const btnSpeak = document.getElementById('btn-speak-again');
     if (btnSpeak) btnSpeak.classList.add('hidden');
     const posHintEl = document.getElementById('test-pos-hint');
-    posHintEl.textContent = '';
-    posHintEl.classList.add('hidden');
+if (posHintEl) posHintEl.textContent = '';
+if (posHintEl) posHintEl.classList.add('hidden');
     document.getElementById('test-meanings').innerHTML = '';
 
     // Boss Mode 시각 효과 렌더링 분기
@@ -1516,9 +1516,9 @@ async function runTestRound(startIndex = 0) {
       btnSpeak.classList.remove('hidden');
       if (btnSpeak) btnSpeak.onclick = () => speak(wordObj.word);
     }
-    posHintEl.textContent = `품사 ${wordObj.meanings.length}개`;
+if (posHintEl) posHintEl.textContent = `품사 ${wordObj.meanings.length}개`;
     if (!isDictationMode) {
-      posHintEl.classList.remove('hidden');
+if (posHintEl) posHintEl.classList.remove('hidden');
     }
     document.getElementById('btn-reveal').classList.remove('hidden');
 

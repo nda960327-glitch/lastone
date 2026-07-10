@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v112'; // 캐시 업데이트: 설명서 및 개발 비화 버튼을 메인 카드 밖으로 이동
+const CACHE_NAME = 'vocabmaster-v113'; // 캐시 업데이트: 품사 개수 뱃지 삭제 및 발음 듣기 스피커 버튼 크기 축소 후 단어 우측 배치
 const ASSETS = [
   '/',
   '/index.html',
