@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v113'; // 캐시 업데이트: 품사 개수 뱃지 삭제 및 발음 듣기 스피커 버튼 크기 축소 후 단어 우측 배치
+const CACHE_NAME = 'vocabmaster-v114'; // 캐시 업데이트: DOM 요소 부재 시 발생하는 치명적 오류 수정 (버튼 클릭 마비, 스와이프 마비 해결)
 const ASSETS = [
   '/',
   '/index.html',

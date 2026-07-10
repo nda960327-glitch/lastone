@@ -733,10 +733,19 @@ function initInputView() {
   const btnAddWordSubmit = document.getElementById('btn-add-word-submit');
   
   if (btnAddManual && modalAddWord) {
-    btnAddManual.onclick = () => {
-      if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
-      modalAddWord.classList.remove('hidden');
-    };
+    if (btnAddManual) {
+      btnAddManual.onclick = () => {
+        if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
+        modalAddWord.classList.remove('hidden');
+      };
+    }
+    const manualDirectBtn = document.getElementById('btn-add-word-manual-direct');
+    if (manualDirectBtn) {
+      manualDirectBtn.onclick = () => {
+        if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
+        modalAddWord.classList.remove('hidden');
+      };
+    }
     
     btnAddWordCancel.onclick = () => {
       modalAddWord.classList.add('hidden');
