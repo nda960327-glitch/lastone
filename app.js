@@ -2177,11 +2177,13 @@ function restoreProgress(jsonStr) {
   // 홈으로 이동 버튼 핸들러
   
 
-// ���� Swipe Logic ����
+//  Swipe Logic 
 let isSwipeMode = false;
 let swipeStartX = 0;
+let swipeStartY = 0;
 let swipeCurrentX = 0;
 let isDragging = false;
+let isVerticalScroll = false;
 
 
   const swipeToggle = document.getElementById('swipe-toggle-checkbox');

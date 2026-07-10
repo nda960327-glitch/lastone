@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v115'; // 캐시 업데이트: 스와이프 모드 토글 이동 및 단어 뜻 카드 디자인 더 작고 얇게 변경
+const CACHE_NAME = 'vocabmaster-v116'; // 캐시 업데이트: 스와이프 로직 수정 (터치 초기화 누락 및 스크롤 이벤트 충돌 해결)
 const ASSETS = [
   '/',
   '/index.html',
