@@ -115,8 +115,7 @@
 html, body { background-color: var(--bg-color); }
 
 body {
-  font-family: 'Outfit', 'Pretendard', sans-serif;
-  letter-spacing: -0.015em;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
   color: var(--text-main);
   min-height: 100vh;
   /* 전체화면 시 상태바/노치 영역까지 배경 확장 */
@@ -127,16 +126,6 @@ body {
   background-image:
     radial-gradient(ellipse 60% 50% at 15% 40%, var(--grad-1) 0%, transparent 70%),
     radial-gradient(ellipse 50% 40% at 85% 60%, var(--grad-2) 0%, transparent 70%);
-  background-size: 200% 200%;
-  animation: ambientBackground 15s ease infinite alternate;
-}
-
-@keyframes ambientBackground {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 }
 
 #app {
@@ -162,15 +151,9 @@ body {
 .glass-card {
   background: var(--card-bg);
   border: 1px solid var(--box-border);
-  border-radius: 24px;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.02),
-    0 10px 15px rgba(0, 0, 0, 0.03),
-    0 24px 50px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  border-radius: var(--radius);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
 }
 
 /* ---- Buttons ---- */
@@ -179,54 +162,33 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, var(--primary-color), #6366f1);
-  color: #ffffff !important;
-  padding: 16px 28px;
-  border-radius: 16px;
-  font-size: 16px;
-  font-weight: 800;
-  box-shadow: 
-    0 4px 15px rgba(0,0,0,0.1),
-    0 10px 25px rgba(var(--primary-color), 0.3),
-    inset 0 1px 0 rgba(255,255,255,0.2);
-  letter-spacing: -0.01em;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  color: var(--text-main);
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(79,158,255,.35);
+  letter-spacing: -.01em;
 }
-.btn-primary:hover { 
-  transform: translateY(-4px) scale(1.02); 
-  box-shadow: 
-    0 8px 25px rgba(0,0,0,0.15),
-    0 15px 35px rgba(var(--primary-color), 0.4),
-    inset 0 1px 0 rgba(255,255,255,0.3);
-  filter: brightness(1.1);
-}
-.btn-primary:active { transform: translateY(0) scale(0.98); }
+.btn-primary:hover  { transform:translateY(-2px); box-shadow:0 8px 32px rgba(79,158,255,.45); }
+.btn-primary:active { transform:translateY(0); }
 .btn-primary.full-width { width:100%; justify-content:center; }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  background: var(--card-bg);
+  background: var(--glass-h);
   border: 1px solid var(--box-border);
   color: var(--text-main);
-  padding: 14px 22px;
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
 }
-.btn-secondary:hover { 
-  background: var(--bg-color); 
-  border-color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-}
+.btn-secondary:hover { background:rgba(255,255,255,.1); border-color:var(--border-h); }
 
 .btn-ghost {
   background: transparent;
@@ -822,16 +784,16 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 .test-word {
-  font-size: clamp(2.5rem, 10vw, 4rem);
+  font-size: clamp(3rem, 15vw, 5rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: -.03em;
   text-align: center;
-  color: var(--text-main) !important;
-  margin-bottom: 8px;
-  background: linear-gradient(135deg, var(--text-main) 40%, var(--primary-color) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-main);
+  text-shadow: 0 2px 20px rgba(168,85,247,0.4);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 5px;
+  white-space: nowrap;
 }
 
 .speaker-icon-btn {
@@ -946,14 +908,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   animation:viewIn .3s ease;
 }
 
-.test-meanings {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-main) !important;
-  line-height: 1.6;
-  text-align: center;
-  opacity: 0.9;
-}
+.test-meanings { display:flex; flex-direction:column; align-items:center; gap:12px; width: 100%; }
 .test-meanings .meaning-line {
   font-size: 26px;
   display: flex;
@@ -1555,23 +1510,5 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 #btn-wrong { background: var(--btn-x-bg) !important; color: var(--btn-x-text) !important; border: none; }
 #btn-wrong:hover { opacity: 0.9; }
 
-.test-meanings {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-main) !important;
-  line-height: 1.6;
-  text-align: center;
-  opacity: 0.9;
-}
-.test-word {
-  font-size: clamp(2.5rem, 10vw, 4rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  text-align: center;
-  color: var(--text-main) !important;
-  margin-bottom: 8px;
-  background: linear-gradient(135deg, var(--text-main) 40%, var(--primary-color) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.test-meanings { color: var(--text-main) !important; }
+.test-word { color: var(--text-main) !important; }

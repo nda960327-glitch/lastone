@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v134'; // 캐시 업데이트: 프리미엄 UI/UX 전면 리디자인 (마이크로 애니메이션, Pretendard 폰트, 고급 글래스모피즘)
+const CACHE_NAME = 'vocabmaster-v135'; // 캐시 업데이트: 프리미엄 디자인 롤백
 const ASSETS = [
   '/',
   '/index.html',
