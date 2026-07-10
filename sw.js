@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v145'; // 캐시 업데이트: 받아쓰기 레이아웃 픽스, O/X 버튼 및 블루테마 가독성 개선
+const CACHE_NAME = 'vocabmaster-v146'; // 캐시 업데이트: O버튼 복구 완벽 패치 및 품사 n개 숨김 처리
 const ASSETS = [
   '/',
   '/index.html',

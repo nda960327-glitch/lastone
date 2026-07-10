@@ -1662,6 +1662,8 @@ if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display =
       document.getElementById('btn-reveal').classList.add('hidden');
       document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings, wordObj);
       document.getElementById('test-meanings').classList.remove('hidden');
+      const hintEl = document.getElementById('test-pos-hint');
+      if (hintEl) hintEl.style.display = 'none';
       const oxC3 = document.getElementById('ox-buttons-container');
       if (oxC3) { 
         if (isSwipeMode) {
@@ -1900,8 +1902,18 @@ function waitForRevealOrPrev() {
 }
 
 function setOXDisabled(disabled) {
-  document.getElementById('btn-correct').disabled = disabled;
-  document.getElementById('btn-wrong').disabled   = disabled;
+  const btnC = document.getElementById('btn-correct');
+  const btnW = document.getElementById('btn-wrong');
+  if (btnC) {
+    btnC.disabled = disabled;
+    btnC.style.opacity = disabled ? '0.5' : '1';
+    btnC.style.pointerEvents = disabled ? 'none' : 'auto';
+  }
+  if (btnW) {
+    btnW.disabled = disabled;
+    btnW.style.opacity = disabled ? '0.5' : '1';
+    btnW.style.pointerEvents = disabled ? 'none' : 'auto';
+  }
 }
 
 let currentUtterance = null; // 가비지 컬렉션(GC)으로 인한 음성 멈춤 방지 전역 참조
