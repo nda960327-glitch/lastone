@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v94'; // 캐시 버전 업데이트: 전체 범위 버튼 하드코딩(1~200) 제거 및 동적 풀 연동
+const CACHE_NAME = 'vocabmaster-v95'; // 캐시 버전 업데이트: 수동 단어 추가 버튼 및 뼈대 로직 반영
 const ASSETS = [
   '/',
   '/index.html',

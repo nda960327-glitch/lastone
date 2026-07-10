@@ -670,6 +670,28 @@ function initInputView() {
     if (btnFormatGuideOk) btnFormatGuideOk.onclick = closeModal;
   }
 
+  const btnAddManual = document.getElementById('btn-add-word-manual');
+  if (btnAddManual) {
+    btnAddManual.onclick = () => {
+      if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
+      alert('단어 수동 추가 기능은 준비 중입니다. 차후 단어/뜻/품사를 받아 배열에 저장하는 기능이 연결될 예정입니다.');
+      // [수동 단어 추가 로직 뼈대]
+      // 1. 모달창 띄우기 (입력 폼)
+      // 2. 유저 입력 데이터 가져오기 (newWord, newMeaning, newPos)
+      // 3. 글로벌 배열 푸시
+      // App.words.push({
+      //   originalIndex: App.words.length + 1,
+      //   word: newWord,
+      //   meaning: newMeaning,
+      //   partOfSpeech: [newPos],
+      //   passed: false,
+      //   attempts: 0
+      // });
+      // 4. 로컬 스토리지 또는 IndexedDB 저장
+      // saveWordStatesIDB();
+    };
+  }
+
   if (btnUploadDirect && fileInput) {
     if (btnUploadDirect) btnUploadDirect.onclick = () => {
       if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
