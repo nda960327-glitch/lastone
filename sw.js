@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v141'; // 캐시 업데이트: 다크 모드 텍스트 화이트 원상복구 및 블루 모드 분리
+const CACHE_NAME = 'vocabmaster-v142'; // 캐시 업데이트: 타이머 실종 렌더링 버그 완벽 픽스
 const ASSETS = [
   '/',
   '/index.html',

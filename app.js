@@ -1323,13 +1323,16 @@ function startWordTimer(totalMs, disableOMs, onDisableO, onTimeout) {
     fillEl.style.transition = 'none';
     fillEl.style.width = '100%';
     fillEl.style.background = 'linear-gradient(90deg, #3b82f6, #6366f1)'; // 편안한 파란색 유지
+    fillEl.style.display = 'block'; // 강제 표시 안전장치
 
     // 브라우저 렌더링 강제 리플로우 (초기화 즉시 반영)
     void fillEl.offsetWidth;
 
-    // 즉시 남은 시간 동안 서서히 줄어드는 애니메이션 (대기 시간 없음)
-    fillEl.style.transition = `width ${totalMs}ms linear`;
-    fillEl.style.width = '0%';
+    // 미세한 딜레이(10ms) 후 애니메이션 다시 시작
+    setTimeout(() => {
+      fillEl.style.transition = `width ${totalMs}ms linear`;
+      fillEl.style.width = '0%';
+    }, 10);
   }
 
   // O 버튼 잠금 처리 타이머
