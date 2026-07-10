@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v140'; // 캐시 업데이트: SyntaxError로 인한 앱 먹통 해결
+const CACHE_NAME = 'vocabmaster-v141'; // 캐시 업데이트: 다크 모드 텍스트 화이트 원상복구 및 블루 모드 분리
 const ASSETS = [
   '/',
   '/index.html',
