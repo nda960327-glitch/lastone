@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v106'; // 캐시 업데이트: 카테고리 탭별 맞춤형 버튼 렌더링 (단어장 추가 버튼 동적 숨김 처리)
+const CACHE_NAME = 'vocabmaster-v107'; // 캐시 업데이트: 커스텀 단어장 탭 이름 및 디자인 통일성 개선
 const ASSETS = [
   '/',
   '/index.html',

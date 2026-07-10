@@ -478,7 +478,6 @@ function initInputView() {
     [tabToefl, tabBasic, tabCustomUpload, tabCustomManual].forEach(t => {
       if (t) {
         t.classList.remove('active');
-        t.style.background = 'rgba(0,0,0,0.5)';
       }
     });
     
@@ -490,7 +489,6 @@ function initInputView() {
 
     if (activeTab) {
       activeTab.classList.add('active');
-      activeTab.style.background = '';
     }
 
     if (catName === 'toefl' || catName === 'basic' || catName === 'custom-upload') {
@@ -918,10 +916,10 @@ function initInputView() {
       }
 
       let titlePrefix = '전체';
-      if (currentCategory === 'toefl') titlePrefix = '토플 영단어';
-      else if (currentCategory === 'basic') titlePrefix = '기초 영단어';
-      else if (currentCategory === 'custom-upload') titlePrefix = '내가 추가한 단어장';
-      else if (currentCategory === 'custom-manual') titlePrefix = '내 단어장';
+      if (currentCategory === 'toefl') titlePrefix = '🔥 토플 영단어';
+      else if (currentCategory === 'basic') titlePrefix = '🌱 기초 영단어';
+      else if (currentCategory === 'custom-upload') titlePrefix = '📁 업로드 단어장';
+      else if (currentCategory === 'custom-manual') titlePrefix = '✍️ 수동 단어장';
 
       let dayText = currentDay != null ? (isNaN(currentDay) ? currentDay : `Day ${currentDay}`) : '';
       
