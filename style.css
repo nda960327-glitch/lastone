@@ -45,25 +45,19 @@
 }
 
 [data-theme="blue"] {
-  /* 배경 & 카드 */
-  --bg-color: #F0F4F8; /* 아주 연한 블루그레이 (눈이 편안함) */
-  --card-bg: #FFFFFF;  /* 카드는 완전한 흰색으로 분리감 확보 */
+  --bg-color: #F0F9FF;
+  --card-bg: #FFFFFF;
+  --text-main: #1E3A8A;
+  --glow-color: rgba(59, 130, 246, 0.3);
+  --btn-stroke: #BFDBFE;
+  --o-bg: #DCFCE7; /* 연초록 파스텔 */
+  --x-bg: #FFE4E6; /* 연분홍 파스텔 */
   
-  /* 텍스트 (흰색 절대 금지, 진한 색으로 강제) */
-  --text-main: #0F172A; /* 거의 검은색에 가까운 진한 네이비 (메인 단어, 뜻) */
-  --text-sub: #475569;  /* 중간 톤의 슬레이트 블루 (품사, 보조 설명) */
-  
-  /* 포인트 컬러 (버튼, 테두리 등) */
-  --primary-color: #2563EB; /* 쨍하고 세련된 블루 */
-  --primary-hover: #1D4ED8; /* 버튼 눌렀을 때 색상 */
-  --box-border: #DBEAFE;    /* 박스 테두리 (연한 파란색) */
-
-  /* 🔴🟢 O/X 버튼 및 스탬프 (어떤 테마든 무조건 고정) */
-  --btn-o-bg: #10B981;   /* 명확한 에메랄드 그린 */
-  --btn-x-bg: #EF4444;   /* 명확한 레드 */
-  --text-white: #FFFFFF; /* O/X 버튼 안의 글씨는 무조건 흰색 */
-  
-  /* 기존 변수들 폴백 */
+  /* 폴백 유지 */
+  --text-sub: #475569;
+  --primary-color: #2563EB;
+  --primary-hover: #1D4ED8;
+  --box-border: #DBEAFE;
   --dropdown-bg: #FFFFFF;
   --dropdown-hover: #F0F4F8;
   --input-bg: #F0F4F8;
@@ -72,13 +66,19 @@
 }
 
 [data-theme="pink"] {
-  --bg-color: #fdf2f8;
+  --bg-color: #FFF0F5;
+  --card-bg: #FFFFFF;
+  --text-main: #9D174D;
+  --glow-color: rgba(236, 72, 153, 0.3);
+  --btn-stroke: #FBCFE8;
+  --o-bg: #F3E8FF; /* 연보라 파스텔 */
+  --x-bg: #FFE4E6; /* 연분홍 파스텔 */
+  
+  /* 폴백 유지 */
   --bg2: #ffe4e6;
-  --card-bg: #ffffff;
   --glass-h: rgba(255, 255, 255, 1);
   --box-border: #fbcfe8;
   --border-h: rgba(244, 63, 94, 0.3);
-  
   --dropdown-bg: rgba(255, 255, 255, 0.95);
   --dropdown-hover: #fff1f2;
   --input-bg: rgba(255, 255, 255, 0.7);
@@ -86,8 +86,6 @@
   --grad-2: rgba(253, 164, 175, 0.08);
   --card-shadow: 0 8px 30px rgba(244, 63, 94, 0.1);
   --icon-filter: invert(1);
-
-  --text-main: #831843;
   --text-sub: #9ca3af;
   --text3: #fda4af;
   --primary-color: #ec4899;
@@ -794,7 +792,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   letter-spacing: -.03em;
   text-align: center;
   color: var(--text-main);
-  text-shadow: 0 2px 20px rgba(168,85,247,0.4);
+  text-shadow: 0 0 15px var(--glow-color, transparent);
   width: 100%;
   box-sizing: border-box;
   padding: 0 5px;
@@ -1702,4 +1700,49 @@ body {
 .timer-penalty {
   background: #EF4444 !important;
   animation: blinkPenalty 0.2s infinite !important;
+}
+
+/* ========================================= */
+/* 🌸 핑크 & 🌊 블루 파스텔 글로우 모드 전용 UI */
+/* ========================================= */
+
+[data-theme="pink"] .test-card,
+[data-theme="blue"] .test-card {
+  border-radius: 24px !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+  border: none !important;
+}
+
+[data-theme="pink"] .btn-reveal,
+[data-theme="blue"] .btn-reveal {
+  border-radius: 50px !important;
+  background-color: transparent !important;
+  border: 2px solid var(--btn-stroke) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="pink"] .btn-ox-new.btn-o,
+[data-theme="blue"] .btn-ox-new.btn-o {
+  background-color: var(--o-bg) !important;
+  border-color: var(--o-bg) !important;
+  border-radius: 20px !important;
+}
+[data-theme="pink"] .btn-ox-new.btn-o .ox-mark,
+[data-theme="blue"] .btn-ox-new.btn-o .ox-mark,
+[data-theme="pink"] .btn-ox-new.btn-o .ox-label,
+[data-theme="blue"] .btn-ox-new.btn-o .ox-label {
+  color: var(--text-main) !important;
+}
+
+[data-theme="pink"] .btn-ox-new.btn-x,
+[data-theme="blue"] .btn-ox-new.btn-x {
+  background-color: var(--x-bg) !important;
+  border-color: var(--x-bg) !important;
+  border-radius: 20px !important;
+}
+[data-theme="pink"] .btn-ox-new.btn-x .ox-mark,
+[data-theme="blue"] .btn-ox-new.btn-x .ox-mark,
+[data-theme="pink"] .btn-ox-new.btn-x .ox-label,
+[data-theme="blue"] .btn-ox-new.btn-x .ox-label {
+  color: var(--text-main) !important;
 }

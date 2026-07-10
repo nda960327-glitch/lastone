@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v143'; // 캐시 업데이트: 크리티컬 버그 4종 긴급 픽스
+const CACHE_NAME = 'vocabmaster-v144'; // 캐시 업데이트: 블루/핑크 글로우 파스텔 모드 적용
 const ASSETS = [
   '/',
   '/index.html',
