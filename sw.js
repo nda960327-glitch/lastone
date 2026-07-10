@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v95'; // 캐시 버전 업데이트: 수동 단어 추가 버튼 및 뼈대 로직 반영
+const CACHE_NAME = 'vocabmaster-v96'; // 캐시 버전 업데이트: 누락된 DEFAULT_DATABASES 선언 복구 (진짜 해결)
 const ASSETS = [
   '/',
   '/index.html',

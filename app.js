@@ -750,6 +750,7 @@ function initInputView() {
 
 
 // 로컬 저장소 기반 단어 리스트 로드 및 구버전 데이터 강제 마이그레이션
+const DEFAULT_DATABASES = {};
 function loadDBList(textarea) {
   const statusEl = document.getElementById('worddb-status');
   
