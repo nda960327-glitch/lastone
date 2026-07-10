@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v147'; // 캐시 업데이트: 디자인 및 가독성 픽스 (듣기 영역 배경, O/X 텍스트, 관사 박스 통일)
+const CACHE_NAME = 'vocabmaster-v148'; // 캐시 업데이트: 스피커 크기 키움, 홈 화면 학습 박스 가독성 픽스, OX버튼 전체 화이트 강제 적용
 const ASSETS = [
   '/',
   '/index.html',
