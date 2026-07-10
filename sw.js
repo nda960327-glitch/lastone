@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v124'; // 캐시 업데이트: 스와이프 UI 설정 메뉴 통합, 힌트 추가 및 첫 카드 까딱 애니메이션
+const CACHE_NAME = 'vocabmaster-v125'; // 캐시 업데이트: 스와이프 Haptic 진동 추가 및 렌더링 동기화
 const ASSETS = [
   '/',
   '/index.html',
