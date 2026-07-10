@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v99'; // 캐시 업데이트: 백그라운드 TTS 차단 및 드롭다운 UI 수정
+const CACHE_NAME = 'vocabmaster-v100'; // 캐시 업데이트: 데이터 파싱 로직 전면 재작성 (개수 검증 및 병합 처리)
 const ASSETS = [
   '/',
   '/index.html',
