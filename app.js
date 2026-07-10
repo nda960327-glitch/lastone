@@ -448,7 +448,7 @@ function initInputView() {
         <span class="range-btn-label">${start} ~ ${end} ${getBadgeHTML(sectionKey)}</span>
         <span class="range-btn-count">${count}개 단어</span>
       `;
-      btn.onclick = () => {
+      if (btn) btn.onclick = () => {
         App.currentSection = `${start}~${end}`;
         const slicedWords = words.slice(i, end);
         App.words = slicedWords;
@@ -466,7 +466,7 @@ function initInputView() {
       <span class="range-btn-label">1 ~ ${n} 전체단어 ${getBadgeHTML(sectionKeyAll)}</span>
       <span class="range-btn-count">${n}개 전체 새 학습</span>
     `;
-    btnAllNew.onclick = () => {
+    if (btnAllNew) btnAllNew.onclick = () => {
       App.currentSection = `1~${n} 전체단어`;
       App.words = words.slice();
       App.round = 1;
@@ -501,7 +501,7 @@ function initInputView() {
         <span class="range-btn-label">${start}~${end} 취약점 복습 ${getBadgeHTML(sectionKeyReview)}</span>
         <span class="range-btn-count">오답만 집중</span>
       `;
-      btn.onclick = () => {
+      if (btn) btn.onclick = () => {
         App.currentSection = `${start}~${end} 취약점 복습`;
         startWeaknessReview(i, end, false);
       };
@@ -519,7 +519,7 @@ function initInputView() {
       <span class="range-btn-label">1~${n} 전체 취약점 복습 ${getBadgeHTML(sectionKeyReviewAllMid)}</span>
       <span class="range-btn-count">전체 범위 오답 집중 (2회 이상)</span>
     `;
-    btnReviewAllMid.onclick = () => {
+    if (btnReviewAllMid) btnReviewAllMid.onclick = () => {
       App.currentSection = `1~${n} 전체 취약점 복습`;
       startWeaknessReview(0, n, false);
     };
@@ -536,7 +536,7 @@ function initInputView() {
       <span class="range-btn-label">1~${n} 최종 취약점 총정리 ${getBadgeHTML(sectionKeyFinal)}</span>
       <span class="range-btn-count">최종 보스전 (악성 오답 4회 이상)</span>
     `;
-    btnFinal.onclick = () => {
+    if (btnFinal) btnFinal.onclick = () => {
       App.currentSection = `1~${n} 최종 취약점 총정리`;
       startWeaknessReview(0, n, true);
     };
@@ -564,7 +564,7 @@ function initInputView() {
   const btnFormatGuideOk = document.getElementById('btn-format-guide-ok');
 
   if (btnToggleAdd && dropdownAddMenu) {
-    btnToggleAdd.onclick = (e) => {
+    if (btnToggleAdd) btnToggleAdd.onclick = (e) => {
       e.stopPropagation();
       dropdownAddMenu.classList.toggle('hidden');
     };
@@ -576,7 +576,7 @@ function initInputView() {
   }
 
   if (btnShowGuide && modalFormatGuide) {
-    btnShowGuide.onclick = () => {
+    if (btnShowGuide) btnShowGuide.onclick = () => {
       if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
       modalFormatGuide.classList.remove('hidden');
     };
@@ -586,7 +586,7 @@ function initInputView() {
   }
 
   if (btnUploadDirect && fileInput) {
-    btnUploadDirect.onclick = () => {
+    if (btnUploadDirect) btnUploadDirect.onclick = () => {
       if (dropdownAddMenu) dropdownAddMenu.classList.add('hidden');
       fileInput.click();
     };
@@ -617,7 +617,7 @@ function initInputView() {
   }
 
   // Dictation 모드 테스트 시작
-  document.getElementById('btn-dictation').onclick = () => {
+  if (document.getElementById('btn-dictation')) document.getElementById('btn-dictation').onclick = () => {
     const textarea = document.getElementById('word-input');
     const words = getFilteredWords();
     if (words.length === 0) {
@@ -766,7 +766,7 @@ function refreshDBList(textarea) {
 
   // 삭제 버튼 핸들러
   if (deleteBtn) {
-    deleteBtn.onclick = () => {
+    if (deleteBtn) deleteBtn.onclick = () => {
       const selectedTitle = selectUser ? selectUser.value : '';
       if (!selectedTitle) return;
       if (confirm(`"${selectedTitle}" 단어장을 삭제하시겠습니까?`)) {
@@ -1033,7 +1033,7 @@ async function runTestRound(startIndex = 0) {
       // 뜻 확인하기 클릭 시 뜻 노출
       const btnReveal = document.getElementById('btn-reveal');
       if (btnReveal) {
-        btnReveal.onclick = () => {
+        if (btnReveal) btnReveal.onclick = () => {
           document.getElementById('btn-reveal').classList.add('hidden');
           document.getElementById('test-meanings').classList.remove('hidden');
         };
@@ -1090,7 +1090,7 @@ async function runTestRound(startIndex = 0) {
     }
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
-      btnSpeak.onclick = () => speak(wordObj.word);
+      if (btnSpeak) btnSpeak.onclick = () => speak(wordObj.word);
     }
     posHintEl.textContent = `품사 ${wordObj.meanings.length}개`;
     if (!isDictationMode) {
@@ -1293,7 +1293,7 @@ function waitForDictationOrPrev(wordObj) {
     const btnPrev = document.getElementById('btn-prev-word');
     
     if (btnPrev) {
-      btnPrev.onclick = () => {
+      if (btnPrev) btnPrev.onclick = () => {
         if (oxResolver) { oxResolver('PREV'); oxResolver = null; }
       };
     }
@@ -1354,7 +1354,7 @@ function waitForDictationOrPrev(wordObj) {
     };
     
     if (submitBtn) {
-      submitBtn.onclick = checkAnswer;
+      if (submitBtn) submitBtn.onclick = checkAnswer;
     }
   });
 }
@@ -1365,22 +1365,22 @@ function waitForOXOrPrev() {
     
     const btnPrev = document.getElementById('btn-prev-word');
     if (btnPrev) {
-      btnPrev.onclick = () => {
+      if (btnPrev) btnPrev.onclick = () => {
         if (oxResolver) { oxResolver('PREV'); oxResolver = null; }
       };
     }
 
     const btnNext = document.getElementById('btn-next-word');
     if (btnNext) {
-      btnNext.onclick = () => {
+      if (btnNext) btnNext.onclick = () => {
         if (oxResolver) { oxResolver('SKIP'); oxResolver = null; }
       };
     }
 
-    document.getElementById('btn-correct').onclick = () => {
+    if (document.getElementById('btn-correct')) document.getElementById('btn-correct').onclick = () => {
       if (oxResolver) { oxResolver('O'); oxResolver = null; }
     };
-    document.getElementById('btn-wrong').onclick = () => {
+    if (document.getElementById('btn-wrong')) document.getElementById('btn-wrong').onclick = () => {
       if (oxResolver) { oxResolver('X'); oxResolver = null; }
     };
   });
@@ -1393,19 +1393,19 @@ function waitForRevealOrPrev() {
     
     const btnPrev = document.getElementById('btn-prev-word');
     if (btnPrev) {
-      btnPrev.onclick = () => {
+      if (btnPrev) btnPrev.onclick = () => {
         if (revealResolver) { revealResolver('PREV'); revealResolver = null; }
       };
     }
 
     const btnNext = document.getElementById('btn-next-word');
     if (btnNext) {
-      btnNext.onclick = () => {
+      if (btnNext) btnNext.onclick = () => {
         if (revealResolver) { revealResolver('SKIP'); revealResolver = null; }
       };
     }
 
-    document.getElementById('btn-reveal').onclick = () => {
+    if (document.getElementById('btn-reveal')) document.getElementById('btn-reveal').onclick = () => {
       if (revealResolver) { revealResolver('REVEAL'); revealResolver = null; }
     };
   });
@@ -1468,7 +1468,7 @@ function showRoundResult(correct, wrong) {
   App.round++;
   const btnNext = document.getElementById('btn-next-round');
   btnNext.innerHTML = `Round ${App.round} 시작 →`;
-  btnNext.onclick = () => {
+  if (btnNext) btnNext.onclick = () => {
     startTest();
   };
 }
@@ -1489,7 +1489,7 @@ function showFinalResult() {
   const tableSection = document.getElementById('table-section');
   if (tableSection) tableSection.classList.remove('hidden');
 
-  document.getElementById('btn-download-csv').onclick = () => {
+  if (document.getElementById('btn-download-csv')) document.getElementById('btn-download-csv').onclick = () => {
     let csv = '\ufeff번호,단어,뜻,오답 시도 횟수\n';
     wrongWords.forEach((w, idx) => {
       const meaningsStr = w.meanings.map(m => `[${m.pos}] ${m.meaning}`).join(' / ');
@@ -1530,7 +1530,7 @@ function showFinalResult() {
     });
   }
 
-  document.getElementById('btn-restart').onclick = () => {
+  if (document.getElementById('btn-restart')) document.getElementById('btn-restart').onclick = () => {
     isDictationMode = false; // restart
     App.words    = [];
     App.testPool = [];
@@ -1660,15 +1660,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (btnInstall) {
-    btnInstall.onclick = handleInstallClick;
+    if (btnInstall) btnInstall.onclick = handleInstallClick;
   }
   
   if (btnInstallPwa) {
-    btnInstallPwa.onclick = handleInstallClick;
+    if (btnInstallPwa) btnInstallPwa.onclick = handleInstallClick;
   }
 
   if (btnClose) {
-    btnClose.onclick = () => {
+    if (btnClose) btnClose.onclick = () => {
       if (installModal) installModal.classList.add('hidden');
       localStorage.setItem('pwa_install_rejected', 'true');
     };
@@ -1680,19 +1680,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnInfoOk = document.getElementById('btn-info-ok');
 
   if (btnShowInfo && infoModal) {
-    btnShowInfo.onclick = () => {
+    if (btnShowInfo) btnShowInfo.onclick = () => {
       infoModal.classList.remove('hidden');
     };
   }
 
   if (btnInfoClose && infoModal) {
-    btnInfoClose.onclick = () => {
+    if (btnInfoClose) btnInfoClose.onclick = () => {
       infoModal.classList.add('hidden');
     };
   }
 
   if (btnInfoOk && infoModal) {
-    btnInfoOk.onclick = () => {
+    if (btnInfoOk) btnInfoOk.onclick = () => {
       infoModal.classList.add('hidden');
     };
   }
@@ -1703,13 +1703,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnDevOk = document.getElementById('btn-developer-story-ok');
 
   if (btnShowDev && devModal) {
-    btnShowDev.onclick = () => devModal.classList.remove('hidden');
+    if (btnShowDev) btnShowDev.onclick = () => devModal.classList.remove('hidden');
   }
   if (btnDevClose && devModal) {
-    btnDevClose.onclick = () => devModal.classList.add('hidden');
+    if (btnDevClose) btnDevClose.onclick = () => devModal.classList.add('hidden');
   }
   if (btnDevOk && devModal) {
-    btnDevOk.onclick = () => devModal.classList.add('hidden');
+    if (btnDevOk) btnDevOk.onclick = () => devModal.classList.add('hidden');
   }
 
   // 홈으로 이동 버튼 핸들러
