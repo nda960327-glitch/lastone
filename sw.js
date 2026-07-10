@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v133'; // 캐시 업데이트: 가독성 대비 완벽 적용 및 3종 테마 시스템 전면 재구축
+const CACHE_NAME = 'vocabmaster-v134'; // 캐시 업데이트: 프리미엄 UI/UX 전면 리디자인 (마이크로 애니메이션, Pretendard 폰트, 고급 글래스모피즘)
 const ASSETS = [
   '/',
   '/index.html',

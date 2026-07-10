@@ -942,7 +942,7 @@ function initInputView() {
       };
       
       wordListTbody.innerHTML = '';
-      currentWords.forEach(w => {
+      currentWords.forEach((w, index) => {
         const tr = document.createElement('tr');
         tr.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
         
