@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v129'; // 캐시 업데이트: 스와이프 글로벌 스탬프(예능 효과) UI 적용
+const CACHE_NAME = 'vocabmaster-v130'; // 캐시 업데이트: 전역 텍스트 색상 스킨 동기화 및 초기화 버튼 추가
 const ASSETS = [
   '/',
   '/index.html',
