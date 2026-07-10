@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v123'; // 캐시 업데이트: 스와이프 O/X 틴더식 스탬프 및 애니메이션 강화, 5초 타이머 충돌 해결
+const CACHE_NAME = 'vocabmaster-v124'; // 캐시 업데이트: 스와이프 UI 설정 메뉴 통합, 힌트 추가 및 첫 카드 까딱 애니메이션
 const ASSETS = [
   '/',
   '/index.html',

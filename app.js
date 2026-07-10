@@ -1458,6 +1458,12 @@ if (posHintEl) posHintEl.classList.add('hidden');
       
       // 뜻 숨김 상태로 시작
       document.getElementById('btn-reveal').classList.remove('hidden');
+    
+    const swipeHint = document.getElementById('swipe-hint');
+    if (swipeHint) {
+      if (isSwipeMode) swipeHint.classList.remove('hidden');
+      else swipeHint.classList.add('hidden');
+    }
       document.getElementById('test-meanings').classList.add('hidden');
       document.getElementById('test-meanings').innerHTML = meaningHTML(wordObj.meanings, wordObj);
       
@@ -1504,6 +1510,16 @@ if (posHintEl) posHintEl.classList.add('hidden');
     if (wrapper && !isDictationMode) {
       wrapper.classList.remove('hidden');
     }
+    
+    // Nudge animation on first card after headset finishes
+    if (isSwipeMode && i === 0 && !isAlreadyGraded) {
+      const tc = document.getElementById('test-card-el');
+      if (tc) {
+        tc.classList.add('nudge-anim');
+        setTimeout(() => { tc.classList.remove('nudge-anim'); }, 600);
+      }
+    }
+    
     const testWordEl = document.getElementById('test-word');
     testWordEl.textContent = wordObj.word;
     if ((wordObj.totalFails || 0) >= 6) {
@@ -2206,6 +2222,15 @@ let isVerticalScroll = false;
         testCard.classList.remove('dragging');
       }
 
+      const swipeHint = document.getElementById('swipe-hint');
+      if (swipeHint) {
+        if (isSwipeMode && App.phase === 'test') {
+          swipeHint.classList.remove('hidden');
+        } else {
+          swipeHint.classList.add('hidden');
+        }
+      }
+      
       const oxC = document.getElementById('ox-buttons-container');
       const btnReveal = document.getElementById('btn-reveal');
       if (oxC && btnReveal) {
@@ -2304,3 +2329,20 @@ let isVerticalScroll = false;
       swipeCurrentX = 0;
     });
   }
+
+// Settings Button Toggle Logic
+(function() {
+  const btnSettings = document.getElementById('btn-settings');
+  const settingsDropdown = document.getElementById('settings-dropdown');
+  if (btnSettings && settingsDropdown) {
+    btnSettings.addEventListener('click', (e) => {
+      e.stopPropagation();
+      settingsDropdown.classList.toggle('hidden');
+    });
+    document.addEventListener('click', (e) => {
+      if (!settingsDropdown.contains(e.target) && e.target !== btnSettings) {
+        settingsDropdown.classList.add('hidden');
+      }
+    });
+  }
+})();
