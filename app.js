@@ -500,6 +500,19 @@ function initInputView() {
       if (daySelectorContainer) daySelectorContainer.style.display = 'none';
       currentDay = null;
     }
+
+    const dropdownContainer = document.getElementById('dropdown-add-voca-container');
+    const manualDirectBtn = document.getElementById('btn-add-word-manual-direct');
+    if (catName === 'toefl' || catName === 'basic') {
+      if (dropdownContainer) dropdownContainer.style.display = 'none';
+      if (manualDirectBtn) manualDirectBtn.classList.add('hidden');
+    } else if (catName === 'custom-upload') {
+      if (dropdownContainer) dropdownContainer.style.display = 'inline-block';
+      if (manualDirectBtn) manualDirectBtn.classList.add('hidden');
+    } else if (catName === 'custom-manual') {
+      if (dropdownContainer) dropdownContainer.style.display = 'none';
+      if (manualDirectBtn) manualDirectBtn.classList.remove('hidden');
+    }
     
     App.currentDBName = `${currentCategory}${currentDay ? '_day'+currentDay : ''}`;
     updateDictationBtnText();

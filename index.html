@@ -59,14 +59,15 @@
         <div class="header-action-buttons" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; width: 100%; justify-content: flex-end; padding-right: 4px;">
           <button id="btn-install-pwa" style="display: none;">📱 앱 다운로드</button>
           <input type="file" id="btn-upload-db-file" accept=".txt" style="display: none;">
-          <div class="dropdown-add-voca" style="position: relative; display: inline-block;">
-            <button id="btn-toggle-add" class="btn-ghost" style="border-color: rgba(168,85,247,0.4); color: var(--purple);">➕ 단어장 추가</button>
+          <div id="dropdown-add-voca-container" class="dropdown-add-voca" style="position: relative; display: inline-block;">
+            <button id="btn-toggle-add" class="btn-ghost" style="border-color: rgba(168,85,247,0.4); color: var(--purple);">➕ 단어장 파일 올리기</button>
             <div id="dropdown-add-menu" class="dropdown-content hidden">
-              <button id="btn-add-word-manual">✍️ 수동으로 새 단어 추가</button>
+              <button id="btn-add-word-manual" style="display: none;">✍️ 수동으로 새 단어 추가</button>
               <button id="btn-upload-direct">📁 바로 단어장 파일(.txt) 올리기</button>
               <button id="btn-show-guide">❓ 파일 양식 및 AI 프롬프트 안내</button>
             </div>
           </div>
+          <button id="btn-add-word-manual-direct" class="btn-ghost hidden" style="border-color: rgba(168,85,247,0.4); color: var(--purple);">➕ 수동으로 새 단어 추가</button>
           <button id="btn-view-all-words" class="btn-ghost" style="border-color: rgba(59,130,246,0.4); color: #3b82f6;">📋 전체 단어 미리보기</button>
         </div>
       </div>
