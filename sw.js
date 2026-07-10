@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v86'; // 캐시 버전 업데이트: 1~200 전체 범위 누적 오답 2회 이상 복습 버튼 추가 및 최종 보스전 텍스트 수정
+const CACHE_NAME = 'vocabmaster-v87'; // 캐시 버전 업데이트: 기존 데이터 wordData.js 분리, 카테고리 탭(토플/기초) 적용 및 데이터 로딩 로직 전면 개편
 const ASSETS = [
   '/',
   '/index.html',

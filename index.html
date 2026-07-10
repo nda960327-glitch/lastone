@@ -37,6 +37,11 @@
       </div>
     </header>
 
+    <div id="category-tabs" class="category-tabs-container">
+      <button id="tab-toefl" class="tab-btn active">🔥 토플 영단어</button>
+      <button id="tab-basic" class="tab-btn">🌱 기초 영단어</button>
+    </div>
+
     <div class="glass-card input-card">
       <div class="section-header" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
         <div class="header-action-buttons" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; width: 100%; justify-content: flex-end; padding-right: 4px;">
@@ -52,44 +57,7 @@
         </div>
       </div>
 
-      <!-- 기초 영단어 드롭다운 -->
-      <div style="margin-bottom: 10px;">
-        <div style="font-size: 12px; font-weight: 700; color: var(--blue); margin-bottom: 6px; letter-spacing: 0.04em;">📘 기초 영단어</div>
-        <div class="select-wrap" style="position: relative;">
-          <select id="select-basic-db" style="width: 100%; padding: 12px 36px 12px 14px; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: #ffffff; font-size: 14px; font-weight: 600; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none;">
-            <option value="" style="background:#1e1b4b; color:#fff;">선택하기...</option>
-          </select>
-          <div style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text2); font-size: 11px;">▼</div>
-        </div>
-      </div>
 
-      <!-- 토플 영단어 드롭다운 -->
-      <div style="margin-bottom: 16px;">
-        <div style="font-size: 12px; font-weight: 700; color: var(--purple); margin-bottom: 6px; letter-spacing: 0.04em;">📗 토플 영단어</div>
-        <div class="select-wrap" style="position: relative;">
-          <select id="select-tofl-db" style="width: 100%; padding: 12px 36px 12px 14px; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: #ffffff; font-size: 14px; font-weight: 600; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none;">
-            <option value="" style="background:#1e1b4b; color:#fff;">선택하기...</option>
-          </select>
-          <div style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text2); font-size: 11px;">▼</div>
-        </div>
-      </div>
-
-      <!-- 내 단어장 드롭다운 (사용자 추가분) -->
-      <div id="user-db-section" style="margin-bottom: 16px; display: none;">
-        <div style="font-size: 12px; font-weight: 700; color: #f59e0b; margin-bottom: 6px; letter-spacing: 0.04em;">📁 내 단어장</div>
-        <div class="select-wrap" style="position: relative;">
-          <select id="select-user-db" style="width: 100%; padding: 12px 36px 12px 14px; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(245,158,11,0.4); color: #ffffff; font-size: 14px; font-weight: 600; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none;">
-            <option value="" style="background:#1e1b4b; color:#fff;">선택하기...</option>
-          </select>
-          <div style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text2); font-size: 11px;">▼</div>
-        </div>
-        <button id="btn-delete-user-db" style="display: none; margin-top: 6px; width: 100%; padding: 8px; border-radius: 8px; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.35); color: #f87171; font-size: 12px; font-weight: 600; cursor: pointer; text-align: center;">
-          🗑️ 선택한 단어장 삭제
-        </button>
-      </div>
-
-      <!-- 숨겨진 textarea (파싱용, 화면에 안 보임) -->
-      <textarea id="word-input" style="display:none;" spellcheck="false"></textarea>
 
       <!-- 분할 학습 패널 -->
       <div id="range-select-panel" class="range-select-panel hidden">
@@ -270,6 +238,7 @@
   </section>
 
 </div>
+<script src="wordData.js"></script>
 <script src="app.js"></script>
 
   <!-- PWA 앱 설치 알림 팝업 모달 -->
