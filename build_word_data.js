@@ -108,8 +108,10 @@ console.log("=============================================\n");
 
 let out = 'let _staticWords = ' + JSON.stringify(words, null, 2) + ';\n';
 out += 'let _customWords = [];\n';
-out += 'try { _customWords = JSON.parse(localStorage.getItem("doacore_custom_words") || "[]"); } catch(e) {}\n';
-out += 'const words = _staticWords.concat(_customWords);\n';
+out += 'try { _customWords = JSON.parse(localStorage.getItem("doacore_custom_words") || "[]").map(w => ({...w, category: "custom-manual"})); } catch(e) {}\n';
+out += 'let _uploadWords = [];\n';
+out += 'try { _uploadWords = JSON.parse(localStorage.getItem("doacore_upload_words") || "[]").map(w => ({...w, category: "custom-upload"})); } catch(e) {}\n';
+out += 'const words = _staticWords.concat(_customWords).concat(_uploadWords);\n';
 
 fs.writeFileSync('wordData.js', out, 'utf8');
 console.log('wordData.js generated successfully with ' + words.length + ' base words.');

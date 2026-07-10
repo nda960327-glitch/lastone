@@ -450,19 +450,21 @@ function initInputView() {
   
   const tabToefl = document.getElementById('tab-toefl');
   const tabBasic = document.getElementById('tab-basic');
+  const tabCustomUpload = document.getElementById('tab-custom-upload');
+  const tabCustomManual = document.getElementById('tab-custom-manual');
   const daySelector = document.getElementById('day-selector');
+  const daySelectorContainer = document.getElementById('day-selector-container');
   
   function updateDictationBtnText() {
     const dictText = document.getElementById('dictation-btn-text');
-    if (dictText && currentDay !== null) {
-      const catName = currentCategory === 'toefl' ? '토플 영단어' : '기초 영단어';
-      dictText.textContent = `📄 [${catName} ${currentDay} day] 전체 스펠링 듣고 쓰기`;
+    if (dictText) {
+      dictText.textContent = `🎧 전체 단어 스펠링 듣고 쓰기`;
     }
   }
 
-  // Bind day selector change
   if (daySelector) {
     daySelector.addEventListener('change', (e) => {
+      if (!e.target.value) return;
       currentDay = parseInt(e.target.value, 10);
       App.currentDBName = `${currentCategory}_day${currentDay}`;
       updateDictationBtnText();
@@ -470,32 +472,45 @@ function initInputView() {
     });
   }
 
-  if (tabToefl && tabBasic) {
-    tabToefl.addEventListener('click', () => {
-      currentCategory = 'toefl';
-      tabToefl.classList.add('active');
-      tabBasic.classList.remove('active');
-      populateDaySelector();
-      App.currentDBName = `${currentCategory}_day${currentDay}`;
-      updateDictationBtnText();
-      updateCount();
+  function switchTab(catName) {
+    currentCategory = catName;
+    [tabToefl, tabBasic, tabCustomUpload, tabCustomManual].forEach(t => {
+      if (t) {
+        t.classList.remove('active');
+        t.style.background = 'rgba(0,0,0,0.5)';
+      }
     });
-    tabBasic.addEventListener('click', () => {
-      currentCategory = 'basic';
-      tabBasic.classList.add('active');
-      tabToefl.classList.remove('active');
+    
+    let activeTab = null;
+    if (catName === 'toefl') activeTab = tabToefl;
+    else if (catName === 'basic') activeTab = tabBasic;
+    else if (catName === 'custom-upload') activeTab = tabCustomUpload;
+    else if (catName === 'custom-manual') activeTab = tabCustomManual;
+
+    if (activeTab) {
+      activeTab.classList.add('active');
+      activeTab.style.background = '';
+    }
+
+    if (catName === 'toefl' || catName === 'basic') {
+      if (daySelectorContainer) daySelectorContainer.style.display = '';
       populateDaySelector();
-      App.currentDBName = `${currentCategory}_day${currentDay}`;
-      updateDictationBtnText();
-      updateCount();
-    });
+    } else {
+      if (daySelectorContainer) daySelectorContainer.style.display = 'none';
+      currentDay = null;
+    }
+    
+    App.currentDBName = `${currentCategory}${currentDay ? '_day'+currentDay : ''}`;
+    updateDictationBtnText();
+    updateCount();
   }
+
+  if (tabToefl) tabToefl.addEventListener('click', () => switchTab('toefl'));
+  if (tabBasic) tabBasic.addEventListener('click', () => switchTab('basic'));
+  if (tabCustomUpload) tabCustomUpload.addEventListener('click', () => switchTab('custom-upload'));
+  if (tabCustomManual) tabCustomManual.addEventListener('click', () => switchTab('custom-manual'));
   
-  // Initial population
-  populateDaySelector();
-  App.currentDBName = `${currentCategory}_day${currentDay}`;
-  updateDictationBtnText();
-  updateCount();
+  switchTab('toefl');
 
 
   // ── 동적 학습 구간 렌더링 (소그룹 + 중그룹 취약점 + 대그룹 총정리) ──
@@ -725,18 +740,15 @@ function initInputView() {
         partOfSpeech: [pos],
         meaning: ko,
         totalFails: 0,
-        category: currentCategory,
-        day: 'custom'
+        category: 'custom-manual',
+        day: null
       };
       
-      // Push to in-memory App.words if needed (already parsed logic)
-      // Save to localStorage
       try {
         const customWords = JSON.parse(localStorage.getItem('doacore_custom_words') || '[]');
         customWords.push(newWord);
         localStorage.setItem('doacore_custom_words', JSON.stringify(customWords));
         
-        // Add to words pool and App.words
         words.push(newWord);
         App.allWords = words.slice();
         alert(`"${en}" 단어가 수동으로 등록되었습니다!`);
@@ -745,12 +757,71 @@ function initInputView() {
         document.getElementById('add-word-en').value = '';
         document.getElementById('add-word-ko').value = '';
         
-        // Refresh range buttons
-        updateCount();
+        if (currentCategory === 'custom-manual') updateCount();
       } catch(e) {
         console.error("수동 단어 추가 에러:", e);
       }
     };
+  }
+
+  const fileInputEl = document.getElementById('btn-upload-db-file');
+  if (fileInputEl) {
+    fileInputEl.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        let rawText = evt.target.result;
+        rawText = rawText.replace(/\n\s*\[\s*/g, " [");
+        const lines = rawText.split('\n');
+        const newWords = [];
+        lines.forEach(line => {
+          line = line.replace(/\r/g, '').trim();
+          if (!line) return;
+          const wordMatch = line.match(/^(.+?)\s*\[([^\]]+)\]\s*(.+)$/);
+          if (wordMatch) {
+            const rawWord = wordMatch[1].trim();
+            const rawPos = wordMatch[2].split(',').map(s => s.trim());
+            const rawMeaning = wordMatch[3].trim();
+            const lastWord = newWords.length > 0 ? newWords[newWords.length - 1] : null;
+            if (lastWord && lastWord.word === rawWord) {
+              lastWord.partOfSpeech.push(...rawPos);
+              lastWord.meaning += ` / ${rawMeaning}`;
+            } else {
+              newWords.push({
+                word: rawWord,
+                partOfSpeech: rawPos,
+                meaning: rawMeaning,
+                totalFails: 0,
+                category: 'custom-upload',
+                day: file.name.replace('.txt', '')
+              });
+            }
+          }
+        });
+
+        if (newWords.length === 0) {
+          alert('단어를 하나도 찾지 못했습니다. 파일 양식을 확인해주세요. (예: apple [n] 사과)');
+          e.target.value = '';
+          return;
+        }
+
+        try {
+          const uploadWords = JSON.parse(localStorage.getItem('doacore_upload_words') || '[]');
+          uploadWords.push(...newWords);
+          localStorage.setItem('doacore_upload_words', JSON.stringify(uploadWords));
+          words.push(...newWords);
+          App.allWords = words.slice();
+          alert(`파일에서 ${newWords.length}개의 단어가 성공적으로 '내가 추가한 단어장'에 추가되었습니다!`);
+          
+          if (currentCategory === 'custom-upload') updateCount();
+        } catch(err) {
+          console.error("파일 업로드 단어 추가 에러:", err);
+        }
+        e.target.value = '';
+      };
+      reader.readAsText(file);
+    });
   }
 
   if (btnUploadDirect && fileInput) {

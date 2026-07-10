@@ -57186,5 +57186,7 @@ let _staticWords = [
   }
 ];
 let _customWords = [];
-try { _customWords = JSON.parse(localStorage.getItem("doacore_custom_words") || "[]"); } catch(e) {}
-const words = _staticWords.concat(_customWords);
+try { _customWords = JSON.parse(localStorage.getItem("doacore_custom_words") || "[]").map(w => ({...w, category: "custom-manual"})); } catch(e) {}
+let _uploadWords = [];
+try { _uploadWords = JSON.parse(localStorage.getItem("doacore_upload_words") || "[]").map(w => ({...w, category: "custom-upload"})); } catch(e) {}
+const words = _staticWords.concat(_customWords).concat(_uploadWords);

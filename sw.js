@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v100'; // 캐시 업데이트: 데이터 파싱 로직 전면 재작성 (개수 검증 및 병합 처리)
+const CACHE_NAME = 'vocabmaster-v101'; // 캐시 업데이트: 내가 추가한 단어장 탭 UI 적용 및 파일 업로드 처리 추가
 const ASSETS = [
   '/',
   '/index.html',
