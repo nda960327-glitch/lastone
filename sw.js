@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v136'; // 캐시 업데이트: 고객이 작성한 완벽한 DOACore 블루 테마 CSS 원본 적용
+const CACHE_NAME = 'vocabmaster-v137'; // 캐시 업데이트: 스크린샷과 100% 동일한 UI 적용 (둥근 알약 버튼, 파스텔톤 O/X 버튼, 관사 컬러 유지)
 const ASSETS = [
   '/',
   '/index.html',
