@@ -584,7 +584,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 /* ============================================
    ② Study View
    ============================================ */
-.study-card {
+.study-card {\n  container-type: inline-size;
   padding:52px 40px;
   min-height:290px;
   display:flex; flex-direction:column;
@@ -636,7 +636,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 
 /* Study word */
 .study-word {
-  font-size: clamp(1.8rem, 8vw, 3.5rem); font-weight:900; letter-spacing:-.03em;
+  font-size: clamp(2rem, 15cqw, 15rem); white-space: nowrap; font-weight:900; letter-spacing:-.03em;
   text-align:center;
   background:linear-gradient(135deg, var(--text-main) 60%, var(--border-h) 100%);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
@@ -783,7 +783,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 /* ============================================
    ③ Test View
    ============================================ */
-.test-card {
+.test-card {\n  container-type: inline-size;
   padding:52px 40px;
   min-height:340px;
   display:flex; flex-direction:column;

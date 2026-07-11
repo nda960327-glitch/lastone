@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v168'; // UI 업데이트: 받아쓰기 모드 전용 대형 스피커(다시 듣기) 추가
+const CACHE_NAME = 'vocabmaster-v169'; // UI 업데이트: 최후의 물리적 한계 돌파 v2 (컨테이너 쿼리 cqw 적용으로 투명 박스 한계 완전 해제)
 const ASSETS = [
   '/',
   '/index.html',
