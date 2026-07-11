@@ -1584,13 +1584,13 @@ if (posHintEl) posHintEl.classList.add('hidden');
     } else if (wordLength <= 7) {
         testWordEl.style.setProperty('font-size', '15vw', 'important');
     } else if (wordLength <= 9) {
-        testWordEl.style.setProperty('font-size', '13vw', 'important');
+        testWordEl.style.setProperty('font-size', '13.5vw', 'important');
     } else if (wordLength <= 11) {
-        testWordEl.style.setProperty('font-size', '11.5vw', 'important');
+        testWordEl.style.setProperty('font-size', '12.5vw', 'important');
     } else if (wordLength <= 14) {
-        testWordEl.style.setProperty('font-size', '10vw', 'important');
+        testWordEl.style.setProperty('font-size', '11.5vw', 'important');
     } else {
-        testWordEl.style.setProperty('font-size', '9vw', 'important');
+        testWordEl.style.setProperty('font-size', '10.5vw', 'important');
     }
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
