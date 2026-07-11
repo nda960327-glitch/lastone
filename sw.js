@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v163'; // UI 업데이트: 스펠링 텍스트 줄바꿈 완전 방지 및 사이즈 공식 대폭 상향
+const CACHE_NAME = 'vocabmaster-v164'; // UI 업데이트: 스펠링 텍스트 진짜 화면 찢어질 정도로 엄청나게 큼직하게 확대
 const ASSETS = [
   '/',
   '/index.html',
