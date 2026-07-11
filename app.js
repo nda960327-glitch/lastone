@@ -1556,9 +1556,9 @@ if (posHintEl) posHintEl.classList.add('hidden');
     } else {
       testWordEl.style.color = 'var(--text-main)';
     }
-    const wLen = wordObj.word.length;
-    let vw = Math.min(20, 95 / wLen);
-    testWordEl.style.fontSize = `clamp(1.5rem, ${vw}vw, 5.5rem)`;
+    const wLen = Math.max(5, wordObj.word.length);
+    let vw = Math.min(24, 140 / wLen);
+    testWordEl.style.fontSize = `clamp(1.5rem, ${vw}vw, 6rem)`;
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
       if (btnSpeak) btnSpeak.onclick = () => speak(wordObj.word);

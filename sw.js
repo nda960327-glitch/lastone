@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v162'; // UI 업데이트: 메인 화면 스피커 버튼 완전 제거 및 텍스트 최대 사이즈 확대
+const CACHE_NAME = 'vocabmaster-v163'; // UI 업데이트: 스펠링 텍스트 줄바꿈 완전 방지 및 사이즈 공식 대폭 상향
 const ASSETS = [
   '/',
   '/index.html',
