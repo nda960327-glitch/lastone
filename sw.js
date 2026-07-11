@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v170'; // UI 업데이트: 받아쓰기 전용 대형 스피커 화이트로 변경 및 JS 노출 로직 버그 완벽 수정
+const CACHE_NAME = 'vocabmaster-v171'; // UI: 사용자 요청 폰트 로직 정확 적용 + 받아쓰기 다시듣기 버튼 뜻확인 위 배치
 const ASSETS = [
   '/',
   '/index.html',
