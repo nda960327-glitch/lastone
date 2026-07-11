@@ -1580,17 +1580,17 @@ if (posHintEl) posHintEl.classList.add('hidden');
 
     const wordLength = wordObj.word.length;
     if (wordLength <= 5) {
-        testWordEl.style.setProperty('font-size', '18vw', 'important');
+        testWordEl.style.setProperty('font-size', '19vw', 'important');
     } else if (wordLength <= 7) {
-        testWordEl.style.setProperty('font-size', '15vw', 'important');
+        testWordEl.style.setProperty('font-size', '16vw', 'important');
     } else if (wordLength <= 9) {
-        testWordEl.style.setProperty('font-size', '13.5vw', 'important');
+        testWordEl.style.setProperty('font-size', '14.5vw', 'important');
     } else if (wordLength <= 11) {
-        testWordEl.style.setProperty('font-size', '12.5vw', 'important');
+        testWordEl.style.setProperty('font-size', '13.5vw', 'important');
     } else if (wordLength <= 14) {
-        testWordEl.style.setProperty('font-size', '11.5vw', 'important');
+        testWordEl.style.setProperty('font-size', '12.5vw', 'important');
     } else {
-        testWordEl.style.setProperty('font-size', '10.5vw', 'important');
+        testWordEl.style.setProperty('font-size', '11.5vw', 'important');
     }
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');

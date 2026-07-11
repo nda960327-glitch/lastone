@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v182'; // UI: 긴 단어 폰트 사이즈 상향 조정
+const CACHE_NAME = 'vocabmaster-v183'; // UI: 전체적으로 폰트 크기 1vw씩 추가 상향 (긴 단어 위주)
 const ASSETS = [
   '/',
   '/index.html',
