@@ -1566,11 +1566,15 @@ if (posHintEl) posHintEl.classList.add('hidden');
     testWordEl.textContent = wordObj.word;
     if ((wordObj.totalFails || 0) >= 6) {
       testWordEl.style.color = '#ef4444';
+        const wrapper = document.getElementById('test-word-wrapper');
+        if (wrapper) wrapper.style.display = 'none';
     } else {
       testWordEl.style.color = 'var(--text-main)';
+        const wrapper = document.getElementById('test-word-wrapper');
+        if (wrapper) wrapper.style.display = 'flex';
     }
     if (wordObj.word.length > 10) {
-      testWordEl.style.fontSize = 'clamp(2.2rem, 10vw, 3.5rem)';
+      testWordEl.style.fontSize = 'clamp(3rem, 14vw, 5.5rem)';
     } else {
       testWordEl.style.fontSize = '';
     }

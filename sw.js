@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v173'; // UI: 학습하기 폰트 2배, 연필 반전, 모달 버튼 세로배치, 받아쓰기 여백제거
+const CACHE_NAME = 'vocabmaster-v174'; // UI: 테스트 스펠링 22vw 확대, 모달 뜻 칸 넓힘, 받아쓰기 상단 여백 박스 제거
 const ASSETS = [
   '/',
   '/index.html',
