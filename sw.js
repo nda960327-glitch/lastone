@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v161'; // UI 업데이트: 스피커 버튼을 스펠링 아래로 내리고 [다시 듣기 🔊] 형태의 캡슐 버튼으로 변경
+const CACHE_NAME = 'vocabmaster-v162'; // UI 업데이트: 메인 화면 스피커 버튼 완전 제거 및 텍스트 최대 사이즈 확대
 const ASSETS = [
   '/',
   '/index.html',
