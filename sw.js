@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v175'; // UI: 테스트 스펠링 강제 한줄, 길이별 절대 폰트사이즈 적용
+const CACHE_NAME = 'vocabmaster-v176'; // UI: 핫픽스 - JS 변수 충돌 오류 해결 (터치/선택 불가 문제)
 const ASSETS = [
   '/',
   '/index.html',

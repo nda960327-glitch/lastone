@@ -1571,11 +1571,11 @@ if (posHintEl) posHintEl.classList.add('hidden');
       testWordEl.style.color = 'var(--text-main)';
     }
 
-    const wrapper = document.getElementById('test-word-wrapper');
+    const wordWrapper = document.getElementById('test-word-wrapper');
     if (isDictationMode) {
-      if (wrapper) wrapper.style.display = 'none';
+      if (wordWrapper) wordWrapper.style.display = 'none';
     } else {
-      if (wrapper) wrapper.style.display = 'flex';
+      if (wordWrapper) wordWrapper.style.display = 'flex';
     }
 
     const wordLength = wordObj.word.length;
