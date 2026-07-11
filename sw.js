@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v180'; // UI: 극강의 스펠링 크기 100% 호환성 패치 (vw + !important)
+const CACHE_NAME = 'vocabmaster-v181'; // UI: 극강의 스펠링 크기 세밀 조정 (너무 큰 건 줄이고, 너무 작은 건 키움)
 const ASSETS = [
   '/',
   '/index.html',
