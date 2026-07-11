@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v164'; // UI 업데이트: 스펠링 텍스트 진짜 화면 찢어질 정도로 엄청나게 큼직하게 확대
+const CACHE_NAME = 'vocabmaster-v165'; // UI 업데이트: 사용자가 요청한 예전 반응형 폰트 로직 및 CSS 설정으로 완벽 롤백
 const ASSETS = [
   '/',
   '/index.html',

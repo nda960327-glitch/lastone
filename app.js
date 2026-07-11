@@ -1556,9 +1556,11 @@ if (posHintEl) posHintEl.classList.add('hidden');
     } else {
       testWordEl.style.color = 'var(--text-main)';
     }
-    const wLen = Math.max(4, wordObj.word.length);
-    let vw = Math.min(32, 180 / wLen);
-    testWordEl.style.fontSize = `clamp(2rem, ${vw}vw, 15rem)`;
+    if (wordObj.word.length > 10) {
+      testWordEl.style.fontSize = 'clamp(1.8rem, 8vw, 3rem)';
+    } else {
+      testWordEl.style.fontSize = '';
+    }
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
       if (btnSpeak) btnSpeak.onclick = () => speak(wordObj.word);

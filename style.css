@@ -792,17 +792,17 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 .test-word {
-  font-size: clamp(3rem, 15vw, 5rem);
+  font-size: clamp(2.5rem, 12vw, 4rem);
   font-weight: 900;
-  letter-spacing: -.03em;
   text-align: center;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+  margin: 20px 0;
   color: var(--text-main);
   text-shadow: 0 0 15px var(--glow-color, transparent);
   width: 100%;
   box-sizing: border-box;
-  padding: 0 5px;
-  white-space: nowrap;
-  margin: 0 -10px;
 }
 
 
