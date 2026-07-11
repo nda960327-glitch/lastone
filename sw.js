@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v187'; // CSS: 품사 & 뜻 박스 레이아웃 정밀 수정 (Step 2)
+const CACHE_NAME = 'vocabmaster-v188'; // UI/JS: O/X 버튼 테마 분기 처리 및 새로운 파스텔톤 O/X 버튼 디자인 적용 (Step 3, 4)
 const ASSETS = [
   '/',
   '/index.html',

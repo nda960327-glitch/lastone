@@ -2485,6 +2485,35 @@ let isVerticalScroll = false;
       if (btn.dataset.theme === theme) btn.style.borderColor = 'var(--text-main)';
       else btn.style.borderColor = 'var(--box-border)';
     });
+    
+    // O/X 버튼 테마 분기 처리 (Step 3 & 4)
+    const oxContainer = document.getElementById('ox-buttons-container');
+    if (oxContainer) {
+      if (theme === 'blue' || theme === 'pink' || theme === 'green') {
+        oxContainer.innerHTML = `
+          <button id="btn-correct" class="btn-ox-new btn-o">
+            <div class="ox-circle circle-o">O</div>
+            <span class="ox-label">알고 있어요</span>
+          </button>
+          <button id="btn-wrong" class="btn-ox-new btn-x">
+            <div class="ox-circle circle-x">X</div>
+            <span class="ox-label">몰랐어요</span>
+          </button>
+        `;
+      } else {
+        // 기존 코드 100% 그대로 유지 (기타 테마)
+        oxContainer.innerHTML = `
+          <button id="btn-correct" class="btn-o">
+            <span class="ox-label">O</span>
+            <span class="ox-sub">알고 있어요</span>
+          </button>
+          <button id="btn-wrong" class="btn-x">
+            <span class="ox-label">X</span>
+            <span class="ox-sub">몰랐어요</span>
+          </button>
+        `;
+      }
+    }
   }
   
   const savedTheme = localStorage.getItem('vocab_theme') || 'dark';
