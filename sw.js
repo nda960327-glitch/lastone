@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v172'; // UI: 폰트 극대화(16vw) + 받아쓰기 연필이모지 + 시간초과 X도장 텍스트
+const CACHE_NAME = 'vocabmaster-v173'; // UI: 학습하기 폰트 2배, 연필 반전, 모달 버튼 세로배치, 받아쓰기 여백제거
 const ASSETS = [
   '/',
   '/index.html',

@@ -636,7 +636,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 
 /* Study word */
 .study-word {
-  font-size: clamp(2rem, 15cqw, 15rem); white-space: nowrap; font-weight:900; letter-spacing:-.03em;
+  font-size: clamp(4rem, 30cqw, 30rem); word-break: keep-all; overflow-wrap: break-word; font-weight:900; letter-spacing:-.03em; line-height: 1.1;
   text-align:center;
   background:linear-gradient(135deg, var(--text-main) 60%, var(--border-h) 100%);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
@@ -1935,4 +1935,21 @@ body {
   0% { transform: translateY(0) rotate(-5deg); }
   50% { transform: translateY(-8px) rotate(5deg); }
   100% { transform: translateY(0) rotate(-5deg); }
+}
+
+.pencil-icon {
+    display: inline-block;
+    transform: scaleX(-1);
+}
+.manage-btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+}
+.manage-btn-container button {
+    min-width: 50px;
+    width: 100%;
+    margin-right: 0 !important;
 }
