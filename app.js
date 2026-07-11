@@ -2342,7 +2342,7 @@ let isVerticalScroll = false;
 
   if (testCard) {
     testCard.addEventListener('touchstart', (e) => {
-      if (!isSwipeMode) return;
+      if (isDictationMode || !isSwipeMode) return;
       if (e.target.closest('button')) return; 
       isDragging = true;
       swipeStartX = e.touches[0].clientX;
@@ -2351,7 +2351,7 @@ let isVerticalScroll = false;
     });
 
     testCard.addEventListener('touchmove', (e) => {
-      if (!isSwipeMode || !isDragging) return;
+      if (isDictationMode || !isSwipeMode || !isDragging) return;
       if (e.target.closest('button')) return; 
       swipeCurrentX = e.touches[0].clientX;
       const deltaX = swipeCurrentX - swipeStartX;
@@ -2370,7 +2370,7 @@ let isVerticalScroll = false;
     });
 
     testCard.addEventListener('touchend', (e) => {
-      if (!isSwipeMode || !isDragging) return;
+      if (isDictationMode || !isSwipeMode || !isDragging) return;
       if (e.target.closest('button')) return;
       isDragging = false;
       testCard.classList.remove('dragging');

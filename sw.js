@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v185'; // JS: 페널티 타이머 클래스 초기화 누락 수정 (다음 단어 타이머 바 버그 해결)
+const CACHE_NAME = 'vocabmaster-v186'; // JS: 받아쓰기 모드에서 스와이프 제스처 완전 비활성화 적용
 const ASSETS = [
   '/',
   '/index.html',
