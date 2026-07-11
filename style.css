@@ -804,29 +804,30 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 .speaker-icon-btn {
-  background: transparent;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   cursor: pointer;
-  font-size: 16px;
-  padding: 0;
-  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  margin-top: 12px;
   transition: all 0.2s ease;
-  color: var(--text-main);
+  color: var(--text-sub);
 }
 .dictation-mode-active .speaker-icon-btn {
-  width: 48px;
-  height: 48px;
-  font-size: 24px;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 24px;
 }
 .speaker-icon-btn:hover {
-  background: transparent;
-  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+  color: var(--text-main);
 }
 .speaker-icon-btn:active {
   transform: scale(0.95);

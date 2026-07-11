@@ -1557,7 +1557,7 @@ if (posHintEl) posHintEl.classList.add('hidden');
       testWordEl.style.color = 'var(--text-main)';
     }
     const wLen = wordObj.word.length;
-    let vw = Math.min(18, 85 / wLen);
+    let vw = Math.min(18, 90 / wLen);
     testWordEl.style.fontSize = `clamp(1.5rem, ${vw}vw, 5.5rem)`;
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');

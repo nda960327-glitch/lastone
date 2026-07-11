@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v160'; // 긴급 핫픽스: 갤럭시 등 특정 기기에서 스피커 이모지에 배경이 포함된 문제 수정 (SVG로 교체) 및 단어 크기 자동 조절 완벽 개선
+const CACHE_NAME = 'vocabmaster-v161'; // UI 업데이트: 스피커 버튼을 스펠링 아래로 내리고 [다시 듣기 🔊] 형태의 캡슐 버튼으로 변경
 const ASSETS = [
   '/',
   '/index.html',
