@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v167'; // UI 업데이트: 최후의 물리적 한계 돌파 텍스트 렌더링 공식 적용 (절대 줄바꿈 방지)
+const CACHE_NAME = 'vocabmaster-v168'; // UI 업데이트: 받아쓰기 모드 전용 대형 스피커(다시 듣기) 추가
 const ASSETS = [
   '/',
   '/index.html',
