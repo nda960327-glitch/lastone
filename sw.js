@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v169'; // UI 업데이트: 최후의 물리적 한계 돌파 v2 (컨테이너 쿼리 cqw 적용으로 투명 박스 한계 완전 해제)
+const CACHE_NAME = 'vocabmaster-v170'; // UI 업데이트: 받아쓰기 전용 대형 스피커 화이트로 변경 및 JS 노출 로직 버그 완벽 수정
 const ASSETS = [
   '/',
   '/index.html',
