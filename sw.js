@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v186'; // JS: 받아쓰기 모드에서 스와이프 제스처 완전 비활성화 적용
+const CACHE_NAME = 'vocabmaster-v187'; // CSS: 품사 & 뜻 박스 레이아웃 정밀 수정 (Step 2)
 const ASSETS = [
   '/',
   '/index.html',
