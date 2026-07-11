@@ -1679,14 +1679,14 @@ body {
 /* =============================================
    PENALTY TIMER UI
    ============================================= */
-@keyframes blinkPenalty {
-  0%, 100% { background-color: #EF4444; opacity: 1; }
-  50% { background-color: #DC2626; opacity: 0.6; }
+@keyframes penaltyBlink {
+    0%, 100% { opacity: 1; background-color: #EF4444; }
+    50% { opacity: 0.3; background-color: #DC2626; }
 }
 
-.timer-penalty {
+.penalty-timer {
   background: #EF4444 !important;
-  animation: blinkPenalty 0.2s infinite !important;
+  animation: penaltyBlink 0.5s infinite !important;
 }
 
 /* ========================================= */

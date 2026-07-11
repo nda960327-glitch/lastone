@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v183'; // UI: 전체적으로 폰트 크기 1vw씩 추가 상향 (긴 단어 위주)
+const CACHE_NAME = 'vocabmaster-v184'; // UI: 더블탭 방지 및 페널티 타이머 깜빡임 CSS 수정
 const ASSETS = [
   '/',
   '/index.html',

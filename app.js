@@ -1634,7 +1634,10 @@ if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display =
               btnCorrect.style.pointerEvents = 'none';
             }
             const fillEl = document.getElementById('test-timer-fill');
-            if (fillEl) fillEl.classList.add('timer-penalty');
+            if (fillEl) {
+              fillEl.style.background = ''; // inline style 제거해서 css가 먹히도록
+              fillEl.classList.add('penalty-timer');
+            }
 
             // [수정] 강제 오픈: O버튼이 비활성화되는 정확히 그 시점에 강제로 뜻 노출
             const btnReveal = document.getElementById('btn-reveal');
@@ -1887,6 +1890,7 @@ function waitForDictationOrPrev(wordObj) {
 function waitForOXOrPrev() {
   return new Promise(resolve => {
     oxResolver = resolve;
+    const startTime = Date.now();
     
     const btnPrev = document.getElementById('btn-prev-word');
     if (btnPrev) {
@@ -1903,9 +1907,11 @@ function waitForOXOrPrev() {
     }
 
     if (document.getElementById('btn-correct')) document.getElementById('btn-correct').onclick = () => {
+      if (Date.now() - startTime < 300) return; // 고스트 클릭/더블탭 방지
       if (oxResolver) { oxResolver('O'); oxResolver = null; }
     };
     if (document.getElementById('btn-wrong')) document.getElementById('btn-wrong').onclick = () => {
+      if (Date.now() - startTime < 300) return; // 고스트 클릭/더블탭 방지
       if (oxResolver) { oxResolver('X'); oxResolver = null; }
     };
   });
