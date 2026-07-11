@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v174'; // UI: 테스트 스펠링 22vw 확대, 모달 뜻 칸 넓힘, 받아쓰기 상단 여백 박스 제거
+const CACHE_NAME = 'vocabmaster-v175'; // UI: 테스트 스펠링 강제 한줄, 길이별 절대 폰트사이즈 적용
 const ASSETS = [
   '/',
   '/index.html',

@@ -792,11 +792,9 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 .test-word {
-  font-size: clamp(4rem, 22vw, 8rem);
+  white-space: nowrap !important;
   font-weight: 900;
   text-align: center;
-  word-break: keep-all;
-  overflow-wrap: break-word;
   line-height: 1.2;
   margin: 20px 0;
   color: var(--text-main);

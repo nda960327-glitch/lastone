@@ -1564,19 +1564,27 @@ if (posHintEl) posHintEl.classList.add('hidden');
     
     const testWordEl = document.getElementById('test-word');
     testWordEl.textContent = wordObj.word;
+    
     if ((wordObj.totalFails || 0) >= 6) {
       testWordEl.style.color = '#ef4444';
-        const wrapper = document.getElementById('test-word-wrapper');
-        if (wrapper) wrapper.style.display = 'none';
     } else {
       testWordEl.style.color = 'var(--text-main)';
-        const wrapper = document.getElementById('test-word-wrapper');
-        if (wrapper) wrapper.style.display = 'flex';
     }
-    if (wordObj.word.length > 10) {
-      testWordEl.style.fontSize = 'clamp(3rem, 14vw, 5.5rem)';
+
+    const wrapper = document.getElementById('test-word-wrapper');
+    if (isDictationMode) {
+      if (wrapper) wrapper.style.display = 'none';
     } else {
-      testWordEl.style.fontSize = '';
+      if (wrapper) wrapper.style.display = 'flex';
+    }
+
+    const wordLength = wordObj.word.length;
+    if (wordLength <= 7) {
+        testWordEl.style.fontSize = "4.2rem";
+    } else if (wordLength <= 11) {
+        testWordEl.style.fontSize = "3.0rem";
+    } else {
+        testWordEl.style.fontSize = "2.0rem";
     }
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');
