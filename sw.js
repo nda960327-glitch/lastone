@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v184'; // UI: 더블탭 방지 및 페널티 타이머 깜빡임 CSS 수정
+const CACHE_NAME = 'vocabmaster-v185'; // JS: 페널티 타이머 클래스 초기화 누락 수정 (다음 단어 타이머 바 버그 해결)
 const ASSETS = [
   '/',
   '/index.html',

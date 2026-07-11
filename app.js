@@ -1324,7 +1324,7 @@ function startWordTimer(totalMs, disableOMs, onDisableO, onTimeout) {
   }
 
   if (fillEl) {
-    fillEl.classList.remove('timer-penalty', 'timer-warning');
+    fillEl.classList.remove('timer-penalty', 'penalty-timer', 'timer-warning');
     fillEl.style.transition = 'none';
     fillEl.style.width = '100%';
     fillEl.style.background = 'linear-gradient(90deg, #3b82f6, #6366f1)'; // 편안한 파란색 유지
@@ -1377,7 +1377,7 @@ function stopWordTimer() {
   if (wrapper) wrapper.classList.add('hidden');
   if (fillEl) {
     fillEl.style.transition = 'none';
-    fillEl.classList.remove('timer-warning');
+    fillEl.classList.remove('timer-warning', 'timer-penalty', 'penalty-timer');
   }
 }
 
