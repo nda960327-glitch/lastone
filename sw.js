@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v165'; // UI 업데이트: 사용자가 요청한 예전 반응형 폰트 로직 및 CSS 설정으로 완벽 롤백
+const CACHE_NAME = 'vocabmaster-v166'; // UI 업데이트: 짧은 단어 텍스트 크기 미친듯이 상향 (18vw) 및 중복 CSS 버그 수정
 const ASSETS = [
   '/',
   '/index.html',
