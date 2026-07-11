@@ -1482,6 +1482,8 @@ if (posHintEl) posHintEl.classList.add('hidden');
       const dictSpeaker = document.getElementById('btn-dictation-speaker');
       if (dictSpeaker) {
         dictSpeaker.classList.remove('hidden');
+        const pencilDeco = document.getElementById('dictation-pencil-deco');
+        if (pencilDeco) { pencilDeco.classList.remove('hidden'); pencilDeco.style.display = 'flex'; }
         dictSpeaker.onclick = () => speak(wordObj.word);
       }
       const oxC1 = document.getElementById('ox-buttons-container');
@@ -1514,6 +1516,8 @@ if (posHintEl) posHintEl.classList.add('hidden');
       document.getElementById('test-word').classList.remove('hidden');
       const dictSpeakerHide = document.getElementById('btn-dictation-speaker');
       if (dictSpeakerHide) dictSpeakerHide.classList.add('hidden');
+      const pencilDecoHide = document.getElementById('dictation-pencil-deco');
+      if (pencilDecoHide) { pencilDecoHide.classList.add('hidden'); pencilDecoHide.style.display = 'none'; }
       const oxC2 = document.getElementById('ox-buttons-container');
       if (oxC2) { oxC2.style.display = 'none'; oxC2.classList.add('hidden'); }
       const dicZone = document.getElementById('dictation-zone');
@@ -1564,7 +1568,7 @@ if (posHintEl) posHintEl.classList.add('hidden');
       testWordEl.style.color = 'var(--text-main)';
     }
     if (wordObj.word.length > 10) {
-      testWordEl.style.fontSize = 'clamp(1.8rem, 8vw, 3rem)';
+      testWordEl.style.fontSize = 'clamp(2.2rem, 10vw, 3.5rem)';
     } else {
       testWordEl.style.fontSize = '';
     }

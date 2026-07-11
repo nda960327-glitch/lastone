@@ -792,7 +792,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 .test-word {
-  font-size: clamp(2.5rem, 12vw, 4rem);
+  font-size: clamp(3.5rem, 16vw, 5.5rem);
   font-weight: 900;
   text-align: center;
   word-break: keep-all;
@@ -1931,3 +1931,8 @@ body {
 
 .dictation-section-title { color: #ef4444; }
 [data-theme="pink"] .dictation-section-title, [data-theme="blue"] .dictation-section-title, [data-theme="green"] .dictation-section-title { color: #DC2626; }
+@keyframes floatPencil {
+  0% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+  100% { transform: translateY(0) rotate(-5deg); }
+}

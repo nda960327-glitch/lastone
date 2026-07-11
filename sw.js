@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v171'; // UI: 사용자 요청 폰트 로직 정확 적용 + 받아쓰기 다시듣기 버튼 뜻확인 위 배치
+const CACHE_NAME = 'vocabmaster-v172'; // UI: 폰트 극대화(16vw) + 받아쓰기 연필이모지 + 시간초과 X도장 텍스트
 const ASSETS = [
   '/',
   '/index.html',
