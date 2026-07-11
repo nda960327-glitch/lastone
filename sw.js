@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v176'; // UI: 핫픽스 - JS 변수 충돌 오류 해결 (터치/선택 불가 문제)
+const CACHE_NAME = 'vocabmaster-v177'; // UI: 강력한 캐시 무효화 (모든 유저에게 즉시 반영)
 const ASSETS = [
   '/',
   '/index.html',
