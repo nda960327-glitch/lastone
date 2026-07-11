@@ -1579,12 +1579,16 @@ if (posHintEl) posHintEl.classList.add('hidden');
     }
 
     const wordLength = wordObj.word.length;
-    if (wordLength <= 7) {
-        testWordEl.style.fontSize = "4.2rem";
-    } else if (wordLength <= 11) {
-        testWordEl.style.fontSize = "3.0rem";
+    if (wordLength <= 5) {
+        testWordEl.style.fontSize = "24cqw";
+    } else if (wordLength <= 7) {
+        testWordEl.style.fontSize = "18cqw";
+    } else if (wordLength <= 10) {
+        testWordEl.style.fontSize = "13cqw";
+    } else if (wordLength <= 13) {
+        testWordEl.style.fontSize = "9.5cqw";
     } else {
-        testWordEl.style.fontSize = "2.0rem";
+        testWordEl.style.fontSize = "7.5cqw";
     }
     if (btnSpeak) {
       btnSpeak.classList.remove('hidden');

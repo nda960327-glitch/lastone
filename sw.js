@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v177'; // UI: 강력한 캐시 무효화 (모든 유저에게 즉시 반영)
+const CACHE_NAME = 'vocabmaster-v178'; // UI: 극강의 스펠링 크기 (cqw 적용)
 const ASSETS = [
   '/',
   '/index.html',
