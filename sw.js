@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v178'; // UI: 극강의 스펠링 크기 (cqw 적용)
+const CACHE_NAME = 'vocabmaster-v179'; // UI: 캐시 우회 확인용 버전 표기 추가
 const ASSETS = [
   '/',
   '/index.html',
