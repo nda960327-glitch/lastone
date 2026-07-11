@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v166'; // UI 업데이트: 짧은 단어 텍스트 크기 미친듯이 상향 (18vw) 및 중복 CSS 버그 수정
+const CACHE_NAME = 'vocabmaster-v167'; // UI 업데이트: 최후의 물리적 한계 돌파 텍스트 렌더링 공식 적용 (절대 줄바꿈 방지)
 const ASSETS = [
   '/',
   '/index.html',
