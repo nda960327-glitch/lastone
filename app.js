@@ -2666,7 +2666,7 @@ let isVerticalScroll = false;
     }
   }
   
-  const savedTheme = localStorage.getItem('vocab_theme') || 'dark';
+  const savedTheme = localStorage.getItem('vocab_theme') || 'blue';
   applyTheme(savedTheme);
 
   themeBtns.forEach(btn => {

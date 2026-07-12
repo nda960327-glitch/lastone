@@ -48,8 +48,11 @@
         <h4 style="margin: 0 0 12px 0; font-size: 14px; color: var(--text-sub); text-align: left; padding-bottom: 8px; border-bottom: 1px solid var(--box-border);">환경 설정</h4>
         <!-- 테마 선택기 -->
         <h4 style="margin: 16px 0 12px 0; font-size: 14px; color: var(--text-sub); text-align: left; padding-bottom: 8px; border-bottom: 1px solid var(--box-border);">테마 (스킨)</h4>
-        <div id="theme-selector" style="display: flex; gap: 8px; justify-content: space-between; margin-bottom: 12px; pointer-events: auto;">
-          <button class="theme-btn" data-theme="dark" style="width: 28px; height: 28px; border-radius: 50%; background: #07071a; border: 2px solid var(--box-border); cursor: pointer;" title="다크 모드"></button>
+        <div id="theme-selector" style="display: flex; gap: 8px; justify-content: space-between; align-items: center; margin-bottom: 12px; pointer-events: auto;">
+          <div style="display: flex; align-items: center; gap: 4px;">
+            <button class="theme-btn" data-theme="dark" style="width: 28px; height: 28px; border-radius: 50%; background: #07071a; border: 2px solid var(--box-border); cursor: pointer;" title="블랙 모드"></button>
+            <span style="font-size: 11px; color: var(--text-sub); font-weight: bold;">(추천)</span>
+          </div>
           <button class="theme-btn" data-theme="blue" style="width: 28px; height: 28px; border-radius: 50%; background: #f0f7ff; border: 2px solid var(--box-border); cursor: pointer;" title="블루화이트"></button>
           <button class="theme-btn" data-theme="pink" style="width: 28px; height: 28px; border-radius: 50%; background: #fff1f2; border: 2px solid var(--box-border); cursor: pointer;" title="핑크화이트"></button>
           <button class="theme-btn" data-theme="green" style="width: 28px; height: 28px; border-radius: 50%; background: #f0fdf4; border: 2px solid var(--box-border); cursor: pointer;" title="그린화이트"></button>
@@ -149,7 +152,7 @@
     <div class="view-topbar">
       <div style="display: flex; align-items: center; gap: 8px;">
         <button id="btn-home-test" class="btn-ghost" style="padding: 6px 12px; font-size: 13px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; display: flex; align-items: center; gap: 4px; color: var(--text-main); font-weight: 600;" title="홈으로 가기">🏠 홈으로</button>
-        <div class="round-pill">Round <span id="test-round">1</span> · v209</div>
+        <div class="round-pill">Round <span id="test-round">1</span> · v210</div>
       </div>
       <div class="progress-label">
         <span id="test-current">1</span> / <span id="test-total">50</span>
