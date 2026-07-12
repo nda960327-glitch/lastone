@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v218'; // UI: 테마별 드롭다운 옵션의 배경색과 글자색 명시적 지정 (다크테마: 검은 배경/흰 글씨, 그 외: 흰 배경/검은 글씨)
+const CACHE_NAME = 'vocabmaster-v219'; // UI: 드롭다운 옵션 색상이 자바스크립트 인라인 스타일로 고정되어 있던 문제 완전 수정
 const ASSETS = [
   '/',
   '/index.html',

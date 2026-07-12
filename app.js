@@ -255,8 +255,6 @@ function populateDaySelector() {
     const opt = document.createElement('option');
     opt.value = day;
     opt.textContent = titlePrefix + (isNaN(day) ? day : `Day ${day}`);
-    opt.style.background = 'var(--dropdown-hover)';
-    opt.style.color = '#fff';
     daySelector.appendChild(opt);
   });
   
@@ -1162,8 +1160,6 @@ function refreshDBList(textarea) {
     const opt = document.createElement('option');
     opt.value = title;
     opt.textContent = title;
-    opt.style.background = 'var(--dropdown-hover)';
-    opt.style.color = 'var(--text-main)';
 
     if (title.startsWith('토플')) {
       selectTofl.appendChild(opt);
