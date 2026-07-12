@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v195'; // CSS: 핑크 테마 학습화면 영단어 스펠링 텍스트 색상을 예시 이미지(마젠타 핑크)와 동일하게 매칭
+const CACHE_NAME = 'vocabmaster-v196'; // CSS: 학습하기 화면의 단어 스펠링(test-word) 텍스트 글로우(text-shadow) 효과 완전 제거
 const ASSETS = [
   '/',
   '/index.html',
