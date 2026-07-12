@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v217'; // UI: 드롭다운(select) 옵션 선택 시 글씨가 보이지 않는 현상(배경색 문제) 수정
+const CACHE_NAME = 'vocabmaster-v218'; // UI: 테마별 드롭다운 옵션의 배경색과 글자색 명시적 지정 (다크테마: 검은 배경/흰 글씨, 그 외: 흰 배경/검은 글씨)
 const ASSETS = [
   '/',
   '/index.html',
