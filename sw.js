@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v215'; // UI: 학습하기 화면의 스와이프 모드 토글 라벨을 손바닥 이모지로 변경
+const CACHE_NAME = 'vocabmaster-v216'; // UI: 데스크탑 등 큰 화면에서 단어 스펠링이 너무 커지지 않도록 최대 크기 제한 적용
 const ASSETS = [
   '/',
   '/index.html',
