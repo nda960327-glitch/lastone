@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v211'; // UI: 스와이프 모드에 터치스크린만 가능 텍스트 추가
+const CACHE_NAME = 'vocabmaster-v212'; // UI: 긴 단어(숙어 등) 다음 줄로 넘어가도록 테이블 셀 스타일 수정
 const ASSETS = [
   '/',
   '/index.html',
