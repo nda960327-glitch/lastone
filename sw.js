@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v189'; // JS: 회차 선택(목록) 화면 상태 유지 및 새로고침(Focus) 이벤트 연동
+const CACHE_NAME = 'vocabmaster-v190'; // CSS: 세련된 파스텔톤 플랫 O/X 버튼 디자인 (글로우 제거 및 아이콘 적용)
 const ASSETS = [
   '/',
   '/index.html',
