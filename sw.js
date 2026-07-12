@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v192'; // CSS: O/X 버튼 Dull 컬러 및 정사각형 레이아웃 적용
+const CACHE_NAME = 'vocabmaster-v193'; // CSS: O/X 버튼 크기 축소 및 PALE 컬러 적용
 const ASSETS = [
   '/',
   '/index.html',
