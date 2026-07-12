@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v224'; // UI: 메인 화면의 DOACore 타이틀을 로고 우측으로 왼쪽 정렬하여 배치
+const CACHE_NAME = 'vocabmaster-v225'; // UI: 설정 버튼에서 한글 글씨 제거하고 톱니바퀴 아이콘만 있는 원형 버튼으로 변경
 const ASSETS = [
   '/',
   '/index.html',
