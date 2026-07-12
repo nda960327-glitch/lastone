@@ -1804,7 +1804,7 @@ body {
   border: 1px solid var(--box-border);
   transition: all 0.2s ease;
   cursor: pointer;
-  aspect-ratio: 1 / 1.1; /* 높이가 너비보다 살짝 더 길게 */
+  aspect-ratio: 1 / 1; /* 정사각형 */
   min-height: 140px;
   box-shadow: none !important; /* 그림자 완전 제거 (글로우 X) */
   text-shadow: none !important; /* 텍스트 빛 번짐 완전 제거 */
@@ -1815,10 +1815,10 @@ body {
   text-shadow: none !important;
 }
 
-/* O 버튼 - 연한 파스텔 민트/그린 배경 */
-.btn-ox-new.btn-o { background-color: #E8F5E9 !important; border-color: #C8E6C9 !important; }
-/* X 버튼 - 연한 파스텔 핑크/레드 배경 */
-.btn-ox-new.btn-x { background-color: #FFEBEE !important; border-color: #FFCDD2 !important; }
+/* O 버튼 - 연한 파스텔 민트/그린 배경 (Dull) */
+.btn-ox-new.btn-o { background-color: #EBF0EC !important; border-color: #D1DBD4 !important; }
+/* X 버튼 - 연한 파스텔 핑크/레드 배경 (Dull) */
+.btn-ox-new.btn-x { background-color: #F2EAEB !important; border-color: #DFD3D5 !important; }
 
 /* 아이콘 영역 (원형 배경) */
 .ox-circle {
@@ -1833,8 +1833,8 @@ body {
   text-shadow: none !important;
 }
 
-.circle-o { background-color: #4ADE80; } /* 진하고 화사한 초록색 원 */
-.circle-x { background-color: #F87171; } /* 진하고 화사한 빨간색 원 */
+.circle-o { background-color: #9AAEA0; } /* 진하고 화사한 초록색 원 -> Dull */
+.circle-x { background-color: #BBA3A6; } /* 진하고 화사한 빨간색 원 -> Dull */
 
 /* 텍스트 영역 */
 .btn-ox-new .ox-label {
@@ -1845,6 +1845,6 @@ body {
   text-shadow: none !important;
 }
 
-/* 텍스트 색상 채도 조절 (눈이 편안하고 차분한 딥 컬러) */
-.btn-ox-new.btn-o .ox-label { color: #2E7D32 !important; }
-.btn-ox-new.btn-x .ox-label { color: #C62828 !important; }
+/* 텍스트 색상 채도 조절 (눈이 편안하고 차분한 딥 컬러 -> Dull) */
+.btn-ox-new.btn-o .ox-label { color: #4F6354 !important; }
+.btn-ox-new.btn-x .ox-label { color: #75595C !important; }

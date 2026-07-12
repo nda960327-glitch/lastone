@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v191'; // JS: 스와이프 모드 On/Off 상태 로컬스토리지 영구 저장 유지
+const CACHE_NAME = 'vocabmaster-v192'; // CSS: O/X 버튼 Dull 컬러 및 정사각형 레이아웃 적용
 const ASSETS = [
   '/',
   '/index.html',
