@@ -3,6 +3,10 @@
    ============================================= */
 
 /* ---- Reset & Variables ---- */
+select option {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
 :root {
     --btn-o-bg: #22c55e;
     --btn-o-text: #ffffff;

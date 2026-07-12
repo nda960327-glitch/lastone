@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v216'; // UI: 데스크탑 등 큰 화면에서 단어 스펠링이 너무 커지지 않도록 최대 크기 제한 적용
+const CACHE_NAME = 'vocabmaster-v217'; // UI: 드롭다운(select) 옵션 선택 시 글씨가 보이지 않는 현상(배경색 문제) 수정
 const ASSETS = [
   '/',
   '/index.html',
