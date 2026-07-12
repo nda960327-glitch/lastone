@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v197'; // CSS: O/X 버튼 크기를 135px 정사각형으로 조금 더 크게 조정
+const CACHE_NAME = 'vocabmaster-v198'; // CSS: 기본 테마 O/X 버튼 크기 약간 확대
 const ASSETS = [
   '/',
   '/index.html',
