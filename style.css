@@ -1795,8 +1795,8 @@ body {
 /* Step 4: 새로운 O/X 버튼 디자인 (블루/핑크/그린 전용) - 세련된 파스텔 톤 및 플랫 스타일 */
 .btn-ox-new {
   flex: none; /* 부모 영역 안에서 고정 크기 사용 */
-  width: 120px; /* 고정 크기로 사이즈 줄임 */
-  height: 120px; /* 고정 크기로 정사각형 유지 */
+  width: 135px; /* 고정 크기로 사이즈 살짝 키움 */
+  height: 135px; /* 고정 크기로 정사각형 유지 */
   display: flex;
   flex-direction: column; /* 내부 요소 수직 배치 */
   align-items: center; /* 중앙 정렬 */
@@ -1824,8 +1824,8 @@ body {
 
 /* 아이콘 영역 (원형 배경) */
 .ox-circle {
-  width: 48px; /* 전체 크기 축소에 맞춰 조정 */
-  height: 48px;
+  width: 52px; /* 전체 크기 키움에 맞춰 약간 확대 */
+  height: 52px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1840,8 +1840,8 @@ body {
 
 /* 텍스트 영역 */
 .btn-ox-new .ox-label {
-  margin-top: 8px; /* 여백 약간 축소 */
-  font-size: 14px; /* 폰트 약간 축소 */
+  margin-top: 10px; /* 여백 약간 키움 */
+  font-size: 15px; /* 폰트 약간 키움 */
   font-weight: 700;
   box-shadow: none !important;
   text-shadow: none !important;

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v196'; // CSS: 학습하기 화면의 단어 스펠링(test-word) 텍스트 글로우(text-shadow) 효과 완전 제거
+const CACHE_NAME = 'vocabmaster-v197'; // CSS: O/X 버튼 크기를 135px 정사각형으로 조금 더 크게 조정
 const ASSETS = [
   '/',
   '/index.html',
