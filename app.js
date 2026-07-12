@@ -2529,27 +2529,31 @@ let isVerticalScroll = false;
       const cat = selectResetStudyCat.value;
       selectResetStudyDay.innerHTML = '<option value="all">해당 카테고리 전체 초기화</option>';
       
-      let progress = JSON.parse(localStorage.getItem('vocab_progress')) || {};
-      const prefix = cat + '_day';
-      let maxDay = 0;
-      Object.keys(progress).forEach(key => {
-        if (key.startsWith(prefix)) {
-          const dayNum = parseInt(key.replace(prefix, ''), 10);
-          if (!isNaN(dayNum) && dayNum > maxDay) maxDay = dayNum;
-        }
-      });
-      // 커스텀의 경우 데이터가 있을수 있으니, wordList를 읽어옵니다.
+      const days = new Set();
+      if (typeof words !== 'undefined') {
+        words.forEach(w => {
+          if (w.category === cat && w.day != null) {
+            days.add(w.day);
+          }
+        });
+      }
+      
+      // 커스텀 업로드의 경우 localStorage에서 파악
       if (cat === 'custom-upload') {
         let uploadWords = JSON.parse(localStorage.getItem('doacore_upload_words')) || [];
-        if (uploadWords.length > maxDay) maxDay = uploadWords.length;
+        for (let i = 1; i <= uploadWords.length; i++) {
+          days.add(i);
+        }
       }
-
-      for (let i = 1; i <= maxDay; i++) {
+      
+      const sortedDays = Array.from(days).sort((a, b) => isNaN(a) || isNaN(b) ? String(a).localeCompare(String(b)) : a - b);
+      
+      sortedDays.forEach(day => {
         const opt = document.createElement('option');
-        opt.value = i;
-        opt.textContent = `Day ${i} 단어장만 초기화`;
+        opt.value = day;
+        opt.textContent = `Day ${day} 단어장만 초기화`;
         selectResetStudyDay.appendChild(opt);
-      }
+      });
     }
 
     function clearStudyRecordForCategory(category, day = null) {

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v206'; // Fix: 학습 기록 초기화 버튼 클릭 버그 수정 및 Day별 선택 초기화 기능 추가
+const CACHE_NAME = 'vocabmaster-v207'; // Fix: 모달 드롭다운에서 학습기록이 없어도 단어장의 모든 Day를 표시하도록 수정
 const ASSETS = [
   '/',
   '/index.html',
