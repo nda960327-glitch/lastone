@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v221'; // Fix: 특정 Day 단어장 초기화 시 진척도(체크마크)가 리셋되지 않던 버그 수정
+const CACHE_NAME = 'vocabmaster-v222'; // UI: 버전 텍스트를 학습 화면에서 제거하고 메인 홈의 DOACore 타이틀 옆에 작게 배치
 const ASSETS = [
   '/',
   '/index.html',
