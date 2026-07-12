@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v222'; // UI: 버전 텍스트를 학습 화면에서 제거하고 메인 홈의 DOACore 타이틀 옆에 작게 배치
+const CACHE_NAME = 'vocabmaster-v223'; // UI: DOACore 타이틀 그라데이션 복구 및 버전 텍스트를 옆으로 분리하여 회색 뱃지 형태로 변경
 const ASSETS = [
   '/',
   '/index.html',
