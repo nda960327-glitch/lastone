@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v190'; // CSS: 세련된 파스텔톤 플랫 O/X 버튼 디자인 (글로우 제거 및 아이콘 적용)
+const CACHE_NAME = 'vocabmaster-v191'; // JS: 스와이프 모드 On/Off 상태 로컬스토리지 영구 저장 유지
 const ASSETS = [
   '/',
   '/index.html',

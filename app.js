@@ -2303,7 +2303,8 @@ function restoreProgress(jsonStr) {
   
 
 //  Swipe Logic 
-let isSwipeMode = false;
+let savedSwipe = localStorage.getItem('isSwipeMode');
+let isSwipeMode = savedSwipe !== null ? savedSwipe === 'true' : false;
 let isHideMeaningMode = false;
 let isTimeUp = false;
 let swipeStartX = 0;
@@ -2327,8 +2328,10 @@ let isVerticalScroll = false;
   const testCard = document.getElementById('test-card-el');
 
   if (swipeToggle) {
+    swipeToggle.checked = isSwipeMode;
     swipeToggle.addEventListener('change', (e) => {
       isSwipeMode = e.target.checked;
+      localStorage.setItem('isSwipeMode', isSwipeMode);
       if (!isSwipeMode && testCard) {
         testCard.style.transform = '';
         testCard.style.boxShadow = '';
