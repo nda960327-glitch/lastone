@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v202'; // HTML: 단어장 미리보기 테이블에 table-layout: fixed 적용하여 내용에 상관없이 일정한 레이아웃 유지
+const CACHE_NAME = 'vocabmaster-v203'; // HTML/JS: 미리보기 테이블 단어 스펠링 한 줄 표시 및 너비 확대
 const ASSETS = [
   '/',
   '/index.html',
