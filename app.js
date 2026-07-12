@@ -2326,42 +2326,53 @@ let isVerticalScroll = false;
   }
 
   const swipeToggle = document.getElementById('swipe-toggle-checkbox');
+  const swipeToggleTest = document.getElementById('swipe-toggle-checkbox-test');
   const testCard = document.getElementById('test-card-el');
+
+  function updateSwipeMode(checked) {
+    isSwipeMode = checked;
+    localStorage.setItem('isSwipeMode', isSwipeMode);
+    
+    if (swipeToggle) swipeToggle.checked = isSwipeMode;
+    if (swipeToggleTest) swipeToggleTest.checked = isSwipeMode;
+
+    if (!isSwipeMode && testCard) {
+      testCard.style.transform = '';
+      testCard.style.boxShadow = '';
+      testCard.classList.remove('dragging');
+    }
+
+    const swipeHint = document.getElementById('swipe-hint');
+    if (swipeHint) {
+      if (isSwipeMode && App.phase === 'test') {
+        swipeHint.classList.remove('hidden');
+      } else {
+        swipeHint.classList.add('hidden');
+      }
+    }
+    
+    const oxC = document.getElementById('ox-buttons-container');
+    const btnReveal = document.getElementById('btn-reveal');
+    if (oxC && btnReveal) {
+      if (isSwipeMode) {
+        oxC.style.display = 'none';
+        oxC.classList.add('hidden');
+      } else {
+        if (btnReveal.classList.contains('hidden') && document.getElementById('test-meanings') && !document.getElementById('test-meanings').classList.contains('hidden')) {
+          oxC.style.display = 'flex';
+          oxC.classList.remove('hidden');
+        }
+      }
+    }
+  }
 
   if (swipeToggle) {
     swipeToggle.checked = isSwipeMode;
-    swipeToggle.addEventListener('change', (e) => {
-      isSwipeMode = e.target.checked;
-      localStorage.setItem('isSwipeMode', isSwipeMode);
-      if (!isSwipeMode && testCard) {
-        testCard.style.transform = '';
-        testCard.style.boxShadow = '';
-        testCard.classList.remove('dragging');
-      }
-
-      const swipeHint = document.getElementById('swipe-hint');
-      if (swipeHint) {
-        if (isSwipeMode && App.phase === 'test') {
-          swipeHint.classList.remove('hidden');
-        } else {
-          swipeHint.classList.add('hidden');
-        }
-      }
-      
-      const oxC = document.getElementById('ox-buttons-container');
-      const btnReveal = document.getElementById('btn-reveal');
-      if (oxC && btnReveal) {
-        if (isSwipeMode) {
-          oxC.style.display = 'none';
-          oxC.classList.add('hidden');
-        } else {
-          if (btnReveal.classList.contains('hidden') && document.getElementById('test-meanings') && !document.getElementById('test-meanings').classList.contains('hidden')) {
-            oxC.style.display = 'flex';
-            oxC.classList.remove('hidden');
-          }
-        }
-      }
-    });
+    swipeToggle.addEventListener('change', (e) => updateSwipeMode(e.target.checked));
+  }
+  if (swipeToggleTest) {
+    swipeToggleTest.checked = isSwipeMode;
+    swipeToggleTest.addEventListener('change', (e) => updateSwipeMode(e.target.checked));
   }
 
   if (testCard) {

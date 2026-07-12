@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v213'; // UI: 학습 화면 스펠링 자동 줄바꿈 적용, 모달의 전체보기 테이블 원상복구
+const CACHE_NAME = 'vocabmaster-v214'; // UI: 학습하기 화면 우측 상단에 스와이프 모드 토글 추가
 const ASSETS = [
   '/',
   '/index.html',
