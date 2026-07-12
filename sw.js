@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v201'; // HTML/JS: 단어장 미리보기 테이블 품사 열 너비 축소 및 뜻 열 너비 확장
+const CACHE_NAME = 'vocabmaster-v202'; // HTML: 단어장 미리보기 테이블에 table-layout: fixed 적용하여 내용에 상관없이 일정한 레이아웃 유지
 const ASSETS = [
   '/',
   '/index.html',
