@@ -2479,15 +2479,16 @@ let isVerticalScroll = false;
     });
   }
 
+  // 기존 전체 앱 초기화 (데이터 완전 삭제)
   const btnResetProgress = document.getElementById('btn-reset-progress');
   if (btnResetProgress) {
     btnResetProgress.addEventListener('click', async (e) => {
       e.stopPropagation();
-      const confirmReset = confirm('정말로 모든 학습 기록(진행도, 오답 등)을 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.');
+      const confirmReset = confirm('정말로 모든 데이터(단어 목록, 오답 기록, 학습 진도 등)를 완전히 초기화하시겠습니까?\n이 작업은 되돌릴 수 없습니다.');
       if (confirmReset) {
         try {
           localStorage.clear();
-          alert('학습 기록이 성공적으로 초기화되었습니다.');
+          alert('앱 전체 데이터가 성공적으로 초기화되었습니다.');
           location.reload();
         } catch (error) {
           console.error('초기화 중 오류 발생:', error);
@@ -2495,6 +2496,125 @@ let isVerticalScroll = false;
         }
       }
     });
+  }
+
+  // 새로 추가된 학습 기록 부분 초기화
+  const btnResetStudy = document.getElementById('btn-reset-study');
+  const modalResetStudy = document.getElementById('modal-reset-study');
+  const btnResetStudyClose = document.getElementById('btn-reset-study-close');
+  const btnResetStudyCat = document.getElementById('btn-reset-study-category');
+  const btnResetStudyAll = document.getElementById('btn-reset-study-all');
+  const selectResetStudyCat = document.getElementById('reset-study-category');
+  const selectResetStudyDay = document.getElementById('reset-study-day');
+
+  if (btnResetStudy && modalResetStudy) {
+    btnResetStudy.addEventListener('click', (e) => {
+      e.stopPropagation();
+      populateDaysForReset();
+      modalResetStudy.classList.remove('hidden');
+    });
+
+    if (btnResetStudyClose) {
+      btnResetStudyClose.addEventListener('click', () => {
+        modalResetStudy.classList.add('hidden');
+      });
+    }
+
+    if (selectResetStudyCat && selectResetStudyDay) {
+      selectResetStudyCat.addEventListener('change', populateDaysForReset);
+    }
+
+    function populateDaysForReset() {
+      if (!selectResetStudyCat || !selectResetStudyDay) return;
+      const cat = selectResetStudyCat.value;
+      selectResetStudyDay.innerHTML = '<option value="all">해당 카테고리 전체 초기화</option>';
+      
+      let progress = JSON.parse(localStorage.getItem('vocab_progress')) || {};
+      const prefix = cat + '_day';
+      let maxDay = 0;
+      Object.keys(progress).forEach(key => {
+        if (key.startsWith(prefix)) {
+          const dayNum = parseInt(key.replace(prefix, ''), 10);
+          if (!isNaN(dayNum) && dayNum > maxDay) maxDay = dayNum;
+        }
+      });
+      // 커스텀의 경우 데이터가 있을수 있으니, wordList를 읽어옵니다.
+      if (cat === 'custom-upload') {
+        let uploadWords = JSON.parse(localStorage.getItem('doacore_upload_words')) || [];
+        if (uploadWords.length > maxDay) maxDay = uploadWords.length;
+      }
+
+      for (let i = 1; i <= maxDay; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = `Day ${i} 단어장만 초기화`;
+        selectResetStudyDay.appendChild(opt);
+      }
+    }
+
+    function clearStudyRecordForCategory(category, day = null) {
+      const dbName = day ? `${category}_day${day}` : category;
+      
+      // 1. vocab_progress 에서 제거
+      let progress = JSON.parse(localStorage.getItem('vocab_progress')) || {};
+      Object.keys(progress).forEach(key => {
+        if (day ? key === dbName : key.startsWith(category)) {
+          delete progress[key];
+        }
+      });
+      localStorage.setItem('vocab_progress', JSON.stringify(progress));
+
+      // 2. vocab_word_states_ 키 제거
+      const keysToRemove = [];
+      for(let i=0; i<localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && (day ? key === `vocab_word_states_${dbName}` : key.startsWith(`vocab_word_states_${category}`))) {
+          keysToRemove.push(key);
+        }
+      }
+      keysToRemove.forEach(k => localStorage.removeItem(k));
+
+      // 3. doacore_total_fails 에서 제거
+      let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
+      Object.keys(failData).forEach(key => {
+        if (day ? key.startsWith(dbName + '_') : key.startsWith(category + '_')) {
+          delete failData[key];
+        }
+      });
+      localStorage.setItem('doacore_total_fails', JSON.stringify(failData));
+    }
+
+    if (btnResetStudyCat && selectResetStudyCat) {
+      btnResetStudyCat.addEventListener('click', () => {
+        const cat = selectResetStudyCat.value;
+        const catText = selectResetStudyCat.options[selectResetStudyCat.selectedIndex].text;
+        const day = selectResetStudyDay ? selectResetStudyDay.value : 'all';
+        
+        let confirmMsg = `'${catText}'의 전체 학습 기록만 초기화하시겠습니까?\n(단어 목록은 유지됩니다)`;
+        if (day !== 'all') {
+          confirmMsg = `'${catText}'의 Day ${day} 학습 기록만 초기화하시겠습니까?\n(단어 목록은 유지됩니다)`;
+        }
+
+        if (confirm(confirmMsg)) {
+          clearStudyRecordForCategory(cat, day === 'all' ? null : day);
+          alert('학습 기록이 성공적으로 초기화되었습니다.');
+          modalResetStudy.classList.add('hidden');
+          location.reload();
+        }
+      });
+    }
+
+    if (btnResetStudyAll) {
+      btnResetStudyAll.addEventListener('click', () => {
+        if (confirm('모든 카테고리의 학습 기록이 초기화됩니다. 단어 목록 자체는 유지됩니다.\n계속하시겠습니까?')) {
+          ['toefl', 'basic', 'custom-upload', 'custom-manual'].forEach(c => clearStudyRecordForCategory(c));
+          localStorage.removeItem('vocab_trainer_progress'); // 진행중인 받아쓰기 캐시도 삭제
+          alert('모든 학습 기록이 초기화되었습니다.');
+          modalResetStudy.classList.add('hidden');
+          location.reload();
+        }
+      });
+    }
   }
 
 })();

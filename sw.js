@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v205'; // Feature: 앱 전체 초기화와 학습 기록만 초기화(단어유지) 기능 분리
+const CACHE_NAME = 'vocabmaster-v206'; // Fix: 학습 기록 초기화 버튼 클릭 버그 수정 및 Day별 선택 초기화 기능 추가
 const ASSETS = [
   '/',
   '/index.html',
