@@ -2562,7 +2562,7 @@ let isVerticalScroll = false;
       // 1. vocab_progress 에서 제거
       let progress = JSON.parse(localStorage.getItem('vocab_progress')) || {};
       Object.keys(progress).forEach(key => {
-        if (day ? key === dbName : key.startsWith(category)) {
+        if (day ? key.startsWith(dbName + '_') : key.startsWith(category)) {
           delete progress[key];
         }
       });

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v220'; // UI: 학습 화면에서 뜻과 OX 버튼(알고있어요/몰랐어요) 사이의 여백 추가
+const CACHE_NAME = 'vocabmaster-v221'; // Fix: 특정 Day 단어장 초기화 시 진척도(체크마크)가 리셋되지 않던 버그 수정
 const ASSETS = [
   '/',
   '/index.html',
