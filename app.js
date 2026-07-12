@@ -206,8 +206,9 @@ coal [n] 석탄`.trim();
 
 // ---- 상태 (State) ----
 let isDictationMode = false;
-let currentCategory = 'toefl';
-let currentDay = null;
+let currentCategory = localStorage.getItem('saved_category') || 'toefl';
+let savedDayStr = localStorage.getItem('saved_day');
+let currentDay = (savedDayStr && savedDayStr !== 'null') ? (isNaN(savedDayStr) ? savedDayStr : parseInt(savedDayStr, 10)) : null;
 
 let currentAudio = null;
 
@@ -259,8 +260,16 @@ function populateDaySelector() {
     daySelector.appendChild(opt);
   });
   
-  currentDay = sortedDays[0];
+  const savedDayStr = localStorage.getItem('saved_day');
+  const parsedSavedDay = (savedDayStr && savedDayStr !== 'null') ? (isNaN(savedDayStr) ? savedDayStr : parseInt(savedDayStr, 10)) : null;
+  
+  if (parsedSavedDay !== null && sortedDays.includes(parsedSavedDay)) {
+    currentDay = parsedSavedDay;
+  } else {
+    currentDay = sortedDays[0];
+  }
   daySelector.value = currentDay;
+  localStorage.setItem('saved_day', currentDay);
 }
 
 function getFilteredWords() {
@@ -472,6 +481,7 @@ function initInputView() {
       if (!e.target.value) return;
       const val = e.target.value;
       currentDay = isNaN(val) ? val : parseInt(val, 10);
+      localStorage.setItem('saved_day', currentDay);
       App.currentDBName = `${currentCategory}_day${currentDay}`;
       updateDictationBtnText();
       updateCount();
@@ -480,6 +490,7 @@ function initInputView() {
 
   function switchTab(catName) {
     currentCategory = catName;
+    localStorage.setItem('saved_category', catName);
     [tabToefl, tabBasic, tabCustomUpload, tabCustomManual].forEach(t => {
       if (t) {
         t.classList.remove('active');
@@ -527,7 +538,15 @@ function initInputView() {
   if (tabCustomUpload) tabCustomUpload.addEventListener('click', () => switchTab('custom-upload'));
   if (tabCustomManual) tabCustomManual.addEventListener('click', () => switchTab('custom-manual'));
   
-  switchTab('toefl');
+  App.refreshInputView = () => switchTab(currentCategory);
+  
+  window.addEventListener('focus', () => {
+    if (App.phase === 'input' && App.refreshInputView) {
+      App.refreshInputView();
+    }
+  });
+
+  App.refreshInputView();
 
 
   // ── 동적 학습 구간 렌더링 (소그룹 + 중그룹 취약점 + 대그룹 총정리) ──
@@ -2159,6 +2178,7 @@ function restoreProgress(jsonStr) {
         });
       }
       showView('view-input');
+      if (App.refreshInputView) App.refreshInputView();
     }
   };
   const btnHomeTest = document.getElementById('btn-home-test');

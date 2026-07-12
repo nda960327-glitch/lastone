@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v188'; // UI/JS: O/X 버튼 테마 분기 처리 및 새로운 파스텔톤 O/X 버튼 디자인 적용 (Step 3, 4)
+const CACHE_NAME = 'vocabmaster-v189'; // JS: 회차 선택(목록) 화면 상태 유지 및 새로고침(Focus) 이벤트 연동
 const ASSETS = [
   '/',
   '/index.html',
