@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v204'; // HTML/JS: 미리보기 테이블 단어 너비 30%로 증가, 클릭 시 단어 전체보기 토글 기능 추가
+const CACHE_NAME = 'vocabmaster-v205'; // Feature: 앱 전체 초기화와 학습 기록만 초기화(단어유지) 기능 분리
 const ASSETS = [
   '/',
   '/index.html',
