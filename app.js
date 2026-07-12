@@ -981,7 +981,7 @@ function initInputView() {
         }
 
         tr.innerHTML = `
-          <td style="padding: 10px 8px; font-weight: 600; color: #a78bfa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${w.word}">${w.word}</td>
+          <td style="padding: 10px 8px; font-weight: 600; color: #a78bfa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;" title="전체 단어 보기" onclick="this.style.whiteSpace = this.style.whiteSpace === 'nowrap' ? 'normal' : 'nowrap';">${w.word}</td>
           <td style="padding: 10px 2px; color: var(--text-sub); font-size: 13px; text-align: center;">[${w.partOfSpeech.join(', ')}]</td>
           <td style="padding: 10px 8px;">
             <span class="${isHideMeaningMode ? 'blur-meaning' : ''}" onclick="if(this.classList.contains('blur-meaning')) this.classList.toggle('revealed')">
