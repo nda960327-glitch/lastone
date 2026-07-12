@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v219'; // UI: 드롭다운 옵션 색상이 자바스크립트 인라인 스타일로 고정되어 있던 문제 완전 수정
+const CACHE_NAME = 'vocabmaster-v220'; // UI: 학습 화면에서 뜻과 OX 버튼(알고있어요/몰랐어요) 사이의 여백 추가
 const ASSETS = [
   '/',
   '/index.html',
