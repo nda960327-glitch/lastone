@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v200'; // HTML: 받아쓰기 모드 연필 아이콘 위쪽 여백 추가
+const CACHE_NAME = 'vocabmaster-v201'; // HTML/JS: 단어장 미리보기 테이블 품사 열 너비 축소 및 뜻 열 너비 확장
 const ASSETS = [
   '/',
   '/index.html',
