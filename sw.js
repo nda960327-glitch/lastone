@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v212'; // UI: 긴 단어(숙어 등) 다음 줄로 넘어가도록 테이블 셀 스타일 수정
+const CACHE_NAME = 'vocabmaster-v213'; // UI: 학습 화면 스펠링 자동 줄바꿈 적용, 모달의 전체보기 테이블 원상복구
 const ASSETS = [
   '/',
   '/index.html',

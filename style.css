@@ -792,7 +792,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 .test-word {
-  white-space: nowrap !important;
+  word-break: break-word;
   font-weight: 900;
   text-align: center;
   line-height: 1.2;
