@@ -856,6 +856,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  gap: 24px;
   width: 100%;
 }
 .btn-prev {

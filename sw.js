@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v198'; // CSS: 기본 테마 O/X 버튼 크기 약간 확대
+const CACHE_NAME = 'vocabmaster-v199'; // CSS: 학습하기 화면 하단 '이전 단어', '다음 단어' 버튼 사이 간격 추가
 const ASSETS = [
   '/',
   '/index.html',
