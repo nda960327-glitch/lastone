@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v210'; // UI: 스와이프 토글 스위치 배경색 및 앱 기본 테마(블루) 변경, 추천 표시 추가
+const CACHE_NAME = 'vocabmaster-v211'; // UI: 스와이프 모드에 터치스크린만 가능 텍스트 추가
 const ASSETS = [
   '/',
   '/index.html',
