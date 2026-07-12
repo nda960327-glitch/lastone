@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v214'; // UI: 학습하기 화면 우측 상단에 스와이프 모드 토글 추가
+const CACHE_NAME = 'vocabmaster-v215'; // UI: 학습하기 화면의 스와이프 모드 토글 라벨을 손바닥 이모지로 변경
 const ASSETS = [
   '/',
   '/index.html',
