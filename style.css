@@ -1818,9 +1818,9 @@ body {
 }
 
 /* O 버튼 - 연한 파스텔 민트/그린 배경 (PALE) */
-.btn-ox-new.btn-o { background-color: #E8F5E9 !important; border-color: #C8E6C9 !important; }
+#btn-correct.btn-ox-new.btn-o { background: #E8F5E9 !important; background-color: #E8F5E9 !important; border-color: #C8E6C9 !important; }
 /* X 버튼 - 연한 파스텔 핑크/레드 배경 (PALE) */
-.btn-ox-new.btn-x { background-color: #FFEBEE !important; border-color: #FFCDD2 !important; }
+#btn-wrong.btn-ox-new.btn-x { background: #FFEBEE !important; background-color: #FFEBEE !important; border-color: #FFCDD2 !important; }
 
 /* 아이콘 영역 (원형 배경) */
 .ox-circle {
@@ -1848,5 +1848,5 @@ body {
 }
 
 /* 텍스트 색상 채도 조절 (부드러운 PALE 컬러) */
-.btn-ox-new.btn-o .ox-label { color: #388E3C !important; }
-.btn-ox-new.btn-x .ox-label { color: #D32F2F !important; }
+#btn-correct.btn-ox-new.btn-o .ox-label { color: #388E3C !important; }
+#btn-wrong.btn-ox-new.btn-x .ox-label { color: #D32F2F !important; }

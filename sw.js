@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v193'; // CSS: O/X 버튼 크기 축소 및 PALE 컬러 적용
+const CACHE_NAME = 'vocabmaster-v194'; // CSS: 강제 오버라이드를 통한 O/X 버튼 디자인 및 컬러 수정 확정 적용
 const ASSETS = [
   '/',
   '/index.html',
