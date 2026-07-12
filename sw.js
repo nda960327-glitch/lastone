@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v208'; // Fix: 커스텀 단어장에서 Day가 단어 개수로 잘못 표시되는 현상 수정
+const CACHE_NAME = 'vocabmaster-v209'; // Feature: 모바일 기기 접속 시 스와이프 모드 기본 활성화
 const ASSETS = [
   '/',
   '/index.html',
