@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v194'; // CSS: 강제 오버라이드를 통한 O/X 버튼 디자인 및 컬러 수정 확정 적용
+const CACHE_NAME = 'vocabmaster-v195'; // CSS: 핑크 테마 학습화면 영단어 스펠링 텍스트 색상을 예시 이미지(마젠타 핑크)와 동일하게 매칭
 const ASSETS = [
   '/',
   '/index.html',
