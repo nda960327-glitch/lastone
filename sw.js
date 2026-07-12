@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v207'; // Fix: 모달 드롭다운에서 학습기록이 없어도 단어장의 모든 Day를 표시하도록 수정
+const CACHE_NAME = 'vocabmaster-v208'; // Fix: 커스텀 단어장에서 Day가 단어 개수로 잘못 표시되는 현상 수정
 const ASSETS = [
   '/',
   '/index.html',

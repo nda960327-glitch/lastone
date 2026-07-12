@@ -2538,20 +2538,12 @@ let isVerticalScroll = false;
         });
       }
       
-      // 커스텀 업로드의 경우 localStorage에서 파악
-      if (cat === 'custom-upload') {
-        let uploadWords = JSON.parse(localStorage.getItem('doacore_upload_words')) || [];
-        for (let i = 1; i <= uploadWords.length; i++) {
-          days.add(i);
-        }
-      }
-      
       const sortedDays = Array.from(days).sort((a, b) => isNaN(a) || isNaN(b) ? String(a).localeCompare(String(b)) : a - b);
       
       sortedDays.forEach(day => {
         const opt = document.createElement('option');
         opt.value = day;
-        opt.textContent = `Day ${day} 단어장만 초기화`;
+        opt.textContent = isNaN(day) ? `'${day}' 단어장만 초기화` : `Day ${day} 단어장만 초기화`;
         selectResetStudyDay.appendChild(opt);
       });
     }
@@ -2596,7 +2588,8 @@ let isVerticalScroll = false;
         
         let confirmMsg = `'${catText}'의 전체 학습 기록만 초기화하시겠습니까?\n(단어 목록은 유지됩니다)`;
         if (day !== 'all') {
-          confirmMsg = `'${catText}'의 Day ${day} 학습 기록만 초기화하시겠습니까?\n(단어 목록은 유지됩니다)`;
+          const dayLabel = isNaN(day) ? `'${day}'` : `Day ${day}`;
+          confirmMsg = `'${catText}'의 ${dayLabel} 학습 기록만 초기화하시겠습니까?\n(단어 목록은 유지됩니다)`;
         }
 
         if (confirm(confirmMsg)) {
