@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v223'; // UI: DOACore 타이틀 그라데이션 복구 및 버전 텍스트를 옆으로 분리하여 회색 뱃지 형태로 변경
+const CACHE_NAME = 'vocabmaster-v224'; // UI: 메인 화면의 DOACore 타이틀을 로고 우측으로 왼쪽 정렬하여 배치
 const ASSETS = [
   '/',
   '/index.html',
