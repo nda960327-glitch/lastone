@@ -1472,6 +1472,7 @@ if (posHintEl) posHintEl.classList.add('hidden');
         bossBadge.textContent = '💀 극상위 오답';
         if (testCard) testCard.insertBefore(bossBadge, testCard.firstChild);
       }
+      if (bossBadge) bossBadge.style.display = isDictationMode ? 'none' : 'block';
     } else {
       if (testCard) testCard.classList.remove('boss-mode');
       if (bossBadge) bossBadge.remove();

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v226'; // Fix: 안드로이드 기기에서 받아쓰기 화면 헤드폰 이모지(🎧)에 그림자(drop-shadow) 필터가 적용되어 2개로 겹쳐 보이는 렌더링 버그 수정
+const CACHE_NAME = 'vocabmaster-v227'; // UI: 받아쓰기(듣기) 모드 시 중앙 헤드셋 아이콘과 겹치는 '극상위 오답' 배지를 숨기도록 개선
 const ASSETS = [
   '/',
   '/index.html',
