@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v225'; // UI: 설정 버튼에서 한글 글씨 제거하고 톱니바퀴 아이콘만 있는 원형 버튼으로 변경
+const CACHE_NAME = 'vocabmaster-v226'; // Fix: 안드로이드 기기에서 받아쓰기 화면 헤드폰 이모지(🎧)에 그림자(drop-shadow) 필터가 적용되어 2개로 겹쳐 보이는 렌더링 버그 수정
 const ASSETS = [
   '/',
   '/index.html',

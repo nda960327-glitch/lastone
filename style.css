@@ -850,7 +850,7 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 10px rgba(79,158,255,0.4)); }
+  50% { transform: scale(1.1); opacity: 1; }
 }
 
 /* ─ 이전 버튼 제어 레이아웃 ─ */
