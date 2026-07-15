@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v228'; // UX: 학습 화면 진입 시 기본으로 2번 읽어주고, 단어를 클릭하면 한 번 더 들을 수 있는 기능 추가
+const CACHE_NAME = 'vocabmaster-v229'; // UX: 단어를 2번 읽어줄 때 너무 급하게 연속으로 읽지 않고 2초 간격을 두어 자연스럽게 읽어주도록 수정
 const ASSETS = [
   '/',
   '/index.html',
