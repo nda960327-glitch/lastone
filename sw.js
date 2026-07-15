@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v227'; // UI: 받아쓰기(듣기) 모드 시 중앙 헤드셋 아이콘과 겹치는 '극상위 오답' 배지를 숨기도록 개선
+const CACHE_NAME = 'vocabmaster-v228'; // UX: 학습 화면 진입 시 기본으로 2번 읽어주고, 단어를 클릭하면 한 번 더 들을 수 있는 기능 추가
 const ASSETS = [
   '/',
   '/index.html',

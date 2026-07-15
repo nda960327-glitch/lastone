@@ -1549,7 +1549,15 @@ if (posHintEl) posHintEl.classList.add('hidden');
       listenZone.classList.remove('hidden');
     }
 
-    speak(wordObj.word);
+    // 자동으로 2번 읽기
+    speak(wordObj.word + '. ' + wordObj.word);
+
+    // 단어 클릭 시 다시 한 번 듣기 기능 추가
+    const wordEl = document.getElementById('test-word');
+    if (wordEl) {
+      wordEl.style.cursor = 'pointer';
+      wordEl.onclick = () => speak(wordObj.word);
+    }
 
     // [이전 단어 꼼수 방지] 이미 정답/오답 처리가 끝난 단어인지 확인
     const isAlreadyGraded = !!wordObj._alreadyGraded;
