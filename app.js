@@ -206,6 +206,7 @@ coal [n] 석탄`.trim();
 
 // ---- 상태 (State) ----
 let isDictationMode = false;
+let alwaysShowDictationMeaning = localStorage.getItem('dictation_meaning_visible') === 'true';
 let currentCategory = localStorage.getItem('saved_category') || 'toefl';
 let savedDayStr = localStorage.getItem('saved_day');
 let currentDay = (savedDayStr && savedDayStr !== 'null') ? (isNaN(savedDayStr) ? savedDayStr : parseInt(savedDayStr, 10)) : null;
@@ -1520,6 +1521,14 @@ if (posHintEl) posHintEl.classList.add('hidden');
       
       document.getElementById('dictation-zone').classList.remove('hidden');
       
+      if (alwaysShowDictationMeaning) {
+        document.getElementById('btn-reveal').classList.add('hidden');
+        document.getElementById('test-meanings').classList.remove('hidden');
+      } else {
+        document.getElementById('btn-reveal').classList.remove('hidden');
+        document.getElementById('test-meanings').classList.add('hidden');
+      }
+
       // 뜻 확인하기 클릭 시 뜻 노출
       const btnReveal = document.getElementById('btn-reveal');
       if (btnReveal) {
@@ -2083,6 +2092,27 @@ function showFinalResult() {
     a.download = `DOACore_오답성적표.csv`;
     a.click();
   };
+
+  const btnRestartDictation = document.getElementById('btn-restart-dictation');
+  if (btnRestartDictation) {
+    if (isDictationMode) {
+      btnRestartDictation.classList.remove('hidden');
+      btnRestartDictation.onclick = () => {
+        App.currentTestIndex = 0;
+        App.round = 4;
+        App.phase = 'TEST';
+        App.testPool = App.words.slice();
+        App.testPool.forEach(w => {
+            w.attempts = 0;
+            w._alreadyGraded = false;
+        });
+        showView('view-test');
+        runTestRound();
+      };
+    } else {
+      btnRestartDictation.classList.add('hidden');
+    }
+  }
 
   const tbody = document.getElementById('result-tbody');
   tbody.innerHTML = '';
@@ -2707,4 +2737,24 @@ let isVerticalScroll = false;
       applyTheme(btn.dataset.theme);
     });
   });
+
+  const toggleDictationMeaning = document.getElementById('toggle-dictation-meaning');
+  if (toggleDictationMeaning) {
+    toggleDictationMeaning.checked = alwaysShowDictationMeaning;
+    toggleDictationMeaning.addEventListener('change', (e) => {
+      alwaysShowDictationMeaning = e.target.checked;
+      localStorage.setItem('dictation_meaning_visible', alwaysShowDictationMeaning);
+      if (isDictationMode && App.phase === 'TEST') {
+        const btnReveal = document.getElementById('btn-reveal');
+        const testMeanings = document.getElementById('test-meanings');
+        if (alwaysShowDictationMeaning) {
+          if (btnReveal) btnReveal.classList.add('hidden');
+          if (testMeanings) testMeanings.classList.remove('hidden');
+        } else {
+          if (testMeanings) testMeanings.classList.add('hidden');
+          if (btnReveal) btnReveal.classList.remove('hidden');
+        }
+      }
+    });
+  }
  })();

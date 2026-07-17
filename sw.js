@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v231'; // UI: 10자 이상의 긴 단어가 줄바꿈되지 않고 한 줄에 예쁘게 나오도록 폰트 크기 동적 조절치 하향 조정
+const CACHE_NAME = 'vocabmaster-v232'; // Feat: 단어 받아쓰기 시험 시 '뜻 항상 보이기' 토글 스위치 및 받아쓰기 모드 전용 재시험(📝) 버튼 추가
 const ASSETS = [
   '/',
   '/index.html',
