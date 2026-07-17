@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v232'; // Feat: 단어 받아쓰기 시험 시 '뜻 항상 보이기' 토글 스위치 및 받아쓰기 모드 전용 재시험(📝) 버튼 추가
+const CACHE_NAME = 'vocabmaster-v233'; // Feat: 메인 화면 듣기 완벽 버튼 아래에 '틀린 단어 복습 리스트' 모달 버튼 추가
 const ASSETS = [
   '/',
   '/index.html',

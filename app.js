@@ -2757,4 +2757,71 @@ let isVerticalScroll = false;
       }
     });
   }
+
+  const btnReviewWrongWords = document.getElementById('btn-review-wrong-words');
+  const modalWrongWords = document.getElementById('modal-wrong-words');
+  const btnWrongWordsClose = document.getElementById('btn-wrong-words-close');
+  const btnWrongWordsOk = document.getElementById('btn-wrong-words-ok');
+  const wrongWordsTbody = document.getElementById('wrong-words-tbody');
+  const wrongWordsEmpty = document.getElementById('wrong-words-empty');
+
+  if (btnReviewWrongWords) {
+    btnReviewWrongWords.onclick = () => {
+      const words = getFilteredWords();
+      if (words.length === 0) {
+        alert('단어장을 선택해주세요.');
+        return;
+      }
+      
+      const failDataStr = localStorage.getItem('vocab_fail_data');
+      const globalFailData = failDataStr ? JSON.parse(failDataStr) : {};
+
+      const wrongList = words
+        .filter(w => (globalFailData[w.word] || 0) > 0)
+        .map(w => ({ ...w, totalFails: globalFailData[w.word] || 0 }))
+        .sort((a, b) => b.totalFails - a.totalFails);
+
+      wrongWordsTbody.innerHTML = '';
+      if (wrongList.length === 0) {
+        wrongWordsEmpty.classList.remove('hidden');
+        wrongWordsTbody.parentElement.style.display = 'none';
+      } else {
+        wrongWordsEmpty.classList.add('hidden');
+        wrongWordsTbody.parentElement.style.display = 'table';
+        wrongList.forEach(w => {
+          const tr = document.createElement('tr');
+          tr.style.borderBottom = '1px solid var(--border-h)';
+          
+          const tdWord = document.createElement('td');
+          tdWord.style.padding = '12px 8px';
+          tdWord.style.fontWeight = '700';
+          tdWord.style.color = 'var(--text-main)';
+          tdWord.textContent = w.word;
+
+          const tdFails = document.createElement('td');
+          tdFails.style.padding = '12px 2px';
+          tdFails.style.textAlign = 'center';
+          tdFails.style.fontWeight = 'bold';
+          tdFails.style.color = '#f43f5e';
+          tdFails.textContent = `${w.totalFails}번`;
+
+          const tdMeaning = document.createElement('td');
+          tdMeaning.style.padding = '12px 8px';
+          tdMeaning.style.color = 'var(--text-sub)';
+          tdMeaning.innerHTML = w.meanings.map(m => `<span style="color:var(--text-sub); margin-right:4px;">[${m.pos}]</span>${m.meaning}`).join('<br>');
+
+          tr.appendChild(tdWord);
+          tr.appendChild(tdFails);
+          tr.appendChild(tdMeaning);
+          wrongWordsTbody.appendChild(tr);
+        });
+      }
+
+      modalWrongWords.classList.remove('hidden');
+    };
+  }
+
+  if (btnWrongWordsClose) btnWrongWordsClose.onclick = () => modalWrongWords.classList.add('hidden');
+  if (btnWrongWordsOk) btnWrongWordsOk.onclick = () => modalWrongWords.classList.add('hidden');
+
  })();

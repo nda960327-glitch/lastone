@@ -36,7 +36,7 @@
       <div>
         <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
           <h1 class="brand-title" style="margin: 0;">DOACore</h1>
-          <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v232</span>
+          <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v233</span>
         </div>
         <p class="brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
       </div>
@@ -127,6 +127,9 @@
         <div class="dictation-section-title" style="font-size: 14px; font-weight: 700; margin-bottom: 10px; text-align: center;">🎯 최종 점검 (듣기)</div>
         <button id="btn-dictation" class="btn-dictation-red">
           <span id="dictation-btn-text">🎧 전체 단어 스펠링 듣고 쓰기</span>
+        </button>
+        <button id="btn-review-wrong-words" class="btn-dictation-red" style="margin-top: 10px; background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);">
+          <span style="font-size: 15px; font-weight: 700; color: white;">👀 틀린 단어 복습 리스트 (많이 틀린 순)</span>
         </button>
       </div>
 
@@ -508,6 +511,34 @@
         </table>
       </div>
       <button id="btn-word-list-ok" class="btn-primary" style="background: linear-gradient(135deg, #3b82f6, #2563eb); width: 100%; margin-top: 20px; padding: 12px; flex-shrink: 0;">닫기</button>
+    </div>
+  </div>
+
+  <!-- 틀린 단어 복습 리스트 모달 -->
+  <div id="modal-wrong-words" class="pwa-modal hidden">
+    <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 650px; width: 95%; max-height: 85vh; display: flex; flex-direction: column; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <h3 style="font-size: 18px; margin: 0; line-height: 1.4; color: var(--text-main); font-weight: 700;">🚨 틀린 단어 복습 리스트</h3>
+        <button id="btn-wrong-words-close" style="background: transparent; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0;">✖</button>
+      </div>
+      <div style="flex-grow: 1; overflow-y: auto; padding-right: 4px;" class="custom-scrollbar">
+        <table style="width: 100%; border-collapse: collapse; font-size: 14.5px; text-align: left; color: var(--text-main); table-layout: fixed; word-break: break-word;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--border-h); color: var(--text-sub);">
+              <th style="padding: 10px 8px; font-weight: 600; width: 30%;">단어</th>
+              <th style="padding: 10px 2px; font-weight: 600; width: 20%; text-align: center;">누적 오답 횟수</th>
+              <th style="padding: 10px 8px; font-weight: 600; width: 50%;">뜻</th>
+            </tr>
+          </thead>
+          <tbody id="wrong-words-tbody">
+            <!-- 동적 렌더링 -->
+          </tbody>
+        </table>
+        <div id="wrong-words-empty" class="hidden" style="text-align: center; padding: 30px; color: var(--text-sub);">
+          틀린 단어가 없습니다! 완벽해요 🎉
+        </div>
+      </div>
+      <button id="btn-wrong-words-ok" class="btn-primary" style="background: linear-gradient(135deg, #f59e0b, #d97706); width: 100%; margin-top: 20px; padding: 12px; flex-shrink: 0;">확인 완료</button>
     </div>
   </div>
 
