@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v234'; // Fix: 전체 누적 오답 복습 리스트 모달 데이터 로드 버그 수정 및 파란색 컬러 버튼 적용
+const CACHE_NAME = 'vocabmaster-v235'; // Style: 틀린 단어 복습 리스트 버튼 디자인을 기존 버튼과 통일감 있게 수정
 const ASSETS = [
   '/',
   '/index.html',
