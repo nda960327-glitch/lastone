@@ -1640,7 +1640,9 @@ if (posHintEl) posHintEl.innerHTML = `품사 <span style="font-size: 1.3em; colo
     if (!isDictationMode) {
 if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display = 'block'; }
     }
-    document.getElementById('btn-reveal').classList.remove('hidden');
+    if (!(isDictationMode && alwaysShowDictationMeaning)) {
+      document.getElementById('btn-reveal').classList.remove('hidden');
+    }
 
     let revealResult = 'O'; 
     App.isOButtonLocked = false;

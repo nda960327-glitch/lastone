@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v235'; // Style: 틀린 단어 복습 리스트 버튼 디자인을 기존 버튼과 통일감 있게 수정
+const CACHE_NAME = 'vocabmaster-v236'; // Fix: 받아쓰기 모드에서 뜻 항상 보이기 체크 시 '뜻 확인하기' 버튼을 숨김 처리
 const ASSETS = [
   '/',
   '/index.html',
