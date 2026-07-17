@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v230'; // Fix: 느린 환경이나 안드로이드 기기에서 음성(TTS) 출력 시 첫 단어 발음이 잘리는(씹히는) 문제 수정
+const CACHE_NAME = 'vocabmaster-v231'; // UI: 10자 이상의 긴 단어가 줄바꿈되지 않고 한 줄에 예쁘게 나오도록 폰트 크기 동적 조절치 하향 조정
 const ASSETS = [
   '/',
   '/index.html',
