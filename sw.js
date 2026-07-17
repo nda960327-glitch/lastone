@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v229'; // UX: 단어를 2번 읽어줄 때 너무 급하게 연속으로 읽지 않고 2초 간격을 두어 자연스럽게 읽어주도록 수정
+const CACHE_NAME = 'vocabmaster-v230'; // Fix: 느린 환경이나 안드로이드 기기에서 음성(TTS) 출력 시 첫 단어 발음이 잘리는(씹히는) 문제 수정
 const ASSETS = [
   '/',
   '/index.html',
