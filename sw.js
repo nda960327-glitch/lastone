@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v233'; // Feat: 메인 화면 듣기 완벽 버튼 아래에 '틀린 단어 복습 리스트' 모달 버튼 추가
+const CACHE_NAME = 'vocabmaster-v234'; // Fix: 전체 누적 오답 복습 리스트 모달 데이터 로드 버그 수정 및 파란색 컬러 버튼 적용
 const ASSETS = [
   '/',
   '/index.html',

@@ -2767,18 +2767,21 @@ let isVerticalScroll = false;
 
   if (btnReviewWrongWords) {
     btnReviewWrongWords.onclick = () => {
-      const words = getFilteredWords();
-      if (words.length === 0) {
-        alert('단어장을 선택해주세요.');
+      if (typeof words === 'undefined') {
+        alert('단어 데이터를 불러올 수 없습니다.');
         return;
       }
       
-      const failDataStr = localStorage.getItem('vocab_fail_data');
+      const failDataStr = localStorage.getItem('doacore_total_fails');
       const globalFailData = failDataStr ? JSON.parse(failDataStr) : {};
 
       const wrongList = words
-        .filter(w => (globalFailData[w.word] || 0) > 0)
-        .map(w => ({ ...w, totalFails: globalFailData[w.word] || 0 }))
+        .filter(w => w.category === currentCategory && (globalFailData[w.word] || 0) > 0)
+        .map(w => ({
+          word: w.word,
+          meanings: w.partOfSpeech.map(pos => ({ pos: pos, meaning: w.meaning })),
+          totalFails: globalFailData[w.word] || 0
+        }))
         .sort((a, b) => b.totalFails - a.totalFails);
 
       wrongWordsTbody.innerHTML = '';
