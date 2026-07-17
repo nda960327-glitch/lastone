@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v236'; // Fix: 받아쓰기 모드에서 뜻 항상 보이기 체크 시 '뜻 확인하기' 버튼을 숨김 처리
+const CACHE_NAME = 'vocabmaster-v237'; // Fix: 듣기 단계에서 극상위 오답 배지와 헤드셋 아이콘이 겹치는 레이아웃 문제 수정
 const ASSETS = [
   '/',
   '/index.html',

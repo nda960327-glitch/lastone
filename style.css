@@ -1185,6 +1185,11 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
 }
 
 .boss-badge {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
   display: block;
   background: crimson;
   color: var(--text-main);
@@ -1192,7 +1197,6 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   border-radius: 8px;
   font-weight: 900;
   font-size: 14px;
-  margin: -10px auto 15px;
   width: max-content;
   text-transform: uppercase;
   letter-spacing: 1px;
