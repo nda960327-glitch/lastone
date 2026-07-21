@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v246'; // Fix: 핑크 테마 곰 귀 카드 뒤로 보내기
+const CACHE_NAME = 'vocabmaster-v247'; // Style: 핑크 테마 곰돌이 로고로 교체
 const ASSETS = [
   '/',
   '/index.html',
