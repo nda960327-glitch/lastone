@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v250'; // Feature: 관리자 대시보드 추가 및 학원 코드 입력 강제화
+const CACHE_NAME = 'vocabmaster-v251'; // Fix: 관리자 로그인 권한 오류 수정
 const ASSETS = [
   '/',
   '/index.html',

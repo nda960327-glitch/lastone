@@ -2972,6 +2972,12 @@ let isVerticalScroll = false;
         btnAcademySubmit.disabled = true;
         academyErrorMsg.textContent = "확인 중...";
         try {
+          if (code.startsWith('admin_')) {
+            await enterAdminMode(code);
+            btnAcademySubmit.disabled = false;
+            return;
+          }
+          
           // academies 컬렉션에서 초대 코드 검증
           const qs = await db.collection('academies').where('inviteCode', '==', code).limit(1).get();
           if (qs.empty) {
@@ -3004,11 +3010,10 @@ let isVerticalScroll = false;
   // =============================================
   // Admin Logic
   // =============================================
-  const loginLogoContainer = document.getElementById('login-logo-container');
-  let pressTimer;
-  if (loginLogoContainer) {
+  const setupLongPress = (element) => {
+    if (!element) return;
+    let pressTimer;
     const startPress = (e) => {
-      // Prevent default on touch to avoid selection
       if (e.type === 'touchstart') e.preventDefault();
       pressTimer = window.setTimeout(() => {
         const code = prompt('관리자 코드를 입력하세요:');
@@ -3020,16 +3025,27 @@ let isVerticalScroll = false;
     const cancelPress = () => {
       clearTimeout(pressTimer);
     };
-    loginLogoContainer.addEventListener('mousedown', startPress);
-    loginLogoContainer.addEventListener('touchstart', startPress, {passive: false});
-    loginLogoContainer.addEventListener('mouseup', cancelPress);
-    loginLogoContainer.addEventListener('mouseleave', cancelPress);
-    loginLogoContainer.addEventListener('touchend', cancelPress);
-  }
+    element.addEventListener('mousedown', startPress);
+    element.addEventListener('touchstart', startPress, {passive: false});
+    element.addEventListener('mouseup', cancelPress);
+    element.addEventListener('mouseleave', cancelPress);
+    element.addEventListener('touchend', cancelPress);
+  };
+
+  setupLongPress(document.getElementById('login-logo-container'));
+  setupLongPress(document.getElementById('btn-main-logo'));
+  
+  // 곰돌이 로고(핑크 테마)에도 적용
+  const bearLogos = document.querySelectorAll('.bear-logo');
+  bearLogos.forEach(logo => setupLongPress(logo));
 
   async function enterAdminMode(adminCode) {
     if (!db) {
       alert("데이터베이스 연결 안됨");
+      return;
+    }
+    if (!currentUser) {
+      alert("먼저 구글 로그인을 진행해주세요!");
       return;
     }
     try {
@@ -3043,12 +3059,13 @@ let isVerticalScroll = false;
       const academyName = academyDoc.data().name;
       
       document.getElementById('admin-academy-name').textContent = academyName;
+      if (academyInviteModal) academyInviteModal.classList.add('hidden');
       showView('view-admin');
       
       loadAdminStudents(academyId);
     } catch (err) {
       console.error(err);
-      alert("관리자 로그인 중 오류가 발생했습니다.");
+      alert("관리자 로그인 중 오류가 발생했습니다: " + err.message);
     }
   }
 
