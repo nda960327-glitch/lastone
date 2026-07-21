@@ -2907,7 +2907,6 @@ let isVerticalScroll = false;
       currentUser = user;
       if (user) {
         // Logged in
-        showView('view-input');
         if (btnLoginGoogle) btnLoginGoogle.style.display = 'none';
         if (userProfileUI) userProfileUI.classList.remove('hidden');
         if (userAvatar) userAvatar.src = user.photoURL || '';
@@ -3191,20 +3190,19 @@ let isVerticalScroll = false;
         console.error("Progress sync failed", e);
       }
 
-      if (userDoc.exists && userDoc.data().academyId) {
+      if (userDoc.exists && userDoc.data().academyId && !userDoc.data().deleted) {
         const data = userDoc.data();
         currentAcademyId = data.academyId;
         if (userAcademyDisplay) userAcademyDisplay.textContent = `소속: ${data.academyName || currentAcademyId}`;
         
-        // 학원 소속인 경우 해당 학원 전용 단어장을 로드 (TODO: load from Firestore)
+        // 학원 소속인 경우 해당 학원 전용 단어장을 로드하고 화면 전환
+        showView('view-input');
         loadDBList(); 
-        
       } else {
-        // 학원 등록 안 됨 -> 모달 띄우기
+        // 학원 등록 안 됨 -> 모달 띄우기 (view-login 상태 유지)
         currentAcademyId = null;
         if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록";
         if (academyInviteModal) academyInviteModal.classList.remove('hidden');
-        loadDBList(); // 빈 화면 방지
       }
     } catch (err) {
       console.error("Failed to fetch user profile", err);

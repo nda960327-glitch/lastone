@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v253'; // Fix: 회원 탈퇴 권한 오류 수정
+const CACHE_NAME = 'vocabmaster-v254'; // Fix: 학원 코드 입력 전 단어장 노출 문제 수정
 const ASSETS = [
   '/',
   '/index.html',
