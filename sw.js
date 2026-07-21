@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v252'; // Feature: 회원 탈퇴 버튼 추가
+const CACHE_NAME = 'vocabmaster-v253'; // Fix: 회원 탈퇴 권한 오류 수정
 const ASSETS = [
   '/',
   '/index.html',

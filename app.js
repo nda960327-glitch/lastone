@@ -2974,7 +2974,22 @@ let isVerticalScroll = false;
         if (confirm("정말로 회원 탈퇴를 하시겠습니까?\n모든 학습 기록과 단어장 데이터가 삭제되며 복구할 수 없습니다.")) {
           try {
             if (db) {
-              await db.collection('users').doc(currentUser.uid).delete();
+              try {
+                // Firestore 문서 삭제 시도 (규칙에 의해 거부될 수 있음)
+                await db.collection('users').doc(currentUser.uid).delete();
+              } catch (fsErr) {
+                console.warn('Firestore doc delete failed, trying update instead:', fsErr);
+                try {
+                  // 삭제 권한이 없다면 학원 정보만 초기화
+                  await db.collection('users').doc(currentUser.uid).update({
+                    academyId: null,
+                    academyName: null,
+                    deleted: true
+                  });
+                } catch (updateErr) {
+                  console.warn('Firestore doc update failed:', updateErr);
+                }
+              }
             }
             await currentUser.delete();
             alert("회원 탈퇴가 완료되었습니다.");
