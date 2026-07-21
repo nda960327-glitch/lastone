@@ -2889,6 +2889,7 @@ let isVerticalScroll = false;
   // Firebase Auth & Academy Logic
   // =============================================
   const btnLoginGoogle = document.getElementById('btn-login-google');
+  const btnLoginGoogleMain = document.getElementById('btn-login-google-main');
   const btnLogout = document.getElementById('btn-logout');
   const authContainer = document.getElementById('auth-container');
   const userProfileUI = document.getElementById('user-profile-ui');
@@ -2907,6 +2908,7 @@ let isVerticalScroll = false;
       currentUser = user;
       if (user) {
         // Logged in
+        showView('view-input');
         if (btnLoginGoogle) btnLoginGoogle.style.display = 'none';
         if (userProfileUI) userProfileUI.classList.remove('hidden');
         if (userAvatar) userAvatar.src = user.photoURL || '';
@@ -2916,44 +2918,45 @@ let isVerticalScroll = false;
         await fetchUserProfile(user.uid);
       } else {
         // Logged out
+        showView('view-login');
         currentAcademyId = null;
         if (btnLoginGoogle) btnLoginGoogle.style.display = 'flex';
         if (userProfileUI) userProfileUI.classList.add('hidden');
         if (academyInviteModal) academyInviteModal.classList.add('hidden');
-        loadDBList(); // Load default local DB list
       }
     });
 
-    if (btnLoginGoogle) {
-      btnLoginGoogle.onclick = () => {
-        // Google Identity Services를 사용하여 Firebase 도메인 제한 우회
-        if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
-          const client = google.accounts.oauth2.initTokenClient({
-            client_id: firebaseConfig.clientId || '760005417553-5iq38rttennaadqp91g0eaq98m3qk24t.apps.googleusercontent.com',
-            scope: 'email profile',
-            callback: async (tokenResponse) => {
-              if (tokenResponse.access_token) {
-                const credential = firebase.auth.GoogleAuthProvider.credential(null, tokenResponse.access_token);
-                try {
-                  await auth.signInWithCredential(credential);
-                } catch (err) {
-                  console.error("Firebase credential login failed", err);
-                  alert("로그인에 실패했습니다: " + err.message);
-                }
+    const handleGoogleLogin = () => {
+      // Google Identity Services를 사용하여 Firebase 도메인 제한 우회
+      if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
+        const client = google.accounts.oauth2.initTokenClient({
+          client_id: firebaseConfig.clientId || '760005417553-5iq38rttennaadqp91g0eaq98m3qk24t.apps.googleusercontent.com',
+          scope: 'email profile',
+          callback: async (tokenResponse) => {
+            if (tokenResponse.access_token) {
+              const credential = firebase.auth.GoogleAuthProvider.credential(null, tokenResponse.access_token);
+              try {
+                await auth.signInWithCredential(credential);
+              } catch (err) {
+                console.error("Firebase credential login failed", err);
+                alert("로그인에 실패했습니다: " + err.message);
               }
             }
-          });
-          client.requestAccessToken();
-        } else {
-          // GIS 미로드 시 기존 방식 폴백
-          const provider = new firebase.auth.GoogleAuthProvider();
-          auth.signInWithPopup(provider).catch(err => {
-            console.error("Login failed", err);
-            alert("로그인에 실패했습니다: " + err.message);
-          });
-        }
-      };
-    }
+          }
+        });
+        client.requestAccessToken();
+      } else {
+        // GIS 미로드 시 기존 방식 폴백
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider).catch(err => {
+          console.error("Login failed", err);
+          alert("로그인에 실패했습니다: " + err.message);
+        });
+      }
+    };
+
+    if (btnLoginGoogle) btnLoginGoogle.onclick = handleGoogleLogin;
+    if (btnLoginGoogleMain) btnLoginGoogleMain.onclick = handleGoogleLogin;
 
     if (btnLogout) {
       btnLogout.onclick = () => {

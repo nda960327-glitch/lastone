@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v248'; // Fix: 학원 등록 모달 CSS 및 건너뛰기 버튼 추가
+const CACHE_NAME = 'vocabmaster-v249'; // Feature: 전용 로그인 화면 추가 및 로그아웃 시 단어장 숨김
 const ASSETS = [
   '/',
   '/index.html',
