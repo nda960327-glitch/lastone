@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v247'; // Style: 핑크 테마 곰돌이 로고로 교체
+const CACHE_NAME = 'vocabmaster-v248'; // Fix: 학원 등록 모달 CSS 및 건너뛰기 버튼 추가
 const ASSETS = [
   '/',
   '/index.html',

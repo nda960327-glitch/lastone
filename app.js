@@ -2898,6 +2898,7 @@ let isVerticalScroll = false;
   
   const academyInviteModal = document.getElementById('academy-invite-modal');
   const btnAcademySubmit = document.getElementById('btn-academy-submit');
+  const btnAcademyCancel = document.getElementById('btn-academy-cancel');
   const academyInviteInput = document.getElementById('academy-invite-input');
   const academyErrorMsg = document.getElementById('academy-error-msg');
 
@@ -2996,6 +2997,12 @@ let isVerticalScroll = false;
         btnAcademySubmit.disabled = false;
       };
     }
+  }
+
+  if (btnAcademyCancel) {
+    btnAcademyCancel.onclick = () => {
+      if (academyInviteModal) academyInviteModal.classList.add('hidden');
+    };
   }
 
   async function fetchUserProfile(uid) {
