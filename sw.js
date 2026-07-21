@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v237'; // Fix: 듣기 단계에서 극상위 오답 배지와 헤드셋 아이콘이 겹치는 레이아웃 문제 수정
+const CACHE_NAME = 'vocabmaster-v238'; // Fix: 복습 리스트를 전체 오답이 아닌 현재 선택된 구간(Day)의 오답만 보여주도록 수정
 const ASSETS = [
   '/',
   '/index.html',
