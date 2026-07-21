@@ -3070,8 +3070,9 @@ let isVerticalScroll = false;
     const startPress = (e) => {
       if (e.type === 'touchstart') e.preventDefault();
       pressTimer = window.setTimeout(() => {
-        const code = prompt('관리자 코드를 입력하세요:');
+        let code = prompt('관리자 코드를 입력하세요:');
         if (code) {
+          code = code.trim();
           enterAdminMode(code);
         }
       }, 1500);
@@ -3093,7 +3094,8 @@ let isVerticalScroll = false;
   const bearLogos = document.querySelectorAll('.bear-logo');
   bearLogos.forEach(logo => setupLongPress(logo));
 
-  async function enterAdminMode(adminCode) {
+  async function enterAdminMode(rawAdminCode) {
+    const adminCode = (rawAdminCode || '').trim();
     if (!db) {
       alert("데이터베이스 연결 안됨");
       return;

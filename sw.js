@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v259'; // Fix: 학원 정보 자동 생성(초기화) 기능 추가
+const CACHE_NAME = 'vocabmaster-v260'; // Fix: 입력된 관리자 코드 공백 제거 처리 추가
 const ASSETS = [
   '/',
   '/index.html',
