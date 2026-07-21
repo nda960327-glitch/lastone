@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v256'; // Fix: 로그인 후 구글 로그인 버튼 남아있는 현상 수정
+const CACHE_NAME = 'vocabmaster-v257'; // Feature: 관리자 화면에서 학생 등록 코드 변경 기능 추가
 const ASSETS = [
   '/',
   '/index.html',

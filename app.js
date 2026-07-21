@@ -3100,8 +3100,34 @@ let isVerticalScroll = false;
       const academyDoc = qs.docs[0];
       const academyId = academyDoc.id;
       const academyName = academyDoc.data().name;
+      const currentInviteCode = academyDoc.data().inviteCode || '';
       
       document.getElementById('admin-academy-name').textContent = academyName;
+      document.getElementById('admin-invite-code').value = currentInviteCode;
+      
+      const btnUpdateInviteCode = document.getElementById('btn-update-invite-code');
+      btnUpdateInviteCode.onclick = async () => {
+        const newCode = document.getElementById('admin-invite-code').value.trim();
+        if (!newCode) {
+          alert('학생 등록 코드를 입력해주세요.');
+          return;
+        }
+        if (confirm(`학생 등록 코드를 '${newCode}'(으)로 변경하시겠습니까?`)) {
+          btnUpdateInviteCode.disabled = true;
+          try {
+            await db.collection('academies').doc(academyId).update({
+              inviteCode: newCode
+            });
+            alert('학생 등록 코드가 성공적으로 변경되었습니다.');
+          } catch (err) {
+            console.error(err);
+            alert('학생 등록 코드 변경 중 오류가 발생했습니다: ' + err.message);
+          } finally {
+            btnUpdateInviteCode.disabled = false;
+          }
+        }
+      };
+
       if (academyInviteModal) academyInviteModal.classList.add('hidden');
       showView('view-admin');
       

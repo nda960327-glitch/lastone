@@ -69,9 +69,17 @@
         <button onclick="document.getElementById('btn-logout').click();" style="background: rgba(255,255,255,0.1); border: none; padding: 8px 12px; border-radius: 8px; color: white; cursor: pointer;">나가기</button>
       </div>
       
-      <div class="glass-card" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+      <div class="glass-card" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
         <span style="color: var(--text-sub);">등록 학생 수</span>
         <strong id="admin-student-count" style="font-size: 24px; color: var(--text-main);">0명</strong>
+      </div>
+
+      <div class="glass-card" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: var(--text-sub);">학생 등록 코드</span>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="admin-invite-code" placeholder="예: asher2026" style="padding: 8px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; width: 140px; font-size: 14px;" />
+          <button id="btn-update-invite-code" class="btn-primary" style="padding: 8px 12px; font-size: 13px; min-width: 60px;">변경</button>
+        </div>
       </div>
       
       <h3 style="margin-top: 32px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">학생 목록</h3>
@@ -90,7 +98,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v256</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v257</span>
           </div>
           <p class="brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
