@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v242'; // Style: 핑크 테마를 흰곰 캐릭터 + 하트 스킨으로 전면 리디자인 (곰 귀 카드, 발자국 배경, 곰돌이 애니메이션)
+const CACHE_NAME = 'vocabmaster-v243'; // Fix: Google Identity Services 방식으로 로그인 전환 (도메인 제한 우회)
 const ASSETS = [
   '/',
   '/index.html',

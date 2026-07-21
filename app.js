@@ -2925,11 +2925,32 @@ let isVerticalScroll = false;
 
     if (btnLoginGoogle) {
       btnLoginGoogle.onclick = () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider).catch(err => {
-          console.error("Login failed", err);
-          alert("로그인에 실패했습니다: " + err.message);
-        });
+        // Google Identity Services를 사용하여 Firebase 도메인 제한 우회
+        if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
+          const client = google.accounts.oauth2.initTokenClient({
+            client_id: firebaseConfig.clientId || '760005417553-REPLACE_ME.apps.googleusercontent.com',
+            scope: 'email profile',
+            callback: async (tokenResponse) => {
+              if (tokenResponse.access_token) {
+                const credential = firebase.auth.GoogleAuthProvider.credential(null, tokenResponse.access_token);
+                try {
+                  await auth.signInWithCredential(credential);
+                } catch (err) {
+                  console.error("Firebase credential login failed", err);
+                  alert("로그인에 실패했습니다: " + err.message);
+                }
+              }
+            }
+          });
+          client.requestAccessToken();
+        } else {
+          // GIS 미로드 시 기존 방식 폴백
+          const provider = new firebase.auth.GoogleAuthProvider();
+          auth.signInWithPopup(provider).catch(err => {
+            console.error("Login failed", err);
+            alert("로그인에 실패했습니다: " + err.message);
+          });
+        }
       };
     }
 
