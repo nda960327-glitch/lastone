@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v244'; // Fix: Google Identity Services Client ID 적용
+const CACHE_NAME = 'vocabmaster-v245'; // Fix: 핑크 테마 곰 귀(오른쪽) 위치 오류 수정
 const ASSETS = [
   '/',
   '/index.html',

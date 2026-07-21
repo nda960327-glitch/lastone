@@ -1988,7 +1988,7 @@ body {
 [data-theme="pink"] .glass-card::after {
   content: '';
   position: absolute;
-  top: -14px; left: 56px;
+  top: -14px; right: 22px;
   width: 28px; height: 28px;
   background: radial-gradient(circle at 50% 60%, #FFE4EF 40%, #F9A8D4 100%);
   border-radius: 50%;
