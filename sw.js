@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v255'; // Fix: 탈퇴 후 재가입 시 화면 안 넘어가는 버그 수정
+const CACHE_NAME = 'vocabmaster-v256'; // Fix: 로그인 후 구글 로그인 버튼 남아있는 현상 수정
 const ASSETS = [
   '/',
   '/index.html',

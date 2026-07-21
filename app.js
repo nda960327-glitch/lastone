@@ -2908,6 +2908,7 @@ let isVerticalScroll = false;
       if (user) {
         // Logged in
         if (btnLoginGoogle) btnLoginGoogle.style.display = 'none';
+        if (btnLoginGoogleMain) btnLoginGoogleMain.style.display = 'none';
         if (userProfileUI) userProfileUI.classList.remove('hidden');
         if (userAvatar) userAvatar.src = user.photoURL || '';
         if (userNameDisplay) userNameDisplay.textContent = user.displayName || 'User';
@@ -2919,6 +2920,7 @@ let isVerticalScroll = false;
         showView('view-login');
         currentAcademyId = null;
         if (btnLoginGoogle) btnLoginGoogle.style.display = 'flex';
+        if (btnLoginGoogleMain) btnLoginGoogleMain.style.display = 'flex';
         if (userProfileUI) userProfileUI.classList.add('hidden');
         if (academyInviteModal) academyInviteModal.classList.add('hidden');
       }
@@ -3207,6 +3209,9 @@ let isVerticalScroll = false;
       }
     } catch (err) {
       console.error("Failed to fetch user profile", err);
+      alert("프로필을 불러오는 중 오류가 발생했습니다: " + err.message);
+      // 에러 발생 시에도 빈 화면에 갇히지 않도록 모달을 띄워줌
+      if (academyInviteModal) academyInviteModal.classList.remove('hidden');
     }
   }
 
