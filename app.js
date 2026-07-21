@@ -2913,6 +2913,14 @@ let isVerticalScroll = false;
         if (userAvatar) userAvatar.src = user.photoURL || '';
         if (userNameDisplay) userNameDisplay.textContent = user.displayName || 'User';
         
+        // 유저 기본 정보(이름, 이메일)를 Firestore에 주기적으로 업데이트
+        if (db) {
+          db.collection('users').doc(user.uid).set({
+            displayName: user.displayName || '이름 없음',
+            email: user.email || ''
+          }, { merge: true }).catch(err => console.error("Profile sync error", err));
+        }
+        
         // Fetch User Profile from Firestore
         await fetchUserProfile(user.uid);
       } else {

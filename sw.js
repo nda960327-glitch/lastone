@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v260'; // Fix: 입력된 관리자 코드 공백 제거 처리 추가
+const CACHE_NAME = 'vocabmaster-v261'; // Fix: 학원 등록 시 구글 프로필(이름, 이메일) 연동 오류 수정
 const ASSETS = [
   '/',
   '/index.html',
