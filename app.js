@@ -2928,7 +2928,7 @@ let isVerticalScroll = false;
         // Google Identity Services를 사용하여 Firebase 도메인 제한 우회
         if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
           const client = google.accounts.oauth2.initTokenClient({
-            client_id: firebaseConfig.clientId || '760005417553-REPLACE_ME.apps.googleusercontent.com',
+            client_id: firebaseConfig.clientId || '760005417553-5iq38rttennaadqp91g0eaq98m3qk24t.apps.googleusercontent.com',
             scope: 'email profile',
             callback: async (tokenResponse) => {
               if (tokenResponse.access_token) {

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v243'; // Fix: Google Identity Services 방식으로 로그인 전환 (도메인 제한 우회)
+const CACHE_NAME = 'vocabmaster-v244'; // Fix: Google Identity Services Client ID 적용
 const ASSETS = [
   '/',
   '/index.html',
