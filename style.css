@@ -1902,390 +1902,422 @@ body {
   color: #BE185D !important;
 }
 
+
 /* ============================================================
-   💖 PINK HEART THEME - 하트하트 귀여운 캐릭터 스킨
+   🧸💖 PINK BEAR THEME - 흰곰 하트 캐릭터 스킨
    ============================================================ */
 
-/* 🌸 Background: 떠다니는 하트 & 반짝이 */
+/* 🌸 배경: 파스텔 핑크 구름 + 발자국 패턴 */
+[data-theme="pink"] body {
+  background: 
+    radial-gradient(ellipse at 15% 15%, rgba(252, 231, 243, 0.7) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 25%, rgba(251, 207, 232, 0.5) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 70%, rgba(253, 242, 248, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 85%, rgba(244, 114, 182, 0.1) 0%, transparent 35%),
+    #FFF5F9 !important;
+}
+
 [data-theme="pink"] body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
   z-index: 0;
-  background: 
-    radial-gradient(ellipse at 20% 20%, rgba(251, 182, 206, 0.25) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(244, 114, 182, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(255, 228, 239, 0.3) 0%, transparent 60%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ctext x='20' y='45' font-size='22' opacity='0.35'%3E🐾%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.06;
 }
 
 [data-theme="pink"] body::after {
-  content: '💗💕💖✨💗💕💖✨💗💕';
+  content: '🧸💗🐾💕🧸💖🐾✨🧸💗🐾💕';
   position: fixed;
-  top: -60px; left: 0; right: 0;
-  font-size: 28px;
-  letter-spacing: 50px;
+  top: -80px; left: -20px; right: 0;
+  font-size: 26px;
+  letter-spacing: 35px;
   pointer-events: none;
   z-index: 0;
-  animation: floatHearts 20s linear infinite;
-  opacity: 0.15;
+  animation: floatBearHearts 25s linear infinite;
+  opacity: 0.12;
   white-space: nowrap;
   overflow: hidden;
 }
 
-@keyframes floatHearts {
+@keyframes floatBearHearts {
   0%   { transform: translateY(0) translateX(0); }
-  25%  { transform: translateY(25vh) translateX(-30px); }
-  50%  { transform: translateY(50vh) translateX(20px); }
-  75%  { transform: translateY(75vh) translateX(-10px); }
-  100% { transform: translateY(110vh) translateX(0); }
+  25%  { transform: translateY(28vh) translateX(-25px); }
+  50%  { transform: translateY(55vh) translateX(15px); }
+  75%  { transform: translateY(80vh) translateX(-10px); }
+  100% { transform: translateY(115vh) translateX(0); }
 }
 
-/* 🎀 Header - 귀여운 로고 효과 */
+/* 🎀 Header */
 [data-theme="pink"] .brand-title {
-  background: linear-gradient(135deg, #EC4899, #F472B6, #BE185D) !important;
+  background: linear-gradient(135deg, #EC4899, #F9A8D4, #BE185D) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
   text-shadow: none !important;
 }
+[data-theme="pink"] .brand-sub { color: #C77D9E !important; }
 
-[data-theme="pink"] .brand-sub {
-  color: #D1719B !important;
-}
-
-/* 🃏 Cards - 둥글둥글 귀여운 카드 */
+/* 🧸 Cards - 곰 귀 달린 카드 */
 [data-theme="pink"] .glass-card,
 [data-theme="pink"] .word-card {
-  border-radius: 20px !important;
-  border: 2px solid #FBB6CE !important;
-  box-shadow: 
-    0 6px 24px rgba(236, 72, 153, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
-  background: linear-gradient(145deg, #FFFAFC, #FFF5F9) !important;
+  border-radius: 22px !important;
+  border: 2.5px solid #F9A8D4 !important;
+  box-shadow: 0 8px 28px rgba(236, 72, 153, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  background: linear-gradient(155deg, #FFFCFD 0%, #FFF5F9 50%, #FFF0F5 100%) !important;
   position: relative;
   overflow: visible;
 }
 
-/* 카드 상단에 하트 리본 장식 */
+/* 곰 귀 왼쪽 */
 [data-theme="pink"] .glass-card::before {
-  content: '💖';
+  content: '';
   position: absolute;
-  top: -14px; right: 16px;
-  font-size: 24px;
+  top: -14px; left: 22px;
+  width: 28px; height: 28px;
+  background: radial-gradient(circle at 50% 60%, #FFE4EF 40%, #F9A8D4 100%);
+  border-radius: 50%;
+  border: 2.5px solid #F9A8D4;
   z-index: 5;
-  animation: heartBounce 2s ease-in-out infinite;
-  filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.3));
+  box-shadow: inset 0 -3px 6px rgba(236, 72, 153, 0.15);
 }
 
-@keyframes heartBounce {
-  0%, 100% { transform: scale(1) translateY(0); }
-  50%      { transform: scale(1.15) translateY(-3px); }
+/* 곰 귀 오른쪽 */
+[data-theme="pink"] .glass-card::after {
+  content: '';
+  position: absolute;
+  top: -14px; left: 56px;
+  width: 28px; height: 28px;
+  background: radial-gradient(circle at 50% 60%, #FFE4EF 40%, #F9A8D4 100%);
+  border-radius: 50%;
+  border: 2.5px solid #F9A8D4;
+  z-index: 5;
+  box-shadow: inset 0 -3px 6px rgba(236, 72, 153, 0.15);
 }
 
-/* 🎀 Test Card 특별 스타일 */
+/* 🎀 Test Card - 곰돌이 카드 */
 [data-theme="pink"] .test-card {
-  background: linear-gradient(160deg, #FFFAFC 0%, #FFF0F7 100%) !important;
-  border: 2.5px solid #F9A8D4 !important;
+  background: linear-gradient(160deg, #FFFCFD 0%, #FFF5F9 40%, #FCE7F3 100%) !important;
+  border: 3px solid #F9A8D4 !important;
   border-radius: 28px !important;
-  box-shadow: 
-    0 10px 40px rgba(236, 72, 153, 0.15),
-    0 0 0 4px rgba(251, 182, 206, 0.15) !important;
+  box-shadow: 0 12px 40px rgba(236, 72, 153, 0.12), 0 0 0 5px rgba(249, 168, 212, 0.1), inset 0 2px 0 rgba(255, 255, 255, 0.8) !important;
+  margin-top: 20px !important;
 }
 
 [data-theme="pink"] .test-card::before {
-  content: '🎀';
-  font-size: 28px;
-  top: -16px; left: 50%;
+  content: '🧸';
+  width: auto; height: auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+  font-size: 32px;
+  top: -20px; left: 50%;
   transform: translateX(-50%);
+  animation: bearWave 3s ease-in-out infinite;
+  filter: drop-shadow(0 3px 6px rgba(236, 72, 153, 0.2));
 }
 
-/* 💕 Buttons - 하트 버튼 스타일 */
+[data-theme="pink"] .test-card::after {
+  content: '💖';
+  width: auto; height: auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+  font-size: 18px;
+  top: -10px; right: 20px; left: auto;
+  animation: heartFloat 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.2));
+}
+
+@keyframes bearWave {
+  0%, 100% { transform: translateX(-50%) rotate(-5deg) scale(1); }
+  25%      { transform: translateX(-50%) rotate(5deg) scale(1.05); }
+  50%      { transform: translateX(-50%) rotate(-3deg) scale(1.1); }
+  75%      { transform: translateX(-50%) rotate(4deg) scale(1.05); }
+}
+
+@keyframes heartFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.9; }
+  50%      { transform: translateY(-6px) scale(1.15); opacity: 1; }
+}
+
+/* 🐻 둥근 버튼 */
 [data-theme="pink"] .btn-primary {
-  background: linear-gradient(135deg, #EC4899, #F472B6) !important;
+  background: linear-gradient(135deg, #EC4899 0%, #F472B6 50%, #F9A8D4 100%) !important;
   border: none !important;
-  border-radius: 14px !important;
+  border-radius: 50px !important;
   color: #fff !important;
   font-weight: 700 !important;
-  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3) !important;
-  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   position: relative;
   overflow: hidden;
 }
 
 [data-theme="pink"] .btn-primary:hover {
-  background: linear-gradient(135deg, #DB2777, #EC4899) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4) !important;
+  background: linear-gradient(135deg, #DB2777 0%, #EC4899 50%, #F472B6 100%) !important;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.35) !important;
 }
 
 [data-theme="pink"] .btn-primary:active {
-  transform: scale(0.97) !important;
+  transform: scale(0.96) !important;
+}
+
+/* hover 시 🐾 발자국 */
+[data-theme="pink"] .btn-primary::after {
+  content: '🐾';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  font-size: 16px;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+[data-theme="pink"] .btn-primary:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
 }
 
 [data-theme="pink"] .btn-secondary {
-  border: 2px solid #FBB6CE !important;
-  background: rgba(255, 240, 245, 0.6) !important;
+  border: 2.5px solid #F9A8D4 !important;
+  background: rgba(255, 245, 249, 0.8) !important;
   color: #BE185D !important;
-  border-radius: 14px !important;
+  border-radius: 50px !important;
   font-weight: 600 !important;
 }
 
 [data-theme="pink"] .btn-secondary:hover {
-  background: #FFE4EF !important;
-  border-color: #F472B6 !important;
+  background: #FCE7F3 !important;
+  border-color: #EC4899 !important;
+  transform: translateY(-2px);
 }
 
 [data-theme="pink"] .btn-ghost {
   color: #D1719B !important;
-  border: 1.5px solid #FBB6CE !important;
-  border-radius: 12px !important;
+  border: 2px solid #FBB6CE !important;
+  border-radius: 50px !important;
 }
 
 [data-theme="pink"] .btn-ghost:hover {
-  background: #FFF0F5 !important;
+  background: #FFF5F9 !important;
 }
 
-/* 🧡 O/X 버튼 - 귀여운 파스텔 버전 */
+/* O/X 버튼 */
 [data-theme="pink"] #btn-correct.btn-ox-new.btn-o {
-  background: linear-gradient(145deg, #ECFDF5, #D1FAE5) !important;
-  border: 2.5px solid #A7F3D0 !important;
-  border-radius: 24px !important;
+  background: linear-gradient(145deg, #F0FDF4, #DCFCE7) !important;
+  border: 3px solid #86EFAC !important;
+  border-radius: 26px !important;
 }
 
 [data-theme="pink"] #btn-wrong.btn-ox-new.btn-x {
-  background: linear-gradient(145deg, #FFF0F5, #FFE4EF) !important;
-  border: 2.5px solid #FBB6CE !important;
-  border-radius: 24px !important;
+  background: linear-gradient(145deg, #FFF5F9, #FCE7F3) !important;
+  border: 3px solid #F9A8D4 !important;
+  border-radius: 26px !important;
 }
 
-/* 🏷️ Round Pill Badge */
+/* Round Pill */
 [data-theme="pink"] .round-pill {
-  background: linear-gradient(135deg, #FDF2F8, #FCE7F3) !important;
-  border: 1.5px solid #F9A8D4 !important;
+  background: linear-gradient(135deg, #FFFAFC, #FCE7F3) !important;
+  border: 2px solid #F9A8D4 !important;
   color: #BE185D !important;
-  border-radius: 20px !important;
+  border-radius: 50px !important;
   font-weight: 700 !important;
 }
 
-/* 📊 Progress Bar */
+/* Progress Bar */
 [data-theme="pink"] .progress-bar-fill,
 [data-theme="pink"] .progress-fill {
-  background: linear-gradient(90deg, #F472B6, #EC4899, #DB2777) !important;
-  border-radius: 20px !important;
+  background: linear-gradient(90deg, #F9A8D4, #EC4899, #DB2777) !important;
+  border-radius: 50px !important;
 }
 
 [data-theme="pink"] .progress-bar,
 [data-theme="pink"] .progress-bg {
   background: #FCE7F3 !important;
-  border-radius: 20px !important;
+  border-radius: 50px !important;
+  border: 1px solid #F9A8D4 !important;
 }
 
-/* 📋 Range Selection Buttons */
+/* Range Selection */
 [data-theme="pink"] .btn-range-item {
-  border: 2px solid #FBB6CE !important;
-  border-radius: 16px !important;
-  background: linear-gradient(145deg, #FFFAFC, #FFF5F9) !important;
-  transition: all 0.2s ease !important;
+  border: 2.5px solid #F9A8D4 !important;
+  border-radius: 18px !important;
+  background: linear-gradient(155deg, #FFFCFD, #FFF5F9) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 [data-theme="pink"] .btn-range-item:hover {
-  border-color: #F472B6 !important;
-  background: #FFF0F5 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15) !important;
-}
-
-[data-theme="pink"] .btn-range-item.active,
-[data-theme="pink"] .btn-range-item[aria-selected="true"] {
   border-color: #EC4899 !important;
-  background: #FDF2F8 !important;
-  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15) !important;
+  background: linear-gradient(155deg, #FFF0F5, #FCE7F3) !important;
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.12) !important;
 }
 
-/* 🏠 Tab Buttons */
+/* Tab Buttons */
 [data-theme="pink"] .tab-btn {
-  border: 2px solid #FBB6CE !important;
+  border: 2.5px solid #F9A8D4 !important;
   background: #FFFAFC !important;
-  border-radius: 14px !important;
+  border-radius: 50px !important;
   color: #BE185D !important;
   font-weight: 600 !important;
 }
 
 [data-theme="pink"] .tab-btn:hover {
   background: #FFF0F5 !important;
-  border-color: #F472B6 !important;
+  border-color: #EC4899 !important;
 }
 
 [data-theme="pink"] .tab-btn.active {
   background: linear-gradient(135deg, #EC4899, #F472B6) !important;
   color: #fff !important;
   border-color: transparent !important;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3) !important;
 }
 
-/* 📝 Input / Select */
+/* Input */
 [data-theme="pink"] input,
 [data-theme="pink"] select,
 [data-theme="pink"] textarea {
-  border: 2px solid #FBB6CE !important;
-  border-radius: 12px !important;
-  background: #FFFAFC !important;
-  color: #BE185D !important;
+  border: 2.5px solid #F9A8D4 !important;
+  border-radius: 14px !important;
+  background: #FFFCFD !important;
+  color: #9D174D !important;
 }
 
 [data-theme="pink"] input:focus,
 [data-theme="pink"] select:focus,
 [data-theme="pink"] textarea:focus {
   border-color: #EC4899 !important;
-  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15) !important;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.12) !important;
   outline: none !important;
 }
 
-[data-theme="pink"] input::placeholder {
-  color: #D1A3B5 !important;
-}
+[data-theme="pink"] input::placeholder { color: #CBA0B3 !important; }
 
-/* 🎵 Speaker Button */
+/* Speaker Button */
 [data-theme="pink"] #btn-speak-again {
-  background: linear-gradient(145deg, #FFF0F5, #FCE7F3) !important;
-  border: 2.5px solid #F9A8D4 !important;
-  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.18) !important;
+  background: linear-gradient(145deg, #FFFAFC, #FCE7F3) !important;
+  border: 3px solid #F9A8D4 !important;
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.15) !important;
 }
 
 [data-theme="pink"] #btn-speak-again:hover {
   background: #FCE7F3 !important;
   border-color: #EC4899 !important;
+  transform: scale(1.1) !important;
 }
 
-/* 📱 Dictation Mode Buttons */
+/* Dictation Buttons */
 [data-theme="pink"] .btn-dictation-red {
-  background: rgba(236, 72, 153, 0.06) !important;
-  border: 2px solid rgba(236, 72, 153, 0.3) !important;
+  background: rgba(236, 72, 153, 0.05) !important;
+  border: 2.5px solid rgba(236, 72, 153, 0.25) !important;
   color: #BE185D !important;
-  border-radius: 14px !important;
+  border-radius: 16px !important;
 }
 
 [data-theme="pink"] .btn-dictation-red:hover {
-  background: rgba(236, 72, 153, 0.12) !important;
+  background: rgba(236, 72, 153, 0.1) !important;
   border-color: #EC4899 !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15) !important;
 }
 
 [data-theme="pink"] .btn-dictation-blue {
-  background: rgba(139, 92, 246, 0.06) !important;
-  border: 2px solid rgba(139, 92, 246, 0.3) !important;
+  background: rgba(167, 139, 250, 0.05) !important;
+  border: 2.5px solid rgba(167, 139, 250, 0.25) !important;
   color: #7C3AED !important;
-  border-radius: 14px !important;
+  border-radius: 16px !important;
 }
 
 [data-theme="pink"] .btn-dictation-blue:hover {
-  background: rgba(139, 92, 246, 0.12) !important;
-  border-color: #8B5CF6 !important;
+  background: rgba(167, 139, 250, 0.1) !important;
+  border-color: #A78BFA !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15) !important;
 }
 
-/* 🧹 Dictation Section Title */
-[data-theme="pink"] .dictation-section-title {
-  color: #BE185D !important;
-}
+[data-theme="pink"] .dictation-section-title { color: #BE185D !important; }
 
-/* ⚙️ Settings Dropdown */
+/* Settings Dropdown */
 [data-theme="pink"] #settings-dropdown {
-  border: 2px solid #FBB6CE !important;
-  border-radius: 18px !important;
-  background: rgba(255, 250, 252, 0.97) !important;
-  box-shadow: 0 12px 36px rgba(236, 72, 153, 0.15) !important;
-}
-
-/* 📊 Result Table */
-[data-theme="pink"] .result-table th {
-  color: #BE185D !important;
-}
-
-[data-theme="pink"] .result-table td {
-  border-bottom: 1px solid #FCE7F3 !important;
-}
-
-/* 🎉 Final View */
-[data-theme="pink"] .trophy-anim {
-  filter: drop-shadow(0 4px 12px rgba(236, 72, 153, 0.3));
-}
-
-/* 📱 PWA Modal */
-[data-theme="pink"] .pwa-modal-content {
-  border: 2px solid #FBB6CE !important;
+  border: 2.5px solid #F9A8D4 !important;
   border-radius: 22px !important;
-  background: linear-gradient(160deg, #FFFAFC, #FFF5F9) !important;
+  background: rgba(255, 252, 253, 0.98) !important;
+  box-shadow: 0 14px 40px rgba(236, 72, 153, 0.12) !important;
 }
 
-/* 🎀 Scrollbar */
-[data-theme="pink"] ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #F9A8D4, #F472B6) !important;
-  border-radius: 10px !important;
+/* Result Table */
+[data-theme="pink"] .result-table th { color: #BE185D !important; background: #FDF2F8 !important; }
+[data-theme="pink"] .result-table td { border-bottom: 1.5px solid #FCE7F3 !important; }
+[data-theme="pink"] .result-table tr:hover td { background: #FFF5F9 !important; }
+
+/* Final View */
+[data-theme="pink"] .trophy-anim { filter: drop-shadow(0 6px 16px rgba(236, 72, 153, 0.25)); }
+
+/* PWA Modal */
+[data-theme="pink"] .pwa-modal-content {
+  border: 2.5px solid #F9A8D4 !important;
+  border-radius: 26px !important;
+  background: linear-gradient(160deg, #FFFCFD, #FFF5F9, #FFF0F5) !important;
 }
 
-[data-theme="pink"] ::-webkit-scrollbar-track {
-  background: #FFF0F5 !important;
-}
+/* Scrollbar */
+[data-theme="pink"] ::-webkit-scrollbar { width: 8px !important; }
+[data-theme="pink"] ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #F9A8D4, #EC4899) !important; border-radius: 50px !important; }
+[data-theme="pink"] ::-webkit-scrollbar-track { background: #FDF2F8 !important; }
 
-/* 🌟 Boss Badge */
+/* Boss Badge */
 [data-theme="pink"] .boss-badge {
   background: linear-gradient(135deg, #EC4899, #F472B6) !important;
-  border-radius: 16px !important;
+  border-radius: 50px !important;
   box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3) !important;
 }
 
-/* 💕 Weakness Focus Button */
+/* Weakness Focus */
 [data-theme="pink"] .btn-review.weakness-focus {
-  background: linear-gradient(145deg, #FFF0F5, #FCE7F3) !important;
-  border: 2px solid #F9A8D4 !important;
+  background: linear-gradient(145deg, #FFFAFC, #FCE7F3) !important;
+  border: 2.5px solid #F9A8D4 !important;
   color: #BE185D !important;
-  border-radius: 16px !important;
+  border-radius: 18px !important;
 }
 
 [data-theme="pink"] .btn-review.weakness-focus:hover {
   background: #FCE7F3 !important;
   border-color: #EC4899 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(236, 72, 153, 0.2) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.15) !important;
 }
 
-[data-theme="pink"] .btn-review.weakness-focus .range-btn-count {
-  color: #D1719B !important;
-}
+[data-theme="pink"] .btn-review.weakness-focus .range-btn-count { color: #D1719B !important; }
 
-/* ✨ Sparkle micro-animations on hover */
-[data-theme="pink"] .btn-primary::after {
-  content: '✨';
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  pointer-events: none;
-}
+/* Headings */
+[data-theme="pink"] h2, [data-theme="pink"] h3 { color: #BE185D !important; }
 
-[data-theme="pink"] .btn-primary:hover::after {
-  opacity: 1;
-}
-
-/* 🎨 Heading decorations */
-[data-theme="pink"] h2,
-[data-theme="pink"] h3 {
-  color: #BE185D !important;
-}
-
-/* 💖 Gentle pulse on the settings button */
+/* Settings Button */
 [data-theme="pink"] #btn-settings {
-  background: rgba(251, 182, 206, 0.25) !important;
-  border: 2px solid #FBB6CE !important;
+  background: linear-gradient(135deg, rgba(252, 231, 243, 0.6), rgba(249, 168, 212, 0.3)) !important;
+  border: 2.5px solid #F9A8D4 !important;
 }
 
 [data-theme="pink"] #btn-settings:hover {
-  background: rgba(244, 114, 182, 0.2) !important;
-  transform: translateY(6px) rotate(45deg);
+  background: rgba(249, 168, 212, 0.3) !important;
+  transform: translateY(6px) rotate(45deg) scale(1.05);
 }
+
+/* Home Button */
+[data-theme="pink"] #btn-home-test { border-radius: 50px !important; border: 2px solid #F9A8D4 !important; background: #FFFAFC !important; }
+
+/* Toggle Switch */
+[data-theme="pink"] .toggle-switch .slider { background: #FBB6CE !important; }
+[data-theme="pink"] .toggle-switch input:checked + .slider { background: linear-gradient(135deg, #EC4899, #F472B6) !important; }
+
+/* hr */
+[data-theme="pink"] hr { border: none !important; height: 2px !important; background: linear-gradient(90deg, transparent, #F9A8D4, #EC4899, #F9A8D4, transparent) !important; }
+
+/* Links */
+[data-theme="pink"] a { color: #EC4899 !important; }
+[data-theme="pink"] a:hover { color: #BE185D !important; }

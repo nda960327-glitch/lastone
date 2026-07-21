@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v241'; // Style: 핑크 테마를 하트하트 귀여운 캐릭터 스킨으로 전면 리디자인
+const CACHE_NAME = 'vocabmaster-v242'; // Style: 핑크 테마를 흰곰 캐릭터 + 하트 스킨으로 전면 리디자인 (곰 귀 카드, 발자국 배경, 곰돌이 애니메이션)
 const ASSETS = [
   '/',
   '/index.html',
