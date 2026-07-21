@@ -42,10 +42,10 @@
   <section id="view-login" class="view active">
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; gap: 40px; text-align: center;">
       <!-- Logo Container -->
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-        <img src="icon.jpg" class="brand-icon-img default-logo" alt="DOACore Logo" style="width: 80px; height: 80px; cursor: default; box-shadow: var(--shadow); filter: var(--icon-filter);">
-        <div class="bear-logo" style="width: 80px; height: 80px; font-size: 48px; border-radius: 24px; cursor: default;">🧸</div>
-        <div>
+      <div id="login-logo-container" style="display: flex; flex-direction: column; align-items: center; gap: 16px; cursor: pointer; user-select: none; -webkit-user-select: none;">
+        <img src="icon.jpg" class="brand-icon-img default-logo" alt="DOACore Logo" style="width: 80px; height: 80px; box-shadow: var(--shadow); filter: var(--icon-filter); pointer-events: none;">
+        <div class="bear-logo" style="width: 80px; height: 80px; font-size: 48px; border-radius: 24px; pointer-events: none;">🧸</div>
+        <div style="pointer-events: none;">
           <h1 class="brand-title" style="margin: 0; font-size: 36px;">DOACore</h1>
           <p class="brand-sub" style="margin: 8px 0 0 0; font-size: 15px;">인지공학 기반 영단어 각인 엔진</p>
         </div>
@@ -59,6 +59,28 @@
     </div>
   </section>
 
+  <!-- 관리자 대시보드 화면 -->
+  <section id="view-admin" class="view">
+    <div style="padding: 32px; max-width: 600px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <h2 style="margin: 0; display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 24px;">👨‍🏫</span> <span id="admin-academy-name">학원 이름</span> 관리자
+        </h2>
+        <button onclick="document.getElementById('btn-logout').click();" style="background: rgba(255,255,255,0.1); border: none; padding: 8px 12px; border-radius: 8px; color: white; cursor: pointer;">나가기</button>
+      </div>
+      
+      <div class="glass-card" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: var(--text-sub);">등록 학생 수</span>
+        <strong id="admin-student-count" style="font-size: 24px; color: var(--text-main);">0명</strong>
+      </div>
+      
+      <h3 style="margin-top: 32px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">학생 목록</h3>
+      <ul id="admin-student-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+        <!-- JS로 채워짐 -->
+      </ul>
+    </div>
+  </section>
+
   <!-- ① 입력 화면 -->
   <section id="view-input" class="view">
     <header class="brand" style="position: relative; padding-top: 50px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; text-align: left; gap: 16px;">
@@ -68,7 +90,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v249</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v250</span>
           </div>
           <p class="brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
@@ -628,10 +650,9 @@
   <div id="academy-invite-modal" class="modal-overlay hidden">
     <div class="modal-content glass-card" style="max-width: 400px;">
       <div style="font-size: 24px; text-align: center; margin-bottom: 12px;">🏫 학원 등록</div>
-      <p style="text-align: center; color: var(--text-sub); font-size: 14px; margin-bottom: 24px;">단어장을 불러오기 위해 학원 초대 코드를 입력해주세요.</p>
+      <p style="text-align: center; color: var(--text-sub); font-size: 14px; margin-bottom: 24px;">단어장을 불러오기 위해 학원 초대 코드를 입력해주세요.<br><span style="font-size: 11px; color: #ff9800;">* 일반 사용자는 이용할 수 없습니다.</span></p>
       <input type="text" id="academy-invite-input" placeholder="초대 코드 입력" style="width: 100%; padding: 12px; margin-bottom: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 16px; text-align: center;" />
       <div style="display: flex; gap: 12px;">
-        <button id="btn-academy-cancel" class="btn-secondary" style="flex: 1; padding: 12px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: white;">건너뛰기</button>
         <button id="btn-academy-submit" class="btn-primary" style="flex: 1; padding: 12px;">등록하기</button>
       </div>
       <div id="academy-error-msg" style="color: #ff6b6b; font-size: 13px; text-align: center; margin-top: 12px; height: 16px;"></div>

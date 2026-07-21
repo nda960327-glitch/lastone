@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v249'; // Feature: 전용 로그인 화면 추가 및 로그아웃 시 단어장 숨김
+const CACHE_NAME = 'vocabmaster-v250'; // Feature: 관리자 대시보드 추가 및 학원 코드 입력 강제화
 const ASSETS = [
   '/',
   '/index.html',

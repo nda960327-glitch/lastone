@@ -2899,7 +2899,6 @@ let isVerticalScroll = false;
   
   const academyInviteModal = document.getElementById('academy-invite-modal');
   const btnAcademySubmit = document.getElementById('btn-academy-submit');
-  const btnAcademyCancel = document.getElementById('btn-academy-cancel');
   const academyInviteInput = document.getElementById('academy-invite-input');
   const academyErrorMsg = document.getElementById('academy-error-msg');
 
@@ -3002,11 +3001,110 @@ let isVerticalScroll = false;
     }
   }
 
-  if (btnAcademyCancel) {
-    btnAcademyCancel.onclick = () => {
-      if (academyInviteModal) academyInviteModal.classList.add('hidden');
+  // =============================================
+  // Admin Logic
+  // =============================================
+  const loginLogoContainer = document.getElementById('login-logo-container');
+  let pressTimer;
+  if (loginLogoContainer) {
+    const startPress = (e) => {
+      // Prevent default on touch to avoid selection
+      if (e.type === 'touchstart') e.preventDefault();
+      pressTimer = window.setTimeout(() => {
+        const code = prompt('관리자 코드를 입력하세요:');
+        if (code) {
+          enterAdminMode(code);
+        }
+      }, 1500);
     };
+    const cancelPress = () => {
+      clearTimeout(pressTimer);
+    };
+    loginLogoContainer.addEventListener('mousedown', startPress);
+    loginLogoContainer.addEventListener('touchstart', startPress, {passive: false});
+    loginLogoContainer.addEventListener('mouseup', cancelPress);
+    loginLogoContainer.addEventListener('mouseleave', cancelPress);
+    loginLogoContainer.addEventListener('touchend', cancelPress);
   }
+
+  async function enterAdminMode(adminCode) {
+    if (!db) {
+      alert("데이터베이스 연결 안됨");
+      return;
+    }
+    try {
+      const qs = await db.collection('academies').where('adminCode', '==', adminCode).limit(1).get();
+      if (qs.empty) {
+        alert("유효하지 않은 관리자 코드입니다.");
+        return;
+      }
+      const academyDoc = qs.docs[0];
+      const academyId = academyDoc.id;
+      const academyName = academyDoc.data().name;
+      
+      document.getElementById('admin-academy-name').textContent = academyName;
+      showView('view-admin');
+      
+      loadAdminStudents(academyId);
+    } catch (err) {
+      console.error(err);
+      alert("관리자 로그인 중 오류가 발생했습니다.");
+    }
+  }
+
+  async function loadAdminStudents(academyId) {
+    const studentList = document.getElementById('admin-student-list');
+    const studentCount = document.getElementById('admin-student-count');
+    studentList.innerHTML = '<li style="color:white;">로딩 중...</li>';
+    
+    try {
+      const qs = await db.collection('users').where('academyId', '==', academyId).get();
+      studentCount.textContent = `${qs.size}명`;
+      studentList.innerHTML = '';
+      
+      if (qs.empty) {
+        studentList.innerHTML = '<li style="color:var(--text-sub); text-align:center; padding:20px;">등록된 학생이 없습니다.</li>';
+        return;
+      }
+      
+      qs.forEach(doc => {
+        const data = doc.data();
+        const li = document.createElement('li');
+        li.style.cssText = 'background: rgba(0,0,0,0.2); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.05);';
+        
+        const infoDiv = document.createElement('div');
+        infoDiv.innerHTML = `<div style="font-size: 15px; font-weight: 600; color: white;">${esc(data.displayName || '이름 없음')}</div>
+                             <div style="font-size: 12px; color: var(--text-sub);">${esc(data.email || '')}</div>`;
+        
+        const delBtn = document.createElement('button');
+        delBtn.textContent = '삭제';
+        delBtn.style.cssText = 'background: #ff4d4f; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer;';
+        delBtn.onclick = async () => {
+          if (confirm(`${data.displayName} 학생을 학원 명단에서 삭제하시겠습니까?`)) {
+            try {
+              await db.collection('users').doc(doc.id).update({
+                academyId: null,
+                academyName: null
+              });
+              loadAdminStudents(academyId); // 리로드
+            } catch (err) {
+              console.error(err);
+              alert("학생 삭제에 실패했습니다.");
+            }
+          }
+        };
+        
+        li.appendChild(infoDiv);
+        li.appendChild(delBtn);
+        studentList.appendChild(li);
+      });
+      
+    } catch (err) {
+      console.error(err);
+      studentList.innerHTML = '<li style="color:#ff6b6b;">목록을 불러오지 못했습니다.</li>';
+    }
+  }
+
 
   async function fetchUserProfile(uid) {
     if (!db) return;
