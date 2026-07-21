@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v254'; // Fix: 학원 코드 입력 전 단어장 노출 문제 수정
+const CACHE_NAME = 'vocabmaster-v255'; // Fix: 탈퇴 후 재가입 시 화면 안 넘어가는 버그 수정
 const ASSETS = [
   '/',
   '/index.html',

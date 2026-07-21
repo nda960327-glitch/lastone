@@ -3031,6 +3031,7 @@ let isVerticalScroll = false;
             await db.collection('users').doc(currentUser.uid).set({
               academyId: academyId,
               academyName: academyName,
+              deleted: false,
               updatedAt: firebase.firestore.FieldValue.serverTimestamp()
             }, { merge: true });
             
