@@ -71,29 +71,29 @@ select option { background-color: #07071a; color: #ffffff; }
 }
 
 [data-theme="pink"] {
-  --bg-color: #FFE6EE;
-  --card-bg: #FFFFFF;
-  --text-main: #9D174D;
-  --glow-color: rgba(236, 72, 153, 0.3);
-  --btn-stroke: #FBCFE8;
-  --o-bg: #F3E8FF; /* 연보라 파스텔 */
-  --x-bg: #FFE4E6; /* 연분홍 파스텔 */
+  --bg-color: #FFF0F5;
+  --card-bg: #FFFAFC;
+  --text-main: #BE185D;
+  --glow-color: rgba(244, 114, 182, 0.35);
+  --btn-stroke: #FBB6CE;
+  --o-bg: #FFF0F7;
+  --x-bg: #FFF5F5;
   
-  /* 폴백 유지 */
-  --bg2: #ffe4e6;
-  --glass-h: rgba(255, 255, 255, 1);
-  --box-border: #fbcfe8;
-  --border-h: rgba(244, 63, 94, 0.3);
-  --dropdown-bg: rgba(255, 255, 255, 0.95);
-  --dropdown-hover: #fff1f2;
-  --input-bg: rgba(255, 255, 255, 0.7);
-  --grad-1: rgba(244, 63, 94, 0.08);
-  --grad-2: rgba(253, 164, 175, 0.08);
-  --card-shadow: 0 8px 30px rgba(244, 63, 94, 0.1);
+  --bg2: #FFE4EF;
+  --glass-h: rgba(255, 250, 252, 0.97);
+  --box-border: #FBB6CE;
+  --border-h: rgba(236, 72, 153, 0.3);
+  --dropdown-bg: rgba(255, 250, 252, 0.97);
+  --dropdown-hover: #FFF0F5;
+  --input-bg: rgba(255, 245, 250, 0.8);
+  --grad-1: rgba(244, 114, 182, 0.1);
+  --grad-2: rgba(251, 182, 206, 0.1);
+  --card-shadow: 0 8px 32px rgba(236, 72, 153, 0.12);
   --icon-filter: invert(1) hue-rotate(130deg);
-  --text-sub: #9ca3af;
-  --text3: #fda4af;
-  --primary-color: #ec4899;
+  --text-sub: #9D7A8A;
+  --text3: #F9A8C9;
+  --primary-color: #EC4899;
+  --primary-hover: #DB2777;
 }
 
 [data-theme="green"] {
@@ -1899,5 +1899,393 @@ body {
 /* Pink theme test word spelling color override (from image) */
 [data-theme="pink"] #test-word,
 [data-theme="pink"] .test-word {
-  color: #B83A64 !important;
+  color: #BE185D !important;
+}
+
+/* ============================================================
+   💖 PINK HEART THEME - 하트하트 귀여운 캐릭터 스킨
+   ============================================================ */
+
+/* 🌸 Background: 떠다니는 하트 & 반짝이 */
+[data-theme="pink"] body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(251, 182, 206, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(244, 114, 182, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 228, 239, 0.3) 0%, transparent 60%);
+}
+
+[data-theme="pink"] body::after {
+  content: '💗💕💖✨💗💕💖✨💗💕';
+  position: fixed;
+  top: -60px; left: 0; right: 0;
+  font-size: 28px;
+  letter-spacing: 50px;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatHearts 20s linear infinite;
+  opacity: 0.15;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes floatHearts {
+  0%   { transform: translateY(0) translateX(0); }
+  25%  { transform: translateY(25vh) translateX(-30px); }
+  50%  { transform: translateY(50vh) translateX(20px); }
+  75%  { transform: translateY(75vh) translateX(-10px); }
+  100% { transform: translateY(110vh) translateX(0); }
+}
+
+/* 🎀 Header - 귀여운 로고 효과 */
+[data-theme="pink"] .brand-title {
+  background: linear-gradient(135deg, #EC4899, #F472B6, #BE185D) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: none !important;
+}
+
+[data-theme="pink"] .brand-sub {
+  color: #D1719B !important;
+}
+
+/* 🃏 Cards - 둥글둥글 귀여운 카드 */
+[data-theme="pink"] .glass-card,
+[data-theme="pink"] .word-card {
+  border-radius: 20px !important;
+  border: 2px solid #FBB6CE !important;
+  box-shadow: 
+    0 6px 24px rgba(236, 72, 153, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  background: linear-gradient(145deg, #FFFAFC, #FFF5F9) !important;
+  position: relative;
+  overflow: visible;
+}
+
+/* 카드 상단에 하트 리본 장식 */
+[data-theme="pink"] .glass-card::before {
+  content: '💖';
+  position: absolute;
+  top: -14px; right: 16px;
+  font-size: 24px;
+  z-index: 5;
+  animation: heartBounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.3));
+}
+
+@keyframes heartBounce {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50%      { transform: scale(1.15) translateY(-3px); }
+}
+
+/* 🎀 Test Card 특별 스타일 */
+[data-theme="pink"] .test-card {
+  background: linear-gradient(160deg, #FFFAFC 0%, #FFF0F7 100%) !important;
+  border: 2.5px solid #F9A8D4 !important;
+  border-radius: 28px !important;
+  box-shadow: 
+    0 10px 40px rgba(236, 72, 153, 0.15),
+    0 0 0 4px rgba(251, 182, 206, 0.15) !important;
+}
+
+[data-theme="pink"] .test-card::before {
+  content: '🎀';
+  font-size: 28px;
+  top: -16px; left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 💕 Buttons - 하트 버튼 스타일 */
+[data-theme="pink"] .btn-primary {
+  background: linear-gradient(135deg, #EC4899, #F472B6) !important;
+  border: none !important;
+  border-radius: 14px !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3) !important;
+  transition: all 0.25s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="pink"] .btn-primary:hover {
+  background: linear-gradient(135deg, #DB2777, #EC4899) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4) !important;
+}
+
+[data-theme="pink"] .btn-primary:active {
+  transform: scale(0.97) !important;
+}
+
+[data-theme="pink"] .btn-secondary {
+  border: 2px solid #FBB6CE !important;
+  background: rgba(255, 240, 245, 0.6) !important;
+  color: #BE185D !important;
+  border-radius: 14px !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="pink"] .btn-secondary:hover {
+  background: #FFE4EF !important;
+  border-color: #F472B6 !important;
+}
+
+[data-theme="pink"] .btn-ghost {
+  color: #D1719B !important;
+  border: 1.5px solid #FBB6CE !important;
+  border-radius: 12px !important;
+}
+
+[data-theme="pink"] .btn-ghost:hover {
+  background: #FFF0F5 !important;
+}
+
+/* 🧡 O/X 버튼 - 귀여운 파스텔 버전 */
+[data-theme="pink"] #btn-correct.btn-ox-new.btn-o {
+  background: linear-gradient(145deg, #ECFDF5, #D1FAE5) !important;
+  border: 2.5px solid #A7F3D0 !important;
+  border-radius: 24px !important;
+}
+
+[data-theme="pink"] #btn-wrong.btn-ox-new.btn-x {
+  background: linear-gradient(145deg, #FFF0F5, #FFE4EF) !important;
+  border: 2.5px solid #FBB6CE !important;
+  border-radius: 24px !important;
+}
+
+/* 🏷️ Round Pill Badge */
+[data-theme="pink"] .round-pill {
+  background: linear-gradient(135deg, #FDF2F8, #FCE7F3) !important;
+  border: 1.5px solid #F9A8D4 !important;
+  color: #BE185D !important;
+  border-radius: 20px !important;
+  font-weight: 700 !important;
+}
+
+/* 📊 Progress Bar */
+[data-theme="pink"] .progress-bar-fill,
+[data-theme="pink"] .progress-fill {
+  background: linear-gradient(90deg, #F472B6, #EC4899, #DB2777) !important;
+  border-radius: 20px !important;
+}
+
+[data-theme="pink"] .progress-bar,
+[data-theme="pink"] .progress-bg {
+  background: #FCE7F3 !important;
+  border-radius: 20px !important;
+}
+
+/* 📋 Range Selection Buttons */
+[data-theme="pink"] .btn-range-item {
+  border: 2px solid #FBB6CE !important;
+  border-radius: 16px !important;
+  background: linear-gradient(145deg, #FFFAFC, #FFF5F9) !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-theme="pink"] .btn-range-item:hover {
+  border-color: #F472B6 !important;
+  background: #FFF0F5 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15) !important;
+}
+
+[data-theme="pink"] .btn-range-item.active,
+[data-theme="pink"] .btn-range-item[aria-selected="true"] {
+  border-color: #EC4899 !important;
+  background: #FDF2F8 !important;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15) !important;
+}
+
+/* 🏠 Tab Buttons */
+[data-theme="pink"] .tab-btn {
+  border: 2px solid #FBB6CE !important;
+  background: #FFFAFC !important;
+  border-radius: 14px !important;
+  color: #BE185D !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="pink"] .tab-btn:hover {
+  background: #FFF0F5 !important;
+  border-color: #F472B6 !important;
+}
+
+[data-theme="pink"] .tab-btn.active {
+  background: linear-gradient(135deg, #EC4899, #F472B6) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+/* 📝 Input / Select */
+[data-theme="pink"] input,
+[data-theme="pink"] select,
+[data-theme="pink"] textarea {
+  border: 2px solid #FBB6CE !important;
+  border-radius: 12px !important;
+  background: #FFFAFC !important;
+  color: #BE185D !important;
+}
+
+[data-theme="pink"] input:focus,
+[data-theme="pink"] select:focus,
+[data-theme="pink"] textarea:focus {
+  border-color: #EC4899 !important;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15) !important;
+  outline: none !important;
+}
+
+[data-theme="pink"] input::placeholder {
+  color: #D1A3B5 !important;
+}
+
+/* 🎵 Speaker Button */
+[data-theme="pink"] #btn-speak-again {
+  background: linear-gradient(145deg, #FFF0F5, #FCE7F3) !important;
+  border: 2.5px solid #F9A8D4 !important;
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.18) !important;
+}
+
+[data-theme="pink"] #btn-speak-again:hover {
+  background: #FCE7F3 !important;
+  border-color: #EC4899 !important;
+}
+
+/* 📱 Dictation Mode Buttons */
+[data-theme="pink"] .btn-dictation-red {
+  background: rgba(236, 72, 153, 0.06) !important;
+  border: 2px solid rgba(236, 72, 153, 0.3) !important;
+  color: #BE185D !important;
+  border-radius: 14px !important;
+}
+
+[data-theme="pink"] .btn-dictation-red:hover {
+  background: rgba(236, 72, 153, 0.12) !important;
+  border-color: #EC4899 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15) !important;
+}
+
+[data-theme="pink"] .btn-dictation-blue {
+  background: rgba(139, 92, 246, 0.06) !important;
+  border: 2px solid rgba(139, 92, 246, 0.3) !important;
+  color: #7C3AED !important;
+  border-radius: 14px !important;
+}
+
+[data-theme="pink"] .btn-dictation-blue:hover {
+  background: rgba(139, 92, 246, 0.12) !important;
+  border-color: #8B5CF6 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15) !important;
+}
+
+/* 🧹 Dictation Section Title */
+[data-theme="pink"] .dictation-section-title {
+  color: #BE185D !important;
+}
+
+/* ⚙️ Settings Dropdown */
+[data-theme="pink"] #settings-dropdown {
+  border: 2px solid #FBB6CE !important;
+  border-radius: 18px !important;
+  background: rgba(255, 250, 252, 0.97) !important;
+  box-shadow: 0 12px 36px rgba(236, 72, 153, 0.15) !important;
+}
+
+/* 📊 Result Table */
+[data-theme="pink"] .result-table th {
+  color: #BE185D !important;
+}
+
+[data-theme="pink"] .result-table td {
+  border-bottom: 1px solid #FCE7F3 !important;
+}
+
+/* 🎉 Final View */
+[data-theme="pink"] .trophy-anim {
+  filter: drop-shadow(0 4px 12px rgba(236, 72, 153, 0.3));
+}
+
+/* 📱 PWA Modal */
+[data-theme="pink"] .pwa-modal-content {
+  border: 2px solid #FBB6CE !important;
+  border-radius: 22px !important;
+  background: linear-gradient(160deg, #FFFAFC, #FFF5F9) !important;
+}
+
+/* 🎀 Scrollbar */
+[data-theme="pink"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #F9A8D4, #F472B6) !important;
+  border-radius: 10px !important;
+}
+
+[data-theme="pink"] ::-webkit-scrollbar-track {
+  background: #FFF0F5 !important;
+}
+
+/* 🌟 Boss Badge */
+[data-theme="pink"] .boss-badge {
+  background: linear-gradient(135deg, #EC4899, #F472B6) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3) !important;
+}
+
+/* 💕 Weakness Focus Button */
+[data-theme="pink"] .btn-review.weakness-focus {
+  background: linear-gradient(145deg, #FFF0F5, #FCE7F3) !important;
+  border: 2px solid #F9A8D4 !important;
+  color: #BE185D !important;
+  border-radius: 16px !important;
+}
+
+[data-theme="pink"] .btn-review.weakness-focus:hover {
+  background: #FCE7F3 !important;
+  border-color: #EC4899 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(236, 72, 153, 0.2) !important;
+}
+
+[data-theme="pink"] .btn-review.weakness-focus .range-btn-count {
+  color: #D1719B !important;
+}
+
+/* ✨ Sparkle micro-animations on hover */
+[data-theme="pink"] .btn-primary::after {
+  content: '✨';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+[data-theme="pink"] .btn-primary:hover::after {
+  opacity: 1;
+}
+
+/* 🎨 Heading decorations */
+[data-theme="pink"] h2,
+[data-theme="pink"] h3 {
+  color: #BE185D !important;
+}
+
+/* 💖 Gentle pulse on the settings button */
+[data-theme="pink"] #btn-settings {
+  background: rgba(251, 182, 206, 0.25) !important;
+  border: 2px solid #FBB6CE !important;
+}
+
+[data-theme="pink"] #btn-settings:hover {
+  background: rgba(244, 114, 182, 0.2) !important;
+  transform: translateY(6px) rotate(45deg);
 }

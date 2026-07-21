@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v240'; // Style: 구글 로그인/로그아웃 버튼 설정 모달 내부로 이동
+const CACHE_NAME = 'vocabmaster-v241'; // Style: 핑크 테마를 하트하트 귀여운 캐릭터 스킨으로 전면 리디자인
 const ASSETS = [
   '/',
   '/index.html',
