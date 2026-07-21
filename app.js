@@ -3047,6 +3047,17 @@ let isVerticalScroll = false;
         }
         btnAcademySubmit.disabled = false;
       };
+
+      const btnAcademySkip = document.getElementById('btn-academy-skip');
+      if (btnAcademySkip) {
+        btnAcademySkip.onclick = () => {
+          academyInviteModal.classList.add('hidden');
+          currentAcademyId = null;
+          if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록(기본 단어장)";
+          showView('view-input');
+          loadDBList();
+        };
+      }
     }
   }
 

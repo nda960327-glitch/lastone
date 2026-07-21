@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v257'; // Feature: 관리자 화면에서 학생 등록 코드 변경 기능 추가
+const CACHE_NAME = 'vocabmaster-v258'; // Feature: 학원 등록 모달에 건너뛰기 버튼 추가
 const ASSETS = [
   '/',
   '/index.html',
