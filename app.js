@@ -2,6 +2,47 @@
 // VocabMaster — app.js
 // =============================================
 
+// --- Firebase Configuration ---
+const firebaseConfig = {
+  apiKey: "AIzaSyAeLZog0wbtVULUAq2RfyHwiADqQtOfXig",
+  authDomain: "doacore.firebaseapp.com",
+  projectId: "doacore",
+  storageBucket: "doacore.firebasestorage.app",
+  messagingSenderId: "760005417553",
+  appId: "1:760005417553:web:5a38511bc12fd4b531b670",
+  measurementId: "G-PGN0N4686E"
+};
+
+// Initialize Firebase
+if (typeof firebase !== 'undefined') {
+  firebase.initializeApp(firebaseConfig);
+  // Enable offline persistence
+  firebase.firestore().enablePersistence().catch(function(err) {
+    if (err.code == 'failed-precondition') {
+      console.warn("Multiple tabs open, persistence can only be enabled in one tab at a a time.");
+    } else if (err.code == 'unimplemented') {
+      console.warn("The current browser does not support all of the features required to enable persistence");
+    }
+  });
+}
+const db = typeof firebase !== 'undefined' ? firebase.firestore() : null;
+const auth = typeof firebase !== 'undefined' ? firebase.auth() : null;
+
+// Global Auth State
+let currentUser = null;
+let currentAcademyId = null; // null means not assigned yet
+
+// Sync Helper
+function setProgressSync(key, value) {
+  localStorage.setItem(key, value);
+  if (currentUser && db) {
+    db.collection('users').doc(currentUser.uid).collection('progress').doc(key).set({
+      value: value,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }).catch(err => console.error("Sync up failed", err));
+  }
+}
+
 // ---- 예시 데이터 (기초 영단어 day1 전체) ----
 const EXAMPLE_WORDS = `skill [n] 기술
 cash [n] 현금
@@ -268,7 +309,7 @@ function populateDaySelector() {
     currentDay = sortedDays[0];
   }
   daySelector.value = currentDay;
-  localStorage.setItem('saved_day', currentDay);
+  setProgressSync('saved_day', currentDay);
 }
 
 function getFilteredWords() {
@@ -316,7 +357,7 @@ function recordProgress(status) {
   try {
     let progress = JSON.parse(localStorage.getItem('vocab_progress') || '{}');
     progress[key] = status;
-    localStorage.setItem('vocab_progress', JSON.stringify(progress));
+    setProgressSync('vocab_progress', JSON.stringify(progress));
   } catch(e) {
     console.warn('진척도 저장 실패:', e);
   }
@@ -337,7 +378,7 @@ function saveWordStates() {
     const wordKey = `${w.originalIndex}_${w.word}`;
     states[wordKey] = { passed: w.passed, attempts: w.attempts };
   });
-  localStorage.setItem(key, JSON.stringify(states));
+  setProgressSync(key, JSON.stringify(states));
 }
 
 // localStorage에서 단어 상태를 복원하여 words 배열에 적용
@@ -480,7 +521,7 @@ function initInputView() {
       if (!e.target.value) return;
       const val = e.target.value;
       currentDay = isNaN(val) ? val : parseInt(val, 10);
-      localStorage.setItem('saved_day', currentDay);
+      setProgressSync('saved_day', currentDay);
       App.currentDBName = `${currentCategory}_day${currentDay}`;
       updateDictationBtnText();
       updateCount();
@@ -489,7 +530,7 @@ function initInputView() {
 
   function switchTab(catName) {
     currentCategory = catName;
-    localStorage.setItem('saved_category', catName);
+    setProgressSync('saved_category', catName);
     [tabToefl, tabBasic, tabCustomUpload, tabCustomManual].forEach(t => {
       if (t) {
         t.classList.remove('active');
@@ -791,7 +832,7 @@ function initInputView() {
       try {
         const customWords = JSON.parse(localStorage.getItem('doacore_custom_words') || '[]');
         customWords.push(newWord);
-        localStorage.setItem('doacore_custom_words', JSON.stringify(customWords));
+        setProgressSync('doacore_custom_words', JSON.stringify(customWords));
         
         words.push(newWord);
         App.allWords = words.slice();
@@ -853,7 +894,7 @@ function initInputView() {
         try {
           const uploadWords = JSON.parse(localStorage.getItem('doacore_upload_words') || '[]');
           uploadWords.push(...newWords);
-          localStorage.setItem('doacore_upload_words', JSON.stringify(uploadWords));
+          setProgressSync('doacore_upload_words', JSON.stringify(uploadWords));
           words.push(...newWords);
           App.allWords = words.slice();
           alert(`파일에서 ${newWords.length}개의 단어가 성공적으로 '내가 추가한 단어장'에 추가되었습니다!`);
@@ -1100,7 +1141,7 @@ function initInputView() {
 
 // 로컬 저장소 기반 단어 리스트 로드 및 구버전 데이터 강제 마이그레이션
 const DEFAULT_DATABASES = {};
-function loadDBList(textarea) {
+async function loadDBList(textarea) {
   const statusEl = document.getElementById('worddb-status');
   
   // 마이그레이션 버전 5 키를 검사하여 신규 데이터셋(Day 1 ~ Day 4, 토플 Day 1) 강제 동기화
@@ -1115,7 +1156,7 @@ function loadDBList(textarea) {
     localStorage.setItem('vocab_db_version_5', 'true');
   }
 
-  // 최초 로드 또는 마이그레이션 리셋 시 기본 단어 세트 저장소에 등록
+  // 최초 로드 시 기본 단어 세트 저장소에 등록
   if (!localStorage.getItem('vocab_db_initialized')) {
     for (const [title, content] of Object.entries(DEFAULT_DATABASES)) {
       localStorage.setItem(`vocab_file_${title}`, content);
@@ -1123,8 +1164,30 @@ function loadDBList(textarea) {
     localStorage.setItem('vocab_db_initialized', 'true');
   }
 
+  // 학원 단어장 로드
+  if (currentUser && currentAcademyId && db) {
+    if (statusEl) {
+      statusEl.innerHTML = `ℹ️ <b>학원 단어장 동기화 중...</b>`;
+      statusEl.style.color = '#3b82f6';
+    }
+    const cacheKey = `academy_vocab_fetched_${currentAcademyId}`;
+    if (!localStorage.getItem(cacheKey)) {
+      try {
+        const qs = await db.collection('academies').doc(currentAcademyId).collection('vocabularies').get();
+        if (!qs.empty) {
+          qs.forEach(doc => {
+            localStorage.setItem(`vocab_file_${doc.id}`, doc.data().content);
+          });
+        }
+        localStorage.setItem(cacheKey, 'true');
+      } catch(err) {
+        console.error('Failed to fetch academy vocabs', err);
+      }
+    }
+  }
+
   if (statusEl) {
-    statusEl.innerHTML = 'ℹ️ <b>웹 보관함 단어장</b>';
+    statusEl.innerHTML = currentAcademyId ? `ℹ️ <b>${userAcademyDisplay?.textContent?.split(': ')[1] || '학원'} 단어장</b>` : 'ℹ️ <b>웹 보관함 단어장</b>';
     statusEl.style.color = 'var(--text-sub)';
   }
 
@@ -1727,7 +1790,7 @@ if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display =
         wordObj.attempts++;
         let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
         failData[wordObj.word] = (failData[wordObj.word] || 0) + 1;
-        localStorage.setItem('doacore_total_fails', JSON.stringify(failData));
+        setProgressSync('doacore_total_fails', JSON.stringify(failData));
         wordObj.totalFails = failData[wordObj.word];
         wordObj.passed = false;
         wordObj._alreadyGraded = true;
@@ -1798,7 +1861,7 @@ if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display =
           wordObj.attempts++;
           let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
           failData[wordObj.word] = (failData[wordObj.word] || 0) + 1;
-          localStorage.setItem('doacore_total_fails', JSON.stringify(failData));
+          setProgressSync('doacore_total_fails', JSON.stringify(failData));
           wordObj.totalFails = failData[wordObj.word];
           saveWordStates();
         }
@@ -1815,7 +1878,7 @@ if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display =
             // X -> O 로 수정 (실수로 틀렸다고 한 경우)
             wordObj.totalFails = Math.max(0, (failData[wordObj.word] || 0) - 1);
             failData[wordObj.word] = wordObj.totalFails;
-            localStorage.setItem('doacore_total_fails', JSON.stringify(failData));
+            setProgressSync('doacore_total_fails', JSON.stringify(failData));
             
             wordObj.userChoice = 'O';
             wordObj.passed = true;
@@ -1826,7 +1889,7 @@ if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display =
           } else if (result === 'X' && wordObj.userChoice === 'O') {
             // O -> X 로 수정 (실수로 맞췄다고 한 경우)
             failData[wordObj.word] = (failData[wordObj.word] || 0) + 1;
-            localStorage.setItem('doacore_total_fails', JSON.stringify(failData));
+            setProgressSync('doacore_total_fails', JSON.stringify(failData));
             wordObj.totalFails = failData[wordObj.word];
             
             wordObj.userChoice = 'X';
@@ -2170,7 +2233,7 @@ function saveProgress() {
     phase: App.phase,
     currentTestIndex: App.currentTestIndex
   };
-  localStorage.setItem('vocab_trainer_progress', JSON.stringify(data));
+  setProgressSync('vocab_trainer_progress', JSON.stringify(data));
 }
 
 function clearProgress() {
@@ -2623,7 +2686,7 @@ let isVerticalScroll = false;
           delete progress[key];
         }
       });
-      localStorage.setItem('vocab_progress', JSON.stringify(progress));
+      setProgressSync('vocab_progress', JSON.stringify(progress));
 
       // 2. vocab_word_states_ 키 제거
       const keysToRemove = [];
@@ -2642,7 +2705,7 @@ let isVerticalScroll = false;
           delete failData[key];
         }
       });
-      localStorage.setItem('doacore_total_fails', JSON.stringify(failData));
+      setProgressSync('doacore_total_fails', JSON.stringify(failData));
     }
 
     if (btnResetStudyCat && selectResetStudyCat) {
@@ -2821,5 +2884,144 @@ let isVerticalScroll = false;
 
   if (btnWrongWordsClose) btnWrongWordsClose.onclick = () => modalWrongWords.classList.add('hidden');
   if (btnWrongWordsOk) btnWrongWordsOk.onclick = () => modalWrongWords.classList.add('hidden');
+
+  // =============================================
+  // Firebase Auth & Academy Logic
+  // =============================================
+  const btnLoginGoogle = document.getElementById('btn-login-google');
+  const btnLogout = document.getElementById('btn-logout');
+  const authContainer = document.getElementById('auth-container');
+  const userProfileUI = document.getElementById('user-profile-ui');
+  const userAvatar = document.getElementById('user-avatar');
+  const userNameDisplay = document.getElementById('user-name-display');
+  const userAcademyDisplay = document.getElementById('user-academy-display');
+  
+  const academyInviteModal = document.getElementById('academy-invite-modal');
+  const btnAcademySubmit = document.getElementById('btn-academy-submit');
+  const academyInviteInput = document.getElementById('academy-invite-input');
+  const academyErrorMsg = document.getElementById('academy-error-msg');
+
+  if (auth) {
+    auth.onAuthStateChanged(async (user) => {
+      currentUser = user;
+      if (user) {
+        // Logged in
+        if (btnLoginGoogle) btnLoginGoogle.style.display = 'none';
+        if (userProfileUI) userProfileUI.classList.remove('hidden');
+        if (userAvatar) userAvatar.src = user.photoURL || '';
+        if (userNameDisplay) userNameDisplay.textContent = user.displayName || 'User';
+        
+        // Fetch User Profile from Firestore
+        await fetchUserProfile(user.uid);
+      } else {
+        // Logged out
+        currentAcademyId = null;
+        if (btnLoginGoogle) btnLoginGoogle.style.display = 'flex';
+        if (userProfileUI) userProfileUI.classList.add('hidden');
+        if (academyInviteModal) academyInviteModal.classList.add('hidden');
+        loadDBList(); // Load default local DB list
+      }
+    });
+
+    if (btnLoginGoogle) {
+      btnLoginGoogle.onclick = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider).catch(err => {
+          console.error("Login failed", err);
+          alert("로그인에 실패했습니다: " + err.message);
+        });
+      };
+    }
+
+    if (btnLogout) {
+      btnLogout.onclick = () => {
+        if (confirm("로그아웃 하시겠습니까?")) {
+          auth.signOut();
+        }
+      };
+    }
+
+    if (btnAcademySubmit) {
+      btnAcademySubmit.onclick = async () => {
+        const code = academyInviteInput.value.trim();
+        if (!code) return;
+        btnAcademySubmit.disabled = true;
+        academyErrorMsg.textContent = "확인 중...";
+        try {
+          // academies 컬렉션에서 초대 코드 검증
+          const qs = await db.collection('academies').where('inviteCode', '==', code).limit(1).get();
+          if (qs.empty) {
+            academyErrorMsg.textContent = "유효하지 않은 초대 코드입니다.";
+          } else {
+            const academyDoc = qs.docs[0];
+            const academyId = academyDoc.id;
+            const academyName = academyDoc.data().name;
+            
+            // 유저 프로필에 저장
+            await db.collection('users').doc(currentUser.uid).set({
+              academyId: academyId,
+              academyName: academyName,
+              updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            }, { merge: true });
+            
+            academyInviteModal.classList.add('hidden');
+            alert(`🎉 ${academyName}에 성공적으로 등록되었습니다!`);
+            await fetchUserProfile(currentUser.uid);
+          }
+        } catch (err) {
+          console.error(err);
+          academyErrorMsg.textContent = "오류가 발생했습니다.";
+        }
+        btnAcademySubmit.disabled = false;
+      };
+    }
+  }
+
+  async function fetchUserProfile(uid) {
+    if (!db) return;
+    try {
+      const userDoc = await db.collection('users').doc(uid).get();
+      
+      // Sync down progress data first
+      try {
+        const progressQs = await db.collection('users').doc(uid).collection('progress').get();
+        let isUpdated = false;
+        progressQs.forEach(doc => {
+          const oldVal = localStorage.getItem(doc.id);
+          const newVal = doc.data().value;
+          if (oldVal !== newVal) {
+            localStorage.setItem(doc.id, newVal);
+            isUpdated = true;
+          }
+        });
+        if (isUpdated) {
+          console.log("Firestore progress synced down to local. Reloading to apply changes...");
+          window.location.reload();
+          return;
+        }
+        console.log("Firestore progress is up-to-date with local.");
+      } catch (e) {
+        console.error("Progress sync failed", e);
+      }
+
+      if (userDoc.exists && userDoc.data().academyId) {
+        const data = userDoc.data();
+        currentAcademyId = data.academyId;
+        if (userAcademyDisplay) userAcademyDisplay.textContent = `소속: ${data.academyName || currentAcademyId}`;
+        
+        // 학원 소속인 경우 해당 학원 전용 단어장을 로드 (TODO: load from Firestore)
+        loadDBList(); 
+        
+      } else {
+        // 학원 등록 안 됨 -> 모달 띄우기
+        currentAcademyId = null;
+        if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록";
+        if (academyInviteModal) academyInviteModal.classList.remove('hidden');
+        loadDBList(); // 빈 화면 방지
+      }
+    } catch (err) {
+      console.error("Failed to fetch user profile", err);
+    }
+  }
 
  })();

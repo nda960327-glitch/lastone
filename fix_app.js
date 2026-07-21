@@ -1,49 +1,27 @@
 const fs = require('fs');
 
-function fixAppJs() {
-  let js = fs.readFileSync('app.js', 'utf8');
+let js = fs.readFileSync('app.js', 'utf8');
+const search = `            <td style="padding: 10px 8px; text-align: center; white-space: nowrap;">
+              <button class="btn-ghost btn-word-edit" style="padding: 4px 6px; color: #3b82f6; font-size: 13px; border-color: rgba(59,130,246,0.3); margin-right: 4px;">수정</button>
+              <button class="btn-ghost btn-word-delete" style="padding: 4px 6px; color: #f43f5e; font-size: 13px; border-color: rgba(244,63,94,0.3);">삭제</button>
+            </td>`;
+const searchR = search.replace(/\n/g, '\r\n');
 
-  // Fix inline colors
-  js = js.replace(/color:\s*['"]#ffffff['"]/gi, "color: 'var(--text1)'");
-  js = js.replace(/color:\s*['"]#fff(?:fff)?['"]/gi, "color: 'var(--text1)'");
-  js = js.replace(/color:\s*['"]white['"]/gi, "color: 'var(--text1)'");
+const replace = `            <td style="padding: 10px 8px; text-align: center; white-space: nowrap;">
+              <div class="manage-btn-container">
+                <button class="btn-ghost btn-word-edit" style="padding: 4px 6px; color: #3b82f6; font-size: 13px; border-color: rgba(59,130,246,0.3);">수정</button>
+                <button class="btn-ghost btn-word-delete" style="padding: 4px 6px; color: #f43f5e; font-size: 13px; border-color: rgba(244,63,94,0.3);">삭제</button>
+              </div>
+            </td>`;
 
-  // Add reset logic
-  const resetLogic = `
-  const btnResetProgress = document.getElementById('btn-reset-progress');
-  if (btnResetProgress) {
-    btnResetProgress.addEventListener('click', async (e) => {
-      e.stopPropagation();
-      const confirmReset = confirm('정말로 모든 학습 기록(진행도, 오답 등)을 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.');
-      if (confirmReset) {
-        try {
-          if (typeof clearProgressIDB === 'function') await clearProgressIDB();
-          if (App && App.words) {
-            App.words.forEach(w => {
-              w.passed = 0;
-              w.attempts = 0;
-            });
-            if (typeof saveWordStatesIDB === 'function') await saveWordStatesIDB();
-          }
-          App.testPool = [];
-          alert('학습 기록이 성공적으로 초기화되었습니다.');
-          location.reload();
-        } catch (error) {
-          console.error('초기화 중 오류 발생:', error);
-          alert('초기화 중 오류가 발생했습니다.');
-        }
-      }
-    });
-  }
-`;
-
-  // Insert reset logic at the end of the IIFE for settings
-  if (js.includes('btnSettings.addEventListener') && !js.includes('btn-reset-progress')) {
-    js = js.replace(/\}\)\(\);\s*\(function\(\) \{\s*const themeBtns/m, resetLogic + '\n})();\n\n(function() { \n  const themeBtns');
-  }
-
-  fs.writeFileSync('app.js', js, 'utf8');
+if (js.includes(search)) {
+  js = js.replace(search, replace);
+  console.log('Replaced LF');
+} else if (js.includes(searchR)) {
+  js = js.replace(searchR, replace.replace(/\n/g, '\r\n'));
+  console.log('Replaced CRLF');
+} else {
+  console.log('Pattern not found');
 }
 
-fixAppJs();
-console.log('Fixed app.js');
+fs.writeFileSync('app.js', js);

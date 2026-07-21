@@ -14,6 +14,13 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="icon.jpg">
+  
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 </head>
 <body>
   <!-- 글로벌 스탬프 -->
@@ -31,15 +38,33 @@
 
   <!-- ① 입력 화면 -->
   <section id="view-input" class="view active">
-    <header class="brand" style="position: relative; padding-top: 50px; display: flex; flex-direction: row; align-items: center; justify-content: flex-start; text-align: left; gap: 16px;">
-      <img src="icon.jpg" class="brand-icon-img" alt="DOACore Logo" id="btn-main-logo" style="cursor: pointer; flex-shrink: 0;">
-      <div>
-        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
-          <h1 class="brand-title" style="margin: 0;">DOACore</h1>
-          <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v238</span>
+    <header class="brand" style="position: relative; padding-top: 50px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; text-align: left; gap: 16px;">
+      <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
+        <img src="icon.jpg" class="brand-icon-img" alt="DOACore Logo" id="btn-main-logo" style="cursor: pointer; flex-shrink: 0;">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
+            <h1 class="brand-title" style="margin: 0;">DOACore</h1>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v239</span>
+          </div>
+          <p class="brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
-        <p class="brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
       </div>
+      <!-- Auth UI -->
+      <div id="auth-container" style="display: flex; align-items: center; gap: 8px;">
+        <button id="btn-login-google" class="btn-primary" style="padding: 6px 12px; font-size: 13px; display: flex; align-items: center; gap: 6px; background: #fff; color: #333; border: 1px solid #ddd;">
+          <svg viewBox="0 0 48 48" width="16" height="16"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          Google 로그인
+        </button>
+        <div id="user-profile-ui" class="hidden" style="display: flex; flex-direction: column; align-items: flex-end;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <img id="user-avatar" src="" alt="avatar" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;">
+            <span id="user-name-display" style="font-size: 13px; font-weight: 600; color: var(--text-main);">User</span>
+            <button id="btn-logout" style="background: transparent; border: none; color: var(--text-sub); font-size: 11px; cursor: pointer; text-decoration: underline;">로그아웃</button>
+          </div>
+          <span id="user-academy-display" style="font-size: 11px; color: var(--text-sub); margin-top: 2px;">학원: 미등록</span>
+        </div>
+      </div>
+    </header>
       <!-- 스와이프 모드 토글 (상단 배치) -->
             <!-- 설정 버튼 -->
       <button id="btn-settings" style="position: absolute; right: 0; top: 0; background: rgba(255,255,255,0.08); width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); cursor: pointer; color: var(--text-main); font-size: 20px; display: flex; align-items: center; justify-content: center; z-index: 100; pointer-events: auto; transform: translateY(6px);" title="설정">
@@ -564,6 +589,19 @@
         </div>
       </div>
       <button id="btn-format-guide-ok" class="btn-primary" style="width: 100%; margin-top: 20px; padding: 10px;">닫기</button>
+    </div>
+  </div>
+
+  <!-- 학원 초대 코드 입력 모달 -->
+  <div id="academy-invite-modal" class="modal-overlay hidden">
+    <div class="modal-content glass-card" style="max-width: 400px;">
+      <div style="font-size: 24px; text-align: center; margin-bottom: 12px;">🏫 학원 등록</div>
+      <p style="text-align: center; color: var(--text-sub); font-size: 14px; margin-bottom: 24px;">단어장을 불러오기 위해 학원 초대 코드를 입력해주세요.</p>
+      <input type="text" id="academy-invite-input" placeholder="초대 코드 입력" style="width: 100%; padding: 12px; margin-bottom: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 16px; text-align: center;" />
+      <div style="display: flex; gap: 12px;">
+        <button id="btn-academy-submit" class="btn-primary" style="flex: 1; padding: 12px;">등록하기</button>
+      </div>
+      <div id="academy-error-msg" style="color: #ff6b6b; font-size: 13px; text-align: center; margin-top: 12px; height: 16px;"></div>
     </div>
   </div>
 
