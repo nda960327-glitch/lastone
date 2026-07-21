@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v239'; // Feat: 구글 로그인 연동 및 Firebase 기반 학원 초대코드 시스템, 다중 기기 동기화 적용
+const CACHE_NAME = 'vocabmaster-v240'; // Style: 구글 로그인/로그아웃 버튼 설정 모달 내부로 이동
 const ASSETS = [
   '/',
   '/index.html',
