@@ -2960,7 +2960,33 @@ let isVerticalScroll = false;
     if (btnLogout) {
       btnLogout.onclick = () => {
         if (confirm("로그아웃 하시겠습니까?")) {
-          auth.signOut();
+          auth.signOut().then(() => {
+            showView('view-login');
+          });
+        }
+      };
+    }
+
+    const btnDeleteAccount = document.getElementById('btn-delete-account');
+    if (btnDeleteAccount) {
+      btnDeleteAccount.onclick = async () => {
+        if (!currentUser) return;
+        if (confirm("정말로 회원 탈퇴를 하시겠습니까?\n모든 학습 기록과 단어장 데이터가 삭제되며 복구할 수 없습니다.")) {
+          try {
+            if (db) {
+              await db.collection('users').doc(currentUser.uid).delete();
+            }
+            await currentUser.delete();
+            alert("회원 탈퇴가 완료되었습니다.");
+            showView('view-login');
+          } catch (err) {
+            console.error(err);
+            if (err.code === 'auth/requires-recent-login') {
+              alert("보안을 위해 로그아웃 후 다시 로그인하여 탈퇴를 진행해주세요.");
+            } else {
+              alert("탈퇴 중 오류가 발생했습니다: " + err.message);
+            }
+          }
         }
       };
     }
