@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v245'; // Fix: 핑크 테마 곰 귀(오른쪽) 위치 오류 수정
+const CACHE_NAME = 'vocabmaster-v246'; // Fix: 핑크 테마 곰 귀 카드 뒤로 보내기
 const ASSETS = [
   '/',
   '/index.html',
