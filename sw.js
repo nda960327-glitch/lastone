@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v258'; // Feature: 학원 등록 모달에 건너뛰기 버튼 추가
+const CACHE_NAME = 'vocabmaster-v259'; // Fix: 학원 정보 자동 생성(초기화) 기능 추가
 const ASSETS = [
   '/',
   '/index.html',

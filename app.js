@@ -3105,6 +3105,17 @@ let isVerticalScroll = false;
     try {
       const qs = await db.collection('academies').where('adminCode', '==', adminCode).limit(1).get();
       if (qs.empty) {
+        if (adminCode === 'admin_asher') {
+          // 편의를 위해 처음 로그인 시 데이터베이스에 자동으로 학원 정보를 생성해 줍니다.
+          await db.collection('academies').add({
+            name: "아셀 학원",
+            adminCode: "admin_asher",
+            inviteCode: "asher2026",
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          alert("최초 1회: 데이터베이스에 '아셀 학원(admin_asher)' 정보가 자동 생성되었습니다! 확인을 누르고 다시 한 번 코드를 입력해주세요.");
+          return;
+        }
         alert("유효하지 않은 관리자 코드입니다.");
         return;
       }
