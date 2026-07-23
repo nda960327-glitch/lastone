@@ -111,6 +111,7 @@
             <button id="btn-admin-wb1-del-day" style="padding: 4px 8px; font-size: 11px; background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.4); color: #f87171; border-radius: 6px; cursor: pointer;">Day 삭제</button>
           </div>
           <div style="display: flex; gap: 6px; align-items: center;">
+            <button class="btn-admin-copy-prompt" style="padding: 6px 10px; font-size: 11px; white-space: nowrap; background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.5); color: #c084fc; border-radius: 6px; cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 4px;">🤖 AI 프롬프트 복사</button>
             <input type="file" id="admin-wb1-file" accept=".txt,.csv" multiple style="display: none;" />
             <button id="btn-admin-wb1-file" class="btn-secondary" style="padding: 6px 10px; font-size: 11px; white-space: nowrap;">📁 파일 업로드 (.txt)</button>
           </div>
@@ -147,6 +148,7 @@
             <button id="btn-admin-wb2-del-day" style="padding: 4px 8px; font-size: 11px; background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.4); color: #f87171; border-radius: 6px; cursor: pointer;">Day 삭제</button>
           </div>
           <div style="display: flex; gap: 6px; align-items: center;">
+            <button class="btn-admin-copy-prompt" style="padding: 6px 10px; font-size: 11px; white-space: nowrap; background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.5); color: #c084fc; border-radius: 6px; cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 4px;">🤖 AI 프롬프트 복사</button>
             <input type="file" id="admin-wb2-file" accept=".txt,.csv" multiple style="display: none;" />
             <button id="btn-admin-wb2-file" class="btn-secondary" style="padding: 6px 10px; font-size: 11px; white-space: nowrap;">📁 파일 업로드 (.txt)</button>
           </div>
@@ -180,7 +182,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v284</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v285</span>
           </div>
           <p class="brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
@@ -762,6 +764,31 @@
         <button id="btn-academy-skip" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-sub); padding: 12px; border-radius: 8px; cursor: pointer; font-size: 13px;">건너뛰기 (기본 단어장 사용)</button>
       </div>
       <div id="academy-error-msg" style="color: #ff6b6b; font-size: 13px; text-align: center; margin-top: 12px; height: 16px;"></div>
+  </div>
+
+  <!-- 🤖 AI 프롬프트 안내 및 복사 모달 -->
+  <div id="ai-prompt-modal" class="modal-overlay hidden">
+    <div class="modal-content glass-card" style="max-width: 480px; text-align: left;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <div style="font-size: 18px; font-weight: 700; color: #c084fc; display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> ChatGPT 단어 변환 프롬프트
+        </div>
+        <button id="btn-ai-prompt-close" style="background: transparent; border: none; color: white; font-size: 20px; cursor: pointer;">✕</button>
+      </div>
+      <p style="color: var(--text-sub); font-size: 13px; margin-bottom: 14px; line-height: 1.5;">
+        보유하신 엑셀, 한글, PDF 등의 영단어 목록을 ChatGPT나 Claude에 붙여넣어 <b>DOACore 단어장 포맷(# Day 1, 단어 [품사] 뜻)</b>으로 자동 변환해주는 AI 전용 프롬프트입니다.
+      </p>
+
+      <div style="position: relative; margin-bottom: 16px;">
+        <textarea id="ai-prompt-text" readonly style="width: 100%; height: 210px; padding: 12px; border-radius: 10px; border: 1px solid rgba(168,85,247,0.4); background: rgba(0,0,0,0.5); color: #e9d5ff; font-size: 12px; font-family: monospace; resize: none; line-height: 1.5;"></textarea>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button id="btn-ai-prompt-copy-modal" class="btn-primary" style="flex: 1; padding: 12px; font-size: 14px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); font-weight: 700;">
+          📋 프롬프트 복사하기
+        </button>
+        <button id="btn-ai-prompt-modal-ok" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 12px 18px; border-radius: 8px; cursor: pointer; font-size: 14px;">닫기</button>
+      </div>
     </div>
   </div>
 

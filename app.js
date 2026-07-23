@@ -3527,6 +3527,83 @@ let isVerticalScroll = false;
   const bearLogos = document.querySelectorAll('.bear-logo');
   bearLogos.forEach(logo => setupLongPress(logo));
 
+  // =============================================
+  // AI Prompt Copy Helper
+  // =============================================
+  const AI_PROMPT_TEMPLATE = `너는 영단어 변환 및 정리 전문가야.
+내가 아래에 입력하는 임의의 영단어/뜻/Day 자료를 DOACore 단어장 전용 포맷으로 정확하게 변환해줘.
+
+■ 변환 포맷 규칙:
+1. Day 구분은 반드시 '# Day 1', '# Day 2' 처럼 작성할 것. (Day 번호는 유지하거나 1부터 순서대로 부여)
+2. 각 단어 줄은 반드시 '단어 [품사] 뜻' 형식으로 작성할 것.
+   예시:
+   apple [n] 사과
+   abandon [v] 버리다, 포기하다
+   beautiful [a] 아름다운
+   quickly [ad] 빠르게
+
+3. 품사 기호 안내:
+   [n] : 명사
+   [v] : 동사
+   [a] : 형용사
+   [ad] : 부사
+   [prep] : 전치사
+   [conj] : 접속사
+   [phr] : 숙어/구/관용구
+
+4. 다른 설명이나 인사말, 마크다운 코드 블록 등은 모두 제거하고, 오직 변환된 단어 목록 텍스트만 출력할 것.
+
+[아래에 변환할 단어 목록을 입력하세요]`;
+
+  const openAiPromptModal = () => {
+    const modal = document.getElementById('ai-prompt-modal');
+    const textEl = document.getElementById('ai-prompt-text');
+    if (textEl) textEl.value = AI_PROMPT_TEMPLATE;
+    if (modal) modal.classList.remove('hidden');
+    
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(AI_PROMPT_TEMPLATE).then(() => {
+        alert("📋 ChatGPT/AI용 단어 변환 프롬프트가 클립보드에 복사되었습니다!\n\nChatGPT나 Claude에 붙여넣어 단어 자료를 DOACore 포맷으로 쉽게 변환해보세요.");
+      }).catch(() => {});
+    }
+  };
+
+  document.querySelectorAll('.btn-admin-copy-prompt').forEach(btn => {
+    btn.onclick = openAiPromptModal;
+  });
+
+  const btnAiPromptClose = document.getElementById('btn-ai-prompt-close');
+  const btnAiPromptModalOk = document.getElementById('btn-ai-prompt-modal-ok');
+  const btnAiPromptCopyModal = document.getElementById('btn-ai-prompt-copy-modal');
+  const aiPromptModal = document.getElementById('ai-prompt-modal');
+
+  if (btnAiPromptClose) {
+    btnAiPromptClose.onclick = () => {
+      if (aiPromptModal) aiPromptModal.classList.add('hidden');
+    };
+  }
+  if (btnAiPromptModalOk) {
+    btnAiPromptModalOk.onclick = () => {
+      if (aiPromptModal) aiPromptModal.classList.add('hidden');
+    };
+  }
+  if (btnAiPromptCopyModal) {
+    btnAiPromptCopyModal.onclick = () => {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(AI_PROMPT_TEMPLATE).then(() => {
+          alert("📋 프롬프트가 클립보드에 복사되었습니다!");
+        });
+      } else {
+        const textEl = document.getElementById('ai-prompt-text');
+        if (textEl) {
+          textEl.select();
+          document.execCommand('copy');
+          alert("📋 프롬프트가 클립보드에 복사되었습니다!");
+        }
+      }
+    };
+  }
+
   async function enterAdminMode(rawAdminCode) {
     const adminCode = (rawAdminCode || '').trim();
     if (!db) {
