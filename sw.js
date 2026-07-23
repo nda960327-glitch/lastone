@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v261'; // Fix: 학원 등록 시 구글 프로필(이름, 이메일) 연동 오류 수정
+const CACHE_NAME = 'vocabmaster-v262'; // Fix: 학습 종료 시 리프레시 버그 및 새로고침 시 모달 중복 팝업 문제 해결
 const ASSETS = [
   '/',
   '/index.html',

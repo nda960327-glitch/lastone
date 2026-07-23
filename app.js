@@ -3059,6 +3059,7 @@ let isVerticalScroll = false;
       const btnAcademySkip = document.getElementById('btn-academy-skip');
       if (btnAcademySkip) {
         btnAcademySkip.onclick = () => {
+          localStorage.setItem('skipAcademyModal', 'true');
           academyInviteModal.classList.add('hidden');
           currentAcademyId = null;
           if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록(기본 단어장)";
@@ -3260,10 +3261,20 @@ let isVerticalScroll = false;
         showView('view-input');
         loadDBList(); 
       } else {
-        // 학원 등록 안 됨 -> 모달 띄우기 (view-login 상태 유지)
+        // 학원 등록 안 됨
         currentAcademyId = null;
-        if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록";
-        if (academyInviteModal) academyInviteModal.classList.remove('hidden');
+        
+        // 사용자가 건너뛰기를 누른 적이 있는지 확인
+        if (localStorage.getItem('skipAcademyModal') === 'true') {
+          if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록(기본 단어장)";
+          if (academyInviteModal) academyInviteModal.classList.add('hidden');
+          showView('view-input');
+          loadDBList();
+        } else {
+          // 모달 띄우기 (view-login 상태 유지)
+          if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록";
+          if (academyInviteModal) academyInviteModal.classList.remove('hidden');
+        }
       }
     } catch (err) {
       console.error("Failed to fetch user profile", err);
