@@ -3145,6 +3145,17 @@ let isVerticalScroll = false;
         btnAcademySubmit.disabled = false;
       };
 
+      const btnOpenAcademyModal = document.getElementById('btn-open-academy-modal');
+      if (btnOpenAcademyModal) {
+        btnOpenAcademyModal.onclick = () => {
+          const settingsModal = document.getElementById('modal-settings');
+          if (settingsModal) settingsModal.classList.add('hidden');
+          if (academyInviteInput) academyInviteInput.value = '';
+          if (academyErrorMsg) academyErrorMsg.textContent = '';
+          if (academyInviteModal) academyInviteModal.classList.remove('hidden');
+        };
+      }
+
       const btnAcademySkip = document.getElementById('btn-academy-skip');
       if (btnAcademySkip) {
         btnAcademySkip.onclick = () => {
