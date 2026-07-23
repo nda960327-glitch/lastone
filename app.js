@@ -3037,8 +3037,25 @@ let isVerticalScroll = false;
           }, { merge: true }).catch(err => console.error("Profile sync error", err));
         }
         
-        // Fetch User Profile from Firestore
-        await fetchUserProfile(user.uid);
+        // Fetch User Profile with safety timeout (로고 멈춤 현상 방지)
+        const fetchTimeout = setTimeout(() => {
+          console.warn("fetchUserProfile timeout fallback");
+          const viewInput = document.getElementById('view-input');
+          if (viewInput && viewInput.classList.contains('hidden')) {
+            showView('view-input');
+            loadDBList();
+          }
+        }, 3000);
+
+        try {
+          await fetchUserProfile(user.uid);
+        } catch (e) {
+          console.error("fetchUserProfile failed:", e);
+          showView('view-input');
+          loadDBList();
+        } finally {
+          clearTimeout(fetchTimeout);
+        }
       } else {
         // Logged out
         showView('view-login');
@@ -3174,12 +3191,34 @@ let isVerticalScroll = false;
 
       const btnOpenAcademyModal = document.getElementById('btn-open-academy-modal');
       if (btnOpenAcademyModal) {
-        btnOpenAcademyModal.onclick = () => {
-          const settingsModal = document.getElementById('modal-settings');
-          if (settingsModal) settingsModal.classList.add('hidden');
-          if (academyInviteInput) academyInviteInput.value = '';
-          if (academyErrorMsg) academyErrorMsg.textContent = '';
-          if (academyInviteModal) academyInviteModal.classList.remove('hidden');
+        btnOpenAcademyModal.onclick = async () => {
+          if (currentAcademyId) {
+            // 학원 탈퇴 모달 확인 흐름
+            const confirmLeave = confirm("⚠️ 정말 소속 학원에서 탈퇴하시겠습니까?\n\n탈퇴 시 학원 전용 단어장을 더 이상 이용할 수 없게 되며, 기본 단어장 모드로 전환됩니다. (언제든지 초대 코드로 재등록 가능합니다)");
+            if (confirmLeave) {
+              try {
+                if (currentUser && db) {
+                  await db.collection('users').doc(currentUser.uid).set({
+                    academyId: firebase.firestore.FieldValue.delete(),
+                    academyName: firebase.firestore.FieldValue.delete()
+                  }, { merge: true });
+                }
+                currentAcademyId = null;
+                localStorage.setItem('skipAcademyModal', 'true');
+                alert("소속 학원에서 정상적으로 탈퇴되었습니다. 기본 단어장으로 전환합니다.");
+                window.location.reload();
+              } catch (err) {
+                alert("학원 탈퇴 처리 중 오류가 발생했습니다: " + err.message);
+              }
+            }
+          } else {
+            // 학원 등록 모달 열기
+            const settingsModal = document.getElementById('modal-settings');
+            if (settingsModal) settingsModal.classList.add('hidden');
+            if (academyInviteInput) academyInviteInput.value = '';
+            if (academyErrorMsg) academyErrorMsg.textContent = '';
+            if (academyInviteModal) academyInviteModal.classList.remove('hidden');
+          }
         };
       }
 
@@ -3360,36 +3399,45 @@ let isVerticalScroll = false;
       // Sync down progress data first
       try {
         const progressQs = await db.collection('users').doc(uid).collection('progress').get();
-        let isUpdated = false;
         progressQs.forEach(doc => {
           const oldVal = localStorage.getItem(doc.id);
           const newVal = doc.data().value;
           if (oldVal !== newVal) {
             localStorage.setItem(doc.id, newVal);
-            isUpdated = true;
           }
         });
-        if (isUpdated) {
-          console.log("Firestore progress synced down to local. Reloading to apply changes...");
-          window.location.reload();
-          return;
-        }
-        console.log("Firestore progress is up-to-date with local.");
+        console.log("Firestore progress synced down to local.");
       } catch (e) {
         console.error("Progress sync failed", e);
       }
+
+      const btnOpenAcademyModal = document.getElementById('btn-open-academy-modal');
 
       if (userDoc.exists && userDoc.data().academyId && !userDoc.data().deleted) {
         const data = userDoc.data();
         currentAcademyId = data.academyId;
         if (userAcademyDisplay) userAcademyDisplay.textContent = `소속: ${data.academyName || currentAcademyId}`;
         
+        // 학원 등록 상태: 버튼을 '학원탈퇴'로 변경
+        if (btnOpenAcademyModal) {
+          btnOpenAcademyModal.textContent = '학원탈퇴';
+          btnOpenAcademyModal.style.color = '#ff6b6b';
+          btnOpenAcademyModal.style.borderColor = 'rgba(255,107,107,0.5)';
+          btnOpenAcademyModal.style.background = 'rgba(255,107,107,0.15)';
+        }
+
         // 학원 소속인 경우 해당 학원 전용 단어장을 로드하고 화면 전환
         showView('view-input');
         loadDBList(); 
       } else {
-        // 학원 등록 안 됨
+        // 학원 미등록 상태: 버튼을 '학원등록'으로 변경
         currentAcademyId = null;
+        if (btnOpenAcademyModal) {
+          btnOpenAcademyModal.textContent = '학원등록';
+          btnOpenAcademyModal.style.color = '#a5b4fc';
+          btnOpenAcademyModal.style.borderColor = 'rgba(165,180,252,0.5)';
+          btnOpenAcademyModal.style.background = 'rgba(165,180,252,0.2)';
+        }
         
         // 사용자가 건너뛰기를 누른 적이 있는지 확인
         if (localStorage.getItem('skipAcademyModal') === 'true') {
@@ -3405,9 +3453,9 @@ let isVerticalScroll = false;
       }
     } catch (err) {
       console.error("Failed to fetch user profile", err);
-      alert("프로필을 불러오는 중 오류가 발생했습니다: " + err.message);
-      // 에러 발생 시에도 빈 화면에 갇히지 않도록 모달을 띄워줌
-      if (academyInviteModal) academyInviteModal.classList.remove('hidden');
+      // 에러 발생 시에도 빈 화면에 갇히지 않도록 기본 화면으로 전환
+      showView('view-input');
+      loadDBList();
     }
   }
 
