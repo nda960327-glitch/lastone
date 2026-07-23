@@ -97,6 +97,26 @@
           <button id="btn-update-invite-code" class="btn-primary" style="padding: 8px 12px; font-size: 13px; min-width: 60px;">변경</button>
         </div>
       </div>
+
+      <!-- 🎨 학원 메인 브랜드 및 로고 설정 -->
+      <h3 style="margin-top: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; font-size: 16px; display: flex; align-items: center; gap: 6px;">
+        <span>🎨</span> 학원 메인 브랜드 & 로고 설정
+      </h3>
+      <div class="glass-card" style="margin-bottom: 24px; padding: 16px;">
+        <div style="margin-bottom: 12px; text-align: left;">
+          <label style="font-size: 12px; color: var(--text-sub); margin-bottom: 4px; display: block; font-weight: 600;">🏫 학원 이름 (헤더 메인 타이틀):</label>
+          <input type="text" id="admin-brand-name" placeholder="예: 아셀어학원" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 14px;" />
+        </div>
+        <div style="margin-bottom: 12px; text-align: left;">
+          <label style="font-size: 12px; color: var(--text-sub); margin-bottom: 4px; display: block; font-weight: 600;">🧸 학원 대표 이모지 또는 로고 이미지 URL:</label>
+          <input type="text" id="admin-brand-logo" placeholder="이모지(예: 🏫, 🦁, 🧸) 또는 이미지 URL 입력" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 14px;" />
+        </div>
+        <div style="margin-bottom: 14px; text-align: left;">
+          <label style="font-size: 12px; color: var(--text-sub); margin-bottom: 4px; display: block; font-weight: 600;">📣 학원 슬로건 / 서브 타이틀:</label>
+          <input type="text" id="admin-brand-sub" placeholder="예: 아셀어학원 인지공학 영단어 각인 센터" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 14px;" />
+        </div>
+        <button id="btn-save-academy-brand" class="btn-primary" style="padding: 10px 20px; font-size: 14px; width: 100%;">💾 학원 브랜드 정보 저장하기</button>
+      </div>
       
       <!-- 📚 학원 전용 서버 단어장 등록 관리 -->
       <h3 style="margin-top: 28px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; font-size: 16px; display: flex; align-items: center; gap: 6px;">
@@ -170,13 +190,13 @@
     <header class="brand" style="position: relative; padding-top: 50px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; text-align: left; gap: 16px;">
       <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
         <img src="icon.jpg" class="brand-icon-img default-logo" alt="DOACore Logo" id="btn-main-logo" style="cursor: pointer; flex-shrink: 0;">
-        <div class="bear-logo" style="cursor: pointer; flex-shrink: 0;">🧸</div>
+        <div class="bear-logo" id="header-bear-logo" style="cursor: pointer; flex-shrink: 0;">🧸</div>
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
-            <h1 class="brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v293</span>
+            <h1 class="brand-title" id="header-brand-title" style="margin: 0;">DOACore</h1>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v294</span>
           </div>
-          <p class="brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
+          <p class="brand-sub" id="header-brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
       </div>
     </header>

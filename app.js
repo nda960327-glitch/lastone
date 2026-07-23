@@ -2947,6 +2947,42 @@ let isVerticalScroll = false;
       selectResetStudyCat.addEventListener('change', populateDaysForReset);
     }
 
+    function populateResetCategoryOptions() {
+      if (!selectResetStudyCat) return;
+      selectResetStudyCat.innerHTML = '';
+
+      if (currentAcademyId) {
+        const wb1TitleStr = (document.getElementById('admin-wb1-title')?.value || '1번 단어장').trim();
+        const wb2TitleStr = (document.getElementById('admin-wb2-title')?.value || '2번 단어장').trim();
+
+        const opt1 = document.createElement('option');
+        opt1.value = 'academy-slot_1';
+        opt1.textContent = `🏫 ${currentAcademyName || '학원'} 1번: ${wb1TitleStr}`;
+        selectResetStudyCat.appendChild(opt1);
+
+        const opt2 = document.createElement('option');
+        opt2.value = 'academy-slot_2';
+        opt2.textContent = `🏫 ${currentAcademyName || '학원'} 2번: ${wb2TitleStr}`;
+        selectResetStudyCat.appendChild(opt2);
+      }
+
+      const defaultCats = [
+        { value: 'basic', text: '🌱 기초 영단어' },
+        { value: 'toefl', text: '🔥 토플 영단어' },
+        { value: 'custom-upload', text: '📁 업로드 단어장' },
+        { value: 'custom-manual', text: '✍️ 수동 단어장' }
+      ];
+
+      defaultCats.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.value;
+        opt.textContent = c.text;
+        selectResetStudyCat.appendChild(opt);
+      });
+
+      populateDaysForReset();
+    }
+
     function populateDaysForReset() {
       if (!selectResetStudyCat || !selectResetStudyDay) return;
       const cat = selectResetStudyCat.value;
@@ -2971,7 +3007,7 @@ let isVerticalScroll = false;
       });
     }
 
-    function clearStudyRecordForCategory(category, day = null) {
+    async function clearStudyRecordForCategory(category, day = null) {
       const dbName = day ? `${category}_day${day}` : category;
       
       // 1. vocab_progress 에서 제거
@@ -3013,10 +3049,43 @@ let isVerticalScroll = false;
         }
       });
       setProgressSync('doacore_total_fails', JSON.stringify(failData));
+
+      // 4. IndexedDB wordStates 제거
+      try {
+        const dbInstance = await openDB();
+        const tx = dbInstance.transaction('wordStates', 'readwrite');
+        const store = tx.objectStore('wordStates');
+        if (day) {
+          store.delete(dbName);
+        } else {
+          const req = store.getAllKeys();
+          req.onsuccess = () => {
+            (req.result || []).forEach(k => {
+              if (k.startsWith(category)) store.delete(k);
+            });
+          };
+        }
+      } catch(e){}
+
+      // 5. Firestore user progress sync 제거
+      if (currentUser && db) {
+        try {
+          if (day) {
+            await db.collection('users').doc(currentUser.uid).collection('progress').doc(`vocab_word_states_${dbName}`).delete();
+          } else {
+            const pqs = await db.collection('users').doc(currentUser.uid).collection('progress').get();
+            pqs.forEach(doc => {
+              if (doc.id.includes(category)) {
+                doc.ref.delete();
+              }
+            });
+          }
+        } catch(e){}
+      }
     }
 
     if (btnResetStudyCat && selectResetStudyCat) {
-      btnResetStudyCat.addEventListener('click', () => {
+      btnResetStudyCat.addEventListener('click', async () => {
         const cat = selectResetStudyCat.value;
         const catText = selectResetStudyCat.options[selectResetStudyCat.selectedIndex].text;
         const day = selectResetStudyDay ? selectResetStudyDay.value : 'all';
@@ -3028,7 +3097,7 @@ let isVerticalScroll = false;
         }
 
         if (confirm(confirmMsg)) {
-          clearStudyRecordForCategory(cat, day === 'all' ? null : day);
+          await clearStudyRecordForCategory(cat, day === 'all' ? null : day);
           alert('학습 기록이 성공적으로 초기화되었습니다.');
           modalResetStudy.classList.add('hidden');
           location.reload();
@@ -3037,10 +3106,14 @@ let isVerticalScroll = false;
     }
 
     if (btnResetStudyAll) {
-      btnResetStudyAll.addEventListener('click', () => {
-        if (confirm('모든 카테고리의 학습 기록이 초기화됩니다. 단어 목록 자체는 유지됩니다.\n계속하시겠습니까?')) {
-          ['toefl', 'basic', 'custom-upload', 'custom-manual'].forEach(c => clearStudyRecordForCategory(c));
-          localStorage.removeItem('vocab_trainer_progress'); // 진행중인 받아쓰기 캐시도 삭제
+      btnResetStudyAll.addEventListener('click', async () => {
+        if (confirm('모든 카테고리(학원 단어장 포함)의 학습 기록이 초기화됩니다. 단어 목록 자체는 유지됩니다.\n계속하시겠습니까?')) {
+          const cats = ['toefl', 'basic', 'custom-upload', 'custom-manual', 'academy-slot_1', 'academy-slot_2'];
+          for (const c of cats) {
+            await clearStudyRecordForCategory(c);
+          }
+          localStorage.removeItem('vocab_trainer_progress');
+          await clearProgressIDB();
           alert('모든 학습 기록이 초기화되었습니다.');
           modalResetStudy.classList.add('hidden');
           location.reload();
@@ -3628,6 +3701,36 @@ let isVerticalScroll = false;
     };
   }
 
+  function applyAcademyBranding(brandData) {
+    const headerTitle = document.getElementById('header-brand-title');
+    const headerSub = document.getElementById('header-brand-sub');
+    const headerImg = document.getElementById('btn-main-logo');
+    const headerBear = document.getElementById('header-bear-logo');
+
+    if (!brandData || (!brandData.brandName && !brandData.name)) {
+      if (headerTitle) headerTitle.textContent = "DOACore";
+      if (headerSub) headerSub.textContent = "DOACore: 인지공학 기반 영단어 각인 엔진";
+      if (headerImg) { headerImg.src = "icon.jpg"; headerImg.style.display = "block"; }
+      if (headerBear) headerBear.style.display = "block";
+      return;
+    }
+
+    const name = brandData.brandName || brandData.name;
+    const logo = brandData.brandLogo || '🧸';
+    const sub = brandData.brandSub || `${name}: 인지공학 기반 영단어 각인 엔진`;
+
+    if (headerTitle) headerTitle.textContent = name;
+    if (headerSub) headerSub.textContent = sub;
+
+    if (logo && (logo.startsWith('http://') || logo.startsWith('https://') || logo.startsWith('/') || logo.startsWith('data:'))) {
+      if (headerImg) { headerImg.src = logo; headerImg.style.display = "block"; }
+      if (headerBear) headerBear.style.display = "none";
+    } else if (logo) {
+      if (headerBear) { headerBear.textContent = logo; headerBear.style.display = "block"; }
+      if (headerImg) headerImg.style.display = "none";
+    }
+  }
+
   async function enterAdminMode(rawAdminCode) {
     const adminCode = (rawAdminCode || '').trim();
     if (!db) {
@@ -3657,12 +3760,46 @@ let isVerticalScroll = false;
       }
       const academyDoc = qs.docs[0];
       const academyId = academyDoc.id;
-      const academyName = academyDoc.data().name;
-      const currentInviteCode = academyDoc.data().inviteCode || '';
+      const acaData = academyDoc.data();
+      const academyName = acaData.name;
+      const currentInviteCode = acaData.inviteCode || '';
       
       document.getElementById('admin-academy-name').textContent = academyName;
       document.getElementById('admin-invite-code').value = currentInviteCode;
       
+      const adminBrandName = document.getElementById('admin-brand-name');
+      const adminBrandLogo = document.getElementById('admin-brand-logo');
+      const adminBrandSub = document.getElementById('admin-brand-sub');
+
+      if (adminBrandName) adminBrandName.value = acaData.brandName || acaData.name || '';
+      if (adminBrandLogo) adminBrandLogo.value = acaData.brandLogo || '🧸';
+      if (adminBrandSub) adminBrandSub.value = acaData.brandSub || '';
+
+      const btnSaveBrand = document.getElementById('btn-save-academy-brand');
+      if (btnSaveBrand) {
+        btnSaveBrand.onclick = async () => {
+          const brandName = (document.getElementById('admin-brand-name')?.value || '').trim();
+          const brandLogo = (document.getElementById('admin-brand-logo')?.value || '').trim();
+          const brandSub = (document.getElementById('admin-brand-sub')?.value || '').trim();
+          if (!brandName) { alert('학원 이름을 입력해 주세요.'); return; }
+          btnSaveBrand.disabled = true;
+          try {
+            await db.collection('academies').doc(academyId).update({
+              brandName,
+              brandLogo,
+              brandSub
+            });
+            applyAcademyBranding({ name: brandName, brandName, brandLogo, brandSub });
+            alert('🎉 학원 브랜드 및 로고 설정이 성공적으로 저장되었습니다!\n학생 화면에 즉시 적용됩니다.');
+          } catch (err) {
+            console.error(err);
+            alert('브랜드 정보 저장 실패: ' + err.message);
+          } finally {
+            btnSaveBrand.disabled = false;
+          }
+        };
+      }
+
       const btnUpdateInviteCode = document.getElementById('btn-update-invite-code');
       btnUpdateInviteCode.onclick = async () => {
         const newCode = document.getElementById('admin-invite-code').value.trim();
@@ -4141,8 +4278,16 @@ let isVerticalScroll = false;
       if (userDoc.exists && userDoc.data().academyId && !userDoc.data().deleted) {
         const data = userDoc.data();
         currentAcademyId = data.academyId;
+        currentAcademyName = data.academyName;
         if (userAcademyDisplay) userAcademyDisplay.textContent = `소속: ${data.academyName || currentAcademyId}`;
         
+        try {
+          const acaDoc = await db.collection('academies').doc(currentAcademyId).get();
+          if (acaDoc.exists) {
+            applyAcademyBranding(acaDoc.data());
+          }
+        } catch(e){}
+
         // 학원 등록 상태: 버튼을 '학원탈퇴'로 변경
         if (btnOpenAcademyModal) {
           btnOpenAcademyModal.textContent = '학원탈퇴';
