@@ -286,13 +286,96 @@ document.addEventListener("visibilitychange", () => {
 });
 
 
+function parseWordText(rawText, categoryName, defaultDay) {
+  if (!rawText) return [];
+  rawText = rawText.replace(/\n\s*\[\s*/g, " [");
+  const lines = rawText.split('\n');
+  const parsedWords = [];
+  lines.forEach(line => {
+    line = line.replace(/\r/g, '').trim();
+    if (!line) return;
+    const wordMatch = line.match(/^(.+?)\s*\[([^\]]+)\]\s*(.+)$/);
+    if (wordMatch) {
+      const rawWord = wordMatch[1].trim();
+      const rawPos = wordMatch[2].split(',').map(s => s.trim());
+      const rawMeaning = wordMatch[3].trim();
+      const lastWord = parsedWords.length > 0 ? parsedWords[parsedWords.length - 1] : null;
+      if (lastWord && lastWord.word === rawWord) {
+        lastWord.partOfSpeech.push(...rawPos);
+        lastWord.meaning += ` / ${rawMeaning}`;
+      } else {
+        parsedWords.push({
+          word: rawWord,
+          partOfSpeech: rawPos,
+          meaning: rawMeaning,
+          totalFails: 0,
+          category: categoryName,
+          day: defaultDay
+        });
+      }
+    } else {
+      const parts = line.split(/\s+/);
+      if (parts.length >= 2) {
+        const rawWord = parts[0];
+        const rawMeaning = parts.slice(1).join(' ');
+        parsedWords.push({
+          word: rawWord,
+          partOfSpeech: ['n'],
+          meaning: rawMeaning,
+          totalFails: 0,
+          category: categoryName,
+          day: defaultDay
+        });
+      }
+    }
+  });
+  return parsedWords;
+}
+
+function updateCategoryTabTitles() {
+  const tabToefl = document.getElementById('tab-toefl');
+  const tabBasic = document.getElementById('tab-basic');
+  if (!tabToefl || !tabBasic) return;
+
+  if (currentAcademyId) {
+    let wb1 = null, wb2 = null;
+    try { wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`)); } catch(e){}
+    try { wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`)); } catch(e){}
+
+    tabToefl.textContent = (wb1 && wb1.title) ? `🔥 ${wb1.title}` : `🔥 토플 영단어`;
+    tabBasic.textContent = (wb2 && wb2.title) ? `🌱 ${wb2.title}` : `🌱 기초 영단어`;
+  } else {
+    tabToefl.textContent = `🔥 토플 영단어`;
+    tabBasic.textContent = `🌱 기초 영단어`;
+  }
+}
+
 function populateDaySelector() {
   const daySelector = document.getElementById('day-selector');
   if (!daySelector) return;
   if (typeof words === 'undefined') return;
-  
+
+  let filteredSource = words;
+  if (currentAcademyId) {
+    if (currentCategory === 'toefl') {
+      try {
+        const wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`));
+        if (wb1 && wb1.content) {
+          filteredSource = parseWordText(wb1.content, 'toefl', wb1.title || '1번 단어장');
+        }
+      } catch(e){}
+    } else if (currentCategory === 'basic') {
+      try {
+        const wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`));
+        if (wb2 && wb2.content) {
+          filteredSource = parseWordText(wb2.content, 'basic', wb2.title || '2번 단어장');
+        }
+      } catch(e){}
+    }
+  }
+
   const days = new Set();
-  words.forEach(w => {
+  filteredSource.forEach(w => {
     if (w.category === currentCategory && w.day != null) {
       days.add(w.day);
     }
@@ -309,9 +392,17 @@ function populateDaySelector() {
   
   sortedDays.forEach(day => {
     let titlePrefix = '';
-    if (currentCategory === 'toefl') titlePrefix = '🔥 토플 영단어 - ';
-    else if (currentCategory === 'basic') titlePrefix = '🌱 기초 영단어 - ';
-    else if (currentCategory === 'custom-upload') titlePrefix = '📁 업로드 단어장 - ';
+    if (currentCategory === 'toefl') {
+      let wb1 = null;
+      try { if (currentAcademyId) wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`)); } catch(e){}
+      titlePrefix = (wb1 && wb1.title) ? `${wb1.title} - ` : '🔥 토플 영단어 - ';
+    } else if (currentCategory === 'basic') {
+      let wb2 = null;
+      try { if (currentAcademyId) wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`)); } catch(e){}
+      titlePrefix = (wb2 && wb2.title) ? `${wb2.title} - ` : '🌱 기초 영단어 - ';
+    } else if (currentCategory === 'custom-upload') {
+      titlePrefix = '📁 업로드 단어장 - ';
+    }
     
     const opt = document.createElement('option');
     opt.value = day;
@@ -333,21 +424,36 @@ function populateDaySelector() {
 
 function getFilteredWords() {
   if (typeof words === 'undefined') return []; // Fallback if wordData.js fails to load
-  let filtered = words.filter(w => w.category === currentCategory && (currentDay === null || w.day === currentDay));
+  let filteredSource = words;
+
+  if (currentAcademyId) {
+    if (currentCategory === 'toefl') {
+      try {
+        const wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`));
+        if (wb1 && wb1.content) {
+          filteredSource = parseWordText(wb1.content, 'toefl', wb1.title || '1번 단어장');
+        }
+      } catch(e){}
+    } else if (currentCategory === 'basic') {
+      try {
+        const wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`));
+        if (wb2 && wb2.content) {
+          filteredSource = parseWordText(wb2.content, 'basic', wb2.title || '2번 단어장');
+        }
+      } catch(e){}
+    }
+  }
+
+  let filtered = filteredSource.filter(w => w.category === currentCategory && (currentDay === null || w.day === currentDay));
   let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
   return filtered.map((w, i) => {
-    // ── 품사/의미 1:1 매핑 (중복 방지) ──
-    // meaning이 "/" 로 분리된 경우, 각 품사에 대응하는 의미 조각을 사용
     const meaningParts = w.meaning.split('/').map(s => s.trim());
     let meanings;
     if (w.partOfSpeech.length === 1) {
-      // 단일 품사: 전체 의미를 그대로 사용
       meanings = [{ pos: w.partOfSpeech[0], meaning: w.meaning }];
     } else if (meaningParts.length === w.partOfSpeech.length) {
-      // 품사 수와 의미 조각 수가 일치: 1:1 매핑
       meanings = w.partOfSpeech.map((pos, idx) => ({ pos, meaning: meaningParts[idx] }));
     } else {
-      // 불일치: 전체 의미를 하나의 항목으로만 표시 (첫 번째 품사만 사용)
       meanings = [{ pos: w.partOfSpeech[0], meaning: w.meaning }];
     }
     return {
@@ -3330,6 +3436,111 @@ let isVerticalScroll = false;
       if (academyInviteModal) academyInviteModal.classList.add('hidden');
       showView('view-admin');
       
+      // ── 학원 전용 단어장 로드 및 바인딩 ──
+      async function loadAdminWordBooks() {
+        try {
+          const wbQs = await db.collection('academies').doc(academyId).collection('wordBooks').get();
+          const wb1Title = document.getElementById('admin-wb1-title');
+          const wb1Content = document.getElementById('admin-wb1-content');
+          const wb2Title = document.getElementById('admin-wb2-title');
+          const wb2Content = document.getElementById('admin-wb2-content');
+          if (wb1Title) wb1Title.value = '';
+          if (wb1Content) wb1Content.value = '';
+          if (wb2Title) wb2Title.value = '';
+          if (wb2Content) wb2Content.value = '';
+
+          wbQs.forEach(doc => {
+            const data = doc.data();
+            if (doc.id === 'slot_1') {
+              if (wb1Title) wb1Title.value = data.title || '';
+              if (wb1Content) wb1Content.value = data.content || '';
+            } else if (doc.id === 'slot_2') {
+              if (wb2Title) wb2Title.value = data.title || '';
+              if (wb2Content) wb2Content.value = data.content || '';
+            }
+          });
+        } catch (e) {
+          console.error("Admin wordbooks load error", e);
+        }
+      }
+
+      function bindAdminFilePicker(btnId, fileId, nameId, textId) {
+        const btn = document.getElementById(btnId);
+        const fileInput = document.getElementById(fileId);
+        const nameSpan = document.getElementById(nameId);
+        const textInput = document.getElementById(textId);
+        if (btn && fileInput) {
+          btn.onclick = () => fileInput.click();
+          fileInput.onchange = (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            if (nameSpan) nameSpan.textContent = file.name;
+            const reader = new FileReader();
+            reader.onload = (evt) => {
+              if (textInput) textInput.value = evt.target.result;
+            };
+            reader.readAsText(file, 'UTF-8');
+          };
+        }
+      }
+
+      bindAdminFilePicker('btn-admin-wb1-file', 'admin-wb1-file', 'admin-wb1-filename', 'admin-wb1-content');
+      bindAdminFilePicker('btn-admin-wb2-file', 'admin-wb2-file', 'admin-wb2-filename', 'admin-wb2-content');
+
+      async function saveAdminWordBook(slotId, titleId, contentId, btnId) {
+        const title = (document.getElementById(titleId)?.value || '').trim();
+        const content = (document.getElementById(contentId)?.value || '').trim();
+        const btn = document.getElementById(btnId);
+        if (!title) { alert('단어장 이름을 입력해주세요.'); return; }
+        if (!content) { alert('단어장 내용(단어 목록)을 입력해주세요.'); return; }
+
+        if (confirm(`'${title}' 단어장을 서버에 등록하시겠습니까?\n학원 소속 학생들의 화면에 즉시 적용됩니다.`)) {
+          if (btn) btn.disabled = true;
+          try {
+            await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).set({
+              title,
+              content,
+              updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            alert(`🎉 ${slotId === 'slot_1' ? '1번' : '2번'} 단어장 ('${title}')이 서버에 성공적으로 등록되었습니다!`);
+          } catch (err) {
+            console.error(err);
+            alert('단어장 등록 중 오류가 발생했습니다: ' + err.message);
+          } finally {
+            if (btn) btn.disabled = false;
+          }
+        }
+      }
+
+      async function deleteAdminWordBook(slotId, titleId, contentId, nameId) {
+        if (confirm(`${slotId === 'slot_1' ? '1번' : '2번'} 단어장을 서버에서 삭제하시겠습니까?`)) {
+          try {
+            await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).delete();
+            const titleEl = document.getElementById(titleId);
+            const contentEl = document.getElementById(contentId);
+            const nameEl = document.getElementById(nameId);
+            if (titleEl) titleEl.value = '';
+            if (contentEl) contentEl.value = '';
+            if (nameEl) nameEl.textContent = '선택된 파일 없음';
+            alert("서버에서 단어장이 삭제되었습니다.");
+          } catch (err) {
+            alert('삭제 중 오류가 발생했습니다: ' + err.message);
+          }
+        }
+      }
+
+      const btnWb1Save = document.getElementById('btn-admin-wb1-save');
+      if (btnWb1Save) btnWb1Save.onclick = () => saveAdminWordBook('slot_1', 'admin-wb1-title', 'admin-wb1-content', 'btn-admin-wb1-save');
+      const btnWb1Del = document.getElementById('btn-admin-wb1-delete');
+      if (btnWb1Del) btnWb1Del.onclick = () => deleteAdminWordBook('slot_1', 'admin-wb1-title', 'admin-wb1-content', 'admin-wb1-filename');
+
+      const btnWb2Save = document.getElementById('btn-admin-wb2-save');
+      if (btnWb2Save) btnWb2Save.onclick = () => saveAdminWordBook('slot_2', 'admin-wb2-title', 'admin-wb2-content', 'btn-admin-wb2-save');
+      const btnWb2Del = document.getElementById('btn-admin-wb2-delete');
+      if (btnWb2Del) btnWb2Del.onclick = () => deleteAdminWordBook('slot_2', 'admin-wb2-title', 'admin-wb2-content', 'admin-wb2-filename');
+
+      await loadAdminWordBooks();
+
       loadAdminStudents(academyId);
     } catch (err) {
       console.error(err);
@@ -3426,7 +3637,27 @@ let isVerticalScroll = false;
           btnOpenAcademyModal.style.background = 'rgba(255,107,107,0.15)';
         }
 
-        // 학원 소속인 경우 해당 학원 전용 단어장을 로드하고 화면 전환
+        // 학원 소속인 경우 해당 학원 전용 단어장(slot_1, slot_2)을 서버에서 동기화
+        try {
+          const wbQs = await db.collection('academies').doc(currentAcademyId).collection('wordBooks').get();
+          let wb1Data = null;
+          let wb2Data = null;
+          wbQs.forEach(doc => {
+            if (doc.id === 'slot_1') wb1Data = doc.data();
+            if (doc.id === 'slot_2') wb2Data = doc.data();
+          });
+          if (wb1Data) localStorage.setItem(`academy_wb_${currentAcademyId}_slot_1`, JSON.stringify(wb1Data));
+          else localStorage.removeItem(`academy_wb_${currentAcademyId}_slot_1`);
+          
+          if (wb2Data) localStorage.setItem(`academy_wb_${currentAcademyId}_slot_2`, JSON.stringify(wb2Data));
+          else localStorage.removeItem(`academy_wb_${currentAcademyId}_slot_2`);
+        } catch(e) {
+          console.error("Student academy wordbooks sync failed", e);
+        }
+
+        updateCategoryTabTitles();
+
+        // 학원 소속인 경우 화면 전환
         showView('view-input');
         loadDBList(); 
       } else {
@@ -3439,6 +3670,8 @@ let isVerticalScroll = false;
           btnOpenAcademyModal.style.background = 'rgba(165,180,252,0.2)';
         }
         
+        updateCategoryTabTitles();
+
         // 사용자가 건너뛰기를 누른 적이 있는지 확인
         if (localStorage.getItem('skipAcademyModal') === 'true') {
           if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록(기본 단어장)";
