@@ -3227,6 +3227,9 @@ let isVerticalScroll = false;
         showView('view-input');
         loadDBList();
 
+        const settingsDropdown = document.getElementById('settings-dropdown');
+        if (settingsDropdown) settingsDropdown.classList.add('hidden');
+
         if (btnLoginGoogle) btnLoginGoogle.style.display = 'none';
         if (btnLoginGoogleMain) btnLoginGoogleMain.style.display = 'none';
         if (userProfileUI) userProfileUI.classList.remove('hidden');
@@ -3259,73 +3262,73 @@ let isVerticalScroll = false;
     });
 
     const handleGoogleLogin = async () => {
-      const originalText = btnLoginGoogleMain ? btnLoginGoogleMain.innerHTML : '';
+      const mainText = btnLoginGoogleMain ? btnLoginGoogleMain.innerHTML : '';
+      const subText  = btnLoginGoogle ? btnLoginGoogle.innerHTML : '';
+
       if (btnLoginGoogleMain) {
         btnLoginGoogleMain.innerHTML = '⏳ 로그인 진행 중...';
         btnLoginGoogleMain.disabled = true;
       }
       if (btnLoginGoogle) {
+        btnLoginGoogle.innerHTML = '⏳ 로그인 진행 중...';
         btnLoginGoogle.disabled = true;
       }
 
       const resetBtn = () => {
         if (btnLoginGoogleMain) {
-          btnLoginGoogleMain.innerHTML = originalText;
+          btnLoginGoogleMain.innerHTML = mainText;
           btnLoginGoogleMain.disabled = false;
         }
-        if (btnLoginGoogle) btnLoginGoogle.disabled = false;
+        if (btnLoginGoogle) {
+          btnLoginGoogle.innerHTML = subText;
+          btnLoginGoogle.disabled = false;
+        }
       };
 
       try {
         const provider = new firebase.auth.GoogleAuthProvider();
         provider.setCustomParameters({ prompt: 'select_account' });
-        await auth.signInWithPopup(provider);
-      } catch (err) {
-        console.warn("signInWithPopup error, trying GIS / redirect fallback:", err);
-        if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user' || err.code === 'auth/cancelled-popup-request') {
-          try {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            await auth.signInWithRedirect(provider);
-          } catch(reErr) {
-            console.error("signInWithRedirect error:", reErr);
-            resetBtn();
-          }
-        } else if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
-          try {
-            const client = google.accounts.oauth2.initTokenClient({
-              client_id: firebaseConfig.clientId || '760005417553-5iq38rttennaadqp91g0eaq98m3qk24t.apps.googleusercontent.com',
-              scope: 'email profile',
-              callback: async (tokenResponse) => {
-                if (tokenResponse.access_token) {
-                  const credential = firebase.auth.GoogleAuthProvider.credential(null, tokenResponse.access_token);
-                  try {
-                    await auth.signInWithCredential(credential);
-                  } catch (cErr) {
-                    alert("로그인 처리 실패: " + cErr.message);
-                    resetBtn();
-                  }
-                } else {
+
+        try {
+          await auth.signInWithPopup(provider);
+          resetBtn();
+        } catch (popupErr) {
+          console.warn("signInWithPopup error:", popupErr);
+          
+          if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
+            try {
+              const client = google.accounts.oauth2.initTokenClient({
+                client_id: firebaseConfig.clientId || '760005417553-5iq38rttennaadqp91g0eaq98m3qk24t.apps.googleusercontent.com',
+                scope: 'email profile',
+                callback: async (tokenResponse) => {
                   resetBtn();
-                }
-              },
-              error_callback: () => {
-                resetBtn();
-              }
-            });
-            client.requestAccessToken();
-          } catch (gisErr) {
-            console.error("GIS initTokenClient failed:", gisErr);
+                  if (tokenResponse.access_token) {
+                    const credential = firebase.auth.GoogleAuthProvider.credential(null, tokenResponse.access_token);
+                    try {
+                      await auth.signInWithCredential(credential);
+                    } catch (cErr) {
+                      alert("로그인 처리 실패: " + cErr.message);
+                    }
+                  }
+                },
+                error_callback: () => { resetBtn(); }
+              });
+              client.requestAccessToken();
+              setTimeout(resetBtn, 4000);
+            } catch (gisErr) {
+              console.error("GIS initTokenClient failed:", gisErr);
+              resetBtn();
+              await auth.signInWithRedirect(provider);
+            }
+          } else {
             resetBtn();
-          }
-        } else {
-          try {
-            const provider = new firebase.auth.GoogleAuthProvider();
             await auth.signInWithRedirect(provider);
-          } catch(reErr) {
-            alert("로그인 실패: " + err.message);
-            resetBtn();
           }
         }
+      } catch (err) {
+        console.error("handleGoogleLogin error:", err);
+        alert("로그인 중 오류가 발생했습니다: " + (err.message || err));
+        resetBtn();
       }
     };
 
