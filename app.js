@@ -908,10 +908,17 @@ function initInputView() {
 
       const btn = document.createElement('button');
       const sectionKey = `${start}~${end}`;
+      const badgeHTML = getBadgeHTML(sectionKey);
       btn.className = 'btn-range-item';
+      btn.style.cssText = 'min-height: 64px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 6px; text-align: center;';
       btn.innerHTML = `
-        <span class="range-btn-label">${start} ~ ${end} ${getBadgeHTML(sectionKey)}</span>
-        <span class="range-btn-count">${count}개 단어</span>
+        <div style="display: flex; align-items: baseline; justify-content: center; gap: 4px; width: 100%;">
+          <span class="range-btn-label" style="font-size: 15px; font-weight: 700;">${start} ~ ${end}</span>
+          <span style="font-size: 11px; color: var(--text-sub); opacity: 0.8; font-weight: 500;">(${count}개)</span>
+        </div>
+        <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-top: 4px; flex-wrap: wrap; min-height: 18px;">
+          ${badgeHTML}
+        </div>
       `;
       if (btn) btn.onclick = () => {
         App.currentSection = `${start}~${end}`;
@@ -926,10 +933,16 @@ function initInputView() {
 
     const btnAllNew = document.createElement('button');
     const sectionKeyAll = `1~${n} 전체 단어 새 학습`;
+    const badgeAll = getBadgeHTML(sectionKeyAll);
     btnAllNew.className = 'btn-range-item';
+    btnAllNew.style.cssText = 'min-height: 64px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 6px; text-align: center;';
     btnAllNew.innerHTML = `
-      <span class="range-btn-label">1~${n} 전체 단어 새 학습 ${getBadgeHTML(sectionKeyAll)}</span>
-      <span class="range-btn-count">전체 범위 새 학습</span>
+      <div style="display: flex; align-items: baseline; justify-content: center; gap: 4px; width: 100%;">
+        <span class="range-btn-label" style="font-size: 14px; font-weight: 700;">1 ~ ${n} 전체 새 학습</span>
+      </div>
+      <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-top: 4px; flex-wrap: wrap; min-height: 18px;">
+        ${badgeAll ? badgeAll : '<span class="range-btn-count">전체 범위</span>'}
+      </div>
     `;
     if (btnAllNew) btnAllNew.onclick = () => {
       App.currentSection = `1~${n} 전체 단어 새 학습`;
@@ -962,9 +975,15 @@ function initInputView() {
       btn.dataset.start = String(i);
       btn.dataset.end = String(end);
       const sectionKeyReview = `${start}~${end} 취약점 복습`;
+      const badgeReview = getBadgeHTML(sectionKeyReview);
+      btn.style.cssText = 'min-height: 64px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 6px; text-align: center;';
       btn.innerHTML = `
-        <span class="range-btn-label">${start}~${end} 취약점 복습 ${getBadgeHTML(sectionKeyReview)}</span>
-        <span class="range-btn-count">오답만 집중</span>
+        <div style="display: flex; align-items: baseline; justify-content: center; gap: 4px; width: 100%;">
+          <span class="range-btn-label" style="font-size: 14px; font-weight: 700;">${start} ~ ${end} 복습</span>
+        </div>
+        <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-top: 4px; flex-wrap: wrap; min-height: 18px;">
+          ${badgeReview ? badgeReview : '<span class="range-btn-count">오답만 집중</span>'}
+        </div>
       `;
       if (btn) btn.onclick = () => {
         App.currentSection = `${start}~${end} 취약점 복습`;
@@ -980,9 +999,15 @@ function initInputView() {
     btnReviewAllMid.dataset.start = '0';
     btnReviewAllMid.dataset.end = String(n);
     const sectionKeyReviewAllMid = `1~${n} 전체 취약점 복습`;
+    const badgeAllMid = getBadgeHTML(sectionKeyReviewAllMid);
+    btnReviewAllMid.style.cssText = 'min-height: 64px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 6px; text-align: center;';
     btnReviewAllMid.innerHTML = `
-      <span class="range-btn-label">1~${n} 전체 취약점 복습 ${getBadgeHTML(sectionKeyReviewAllMid)}</span>
-      <span class="range-btn-count">전체 범위 오답 집중 (2회 이상)</span>
+      <div style="display: flex; align-items: baseline; justify-content: center; gap: 4px; width: 100%;">
+        <span class="range-btn-label" style="font-size: 14px; font-weight: 700;">1 ~ ${n} 전체 취약점 복습</span>
+      </div>
+      <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-top: 4px; flex-wrap: wrap; min-height: 18px;">
+        ${badgeAllMid ? badgeAllMid : '<span class="range-btn-count">전체 범위 오답 (2회 이상)</span>'}
+      </div>
     `;
     if (btnReviewAllMid) btnReviewAllMid.onclick = () => {
       App.currentSection = `1~${n} 전체 취약점 복습`;
@@ -997,9 +1022,15 @@ function initInputView() {
     btnFinal.dataset.end = String(n);
     btnFinal.dataset.final = 'true';
     const sectionKeyFinal = `1~${n} 최종 취약점 총정리`;
+    const badgeFinal = getBadgeHTML(sectionKeyFinal);
+    btnFinal.style.cssText = 'min-height: 64px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 6px; text-align: center;';
     btnFinal.innerHTML = `
-      <span class="range-btn-label">1~${n} 최종 취약점 총정리 ${getBadgeHTML(sectionKeyFinal)}</span>
-      <span class="range-btn-count">최종 보스전 (악성 오답 4회 이상)</span>
+      <div style="display: flex; align-items: baseline; justify-content: center; gap: 4px; width: 100%;">
+        <span class="range-btn-label" style="font-size: 14px; font-weight: 700;">1 ~ ${n} 최종 총정리</span>
+      </div>
+      <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-top: 4px; flex-wrap: wrap; min-height: 18px;">
+        ${badgeFinal ? badgeFinal : '<span class="range-btn-count">보스전 (오답 4회 이상)</span>'}
+      </div>
     `;
     if (btnFinal) btnFinal.onclick = () => {
       App.currentSection = `1~${n} 최종 취약점 총정리`;
