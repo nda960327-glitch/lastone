@@ -3931,25 +3931,38 @@ let isVerticalScroll = false;
       }
 
       async function deleteAdminWordBook(slotId, titleId) {
-        if (confirm(`${slotId === 'slot_1' ? '1번' : '2번'} 단어장을 서버에서 삭제하시겠습니까?`)) {
-          try {
-            await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).delete();
-            const titleEl = document.getElementById(titleId);
-            if (titleEl) titleEl.value = '';
-            if (slotId === 'slot_1') {
-              wb1Days = { "Day 1": "" };
-              wb1CurrentDay = "Day 1";
-              renderWbDays('slot_1');
-            } else {
-              wb2Days = { "Day 1": "" };
-              wb2CurrentDay = "Day 1";
-              renderWbDays('slot_2');
+        const slotName = (slotId === 'slot_1') ? '1번' : '2번';
+        if (confirm(`⚠️ 정말 서버에서 [${slotName} 단어장]을 삭제하시겠습니까?\n\n삭제 시 소속 학생들의 화면에서도 해당 단어장이 즉시 제거됩니다.`)) {
+          showUploadLoading("🗑️ 서버에서 단어장 삭제 중...", `[${slotName} 단어장] 데이터를 서버에서 제거하는 중입니다.`, 40);
+          setTimeout(async () => {
+            try {
+              updateUploadLoading(70, "☁️ Firestore 데이터베이스에서 제거 중...");
+              await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).delete();
+              
+              const titleEl = document.getElementById(titleId);
+              const contentEl = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-content' : 'admin-wb2-content');
+              if (titleEl) titleEl.value = '';
+              if (contentEl) contentEl.value = '';
+              if (slotId === 'slot_1') wb1Days = { "Day 1": "" };
+              else wb2Days = { "Day 1": "" };
+              
+              updateAdminWordBookStatus(slotId, '', null);
+
+              updateUploadLoading(100, "✅ 서버 삭제 완료!");
+              setTimeout(() => {
+                hideUploadLoading();
+                alert(`🗑️ [${slotName} 단어장]이 서버에서 성공적으로 삭제되었습니다.`);
+              }, 400);
+            } catch (err) {
+              console.error(err);
+              hideUploadLoading();
+              if (err.message && (err.message.includes('permission') || err.message.includes('Permissions'))) {
+                alert("⚠️ Firebase Firestore 보안 규칙 권한 오류가 발생했습니다!\n\nFirestore Database > 규칙(Rules) 탭에서 권한 허용을 확인해주세요.");
+              } else {
+                alert('삭제 중 오류가 발생했습니다: ' + err.message);
+              }
             }
-            updateAdminWordBookStatus(slotId, '', null);
-            alert("서버에서 단어장이 삭제되었습니다.");
-          } catch (err) {
-            alert('삭제 중 오류가 발생했습니다: ' + err.message);
-          }
+          }, 60);
         }
       }
 
