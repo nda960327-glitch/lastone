@@ -88,21 +88,38 @@
       </h3>
 
       <!-- 1번 단어장 -->
-      <div class="glass-card" style="margin-bottom: 16px; padding: 16px;">
+      <div class="glass-card" style="margin-bottom: 20px; padding: 16px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span style="font-weight: 700; font-size: 14px; color: #a5b4fc;">[1번 단어장]</span>
           <span id="admin-wb1-status" style="font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; background: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.4);">⚪ 서버 미등록</span>
         </div>
-        <input type="text" id="admin-wb1-title" placeholder="1번 단어장 이름 (예: 토플 필수 단어장)" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 10px; font-size: 14px;" />
-        <div style="display: flex; gap: 8px; margin-bottom: 10px; align-items: center;">
-          <input type="file" id="admin-wb1-file" accept=".txt,.csv" style="display: none;" />
-          <button id="btn-admin-wb1-file" class="btn-secondary" style="padding: 8px 12px; font-size: 12px; white-space: nowrap;">📁 파일 선택</button>
-          <span id="admin-wb1-filename" style="font-size: 12px; color: var(--text-sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">선택된 파일 없음</span>
+        <input type="text" id="admin-wb1-title" placeholder="1번 단어장 대표 이름 (예: 토플 필수 영단어)" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 10px; font-size: 14px;" />
+        
+        <!-- Day 선택 툴바 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-main);">Day 선택:</span>
+            <select id="admin-wb1-day-select" style="padding: 6px 10px; border-radius: 6px; background: rgba(0,0,0,0.4); color: white; border: 1px solid rgba(255,255,255,0.2); font-size: 13px;">
+              <option value="Day 1">Day 1</option>
+            </select>
+            <button id="btn-admin-wb1-add-day" class="btn-secondary" style="padding: 4px 8px; font-size: 11px;">+ Day 추가</button>
+            <button id="btn-admin-wb1-del-day" style="padding: 4px 8px; font-size: 11px; background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.4); color: #f87171; border-radius: 6px; cursor: pointer;">Day 삭제</button>
+          </div>
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <input type="file" id="admin-wb1-file" accept=".txt,.csv" multiple style="display: none;" />
+            <button id="btn-admin-wb1-file" class="btn-secondary" style="padding: 6px 10px; font-size: 11px; white-space: nowrap;">📁 파일 업로드 (.txt)</button>
+          </div>
         </div>
-        <textarea id="admin-wb1-content" placeholder="단어 목록 입력 (예: apple [n] 사과 / 바나나)" style="width: 100%; height: 90px; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 13px; font-family: monospace; margin-bottom: 10px; resize: vertical;"></textarea>
-        <div style="display: flex; justify-content: flex-end; gap: 8px;">
-          <button id="btn-admin-wb1-delete" style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; border-radius: 8px; padding: 8px 14px; font-size: 13px; cursor: pointer;">삭제</button>
-          <button id="btn-admin-wb1-save" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">☁️ 서버에 1번 단어장 등록하기</button>
+
+        <textarea id="admin-wb1-content" placeholder="선택한 Day의 단어 목록 입력 (예: apple [n] 사과)
+※ 참고: '# Day 1', '# Day 2' 처럼 본문에 작성하시면 여러 Day로 자동 분할 저장됩니다." style="width: 100%; height: 110px; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 13px; font-family: monospace; margin-bottom: 10px; resize: vertical;"></textarea>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <span id="admin-wb1-day-info" style="font-size: 12px; color: var(--text-sub);">Day 1: 0개 단어</span>
+          <div style="display: flex; gap: 8px;">
+            <button id="btn-admin-wb1-delete" style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; border-radius: 8px; padding: 8px 14px; font-size: 13px; cursor: pointer;">전체 삭제</button>
+            <button id="btn-admin-wb1-save" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">☁️ 서버에 1번 단어장 등록하기</button>
+          </div>
         </div>
       </div>
 
@@ -112,16 +129,33 @@
           <span style="font-weight: 700; font-size: 14px; color: #a5b4fc;">[2번 단어장]</span>
           <span id="admin-wb2-status" style="font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; background: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.4);">⚪ 서버 미등록</span>
         </div>
-        <input type="text" id="admin-wb2-title" placeholder="2번 단어장 이름 (예: 기초 필수 단어장)" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 10px; font-size: 14px;" />
-        <div style="display: flex; gap: 8px; margin-bottom: 10px; align-items: center;">
-          <input type="file" id="admin-wb2-file" accept=".txt,.csv" style="display: none;" />
-          <button id="btn-admin-wb2-file" class="btn-secondary" style="padding: 8px 12px; font-size: 12px; white-space: nowrap;">📁 파일 선택</button>
-          <span id="admin-wb2-filename" style="font-size: 12px; color: var(--text-sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">선택된 파일 없음</span>
+        <input type="text" id="admin-wb2-title" placeholder="2번 단어장 대표 이름 (예: 기초 필수 영단어)" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 10px; font-size: 14px;" />
+        
+        <!-- Day 선택 툴바 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-main);">Day 선택:</span>
+            <select id="admin-wb2-day-select" style="padding: 6px 10px; border-radius: 6px; background: rgba(0,0,0,0.4); color: white; border: 1px solid rgba(255,255,255,0.2); font-size: 13px;">
+              <option value="Day 1">Day 1</option>
+            </select>
+            <button id="btn-admin-wb2-add-day" class="btn-secondary" style="padding: 4px 8px; font-size: 11px;">+ Day 추가</button>
+            <button id="btn-admin-wb2-del-day" style="padding: 4px 8px; font-size: 11px; background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.4); color: #f87171; border-radius: 6px; cursor: pointer;">Day 삭제</button>
+          </div>
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <input type="file" id="admin-wb2-file" accept=".txt,.csv" multiple style="display: none;" />
+            <button id="btn-admin-wb2-file" class="btn-secondary" style="padding: 6px 10px; font-size: 11px; white-space: nowrap;">📁 파일 업로드 (.txt)</button>
+          </div>
         </div>
-        <textarea id="admin-wb2-content" placeholder="단어 목록 입력 (예: banana [n] 바나나)" style="width: 100%; height: 90px; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 13px; font-family: monospace; margin-bottom: 10px; resize: vertical;"></textarea>
-        <div style="display: flex; justify-content: flex-end; gap: 8px;">
-          <button id="btn-admin-wb2-delete" style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; border-radius: 8px; padding: 8px 14px; font-size: 13px; cursor: pointer;">삭제</button>
-          <button id="btn-admin-wb2-save" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">☁️ 서버에 2번 단어장 등록하기</button>
+
+        <textarea id="admin-wb2-content" placeholder="선택한 Day의 단어 목록 입력 (예: banana [n] 바나나)
+※ 참고: '# Day 1', '# Day 2' 처럼 본문에 작성하시면 여러 Day로 자동 분할 저장됩니다." style="width: 100%; height: 110px; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 13px; font-family: monospace; margin-bottom: 10px; resize: vertical;"></textarea>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <span id="admin-wb2-day-info" style="font-size: 12px; color: var(--text-sub);">Day 1: 0개 단어</span>
+          <div style="display: flex; gap: 8px;">
+            <button id="btn-admin-wb2-delete" style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; border-radius: 8px; padding: 8px 14px; font-size: 13px; cursor: pointer;">전체 삭제</button>
+            <button id="btn-admin-wb2-save" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">☁️ 서버에 2번 단어장 등록하기</button>
+          </div>
         </div>
       </div>
       
@@ -141,7 +175,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v278</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v279</span>
           </div>
           <p class="brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>

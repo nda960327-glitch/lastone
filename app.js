@@ -332,18 +332,71 @@ function parseWordText(rawText, categoryName, defaultDay) {
   return parsedWords;
 }
 
+function parseMultiDayText(rawText) {
+  if (!rawText) return { "Day 1": "" };
+  const lines = rawText.split('\n');
+  const days = {};
+  let currentDayKey = "Day 1";
+  days[currentDayKey] = [];
+  let hasHeaders = false;
+
+  lines.forEach(line => {
+    const trimmed = line.replace(/\r/g, '').trim();
+    const headerMatch = trimmed.match(/^(?:#|---|\[|\b)?\s*Day\s*(\d+|[A-Za-z0-9_-]+)\s*(?:---|\]|:)?$/i);
+    if (headerMatch) {
+      hasHeaders = true;
+      const dayNum = headerMatch[1];
+      currentDayKey = `Day ${dayNum}`;
+      if (!days[currentDayKey]) days[currentDayKey] = [];
+    } else {
+      days[currentDayKey].push(line);
+    }
+  });
+
+  if (!hasHeaders) {
+    return { "Day 1": rawText };
+  }
+
+  const result = {};
+  for (const [k, lineArr] of Object.entries(days)) {
+    const content = lineArr.join('\n').trim();
+    if (content || Object.keys(days).length === 1) {
+      result[k] = content;
+    }
+  }
+  return Object.keys(result).length > 0 ? result : { "Day 1": rawText };
+}
+
+function getAcademyWordData(slotId) {
+  if (!currentAcademyId) return null;
+  try {
+    const raw = localStorage.getItem(`academy_wb_${currentAcademyId}_${slotId}`);
+    if (!raw) return null;
+    const data = JSON.parse(raw);
+    if (!data) return null;
+    if (!data.days && data.content) {
+      data.days = parseMultiDayText(data.content);
+    }
+    return data;
+  } catch(e) {
+    return null;
+  }
+}
+
 function updateCategoryTabTitles() {
   const tabToefl = document.getElementById('tab-toefl');
   const tabBasic = document.getElementById('tab-basic');
   if (!tabToefl || !tabBasic) return;
 
   if (currentAcademyId) {
-    let wb1 = null, wb2 = null;
-    try { wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`)); } catch(e){}
-    try { wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`)); } catch(e){}
+    const wb1 = getAcademyWordData('slot_1');
+    const wb2 = getAcademyWordData('slot_2');
 
-    tabToefl.textContent = (wb1 && wb1.title && wb1.content) ? `🔥 ${wb1.title}` : `🔥 1번 단어장 (미등록)`;
-    tabBasic.textContent = (wb2 && wb2.title && wb2.content) ? `🌱 ${wb2.title}` : `🌱 2번 단어장 (미등록)`;
+    const hasWb1 = wb1 && wb1.title && wb1.days && Object.values(wb1.days).some(txt => txt && txt.trim());
+    const hasWb2 = wb2 && wb2.title && wb2.days && Object.values(wb2.days).some(txt => txt && txt.trim());
+
+    tabToefl.textContent = hasWb1 ? `🔥 ${wb1.title}` : `🔥 1번 단어장 (미등록)`;
+    tabBasic.textContent = hasWb2 ? `🌱 ${wb2.title}` : `🌱 2번 단어장 (미등록)`;
   } else {
     tabToefl.textContent = `🔥 토플 영단어`;
     tabBasic.textContent = `🌱 기초 영단어`;
@@ -363,25 +416,25 @@ function populateDaySelector() {
   let filteredSource = words;
   if (currentAcademyId) {
     if (currentCategory === 'toefl') {
-      try {
-        const wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`));
-        if (wb1 && wb1.content) {
-          filteredSource = parseWordText(wb1.content, 'toefl', wb1.title || '1번 단어장');
-        } else {
-          filteredSource = [];
+      const wb1 = getAcademyWordData('slot_1');
+      if (wb1 && wb1.days && Object.keys(wb1.days).length > 0) {
+        filteredSource = [];
+        for (const [dayName, content] of Object.entries(wb1.days)) {
+          const parsed = parseWordText(content, 'toefl', dayName);
+          filteredSource.push(...parsed);
         }
-      } catch(e){
+      } else {
         filteredSource = [];
       }
     } else if (currentCategory === 'basic') {
-      try {
-        const wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`));
-        if (wb2 && wb2.content) {
-          filteredSource = parseWordText(wb2.content, 'basic', wb2.title || '2번 단어장');
-        } else {
-          filteredSource = [];
+      const wb2 = getAcademyWordData('slot_2');
+      if (wb2 && wb2.days && Object.keys(wb2.days).length > 0) {
+        filteredSource = [];
+        for (const [dayName, content] of Object.entries(wb2.days)) {
+          const parsed = parseWordText(content, 'basic', dayName);
+          filteredSource.push(...parsed);
         }
-      } catch(e){
+      } else {
         filteredSource = [];
       }
     }
@@ -395,7 +448,12 @@ function populateDaySelector() {
   });
   
   daySelector.innerHTML = '';
-  const sortedDays = Array.from(days).sort((a, b) => isNaN(a) || isNaN(b) ? String(a).localeCompare(String(b)) : a - b);
+  const sortedDays = Array.from(days).sort((a, b) => {
+    const numA = parseInt(String(a).replace(/[^0-9]/g, ''), 10);
+    const numB = parseInt(String(b).replace(/[^0-9]/g, ''), 10);
+    if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+    return String(a).localeCompare(String(b), 'ko');
+  });
   
   if (sortedDays.length === 0) {
     daySelector.innerHTML = '<option value="">(등록된 단어장 없음)</option>';
@@ -406,12 +464,10 @@ function populateDaySelector() {
   sortedDays.forEach(day => {
     let titlePrefix = '';
     if (currentCategory === 'toefl') {
-      let wb1 = null;
-      try { if (currentAcademyId) wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`)); } catch(e){}
+      const wb1 = getAcademyWordData('slot_1');
       titlePrefix = (wb1 && wb1.title) ? `${wb1.title} - ` : '🔥 토플 영단어 - ';
     } else if (currentCategory === 'basic') {
-      let wb2 = null;
-      try { if (currentAcademyId) wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`)); } catch(e){}
+      const wb2 = getAcademyWordData('slot_2');
       titlePrefix = (wb2 && wb2.title) ? `${wb2.title} - ` : '🌱 기초 영단어 - ';
     } else if (currentCategory === 'custom-upload') {
       titlePrefix = '📁 업로드 단어장 - ';
@@ -419,12 +475,12 @@ function populateDaySelector() {
     
     const opt = document.createElement('option');
     opt.value = day;
-    opt.textContent = titlePrefix + (isNaN(day) ? day : `Day ${day}`);
+    opt.textContent = titlePrefix + (isNaN(day) && String(day).startsWith('Day') ? day : `Day ${day}`);
     daySelector.appendChild(opt);
   });
   
   const savedDayStr = localStorage.getItem('saved_day');
-  const parsedSavedDay = (savedDayStr && savedDayStr !== 'null') ? (isNaN(savedDayStr) ? savedDayStr : parseInt(savedDayStr, 10)) : null;
+  const parsedSavedDay = (savedDayStr && savedDayStr !== 'null') ? (isNaN(savedDayStr) ? savedDayStr : (String(savedDayStr).startsWith('Day') ? savedDayStr : parseInt(savedDayStr, 10))) : null;
   
   if (parsedSavedDay !== null && sortedDays.includes(parsedSavedDay)) {
     currentDay = parsedSavedDay;
@@ -441,31 +497,31 @@ function getFilteredWords() {
 
   if (currentAcademyId) {
     if (currentCategory === 'toefl') {
-      try {
-        const wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`));
-        if (wb1 && wb1.content) {
-          filteredSource = parseWordText(wb1.content, 'toefl', wb1.title || '1번 단어장');
-        } else {
-          filteredSource = [];
+      const wb1 = getAcademyWordData('slot_1');
+      if (wb1 && wb1.days && Object.keys(wb1.days).length > 0) {
+        filteredSource = [];
+        for (const [dayName, content] of Object.entries(wb1.days)) {
+          const parsed = parseWordText(content, 'toefl', dayName);
+          filteredSource.push(...parsed);
         }
-      } catch(e){
+      } else {
         filteredSource = [];
       }
     } else if (currentCategory === 'basic') {
-      try {
-        const wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`));
-        if (wb2 && wb2.content) {
-          filteredSource = parseWordText(wb2.content, 'basic', wb2.title || '2번 단어장');
-        } else {
-          filteredSource = [];
+      const wb2 = getAcademyWordData('slot_2');
+      if (wb2 && wb2.days && Object.keys(wb2.days).length > 0) {
+        filteredSource = [];
+        for (const [dayName, content] of Object.entries(wb2.days)) {
+          const parsed = parseWordText(content, 'basic', dayName);
+          filteredSource.push(...parsed);
         }
-      } catch(e){
+      } else {
         filteredSource = [];
       }
     }
   }
 
-  let filtered = filteredSource.filter(w => w.category === currentCategory && (currentDay === null || w.day === currentDay));
+  let filtered = filteredSource.filter(w => w.category === currentCategory && (currentDay === null || String(w.day) === String(currentDay)));
   let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
   return filtered.map((w, i) => {
     const meaningParts = w.meaning.split('/').map(s => s.trim());
@@ -3470,13 +3526,22 @@ let isVerticalScroll = false;
       if (academyInviteModal) academyInviteModal.classList.add('hidden');
       showView('view-admin');
       
-      // ── 학원 전용 단어장 로드 및 바인딩 ──
-      function updateAdminWordBookStatus(slotId, title, content) {
+      // ── 학원 전용 단어장 Multi-Day 관리 state ──
+      let wb1Days = { "Day 1": "" };
+      let wb1CurrentDay = "Day 1";
+      let wb2Days = { "Day 1": "" };
+      let wb2CurrentDay = "Day 1";
+
+      function updateAdminWordBookStatus(slotId, title, daysObj) {
         const statusEl = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-status' : 'admin-wb2-status');
         if (!statusEl) return;
-        if (title && content) {
-          const parsed = parseWordText(content, 'temp', 'temp');
-          statusEl.innerHTML = `✅ 서버 등록 완료 (${parsed.length}개 단어)`;
+        let totalWords = 0;
+        if (daysObj && typeof daysObj === 'object') {
+          Object.values(daysObj).forEach(txt => { totalWords += parseWordText(txt, 'temp', 'temp').length; });
+        }
+        if (title && totalWords > 0) {
+          const dayCount = Object.keys(daysObj).length;
+          statusEl.innerHTML = `✅ 서버 등록 완료 (${dayCount}개 Day, 총 ${totalWords}개 단어)`;
           statusEl.style.background = 'rgba(16, 185, 129, 0.15)';
           statusEl.style.color = '#10b981';
           statusEl.style.borderColor = 'rgba(16, 185, 129, 0.4)';
@@ -3488,77 +3553,244 @@ let isVerticalScroll = false;
         }
       }
 
+      function renderWbDays(slotId) {
+        const isSlot1 = (slotId === 'slot_1');
+        const days = isSlot1 ? wb1Days : wb2Days;
+        let curDay = isSlot1 ? wb1CurrentDay : wb2CurrentDay;
+        const selectEl = document.getElementById(isSlot1 ? 'admin-wb1-day-select' : 'admin-wb2-day-select');
+        const textEl = document.getElementById(isSlot1 ? 'admin-wb1-content' : 'admin-wb2-content');
+        const infoEl = document.getElementById(isSlot1 ? 'admin-wb1-day-info' : 'admin-wb2-day-info');
+
+        if (!selectEl) return;
+
+        const dayKeys = Object.keys(days).sort((a, b) => {
+          const numA = parseInt(a.replace(/[^0-9]/g, ''), 10);
+          const numB = parseInt(b.replace(/[^0-9]/g, ''), 10);
+          if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+          return a.localeCompare(b, 'ko');
+        });
+
+        if (dayKeys.length === 0) {
+          dayKeys.push("Day 1");
+          days["Day 1"] = "";
+        }
+
+        if (!dayKeys.includes(curDay)) {
+          curDay = dayKeys[0];
+          if (isSlot1) wb1CurrentDay = curDay;
+          else wb2CurrentDay = curDay;
+        }
+
+        selectEl.innerHTML = '';
+        dayKeys.forEach(k => {
+          const opt = document.createElement('option');
+          opt.value = k;
+          const count = parseWordText(days[k] || '', 'temp', 'temp').length;
+          opt.textContent = `${k} (${count}개 단어)`;
+          selectEl.appendChild(opt);
+        });
+
+        selectEl.value = curDay;
+        if (textEl) textEl.value = days[curDay] || '';
+
+        let totalWords = 0;
+        dayKeys.forEach(k => { totalWords += parseWordText(days[k] || '', 'temp', 'temp').length; });
+        const curCount = parseWordText(days[curDay] || '', 'temp', 'temp').length;
+
+        if (infoEl) {
+          infoEl.textContent = `${curDay}: ${curCount}개 단어 (총 ${dayKeys.length}개 Day, 전체 ${totalWords}개 단어)`;
+        }
+      }
+
+      function setupSlotDayHandlers(slotId) {
+        const isSlot1 = (slotId === 'slot_1');
+        const selectEl = document.getElementById(isSlot1 ? 'admin-wb1-day-select' : 'admin-wb2-day-select');
+        const textEl = document.getElementById(isSlot1 ? 'admin-wb1-content' : 'admin-wb2-content');
+        const addBtn = document.getElementById(isSlot1 ? 'btn-admin-wb1-add-day' : 'btn-admin-wb2-add-day');
+        const delBtn = document.getElementById(isSlot1 ? 'btn-admin-wb1-del-day' : 'btn-admin-wb2-del-day');
+
+        if (selectEl) {
+          selectEl.onchange = (e) => {
+            const oldDay = isSlot1 ? wb1CurrentDay : wb2CurrentDay;
+            if (textEl) {
+              if (isSlot1) wb1Days[oldDay] = textEl.value;
+              else wb2Days[oldDay] = textEl.value;
+            }
+            const newDay = e.target.value;
+            if (isSlot1) wb1CurrentDay = newDay;
+            else wb2CurrentDay = newDay;
+            renderWbDays(slotId);
+          };
+        }
+
+        if (textEl) {
+          textEl.oninput = (e) => {
+            const val = e.target.value;
+            const parsedMulti = parseMultiDayText(val);
+            const targetDays = isSlot1 ? wb1Days : wb2Days;
+            const curDay = isSlot1 ? wb1CurrentDay : wb2CurrentDay;
+
+            if (Object.keys(parsedMulti).length > 1) {
+              Object.assign(targetDays, parsedMulti);
+              renderWbDays(slotId);
+            } else {
+              targetDays[curDay] = val;
+              const curCount = parseWordText(val, 'temp', 'temp').length;
+              let totalWords = 0;
+              Object.values(targetDays).forEach(txt => { totalWords += parseWordText(txt, 'temp', 'temp').length; });
+              const infoEl = document.getElementById(isSlot1 ? 'admin-wb1-day-info' : 'admin-wb2-day-info');
+              if (infoEl) infoEl.textContent = `${curDay}: ${curCount}개 단어 (총 ${Object.keys(targetDays).length}개 Day, 전체 ${totalWords}개 단어)`;
+              
+              if (selectEl && selectEl.selectedOptions[0]) {
+                selectEl.selectedOptions[0].textContent = `${curDay} (${curCount}개 단어)`;
+              }
+            }
+          };
+        }
+
+        if (addBtn) {
+          addBtn.onclick = () => {
+            const targetDays = isSlot1 ? wb1Days : wb2Days;
+            const nextNum = Object.keys(targetDays).length + 1;
+            const newDayName = prompt("추가할 Day 이름을 입력하세요:", `Day ${nextNum}`);
+            if (!newDayName || !newDayName.trim()) return;
+            const cleanName = newDayName.trim();
+            targetDays[cleanName] = "";
+            if (isSlot1) wb1CurrentDay = cleanName;
+            else wb2CurrentDay = cleanName;
+            renderWbDays(slotId);
+          };
+        }
+
+        if (delBtn) {
+          delBtn.onclick = () => {
+            const targetDays = isSlot1 ? wb1Days : wb2Days;
+            const curDay = isSlot1 ? wb1CurrentDay : wb2CurrentDay;
+            if (Object.keys(targetDays).length <= 1) {
+              alert("최소 1개의 Day는 존재해야 합니다.");
+              return;
+            }
+            if (confirm(`'${curDay}' 항목을 삭제하시겠습니까?`)) {
+              delete targetDays[curDay];
+              const remaining = Object.keys(targetDays);
+              if (isSlot1) wb1CurrentDay = remaining[0];
+              else wb2CurrentDay = remaining[0];
+              renderWbDays(slotId);
+            }
+          };
+        }
+      }
+
+      setupSlotDayHandlers('slot_1');
+      setupSlotDayHandlers('slot_2');
+
       async function loadAdminWordBooks() {
         try {
           const wbQs = await db.collection('academies').doc(academyId).collection('wordBooks').get();
           const wb1Title = document.getElementById('admin-wb1-title');
-          const wb1Content = document.getElementById('admin-wb1-content');
           const wb2Title = document.getElementById('admin-wb2-title');
-          const wb2Content = document.getElementById('admin-wb2-content');
           if (wb1Title) wb1Title.value = '';
-          if (wb1Content) wb1Content.value = '';
           if (wb2Title) wb2Title.value = '';
-          if (wb2Content) wb2Content.value = '';
 
-          updateAdminWordBookStatus('slot_1', '', '');
-          updateAdminWordBookStatus('slot_2', '', '');
+          wb1Days = { "Day 1": "" };
+          wb1CurrentDay = "Day 1";
+          wb2Days = { "Day 1": "" };
+          wb2CurrentDay = "Day 1";
 
           wbQs.forEach(doc => {
             const data = doc.data();
             if (doc.id === 'slot_1') {
               if (wb1Title) wb1Title.value = data.title || '';
-              if (wb1Content) wb1Content.value = data.content || '';
-              updateAdminWordBookStatus('slot_1', data.title, data.content);
+              if (data.days) {
+                wb1Days = data.days;
+              } else if (data.content) {
+                wb1Days = parseMultiDayText(data.content);
+              }
+              wb1CurrentDay = Object.keys(wb1Days)[0] || "Day 1";
+              updateAdminWordBookStatus('slot_1', data.title, wb1Days);
             } else if (doc.id === 'slot_2') {
               if (wb2Title) wb2Title.value = data.title || '';
-              if (wb2Content) wb2Content.value = data.content || '';
-              updateAdminWordBookStatus('slot_2', data.title, data.content);
+              if (data.days) {
+                wb2Days = data.days;
+              } else if (data.content) {
+                wb2Days = parseMultiDayText(data.content);
+              }
+              wb2CurrentDay = Object.keys(wb2Days)[0] || "Day 1";
+              updateAdminWordBookStatus('slot_2', data.title, wb2Days);
             }
           });
+
+          renderWbDays('slot_1');
+          renderWbDays('slot_2');
         } catch (e) {
           console.error("Admin wordbooks load error", e);
         }
       }
 
-      function bindAdminFilePicker(btnId, fileId, nameId, textId) {
+      function bindAdminFilePicker(btnId, fileId, slotId) {
         const btn = document.getElementById(btnId);
         const fileInput = document.getElementById(fileId);
-        const nameSpan = document.getElementById(nameId);
-        const textInput = document.getElementById(textId);
         if (btn && fileInput) {
           btn.onclick = () => fileInput.click();
-          fileInput.onchange = (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            if (nameSpan) nameSpan.textContent = file.name;
-            const reader = new FileReader();
-            reader.onload = (evt) => {
-              if (textInput) textInput.value = evt.target.result;
-            };
-            reader.readAsText(file, 'UTF-8');
+          fileInput.onchange = async (e) => {
+            const files = Array.from(e.target.files);
+            if (!files || files.length === 0) return;
+
+            const targetDays = (slotId === 'slot_1') ? wb1Days : wb2Days;
+
+            if (files.length === 1) {
+              const file = files[0];
+              const text = await file.text();
+              const parsedMulti = parseMultiDayText(text);
+              if (Object.keys(parsedMulti).length > 1) {
+                Object.assign(targetDays, parsedMulti);
+              } else {
+                const curDay = (slotId === 'slot_1') ? wb1CurrentDay : wb2CurrentDay;
+                targetDays[curDay] = text;
+              }
+            } else {
+              for (const file of files) {
+                const text = await file.text();
+                const match = file.name.match(/Day\s*(\d+)/i);
+                let dayKey = file.name.replace(/\.[^/.]+$/, "");
+                if (match) {
+                  dayKey = `Day ${match[1]}`;
+                }
+                targetDays[dayKey] = text;
+              }
+            }
+
+            renderWbDays(slotId);
           };
         }
       }
 
-      bindAdminFilePicker('btn-admin-wb1-file', 'admin-wb1-file', 'admin-wb1-filename', 'admin-wb1-content');
-      bindAdminFilePicker('btn-admin-wb2-file', 'admin-wb2-file', 'admin-wb2-filename', 'admin-wb2-content');
+      bindAdminFilePicker('btn-admin-wb1-file', 'admin-wb1-file', 'slot_1');
+      bindAdminFilePicker('btn-admin-wb2-file', 'admin-wb2-file', 'slot_2');
 
-      async function saveAdminWordBook(slotId, titleId, contentId, btnId) {
+      async function saveAdminWordBook(slotId, titleId, btnId) {
         const title = (document.getElementById(titleId)?.value || '').trim();
-        const content = (document.getElementById(contentId)?.value || '').trim();
-        const btn = document.getElementById(btnId);
-        if (!title) { alert('단어장 이름을 입력해주세요.'); return; }
-        if (!content) { alert('단어장 내용(단어 목록)을 입력해주세요.'); return; }
+        const days = (slotId === 'slot_1') ? wb1Days : wb2Days;
+        const curDay = (slotId === 'slot_1') ? wb1CurrentDay : wb2CurrentDay;
+        const curText = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-content' : 'admin-wb2-content')?.value || '';
+        days[curDay] = curText;
 
-        if (confirm(`'${title}' 단어장을 서버에 등록하시겠습니까?\n학원 소속 학생들의 화면에 즉시 적용됩니다.`)) {
+        let totalWords = 0;
+        Object.values(days).forEach(txt => { totalWords += parseWordText(txt, 'temp', 'temp').length; });
+
+        if (!title) { alert('단어장 대표 이름을 입력해주세요.'); return; }
+        if (totalWords === 0) { alert('단어장 내용(단어 목록)을 입력해주세요.'); return; }
+
+        if (confirm(`'${title}' 단어장 (총 ${Object.keys(days).length}개 Day, ${totalWords}개 단어)을 서버에 등록하시겠습니까?\n학원 소속 학생들의 화면에 즉시 적용됩니다.`)) {
+          const btn = document.getElementById(btnId);
           if (btn) btn.disabled = true;
           try {
             await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).set({
               title,
-              content,
+              days,
               updatedAt: firebase.firestore.FieldValue.serverTimestamp()
             });
-            updateAdminWordBookStatus(slotId, title, content);
+            updateAdminWordBookStatus(slotId, title, days);
             alert(`🎉 ${slotId === 'slot_1' ? '1번' : '2번'} 단어장 ('${title}')이 서버에 성공적으로 등록되었습니다!`);
           } catch (err) {
             console.error(err);
@@ -3569,17 +3801,22 @@ let isVerticalScroll = false;
         }
       }
 
-      async function deleteAdminWordBook(slotId, titleId, contentId, nameId) {
+      async function deleteAdminWordBook(slotId, titleId) {
         if (confirm(`${slotId === 'slot_1' ? '1번' : '2번'} 단어장을 서버에서 삭제하시겠습니까?`)) {
           try {
             await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).delete();
             const titleEl = document.getElementById(titleId);
-            const contentEl = document.getElementById(contentId);
-            const nameEl = document.getElementById(nameId);
             if (titleEl) titleEl.value = '';
-            if (contentEl) contentEl.value = '';
-            if (nameEl) nameEl.textContent = '선택된 파일 없음';
-            updateAdminWordBookStatus(slotId, '', '');
+            if (slotId === 'slot_1') {
+              wb1Days = { "Day 1": "" };
+              wb1CurrentDay = "Day 1";
+              renderWbDays('slot_1');
+            } else {
+              wb2Days = { "Day 1": "" };
+              wb2CurrentDay = "Day 1";
+              renderWbDays('slot_2');
+            }
+            updateAdminWordBookStatus(slotId, '', null);
             alert("서버에서 단어장이 삭제되었습니다.");
           } catch (err) {
             alert('삭제 중 오류가 발생했습니다: ' + err.message);
@@ -3588,14 +3825,14 @@ let isVerticalScroll = false;
       }
 
       const btnWb1Save = document.getElementById('btn-admin-wb1-save');
-      if (btnWb1Save) btnWb1Save.onclick = () => saveAdminWordBook('slot_1', 'admin-wb1-title', 'admin-wb1-content', 'btn-admin-wb1-save');
+      if (btnWb1Save) btnWb1Save.onclick = () => saveAdminWordBook('slot_1', 'admin-wb1-title', 'btn-admin-wb1-save');
       const btnWb1Del = document.getElementById('btn-admin-wb1-delete');
-      if (btnWb1Del) btnWb1Del.onclick = () => deleteAdminWordBook('slot_1', 'admin-wb1-title', 'admin-wb1-content', 'admin-wb1-filename');
+      if (btnWb1Del) btnWb1Del.onclick = () => deleteAdminWordBook('slot_1', 'admin-wb1-title');
 
       const btnWb2Save = document.getElementById('btn-admin-wb2-save');
-      if (btnWb2Save) btnWb2Save.onclick = () => saveAdminWordBook('slot_2', 'admin-wb2-title', 'admin-wb2-content', 'btn-admin-wb2-save');
+      if (btnWb2Save) btnWb2Save.onclick = () => saveAdminWordBook('slot_2', 'admin-wb2-title', 'btn-admin-wb2-save');
       const btnWb2Del = document.getElementById('btn-admin-wb2-delete');
-      if (btnWb2Del) btnWb2Del.onclick = () => deleteAdminWordBook('slot_2', 'admin-wb2-title', 'admin-wb2-content', 'admin-wb2-filename');
+      if (btnWb2Del) btnWb2Del.onclick = () => deleteAdminWordBook('slot_2', 'admin-wb2-title');
 
       await loadAdminWordBooks();
 
