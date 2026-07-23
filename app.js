@@ -3392,12 +3392,40 @@ let isVerticalScroll = false;
       };
     }
 
+    const userPhoneInput = document.getElementById('user-phone-input');
+    if (userPhoneInput) {
+      userPhoneInput.oninput = (e) => {
+        let val = e.target.value.replace(/[^0-9]/g, '');
+        if (val.length > 11) val = val.substring(0, 11);
+        let formatted = '';
+        if (val.length < 4) {
+          formatted = val;
+        } else if (val.length < 8) {
+          formatted = `${val.substring(0, 3)}-${val.substring(3)}`;
+        } else {
+          formatted = `${val.substring(0, 3)}-${val.substring(3, 7)}-${val.substring(7)}`;
+        }
+        e.target.value = formatted;
+      };
+    }
+
     if (btnAcademySubmit) {
       btnAcademySubmit.onclick = async () => {
         const code = academyInviteInput.value.trim();
-        if (!code) return;
+        const phoneNum = (document.getElementById('user-phone-input')?.value || '').trim();
+        const phoneRegex = /^01[016789]-\d{3,4}-\d{4}$/;
+
+        if (!phoneNum || !phoneRegex.test(phoneNum)) {
+          if (academyErrorMsg) academyErrorMsg.textContent = "⚠️ 올바른 휴대폰 번호(010-XXXX-XXXX)를 입력해주세요.";
+          return;
+        }
+        if (!code) {
+          if (academyErrorMsg) academyErrorMsg.textContent = "초대 코드를 입력해 주세요.";
+          return;
+        }
+
         btnAcademySubmit.disabled = true;
-        academyErrorMsg.textContent = "확인 중...";
+        if (academyErrorMsg) academyErrorMsg.textContent = "확인 중...";
         try {
           if (code.startsWith('admin_')) {
             await enterAdminMode(code);
@@ -3405,27 +3433,23 @@ let isVerticalScroll = false;
             return;
           }
           
-          // academies 컬렉션에서 초대 코드 검증
           const qs = await db.collection('academies').where('inviteCode', '==', code).limit(1).get();
           if (qs.empty) {
-            academyErrorMsg.textContent = "유효하지 않은 초대 코드입니다.";
+            if (academyErrorMsg) academyErrorMsg.textContent = "유효하지 않은 초대 코드입니다.";
           } else {
             const academyDoc = qs.docs[0];
             const academyId = academyDoc.id;
             const academyName = academyDoc.data().name;
             
-            const phoneNum = (document.getElementById('user-phone-input')?.value || '').trim();
             const updateObj = {
               academyId: academyId,
               academyName: academyName,
+              phoneNumber: phoneNum,
               deleted: false,
+              joinedAt: firebase.firestore.FieldValue.serverTimestamp(),
               updatedAt: firebase.firestore.FieldValue.serverTimestamp()
             };
-            if (phoneNum) {
-              updateObj.phoneNumber = phoneNum;
-            }
 
-            // 유저 프로필에 저장
             await db.collection('users').doc(currentUser.uid).set(updateObj, { merge: true });
             
             academyInviteModal.classList.add('hidden');
@@ -3434,7 +3458,7 @@ let isVerticalScroll = false;
           }
         } catch (err) {
           console.error(err);
-          academyErrorMsg.textContent = "오류가 발생했습니다.";
+          if (academyErrorMsg) academyErrorMsg.textContent = "오류가 발생했습니다.";
         }
         btnAcademySubmit.disabled = false;
       };
@@ -3949,23 +3973,50 @@ let isVerticalScroll = false;
     }
   }
 
+  let currentAdminStudents = [];
+
   async function loadAdminStudents(academyId) {
     const studentList = document.getElementById('admin-student-list');
     const studentCount = document.getElementById('admin-student-count');
-    studentList.innerHTML = '<li style="color:white;">로딩 중...</li>';
+    if (studentList) studentList.innerHTML = '<li style="color:white;">로딩 중...</li>';
     
+    currentAdminStudents = [];
     try {
       const qs = await db.collection('users').where('academyId', '==', academyId).get();
-      studentCount.textContent = `${qs.size}명`;
-      studentList.innerHTML = '';
+      if (studentCount) studentCount.textContent = `${qs.size}명`;
+      if (studentList) studentList.innerHTML = '';
       
       if (qs.empty) {
-        studentList.innerHTML = '<li style="color:var(--text-sub); text-align:center; padding:20px;">등록된 학생이 없습니다.</li>';
+        if (studentList) studentList.innerHTML = '<li style="color:var(--text-sub); text-align:center; padding:20px;">등록된 학생이 없습니다.</li>';
         return;
       }
       
       qs.forEach(doc => {
         const data = doc.data();
+        
+        let joinDateStr = '미상';
+        const dateObj = data.joinedAt || data.createdAt || data.updatedAt;
+        if (dateObj) {
+          let d;
+          if (dateObj.toDate && typeof dateObj.toDate === 'function') d = dateObj.toDate();
+          else d = new Date(dateObj);
+          if (!isNaN(d.getTime())) {
+            const yyyy = d.getFullYear();
+            const mm = String(d.getMonth() + 1).padStart(2, '0');
+            const dd = String(d.getDate()).padStart(2, '0');
+            const hh = String(d.getHours()).padStart(2, '0');
+            const min = String(d.getMinutes()).padStart(2, '0');
+            joinDateStr = `${yyyy}.${mm}.${dd} ${hh}:${min}`;
+          }
+        }
+
+        currentAdminStudents.push({
+          name: data.displayName || '이름 없음',
+          phone: data.phoneNumber || '-',
+          email: data.email || '-',
+          joinedAt: joinDateStr
+        });
+
         const li = document.createElement('li');
         li.style.cssText = 'background: rgba(0,0,0,0.2); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.05);';
         
@@ -3976,7 +4027,10 @@ let isVerticalScroll = false;
                               <span>${esc(data.displayName || '이름 없음')}</span>
                               ${phoneHtml}
                              </div>
-                             <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">✉️ ${esc(data.email || '이메일 없음')}</div>`;
+                             <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px; display: flex; gap: 12px; flex-wrap: wrap;">
+                               <span>✉️ ${esc(data.email || '이메일 없음')}</span>
+                               <span>📅 등록일: ${joinDateStr}</span>
+                             </div>`;
         
         const delBtn = document.createElement('button');
         delBtn.textContent = '삭제';
@@ -3988,7 +4042,7 @@ let isVerticalScroll = false;
                 academyId: null,
                 academyName: null
               });
-              loadAdminStudents(academyId); // 리로드
+              loadAdminStudents(academyId);
             } catch (err) {
               console.error(err);
               alert("학생 삭제에 실패했습니다.");
@@ -3998,13 +4052,45 @@ let isVerticalScroll = false;
         
         li.appendChild(infoDiv);
         li.appendChild(delBtn);
-        studentList.appendChild(li);
+        if (studentList) studentList.appendChild(li);
       });
       
     } catch (err) {
       console.error(err);
-      studentList.innerHTML = '<li style="color:#ff6b6b;">목록을 불러오지 못했습니다.</li>';
+      if (studentList) studentList.innerHTML = '<li style="color:#ff6b6b;">목록을 불러오지 못했습니다.</li>';
     }
+  }
+
+  // 📊 Excel Export Event Handler
+  const btnExportExcel = document.getElementById('btn-admin-export-excel');
+  if (btnExportExcel) {
+    btnExportExcel.onclick = () => {
+      if (!currentAdminStudents || currentAdminStudents.length === 0) {
+        alert("다운로드할 학생 목록이 없습니다.");
+        return;
+      }
+      
+      let csv = '\uFEFF';
+      csv += '이름,전화번호,이메일,등록일\n';
+      currentAdminStudents.forEach(st => {
+        const name = `"${st.name.replace(/"/g, '""')}"`;
+        const phone = `"${st.phone.replace(/"/g, '""')}"`;
+        const email = `"${st.email.replace(/"/g, '""')}"`;
+        const joined = `"${st.joinedAt.replace(/"/g, '""')}"`;
+        csv += `${name},${phone},${email},${joined}\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      const todayStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `학생목록_${todayStr}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    };
   }
 
 
