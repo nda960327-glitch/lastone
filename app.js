@@ -46,9 +46,8 @@ function setProgressSync(key, value) {
 function recordStudyTime() {
   if (App.sessionStartTime) {
     const elapsedSeconds = Math.floor((Date.now() - App.sessionStartTime) / 1000);
-    if (elapsedSeconds > 0) {
-      const basePrefix = currentAcademyId ? `${currentAcademyId}_` : 'default_';
-      const key = `${basePrefix}${currentCategory}_${App.currentDayTitle}`;
+    if (elapsedSeconds > 0 && App.currentDBName && App.currentSection) {
+      const key = `${App.currentDBName}_${App.currentSection}`;
       
       let studyTime = {};
       try { studyTime = JSON.parse(localStorage.getItem('vocab_study_time') || '{}'); } catch(e){}
