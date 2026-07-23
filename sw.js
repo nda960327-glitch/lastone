@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v302'; // Fix: 학습 종료 시 리프레시 버그 및 새로고침 시 모달 중복 팝업 문제 해결
+const CACHE_NAME = 'vocabmaster-v303'; // Fix: 학습 종료 시 리프레시 버그 및 새로고침 시 모달 중복 팝업 문제 해결
 const ASSETS = [
   '/',
   '/index.html',
