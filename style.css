@@ -2390,6 +2390,14 @@ body {
   box-sizing: border-box;
 }
 
+/* 학원 등록 전용 불투명 전체화면 (뒷화면 비침 100% 완전 차단) */
+#academy-invite-modal {
+  background: var(--bg-color, #07071a) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  z-index: 10000 !important;
+}
+
 .modal-content {
   width: 100%;
   max-width: 400px;

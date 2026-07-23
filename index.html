@@ -279,7 +279,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" id="header-brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v305</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v306</span>
           </div>
           <p class="brand-sub" id="header-brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
@@ -844,27 +844,35 @@
     </div>
   </div>
 
-  <!-- 학원 초대 코드 및 학생 정보 입력 모달 -->
-  <div id="academy-invite-modal" class="modal-overlay hidden">
-    <div class="modal-content glass-card" style="max-width: 400px;">
-      <div style="font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 8px;">🏫 학원 등록 및 학생 정보</div>
-      <p style="text-align: center; color: var(--text-sub); font-size: 13px; margin-bottom: 20px;">단어장 동기화를 위해 학원 초대 코드와 학생 전화번호를 입력해주세요.<br><span style="font-size: 11px; color: #ff9800;">* 일반 사용자는 건너뛰기를 눌러 진행하세요.</span></p>
+  <!-- 학원 초대 코드 및 학생 정보 입력 독립 화면 -->
+  <div id="academy-invite-modal" class="modal-overlay hidden" style="background: var(--bg-color, #07071a) !important;">
+    <div class="modal-content glass-card" style="max-width: 420px; width: 100%; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <img src="icon.jpg" class="brand-icon-img default-logo" alt="Logo" style="width: 64px; height: 64px; border-radius: 14px; object-fit: cover;">
+        <div style="text-align: center;">
+          <h2 style="font-size: 22px; font-weight: 800; margin: 0; color: var(--text-main);">🏫 학원 등록 및 학생 정보</h2>
+          <p style="color: var(--text-sub); font-size: 13px; margin: 6px 0 0 0; line-height: 1.4;">
+            단어장 동기화를 위해 학원 초대 코드와 학생 전화번호를 입력해주세요.
+          </p>
+        </div>
+      </div>
       
-      <div style="margin-bottom: 12px; text-align: left;">
-        <label style="font-size: 12px; color: var(--text-sub); margin-bottom: 4px; display: block; font-weight: 600;">📱 학생 전화번호:</label>
+      <div style="margin-bottom: 14px; text-align: left;">
+        <label style="font-size: 12px; color: var(--text-sub); margin-bottom: 4px; display: block; font-weight: 600;">📱 학생 전화번호 *</label>
         <input type="tel" id="user-phone-input" placeholder="예: 010-1234-5678" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 15px;" />
       </div>
 
-      <div style="margin-bottom: 16px; text-align: left;">
-        <label style="font-size: 12px; color: var(--text-sub); margin-bottom: 4px; display: block; font-weight: 600;">🔑 학원 초대 코드:</label>
-        <input type="text" id="academy-invite-input" placeholder="초대 코드 입력 (예: asher2026)" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 15px; text-align: center;" />
+      <div style="margin-bottom: 20px; text-align: left;">
+        <label style="font-size: 12px; color: var(--text-sub); margin-bottom: 4px; display: block; font-weight: 600;">🔑 학원 초대 코드 *</label>
+        <input type="text" id="academy-invite-input" placeholder="초대 코드 입력 (예: asher2026)" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 15px; text-align: center; font-family: monospace; font-weight: 700;" />
       </div>
 
       <div style="display: flex; gap: 10px; flex-direction: column;">
-        <button id="btn-academy-submit" class="btn-primary" style="padding: 12px; font-size: 15px;">등록 및 정보 저장</button>
+        <button id="btn-academy-submit" class="btn-primary" style="padding: 14px; font-size: 15px; font-weight: 700;">🚀 등록 및 정보 저장</button>
         <button id="btn-academy-skip" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-sub); padding: 12px; border-radius: 8px; cursor: pointer; font-size: 13px;">건너뛰기 (기본 단어장 사용)</button>
       </div>
-      <div id="academy-error-msg" style="color: #ff6b6b; font-size: 13px; text-align: center; margin-top: 12px; height: 16px;"></div>
+      <div id="academy-error-msg" style="color: #ff6b6b; font-size: 13px; text-align: center; margin-top: 12px; min-height: 16px;"></div>
+    </div>
   </div>
 
   <!-- 🤖 AI 프롬프트 안내 및 복사 모달 -->
