@@ -2959,7 +2959,7 @@ let isVerticalScroll = false;
   if (btnResetStudy && modalResetStudy) {
     btnResetStudy.addEventListener('click', (e) => {
       e.stopPropagation();
-      populateDaysForReset();
+      populateResetCategoryOptions();
       modalResetStudy.classList.remove('hidden');
     });
 
@@ -2978,33 +2978,41 @@ let isVerticalScroll = false;
       selectResetStudyCat.innerHTML = '';
 
       if (currentAcademyId) {
-        const wb1TitleStr = (document.getElementById('admin-wb1-title')?.value || '1번 단어장').trim();
-        const wb2TitleStr = (document.getElementById('admin-wb2-title')?.value || '2번 단어장').trim();
+        const wb1 = getAcademyWordData('slot_1');
+        const wb2 = getAcademyWordData('slot_2');
+        const wb1TitleStr = (wb1 && wb1.title) ? wb1.title : '1번 단어장';
+        const wb2TitleStr = (wb2 && wb2.title) ? wb2.title : '2번 단어장';
 
         const opt1 = document.createElement('option');
-        opt1.value = 'academy-slot_1';
-        opt1.textContent = `🏫 ${currentAcademyName || '학원'} 1번: ${wb1TitleStr}`;
+        opt1.value = 'toefl';
+        opt1.textContent = `📘 [학원 1번] ${wb1TitleStr}`;
+        opt1.style.background = '#1e1b4b';
+        opt1.style.color = '#ffffff';
         selectResetStudyCat.appendChild(opt1);
 
         const opt2 = document.createElement('option');
-        opt2.value = 'academy-slot_2';
-        opt2.textContent = `🏫 ${currentAcademyName || '학원'} 2번: ${wb2TitleStr}`;
+        opt2.value = 'basic';
+        opt2.textContent = `📙 [학원 2번] ${wb2TitleStr}`;
+        opt2.style.background = '#1e1b4b';
+        opt2.style.color = '#ffffff';
         selectResetStudyCat.appendChild(opt2);
+      } else {
+        const defaultCats = [
+          { value: 'toefl', text: '🔥 토플 영단어' },
+          { value: 'basic', text: '🌱 기초 영단어' },
+          { value: 'custom-upload', text: '📁 업로드 단어장' },
+          { value: 'custom-manual', text: '✍️ 수동 단어장' }
+        ];
+
+        defaultCats.forEach(c => {
+          const opt = document.createElement('option');
+          opt.value = c.value;
+          opt.textContent = c.text;
+          opt.style.background = '#1e1b4b';
+          opt.style.color = '#ffffff';
+          selectResetStudyCat.appendChild(opt);
+        });
       }
-
-      const defaultCats = [
-        { value: 'basic', text: '🌱 기초 영단어' },
-        { value: 'toefl', text: '🔥 토플 영단어' },
-        { value: 'custom-upload', text: '📁 업로드 단어장' },
-        { value: 'custom-manual', text: '✍️ 수동 단어장' }
-      ];
-
-      defaultCats.forEach(c => {
-        const opt = document.createElement('option');
-        opt.value = c.value;
-        opt.textContent = c.text;
-        selectResetStudyCat.appendChild(opt);
-      });
 
       populateDaysForReset();
     }
@@ -3012,11 +3020,34 @@ let isVerticalScroll = false;
     function populateDaysForReset() {
       if (!selectResetStudyCat || !selectResetStudyDay) return;
       const cat = selectResetStudyCat.value;
-      selectResetStudyDay.innerHTML = '<option value="all">해당 카테고리 전체 초기화</option>';
+      selectResetStudyDay.innerHTML = '<option value="all" style="background:#1e1b4b;color:#fff;">해당 카테고리 전체 초기화</option>';
       
       const days = new Set();
-      if (typeof words !== 'undefined') {
-        words.forEach(w => {
+      let source = (typeof words !== 'undefined') ? words : [];
+      if (currentAcademyId) {
+        if (cat === 'toefl') {
+          const wb1 = getAcademyWordData('slot_1');
+          if (wb1 && wb1.days) {
+            source = [];
+            for (const [dayName, content] of Object.entries(wb1.days)) {
+              const parsed = parseWordText(content, 'toefl', dayName);
+              source.push(...parsed);
+            }
+          }
+        } else if (cat === 'basic') {
+          const wb2 = getAcademyWordData('slot_2');
+          if (wb2 && wb2.days) {
+            source = [];
+            for (const [dayName, content] of Object.entries(wb2.days)) {
+              const parsed = parseWordText(content, 'basic', dayName);
+              source.push(...parsed);
+            }
+          }
+        }
+      }
+
+      if (source && source.length > 0) {
+        source.forEach(w => {
           if (w.category === cat && w.day != null) {
             days.add(w.day);
           }
@@ -3028,7 +3059,9 @@ let isVerticalScroll = false;
       sortedDays.forEach(day => {
         const opt = document.createElement('option');
         opt.value = day;
-        opt.textContent = isNaN(day) ? `'${day}' 단어장만 초기화` : `Day ${day} 단어장만 초기화`;
+        opt.textContent = isNaN(day) && String(day).startsWith('Day') ? `'${day}' 단어장만 초기화` : `Day ${day} 단어장만 초기화`;
+        opt.style.background = '#1e1b4b';
+        opt.style.color = '#ffffff';
         selectResetStudyDay.appendChild(opt);
       });
     }
