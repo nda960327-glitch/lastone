@@ -979,10 +979,10 @@ function initInputView() {
       btn.style.cssText = 'min-height: 64px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 6px; text-align: center;';
       btn.innerHTML = `
         <div style="display: flex; align-items: baseline; justify-content: center; gap: 4px; width: 100%;">
-          <span class="range-btn-label" style="font-size: 14px; font-weight: 700;">${start} ~ ${end} 복습</span>
+          <span class="range-btn-label" style="font-size: 15px; font-weight: 700;">${start} ~ ${end}</span>
         </div>
         <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-top: 4px; flex-wrap: wrap; min-height: 18px;">
-          ${badgeReview ? badgeReview : '<span class="range-btn-count">오답만 집중</span>'}
+          ${badgeReview}
         </div>
       `;
       if (btn) btn.onclick = () => {
@@ -1003,10 +1003,10 @@ function initInputView() {
     btnReviewAllMid.style.cssText = 'min-height: 64px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 6px; text-align: center;';
     btnReviewAllMid.innerHTML = `
       <div style="display: flex; align-items: baseline; justify-content: center; gap: 4px; width: 100%;">
-        <span class="range-btn-label" style="font-size: 14px; font-weight: 700;">1 ~ ${n} 전체 취약점 복습</span>
+        <span class="range-btn-label" style="font-size: 14px; font-weight: 700;">1 ~ ${n} (전체)</span>
       </div>
       <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-top: 4px; flex-wrap: wrap; min-height: 18px;">
-        ${badgeAllMid ? badgeAllMid : '<span class="range-btn-count">전체 범위 오답 (2회 이상)</span>'}
+        ${badgeAllMid ? badgeAllMid : '<span class="range-btn-count">오답 2회 이상</span>'}
       </div>
     `;
     if (btnReviewAllMid) btnReviewAllMid.onclick = () => {
@@ -1026,10 +1026,10 @@ function initInputView() {
     btnFinal.style.cssText = 'min-height: 64px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 6px; text-align: center;';
     btnFinal.innerHTML = `
       <div style="display: flex; align-items: baseline; justify-content: center; gap: 4px; width: 100%;">
-        <span class="range-btn-label" style="font-size: 14px; font-weight: 700;">1 ~ ${n} 최종 총정리</span>
+        <span class="range-btn-label" style="font-size: 14px; font-weight: 700;">1 ~ ${n} (보스전)</span>
       </div>
       <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-top: 4px; flex-wrap: wrap; min-height: 18px;">
-        ${badgeFinal ? badgeFinal : '<span class="range-btn-count">보스전 (오답 4회 이상)</span>'}
+        ${badgeFinal ? badgeFinal : '<span class="range-btn-count">악성 오답 4회 이상</span>'}
       </div>
     `;
     if (btnFinal) btnFinal.onclick = () => {
