@@ -1333,7 +1333,7 @@ function refreshDBList(textarea) {
 // =============================================
 async function startTest() {
   App.studyAbort = false; App.testSessionId = Date.now();
-  if (App.round === 1) {
+  if (!App.sessionStartTime) {
     App.sessionStartTime = Date.now();
   }
   recordProgress('in_progress');
