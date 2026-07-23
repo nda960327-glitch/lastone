@@ -3719,105 +3719,21 @@ let isVerticalScroll = false;
         const isSlot1 = (slotId === 'slot_1');
         const days = isSlot1 ? wb1Days : wb2Days;
         const textEl = document.getElementById(isSlot1 ? 'admin-wb1-content' : 'admin-wb2-content');
-
-        const dayKeys = Object.keys(days).sort((a, b) => {
-          const numA = parseInt(a.replace(/[^0-9]/g, ''), 10);
-          const numB = parseInt(b.replace(/[^0-9]/g, ''), 10);
-          if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
-          return a.localeCompare(b, 'ko');
-        });
-
-
-        let totalWords = 0;
-        dayKeys.forEach(k => { totalWords += parseWordText(days[k] || '', 'temp', 'temp').length; });
-        const curCount = parseWordText(days[curDay] || '', 'temp', 'temp').length;
-
-        if (infoEl) {
-          infoEl.textContent = `${curDay}: ${curCount}개 단어 (총 ${dayKeys.length}개 Day, 전체 ${totalWords}개 단어)`;
+        if (textEl && days) {
+          let parts = [];
+          Object.keys(days).sort((a, b) => {
+            const numA = parseInt(a.replace(/[^0-9]/g, ''), 10);
+            const numB = parseInt(b.replace(/[^0-9]/g, ''), 10);
+            if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+            return a.localeCompare(b, 'ko');
+          }).forEach(k => {
+            if (days[k]) parts.push(`# ${k}\n${days[k].trim()}`);
+          });
+          if (parts.length > 0) {
+            textEl.value = parts.join('\n\n');
+          }
         }
       }
-
-      function setupSlotDayHandlers(slotId) {
-        const isSlot1 = (slotId === 'slot_1');
-        const selectEl = document.getElementById(isSlot1 ? 'admin-wb1-day-select' : 'admin-wb2-day-select');
-        const textEl = document.getElementById(isSlot1 ? 'admin-wb1-content' : 'admin-wb2-content');
-        const addBtn = document.getElementById(isSlot1 ? 'btn-admin-wb1-add-day' : 'btn-admin-wb2-add-day');
-        const delBtn = document.getElementById(isSlot1 ? 'btn-admin-wb1-del-day' : 'btn-admin-wb2-del-day');
-
-        if (selectEl) {
-          selectEl.onchange = (e) => {
-            const oldDay = isSlot1 ? wb1CurrentDay : wb2CurrentDay;
-            if (textEl) {
-              if (isSlot1) wb1Days[oldDay] = textEl.value;
-              else wb2Days[oldDay] = textEl.value;
-            }
-            const newDay = e.target.value;
-            if (isSlot1) wb1CurrentDay = newDay;
-            else wb2CurrentDay = newDay;
-            renderWbDays(slotId);
-          };
-        }
-
-        if (textEl) {
-          textEl.oninput = (e) => {
-            const val = e.target.value;
-            const parsedMulti = parseMultiDayText(val);
-            const targetDays = isSlot1 ? wb1Days : wb2Days;
-            const curDay = isSlot1 ? wb1CurrentDay : wb2CurrentDay;
-
-            if (Object.keys(parsedMulti).length > 1) {
-              Object.assign(targetDays, parsedMulti);
-              renderWbDays(slotId);
-            } else {
-              targetDays[curDay] = val;
-              const curCount = parseWordText(val, 'temp', 'temp').length;
-              let totalWords = 0;
-              Object.values(targetDays).forEach(txt => { totalWords += parseWordText(txt, 'temp', 'temp').length; });
-              const infoEl = document.getElementById(isSlot1 ? 'admin-wb1-day-info' : 'admin-wb2-day-info');
-              if (infoEl) infoEl.textContent = `${curDay}: ${curCount}개 단어 (총 ${Object.keys(targetDays).length}개 Day, 전체 ${totalWords}개 단어)`;
-              
-              if (selectEl && selectEl.selectedOptions[0]) {
-                selectEl.selectedOptions[0].textContent = `${curDay} (${curCount}개 단어)`;
-              }
-            }
-          };
-        }
-
-        if (addBtn) {
-          addBtn.onclick = () => {
-            const targetDays = isSlot1 ? wb1Days : wb2Days;
-            const nextNum = Object.keys(targetDays).length + 1;
-            const newDayName = prompt("추가할 Day 이름을 입력하세요:", `Day ${nextNum}`);
-            if (!newDayName || !newDayName.trim()) return;
-            const cleanName = newDayName.trim();
-            targetDays[cleanName] = "";
-            if (isSlot1) wb1CurrentDay = cleanName;
-            else wb2CurrentDay = cleanName;
-            renderWbDays(slotId);
-          };
-        }
-
-        if (delBtn) {
-          delBtn.onclick = () => {
-            const targetDays = isSlot1 ? wb1Days : wb2Days;
-            const curDay = isSlot1 ? wb1CurrentDay : wb2CurrentDay;
-            if (Object.keys(targetDays).length <= 1) {
-              alert("최소 1개의 Day는 존재해야 합니다.");
-              return;
-            }
-            if (confirm(`'${curDay}' 항목을 삭제하시겠습니까?`)) {
-              delete targetDays[curDay];
-              const remaining = Object.keys(targetDays);
-              if (isSlot1) wb1CurrentDay = remaining[0];
-              else wb2CurrentDay = remaining[0];
-              renderWbDays(slotId);
-            }
-          };
-        }
-      }
-
-      setupSlotDayHandlers('slot_1');
-      setupSlotDayHandlers('slot_2');
 
       async function loadAdminWordBooks() {
         try {
@@ -3828,9 +3744,7 @@ let isVerticalScroll = false;
           if (wb2Title) wb2Title.value = '';
 
           wb1Days = { "Day 1": "" };
-          wb1CurrentDay = "Day 1";
           wb2Days = { "Day 1": "" };
-          wb2CurrentDay = "Day 1";
 
           wbQs.forEach(doc => {
             const data = doc.data();
@@ -3841,7 +3755,6 @@ let isVerticalScroll = false;
               } else if (data.content) {
                 wb1Days = parseMultiDayText(data.content);
               }
-              wb1CurrentDay = Object.keys(wb1Days)[0] || "Day 1";
               updateAdminWordBookStatus('slot_1', data.title, wb1Days);
             } else if (doc.id === 'slot_2') {
               if (wb2Title) wb2Title.value = data.title || '';
@@ -3850,7 +3763,6 @@ let isVerticalScroll = false;
               } else if (data.content) {
                 wb2Days = parseMultiDayText(data.content);
               }
-              wb2CurrentDay = Object.keys(wb2Days)[0] || "Day 1";
               updateAdminWordBookStatus('slot_2', data.title, wb2Days);
             }
           });
@@ -3910,19 +3822,13 @@ let isVerticalScroll = false;
             setTimeout(async () => {
               try {
                 updateUploadLoading(55, `⚡ 단어 데이터 파싱 및 분할 중...`);
-                const targetDays = (slotId === 'slot_1') ? wb1Days : wb2Days;
 
+                let combinedText = '';
                 if (files.length === 1) {
                   const file = files[0];
-                  const text = await file.text();
-                  const parsedMulti = parseMultiDayText(text);
-                  if (Object.keys(parsedMulti).length > 1) {
-                    Object.assign(targetDays, parsedMulti);
-                  } else {
-                    const curDay = (slotId === 'slot_1') ? wb1CurrentDay : wb2CurrentDay;
-                    targetDays[curDay] = text;
-                  }
+                  combinedText = await file.text();
                 } else {
+                  let parts = [];
                   for (const file of files) {
                     const text = await file.text();
                     const match = file.name.match(/Day\s*(\d+)/i);
@@ -3930,15 +3836,26 @@ let isVerticalScroll = false;
                     if (match) {
                       dayKey = `Day ${match[1]}`;
                     }
-                    targetDays[dayKey] = text;
+                    parts.push(`# ${dayKey}\n${text.trim()}`);
                   }
+                  combinedText = parts.join('\n\n');
                 }
 
                 updateUploadLoading(85, `📝 화면에 단어 데이터 채우는 중...`);
-                renderWbDays(slotId);
+                if (textEl) textEl.value = combinedText;
 
+                const parsed = parseMultiDayText(combinedText);
                 let totalWords = 0;
-                Object.values(targetDays).forEach(txt => { totalWords += parseWordText(txt, 'temp', 'temp').length; });
+                if (Object.keys(parsed).length > 0) {
+                  Object.values(parsed).forEach(txt => { totalWords += parseWordText(txt, 'temp', 'temp').length; });
+                  if (slotId === 'slot_1') wb1Days = parsed;
+                  else wb2Days = parsed;
+                } else {
+                  totalWords = parseWordText(combinedText, 'temp', 'temp').length;
+                  if (slotId === 'slot_1') wb1Days = { "Day 1": combinedText };
+                  else wb2Days = { "Day 1": combinedText };
+                }
+
                 updateUploadLoading(100, `✅ 총 ${totalWords.toLocaleString()}개 단어 로드 완료!`);
 
                 setTimeout(() => {
@@ -3960,10 +3877,16 @@ let isVerticalScroll = false;
 
       async function saveAdminWordBook(slotId, titleId, btnId) {
         const title = (document.getElementById(titleId)?.value || '').trim();
-        const days = (slotId === 'slot_1') ? wb1Days : wb2Days;
-        const curDay = (slotId === 'slot_1') ? wb1CurrentDay : wb2CurrentDay;
-        const curText = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-content' : 'admin-wb2-content')?.value || '';
-        days[curDay] = curText;
+        const contentEl = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-content' : 'admin-wb2-content');
+        const rawText = (contentEl?.value || '').trim();
+
+        if (!title) { alert('단어장 대표 이름을 입력해주세요.'); return; }
+        if (!rawText) { alert('단어장 내용(단어 목록)을 입력해주세요.'); return; }
+
+        let days = parseMultiDayText(rawText);
+        if (Object.keys(days).length === 0) {
+          days = { "Day 1": rawText };
+        }
 
         let totalWords = 0;
         Object.values(days).forEach(txt => { totalWords += parseWordText(txt, 'temp', 'temp').length; });
