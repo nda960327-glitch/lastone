@@ -2504,6 +2504,7 @@ let isTimeUp = false;
 let swipeStartX = 0;
 let swipeStartY = 0;
 let swipeCurrentX = 0;
+let swipeCurrentY = 0;
 let isDragging = false;
 let isVerticalScroll = false;
 
@@ -2573,16 +2574,31 @@ let isVerticalScroll = false;
       if (isDictationMode || !isSwipeMode) return;
       if (e.target.closest('button')) return; 
       isDragging = true;
+      isVerticalScroll = false;
       swipeStartX = e.touches[0].clientX;
+      swipeCurrentX = swipeStartX;
+      swipeStartY = e.touches[0].clientY;
+      swipeCurrentY = swipeStartY;
       testCard.classList.add('dragging');
       if (typeof stopWordTimer === 'function') stopWordTimer();
     });
 
     testCard.addEventListener('touchmove', (e) => {
-      if (isDictationMode || !isSwipeMode || !isDragging) return;
+      if (isDictationMode || !isSwipeMode || !isDragging || isVerticalScroll) return;
       if (e.target.closest('button')) return; 
       swipeCurrentX = e.touches[0].clientX;
+      swipeCurrentY = e.touches[0].clientY;
       const deltaX = swipeCurrentX - swipeStartX;
+      const deltaY = swipeCurrentY - swipeStartY;
+
+      if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 10) {
+        isVerticalScroll = true;
+        testCard.style.transition = '';
+        testCard.style.transform = '';
+        testCard.style.boxShadow = '';
+        return;
+      }
+
       const rotateDeg = deltaX * 0.05;
       testCard.style.transform = `translate(${deltaX}px, 0) rotate(${rotateDeg}deg)`;
 
@@ -2603,14 +2619,23 @@ let isVerticalScroll = false;
       isDragging = false;
       testCard.classList.remove('dragging');
 
-      const deltaX = swipeCurrentX - swipeStartX;
-      const threshold = 80;
-
       function resetCard() {
         testCard.style.transition = '';
         testCard.style.transform = '';
         testCard.style.boxShadow = '';
       }
+
+      if (isVerticalScroll) {
+        resetCard();
+        swipeStartX = 0;
+        swipeCurrentX = 0;
+        swipeStartY = 0;
+        swipeCurrentY = 0;
+        return;
+      }
+
+      const deltaX = swipeCurrentX - swipeStartX;
+      const threshold = 110;
 
       if (deltaX > threshold || deltaX < -threshold) {
         // 페널티 타임이거나 isTimeUp이면 강제 오답(X) 처리
@@ -2664,6 +2689,8 @@ let isVerticalScroll = false;
       }
       swipeStartX = 0;
       swipeCurrentX = 0;
+      swipeStartY = 0;
+      swipeCurrentY = 0;
     });
   }
 
