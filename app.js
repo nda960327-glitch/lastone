@@ -3918,7 +3918,11 @@ let isVerticalScroll = false;
             } catch (err) {
               console.error(err);
               hideUploadLoading();
-              alert('단어장 등록 중 오류가 발생했습니다: ' + err.message);
+              if (err.message && (err.message.includes('permission') || err.message.includes('Permissions'))) {
+                alert("⚠️ Firebase Firestore 보안 규칙 권한 오류가 발생했습니다!\n\n[해결 방법]\n1. Firebase 콘솔(https://console.firebase.google.com) 접속\n2. Firestore Database > 규칙(Rules) 탭 클릭\n3. 아래 규칙으로 수정한 뒤 '게시(Publish)' 클릭:\n\nrules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if request.auth != null;\n    }\n  }\n}");
+              } else {
+                alert('단어장 등록 중 오류가 발생했습니다: ' + err.message);
+              }
             } finally {
               if (btn) btn.disabled = false;
             }
