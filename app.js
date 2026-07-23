@@ -408,11 +408,6 @@ function populateDaySelector() {
   if (!daySelector) return;
   if (typeof words === 'undefined') return;
 
-function populateDaySelector() {
-  const daySelector = document.getElementById('day-selector');
-  if (!daySelector) return;
-  if (typeof words === 'undefined') return;
-
   let filteredSource = words;
   if (currentAcademyId) {
     if (currentCategory === 'toefl') {
@@ -3493,7 +3488,6 @@ let isVerticalScroll = false;
         showView('view-input');
         loadDBList();
       };
-    }
     }
   }
 
