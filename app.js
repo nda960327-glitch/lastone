@@ -3733,6 +3733,211 @@ let isVerticalScroll = false;
     }
   }
 
+  // =============================================
+  // 👑 Super Admin (최고관리자) Logic
+  // =============================================
+  const SUPER_ADMIN_CODE = 'admin_nodoa327';
+
+  async function enterSuperAdminMode() {
+    if (!db) { alert("데이터베이스 연결 안됨"); return; }
+
+    showView('view-superadmin');
+
+    const saAcademyList = document.getElementById('sa-academy-list');
+    const saTotalAcademies = document.getElementById('sa-total-academies');
+    const saTotalStudents = document.getElementById('sa-total-students');
+
+    // 나가기 버튼
+    const btnExit = document.getElementById('btn-superadmin-exit');
+    if (btnExit) {
+      btnExit.onclick = () => {
+        showView('view-login');
+      };
+    }
+
+    // 학원 목록 로드
+    async function loadSuperAdminData() {
+      if (saAcademyList) saAcademyList.innerHTML = '<div style="color:var(--text-sub); text-align:center; padding:20px;">로딩 중...</div>';
+      try {
+        const academyQs = await db.collection('academies').get();
+        const academies = [];
+        academyQs.forEach(doc => academies.push({ id: doc.id, ...doc.data() }));
+        
+        if (saTotalAcademies) saTotalAcademies.textContent = academies.length;
+
+        // 전체 학생 수 계산
+        const studentQs = await db.collection('users').where('academyId', '!=', null).get();
+        let totalStudents = 0;
+        const studentsByAcademy = {};
+        studentQs.forEach(doc => {
+          const data = doc.data();
+          if (data.academyId && !data.deleted) {
+            totalStudents++;
+            studentsByAcademy[data.academyId] = (studentsByAcademy[data.academyId] || 0) + 1;
+          }
+        });
+        if (saTotalStudents) saTotalStudents.textContent = totalStudents;
+
+        // 학원 카드 렌더링
+        if (saAcademyList) saAcademyList.innerHTML = '';
+        if (academies.length === 0) {
+          if (saAcademyList) saAcademyList.innerHTML = '<div style="color:var(--text-sub); text-align:center; padding:20px;">등록된 학원이 없습니다.</div>';
+          return;
+        }
+
+        const esc = (s) => {
+          const d = document.createElement('div');
+          d.textContent = s;
+          return d.innerHTML;
+        };
+
+        academies.forEach(aca => {
+          const studentCount = studentsByAcademy[aca.id] || 0;
+          const createdStr = aca.createdAt?.toDate ? aca.createdAt.toDate().toLocaleDateString('ko-KR') : '미상';
+
+          const card = document.createElement('div');
+          card.className = 'glass-card';
+          card.style.cssText = 'padding: 16px; position: relative;';
+          card.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 6px;">
+                  🏫 ${esc(aca.name || '이름 없음')}
+                </div>
+                <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">등록일: ${createdStr} · 학생 ${studentCount}명</div>
+              </div>
+              <div style="display: flex; gap: 6px;">
+                <button class="sa-btn-enter" style="background: rgba(99,102,241,0.2); border: 1px solid rgba(99,102,241,0.5); color: #818cf8; padding: 6px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">🔑 학원관리 접속</button>
+                <button class="sa-btn-delete" style="background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.5); color: #f87171; padding: 6px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">🗑️ 삭제</button>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="background: rgba(0,0,0,0.2); padding: 8px 10px; border-radius: 6px;">
+                <div style="font-size: 10px; color: var(--text-sub); margin-bottom: 2px;">🔑 관리자 코드</div>
+                <div style="font-size: 13px; font-weight: 600; color: #a5b4fc; font-family: monospace; display: flex; align-items: center; gap: 6px;">
+                  <input type="text" class="sa-admin-code-input" value="${esc(aca.adminCode || '')}" style="background: transparent; border: none; color: #a5b4fc; font-size: 13px; font-family: monospace; width: 100%; outline: none; font-weight: 600;" />
+                </div>
+              </div>
+              <div style="background: rgba(0,0,0,0.2); padding: 8px 10px; border-radius: 6px;">
+                <div style="font-size: 10px; color: var(--text-sub); margin-bottom: 2px;">🎟️ 학생 등록 코드</div>
+                <div style="font-size: 13px; font-weight: 600; color: #4ade80; font-family: monospace; display: flex; align-items: center; gap: 6px;">
+                  <input type="text" class="sa-invite-code-input" value="${esc(aca.inviteCode || '')}" style="background: transparent; border: none; color: #4ade80; font-size: 13px; font-family: monospace; width: 100%; outline: none; font-weight: 600;" />
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 10px; display: flex; gap: 8px;">
+              <button class="sa-btn-save-codes" style="flex:1; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4); color: #4ade80; padding: 8px; border-radius: 6px; font-size: 12px; cursor: pointer; font-weight: 600;">💾 코드 변경 저장</button>
+            </div>
+          `;
+
+          // 학원관리 접속 버튼
+          card.querySelector('.sa-btn-enter').onclick = () => {
+            enterAdminMode(aca.adminCode);
+          };
+
+          // 삭제 버튼
+          card.querySelector('.sa-btn-delete').onclick = async () => {
+            if (!confirm(`⚠️ 정말 [${aca.name}] 학원을 완전히 삭제하시겠습니까?\n\n• 해당 학원의 모든 단어장이 삭제됩니다.\n• 소속 학생 ${studentCount}명의 학원 연결이 해제됩니다.\n• 이 작업은 되돌릴 수 없습니다.`)) return;
+            if (!confirm(`🚨 최종 확인: [${aca.name}] 학원을 정말로 삭제합니까?`)) return;
+
+            try {
+              // 소속 학생들의 학원 연결 해제
+              const studentsQs = await db.collection('users').where('academyId', '==', aca.id).get();
+              const batch = db.batch();
+              studentsQs.forEach(doc => {
+                batch.update(doc.ref, { academyId: null, academyName: null });
+              });
+
+              // 단어장 서브컬렉션 삭제
+              const wbQs = await db.collection('academies').doc(aca.id).collection('wordBooks').get();
+              wbQs.forEach(doc => batch.delete(doc.ref));
+
+              // 학원 문서 삭제
+              batch.delete(db.collection('academies').doc(aca.id));
+              await batch.commit();
+
+              alert(`🗑️ [${aca.name}] 학원이 성공적으로 삭제되었습니다.`);
+              loadSuperAdminData();
+            } catch (err) {
+              console.error(err);
+              alert('학원 삭제 중 오류가 발생했습니다: ' + err.message);
+            }
+          };
+
+          // 코드 변경 저장 버튼
+          card.querySelector('.sa-btn-save-codes').onclick = async () => {
+            const newAdminCode = card.querySelector('.sa-admin-code-input').value.trim();
+            const newInviteCode = card.querySelector('.sa-invite-code-input').value.trim();
+            if (!newAdminCode) { alert('관리자 코드를 입력해주세요.'); return; }
+            if (!newInviteCode) { alert('학생 등록 코드를 입력해주세요.'); return; }
+            try {
+              await db.collection('academies').doc(aca.id).update({
+                adminCode: newAdminCode,
+                inviteCode: newInviteCode
+              });
+              alert(`✅ [${aca.name}] 코드가 성공적으로 변경되었습니다.\n\n관리자 코드: ${newAdminCode}\n학생 등록 코드: ${newInviteCode}`);
+            } catch (err) {
+              console.error(err);
+              alert('코드 변경 실패: ' + err.message);
+            }
+          };
+
+          if (saAcademyList) saAcademyList.appendChild(card);
+        });
+      } catch (err) {
+        console.error(err);
+        if (saAcademyList) saAcademyList.innerHTML = '<div style="color:#f87171; text-align:center; padding:20px;">학원 목록을 불러오지 못했습니다.</div>';
+      }
+    }
+
+    // 신규 학원 등록
+    const btnCreateAcademy = document.getElementById('btn-sa-create-academy');
+    if (btnCreateAcademy) {
+      btnCreateAcademy.onclick = async () => {
+        const name = document.getElementById('sa-new-academy-name')?.value.trim();
+        const adminCode = document.getElementById('sa-new-admin-code')?.value.trim();
+        const inviteCode = document.getElementById('sa-new-invite-code')?.value.trim();
+
+        if (!name) { alert('학원 이름을 입력해주세요.'); return; }
+        if (!adminCode) { alert('관리자 코드를 입력해주세요.'); return; }
+        if (!inviteCode) { alert('학생 등록 코드를 입력해주세요.'); return; }
+
+        // 관리자 코드 중복 확인
+        const existingQs = await db.collection('academies').where('adminCode', '==', adminCode).limit(1).get();
+        if (!existingQs.empty) {
+          alert(`⚠️ 관리자 코드 '${adminCode}'는 이미 다른 학원에서 사용 중입니다.\n다른 코드를 입력해주세요.`);
+          return;
+        }
+
+        btnCreateAcademy.disabled = true;
+        try {
+          await db.collection('academies').add({
+            name,
+            adminCode,
+            inviteCode,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          alert(`🎉 [${name}] 학원이 성공적으로 등록되었습니다!\n\n관리자 코드: ${adminCode}\n학생 등록 코드: ${inviteCode}`);
+
+          // 입력란 초기화
+          document.getElementById('sa-new-academy-name').value = '';
+          document.getElementById('sa-new-admin-code').value = '';
+          document.getElementById('sa-new-invite-code').value = '';
+
+          loadSuperAdminData();
+        } catch (err) {
+          console.error(err);
+          alert('학원 등록 실패: ' + err.message);
+        } finally {
+          btnCreateAcademy.disabled = false;
+        }
+      };
+    }
+
+    // 초기 로드
+    loadSuperAdminData();
+  }
+
   async function enterAdminMode(rawAdminCode) {
     const adminCode = (rawAdminCode || '').trim();
     if (!db) {
@@ -3743,6 +3948,13 @@ let isVerticalScroll = false;
       alert("먼저 구글 로그인을 진행해주세요!");
       return;
     }
+
+    // 👑 최고관리자 코드 감지
+    if (adminCode === SUPER_ADMIN_CODE) {
+      enterSuperAdminMode();
+      return;
+    }
+
     try {
       const qs = await db.collection('academies').where('adminCode', '==', adminCode).limit(1).get();
       if (qs.empty) {
