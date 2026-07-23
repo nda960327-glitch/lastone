@@ -3552,9 +3552,15 @@ let isVerticalScroll = false;
 
     if (btnAcademySubmit) {
       btnAcademySubmit.onclick = async () => {
+        const userName = (document.getElementById('user-name-input')?.value || '').trim();
         const code = academyInviteInput.value.trim();
         const phoneNum = (document.getElementById('user-phone-input')?.value || '').trim();
         const phoneRegex = /^01[016789]-\d{3,4}-\d{4}$/;
+
+        if (!userName) {
+          if (academyErrorMsg) academyErrorMsg.textContent = "⚠️ 학생 이름 (본명)을 입력해주세요.";
+          return;
+        }
 
         if (!phoneNum || !phoneRegex.test(phoneNum)) {
           if (academyErrorMsg) academyErrorMsg.textContent = "⚠️ 올바른 휴대폰 번호(010-XXXX-XXXX)를 입력해주세요.";
@@ -3583,6 +3589,8 @@ let isVerticalScroll = false;
             const academyName = academyDoc.data().name;
             
             const updateObj = {
+              displayName: userName,
+              realName: userName,
               academyId: academyId,
               academyName: academyName,
               phoneNumber: phoneNum,
@@ -3653,11 +3661,13 @@ let isVerticalScroll = false;
       if (typeof updateCategoryTabTitles === 'function') updateCategoryTabTitles();
       if (typeof showView === 'function') showView('view-input');
 
+      const userName = (document.getElementById('user-name-input')?.value || '').trim();
       const phoneNum = (document.getElementById('user-phone-input')?.value || '').trim();
-      if (phoneNum && typeof currentUser !== 'undefined' && currentUser && typeof db !== 'undefined' && db) {
-        db.collection('users').doc(currentUser.uid).set({
-          phoneNumber: phoneNum
-        }, { merge: true }).catch(e => console.warn('Save phone on skip fail:', e));
+      if ((userName || phoneNum) && typeof currentUser !== 'undefined' && currentUser && typeof db !== 'undefined' && db) {
+        const payload = {};
+        if (userName) { payload.displayName = userName; payload.realName = userName; }
+        if (phoneNum) { payload.phoneNumber = phoneNum; }
+        db.collection('users').doc(currentUser.uid).set(payload, { merge: true }).catch(e => console.warn('Save profile on skip fail:', e));
       }
     };
 
@@ -4603,10 +4613,19 @@ let isVerticalScroll = false;
     try {
       const userDoc = await db.collection('users').doc(uid).get();
 
-      // Populate phone input if exists
+      // Populate name & phone inputs if exists
+      const userNameInput = document.getElementById('user-name-input');
       const userPhoneInput = document.getElementById('user-phone-input');
-      if (userDoc.exists && userDoc.data().phoneNumber) {
-        if (userPhoneInput) userPhoneInput.value = userDoc.data().phoneNumber;
+      if (userDoc.exists) {
+        const uData = userDoc.data();
+        if (userNameInput) {
+          userNameInput.value = uData.realName || uData.displayName || (currentUser ? currentUser.displayName : '') || '';
+        }
+        if (userPhoneInput && uData.phoneNumber) {
+          userPhoneInput.value = uData.phoneNumber;
+        }
+      } else if (currentUser && userNameInput) {
+        userNameInput.value = currentUser.displayName || '';
       }
       
       // Sync down progress data first
