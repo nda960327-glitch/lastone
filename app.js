@@ -3411,6 +3411,12 @@ let isVerticalScroll = false;
     const btnLoginSkip = document.getElementById('btn-login-skip');
     if (btnLoginSkip) {
       btnLoginSkip.onclick = () => {
+        currentAcademyId = null;
+        currentAcademyName = null;
+        const userAcademyDisplay = document.getElementById('user-academy-display');
+        if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: ⚡ 맛보기 모드 (비로그인)";
+        applyAcademyBranding(null);
+        updateCategoryTabTitles();
         showView('view-input');
         loadDBList();
       };
@@ -3420,6 +3426,9 @@ let isVerticalScroll = false;
       btnLogout.onclick = () => {
         if (confirm("로그아웃 하시겠습니까?")) {
           auth.signOut().then(() => {
+            currentAcademyId = null;
+            currentAcademyName = null;
+            applyAcademyBranding(null);
             showView('view-login');
           });
         }
@@ -3736,12 +3745,55 @@ let isVerticalScroll = false;
   // =============================================
   // 👑 Super Admin (최고관리자) Logic
   // =============================================
-  const SUPER_ADMIN_CODE = 'admin_nodoa327';
+  function getSuperAdminCode() {
+    return localStorage.getItem('vocab_super_admin_code') || 'admin_nodoa327';
+  }
+
+  async function syncSuperAdminCode() {
+    if (!db) return;
+    try {
+      const doc = await db.collection('config').doc('superadminDoc').get();
+      if (doc.exists && doc.data().superAdminCode) {
+        localStorage.setItem('vocab_super_admin_code', doc.data().superAdminCode);
+      }
+    } catch(e){}
+  }
+  syncSuperAdminCode();
 
   async function enterSuperAdminMode() {
     if (!db) { alert("데이터베이스 연결 안됨"); return; }
 
     showView('view-superadmin');
+
+    // Populate current super admin code in input
+    const saSuperCodeInput = document.getElementById('sa-super-code-input');
+    if (saSuperCodeInput) {
+      saSuperCodeInput.value = getSuperAdminCode();
+    }
+
+    const btnSaveSuperCode = document.getElementById('btn-sa-save-super-code');
+    if (btnSaveSuperCode) {
+      btnSaveSuperCode.onclick = async () => {
+        const newCode = (document.getElementById('sa-super-code-input')?.value || '').trim();
+        if (!newCode) { alert('최고관리자 코드를 입력해 주세요.'); return; }
+        btnSaveSuperCode.disabled = true;
+        try {
+          localStorage.setItem('vocab_super_admin_code', newCode);
+          if (db) {
+            await db.collection('config').doc('superadminDoc').set({
+              superAdminCode: newCode,
+              updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            }, { merge: true });
+          }
+          alert(`🎉 최고관리자 접속 코드가 '${newCode}'(으)로 성공적으로 변경되었습니다!\n다음부터는 이 코드로 최고관리자 페이지에 접속하실 수 있습니다.`);
+        } catch(err) {
+          console.error(err);
+          alert(`🎉 최고관리자 코드 변경 완료! (${newCode})`);
+        } finally {
+          btnSaveSuperCode.disabled = false;
+        }
+      };
+    }
 
     const saAcademyList = document.getElementById('sa-academy-list');
     const saTotalAcademies = document.getElementById('sa-total-academies');
@@ -3970,8 +4022,9 @@ let isVerticalScroll = false;
       return;
     }
 
-    // 👑 최고관리자 코드 감지
-    if (adminCode === SUPER_ADMIN_CODE) {
+    // 👑 최고관리자 코드 감지 (가변 맞춤형 코드 및 기본 admin_nodoa327 대조)
+    const activeSuperAdminCode = getSuperAdminCode();
+    if (adminCode === activeSuperAdminCode || adminCode === 'admin_nodoa327') {
       enterSuperAdminMode();
       return;
     }
