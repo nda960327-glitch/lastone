@@ -3215,42 +3215,42 @@ let isVerticalScroll = false;
   const academyErrorMsg = document.getElementById('academy-error-msg');
 
   if (auth) {
+    // 1. Handle redirect result if redirected back from Google Login
+    auth.getRedirectResult().then((result) => {
+      if (result && result.user) {
+        console.log("Redirect login successful:", result.user);
+      }
+    }).catch((err) => {
+      console.warn("getRedirectResult error:", err);
+    });
+
+    // 2. Auth State Changed listener
     auth.onAuthStateChanged(async (user) => {
       currentUser = user;
       if (user) {
-        // Logged in
+        // 🚀 Logged in: IMMEDIATELY switch to view-input (0ms delay)
+        showView('view-input');
+        loadDBList();
+
         if (btnLoginGoogle) btnLoginGoogle.style.display = 'none';
         if (btnLoginGoogleMain) btnLoginGoogleMain.style.display = 'none';
         if (userProfileUI) userProfileUI.classList.remove('hidden');
         if (userAvatar) userAvatar.src = user.photoURL || '';
         if (userNameDisplay) userNameDisplay.textContent = user.displayName || 'User';
         
-        // 유저 기본 정보(이름, 이메일)를 Firestore에 주기적으로 업데이트
+        // 유저 기본 정보(이름, 이메일)를 Firestore에 저장
         if (db) {
           db.collection('users').doc(user.uid).set({
             displayName: user.displayName || '이름 없음',
             email: user.email || ''
           }, { merge: true }).catch(err => console.error("Profile sync error", err));
         }
-        
-        // Fetch User Profile with safety timeout (로고 멈춤 현상 방지)
-        const fetchTimeout = setTimeout(() => {
-          console.warn("fetchUserProfile timeout fallback");
-          const viewInput = document.getElementById('view-input');
-          if (viewInput && viewInput.classList.contains('hidden')) {
-            showView('view-input');
-            loadDBList();
-          }
-        }, 3000);
 
+        // 비동기로 유저 프로필 및 학원 소속 동기화 진행
         try {
           await fetchUserProfile(user.uid);
         } catch (e) {
           console.error("fetchUserProfile failed:", e);
-          showView('view-input');
-          loadDBList();
-        } finally {
-          clearTimeout(fetchTimeout);
         }
       } else {
         // Logged out
@@ -3263,32 +3263,74 @@ let isVerticalScroll = false;
       }
     });
 
-    const handleGoogleLogin = () => {
-      // Google Identity Services를 사용하여 Firebase 도메인 제한 우회
-      if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
-        const client = google.accounts.oauth2.initTokenClient({
-          client_id: firebaseConfig.clientId || '760005417553-5iq38rttennaadqp91g0eaq98m3qk24t.apps.googleusercontent.com',
-          scope: 'email profile',
-          callback: async (tokenResponse) => {
-            if (tokenResponse.access_token) {
-              const credential = firebase.auth.GoogleAuthProvider.credential(null, tokenResponse.access_token);
-              try {
-                await auth.signInWithCredential(credential);
-              } catch (err) {
-                console.error("Firebase credential login failed", err);
-                alert("로그인에 실패했습니다: " + err.message);
-              }
-            }
-          }
-        });
-        client.requestAccessToken();
-      } else {
-        // GIS 미로드 시 기존 방식 폴백
+    const handleGoogleLogin = async () => {
+      const originalText = btnLoginGoogleMain ? btnLoginGoogleMain.innerHTML : '';
+      if (btnLoginGoogleMain) {
+        btnLoginGoogleMain.innerHTML = '⏳ 로그인 진행 중...';
+        btnLoginGoogleMain.disabled = true;
+      }
+      if (btnLoginGoogle) {
+        btnLoginGoogle.disabled = true;
+      }
+
+      const resetBtn = () => {
+        if (btnLoginGoogleMain) {
+          btnLoginGoogleMain.innerHTML = originalText;
+          btnLoginGoogleMain.disabled = false;
+        }
+        if (btnLoginGoogle) btnLoginGoogle.disabled = false;
+      };
+
+      try {
         const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider).catch(err => {
-          console.error("Login failed", err);
-          alert("로그인에 실패했습니다: " + err.message);
-        });
+        provider.setCustomParameters({ prompt: 'select_account' });
+        await auth.signInWithPopup(provider);
+      } catch (err) {
+        console.warn("signInWithPopup error, trying GIS / redirect fallback:", err);
+        if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user' || err.code === 'auth/cancelled-popup-request') {
+          try {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            await auth.signInWithRedirect(provider);
+          } catch(reErr) {
+            console.error("signInWithRedirect error:", reErr);
+            resetBtn();
+          }
+        } else if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
+          try {
+            const client = google.accounts.oauth2.initTokenClient({
+              client_id: firebaseConfig.clientId || '760005417553-5iq38rttennaadqp91g0eaq98m3qk24t.apps.googleusercontent.com',
+              scope: 'email profile',
+              callback: async (tokenResponse) => {
+                if (tokenResponse.access_token) {
+                  const credential = firebase.auth.GoogleAuthProvider.credential(null, tokenResponse.access_token);
+                  try {
+                    await auth.signInWithCredential(credential);
+                  } catch (cErr) {
+                    alert("로그인 처리 실패: " + cErr.message);
+                    resetBtn();
+                  }
+                } else {
+                  resetBtn();
+                }
+              },
+              error_callback: () => {
+                resetBtn();
+              }
+            });
+            client.requestAccessToken();
+          } catch (gisErr) {
+            console.error("GIS initTokenClient failed:", gisErr);
+            resetBtn();
+          }
+        } else {
+          try {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            await auth.signInWithRedirect(provider);
+          } catch(reErr) {
+            alert("로그인 실패: " + err.message);
+            resetBtn();
+          }
+        }
       }
     };
 
