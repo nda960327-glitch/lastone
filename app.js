@@ -1378,6 +1378,7 @@ function refreshDBList(textarea) {
 // ② 학습 화면 (자동재생 루프)
 // =============================================
 async function startTest() {
+  localStorage.setItem('skipAcademyModal', 'true');
   App.studyAbort = false; App.testSessionId = Date.now();
   if (!App.sessionStartTime) {
     App.sessionStartTime = Date.now();
@@ -2290,17 +2291,8 @@ function showFinalResult() {
     App.words    = [];
     App.testPool = [];
     App.round    = 1;
-    // document.getElementById('word-input').value = '';
-    const wi = document.getElementById('word-input');
-    if (wi) wi.dispatchEvent(new Event('input'));
-
-    let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
-      if (App.allWords) {
-        App.allWords.forEach(w => {
-          w.totalFails = failData[w.word] || 0;
-        });
-      }
-      showView('view-input');
+    localStorage.setItem('skipAcademyModal', 'true');
+    window.location.reload();
   };
 }
 
@@ -2365,16 +2357,8 @@ function restoreProgress(jsonStr) {
       App.words    = [];
       App.testPool = [];
       App.round    = 1;
-      const wi = document.getElementById('word-input');
-      if (wi) wi.dispatchEvent(new Event('input'));
-      let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
-      if (App.allWords) {
-        App.allWords.forEach(w => {
-          w.totalFails = failData[w.word] || 0;
-        });
-      }
-      showView('view-input');
-      if (App.refreshInputView) App.refreshInputView();
+      localStorage.setItem('skipAcademyModal', 'true');
+      window.location.reload();
     }
   };
   const btnHomeTest = document.getElementById('btn-home-test');
