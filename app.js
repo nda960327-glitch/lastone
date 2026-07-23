@@ -3689,6 +3689,11 @@ let isVerticalScroll = false;
       if (academyInviteModal) academyInviteModal.classList.add('hidden');
       showView('view-admin');
       
+      let wb1Days = { "Day 1": "" };
+      let wb1CurrentDay = "Day 1";
+      let wb2Days = { "Day 1": "" };
+      let wb2CurrentDay = "Day 1";
+      
       function updateAdminWordBookStatus(slotId, title, daysObj) {
         const statusEl = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-status' : 'admin-wb2-status');
         if (!statusEl) return;
