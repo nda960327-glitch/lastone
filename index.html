@@ -89,7 +89,10 @@
 
       <!-- 1번 단어장 -->
       <div class="glass-card" style="margin-bottom: 16px; padding: 16px;">
-        <div style="font-weight: 700; font-size: 14px; margin-bottom: 10px; color: #a5b4fc;">[1번 단어장]</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span style="font-weight: 700; font-size: 14px; color: #a5b4fc;">[1번 단어장]</span>
+          <span id="admin-wb1-status" style="font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; background: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.4);">⚪ 서버 미등록</span>
+        </div>
         <input type="text" id="admin-wb1-title" placeholder="1번 단어장 이름 (예: 토플 필수 단어장)" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 10px; font-size: 14px;" />
         <div style="display: flex; gap: 8px; margin-bottom: 10px; align-items: center;">
           <input type="file" id="admin-wb1-file" accept=".txt,.csv" style="display: none;" />
@@ -105,7 +108,10 @@
 
       <!-- 2번 단어장 -->
       <div class="glass-card" style="margin-bottom: 24px; padding: 16px;">
-        <div style="font-weight: 700; font-size: 14px; margin-bottom: 10px; color: #a5b4fc;">[2번 단어장]</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span style="font-weight: 700; font-size: 14px; color: #a5b4fc;">[2번 단어장]</span>
+          <span id="admin-wb2-status" style="font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; background: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.4);">⚪ 서버 미등록</span>
+        </div>
         <input type="text" id="admin-wb2-title" placeholder="2번 단어장 이름 (예: 기초 필수 단어장)" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 10px; font-size: 14px;" />
         <div style="display: flex; gap: 8px; margin-bottom: 10px; align-items: center;">
           <input type="file" id="admin-wb2-file" accept=".txt,.csv" style="display: none;" />
@@ -135,7 +141,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v276</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v277</span>
           </div>
           <p class="brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>

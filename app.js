@@ -3437,6 +3437,23 @@ let isVerticalScroll = false;
       showView('view-admin');
       
       // ── 학원 전용 단어장 로드 및 바인딩 ──
+      function updateAdminWordBookStatus(slotId, title, content) {
+        const statusEl = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-status' : 'admin-wb2-status');
+        if (!statusEl) return;
+        if (title && content) {
+          const parsed = parseWordText(content, 'temp', 'temp');
+          statusEl.innerHTML = `✅ 서버 등록 완료 (${parsed.length}개 단어)`;
+          statusEl.style.background = 'rgba(16, 185, 129, 0.15)';
+          statusEl.style.color = '#10b981';
+          statusEl.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+        } else {
+          statusEl.innerHTML = `⚪ 서버 미등록`;
+          statusEl.style.background = 'rgba(156, 163, 175, 0.15)';
+          statusEl.style.color = '#9ca3af';
+          statusEl.style.borderColor = 'rgba(156, 163, 175, 0.4)';
+        }
+      }
+
       async function loadAdminWordBooks() {
         try {
           const wbQs = await db.collection('academies').doc(academyId).collection('wordBooks').get();
@@ -3449,14 +3466,19 @@ let isVerticalScroll = false;
           if (wb2Title) wb2Title.value = '';
           if (wb2Content) wb2Content.value = '';
 
+          updateAdminWordBookStatus('slot_1', '', '');
+          updateAdminWordBookStatus('slot_2', '', '');
+
           wbQs.forEach(doc => {
             const data = doc.data();
             if (doc.id === 'slot_1') {
               if (wb1Title) wb1Title.value = data.title || '';
               if (wb1Content) wb1Content.value = data.content || '';
+              updateAdminWordBookStatus('slot_1', data.title, data.content);
             } else if (doc.id === 'slot_2') {
               if (wb2Title) wb2Title.value = data.title || '';
               if (wb2Content) wb2Content.value = data.content || '';
+              updateAdminWordBookStatus('slot_2', data.title, data.content);
             }
           });
         } catch (e) {
@@ -3502,6 +3524,7 @@ let isVerticalScroll = false;
               content,
               updatedAt: firebase.firestore.FieldValue.serverTimestamp()
             });
+            updateAdminWordBookStatus(slotId, title, content);
             alert(`🎉 ${slotId === 'slot_1' ? '1번' : '2번'} 단어장 ('${title}')이 서버에 성공적으로 등록되었습니다!`);
           } catch (err) {
             console.error(err);
@@ -3522,6 +3545,7 @@ let isVerticalScroll = false;
             if (titleEl) titleEl.value = '';
             if (contentEl) contentEl.value = '';
             if (nameEl) nameEl.textContent = '선택된 파일 없음';
+            updateAdminWordBookStatus(slotId, '', '');
             alert("서버에서 단어장이 삭제되었습니다.");
           } catch (err) {
             alert('삭제 중 오류가 발생했습니다: ' + err.message);
