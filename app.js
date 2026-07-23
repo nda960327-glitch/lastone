@@ -336,12 +336,26 @@ function getFilteredWords() {
   let filtered = words.filter(w => w.category === currentCategory && (currentDay === null || w.day === currentDay));
   let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
   return filtered.map((w, i) => {
+    // ── 품사/의미 1:1 매핑 (중복 방지) ──
+    // meaning이 "/" 로 분리된 경우, 각 품사에 대응하는 의미 조각을 사용
+    const meaningParts = w.meaning.split('/').map(s => s.trim());
+    let meanings;
+    if (w.partOfSpeech.length === 1) {
+      // 단일 품사: 전체 의미를 그대로 사용
+      meanings = [{ pos: w.partOfSpeech[0], meaning: w.meaning }];
+    } else if (meaningParts.length === w.partOfSpeech.length) {
+      // 품사 수와 의미 조각 수가 일치: 1:1 매핑
+      meanings = w.partOfSpeech.map((pos, idx) => ({ pos, meaning: meaningParts[idx] }));
+    } else {
+      // 불일치: 전체 의미를 하나의 항목으로만 표시 (첫 번째 품사만 사용)
+      meanings = [{ pos: w.partOfSpeech[0], meaning: w.meaning }];
+    }
     return {
       originalIndex: i,
       word: w.word,
       partOfSpeech: w.partOfSpeech,
       meaning: w.meaning,
-      meanings: w.partOfSpeech.map(pos => ({ pos: pos, meaning: w.meaning })),
+      meanings,
       passed: false,
       attempts: 0,
       totalFails: failData[w.word] || 0
