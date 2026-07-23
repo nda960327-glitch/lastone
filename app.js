@@ -2266,6 +2266,12 @@ function showFinalResult() {
     const tr = document.createElement('tr');
     tr.innerHTML = `<td colspan="4" style="text-align:center; padding: 30px; font-weight:bold; color:#10b981; font-size: 18px;">🎉 오답이 한 개도 없습니다. 완벽합니다! 🎉</td>`;
     tbody.appendChild(tr);
+
+    // 오답 0개로 완벽 종료 시 1.8초 후 자동으로 홈 이동 & 새로고침
+    setTimeout(() => {
+      localStorage.setItem('skipAcademyModal', 'true');
+      window.location.reload();
+    }, 1800);
   } else {
     const sorted = [...wrongWords].sort((a, b) => b.attempts - a.attempts);
     sorted.forEach((w, idx) => {
@@ -2365,6 +2371,13 @@ function restoreProgress(jsonStr) {
   if (btnHomeTest) btnHomeTest.onclick = goHomeHandler;
   const btnHomeResult = document.getElementById('btn-home-result');
   if (btnHomeResult) btnHomeResult.onclick = goHomeHandler;
+  const btnRestart = document.getElementById('btn-restart');
+  if (btnRestart) {
+    btnRestart.onclick = () => {
+      localStorage.setItem('skipAcademyModal', 'true');
+      window.location.reload();
+    };
+  }
   initInputView();
 
   // ── 전체화면 진입 (상태바/배터리/시계 숨기기) ──
