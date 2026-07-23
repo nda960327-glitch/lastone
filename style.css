@@ -287,6 +287,31 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   padding: 16px 16px 32px 16px;
   animation: viewIn 0.25s ease;
 }
+.total-study-time-bar {
+  margin-bottom: 10px;
+}
+.total-study-time-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+  padding: 10px 14px;
+  gap: 8px;
+}
+.total-time-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #a5b4fc;
+  letter-spacing: -0.01em;
+}
+.total-time-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #c4b5fd;
+  letter-spacing: -0.02em;
+}
 .range-title {
   font-size: 13px;
   font-weight: 700;

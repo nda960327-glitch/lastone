@@ -625,6 +625,33 @@ function initInputView() {
     panel.classList.remove('hidden');
     listContainer.innerHTML = '';
 
+    // ── 총 학습시간 계산 및 표시 ──
+    const totalTimeBar = document.getElementById('total-study-time-bar');
+    if (totalTimeBar && App.currentDBName) {
+      let studyTime = {};
+      try { studyTime = JSON.parse(localStorage.getItem('vocab_study_time') || '{}'); } catch(e){}
+      // 현재 DBName에 해당하는 모든 키의 시간 합산
+      const totalSec = Object.entries(studyTime)
+        .filter(([k]) => k.startsWith(App.currentDBName + '_'))
+        .reduce((sum, [, v]) => sum + (v || 0), 0);
+      if (totalSec > 0) {
+        const h = Math.floor(totalSec / 3600);
+        const m = Math.floor((totalSec % 3600) / 60);
+        const s = totalSec % 60;
+        let timeStr = '';
+        if (h > 0) timeStr = `${h}시간 ${m}분 ${s}초`;
+        else if (m > 0) timeStr = `${m}분 ${s}초`;
+        else timeStr = `${s}초`;
+        totalTimeBar.innerHTML = `
+          <div class="total-study-time-display">
+            <span class="total-time-label">⏱️ 총 학습시간</span>
+            <span class="total-time-value">${timeStr}</span>
+          </div>`;
+      } else {
+        totalTimeBar.innerHTML = '';
+      }
+    }
+
     const SMALL = 20;  // 소그룹 단위
     const MID   = 40;  // 중그룹 단위
 

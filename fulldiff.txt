@@ -1,0 +1,102 @@
+diff --git a/app.js b/app.js
+index 6fb6037..87d32fc 100644
+--- a/app.js
++++ b/app.js
+@@ -889,6 +889,9 @@ function initInputView() {
+       alert('단어장을 선택해주세요.');
+       return;
+     }
++    App.studyAbort = false; App.testSessionId = Date.now();
++    App.isOButtonLocked = false;
++    App.isPenaltyTime = false;
+     App.currentSection = 'dictation';
+     recordProgress('in_progress');
+     App.words = words;
+@@ -1139,7 +1142,7 @@ function refreshDBList(textarea) {
+     opt.value = title;
+     opt.textContent = title;
+     opt.style.background = 'var(--dropdown-hover)';
+-    opt.style.color = '#ffffff';
++    opt.style.color = 'var(--text-main)';
+ 
+     if (title.startsWith('토플')) {
+       selectTofl.appendChild(opt);
+@@ -1219,7 +1222,7 @@ function refreshDBList(textarea) {
+ // ② 학습 화면 (자동재생 루프)
+ // =============================================
+ async function startTest() {
+-  App.studyAbort = false;
++  App.studyAbort = false; App.testSessionId = Date.now();
+   recordProgress('in_progress');
+   const textarea = document.getElementById('word-input');
+   const rawWords = getFilteredWords();
+@@ -1258,7 +1261,7 @@ async function startTest() {
+ 
+ // ── 취약점 집중 복습 시작 ──
+ async function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
+-  App.studyAbort = false;
++  App.studyAbort = false; App.testSessionId = Date.now();
+   recordProgress('in_progress');
+   // 1. 해당 구간의 전체 단어 로드
+   const allWords = getFilteredWords();
+@@ -1400,6 +1403,7 @@ function handleWordTimeout() {
+ }
+ 
+ async function runTestRound(startIndex = 0) {
++  const currentSessionId = App.testSessionId;
+   const pool = App.testPool;
+   const wrongThisRound = [];
+   let correctThisRound = 0;
+@@ -1417,7 +1421,7 @@ async function runTestRound(startIndex = 0) {
+ 
+   for (let i = startIndex; i < pool.length; i++) {
+     isTimeUp = false;
+-    if (App.studyAbort) return;
++    if (App.studyAbort || App.testSessionId !== currentSessionId) return;
+     stopWordTimer();
+     const wordObj = pool[i];
+     App.currentTestIndex = i;
+@@ -1469,6 +1473,11 @@ if (posHintEl) posHintEl.classList.add('hidden');
+       }
+     }
+ 
++    const testCard = document.querySelector('.test-card');
++    if (testCard) {
++      if (isDictationMode) testCard.classList.add('dictation-mode-active');
++      else testCard.classList.remove('dictation-mode-active');
++    }
+     if (isDictationMode) {
+       document.getElementById('test-word').classList.add('hidden');
+       const oxC1 = document.getElementById('ox-buttons-container');
+@@ -1521,11 +1530,12 @@ if (posHintEl) posHintEl.classList.add('hidden');
+     if (!isDictationMode && !isAlreadyGraded) {
+       await sleep(2000);
+     }
++    if (App.studyAbort || App.testSessionId !== currentSessionId) return;
+ 
+     if (listenZone) {
+       listenZone.classList.add('hidden');
+     }
+-    
++
+     // 헤드셋(프라이밍) 단계가 끝나고 스펠링 공개될 때 타이머 노출
+     if (wrapper && !isDictationMode) {
+       wrapper.classList.remove('hidden');
+@@ -1561,7 +1571,7 @@ if (posHintEl) posHintEl.classList.add('hidden');
+       btnSpeak.classList.remove('hidden');
+       if (btnSpeak) btnSpeak.onclick = () => speak(wordObj.word);
+     }
+-if (posHintEl) posHintEl.textContent = `품사 ${wordObj.meanings.length}개`;
++if (posHintEl) posHintEl.innerHTML = `품사 <span style="font-size: 1.3em; color: var(--primary-color); font-weight: 900;">${wordObj.meanings.length}</span>개`;
+     if (!isDictationMode) {
+ if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display = 'block'; }
+     }
+@@ -1695,7 +1705,7 @@ if (posHintEl) { posHintEl.classList.remove('hidden'); posHintEl.style.display =
+     window.speechSynthesis.cancel();
+ 
+     // [이전 단어] 처리: O/X 단계에서 이전 단어 클릭
+-    if (result === 'ABORT' || App.studyAbort) return;
++    if (result === "ABORT" || App.studyAbort || App.testSessionId !== currentSessionId) return;
+ 
+     if (result === 'PREV') {
+       if (i > 0) {
