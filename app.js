@@ -3405,8 +3405,8 @@ let isVerticalScroll = false;
       }
     };
 
-    if (btnLoginGoogle) btnLoginGoogle.onclick = handleGoogleLogin;
-    if (btnLoginGoogleMain) btnLoginGoogleMain.onclick = handleGoogleLogin;
+    if (btnLoginGoogle) btnLoginGoogle.onclick = () => { localStorage.removeItem('skipAcademyModal'); handleGoogleLogin(); };
+    if (btnLoginGoogleMain) btnLoginGoogleMain.onclick = () => { localStorage.removeItem('skipAcademyModal'); handleGoogleLogin(); };
 
     const btnLoginSkip = document.getElementById('btn-login-skip');
     if (btnLoginSkip) {
@@ -4605,7 +4605,7 @@ let isVerticalScroll = false;
         updateCategoryTabTitles();
         if (academyInviteModal) academyInviteModal.classList.add('hidden');
       } else {
-        // 학원 미등록 상태: 버튼을 '학원등록'으로 변경
+        // 학원 미등록 상태: 즉시 학원 초대 코드 등록 팝업 강제 표시!
         currentAcademyId = null;
         if (btnOpenAcademyModal) {
           btnOpenAcademyModal.textContent = '학원등록';
@@ -4616,15 +4616,9 @@ let isVerticalScroll = false;
         
         updateCategoryTabTitles();
 
-        // 사용자가 건너뛰기를 누른 적이 있는지 확인
-        if (localStorage.getItem('skipAcademyModal') === 'true') {
-          if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록(기본 단어장)";
-          if (academyInviteModal) academyInviteModal.classList.add('hidden');
-        } else {
-          // view-input 위에서 모달 표시
-          if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록";
-          if (academyInviteModal) academyInviteModal.classList.remove('hidden');
-        }
+        // 구글 로그인 후 학원 미등록인 경우 바로 학원 등록(초대 코드 입력) 창을 팝업!
+        if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 학원 미등록 (초대 코드 입력 필요)";
+        if (academyInviteModal) academyInviteModal.classList.remove('hidden');
       }
     } catch (err) {
       console.error("Failed to fetch user profile", err);
