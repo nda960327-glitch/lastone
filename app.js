@@ -3366,13 +3366,19 @@ let isVerticalScroll = false;
             const academyId = academyDoc.id;
             const academyName = academyDoc.data().name;
             
-            // 유저 프로필에 저장
-            await db.collection('users').doc(currentUser.uid).set({
+            const phoneNum = (document.getElementById('user-phone-input')?.value || '').trim();
+            const updateObj = {
               academyId: academyId,
               academyName: academyName,
               deleted: false,
               updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            }, { merge: true });
+            };
+            if (phoneNum) {
+              updateObj.phoneNumber = phoneNum;
+            }
+
+            // 유저 프로필에 저장
+            await db.collection('users').doc(currentUser.uid).set(updateObj, { merge: true });
             
             academyInviteModal.classList.add('hidden');
             alert(`🎉 ${academyName}에 성공적으로 등록되었습니다!`);
@@ -3384,51 +3390,60 @@ let isVerticalScroll = false;
         }
         btnAcademySubmit.disabled = false;
       };
+    }
 
-      const btnOpenAcademyModal = document.getElementById('btn-open-academy-modal');
-      if (btnOpenAcademyModal) {
-        btnOpenAcademyModal.onclick = async () => {
-          if (currentAcademyId) {
-            // 학원 탈퇴 모달 확인 흐름
-            const confirmLeave = confirm("⚠️ 정말 소속 학원에서 탈퇴하시겠습니까?\n\n탈퇴 시 학원 전용 단어장을 더 이상 이용할 수 없게 되며, 기본 단어장 모드로 전환됩니다. (언제든지 초대 코드로 재등록 가능합니다)");
-            if (confirmLeave) {
-              try {
-                if (currentUser && db) {
-                  await db.collection('users').doc(currentUser.uid).set({
-                    academyId: firebase.firestore.FieldValue.delete(),
-                    academyName: firebase.firestore.FieldValue.delete()
-                  }, { merge: true });
-                }
-                currentAcademyId = null;
-                localStorage.setItem('skipAcademyModal', 'true');
-                alert("소속 학원에서 정상적으로 탈퇴되었습니다. 기본 단어장으로 전환합니다.");
-                window.location.reload();
-              } catch (err) {
-                alert("학원 탈퇴 처리 중 오류가 발생했습니다: " + err.message);
+    const btnOpenAcademyModal = document.getElementById('btn-open-academy-modal');
+    if (btnOpenAcademyModal) {
+      btnOpenAcademyModal.onclick = async () => {
+        if (currentAcademyId) {
+          // 학원 탈퇴 모달 확인 흐름
+          const confirmLeave = confirm("⚠️ 정말 소속 학원에서 탈퇴하시겠습니까?\n\n탈퇴 시 학원 전용 단어장을 더 이상 이용할 수 없게 되며, 기본 단어장 모드로 전환됩니다. (언제든지 초대 코드로 재등록 가능합니다)");
+          if (confirmLeave) {
+            try {
+              if (currentUser && db) {
+                await db.collection('users').doc(currentUser.uid).set({
+                  academyId: firebase.firestore.FieldValue.delete(),
+                  academyName: firebase.firestore.FieldValue.delete()
+                }, { merge: true });
               }
+              currentAcademyId = null;
+              localStorage.setItem('skipAcademyModal', 'true');
+              alert("소속 학원에서 정상적으로 탈퇴되었습니다. 기본 단어장으로 전환합니다.");
+              window.location.reload();
+            } catch (err) {
+              alert("학원 탈퇴 처리 중 오류가 발생했습니다: " + err.message);
             }
-          } else {
-            // 학원 등록 모달 열기
-            const settingsModal = document.getElementById('modal-settings');
-            if (settingsModal) settingsModal.classList.add('hidden');
-            if (academyInviteInput) academyInviteInput.value = '';
-            if (academyErrorMsg) academyErrorMsg.textContent = '';
-            if (academyInviteModal) academyInviteModal.classList.remove('hidden');
           }
-        };
-      }
+        } else {
+          // 학원 등록 모달 열기
+          const settingsModal = document.getElementById('modal-settings');
+          if (settingsModal) settingsModal.classList.add('hidden');
+          if (academyInviteInput) academyInviteInput.value = '';
+          if (academyErrorMsg) academyErrorMsg.textContent = '';
+          if (academyInviteModal) academyInviteModal.classList.remove('hidden');
+        }
+      };
+    }
 
-      const btnAcademySkip = document.getElementById('btn-academy-skip');
-      if (btnAcademySkip) {
-        btnAcademySkip.onclick = () => {
-          localStorage.setItem('skipAcademyModal', 'true');
-          academyInviteModal.classList.add('hidden');
-          currentAcademyId = null;
-          if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록(기본 단어장)";
-          showView('view-input');
-          loadDBList();
-        };
-      }
+    const btnAcademySkip = document.getElementById('btn-academy-skip');
+    if (btnAcademySkip) {
+      btnAcademySkip.onclick = async () => {
+        const phoneNum = (document.getElementById('user-phone-input')?.value || '').trim();
+        if (phoneNum && currentUser && db) {
+          try {
+            await db.collection('users').doc(currentUser.uid).set({
+              phoneNumber: phoneNum
+            }, { merge: true });
+          } catch(e){}
+        }
+        localStorage.setItem('skipAcademyModal', 'true');
+        academyInviteModal.classList.add('hidden');
+        currentAcademyId = null;
+        if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록(기본 단어장)";
+        showView('view-input');
+        loadDBList();
+      };
+    }
     }
   }
 
@@ -3863,15 +3878,20 @@ let isVerticalScroll = false;
         const li = document.createElement('li');
         li.style.cssText = 'background: rgba(0,0,0,0.2); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.05);';
         
+        const phoneHtml = data.phoneNumber ? `<span style="font-size: 12px; color: #a5b4fc; margin-left: 8px; font-weight: normal;">📞 ${esc(data.phoneNumber)}</span>` : '<span style="font-size: 12px; color: var(--text-sub); margin-left: 8px; font-weight: normal;">(전화번호 미입력)</span>';
+
         const infoDiv = document.createElement('div');
-        infoDiv.innerHTML = `<div style="font-size: 15px; font-weight: 600; color: white;">${esc(data.displayName || '이름 없음')}</div>
-                             <div style="font-size: 12px; color: var(--text-sub);">${esc(data.email || '')}</div>`;
+        infoDiv.innerHTML = `<div style="font-size: 15px; font-weight: 600; color: white; display: flex; align-items: center; flex-wrap: wrap; gap: 4px;">
+                              <span>${esc(data.displayName || '이름 없음')}</span>
+                              ${phoneHtml}
+                             </div>
+                             <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">✉️ ${esc(data.email || '이메일 없음')}</div>`;
         
         const delBtn = document.createElement('button');
         delBtn.textContent = '삭제';
         delBtn.style.cssText = 'background: #ff4d4f; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer;';
         delBtn.onclick = async () => {
-          if (confirm(`${data.displayName} 학생을 학원 명단에서 삭제하시겠습니까?`)) {
+          if (confirm(`${data.displayName || '학생'} 학생을 학원 명단에서 삭제하시겠습니까?`)) {
             try {
               await db.collection('users').doc(doc.id).update({
                 academyId: null,
@@ -3901,6 +3921,12 @@ let isVerticalScroll = false;
     if (!db) return;
     try {
       const userDoc = await db.collection('users').doc(uid).get();
+
+      // Populate phone input if exists
+      const userPhoneInput = document.getElementById('user-phone-input');
+      if (userDoc.exists && userDoc.data().phoneNumber) {
+        if (userPhoneInput) userPhoneInput.value = userDoc.data().phoneNumber;
+      }
       
       // Sync down progress data first
       try {
@@ -3918,6 +3944,10 @@ let isVerticalScroll = false;
       }
 
       const btnOpenAcademyModal = document.getElementById('btn-open-academy-modal');
+
+      // 로그인 완료 시 즉시 메인 학습 화면(view-input)으로 전환 (화면 멈춤 방지)
+      showView('view-input');
+      loadDBList();
 
       if (userDoc.exists && userDoc.data().academyId && !userDoc.data().deleted) {
         const data = userDoc.data();
@@ -3951,10 +3981,7 @@ let isVerticalScroll = false;
         }
 
         updateCategoryTabTitles();
-
-        // 학원 소속인 경우 화면 전환
-        showView('view-input');
-        loadDBList(); 
+        if (academyInviteModal) academyInviteModal.classList.add('hidden');
       } else {
         // 학원 미등록 상태: 버튼을 '학원등록'으로 변경
         currentAcademyId = null;
@@ -3971,17 +3998,14 @@ let isVerticalScroll = false;
         if (localStorage.getItem('skipAcademyModal') === 'true') {
           if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록(기본 단어장)";
           if (academyInviteModal) academyInviteModal.classList.add('hidden');
-          showView('view-input');
-          loadDBList();
         } else {
-          // 모달 띄우기 (view-login 상태 유지)
+          // view-input 위에서 모달 표시
           if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록";
           if (academyInviteModal) academyInviteModal.classList.remove('hidden');
         }
       }
     } catch (err) {
       console.error("Failed to fetch user profile", err);
-      // 에러 발생 시에도 빈 화면에 갇히지 않도록 기본 화면으로 전환
       showView('view-input');
       loadDBList();
     }
