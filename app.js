@@ -383,23 +383,79 @@ function getAcademyWordData(slotId) {
   }
 }
 
+let isAcademyViewingPublic = false;
+
 function updateCategoryTabTitles() {
   const tabToefl = document.getElementById('tab-toefl');
   const tabBasic = document.getElementById('tab-basic');
+  const tabUpload = document.getElementById('tab-custom-upload');
+  const tabManual = document.getElementById('tab-custom-manual');
+  const banner = document.getElementById('mode-status-banner');
+  const bannerTitle = document.getElementById('mode-status-title');
+  const btnToggleMode = document.getElementById('btn-toggle-view-mode');
+
   if (!tabToefl || !tabBasic) return;
 
-  if (currentAcademyId) {
+  if (currentAcademyId && !isAcademyViewingPublic) {
+    if (banner) {
+      banner.style.display = 'flex';
+      banner.style.background = 'rgba(99, 102, 241, 0.15)';
+      banner.style.border = '1px solid rgba(99, 102, 241, 0.4)';
+    }
+    if (bannerTitle) {
+      bannerTitle.innerHTML = `<span>🏫</span> <strong style="color:#a5b4fc;">${currentAcademyName || '소속 학원'}</strong> 전용 학습 공간`;
+    }
+    if (btnToggleMode) {
+      btnToggleMode.style.display = 'inline-block';
+      btnToggleMode.textContent = '⚡ 기본 4천 단어장 보기';
+      btnToggleMode.onclick = () => {
+        isAcademyViewingPublic = true;
+        updateCategoryTabTitles();
+        populateDaySelector();
+      };
+    }
+
     const wb1 = getAcademyWordData('slot_1');
     const wb2 = getAcademyWordData('slot_2');
 
     const hasWb1 = wb1 && wb1.title && wb1.days && Object.values(wb1.days).some(txt => txt && txt.trim());
     const hasWb2 = wb2 && wb2.title && wb2.days && Object.values(wb2.days).some(txt => txt && txt.trim());
 
-    tabToefl.textContent = hasWb1 ? `🔥 ${wb1.title}` : `🔥 1번 단어장 (미등록)`;
-    tabBasic.textContent = hasWb2 ? `🌱 ${wb2.title}` : `🌱 2번 단어장 (미등록)`;
+    tabToefl.innerHTML = hasWb1 ? `📘 1번: ${wb1.title}` : `📘 1번 단어장 (미등록)`;
+    tabBasic.innerHTML = hasWb2 ? `📙 2번: ${wb2.title}` : `📙 2번 단어장 (미등록)`;
+
+    if (tabUpload) tabUpload.style.display = 'none';
+    if (tabManual) tabManual.style.display = 'none';
   } else {
-    tabToefl.textContent = `🔥 토플 영단어`;
-    tabBasic.textContent = `🌱 기초 영단어`;
+    if (banner) {
+      if (currentAcademyId && isAcademyViewingPublic) {
+        banner.style.display = 'flex';
+        banner.style.background = 'rgba(234, 179, 8, 0.15)';
+        banner.style.border = '1px solid rgba(234, 179, 8, 0.4)';
+        if (bannerTitle) bannerTitle.innerHTML = `<span>⚡</span> DOACore 기본 4천 단어장 (임시 보기)`;
+        if (btnToggleMode) {
+          btnToggleMode.style.display = 'inline-block';
+          btnToggleMode.textContent = '🏫 학원 전용 단어장 복귀';
+          btnToggleMode.onclick = () => {
+            isAcademyViewingPublic = false;
+            updateCategoryTabTitles();
+            populateDaySelector();
+          };
+        }
+      } else {
+        banner.style.display = 'flex';
+        banner.style.background = 'rgba(74, 222, 128, 0.12)';
+        banner.style.border = '1px solid rgba(74, 222, 128, 0.3)';
+        if (bannerTitle) bannerTitle.innerHTML = `<span>⚡</span> DOACore 기본 및 맛보기 단어장`;
+        if (btnToggleMode) btnToggleMode.style.display = 'none';
+      }
+    }
+
+    tabToefl.innerHTML = `🔥 토플 영단어`;
+    tabBasic.innerHTML = `🌱 기초 영단어`;
+
+    if (tabUpload) tabUpload.style.display = 'block';
+    if (tabManual) tabManual.style.display = 'block';
   }
 }
 
@@ -409,7 +465,7 @@ function populateDaySelector() {
   if (typeof words === 'undefined') return;
 
   let filteredSource = words;
-  if (currentAcademyId) {
+  if (currentAcademyId && !isAcademyViewingPublic) {
     if (currentCategory === 'toefl') {
       const wb1 = getAcademyWordData('slot_1');
       if (wb1 && wb1.days && Object.keys(wb1.days).length > 0) {
