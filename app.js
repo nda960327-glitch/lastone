@@ -3711,7 +3711,7 @@ let isVerticalScroll = false;
       if (headerTitle) headerTitle.textContent = "DOACore";
       if (headerSub) headerSub.textContent = "DOACore: 인지공학 기반 영단어 각인 엔진";
       if (headerImg) { headerImg.src = "icon.jpg"; headerImg.style.display = "block"; }
-      if (headerBear) headerBear.style.display = "none";
+      if (headerBear) { headerBear.textContent = "🧸"; headerBear.style.display = "block"; }
       return;
     }
 
@@ -3722,13 +3722,14 @@ let isVerticalScroll = false;
     if (headerTitle) headerTitle.textContent = name;
     if (headerSub) headerSub.textContent = sub;
 
-    // URL이 유효하게 입력된 경우 커스텀 이미지 URL 사용, URL이 없으면 내 기본 로고(icon.jpg) 적용
+    // URL이 유효하게 입력된 경우 커스텀 이미지 URL 단독 사용
     if (logo && (logo.startsWith('http://') || logo.startsWith('https://') || logo.startsWith('/') || logo.startsWith('data:'))) {
       if (headerImg) { headerImg.src = logo; headerImg.style.display = "block"; }
       if (headerBear) headerBear.style.display = "none";
     } else {
+      // 로고 URL이 없는 경우 원래 도아코어 로고 세트 (icon.jpg + 🧸) 모두 표시
       if (headerImg) { headerImg.src = "icon.jpg"; headerImg.style.display = "block"; }
-      if (headerBear) headerBear.style.display = "none";
+      if (headerBear) { headerBear.textContent = "🧸"; headerBear.style.display = "block"; }
     }
   }
 
