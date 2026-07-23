@@ -3800,13 +3800,12 @@ let isVerticalScroll = false;
           card.style.cssText = 'padding: 16px; position: relative;';
           card.innerHTML = `
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-              <div>
-                <div style="font-size: 16px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 6px;">
-                  🏫 ${esc(aca.name || '이름 없음')}
-                </div>
-                <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">등록일: ${createdStr} · 학생 ${studentCount}명</div>
+              <div style="flex: 1; margin-right: 12px;">
+                <div style="font-size: 11px; color: var(--text-sub); margin-bottom: 3px; font-weight: 600;">🏫 학원 이름</div>
+                <input type="text" class="sa-name-input" value="${esc(aca.name || '')}" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 14px; font-weight: 700; width: 100%; border-radius: 6px; padding: 6px 10px; outline: none;" />
+                <div style="font-size: 11.5px; color: var(--text-sub); margin-top: 4px;">등록일: ${createdStr} · 학생 ${studentCount}명</div>
               </div>
-              <div style="display: flex; gap: 6px;">
+              <div style="display: flex; gap: 6px; flex-shrink: 0; align-items: flex-start; margin-top: 18px;">
                 <button class="sa-btn-enter" style="background: rgba(99,102,241,0.2); border: 1px solid rgba(99,102,241,0.5); color: #818cf8; padding: 6px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">🔑 학원관리 접속</button>
                 <button class="sa-btn-delete" style="background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.5); color: #f87171; padding: 6px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">🗑️ 삭제</button>
               </div>
@@ -3826,7 +3825,7 @@ let isVerticalScroll = false;
               </div>
             </div>
             <div style="margin-top: 10px; display: flex; gap: 8px;">
-              <button class="sa-btn-save-codes" style="flex:1; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4); color: #4ade80; padding: 8px; border-radius: 6px; font-size: 12px; cursor: pointer; font-weight: 600;">💾 코드 변경 저장</button>
+              <button class="sa-btn-save-codes" style="flex:1; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4); color: #4ade80; padding: 8px; border-radius: 6px; font-size: 12px; cursor: pointer; font-weight: 600;">💾 학원정보 & 코드 변경 저장</button>
             </div>
           `;
 
@@ -3864,21 +3863,43 @@ let isVerticalScroll = false;
             }
           };
 
-          // 코드 변경 저장 버튼
+          // 코드 및 학원이름 변경 저장 버튼
           card.querySelector('.sa-btn-save-codes').onclick = async () => {
+            const newName = card.querySelector('.sa-name-input').value.trim();
             const newAdminCode = card.querySelector('.sa-admin-code-input').value.trim();
             const newInviteCode = card.querySelector('.sa-invite-code-input').value.trim();
+            
+            if (!newName) { alert('학원 이름을 입력해주세요.'); return; }
             if (!newAdminCode) { alert('관리자 코드를 입력해주세요.'); return; }
             if (!newInviteCode) { alert('학생 등록 코드를 입력해주세요.'); return; }
+
+            const btnSave = card.querySelector('.sa-btn-save-codes');
+            btnSave.disabled = true;
             try {
               await db.collection('academies').doc(aca.id).update({
+                name: newName,
                 adminCode: newAdminCode,
                 inviteCode: newInviteCode
               });
-              alert(`✅ [${aca.name}] 코드가 성공적으로 변경되었습니다.\n\n관리자 코드: ${newAdminCode}\n학생 등록 코드: ${newInviteCode}`);
+
+              if (newName !== aca.name) {
+                const studentsQs = await db.collection('users').where('academyId', '==', aca.id).get();
+                if (!studentsQs.empty) {
+                  const batch = db.batch();
+                  studentsQs.forEach(doc => {
+                    batch.update(doc.ref, { academyName: newName });
+                  });
+                  await batch.commit();
+                }
+              }
+
+              alert(`✅ [${newName}] 학원 정보 및 코드가 성공적으로 변경되었습니다.\n\n학원 이름: ${newName}\n관리자 코드: ${newAdminCode}\n학생 등록 코드: ${newInviteCode}`);
+              loadSuperAdminData();
             } catch (err) {
               console.error(err);
-              alert('코드 변경 실패: ' + err.message);
+              alert('학원 정보 변경 실패: ' + err.message);
+            } finally {
+              btnSave.disabled = false;
             }
           };
 
