@@ -342,13 +342,18 @@ function updateCategoryTabTitles() {
     try { wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`)); } catch(e){}
     try { wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`)); } catch(e){}
 
-    tabToefl.textContent = (wb1 && wb1.title) ? `🔥 ${wb1.title}` : `🔥 토플 영단어`;
-    tabBasic.textContent = (wb2 && wb2.title) ? `🌱 ${wb2.title}` : `🌱 기초 영단어`;
+    tabToefl.textContent = (wb1 && wb1.title && wb1.content) ? `🔥 ${wb1.title}` : `🔥 1번 단어장 (미등록)`;
+    tabBasic.textContent = (wb2 && wb2.title && wb2.content) ? `🌱 ${wb2.title}` : `🌱 2번 단어장 (미등록)`;
   } else {
     tabToefl.textContent = `🔥 토플 영단어`;
     tabBasic.textContent = `🌱 기초 영단어`;
   }
 }
+
+function populateDaySelector() {
+  const daySelector = document.getElementById('day-selector');
+  if (!daySelector) return;
+  if (typeof words === 'undefined') return;
 
 function populateDaySelector() {
   const daySelector = document.getElementById('day-selector');
@@ -362,15 +367,23 @@ function populateDaySelector() {
         const wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`));
         if (wb1 && wb1.content) {
           filteredSource = parseWordText(wb1.content, 'toefl', wb1.title || '1번 단어장');
+        } else {
+          filteredSource = [];
         }
-      } catch(e){}
+      } catch(e){
+        filteredSource = [];
+      }
     } else if (currentCategory === 'basic') {
       try {
         const wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`));
         if (wb2 && wb2.content) {
           filteredSource = parseWordText(wb2.content, 'basic', wb2.title || '2번 단어장');
+        } else {
+          filteredSource = [];
         }
-      } catch(e){}
+      } catch(e){
+        filteredSource = [];
+      }
     }
   }
 
@@ -385,7 +398,7 @@ function populateDaySelector() {
   const sortedDays = Array.from(days).sort((a, b) => isNaN(a) || isNaN(b) ? String(a).localeCompare(String(b)) : a - b);
   
   if (sortedDays.length === 0) {
-    daySelector.innerHTML = '<option value="">단어장 없음</option>';
+    daySelector.innerHTML = '<option value="">(등록된 단어장 없음)</option>';
     currentDay = null;
     return;
   }
@@ -432,15 +445,23 @@ function getFilteredWords() {
         const wb1 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_1`));
         if (wb1 && wb1.content) {
           filteredSource = parseWordText(wb1.content, 'toefl', wb1.title || '1번 단어장');
+        } else {
+          filteredSource = [];
         }
-      } catch(e){}
+      } catch(e){
+        filteredSource = [];
+      }
     } else if (currentCategory === 'basic') {
       try {
         const wb2 = JSON.parse(localStorage.getItem(`academy_wb_${currentAcademyId}_slot_2`));
         if (wb2 && wb2.content) {
           filteredSource = parseWordText(wb2.content, 'basic', wb2.title || '2번 단어장');
+        } else {
+          filteredSource = [];
         }
-      } catch(e){}
+      } catch(e){
+        filteredSource = [];
+      }
     }
   }
 
@@ -736,9 +757,22 @@ function initInputView() {
 
     const n = words.length;
 
-    // 단어가 없으면 패널 숨김
+    // 단어가 없으면 안내 메시지 표시 (학원 소속 학생인 경우)
     if (n === 0) {
-      panel.classList.add('hidden');
+      if (currentAcademyId && (currentCategory === 'toefl' || currentCategory === 'basic')) {
+        panel.classList.remove('hidden');
+        const totalTimeBar = document.getElementById('total-study-time-bar');
+        if (totalTimeBar) totalTimeBar.innerHTML = '';
+        listContainer.innerHTML = `
+          <div class="glass-card" style="padding: 32px 16px; text-align: center; color: var(--text-sub); width: 100%; grid-column: 1 / -1;">
+            <div style="font-size: 40px; margin-bottom: 12px;">📭</div>
+            <div style="font-size: 17px; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">등록된 학원 단어장이 없습니다</div>
+            <div style="font-size: 13px; color: var(--text-sub);">학원 관리자에게 단어장 등록을 요청해주세요.</div>
+          </div>
+        `;
+      } else {
+        panel.classList.add('hidden');
+      }
       return;
     }
 
