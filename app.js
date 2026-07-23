@@ -43,6 +43,22 @@ function setProgressSync(key, value) {
   }
 }
 
+function recordStudyTime() {
+  if (App.sessionStartTime) {
+    const elapsedSeconds = Math.floor((Date.now() - App.sessionStartTime) / 1000);
+    if (elapsedSeconds > 0) {
+      const basePrefix = currentAcademyId ? `${currentAcademyId}_` : 'default_';
+      const key = `${basePrefix}${currentCategory}_${App.currentDayTitle}`;
+      
+      let studyTime = {};
+      try { studyTime = JSON.parse(localStorage.getItem('vocab_study_time') || '{}'); } catch(e){}
+      studyTime[key] = (studyTime[key] || 0) + elapsedSeconds;
+      setProgressSync('vocab_study_time', JSON.stringify(studyTime));
+    }
+    App.sessionStartTime = null; // 리셋
+  }
+}
+
 // ---- 예시 데이터 (기초 영단어 day1 전체) ----
 const EXAMPLE_WORDS = `skill [n] 기술
 cash [n] 현금
@@ -612,12 +628,26 @@ function initInputView() {
     function getBadgeHTML(sectionKey) {
       if (!App.currentDBName) return '';
       const key = `${App.currentDBName}_${sectionKey}`;
+      
+      let badgeHTML = '';
+      
       let progress = {};
       try { progress = JSON.parse(localStorage.getItem('vocab_progress') || '{}'); } catch(e){}
       const status = progress[key];
-      if (status === 'in_progress') return `<span class="progress-badge in-progress">진행중 🏃‍♂️</span>`;
-      if (status === 'completed') return `<span class="progress-badge completed">완벽 👑</span>`;
-      return '';
+      if (status === 'in_progress') badgeHTML += `<span class="progress-badge in-progress">진행중 🏃‍♂️</span>`;
+      else if (status === 'completed') badgeHTML += `<span class="progress-badge completed">완벽 👑</span>`;
+
+      let studyTime = {};
+      try { studyTime = JSON.parse(localStorage.getItem('vocab_study_time') || '{}'); } catch(e){}
+      const totalSeconds = studyTime[key] || 0;
+      if (totalSeconds > 0) {
+        const m = Math.floor(totalSeconds / 60);
+        const s = totalSeconds % 60;
+        const timeStr = m > 0 ? `${m}분 ${s}초` : `${s}초`;
+        badgeHTML += `<span style="font-size: 11px; color: #a5b4fc; margin-left: 6px; font-weight: 500;">⏱️ ${timeStr}</span>`;
+      }
+
+      return badgeHTML;
     }
 
     // ── 섹션 1: 📖 소그룹 새 학습 (20단어 단위) ──
@@ -1304,6 +1334,9 @@ function refreshDBList(textarea) {
 // =============================================
 async function startTest() {
   App.studyAbort = false; App.testSessionId = Date.now();
+  if (App.round === 1) {
+    App.sessionStartTime = Date.now();
+  }
   recordProgress('in_progress');
   const textarea = document.getElementById('word-input');
   const rawWords = getFilteredWords();
@@ -2135,6 +2168,7 @@ function showFinalResult() {
   // ── 최종 완료 시 단어 상태 영구 저장 ──
   saveWordStates();
   recordProgress('completed');
+  recordStudyTime();
   clearProgress();
   showView('view-final');
 
@@ -2687,6 +2721,18 @@ let isVerticalScroll = false;
         }
       });
       setProgressSync('vocab_progress', JSON.stringify(progress));
+      
+      let studyTime = JSON.parse(localStorage.getItem('vocab_study_time')) || {};
+      let studyTimeUpdated = false;
+      Object.keys(studyTime).forEach(key => {
+        if (day ? key.startsWith(dbName + '_') : key.startsWith(category)) {
+          delete studyTime[key];
+          studyTimeUpdated = true;
+        }
+      });
+      if (studyTimeUpdated) {
+        setProgressSync('vocab_study_time', JSON.stringify(studyTime));
+      }
 
       // 2. vocab_word_states_ 키 제거
       const keysToRemove = [];
