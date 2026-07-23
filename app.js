@@ -2694,7 +2694,7 @@ function restoreProgress(jsonStr) {
 //  Swipe Logic 
 const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth <= 768;
 let savedSwipe = localStorage.getItem('isSwipeMode');
-let isSwipeMode = savedSwipe !== null ? savedSwipe === 'true' : isMobileDevice;
+let isSwipeMode = savedSwipe !== null ? savedSwipe === 'true' : false;
 let isHideMeaningMode = false;
 let isTimeUp = false;
 let swipeStartX = 0;
