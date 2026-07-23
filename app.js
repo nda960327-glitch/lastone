@@ -3173,7 +3173,7 @@ let isVerticalScroll = false;
     }
   }
   
-  const savedTheme = localStorage.getItem('vocab_theme') || 'blue';
+  const savedTheme = localStorage.getItem('vocab_theme') || 'dark';
   applyTheme(savedTheme);
 
   themeBtns.forEach(btn => {
