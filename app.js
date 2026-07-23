@@ -689,7 +689,7 @@ function initInputView() {
         const m = Math.floor(totalSeconds / 60);
         const s = totalSeconds % 60;
         const timeStr = m > 0 ? `${m}분 ${s}초` : `${s}초`;
-        badgeHTML += `<span style="font-size: 11px; color: #a5b4fc; margin-left: 6px; font-weight: 500;">⏱️ ${timeStr}</span>`;
+        badgeHTML += `<span class="progress-badge time-badge">⏱️ ${timeStr}</span>`;
       }
 
       return badgeHTML;
