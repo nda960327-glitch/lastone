@@ -46,15 +46,19 @@ function setProgressSync(key, value) {
 function recordStudyTime() {
   if (App.sessionStartTime) {
     const elapsedSeconds = Math.floor((Date.now() - App.sessionStartTime) / 1000);
+    console.log('[TIME] sessionStartTime:', App.sessionStartTime, 'elapsed:', elapsedSeconds, 'DBName:', App.currentDBName, 'Section:', App.currentSection);
     if (elapsedSeconds > 0 && App.currentDBName && App.currentSection) {
       const key = `${App.currentDBName}_${App.currentSection}`;
       
       let studyTime = {};
       try { studyTime = JSON.parse(localStorage.getItem('vocab_study_time') || '{}'); } catch(e){}
       studyTime[key] = (studyTime[key] || 0) + elapsedSeconds;
+      console.log('[TIME] Saving key:', key, 'total seconds:', studyTime[key]);
       setProgressSync('vocab_study_time', JSON.stringify(studyTime));
     }
     App.sessionStartTime = null; // 리셋
+  } else {
+    console.log('[TIME] recordStudyTime called but sessionStartTime is null');
   }
 }
 
@@ -639,6 +643,7 @@ function initInputView() {
       let studyTime = {};
       try { studyTime = JSON.parse(localStorage.getItem('vocab_study_time') || '{}'); } catch(e){}
       const totalSeconds = studyTime[key] || 0;
+      console.log('[BADGE] key:', key, 'totalSeconds:', totalSeconds, 'status:', status);
       if (totalSeconds > 0) {
         const m = Math.floor(totalSeconds / 60);
         const s = totalSeconds % 60;
@@ -2309,6 +2314,7 @@ function restoreProgress(jsonStr) {
 
   const goHomeHandler = () => {
     if (confirm('테스트를 중단하고 홈으로 돌아가시겠습니까?')) {
+      recordStudyTime(); // ⏱️ 중단 시에도 시간 누적 저장
       App.studyAbort = true;
       if (oxResolver) { oxResolver('ABORT'); oxResolver = null; }
       stopWordTimer();
