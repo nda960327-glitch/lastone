@@ -3665,12 +3665,6 @@ let isVerticalScroll = false;
       if (academyInviteModal) academyInviteModal.classList.add('hidden');
       showView('view-admin');
       
-      // ── 학원 전용 단어장 Multi-Day 관리 state ──
-      let wb1Days = { "Day 1": "" };
-      let wb1CurrentDay = "Day 1";
-      let wb2Days = { "Day 1": "" };
-      let wb2CurrentDay = "Day 1";
-
       function updateAdminWordBookStatus(slotId, title, daysObj) {
         const statusEl = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-status' : 'admin-wb2-status');
         if (!statusEl) return;
@@ -3695,12 +3689,7 @@ let isVerticalScroll = false;
       function renderWbDays(slotId) {
         const isSlot1 = (slotId === 'slot_1');
         const days = isSlot1 ? wb1Days : wb2Days;
-        let curDay = isSlot1 ? wb1CurrentDay : wb2CurrentDay;
-        const selectEl = document.getElementById(isSlot1 ? 'admin-wb1-day-select' : 'admin-wb2-day-select');
         const textEl = document.getElementById(isSlot1 ? 'admin-wb1-content' : 'admin-wb2-content');
-        const infoEl = document.getElementById(isSlot1 ? 'admin-wb1-day-info' : 'admin-wb2-day-info');
-
-        if (!selectEl) return;
 
         const dayKeys = Object.keys(days).sort((a, b) => {
           const numA = parseInt(a.replace(/[^0-9]/g, ''), 10);
@@ -3709,28 +3698,6 @@ let isVerticalScroll = false;
           return a.localeCompare(b, 'ko');
         });
 
-        if (dayKeys.length === 0) {
-          dayKeys.push("Day 1");
-          days["Day 1"] = "";
-        }
-
-        if (!dayKeys.includes(curDay)) {
-          curDay = dayKeys[0];
-          if (isSlot1) wb1CurrentDay = curDay;
-          else wb2CurrentDay = curDay;
-        }
-
-        selectEl.innerHTML = '';
-        dayKeys.forEach(k => {
-          const opt = document.createElement('option');
-          opt.value = k;
-          const count = parseWordText(days[k] || '', 'temp', 'temp').length;
-          opt.textContent = `${k} (${count}개 단어)`;
-          selectEl.appendChild(opt);
-        });
-
-        selectEl.value = curDay;
-        if (textEl) textEl.value = days[curDay] || '';
 
         let totalWords = 0;
         dayKeys.forEach(k => { totalWords += parseWordText(days[k] || '', 'temp', 'temp').length; });
