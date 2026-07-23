@@ -3337,6 +3337,14 @@ let isVerticalScroll = false;
     if (btnLoginGoogle) btnLoginGoogle.onclick = handleGoogleLogin;
     if (btnLoginGoogleMain) btnLoginGoogleMain.onclick = handleGoogleLogin;
 
+    const btnLoginSkip = document.getElementById('btn-login-skip');
+    if (btnLoginSkip) {
+      btnLoginSkip.onclick = () => {
+        showView('view-input');
+        loadDBList();
+      };
+    }
+
     if (btnLogout) {
       btnLogout.onclick = () => {
         if (confirm("로그아웃 하시겠습니까?")) {
