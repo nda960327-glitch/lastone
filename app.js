@@ -401,6 +401,8 @@ function updateCategoryTabTitles() {
     tabToefl.textContent = `🔥 토플 영단어`;
     tabBasic.textContent = `🌱 기초 영단어`;
   }
+
+  populateDaySelector();
 }
 
 function populateDaySelector() {
@@ -451,26 +453,29 @@ function populateDaySelector() {
   });
   
   if (sortedDays.length === 0) {
-    daySelector.innerHTML = '<option value="">(등록된 단어장 없음)</option>';
+    daySelector.innerHTML = '<option value="" style="background:#1e1b4b;color:#fff;">(등록된 단어장 없음)</option>';
     currentDay = null;
     return;
   }
-  
+
   sortedDays.forEach(day => {
     let titlePrefix = '';
     if (currentCategory === 'toefl') {
       const wb1 = getAcademyWordData('slot_1');
-      titlePrefix = (wb1 && wb1.title) ? `${wb1.title} - ` : '🔥 토플 영단어 - ';
+      titlePrefix = (currentAcademyId && wb1 && wb1.title) ? `${wb1.title} - ` : '🔥 토플 영단어 - ';
     } else if (currentCategory === 'basic') {
       const wb2 = getAcademyWordData('slot_2');
-      titlePrefix = (wb2 && wb2.title) ? `${wb2.title} - ` : '🌱 기초 영단어 - ';
+      titlePrefix = (currentAcademyId && wb2 && wb2.title) ? `${wb2.title} - ` : '🌱 기초 영단어 - ';
     } else if (currentCategory === 'custom-upload') {
       titlePrefix = '📁 업로드 단어장 - ';
     }
     
     const opt = document.createElement('option');
     opt.value = day;
-    opt.textContent = titlePrefix + (isNaN(day) && String(day).startsWith('Day') ? day : `Day ${day}`);
+    const dayLabel = isNaN(day) && String(day).startsWith('Day') ? day : `Day ${day}`;
+    opt.textContent = titlePrefix + dayLabel;
+    opt.style.background = '#1e1b4b';
+    opt.style.color = '#ffffff';
     daySelector.appendChild(opt);
   });
   
