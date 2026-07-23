@@ -3605,24 +3605,32 @@ let isVerticalScroll = false;
       };
     }
 
+    window.skipAcademyModal = function() {
+      const modal = document.getElementById('academy-invite-modal');
+      if (modal) modal.classList.add('hidden');
+
+      localStorage.setItem('skipAcademyModal', 'true');
+      currentAcademyId = null;
+      currentAcademyName = null;
+
+      const userAcademyDisplay = document.getElementById('user-academy-display');
+      if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록 (기본 단어장)";
+
+      if (typeof applyAcademyBranding === 'function') applyAcademyBranding(null);
+      if (typeof updateCategoryTabTitles === 'function') updateCategoryTabTitles();
+      if (typeof showView === 'function') showView('view-input');
+
+      const phoneNum = (document.getElementById('user-phone-input')?.value || '').trim();
+      if (phoneNum && typeof currentUser !== 'undefined' && currentUser && typeof db !== 'undefined' && db) {
+        db.collection('users').doc(currentUser.uid).set({
+          phoneNumber: phoneNum
+        }, { merge: true }).catch(e => console.warn('Save phone on skip fail:', e));
+      }
+    };
+
     const btnAcademySkip = document.getElementById('btn-academy-skip');
     if (btnAcademySkip) {
-      btnAcademySkip.onclick = async () => {
-        const phoneNum = (document.getElementById('user-phone-input')?.value || '').trim();
-        if (phoneNum && currentUser && db) {
-          try {
-            await db.collection('users').doc(currentUser.uid).set({
-              phoneNumber: phoneNum
-            }, { merge: true });
-          } catch(e){}
-        }
-        localStorage.setItem('skipAcademyModal', 'true');
-        academyInviteModal.classList.add('hidden');
-        currentAcademyId = null;
-        if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: 미등록(기본 단어장)";
-        showView('view-input');
-        loadDBList();
-      };
+      btnAcademySkip.onclick = window.skipAcademyModal;
     }
   }
 

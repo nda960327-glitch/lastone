@@ -279,7 +279,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" id="header-brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v313</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v314</span>
           </div>
           <p class="brand-sub" id="header-brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
@@ -869,7 +869,7 @@
 
       <div style="display: flex; gap: 10px; flex-direction: column;">
         <button id="btn-academy-submit" class="btn-primary" style="padding: 14px; font-size: 15px; font-weight: 700;">🚀 등록 및 정보 저장</button>
-        <button id="btn-academy-skip" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-sub); padding: 12px; border-radius: 8px; cursor: pointer; font-size: 13px;">건너뛰기 (기본 단어장 사용)</button>
+        <button id="btn-academy-skip" onclick="if(window.skipAcademyModal) window.skipAcademyModal(); else { document.getElementById('academy-invite-modal').classList.add('hidden'); if(window.showView) showView('view-input'); }" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-sub); padding: 12px; border-radius: 8px; cursor: pointer; font-size: 13px; width: 100%;">건너뛰기 (기본 단어장 사용)</button>
       </div>
       <div id="academy-error-msg" style="color: #ff6b6b; font-size: 13px; text-align: center; margin-top: 12px; min-height: 16px;"></div>
     </div>
