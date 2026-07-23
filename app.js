@@ -3857,40 +3857,95 @@ let isVerticalScroll = false;
         }
       }
 
+  // =============================================
+  // Upload Progress Modal Helper
+  // =============================================
+  function showUploadLoading(title, desc, percent = 30) {
+    const modal = document.getElementById('upload-loading-modal');
+    const titleEl = document.getElementById('upload-loading-title');
+    const descEl = document.getElementById('upload-loading-desc');
+    const barEl = document.getElementById('upload-progress-bar');
+    const percentEl = document.getElementById('upload-loading-percent');
+
+    if (titleEl) titleEl.textContent = title;
+    if (descEl) descEl.innerHTML = desc;
+    if (barEl) barEl.style.width = `${percent}%`;
+    if (percentEl) percentEl.textContent = `진행률: ${percent}%`;
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function updateUploadLoading(percent, desc) {
+    const barEl = document.getElementById('upload-progress-bar');
+    const percentEl = document.getElementById('upload-loading-percent');
+    const descEl = document.getElementById('upload-loading-desc');
+
+    if (barEl) barEl.style.width = `${percent}%`;
+    if (percentEl) percentEl.textContent = `진행률: ${percent}%`;
+    if (desc && descEl) descEl.innerHTML = desc;
+  }
+
+  function hideUploadLoading() {
+    const modal = document.getElementById('upload-loading-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
       function bindAdminFilePicker(btnId, fileId, slotId) {
         const btn = document.getElementById(btnId);
         const fileInput = document.getElementById(fileId);
+        const textEl = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-content' : 'admin-wb2-content');
         if (btn && fileInput) {
           btn.onclick = () => fileInput.click();
           fileInput.onchange = async (e) => {
             const files = Array.from(e.target.files);
             if (!files || files.length === 0) return;
 
-            const targetDays = (slotId === 'slot_1') ? wb1Days : wb2Days;
+            const totalSizeKb = Math.round(files.reduce((acc, f) => acc + f.size, 0) / 1024);
+            showUploadLoading("⏳ 단어장 파일 분석 중...", `대용량 파일 (${totalSizeKb} KB)을 읽고 단어를 추출하는 중입니다.`, 25);
 
-            if (files.length === 1) {
-              const file = files[0];
-              const text = await file.text();
-              const parsedMulti = parseMultiDayText(text);
-              if (Object.keys(parsedMulti).length > 1) {
-                Object.assign(targetDays, parsedMulti);
-              } else {
-                const curDay = (slotId === 'slot_1') ? wb1CurrentDay : wb2CurrentDay;
-                targetDays[curDay] = text;
-              }
-            } else {
-              for (const file of files) {
-                const text = await file.text();
-                const match = file.name.match(/Day\s*(\d+)/i);
-                let dayKey = file.name.replace(/\.[^/.]+$/, "");
-                if (match) {
-                  dayKey = `Day ${match[1]}`;
+            setTimeout(async () => {
+              try {
+                updateUploadLoading(55, `⚡ 단어 데이터 파싱 및 분할 중...`);
+                const targetDays = (slotId === 'slot_1') ? wb1Days : wb2Days;
+
+                if (files.length === 1) {
+                  const file = files[0];
+                  const text = await file.text();
+                  const parsedMulti = parseMultiDayText(text);
+                  if (Object.keys(parsedMulti).length > 1) {
+                    Object.assign(targetDays, parsedMulti);
+                  } else {
+                    const curDay = (slotId === 'slot_1') ? wb1CurrentDay : wb2CurrentDay;
+                    targetDays[curDay] = text;
+                  }
+                } else {
+                  for (const file of files) {
+                    const text = await file.text();
+                    const match = file.name.match(/Day\s*(\d+)/i);
+                    let dayKey = file.name.replace(/\.[^/.]+$/, "");
+                    if (match) {
+                      dayKey = `Day ${match[1]}`;
+                    }
+                    targetDays[dayKey] = text;
+                  }
                 }
-                targetDays[dayKey] = text;
-              }
-            }
 
-            renderWbDays(slotId);
+                updateUploadLoading(85, `📝 화면에 단어 데이터 채우는 중...`);
+                renderWbDays(slotId);
+
+                let totalWords = 0;
+                Object.values(targetDays).forEach(txt => { totalWords += parseWordText(txt, 'temp', 'temp').length; });
+                updateUploadLoading(100, `✅ 총 ${totalWords.toLocaleString()}개 단어 로드 완료!`);
+
+                setTimeout(() => {
+                  hideUploadLoading();
+                }, 400);
+
+              } catch (err) {
+                console.error(err);
+                hideUploadLoading();
+                alert("파일 읽기 오류: " + err.message);
+              }
+            }, 60);
           };
         }
       }
@@ -3911,23 +3966,35 @@ let isVerticalScroll = false;
         if (!title) { alert('단어장 대표 이름을 입력해주세요.'); return; }
         if (totalWords === 0) { alert('단어장 내용(단어 목록)을 입력해주세요.'); return; }
 
-        if (confirm(`'${title}' 단어장 (총 ${Object.keys(days).length}개 Day, ${totalWords}개 단어)을 서버에 등록하시겠습니까?\n학원 소속 학생들의 화면에 즉시 적용됩니다.`)) {
+        if (confirm(`'${title}' 단어장 (총 ${Object.keys(days).length}개 Day, ${totalWords.toLocaleString()}개 단어)을 서버에 등록하시겠습니까?\n학원 소속 학생들의 화면에 즉시 적용됩니다.`)) {
           const btn = document.getElementById(btnId);
           if (btn) btn.disabled = true;
-          try {
-            await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).set({
-              title,
-              days,
-              updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            });
-            updateAdminWordBookStatus(slotId, title, days);
-            alert(`🎉 ${slotId === 'slot_1' ? '1번' : '2번'} 단어장 ('${title}')이 서버에 성공적으로 등록되었습니다!`);
-          } catch (err) {
-            console.error(err);
-            alert('단어장 등록 중 오류가 발생했습니다: ' + err.message);
-          } finally {
-            if (btn) btn.disabled = false;
-          }
+
+          showUploadLoading("☁️ 서버에 단어장 업로드 중...", `'${title}' (${totalWords.toLocaleString()}개 단어) 데이터를 서버로 전송하고 있습니다.`, 30);
+
+          setTimeout(async () => {
+            try {
+              updateUploadLoading(70, "☁️ Firestore 데이터베이스에 암호화 저장 중...");
+              await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).set({
+                title,
+                days,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+              });
+              updateAdminWordBookStatus(slotId, title, days);
+
+              updateUploadLoading(100, "🎉 서버 저장 완료!");
+              setTimeout(() => {
+                hideUploadLoading();
+                alert(`🎉 ${slotId === 'slot_1' ? '1번' : '2번'} 단어장 ('${title}')이 서버에 성공적으로 등록되었습니다!`);
+              }, 400);
+            } catch (err) {
+              console.error(err);
+              hideUploadLoading();
+              alert('단어장 등록 중 오류가 발생했습니다: ' + err.message);
+            } finally {
+              if (btn) btn.disabled = false;
+            }
+          }, 60);
         }
       }
 
