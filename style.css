@@ -49,25 +49,24 @@ select option { background-color: #07071a; color: #ffffff; }
 }
 
 [data-theme="blue"] {
-  --bg-color: #D4EAFA;
+  --bg-color: #90CDF4;
   --card-bg: #FFFFFF;
-  --text-main: #334155; /* 부드러운 다크 그레이블루 */
-  --glow-color: rgba(59, 130, 246, 0.3);
-  --btn-stroke: #BFDBFE;
-  --o-bg: #DCFCE7; /* 연초록 파스텔 */
-  --x-bg: #FFE4E6; /* 연분홍 파스텔 */
+  --text-main: #0F172A; /* 선명하고 깊은 딥 네이비 */
+  --glow-color: rgba(14, 165, 233, 0.35);
+  --btn-stroke: #7DD3FC;
+  --o-bg: #E0F2FE; /* 파스텔 블루 */
+  --x-bg: #FFE4E6; /* 파스텔 핑크 */
   
-  /* 폴백 유지 */
-  --text-sub: #475569;
-  --primary-color: #2563EB;
-  --primary-hover: #1D4ED8;
-  --box-border: #DBEAFE;
+  --text-sub: #0284C7; /* 선명한 스카이블루 서브텍스트 */
+  --primary-color: #0284C7;
+  --primary-hover: #0369A1;
+  --box-border: #7DD3FC;
   --dropdown-bg: #FFFFFF;
-  --dropdown-hover: #F0F4F8;
-  --input-bg: #F0F4F8;
-  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  --icon-filter: invert(1) hue-rotate(60deg);
-  --border-h: #2563EB;
+  --dropdown-hover: #F0F9FF;
+  --input-bg: #F8FAFC;
+  --card-shadow: 0 8px 24px rgba(14, 165, 233, 0.15);
+  --icon-filter: none;
+  --border-h: #0284C7;
 }
 
 [data-theme="pink"] {
@@ -2483,3 +2482,143 @@ body {
   border: 1px solid #6EE7B7 !important;
   font-weight: 700 !important;
 }
+
+/* ── ☁️ 몽실몽실 구름 하늘 테마 (Fluffy Cloud Blue Sky Theme) ── */
+[data-theme="blue"] body {
+  background: linear-gradient(180deg, #90CDF4 0%, #BAE6FD 35%, #E0F2FE 70%, #F0F9FF 100%) !important;
+  color: #0F172A !important;
+}
+
+[data-theme="blue"] .glass-card,
+[data-theme="blue"] .word-card,
+[data-theme="blue"] .test-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 2.5px solid #7DD3FC !important;
+  border-radius: 22px !important;
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.15), inset 0 2px 0 #FFFFFF !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+[data-theme="blue"] .glass-card:hover,
+[data-theme="blue"] .word-card:hover {
+  border-color: #38BDF8 !important;
+  box-shadow: 0 12px 28px rgba(14, 165, 233, 0.22) !important;
+}
+
+/* ☁️ 구름 둥근 버튼 */
+[data-theme="blue"] .btn-primary {
+  background: linear-gradient(135deg, #0284C7 0%, #38BDF8 50%, #7DD3FC 100%) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3), inset 0 1.5px 0 rgba(255, 255, 255, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+[data-theme="blue"] .btn-primary:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #0284C7 50%, #38BDF8 100%) !important;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4) !important;
+}
+
+[data-theme="blue"] .btn-range-item {
+  border: 2.5px solid #7DD3FC !important;
+  border-radius: 20px !important;
+  background: linear-gradient(155deg, #FFFFFF, #F0F9FF) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.08) !important;
+}
+
+[data-theme="blue"] .btn-range-item:hover {
+  border-color: #0284C7 !important;
+  background: linear-gradient(155deg, #F0F9FF, #E0F2FE) !important;
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.18) !important;
+}
+
+[data-theme="blue"] .range-btn-label {
+  color: #0369A1 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="blue"] .tab-btn {
+  border: 2.5px solid #7DD3FC !important;
+  background: #FFFFFF !important;
+  border-radius: 50px !important;
+  color: #0284C7 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="blue"] .tab-btn:hover {
+  background: #F0F9FF !important;
+  border-color: #38BDF8 !important;
+}
+
+[data-theme="blue"] .tab-btn.active {
+  background: linear-gradient(135deg, #0284C7, #38BDF8) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35) !important;
+}
+
+[data-theme="blue"] input,
+[data-theme="blue"] select,
+[data-theme="blue"] textarea {
+  border: 2.5px solid #7DD3FC !important;
+  border-radius: 16px !important;
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="blue"] input:focus,
+[data-theme="blue"] select:focus,
+[data-theme="blue"] textarea:focus {
+  border-color: #0284C7 !important;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.18) !important;
+  outline: none !important;
+}
+
+[data-theme="blue"] .total-study-time-display {
+  background: linear-gradient(135deg, #E0F2FE, #BAE6FD) !important;
+  border: 2.5px solid #7DD3FC !important;
+  border-radius: 18px !important;
+}
+
+[data-theme="blue"] .total-time-label {
+  color: #0369A1 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="blue"] .total-time-value {
+  color: #0284C7 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="blue"] .progress-badge.time-badge {
+  background: #E0F2FE !important;
+  color: #0284C7 !important;
+  border: 1.5px solid #7DD3FC !important;
+  font-weight: 800 !important;
+  border-radius: 50px !important;
+}
+
+[data-theme="blue"] h2,
+[data-theme="blue"] h3,
+[data-theme="blue"] .brand-title {
+  color: #0284C7 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="blue"] .brand-sub {
+  color: #0369A1 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="blue"] ::-webkit-scrollbar { width: 8px !important; }
+[data-theme="blue"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7DD3FC, #0284C7) !important;
+  border-radius: 50px !important;
+}
+[data-theme="blue"] ::-webkit-scrollbar-track { background: #F0F9FF !important; }
