@@ -1208,6 +1208,11 @@ button { cursor:pointer; border:none; outline:none; font-family:inherit; transit
   border: 2px solid crimson !important;
   box-shadow: 0 0 25px rgba(220, 20, 60, 0.6) !important;
   animation: pulse-red 2s infinite alternate;
+  padding-top: 54px !important;
+}
+
+.test-card.boss-mode #timer-bar-wrapper {
+  margin-top: 14px !important;
 }
 
 @keyframes pulse-red {
@@ -2760,6 +2765,24 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+.boss-badge {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: block;
+  background: crimson;
+  color: #ffffff;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 12.5px;
+  width: max-content;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(220, 20, 60, 0.5);
 }
 .btn-pause:hover {
   transform: translateY(-2px);

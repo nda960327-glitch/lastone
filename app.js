@@ -44,7 +44,7 @@ function setProgressSync(key, value) {
 }
 
 function recordStudyTime() {
-  if (App.sessionStartTime && !App.isStudyPaused) {
+  if (App.sessionStartTime) {
     const elapsedSeconds = Math.floor((Date.now() - App.sessionStartTime) / 1000);
     console.log('[TIME] sessionStartTime:', App.sessionStartTime, 'elapsed:', elapsedSeconds, 'DBName:', App.currentDBName, 'Section:', App.currentSection);
     if (elapsedSeconds > 0 && App.currentDBName && App.currentSection) {
@@ -53,12 +53,12 @@ function recordStudyTime() {
       let studyTime = {};
       try { studyTime = JSON.parse(localStorage.getItem('vocab_study_time') || '{}'); } catch(e){}
       studyTime[key] = (studyTime[key] || 0) + elapsedSeconds;
-      console.log('[TIME] Saving key:', key, 'total seconds:', studyTime[key]);
+      console.log('[TIME] Cumulative Saving key:', key, 'total accumulated seconds:', studyTime[key]);
       setProgressSync('vocab_study_time', JSON.stringify(studyTime));
     }
-    App.sessionStartTime = null; // 리셋
+    App.sessionStartTime = null; // 리셋 후 다음 세션 시점에 재설정
   } else {
-    console.log('[TIME] recordStudyTime skipped or sessionStartTime is null (isStudyPaused:', App.isStudyPaused, ')');
+    console.log('[TIME] recordStudyTime skipped: sessionStartTime is null');
   }
 }
 
