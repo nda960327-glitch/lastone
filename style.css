@@ -2622,3 +2622,71 @@ body {
   border-radius: 50px !important;
 }
 [data-theme="blue"] ::-webkit-scrollbar-track { background: #F0F9FF !important; }
+
+/* ── ☁️ 하단 안내 알약 버튼 (info-pill-btn) 테마별 고대비 가독성 보장 ── */
+[data-theme="blue"] .info-pill-btn {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 2px solid #7DD3FC !important;
+  color: #0369A1 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.12) !important;
+}
+
+[data-theme="blue"] .info-pill-btn:hover {
+  background: #F0F9FF !important;
+  border-color: #0284C7 !important;
+  color: #0284C7 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.2) !important;
+}
+
+[data-theme="pink"] .info-pill-btn {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 2px solid #F9A8D4 !important;
+  color: #BE185D !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="green"] .info-pill-btn {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 2px solid #6EE7B7 !important;
+  color: #047857 !important;
+  font-weight: 800 !important;
+}
+
+/* ── ☁️ 테마별 모달 배경 오버레이 (Dark Pitch Black ➔ 드림 블러 매칭) ── */
+[data-theme="blue"] .modal-overlay {
+  background: rgba(15, 23, 42, 0.35) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+[data-theme="blue"] .modal-content {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 2.5px solid #7DD3FC !important;
+  box-shadow: 0 20px 50px rgba(14, 165, 233, 0.25) !important;
+  color: #0F172A !important;
+}
+
+[data-theme="blue"] .modal-content h2,
+[data-theme="blue"] .modal-content h3 {
+  color: #0284C7 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="blue"] .modal-content p,
+[data-theme="blue"] .modal-content li,
+[data-theme="blue"] .modal-content div,
+[data-theme="blue"] .modal-content span {
+  color: #334155 !important;
+}
+
+[data-theme="pink"] .modal-overlay {
+  background: rgba(157, 23, 77, 0.25) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+[data-theme="green"] .modal-overlay {
+  background: rgba(6, 95, 70, 0.25) !important;
+  backdrop-filter: blur(8px) !important;
+}
