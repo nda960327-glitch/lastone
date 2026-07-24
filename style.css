@@ -2411,3 +2411,34 @@ body {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ── 로그인 화면 버튼 줄바꿈 방지 & 타이포그래피 정돈 ── */
+#btn-login-google-main,
+#btn-login-skip {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  letter-spacing: -0.025em !important;
+  box-sizing: border-box !important;
+}
+
+[data-theme="pink"] #btn-login-google-main::after {
+  display: none !important;
+}
+
+@media (max-width: 380px) {
+  #btn-login-google-main,
+  #btn-login-skip {
+    font-size: 13px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
+
+@media (max-width: 330px) {
+  #btn-login-google-main,
+  #btn-login-skip {
+    font-size: 12px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+}
