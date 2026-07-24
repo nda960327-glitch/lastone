@@ -2647,22 +2647,31 @@ function restoreProgress(jsonStr) {
   });
 
   const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`PWA 설치 선택 결과: ${outcome}`);
-    if (installModal) installModal.classList.add('hidden');
-    if (btnInstallPwa) btnInstallPwa.style.display = 'none';
-    deferredPrompt = null;
+    if (deferredPrompt) {
+      try {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`PWA 설치 선택 결과: ${outcome}`);
+        if (installModal) installModal.classList.add('hidden');
+        if (btnInstallPwa) btnInstallPwa.style.display = 'none';
+        deferredPrompt = null;
+      } catch(e) {
+        showPwaGuideAlert();
+      }
+    } else {
+      showPwaGuideAlert();
+    }
   };
 
-  if (btnInstall) {
-    if (btnInstall) btnInstall.onclick = handleInstallClick;
+  function showPwaGuideAlert() {
+    alert("📲 DOACore 앱 설치 (홈 화면에 추가) 안내\n\n1. [안드로이드 크롬/삼성인터넷]:\n   브라우저 우측 상단 점 3개(⋮) ➔ '홈 화면에 추가' 또는 '앱 설치'를 누르세요.\n\n2. [아이폰 Safari]:\n   하단 중앙 [공유(↑)] 아이콘 ➔ '홈 화면에 추가'를 누르세요.\n\n바탕화면에 앱 아이콘이 생성되어 더욱 빠르고 편리하게 단어를 학습할 수 있습니다!");
   }
+
+  if (btnInstall) btnInstall.onclick = handleInstallClick;
+  if (btnInstallPwa) btnInstallPwa.onclick = handleInstallClick;
   
-  if (btnInstallPwa) {
-    if (btnInstallPwa) btnInstallPwa.onclick = handleInstallClick;
-  }
+  const btnLoginPwaInstall = document.getElementById('btn-login-pwa-install');
+  if (btnLoginPwaInstall) btnLoginPwaInstall.onclick = handleInstallClick;
 
   if (btnClose) {
     if (btnClose) btnClose.onclick = () => {

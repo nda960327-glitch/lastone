@@ -50,8 +50,13 @@
 <div id="app">
 
   <!-- ⓪ 로그인 선택 화면 -->
-  <section id="view-login" class="view active">
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; text-align: center; max-width: 440px; margin: 0 auto;">
+  <section id="view-login" class="view active" style="position: relative;">
+    <!-- 📲 로그인 화면 우상단 앱 다운로드 버튼 -->
+    <button id="btn-login-pwa-install" class="btn-login-pwa-install" style="position: absolute; top: 18px; right: 18px; background: rgba(99, 102, 241, 0.18); border: 1.5px solid var(--border-h); color: var(--text-main); padding: 8px 14px; border-radius: 50px; font-size: 12.5px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      <span style="font-size: 14px;">📲</span> 앱 다운로드
+    </button>
+
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; text-align: center; max-width: 440px; margin: 0 auto; position: relative;">
       <!-- Logo Container -->
       <div id="login-logo-container" style="display: flex; flex-direction: column; align-items: center; gap: 14px; cursor: pointer; user-select: none; -webkit-user-select: none; margin-bottom: 28px;">
         <img src="icon.jpg" class="brand-icon-img default-logo" alt="DOACore Logo" style="width: 84px; height: 84px; border-radius: 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); pointer-events: none; object-fit: cover;">
@@ -279,7 +284,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" id="header-brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v328</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v329</span>
           </div>
           <p class="brand-sub" id="header-brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
