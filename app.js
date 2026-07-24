@@ -30,7 +30,7 @@ const auth = typeof firebase !== 'undefined' ? firebase.auth() : null;
 
 // Global Auth State
 let currentUser = null;
-let currentAcademyId = null; // null means not assigned yet
+let currentAcademyId = localStorage.getItem('saved_academy_id') || null; // 0ms 즉시 복원
 
 // Sync Helper
 function setProgressSync(key, value) {
@@ -368,9 +368,10 @@ function parseMultiDayText(rawText) {
 }
 
 function getAcademyWordData(slotId) {
-  if (!currentAcademyId) return null;
+  const acaId = currentAcademyId || localStorage.getItem('saved_academy_id');
+  if (!acaId) return null;
   try {
-    const raw = localStorage.getItem(`academy_wb_${currentAcademyId}_${slotId}`);
+    const raw = localStorage.getItem(`academy_wb_${acaId}_${slotId}`);
     if (!raw) return null;
     const data = JSON.parse(raw);
     if (!data) return null;
@@ -388,7 +389,8 @@ function updateCategoryTabTitles() {
   const tabBasic = document.getElementById('tab-basic');
   if (!tabToefl || !tabBasic) return;
 
-  if (currentAcademyId) {
+  const acaId = currentAcademyId || localStorage.getItem('saved_academy_id');
+  if (acaId) {
     const wb1 = getAcademyWordData('slot_1');
     const wb2 = getAcademyWordData('slot_2');
 
@@ -403,6 +405,10 @@ function updateCategoryTabTitles() {
   }
 
   populateDaySelector();
+
+  // 🚀 중요: Day 13 등 선택된 과의 소그룹 새 학습 구간 카드 목록(Section 2)을 즉시 동기화 렌더링!
+  const words = getFilteredWords();
+  renderRangeButtons(words);
 }
 
 function populateDaySelector() {
@@ -4853,6 +4859,7 @@ let isVerticalScroll = false;
       if (userDoc.exists && userDoc.data().academyId && !userDoc.data().deleted) {
         const data = userDoc.data();
         currentAcademyId = data.academyId;
+        if (currentAcademyId) localStorage.setItem('saved_academy_id', currentAcademyId);
         currentAcademyName = data.academyName;
         if (userAcademyDisplay) userAcademyDisplay.textContent = `소속: ${data.academyName || currentAcademyId}`;
         
