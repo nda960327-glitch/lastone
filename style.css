@@ -2208,7 +2208,7 @@ body {
 [data-theme="pink"] .tab-btn.active {
   background: linear-gradient(135deg, #EC4899, #F472B6) !important;
   color: #fff !important;
-  border-color: transparent !important;
+  border: 2.5px solid #EC4899 !important;
   box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3) !important;
 }
 
@@ -2559,7 +2559,7 @@ body {
 [data-theme="blue"] .tab-btn.active {
   background: linear-gradient(135deg, #0284C7, #38BDF8) !important;
   color: #FFFFFF !important;
-  border-color: transparent !important;
+  border: 2.5px solid #0284C7 !important;
   box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35) !important;
 }
 
