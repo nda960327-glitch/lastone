@@ -2623,35 +2623,54 @@ body {
 }
 [data-theme="blue"] ::-webkit-scrollbar-track { background: #F0F9FF !important; }
 
-/* ── ☁️ 하단 안내 알약 버튼 (info-pill-btn) 테마별 고대비 가독성 보장 ── */
+/* ── ☁️ 하단 안내 버튼 (info-pill-btn) 자연스러운 테두리 제거 & 매칭 ── */
 [data-theme="blue"] .info-pill-btn {
-  background: rgba(255, 255, 255, 0.92) !important;
-  border: 2px solid #7DD3FC !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: none !important;
+  box-shadow: none !important;
   color: #0369A1 !important;
-  font-weight: 800 !important;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.12) !important;
+  font-weight: 700 !important;
+  border-radius: 50px !important;
+  backdrop-filter: blur(8px) !important;
 }
 
 [data-theme="blue"] .info-pill-btn:hover {
-  background: #F0F9FF !important;
-  border-color: #0284C7 !important;
+  background: rgba(255, 255, 255, 0.75) !important;
   color: #0284C7 !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15) !important;
 }
 
 [data-theme="pink"] .info-pill-btn {
-  background: rgba(255, 255, 255, 0.92) !important;
-  border: 2px solid #F9A8D4 !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: none !important;
+  box-shadow: none !important;
   color: #BE185D !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
+  border-radius: 50px !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+[data-theme="pink"] .info-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.75) !important;
+  color: #DB2777 !important;
+  transform: translateY(-2px);
 }
 
 [data-theme="green"] .info-pill-btn {
-  background: rgba(255, 255, 255, 0.92) !important;
-  border: 2px solid #6EE7B7 !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: none !important;
+  box-shadow: none !important;
   color: #047857 !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
+  border-radius: 50px !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+[data-theme="green"] .info-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.75) !important;
+  color: #059669 !important;
+  transform: translateY(-2px);
 }
 
 /* ── ☁️ 테마별 모달 배경 오버레이 (Dark Pitch Black ➔ 드림 블러 매칭) ── */
