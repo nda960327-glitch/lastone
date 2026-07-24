@@ -3268,6 +3268,86 @@ let isVerticalScroll = false;
   const btnWrongWordsOk = document.getElementById('btn-wrong-words-ok');
   const wrongWordsTbody = document.getElementById('wrong-words-tbody');
   const wrongWordsEmpty = document.getElementById('wrong-words-empty');
+  const btnToggleWrongMeaning = document.getElementById('btn-toggle-wrong-meaning');
+  const wrongMeaningIcon = document.getElementById('wrong-meaning-icon');
+  const wrongMeaningLabel = document.getElementById('wrong-meaning-label');
+
+  let isWrongMeaningsHidden = false;
+
+  function renderWrongWordsList() {
+    const filteredWords = getFilteredWords();
+    if (filteredWords.length === 0) return;
+    
+    const wrongList = filteredWords
+      .filter(w => w.totalFails > 0)
+      .sort((a, b) => b.totalFails - a.totalFails);
+
+    wrongWordsTbody.innerHTML = '';
+    if (wrongList.length === 0) {
+      wrongWordsEmpty.classList.remove('hidden');
+      wrongWordsTbody.parentElement.style.display = 'none';
+    } else {
+      wrongWordsEmpty.classList.add('hidden');
+      wrongWordsTbody.parentElement.style.display = 'table';
+      wrongList.forEach(w => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid var(--border-h)';
+        tr.style.cursor = 'pointer';
+        
+        const tdWord = document.createElement('td');
+        tdWord.style.padding = '12px 8px';
+        tdWord.style.fontWeight = '700';
+        tdWord.style.color = 'var(--text-main)';
+        tdWord.textContent = w.word;
+
+        const tdFails = document.createElement('td');
+        tdFails.style.padding = '12px 2px';
+        tdFails.style.textAlign = 'center';
+        tdFails.style.fontWeight = 'bold';
+        tdFails.style.color = '#f43f5e';
+        tdFails.textContent = `${w.totalFails}번`;
+
+        const tdMeaning = document.createElement('td');
+        tdMeaning.style.padding = '12px 8px';
+        tdMeaning.style.color = 'var(--text-sub)';
+
+        const fullMeaningHtml = w.meanings.map(m => `<span style="color:var(--text-sub); margin-right:4px;">[${m.pos}]</span>${m.meaning}`).join('<br>');
+        let isThisRowRevealed = !isWrongMeaningsHidden;
+
+        function updateMeaningCell() {
+          if (isThisRowRevealed) {
+            tdMeaning.innerHTML = fullMeaningHtml;
+          } else {
+            tdMeaning.innerHTML = `<span style="cursor:pointer; display:inline-block; padding: 4px 8px; background: rgba(99, 102, 241, 0.12); color: var(--primary-color); border: 1px dashed var(--box-border); border-radius: 8px; font-size: 12px; font-weight: bold;">🙈 터치하여 뜻 보기</span>`;
+          }
+        }
+
+        updateMeaningCell();
+
+        tr.onclick = () => {
+          isThisRowRevealed = !isThisRowRevealed;
+          updateMeaningCell();
+        };
+
+        tr.appendChild(tdWord);
+        tr.appendChild(tdFails);
+        tr.appendChild(tdMeaning);
+        wrongWordsTbody.appendChild(tr);
+      });
+    }
+  }
+
+  if (btnToggleWrongMeaning) {
+    btnToggleWrongMeaning.onclick = () => {
+      isWrongMeaningsHidden = !isWrongMeaningsHidden;
+      if (wrongMeaningIcon) wrongMeaningIcon.textContent = isWrongMeaningsHidden ? '👁️' : '🙈';
+      if (wrongMeaningLabel) wrongMeaningLabel.textContent = isWrongMeaningsHidden ? '뜻 전체 보기' : '뜻 숨기기';
+      if (btnToggleWrongMeaning) {
+        btnToggleWrongMeaning.style.background = isWrongMeaningsHidden ? 'rgba(239, 68, 68, 0.15)' : 'rgba(99, 102, 241, 0.15)';
+      }
+      renderWrongWordsList();
+    };
+  }
 
   if (btnReviewWrongWords) {
     btnReviewWrongWords.onclick = () => {
@@ -3276,47 +3356,7 @@ let isVerticalScroll = false;
         alert('단어장을 먼저 선택해주세요.');
         return;
       }
-      
-      const wrongList = filteredWords
-        .filter(w => w.totalFails > 0)
-        .sort((a, b) => b.totalFails - a.totalFails);
-
-      wrongWordsTbody.innerHTML = '';
-      if (wrongList.length === 0) {
-        wrongWordsEmpty.classList.remove('hidden');
-        wrongWordsTbody.parentElement.style.display = 'none';
-      } else {
-        wrongWordsEmpty.classList.add('hidden');
-        wrongWordsTbody.parentElement.style.display = 'table';
-        wrongList.forEach(w => {
-          const tr = document.createElement('tr');
-          tr.style.borderBottom = '1px solid var(--border-h)';
-          
-          const tdWord = document.createElement('td');
-          tdWord.style.padding = '12px 8px';
-          tdWord.style.fontWeight = '700';
-          tdWord.style.color = 'var(--text-main)';
-          tdWord.textContent = w.word;
-
-          const tdFails = document.createElement('td');
-          tdFails.style.padding = '12px 2px';
-          tdFails.style.textAlign = 'center';
-          tdFails.style.fontWeight = 'bold';
-          tdFails.style.color = '#f43f5e';
-          tdFails.textContent = `${w.totalFails}번`;
-
-          const tdMeaning = document.createElement('td');
-          tdMeaning.style.padding = '12px 8px';
-          tdMeaning.style.color = 'var(--text-sub)';
-          tdMeaning.innerHTML = w.meanings.map(m => `<span style="color:var(--text-sub); margin-right:4px;">[${m.pos}]</span>${m.meaning}`).join('<br>');
-
-          tr.appendChild(tdWord);
-          tr.appendChild(tdFails);
-          tr.appendChild(tdMeaning);
-          wrongWordsTbody.appendChild(tr);
-        });
-      }
-
+      renderWrongWordsList();
       modalWrongWords.classList.remove('hidden');
     };
   }

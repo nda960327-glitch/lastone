@@ -279,7 +279,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" id="header-brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v321</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v322</span>
           </div>
           <p class="brand-sub" id="header-brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
@@ -318,18 +318,17 @@
           </div>
         </div>
         
-        <!-- 테마 선택기 -->
-        <h4 style="margin: 16px 0 12px 0; font-size: 14px; color: var(--text-sub); text-align: left; padding-bottom: 8px; border-bottom: 1px solid var(--box-border);">테마 (스킨)</h4>
-        <div id="theme-selector" style="display: flex; gap: 8px; justify-content: space-between; align-items: center; margin-bottom: 12px; pointer-events: auto;">
-          <div style="display: flex; align-items: center; gap: 4px;">
+        <!-- 테마 선택기 (1줄 배치) -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 16px 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid var(--box-border);">
+          <span style="font-size: 14px; font-weight: 700; color: var(--text-main);">테마 (스킨)</span>
+          <div id="theme-selector" style="display: flex; gap: 12px; align-items: center; pointer-events: auto;">
             <button class="theme-btn" data-theme="dark" style="width: 28px; height: 28px; border-radius: 50%; background: #07071a; border: 2px solid var(--box-border); cursor: pointer;" title="블랙 모드"></button>
-            <span style="font-size: 11px; color: var(--text-sub); font-weight: bold;">(추천)</span>
+            <button class="theme-btn" data-theme="blue" style="width: 28px; height: 28px; border-radius: 50%; background: #f0f7ff; border: 2px solid var(--box-border); cursor: pointer;" title="블루화이트"></button>
+            <button class="theme-btn" data-theme="pink" style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #FFF0F5, #FCE7F3); border: 2px solid #FBB6CE; cursor: pointer; position: relative;" title="💖 하트하트">
+              <span style="position: absolute; top: -6px; right: -6px; font-size: 10px;">💖</span>
+            </button>
+            <button class="theme-btn" data-theme="green" style="width: 28px; height: 28px; border-radius: 50%; background: #f0fdf4; border: 2px solid var(--box-border); cursor: pointer;" title="그린화이트"></button>
           </div>
-          <button class="theme-btn" data-theme="blue" style="width: 28px; height: 28px; border-radius: 50%; background: #f0f7ff; border: 2px solid var(--box-border); cursor: pointer;" title="블루화이트"></button>
-          <button class="theme-btn" data-theme="pink" style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #FFF0F5, #FCE7F3); border: 2px solid #FBB6CE; cursor: pointer; position: relative;" title="💖 하트하트">
-            <span style="position: absolute; top: -6px; right: -6px; font-size: 10px;">💖</span>
-          </button>
-          <button class="theme-btn" data-theme="green" style="width: 28px; height: 28px; border-radius: 50%; background: #f0fdf4; border: 2px solid var(--box-border); cursor: pointer;" title="그린화이트"></button>
         </div>
         <!-- 스와이프 모드 토글 -->
         <label for="swipe-toggle-checkbox" class="swipe-toggle-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; pointer-events: auto;">
@@ -794,8 +793,13 @@
   <!-- 틀린 단어 복습 리스트 모달 -->
   <div id="modal-wrong-words" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 650px; width: 95%; max-height: 85vh; display: flex; flex-direction: column; margin: 0 auto;">
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-        <h3 style="font-size: 18px; margin: 0; line-height: 1.4; color: var(--text-main); font-weight: 700;">🚨 틀린 단어 복습 리스트</h3>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <h3 style="font-size: 17px; margin: 0; line-height: 1.4; color: var(--text-main); font-weight: 700;">🚨 틀린 단어 복습 리스트</h3>
+          <button id="btn-toggle-wrong-meaning" style="background: rgba(99, 102, 241, 0.15); border: 1.5px solid var(--border-h); color: var(--text-main); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;">
+            <span id="wrong-meaning-icon">🙈</span> <span id="wrong-meaning-label">뜻 숨기기</span>
+          </button>
+        </div>
         <button id="btn-wrong-words-close" style="background: transparent; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0;">✖</button>
       </div>
       <div style="flex-grow: 1; overflow-y: auto; padding-right: 4px;" class="custom-scrollbar">
