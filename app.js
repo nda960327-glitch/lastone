@@ -501,6 +501,7 @@ function populateDaySelector() {
   daySelector.value = currentDay;
   setProgressSync('saved_day', currentDay);
   setProgressSync(`saved_day_${currentCategory}`, currentDay);
+  App.currentDBName = `${currentCategory}${currentDay ? '_day'+currentDay : ''}`;
 }
 
 function getFilteredWords() {
@@ -533,7 +534,16 @@ function getFilteredWords() {
     }
   }
 
-  let filtered = filteredSource.filter(w => w.category === currentCategory && (currentDay === null || String(w.day) === String(currentDay)));
+  let filtered = filteredSource.filter(w => {
+    if (w.category !== currentCategory) return false;
+    if (currentDay === null) return true;
+    const wDayStr = String(w.day).trim();
+    const cDayStr = String(currentDay).trim();
+    if (wDayStr === cDayStr) return true;
+    const wNum = parseInt(wDayStr.replace(/[^0-9]/g, ''), 10);
+    const cNum = parseInt(cDayStr.replace(/[^0-9]/g, ''), 10);
+    return !isNaN(wNum) && !isNaN(cNum) && wNum === cNum;
+  });
   let failData = JSON.parse(localStorage.getItem('doacore_total_fails')) || {};
   return filtered.map((w, i) => {
     const meaningParts = w.meaning.split('/').map(s => s.trim());
