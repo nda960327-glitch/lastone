@@ -65,7 +65,7 @@ select option { background-color: #07071a; color: #ffffff; }
   --dropdown-hover: #F0F9FF;
   --input-bg: #F8FAFC;
   --card-shadow: 0 8px 24px rgba(14, 165, 233, 0.15);
-  --icon-filter: none;
+  --icon-filter: invert(1) hue-rotate(190deg);
   --border-h: #0284C7;
 }
 
@@ -2615,6 +2615,13 @@ body {
 [data-theme="blue"] .brand-sub {
   color: #0369A1 !important;
   font-weight: 600 !important;
+}
+
+[data-theme="blue"] .brand-icon-img {
+  filter: var(--icon-filter) !important;
+  border: 2.5px solid #7DD3FC !important;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.22), 0 0 0 3px rgba(255, 255, 255, 0.9) !important;
+  border-radius: 18px !important;
 }
 
 [data-theme="blue"] ::-webkit-scrollbar { width: 8px !important; }
