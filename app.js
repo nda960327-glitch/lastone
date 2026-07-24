@@ -3499,8 +3499,13 @@ let isVerticalScroll = false;
         }
       } catch (err) {
         console.error("handleGoogleLogin error:", err);
-        alert("로그인 중 오류가 발생했습니다: " + (err.message || err));
         resetBtn();
+        const errStr = (err.code || '') + (err.message || '');
+        if (errStr.includes('unauthorized-domain')) {
+          alert(`🔑 Firebase Google 로그인 도메인 승인이 필요합니다!\n\n현재 접속 주소 (${window.location.hostname})가 Firebase 콘솔의 [승인된 도메인] 목록에 등록되어 있지 않습니다.\n\n👉 해결 방법 (1분 소요):\n1. Firebase 콘솔 (console.firebase.google.com) 접속\n2. 'doacore' 프로젝트 ➔ [Authentication] ➔ [설정] 탭\n3. [승인된 도메인] ➔ [도메인 추가] ➔ '${window.location.hostname}' 입력!\n\n(승인 추가 후 새로고침하시면 즉시 구글 로그인이 정상 작용합니다)`);
+        } else {
+          alert("로그인 중 오류가 발생했습니다: " + (err.message || err));
+        }
       }
     };
 
