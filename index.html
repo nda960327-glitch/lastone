@@ -284,7 +284,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" id="header-brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v330</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v331</span>
           </div>
           <p class="brand-sub" id="header-brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
@@ -458,8 +458,11 @@
       <div class="progress-fill" id="test-progress-fill"></div>
     </div>
 
-    <div id="test-card-el" class="test-card glass-card swipe-card" style="touch-action: pan-y;">
-      
+    <div id="test-card-el" class="test-card glass-card swipe-card" style="touch-action: pan-y; position: relative;">
+      <!-- 🏷️ 단어 카드 우상단 단어장-Day 표시 배지 -->
+      <div id="test-category-day-badge" class="test-category-day-badge">
+        <span id="badge-cat-day-text">중고등단어-Day13</span>
+      </div>
       
       <!-- 2초 음성 청취 동안 노출할 헤드셋 표시기 -->
       <div class="test-listening-zone hidden" id="test-listening-zone">

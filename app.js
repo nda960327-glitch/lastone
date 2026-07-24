@@ -1883,11 +1883,41 @@ function handleWordTimeout() {
   }
 }
 
+function updateTestCardCategoryBadge() {
+  const badgeEl = document.getElementById('badge-cat-day-text');
+  if (!badgeEl) return;
+
+  let catTitle = '중고등단어';
+  if (currentCategory === 'toefl') {
+    const wb1 = getAcademyWordData('slot_1');
+    catTitle = (currentAcademyId && wb1 && wb1.title) ? wb1.title : '토플단어';
+  } else if (currentCategory === 'basic') {
+    const wb2 = getAcademyWordData('slot_2');
+    catTitle = (currentAcademyId && wb2 && wb2.title) ? wb2.title : '중고등단어';
+  } else if (currentCategory === 'custom-upload') {
+    catTitle = '업로드단어장';
+  } else if (currentCategory === 'custom-manual') {
+    catTitle = '수동단어장';
+  }
+
+  catTitle = catTitle.replace(/^[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]\s*/u, '').replace(/영단어/g, '단어').trim();
+  
+  let dayStr = '';
+  if (currentDay != null) {
+    const rawDay = String(currentDay).replace(/^Day\s*/i, '').trim();
+    if (rawDay) dayStr = `-Day${rawDay}`;
+  }
+
+  badgeEl.textContent = `${catTitle}${dayStr}`;
+}
+
 async function runTestRound(startIndex = 0) {
   const currentSessionId = App.testSessionId;
   const pool = App.testPool;
   const wrongThisRound = [];
   let correctThisRound = 0;
+
+  updateTestCardCategoryBadge();
 
   if (startIndex > 0) {
     for (let j = 0; j < startIndex; j++) {
