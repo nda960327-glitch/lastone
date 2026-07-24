@@ -44,7 +44,7 @@ function setProgressSync(key, value) {
 }
 
 function recordStudyTime() {
-  if (App.sessionStartTime) {
+  if (App.sessionStartTime && !App.isStudyPaused) {
     const elapsedSeconds = Math.floor((Date.now() - App.sessionStartTime) / 1000);
     console.log('[TIME] sessionStartTime:', App.sessionStartTime, 'elapsed:', elapsedSeconds, 'DBName:', App.currentDBName, 'Section:', App.currentSection);
     if (elapsedSeconds > 0 && App.currentDBName && App.currentSection) {
@@ -58,7 +58,7 @@ function recordStudyTime() {
     }
     App.sessionStartTime = null; // 리셋
   } else {
-    console.log('[TIME] recordStudyTime called but sessionStartTime is null');
+    console.log('[TIME] recordStudyTime skipped or sessionStartTime is null (isStudyPaused:', App.isStudyPaused, ')');
   }
 }
 
@@ -479,16 +479,28 @@ function populateDaySelector() {
     daySelector.appendChild(opt);
   });
   
-  const savedDayStr = localStorage.getItem('saved_day');
-  const parsedSavedDay = (savedDayStr && savedDayStr !== 'null') ? (isNaN(savedDayStr) ? savedDayStr : (String(savedDayStr).startsWith('Day') ? savedDayStr : parseInt(savedDayStr, 10))) : null;
+  const savedCatDay = localStorage.getItem(`saved_day_${currentCategory}`);
+  const savedDayStr = (savedCatDay && savedCatDay !== 'null') ? savedCatDay : localStorage.getItem('saved_day');
   
-  if (parsedSavedDay !== null && sortedDays.includes(parsedSavedDay)) {
-    currentDay = parsedSavedDay;
+  let matchedDay = null;
+  if (savedDayStr && savedDayStr !== 'null') {
+    const rawSavedStr = String(savedDayStr).trim();
+    const savedNum = parseInt(rawSavedStr.replace(/[^0-9]/g, ''), 10);
+    matchedDay = sortedDays.find(d => {
+      if (String(d) === rawSavedStr) return true;
+      const dNum = parseInt(String(d).replace(/[^0-9]/g, ''), 10);
+      return !isNaN(savedNum) && !isNaN(dNum) && savedNum === dNum;
+    });
+  }
+  
+  if (matchedDay != null) {
+    currentDay = matchedDay;
   } else {
     currentDay = sortedDays[0];
   }
   daySelector.value = currentDay;
   setProgressSync('saved_day', currentDay);
+  setProgressSync(`saved_day_${currentCategory}`, currentDay);
 }
 
 function getFilteredWords() {
@@ -738,6 +750,7 @@ function initInputView() {
       const val = e.target.value;
       currentDay = isNaN(val) ? val : parseInt(val, 10);
       setProgressSync('saved_day', currentDay);
+      setProgressSync(`saved_day_${currentCategory}`, currentDay);
       App.currentDBName = `${currentCategory}_day${currentDay}`;
       updateDictationBtnText();
       updateCount();
@@ -1685,9 +1698,25 @@ async function startWeaknessReview(startIdx, endIdx, isFinalBoss = false) {
 let activeTimerInterval = null;
 let activeWarningTimeout = null;
 let activeDisableTimeout = null;
+let timerStartTime = 0;
+let currentTotalMs = 0;
+let currentDisableOMs = 0;
+let savedOnDisableO = null;
+let savedOnTimeout = null;
+let remainingWordMs = 0;
+let remainingDisableMs = 0;
+App.isStudyPaused = false;
 
 function startWordTimer(totalMs, disableOMs, onDisableO, onTimeout) {
   stopWordTimer();
+
+  if (App.isStudyPaused) return;
+
+  timerStartTime = Date.now();
+  currentTotalMs = totalMs;
+  currentDisableOMs = disableOMs;
+  savedOnDisableO = onDisableO;
+  savedOnTimeout = onTimeout;
 
   const wrapper = document.getElementById('timer-bar-wrapper');
   const fillEl = document.getElementById('test-timer-fill');
@@ -1710,8 +1739,10 @@ function startWordTimer(totalMs, disableOMs, onDisableO, onTimeout) {
 
     // 미세한 딜레이(10ms) 후 애니메이션 다시 시작
     setTimeout(() => {
-      fillEl.style.transition = `width ${totalMs}ms linear`;
-      fillEl.style.width = '0%';
+      if (!App.isStudyPaused && fillEl) {
+        fillEl.style.transition = `width ${totalMs}ms linear`;
+        fillEl.style.width = '0%';
+      }
     }, 10);
   }
 
@@ -1753,6 +1784,79 @@ function stopWordTimer() {
   if (fillEl) {
     fillEl.style.transition = 'none';
     fillEl.classList.remove('timer-warning', 'timer-penalty', 'penalty-timer');
+  }
+}
+
+function pauseWordTimer() {
+  if (activeTimerInterval || currentTotalMs > 0) {
+    const elapsed = Date.now() - timerStartTime;
+    remainingWordMs = Math.max(0, currentTotalMs - elapsed);
+    remainingDisableMs = Math.max(0, currentDisableOMs - elapsed);
+
+    if (activeTimerInterval) clearTimeout(activeTimerInterval);
+    if (activeWarningTimeout) clearTimeout(activeWarningTimeout);
+    if (activeDisableTimeout) clearTimeout(activeDisableTimeout);
+    activeTimerInterval = null;
+    activeWarningTimeout = null;
+    activeDisableTimeout = null;
+
+    const fillEl = document.getElementById('test-timer-fill');
+    if (fillEl) {
+      const computedWidth = window.getComputedStyle(fillEl).width;
+      fillEl.style.transition = 'none';
+      fillEl.style.width = computedWidth;
+    }
+  }
+}
+
+function resumeWordTimer() {
+  if (remainingWordMs > 0 && savedOnTimeout) {
+    startWordTimer(remainingWordMs, remainingDisableMs, savedOnDisableO, savedOnTimeout);
+  }
+}
+
+function toggleStudyPause() {
+  App.isStudyPaused = !App.isStudyPaused;
+  const btnPause = document.getElementById('btn-pause-study');
+  const iconEl = document.getElementById('pause-icon');
+  const labelEl = document.getElementById('pause-label');
+  const testCard = document.querySelector('.test-card');
+
+  let overlay = document.getElementById('study-paused-overlay');
+
+  if (App.isStudyPaused) {
+    recordStudyTime(); // 일시정지 전까지 쌓인 학습시간 기록 저장 후 리셋
+
+    if (btnPause) btnPause.classList.add('is-paused');
+    if (iconEl) iconEl.textContent = '▶️';
+    if (labelEl) labelEl.textContent = '학습 재개';
+
+    pauseWordTimer(); // 막대 및 타이머 멈춤
+
+    if (testCard && !overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'study-paused-overlay';
+      overlay.className = 'study-paused-overlay';
+      overlay.innerHTML = `
+        <div class="pause-title"><span>⏸️</span> 학습 일시정지</div>
+        <div class="pause-sub">학습 시간이 멈췄습니다.<br>'학습 재개' 버튼을 누르면 이어서 학습합니다.</div>
+        <button class="btn-resume-inside" id="btn-resume-inside">▶️ 이어서 학습하기</button>
+      `;
+      testCard.style.position = 'relative';
+      testCard.appendChild(overlay);
+      const btnInside = document.getElementById('btn-resume-inside');
+      if (btnInside) btnInside.onclick = toggleStudyPause;
+    }
+  } else {
+    App.sessionStartTime = Date.now(); // 재개 시점 세션 시작시간 설정
+
+    if (btnPause) btnPause.classList.remove('is-paused');
+    if (iconEl) iconEl.textContent = '⏸️';
+    if (labelEl) labelEl.textContent = '일시정지';
+
+    if (overlay) overlay.remove();
+
+    resumeWordTimer(); // 타이머 이어서 진행
   }
 }
 
@@ -3372,6 +3476,9 @@ let isVerticalScroll = false;
 
   if (btnWrongWordsClose) btnWrongWordsClose.onclick = () => modalWrongWords.classList.add('hidden');
   if (btnWrongWordsOk) btnWrongWordsOk.onclick = () => modalWrongWords.classList.add('hidden');
+
+  const btnPauseStudy = document.getElementById('btn-pause-study');
+  if (btnPauseStudy) btnPauseStudy.onclick = toggleStudyPause;
 
   // =============================================
   // Firebase Auth & Academy Logic

@@ -2752,3 +2752,77 @@ body {
   background: rgba(6, 95, 70, 0.25) !important;
   backdrop-filter: blur(8px) !important;
 }
+
+/* ── ⏸️ 학습 일시정지 스타일 ── */
+.btn-pause {
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-pause:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+.btn-pause.is-paused {
+  background: rgba(59, 130, 246, 0.25) !important;
+  border-color: #3b82f6 !important;
+  color: #60a5fa !important;
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.4) !important;
+  animation: pausePulse 1.8s infinite ease-in-out;
+}
+
+@keyframes pausePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+/* 카드의 일시정지 오버레이 */
+.study-paused-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  padding: 24px;
+  text-align: center;
+  animation: fadeIn 0.25s ease;
+}
+.study-paused-overlay .pause-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.study-paused-overlay .pause-sub {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.study-paused-overlay .btn-resume-inside {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  transition: all 0.2s ease;
+}
+.study-paused-overlay .btn-resume-inside:hover {
+  transform: scale(1.05);
+}
