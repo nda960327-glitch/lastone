@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v339'; // fix: 학습 화면 배경 장식 제거 + 패턴 농도 하향
+const CACHE_NAME = 'vocabmaster-v340'; // feat: 학습 리포트 + 연속 학습 스트릭 + 망각곡선 복습 추천
 const ASSETS = [
   '/',
   '/index.html',

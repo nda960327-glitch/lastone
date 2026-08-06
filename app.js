@@ -43,6 +43,121 @@ function setProgressSync(key, value) {
   }
 }
 
+// ── 📊 학습 리포트 & 스트릭 헬퍼 ──
+function localDateKey(d) {
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function getStudyDailyLog() {
+  try { return JSON.parse(localStorage.getItem('vocab_daily_log') || '{}'); } catch (e) { return {}; }
+}
+
+function calcStudyStreak(log) {
+  const d = new Date();
+  // 오늘 아직 학습 전이면 어제부터 연속일 계산
+  if (!(log[localDateKey(d)] > 0)) d.setDate(d.getDate() - 1);
+  let streak = 0;
+  while (log[localDateKey(d)] > 0) { streak++; d.setDate(d.getDate() - 1); }
+  return streak;
+}
+
+function formatSecShort(sec) {
+  sec = Math.max(0, Math.floor(sec || 0));
+  if (sec >= 3600) return Math.floor(sec / 3600) + '시간 ' + Math.floor((sec % 3600) / 60) + '분';
+  if (sec >= 60) return Math.floor(sec / 60) + '분';
+  return sec + '초';
+}
+
+function dbNameToLabel(dbName) {
+  const m = String(dbName).match(/^(toefl|basic|custom-upload|custom-manual)(?:_day(.+))?$/);
+  if (!m) return dbName;
+  const names = { toefl: '🔥 토플 영단어', basic: '🌱 기초 영단어', 'custom-upload': '📁 업로드 단어장', 'custom-manual': '✍️ 수동 단어장' };
+  return names[m[1]] + (m[2] ? ' Day ' + m[2] : '');
+}
+
+function openStudyReport() {
+  renderStudyReport();
+  const m = document.getElementById('modal-study-report');
+  if (m) m.classList.remove('hidden');
+}
+
+function renderStudyReport() {
+  const log = getStudyDailyLog();
+  const streak = calcStudyStreak(log);
+  const todayKey = localDateKey(new Date());
+
+  let studyTime = {};
+  try { studyTime = JSON.parse(localStorage.getItem('vocab_study_time') || '{}'); } catch (e) {}
+  const totalAll = Object.values(studyTime).reduce((a, b) => a + (b || 0), 0);
+
+  let failData = {};
+  try { failData = JSON.parse(localStorage.getItem('doacore_total_fails') || '{}'); } catch (e) {}
+  const wrongCount = Object.values(failData).filter(v => v > 0).length;
+
+  // ① 요약 카드 4개
+  const cardsEl = document.getElementById('report-summary-cards');
+  if (cardsEl) {
+    cardsEl.innerHTML = `
+      <div class="report-card"><div class="report-card-value">🔥 ${streak}일</div><div class="report-card-label">연속 학습</div></div>
+      <div class="report-card"><div class="report-card-value">${formatSecShort(log[todayKey] || 0)}</div><div class="report-card-label">오늘 학습</div></div>
+      <div class="report-card"><div class="report-card-value">${formatSecShort(totalAll)}</div><div class="report-card-label">총 누적 학습</div></div>
+      <div class="report-card"><div class="report-card-value">${wrongCount}개</div><div class="report-card-label">누적 오답 단어</div></div>
+    `;
+  }
+
+  // ② 최근 7일 막대 차트
+  const days = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    days.push({ key: localDateKey(d), dow: ['일','월','화','수','목','금','토'][d.getDay()], sec: 0, isToday: i === 0 });
+  }
+  days.forEach(dd => { dd.sec = log[dd.key] || 0; });
+  const maxSec = Math.max(60, ...days.map(d => d.sec));
+  const chartEl = document.getElementById('report-week-chart');
+  if (chartEl) {
+    chartEl.innerHTML = days.map(dd => {
+      const hPct = Math.max(Math.round((dd.sec / maxSec) * 100), dd.sec > 0 ? 8 : 0);
+      const mins = Math.round(dd.sec / 60);
+      const valStr = dd.sec > 0 ? (mins > 0 ? mins + '분' : dd.sec + '초') : '';
+      return `<div class="report-bar-col">
+        <div class="report-bar-value">${valStr}</div>
+        <div class="report-bar-track"><div class="report-bar-fill${dd.isToday ? ' today' : ''}" style="height:${hPct}%"></div></div>
+        <div class="report-bar-day${dd.isToday ? ' today' : ''}">${dd.isToday ? '오늘' : dd.dow}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // ③ 망각곡선 복습 추천 (마지막 학습 후 경과일 기준)
+  let lastStudy = {};
+  try { lastStudy = JSON.parse(localStorage.getItem('vocab_last_study') || '{}'); } catch (e) {}
+  const now = Date.now();
+  const recs = Object.entries(lastStudy)
+    .map(([k, ts]) => ({ k, days: Math.floor((now - ts) / 86400000) }))
+    .filter(r => r.days >= 1)
+    .sort((a, b) => b.days - a.days)
+    .slice(0, 6);
+
+  const listEl = document.getElementById('report-review-list');
+  if (listEl) {
+    if (!recs.length) {
+      listEl.innerHTML = `<div class="report-empty">🎉 최근 학습이 전부 신선한 상태예요!<br><span style="font-size:12px; opacity:.75;">마지막 학습 후 1일·3일·7일이 지난 단어장이 여기에 표시됩니다.</span></div>`;
+    } else {
+      listEl.innerHTML = recs.map(r => {
+        let tag, cls;
+        if (r.days >= 7) { tag = '🚨 긴급 복습'; cls = 'urgent'; }
+        else if (r.days >= 3) { tag = '⚠️ 잊기 직전'; cls = 'warn'; }
+        else { tag = '💡 복습 추천'; cls = 'soon'; }
+        return `<div class="report-review-item ${cls}">
+          <span class="rr-name">${dbNameToLabel(r.k)}</span>
+          <span class="rr-days">${r.days}일 경과</span>
+          <span class="rr-tag">${tag}</span>
+        </div>`;
+      }).join('');
+    }
+  }
+}
+
 function recordStudyTime() {
   if (App.sessionStartTime) {
     const elapsedSeconds = Math.floor((Date.now() - App.sessionStartTime) / 1000);
@@ -55,6 +170,18 @@ function recordStudyTime() {
       studyTime[key] = (studyTime[key] || 0) + elapsedSeconds;
       console.log('[TIME] Cumulative Saving key:', key, 'total accumulated seconds:', studyTime[key]);
       setProgressSync('vocab_study_time', JSON.stringify(studyTime));
+
+      // 📅 일별 학습 로그 (스트릭 & 리포트용)
+      const dailyLog = getStudyDailyLog();
+      const todayKey = localDateKey(new Date());
+      dailyLog[todayKey] = (dailyLog[todayKey] || 0) + elapsedSeconds;
+      setProgressSync('vocab_daily_log', JSON.stringify(dailyLog));
+
+      // 🧠 단어장별 마지막 학습 시각 (망각곡선 복습 추천용)
+      let lastStudy = {};
+      try { lastStudy = JSON.parse(localStorage.getItem('vocab_last_study') || '{}'); } catch(e){}
+      lastStudy[App.currentDBName] = Date.now();
+      setProgressSync('vocab_last_study', JSON.stringify(lastStudy));
     }
     App.sessionStartTime = null; // 리셋 후 다음 세션 시점에 재설정
   } else {
@@ -878,6 +1005,7 @@ function initInputView() {
       const totalSec = Object.entries(studyTime)
         .filter(([k]) => k.startsWith(App.currentDBName + '_'))
         .reduce((sum, [, v]) => sum + (v || 0), 0);
+      let html = '';
       if (totalSec > 0) {
         const h = Math.floor(totalSec / 3600);
         const m = Math.floor((totalSec % 3600) / 60);
@@ -886,14 +1014,28 @@ function initInputView() {
         if (h > 0) timeStr = `${h}시간 ${m}분 ${s}초`;
         else if (m > 0) timeStr = `${m}분 ${s}초`;
         else timeStr = `${s}초`;
-        totalTimeBar.innerHTML = `
+        html += `
           <div class="total-study-time-display">
             <span class="total-time-label">⏱️ 총 학습시간</span>
             <span class="total-time-value">${timeStr}</span>
           </div>`;
-      } else {
-        totalTimeBar.innerHTML = '';
       }
+
+      // 🔥 연속 학습 스트릭 & 오늘 학습량 & 리포트 버튼
+      const dailyLog = getStudyDailyLog();
+      const streak = calcStudyStreak(dailyLog);
+      const todaySec = dailyLog[localDateKey(new Date())] || 0;
+      const streakText = streak > 0 ? `🔥 ${streak}일 연속 학습` : '🔥 오늘 첫 학습 도전!';
+      html += `
+        <div class="study-streak-row">
+          <span class="streak-pill fire">${streakText}</span>
+          <span class="streak-pill">오늘 ${formatSecShort(todaySec)}</span>
+          <button id="btn-study-report" class="streak-pill report-btn" type="button">📊 리포트</button>
+        </div>`;
+
+      totalTimeBar.innerHTML = html;
+      const reportBtn = document.getElementById('btn-study-report');
+      if (reportBtn) reportBtn.onclick = openStudyReport;
     }
 
     const SMALL = 20;  // 소그룹 단위
@@ -4928,3 +5070,15 @@ let isVerticalScroll = false;
   }
 
  })();
+
+// ── 📊 학습 리포트 모달 닫기 와이어링 ──
+(function() {
+  const modal = document.getElementById('modal-study-report');
+  if (!modal) return;
+  const close = () => modal.classList.add('hidden');
+  const btnClose = document.getElementById('btn-report-close');
+  const btnOk = document.getElementById('btn-report-ok');
+  if (btnClose) btnClose.onclick = close;
+  if (btnOk) btnOk.onclick = close;
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+})();

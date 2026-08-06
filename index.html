@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=339">
+  <link rel="stylesheet" href="style.css?v=340">
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -808,6 +808,24 @@
     </div>
   </div>
 
+  <!-- 📊 학습 리포트 모달 -->
+  <div id="modal-study-report" class="pwa-modal hidden">
+    <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 560px; width: 95%; max-height: 88vh; display: flex; flex-direction: column; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h3 style="font-size: 18px; margin: 0; color: var(--text-main); font-weight: 800;">📊 나의 학습 리포트</h3>
+        <button id="btn-report-close" style="background: transparent; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0;">✖</button>
+      </div>
+      <div style="flex-grow: 1; overflow-y: auto; padding-right: 4px;" class="custom-scrollbar">
+        <div id="report-summary-cards" class="report-cards"></div>
+        <div class="report-section-title">🗓️ 최근 7일 학습량</div>
+        <div id="report-week-chart" class="report-week-chart"></div>
+        <div class="report-section-title">🧠 망각곡선 복습 추천</div>
+        <div id="report-review-list"></div>
+      </div>
+      <button id="btn-report-ok" class="btn-primary" style="width: 100%; margin-top: 18px; padding: 12px; flex-shrink: 0;">닫기</button>
+    </div>
+  </div>
+
   <!-- 틀린 단어 복습 리스트 모달 -->
   <div id="modal-wrong-words" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 650px; width: 95%; max-height: 85vh; display: flex; flex-direction: column; margin: 0 auto;">
@@ -944,6 +962,6 @@
   </div>
 
 <script src="wordData.js?v=287"></script>
-<script src="app.js?v=337"></script>
+<script src="app.js?v=340"></script>
 </body>
 </html>
