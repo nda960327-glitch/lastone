@@ -407,8 +407,11 @@ function updateCategoryTabTitles() {
   populateDaySelector();
 
   // 🚀 중요: Day 13 등 선택된 과의 소그룹 새 학습 구간 카드 목록(Section 2)을 즉시 동기화 렌더링!
+  // renderRangeButtons는 initInputView() 내부에서 정의되어 App.renderRangeButtons로 노출됨
   const words = getFilteredWords();
-  renderRangeButtons(words);
+  if (App && typeof App.renderRangeButtons === 'function') {
+    App.renderRangeButtons(words);
+  }
 }
 
 function populateDaySelector() {
@@ -835,6 +838,8 @@ function initInputView() {
 
 
   // ── 동적 학습 구간 렌더링 (소그룹 + 중그룹 취약점 + 대그룹 총정리) ──
+  // 외부 스코프(updateCategoryTabTitles 등)에서도 쓸 수 있게 App에 노출
+  App.renderRangeButtons = renderRangeButtons;
   function renderRangeButtons(words) {
     const panel = document.getElementById('range-select-panel');
     const listContainer = document.getElementById('range-buttons-list');
@@ -3268,24 +3273,8 @@ let isVerticalScroll = false;
       });
       setProgressSync('doacore_total_fails', JSON.stringify(failData));
 
-      // 4. IndexedDB wordStates 제거
-      try {
-        const dbInstance = await openDB();
-        const tx = dbInstance.transaction('wordStates', 'readwrite');
-        const store = tx.objectStore('wordStates');
-        if (day) {
-          store.delete(dbName);
-        } else {
-          const req = store.getAllKeys();
-          req.onsuccess = () => {
-            (req.result || []).forEach(k => {
-              if (k.startsWith(category)) store.delete(k);
-            });
-          };
-        }
-      } catch(e){}
-
-      // 5. Firestore user progress sync 제거
+      // 4. Firestore user progress sync 제거
+      // (참고: 이 앱은 IndexedDB를 사용하지 않음 — localStorage + Firestore가 저장소의 전부)
       if (currentUser && db) {
         try {
           if (day) {
@@ -3331,7 +3320,6 @@ let isVerticalScroll = false;
             await clearStudyRecordForCategory(c);
           }
           localStorage.removeItem('vocab_trainer_progress');
-          await clearProgressIDB();
           alert('모든 학습 기록이 초기화되었습니다.');
           modalResetStudy.classList.add('hidden');
           location.reload();
@@ -3353,8 +3341,11 @@ let isVerticalScroll = false;
     });
     
     // O/X 버튼 테마 분기 처리 (Step 3 & 4)
+    // 같은 모드면 innerHTML 재생성 스킵 — 테스트 진행 중 O/X 클릭 핸들러 유실 방지
     const oxContainer = document.getElementById('ox-buttons-container');
-    if (oxContainer) {
+    const oxMode = (theme === 'blue' || theme === 'pink' || theme === 'green') ? 'light' : 'dark';
+    if (oxContainer && oxContainer.dataset.oxMode !== oxMode) {
+      oxContainer.dataset.oxMode = oxMode;
       if (theme === 'blue' || theme === 'pink' || theme === 'green') {
         oxContainer.innerHTML = `
           <button id="btn-correct" class="btn-ox-new btn-o">
@@ -3557,6 +3548,7 @@ let isVerticalScroll = false;
     auth.onAuthStateChanged(async (user) => {
       currentUser = user;
       if (user) {
+        localStorage.removeItem('guest_mode'); // 정식 로그인 시 맛보기 모드 해제
         // 🚀 Logged in: IMMEDIATELY switch to view-input (0ms delay)
         showView('view-input');
         loadDBList();
@@ -3586,12 +3578,24 @@ let isVerticalScroll = false;
         }
       } else {
         // Logged out
-        showView('view-login');
         currentAcademyId = null;
         if (btnLoginGoogle) btnLoginGoogle.style.display = 'flex';
         if (btnLoginGoogleMain) btnLoginGoogleMain.style.display = 'flex';
         if (userProfileUI) userProfileUI.classList.add('hidden');
         if (academyInviteModal) academyInviteModal.classList.add('hidden');
+
+        // ⚡ 맛보기(게스트) 모드였다면 로그인 화면 대신 바로 메인 화면 유지
+        if (localStorage.getItem('guest_mode') === '1') {
+          currentAcademyName = null;
+          const userAcademyDisplay = document.getElementById('user-academy-display');
+          if (userAcademyDisplay) userAcademyDisplay.textContent = "소속: ⚡ 맛보기 모드 (비로그인)";
+          applyAcademyBranding(null);
+          updateCategoryTabTitles();
+          showView('view-input');
+          loadDBList();
+        } else {
+          showView('view-login');
+        }
       }
     });
 
@@ -3677,6 +3681,7 @@ let isVerticalScroll = false;
     const btnLoginSkip = document.getElementById('btn-login-skip');
     if (btnLoginSkip) {
       btnLoginSkip.onclick = () => {
+        localStorage.setItem('guest_mode', '1'); // 맛보기 모드 유지 (새로고침해도 로그인 화면으로 안 튕김)
         currentAcademyId = null;
         currentAcademyName = null;
         const userAcademyDisplay = document.getElementById('user-academy-display');
@@ -3691,6 +3696,7 @@ let isVerticalScroll = false;
     if (btnLogout) {
       btnLogout.onclick = () => {
         if (confirm("로그아웃 하시겠습니까?")) {
+          localStorage.removeItem('guest_mode'); // 로그아웃 시 맛보기 모드도 해제
           auth.signOut().then(() => {
             currentAcademyId = null;
             currentAcademyName = null;

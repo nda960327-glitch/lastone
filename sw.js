@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v335'; // feat: 스킨 전면 리디자인 (북극곰/구름/새싹/미드나잇)
+const CACHE_NAME = 'vocabmaster-v337'; // fix: 앱 진입 불가 버그, 맛보기 모드 유지, 기능 오류 수정
 const ASSETS = [
   '/',
   '/index.html',
