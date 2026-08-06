@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=224">
+  <link rel="stylesheet" href="style.css?v=335">
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -60,7 +60,7 @@
       <!-- Logo Container -->
       <div id="login-logo-container" style="display: flex; flex-direction: column; align-items: center; gap: 14px; cursor: pointer; user-select: none; -webkit-user-select: none; margin-bottom: 28px;">
         <img src="icon.jpg" class="brand-icon-img default-logo" alt="DOACore Logo" style="width: 84px; height: 84px; border-radius: 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); pointer-events: none; object-fit: cover;">
-        <div class="bear-logo" style="width: 84px; height: 84px; font-size: 48px; border-radius: 24px; pointer-events: none; display: none;">🧸</div>
+        <div class="bear-logo" style="width: 84px; height: 84px; font-size: 48px; border-radius: 24px; pointer-events: none; display: none;">🐻‍❄️</div>
         <div style="pointer-events: none;">
           <h1 class="brand-title" style="margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.5px;">DOACore</h1>
           <p class="brand-sub" style="margin: 6px 0 0 0; font-size: 14px; color: var(--text-sub);">인지공학 기반 영단어 각인 엔진</p>
@@ -280,7 +280,7 @@
     <header class="brand" style="position: relative; padding-top: 50px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; text-align: left; gap: 16px;">
       <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
         <img src="icon.jpg" class="brand-icon-img default-logo" alt="Logo" id="btn-main-logo" style="cursor: pointer; flex-shrink: 0; width: 64px; height: 64px; object-fit: cover;">
-        <div class="bear-logo" id="header-bear-logo" style="cursor: pointer; flex-shrink: 0; display: none; width: 64px; height: 64px; font-size: 38px; border-radius: 18px; align-items: center; justify-content: center;">🧸</div>
+        <div class="bear-logo" id="header-bear-logo" style="cursor: pointer; flex-shrink: 0; display: none; width: 64px; height: 64px; font-size: 38px; border-radius: 18px; align-items: center; justify-content: center;">🐻‍❄️</div>
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" id="header-brand-title" style="margin: 0;">DOACore</h1>
@@ -327,12 +327,18 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin: 16px 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid var(--box-border);">
           <span style="font-size: 14px; font-weight: 700; color: var(--text-main);">테마 (스킨)</span>
           <div id="theme-selector" style="display: flex; gap: 12px; align-items: center; pointer-events: auto;">
-            <button class="theme-btn" data-theme="dark" style="width: 28px; height: 28px; border-radius: 50%; background: #07071a; border: 2px solid var(--box-border); cursor: pointer;" title="블랙 모드"></button>
-            <button class="theme-btn" data-theme="blue" style="width: 28px; height: 28px; border-radius: 50%; background: #f0f7ff; border: 2px solid var(--box-border); cursor: pointer;" title="블루화이트"></button>
-            <button class="theme-btn" data-theme="pink" style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #FFF0F5, #FCE7F3); border: 2px solid #FBB6CE; cursor: pointer; position: relative;" title="💖 하트하트">
-              <span style="position: absolute; top: -6px; right: -6px; font-size: 10px;">💖</span>
+            <button class="theme-btn" data-theme="dark" style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #060614, #2a2a5e); border: 2px solid var(--box-border); cursor: pointer; position: relative;" title="🌌 미드나잇">
+              <span style="position: absolute; top: -7px; right: -7px; font-size: 11px;">🌙</span>
             </button>
-            <button class="theme-btn" data-theme="green" style="width: 28px; height: 28px; border-radius: 50%; background: #f0fdf4; border: 2px solid var(--box-border); cursor: pointer;" title="그린화이트"></button>
+            <button class="theme-btn" data-theme="blue" style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(180deg, #7CC4F5, #E8F6FF); border: 2px solid var(--box-border); cursor: pointer; position: relative;" title="☁️ 하늘하늘 구름">
+              <span style="position: absolute; top: -7px; right: -7px; font-size: 11px;">☁️</span>
+            </button>
+            <button class="theme-btn" data-theme="pink" style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #FFE9F3, #FBCFE8); border: 2px solid #FAD1E5; cursor: pointer; position: relative;" title="🐻‍❄️ 귀여운 북극곰">
+              <span style="position: absolute; top: -7px; right: -7px; font-size: 11px;">🐻‍❄️</span>
+            </button>
+            <button class="theme-btn" data-theme="green" style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #F2FBEA, #9FE897); border: 2px solid var(--box-border); cursor: pointer; position: relative;" title="🌱 초록초록 새싹">
+              <span style="position: absolute; top: -7px; right: -7px; font-size: 11px;">🌱</span>
+            </button>
           </div>
         </div>
         <!-- 스와이프 모드 토글 -->

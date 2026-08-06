@@ -12,109 +12,115 @@ select option { background-color: #07071a; color: #ffffff; }
     --btn-x-text: #ffffff;
 }
 :root, [data-theme="dark"] {
-  --bg-color:          #07071a;
+  --bg-color:          #060614;
   --bg2:         #0d0d28;
-  --card-bg:       rgba(255, 255, 255, 0.04);
-  --glass-h:     rgba(255, 255, 255, 0.07);
-  --box-border:      rgba(255, 255, 255, 0.08);
-  --border-h:    rgba(255, 255, 255, 0.18);
-  
-  --dropdown-bg: rgba(30, 41, 59, 0.95);
+  --card-bg:       rgba(255, 255, 255, 0.055);
+  --glass-h:     rgba(255, 255, 255, 0.09);
+  --box-border:      rgba(255, 255, 255, 0.1);
+  --border-h:    rgba(139, 148, 255, 0.4);
+
+  --dropdown-bg: rgba(23, 25, 48, 0.97);
   --dropdown-hover: #1e1b4b;
   --input-bg:    rgba(0,0,0,0.3);
-  --grad-1:      rgba(79,158,255,.07);
-  --grad-2:      rgba(168,85,247,.07);
-  --card-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  --grad-1:      rgba(99,102,241,.12);
+  --grad-2:      rgba(168,85,247,.1);
+  --card-shadow: 0 16px 44px rgba(0,0,0,0.55);
   --icon-filter: none;
-  --primary-color: #4f9eff;
-  --primary-hover: #3b82f6;
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
 
-  --blue:        #4f9eff;
+  --blue:        #6478ff;
   --purple:      #a855f7;
   --cyan:        #22d3ee;
   --green:       #4ade80;
   --red:         #f87171;
   --amber:       #fbbf24;
 
-  --text-main:       #eeeeff;
-  --text-sub:       #8888bb;
-  --text3:       #44446a;
+  --text-main:       #eef0ff;
+  --text-sub:       #8f93c4;
+  --text3:       #4a4d78;
 
-  --radius:      18px;
-  --radius-sm:   10px;
+  --radius:      20px;
+  --radius-sm:   12px;
   --shadow:      var(--card-shadow);
-  --glow-blue:   0 0 28px rgba(79,158,255,0.25);
+  --glow-blue:   0 0 28px rgba(100,120,255,0.28);
   --glow-green:  0 0 28px rgba(74,222,128,0.3);
   --glow-red:    0 0 28px rgba(248,113,113,0.3);
 }
 
+/* ☁️ 하늘하늘 구름 테마 변수 */
 [data-theme="blue"] {
-  --bg-color: #90CDF4;
+  --bg-color: #A5D8FF;
   --card-bg: #FFFFFF;
-  --text-main: #0F172A; /* 선명하고 깊은 딥 네이비 */
-  --glow-color: rgba(14, 165, 233, 0.35);
-  --btn-stroke: #7DD3FC;
-  --o-bg: #E0F2FE; /* 파스텔 블루 */
-  --x-bg: #FFE4E6; /* 파스텔 핑크 */
-  
-  --text-sub: #0284C7; /* 선명한 스카이블루 서브텍스트 */
-  --primary-color: #0284C7;
-  --primary-hover: #0369A1;
-  --box-border: #7DD3FC;
+  --text-main: #16457C;
+  --glow-color: rgba(56, 158, 233, 0.25);
+  --btn-stroke: #A8D8F8;
+  --o-bg: #E0F2FE;
+  --x-bg: #FFE4E6;
+
+  --text-sub: #4A7FB5;
+  --primary-color: #3BA3E8;
+  --primary-hover: #2189D3;
+  --box-border: #C9E6FB;
   --dropdown-bg: #FFFFFF;
-  --dropdown-hover: #F0F9FF;
-  --input-bg: #F8FAFC;
-  --card-shadow: 0 8px 24px rgba(14, 165, 233, 0.15);
+  --dropdown-hover: #EFF8FF;
+  --input-bg: #F7FBFF;
+  --card-shadow: 0 14px 34px rgba(96, 165, 250, 0.2);
   --icon-filter: invert(1) hue-rotate(190deg);
-  --border-h: #0284C7;
+  --border-h: #7CC4F5;
+  --grad-1: rgba(255,255,255,.4);
+  --grad-2: rgba(255,255,255,.3);
 }
 
+/* 🐻‍❄️ 귀여운 북극곰 테마 변수 */
 [data-theme="pink"] {
-  --bg-color: #FFF0F5;
-  --card-bg: #FFFAFC;
-  --text-main: #BE185D;
-  --glow-color: rgba(244, 114, 182, 0.35);
-  --btn-stroke: #FBB6CE;
+  --bg-color: #FFEFF6;
+  --card-bg: #FFFFFF;
+  --text-main: #B23A6E;
+  --glow-color: rgba(244, 114, 182, 0.28);
+  --btn-stroke: #FBCFE8;
   --o-bg: #FFF0F7;
   --x-bg: #FFF5F5;
-  
-  --bg2: #FFE4EF;
-  --glass-h: rgba(255, 250, 252, 0.97);
-  --box-border: #FBB6CE;
-  --border-h: rgba(236, 72, 153, 0.3);
-  --dropdown-bg: rgba(255, 250, 252, 0.97);
-  --dropdown-hover: #FFF0F5;
-  --input-bg: rgba(255, 245, 250, 0.8);
-  --grad-1: rgba(244, 114, 182, 0.1);
-  --grad-2: rgba(251, 182, 206, 0.1);
-  --card-shadow: 0 8px 32px rgba(236, 72, 153, 0.12);
+
+  --bg2: #FFE3F0;
+  --glass-h: #FFF7FB;
+  --box-border: #FAD1E5;
+  --border-h: #F472B6;
+  --dropdown-bg: #FFFFFF;
+  --dropdown-hover: #FFF0F6;
+  --input-bg: #FFF9FC;
+  --grad-1: rgba(255, 255, 255, 0.5);
+  --grad-2: rgba(251, 207, 232, 0.35);
+  --card-shadow: 0 12px 32px rgba(244, 114, 182, 0.16);
   --icon-filter: invert(1) hue-rotate(130deg);
-  --text-sub: #9D7A8A;
-  --text3: #F9A8C9;
-  --primary-color: #EC4899;
-  --primary-hover: #DB2777;
+  --text-sub: #C97DA2;
+  --text3: #F5B8D4;
+  --primary-color: #F472B6;
+  --primary-hover: #EC4899;
 }
 
+/* 🌱 초록초록 새싹 테마 변수 */
 [data-theme="green"] {
-  --bg-color: #D1FAE5;
-  --bg2: #dcfce7;
+  --bg-color: #E8F8E4;
+  --bg2: #DDF4D8;
   --card-bg: #ffffff;
-  --glass-h: rgba(255, 255, 255, 1);
-  --box-border: #bbf7d0;
-  --border-h: rgba(34, 197, 94, 0.3);
-  
-  --dropdown-bg: rgba(255, 255, 255, 0.95);
-  --dropdown-hover: #f0fdf4;
-  --input-bg: rgba(255, 255, 255, 0.7);
-  --grad-1: rgba(34, 197, 94, 0.08);
-  --grad-2: rgba(134, 239, 172, 0.08);
-  --card-shadow: 0 8px 30px rgba(34, 197, 94, 0.1);
+  --glass-h: #F7FDF5;
+  --box-border: #C9EEC2;
+  --border-h: #4ADE80;
+
+  --dropdown-bg: #FFFFFF;
+  --dropdown-hover: #F0FBEE;
+  --input-bg: #F9FEF7;
+  --grad-1: rgba(255, 255, 255, 0.5);
+  --grad-2: rgba(163, 230, 153, 0.25);
+  --card-shadow: 0 12px 30px rgba(74, 222, 128, 0.15);
   --icon-filter: invert(1) hue-rotate(130deg);
 
-  --text-main: #14532d;
-  --text-sub: #6b7280;
-  --text3: #86efac;
-  --primary-color: #22c55e;
+  --text-main: #1F6B3A;
+  --text-sub: #5C8A6B;
+  --text3: #9BDFAA;
+  --primary-color: #2FB960;
+  --primary-hover: #22A552;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -1938,449 +1944,6 @@ body {
   color: #BE185D !important;
 }
 
-
-/* ============================================================
-   🧸💖 PINK BEAR THEME - 흰곰 하트 캐릭터 스킨
-   ============================================================ */
-
-/* 🌸 배경: 파스텔 핑크 구름 + 발자국 패턴 */
-[data-theme="pink"] body {
-  background: 
-    radial-gradient(ellipse at 15% 15%, rgba(252, 231, 243, 0.7) 0%, transparent 45%),
-    radial-gradient(ellipse at 85% 25%, rgba(251, 207, 232, 0.5) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 70%, rgba(253, 242, 248, 0.6) 0%, transparent 50%),
-    radial-gradient(ellipse at 75% 85%, rgba(244, 114, 182, 0.1) 0%, transparent 35%),
-    #FFF5F9 !important;
-}
-
-[data-theme="pink"] body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ctext x='20' y='45' font-size='22' opacity='0.35'%3E🐾%3C/text%3E%3C/svg%3E");
-  background-repeat: repeat;
-  opacity: 0.06;
-}
-
-[data-theme="pink"] body::after {
-  content: '🧸💗🐾💕🧸💖🐾✨🧸💗🐾💕';
-  position: fixed;
-  top: -80px; left: -20px; right: 0;
-  font-size: 26px;
-  letter-spacing: 35px;
-  pointer-events: none;
-  z-index: 0;
-  animation: floatBearHearts 25s linear infinite;
-  opacity: 0.12;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-@keyframes floatBearHearts {
-  0%   { transform: translateY(0) translateX(0); }
-  25%  { transform: translateY(28vh) translateX(-25px); }
-  50%  { transform: translateY(55vh) translateX(15px); }
-  75%  { transform: translateY(80vh) translateX(-10px); }
-  100% { transform: translateY(115vh) translateX(0); }
-}
-
-/* 🎀 Header */
-[data-theme="pink"] .brand-title {
-  background: linear-gradient(135deg, #EC4899, #F9A8D4, #BE185D) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  text-shadow: none !important;
-}
-[data-theme="pink"] .brand-sub { color: #C77D9E !important; }
-
-/* 🧸 Cards - 곰 귀 달린 카드 */
-[data-theme="pink"] .glass-card,
-[data-theme="pink"] .word-card {
-  border-radius: 22px !important;
-  border: 2.5px solid #F9A8D4 !important;
-  box-shadow: 0 8px 28px rgba(236, 72, 153, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
-  background: linear-gradient(155deg, #FFFCFD 0%, #FFF5F9 50%, #FFF0F5 100%) !important;
-  position: relative;
-  z-index: 1;
-  overflow: visible;
-}
-
-/* 곰 귀 왼쪽 */
-[data-theme="pink"] .glass-card::before {
-  content: '';
-  position: absolute;
-  top: -14px; left: 22px;
-  width: 28px; height: 28px;
-  background: radial-gradient(circle at 50% 60%, #FFE4EF 40%, #F9A8D4 100%);
-  border-radius: 50%;
-  border: 2.5px solid #F9A8D4;
-  z-index: -1;
-  box-shadow: inset 0 -3px 6px rgba(236, 72, 153, 0.15);
-}
-
-/* 곰 귀 오른쪽 */
-[data-theme="pink"] .glass-card::after {
-  content: '';
-  position: absolute;
-  top: -14px; right: 22px;
-  width: 28px; height: 28px;
-  background: radial-gradient(circle at 50% 60%, #FFE4EF 40%, #F9A8D4 100%);
-  border-radius: 50%;
-  border: 2.5px solid #F9A8D4;
-  z-index: -1;
-  box-shadow: inset 0 -3px 6px rgba(236, 72, 153, 0.15);
-}
-
-/* 🎀 Test Card - 곰돌이 카드 */
-[data-theme="pink"] .test-card {
-  background: linear-gradient(160deg, #FFFCFD 0%, #FFF5F9 40%, #FCE7F3 100%) !important;
-  border: 3px solid #F9A8D4 !important;
-  border-radius: 28px !important;
-  box-shadow: 0 12px 40px rgba(236, 72, 153, 0.12), 0 0 0 5px rgba(249, 168, 212, 0.1), inset 0 2px 0 rgba(255, 255, 255, 0.8) !important;
-  margin-top: 20px !important;
-}
-
-[data-theme="pink"] .test-card::before {
-  content: '🧸';
-  width: auto; height: auto;
-  background: none;
-  border: none;
-  box-shadow: none;
-  font-size: 32px;
-  top: -20px; left: 50%;
-  transform: translateX(-50%);
-  animation: bearWave 3s ease-in-out infinite;
-  filter: drop-shadow(0 3px 6px rgba(236, 72, 153, 0.2));
-}
-
-[data-theme="pink"] .test-card::after {
-  content: '💖';
-  width: auto; height: auto;
-  background: none;
-  border: none;
-  box-shadow: none;
-  font-size: 18px;
-  top: -10px; right: 20px; left: auto;
-  animation: heartFloat 2.5s ease-in-out infinite;
-  filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.2));
-}
-
-@keyframes bearWave {
-  0%, 100% { transform: translateX(-50%) rotate(-5deg) scale(1); }
-  25%      { transform: translateX(-50%) rotate(5deg) scale(1.05); }
-  50%      { transform: translateX(-50%) rotate(-3deg) scale(1.1); }
-  75%      { transform: translateX(-50%) rotate(4deg) scale(1.05); }
-}
-
-@keyframes heartFloat {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.9; }
-  50%      { transform: translateY(-6px) scale(1.15); opacity: 1; }
-}
-
-/* 🐻 둥근 버튼 */
-[data-theme="pink"] .btn-primary {
-  background: linear-gradient(135deg, #EC4899 0%, #F472B6 50%, #F9A8D4 100%) !important;
-  border: none !important;
-  border-radius: 50px !important;
-  color: #fff !important;
-  font-weight: 700 !important;
-  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  position: relative;
-  overflow: hidden;
-}
-
-[data-theme="pink"] .btn-primary:hover {
-  background: linear-gradient(135deg, #DB2777 0%, #EC4899 50%, #F472B6 100%) !important;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.35) !important;
-}
-
-[data-theme="pink"] .btn-primary:active {
-  transform: scale(0.96) !important;
-}
-
-/* hover 시 🐾 발자국 */
-[data-theme="pink"] .btn-primary::after {
-  content: '🐾';
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%) scale(0);
-  font-size: 16px;
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  pointer-events: none;
-}
-
-[data-theme="pink"] .btn-primary:hover::after {
-  opacity: 1;
-  transform: translateY(-50%) scale(1);
-}
-
-[data-theme="pink"] .btn-secondary {
-  border: 2.5px solid #F9A8D4 !important;
-  background: rgba(255, 245, 249, 0.8) !important;
-  color: #BE185D !important;
-  border-radius: 50px !important;
-  font-weight: 600 !important;
-}
-
-[data-theme="pink"] .btn-secondary:hover {
-  background: #FCE7F3 !important;
-  border-color: #EC4899 !important;
-  transform: translateY(-2px);
-}
-
-[data-theme="pink"] .btn-ghost {
-  color: #D1719B !important;
-  border: 2px solid #FBB6CE !important;
-  border-radius: 50px !important;
-}
-
-[data-theme="pink"] .btn-ghost:hover {
-  background: #FFF5F9 !important;
-}
-
-/* O/X 버튼 */
-[data-theme="pink"] #btn-correct.btn-ox-new.btn-o {
-  background: linear-gradient(145deg, #F0FDF4, #DCFCE7) !important;
-  border: 3px solid #86EFAC !important;
-  border-radius: 26px !important;
-}
-
-[data-theme="pink"] #btn-wrong.btn-ox-new.btn-x {
-  background: linear-gradient(145deg, #FFF5F9, #FCE7F3) !important;
-  border: 3px solid #F9A8D4 !important;
-  border-radius: 26px !important;
-}
-
-/* Round Pill */
-[data-theme="pink"] .round-pill {
-  background: linear-gradient(135deg, #FFFAFC, #FCE7F3) !important;
-  border: 2px solid #F9A8D4 !important;
-  color: #BE185D !important;
-  border-radius: 50px !important;
-  font-weight: 700 !important;
-}
-
-/* Progress Bar */
-[data-theme="pink"] .progress-bar-fill,
-[data-theme="pink"] .progress-fill {
-  background: linear-gradient(90deg, #F9A8D4, #EC4899, #DB2777) !important;
-  border-radius: 50px !important;
-}
-
-[data-theme="pink"] .progress-bar,
-[data-theme="pink"] .progress-bg {
-  background: #FCE7F3 !important;
-  border-radius: 50px !important;
-  border: 1px solid #F9A8D4 !important;
-}
-
-/* Range Selection */
-[data-theme="pink"] .btn-range-item {
-  border: 2.5px solid #F9A8D4 !important;
-  border-radius: 18px !important;
-  background: linear-gradient(155deg, #FFFCFD, #FFF5F9) !important;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-}
-
-[data-theme="pink"] .btn-range-item:hover {
-  border-color: #EC4899 !important;
-  background: linear-gradient(155deg, #FFF0F5, #FCE7F3) !important;
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.12) !important;
-}
-
-/* Tab Buttons */
-[data-theme="pink"] .tab-btn {
-  border: 2.5px solid #F9A8D4 !important;
-  background: #FFFAFC !important;
-  border-radius: 50px !important;
-  color: #BE185D !important;
-  font-weight: 600 !important;
-}
-
-[data-theme="pink"] .tab-btn:hover {
-  background: #FFF0F5 !important;
-  border-color: #EC4899 !important;
-}
-
-[data-theme="pink"] .tab-btn.active {
-  background: linear-gradient(135deg, #EC4899, #F472B6) !important;
-  color: #fff !important;
-  border: 2.5px solid #EC4899 !important;
-  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3) !important;
-}
-
-/* Input */
-[data-theme="pink"] input,
-[data-theme="pink"] select,
-[data-theme="pink"] textarea {
-  border: 2.5px solid #F9A8D4 !important;
-  border-radius: 14px !important;
-  background: #FFFCFD !important;
-  color: #9D174D !important;
-}
-
-[data-theme="pink"] input:focus,
-[data-theme="pink"] select:focus,
-[data-theme="pink"] textarea:focus {
-  border-color: #EC4899 !important;
-  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.12) !important;
-  outline: none !important;
-}
-
-[data-theme="pink"] input::placeholder { color: #CBA0B3 !important; }
-
-/* Speaker Button */
-[data-theme="pink"] #btn-speak-again {
-  background: linear-gradient(145deg, #FFFAFC, #FCE7F3) !important;
-  border: 3px solid #F9A8D4 !important;
-  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.15) !important;
-}
-
-[data-theme="pink"] #btn-speak-again:hover {
-  background: #FCE7F3 !important;
-  border-color: #EC4899 !important;
-  transform: scale(1.1) !important;
-}
-
-/* Dictation Buttons */
-[data-theme="pink"] .btn-dictation-red {
-  background: rgba(236, 72, 153, 0.05) !important;
-  border: 2.5px solid rgba(236, 72, 153, 0.25) !important;
-  color: #BE185D !important;
-  border-radius: 16px !important;
-}
-
-[data-theme="pink"] .btn-dictation-red:hover {
-  background: rgba(236, 72, 153, 0.1) !important;
-  border-color: #EC4899 !important;
-  transform: translateY(-2px);
-}
-
-[data-theme="pink"] .btn-dictation-blue {
-  background: rgba(167, 139, 250, 0.05) !important;
-  border: 2.5px solid rgba(167, 139, 250, 0.25) !important;
-  color: #7C3AED !important;
-  border-radius: 16px !important;
-}
-
-[data-theme="pink"] .btn-dictation-blue:hover {
-  background: rgba(167, 139, 250, 0.1) !important;
-  border-color: #A78BFA !important;
-  transform: translateY(-2px);
-}
-
-[data-theme="pink"] .dictation-section-title { color: #BE185D !important; }
-
-/* Settings Dropdown */
-[data-theme="pink"] #settings-dropdown {
-  border: 2.5px solid #F9A8D4 !important;
-  border-radius: 22px !important;
-  background: rgba(255, 252, 253, 0.98) !important;
-  box-shadow: 0 14px 40px rgba(236, 72, 153, 0.12) !important;
-}
-
-/* Result Table */
-[data-theme="pink"] .result-table th { color: #BE185D !important; background: #FDF2F8 !important; }
-[data-theme="pink"] .result-table td { border-bottom: 1.5px solid #FCE7F3 !important; }
-[data-theme="pink"] .result-table tr:hover td { background: #FFF5F9 !important; }
-
-/* Final View */
-[data-theme="pink"] .trophy-anim { filter: drop-shadow(0 6px 16px rgba(236, 72, 153, 0.25)); }
-
-/* PWA Modal */
-[data-theme="pink"] .pwa-modal-content {
-  border: 2.5px solid #F9A8D4 !important;
-  border-radius: 26px !important;
-  background: linear-gradient(160deg, #FFFCFD, #FFF5F9, #FFF0F5) !important;
-}
-
-/* Scrollbar */
-[data-theme="pink"] ::-webkit-scrollbar { width: 8px !important; }
-[data-theme="pink"] ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #F9A8D4, #EC4899) !important; border-radius: 50px !important; }
-[data-theme="pink"] ::-webkit-scrollbar-track { background: #FDF2F8 !important; }
-
-/* Boss Badge */
-[data-theme="pink"] .boss-badge {
-  background: linear-gradient(135deg, #EC4899, #F472B6) !important;
-  border-radius: 50px !important;
-  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3) !important;
-}
-
-/* Weakness Focus */
-[data-theme="pink"] .btn-review.weakness-focus {
-  background: linear-gradient(145deg, #FFFAFC, #FCE7F3) !important;
-  border: 2.5px solid #F9A8D4 !important;
-  color: #BE185D !important;
-  border-radius: 18px !important;
-}
-
-[data-theme="pink"] .btn-review.weakness-focus:hover {
-  background: #FCE7F3 !important;
-  border-color: #EC4899 !important;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.15) !important;
-}
-
-[data-theme="pink"] .btn-review.weakness-focus .range-btn-count { color: #D1719B !important; }
-
-/* Headings */
-[data-theme="pink"] h2, [data-theme="pink"] h3 { color: #BE185D !important; }
-
-/* Settings Button */
-[data-theme="pink"] #btn-settings {
-  background: linear-gradient(135deg, rgba(252, 231, 243, 0.6), rgba(249, 168, 212, 0.3)) !important;
-  border: 2.5px solid #F9A8D4 !important;
-}
-
-[data-theme="pink"] #btn-settings:hover {
-  background: rgba(249, 168, 212, 0.3) !important;
-  transform: translateY(6px) rotate(45deg) scale(1.05);
-}
-
-/* Home Button */
-[data-theme="pink"] #btn-home-test { border-radius: 50px !important; border: 2px solid #F9A8D4 !important; background: #FFFAFC !important; }
-
-/* Toggle Switch */
-[data-theme="pink"] .toggle-switch .slider { background: #FBB6CE !important; }
-[data-theme="pink"] .toggle-switch input:checked + .slider { background: linear-gradient(135deg, #EC4899, #F472B6) !important; }
-
-/* hr */
-[data-theme="pink"] hr { border: none !important; height: 2px !important; background: linear-gradient(90deg, transparent, #F9A8D4, #EC4899, #F9A8D4, transparent) !important; }
-
-/* Links */
-[data-theme="pink"] a { color: #EC4899 !important; }
-[data-theme="pink"] a:hover { color: #BE185D !important; }
-
-/* 🧸 곰돌이 테마 전용 로고 */
-.bear-logo {
-  display: none;
-  width: 50px; height: 50px;
-  background: linear-gradient(135deg, #FFE4EF, #F9A8D4);
-  border: 2px solid #EC4899;
-  border-radius: 16px;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.bear-logo:hover {
-  transform: scale(1.1) rotate(-10deg);
-}
-
-/* 핑크 테마에서도 기본 학원/앱 로고 사용 */
-[data-theme='pink'] .default-logo { display: block !important; }
-[data-theme='pink'] .bear-logo { display: none !important; }
-
 /* 공통 모달 오버레이 */
 .modal-overlay {
   position: fixed;
@@ -2489,152 +2052,6 @@ body {
   font-weight: 700 !important;
 }
 
-/* ── ☁️ 몽실몽실 구름 하늘 테마 (Fluffy Cloud Blue Sky Theme) ── */
-[data-theme="blue"] body {
-  background: linear-gradient(180deg, #90CDF4 0%, #BAE6FD 35%, #E0F2FE 70%, #F0F9FF 100%) !important;
-  color: #0F172A !important;
-}
-
-[data-theme="blue"] .glass-card,
-[data-theme="blue"] .word-card,
-[data-theme="blue"] .test-card {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border: 2.5px solid #7DD3FC !important;
-  border-radius: 22px !important;
-  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.15), inset 0 2px 0 #FFFFFF !important;
-  backdrop-filter: blur(10px) !important;
-}
-
-[data-theme="blue"] .glass-card:hover,
-[data-theme="blue"] .word-card:hover {
-  border-color: #38BDF8 !important;
-  box-shadow: 0 12px 28px rgba(14, 165, 233, 0.22) !important;
-}
-
-/* ☁️ 구름 둥근 버튼 */
-[data-theme="blue"] .btn-primary {
-  background: linear-gradient(135deg, #0284C7 0%, #38BDF8 50%, #7DD3FC 100%) !important;
-  border: none !important;
-  border-radius: 50px !important;
-  color: #FFFFFF !important;
-  font-weight: 800 !important;
-  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3), inset 0 1.5px 0 rgba(255, 255, 255, 0.4) !important;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-}
-
-[data-theme="blue"] .btn-primary:hover {
-  background: linear-gradient(135deg, #0369A1 0%, #0284C7 50%, #38BDF8 100%) !important;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4) !important;
-}
-
-[data-theme="blue"] .btn-range-item {
-  border: 2.5px solid #7DD3FC !important;
-  border-radius: 20px !important;
-  background: linear-gradient(155deg, #FFFFFF, #F0F9FF) !important;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.08) !important;
-}
-
-[data-theme="blue"] .btn-range-item:hover {
-  border-color: #0284C7 !important;
-  background: linear-gradient(155deg, #F0F9FF, #E0F2FE) !important;
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.18) !important;
-}
-
-[data-theme="blue"] .range-btn-label {
-  color: #0369A1 !important;
-  font-weight: 800 !important;
-}
-
-[data-theme="blue"] .tab-btn {
-  border: 2.5px solid #7DD3FC !important;
-  background: #FFFFFF !important;
-  border-radius: 50px !important;
-  color: #0284C7 !important;
-  font-weight: 700 !important;
-}
-
-[data-theme="blue"] .tab-btn:hover {
-  background: #F0F9FF !important;
-  border-color: #38BDF8 !important;
-}
-
-[data-theme="blue"] .tab-btn.active {
-  background: linear-gradient(135deg, #0284C7, #38BDF8) !important;
-  color: #FFFFFF !important;
-  border: 2.5px solid #0284C7 !important;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35) !important;
-}
-
-[data-theme="blue"] input,
-[data-theme="blue"] select,
-[data-theme="blue"] textarea {
-  border: 2.5px solid #7DD3FC !important;
-  border-radius: 16px !important;
-  background: #FFFFFF !important;
-  color: #0F172A !important;
-  font-weight: 600 !important;
-}
-
-[data-theme="blue"] input:focus,
-[data-theme="blue"] select:focus,
-[data-theme="blue"] textarea:focus {
-  border-color: #0284C7 !important;
-  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.18) !important;
-  outline: none !important;
-}
-
-[data-theme="blue"] .total-study-time-display {
-  background: linear-gradient(135deg, #E0F2FE, #BAE6FD) !important;
-  border: 2.5px solid #7DD3FC !important;
-  border-radius: 18px !important;
-}
-
-[data-theme="blue"] .total-time-label {
-  color: #0369A1 !important;
-  font-weight: 800 !important;
-}
-
-[data-theme="blue"] .total-time-value {
-  color: #0284C7 !important;
-  font-weight: 800 !important;
-}
-
-[data-theme="blue"] .progress-badge.time-badge {
-  background: #E0F2FE !important;
-  color: #0284C7 !important;
-  border: 1.5px solid #7DD3FC !important;
-  font-weight: 800 !important;
-  border-radius: 50px !important;
-}
-
-[data-theme="blue"] h2,
-[data-theme="blue"] h3,
-[data-theme="blue"] .brand-title {
-  color: #0284C7 !important;
-  font-weight: 800 !important;
-}
-
-[data-theme="blue"] .brand-sub {
-  color: #0369A1 !important;
-  font-weight: 600 !important;
-}
-
-[data-theme="blue"] .brand-icon-img {
-  filter: var(--icon-filter) !important;
-  border: 2.5px solid #7DD3FC !important;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.22), 0 0 0 3px rgba(255, 255, 255, 0.9) !important;
-  border-radius: 18px !important;
-}
-
-[data-theme="blue"] ::-webkit-scrollbar { width: 8px !important; }
-[data-theme="blue"] ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #7DD3FC, #0284C7) !important;
-  border-radius: 50px !important;
-}
-[data-theme="blue"] ::-webkit-scrollbar-track { background: #F0F9FF !important; }
 
 /* ── ☁️ 하단 안내 버튼 (info-pill-btn) 자연스러운 테두리 제거 & 매칭 ── */
 [data-theme="blue"] .info-pill-btn {
@@ -2894,3 +2311,1033 @@ body {
   color: #047857 !important;
   box-shadow: 0 2px 8px rgba(34, 197, 94, 0.12) !important;
 }
+
+
+/* ════════════════════════════════════════════════════════════
+   🎨 THEME REDESIGN v335 — 스킨 전면 리뉴얼
+   • 기본(다크): 미드나잇 스타필드 🌌
+   • 핑크: 귀여운 북극곰 🐻‍❄️
+   • 블루: 하늘하늘 구름 ☁️
+   • 그린: 초록초록 새싹 🌱
+   ※ data-theme 속성은 <body>에 붙으므로 body-레벨 규칙은
+     body[data-theme=...] 형태로 작성해야 실제로 적용된다.
+   ════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────
+   🌌 기본(미드나잇) 테마 폴리시
+   ──────────────────────────────────────────── */
+body:not([data-theme]),
+body[data-theme="dark"] {
+  background-image:
+    radial-gradient(ellipse 70% 45% at 18% -10%, rgba(99, 102, 241, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 12%, rgba(168, 85, 247, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 45% at 50% 112%, rgba(34, 211, 238, 0.08) 0%, transparent 60%) !important;
+}
+
+/* 잔잔하게 깜빡이는 별빛 */
+body:not([data-theme])::before,
+body[data-theme="dark"]::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='white'%3E%3Ccircle cx='24' cy='36' r='1.3' opacity='.7'/%3E%3Ccircle cx='120' cy='18' r='1' opacity='.5'/%3E%3Ccircle cx='200' cy='70' r='1.6' opacity='.8'/%3E%3Ccircle cx='70' cy='120' r='1' opacity='.4'/%3E%3Ccircle cx='160' cy='150' r='1.2' opacity='.6'/%3E%3Ccircle cx='30' cy='200' r='1.5' opacity='.7'/%3E%3Ccircle cx='220' cy='210' r='1' opacity='.5'/%3E%3Ccircle cx='105' cy='226' r='1.3' opacity='.6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  animation: starTwinkle 5s ease-in-out infinite alternate;
+}
+
+@keyframes starTwinkle {
+  from { opacity: 0.22; }
+  to   { opacity: 0.55; }
+}
+
+body:not([data-theme]) .glass-card,
+body[data-theme="dark"] .glass-card {
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body:not([data-theme]) .test-card,
+body[data-theme="dark"] .test-card {
+  border: 1px solid rgba(139, 148, 255, 0.22) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 44px rgba(99, 102, 241, 0.12) !important;
+}
+
+body:not([data-theme]) .btn-primary,
+body[data-theme="dark"] .btn-primary {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 55%, #A855F7 100%) !important;
+  color: #ffffff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 6px 22px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+body:not([data-theme]) .btn-primary:hover,
+body[data-theme="dark"] .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+body:not([data-theme]) .brand-title,
+body[data-theme="dark"] .brand-title {
+  background: linear-gradient(120deg, #F1F3FF 20%, #A5B4FC 62%, #C084FC 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+body:not([data-theme]) .tab-btn.active,
+body[data-theme="dark"] .tab-btn.active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.28), rgba(168, 85, 247, 0.22)) !important;
+  border-color: rgba(139, 148, 255, 0.45) !important;
+  color: #E3E6FF !important;
+}
+
+body:not([data-theme]) .progress-fill,
+body[data-theme="dark"] .progress-fill {
+  background: linear-gradient(90deg, #6366F1, #A855F7) !important;
+}
+
+/* ────────────────────────────────────────────
+   🐻‍❄️ 핑크 — 귀여운 북극곰 테마
+   딸기우유빛 하늘 + 소복소복 내리는 눈 + 곰돌이 귀 카드
+   ──────────────────────────────────────────── */
+body[data-theme="pink"] {
+  background:
+    radial-gradient(ellipse 75% 45% at 50% -12%, #FFD9EA 0%, transparent 60%),
+    radial-gradient(ellipse 55% 38% at 10% 80%, rgba(255, 255, 255, 0.85) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 38% at 90% 84%, rgba(255, 255, 255, 0.8) 0%, transparent 55%),
+    linear-gradient(180deg, #FFE9F3 0%, #FFF3F8 55%, #FFFBFD 100%) !important;
+}
+
+/* 눈송이 레이어 1 — 작은 눈, 총총총 */
+body[data-theme="pink"]::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='white'%3E%3Ccircle cx='18' cy='22' r='2.4'/%3E%3Ccircle cx='75' cy='60' r='1.8'/%3E%3Ccircle cx='115' cy='18' r='2.2'/%3E%3Ccircle cx='45' cy='105' r='2'/%3E%3Ccircle cx='100' cy='120' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  opacity: 0.7;
+  animation: pinkSnowSmall 16s linear infinite;
+}
+
+/* 눈송이 레이어 2 — 큰 눈 + ❄️, 사뿐사뿐 */
+body[data-theme="pink"]::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Ctext x='30' y='60' font-size='16' opacity='.55'%3E%E2%9D%84%EF%B8%8F%3C/text%3E%3Ctext x='150' y='150' font-size='12' opacity='.45'%3E%E2%9D%84%EF%B8%8F%3C/text%3E%3Ccircle cx='105' cy='40' r='3' fill='white' opacity='.8'/%3E%3Ccircle cx='60' cy='190' r='3.4' fill='white' opacity='.7'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  opacity: 0.5;
+  animation: pinkSnowBig 30s linear infinite;
+}
+
+@keyframes pinkSnowSmall {
+  from { background-position: 0 0; }
+  to   { background-position: -140px 420px; }
+}
+@keyframes pinkSnowBig {
+  from { background-position: 0 0; }
+  to   { background-position: -220px 440px; }
+}
+
+/* 🎀 헤더 */
+[data-theme="pink"] .brand-title {
+  background: linear-gradient(135deg, #F472B6 0%, #EC4899 45%, #D9469E 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+[data-theme="pink"] .brand-sub { color: #CF7FA6 !important; }
+[data-theme="pink"] .brand-sub::after { content: ' 🐻‍❄️'; }
+
+/* 🤍 카드 — 눈처럼 하얗고 몽글몽글 */
+[data-theme="pink"] .glass-card,
+[data-theme="pink"] .word-card {
+  background: #FFFFFF !important;
+  border: 2px solid #FAD1E5 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px rgba(244, 114, 182, 0.14), inset 0 2px 0 rgba(255, 255, 255, 0.9) !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* 🐻‍❄️ 테스트 카드 = 북극곰 얼굴 (하얀 귀 + 분홍 속귀) */
+[data-theme="pink"] .test-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF6FA 100%) !important;
+  border: 3px solid #FAD1E5 !important;
+  border-radius: 36px !important;
+  box-shadow: 0 16px 44px rgba(244, 114, 182, 0.18), 0 0 0 6px rgba(255, 255, 255, 0.6) !important;
+  margin-top: 30px !important;
+  overflow: visible !important;
+  z-index: auto !important;
+}
+
+[data-theme="pink"] .test-card::before,
+[data-theme="pink"] .test-card::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -20px !important;
+  width: 48px !important;
+  height: 48px !important;
+  background: radial-gradient(circle at 50% 58%, #FFD3E6 0%, #FFD3E6 34%, #FFFFFF 36%) !important;
+  border: 3px solid #FAD1E5 !important;
+  border-radius: 50% !important;
+  z-index: -1 !important;
+  box-shadow: none !important;
+  animation: none !important;
+  transform: none !important;
+  font-size: 0 !important;
+}
+[data-theme="pink"] .test-card::before { left: 30px !important; right: auto !important; }
+[data-theme="pink"] .test-card::after  { right: 30px !important; left: auto !important; }
+
+/* 라운드 결과 카드에도 곰 귀 */
+[data-theme="pink"] .round-result-card {
+  overflow: visible !important;
+  margin-top: 26px;
+  z-index: auto !important;
+}
+[data-theme="pink"] .round-result-card::before,
+[data-theme="pink"] .round-result-card::after {
+  content: '';
+  position: absolute;
+  top: -18px;
+  width: 42px; height: 42px;
+  background: radial-gradient(circle at 50% 58%, #FFD3E6 0%, #FFD3E6 34%, #FFFFFF 36%);
+  border: 2.5px solid #FAD1E5;
+  border-radius: 50%;
+  z-index: -1;
+}
+[data-theme="pink"] .round-result-card::before { left: 28px; }
+[data-theme="pink"] .round-result-card::after  { right: 28px; }
+
+/* 🐾 버튼 — 말랑말랑 젤리 필 */
+[data-theme="pink"] .btn-primary {
+  background: linear-gradient(135deg, #F472B6 0%, #EC4899 100%) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.28), inset 0 2px 0 rgba(255, 255, 255, 0.35) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+[data-theme="pink"] .btn-primary:hover {
+  filter: brightness(1.06);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 26px rgba(236, 72, 153, 0.36) !important;
+}
+[data-theme="pink"] .btn-primary:active { transform: scale(0.96) !important; }
+
+[data-theme="pink"] .btn-secondary {
+  border: 2px solid #FAD1E5 !important;
+  background: #FFFFFF !important;
+  color: #C2447C !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+}
+[data-theme="pink"] .btn-secondary:hover {
+  background: #FFF0F6 !important;
+  border-color: #F472B6 !important;
+  transform: translateY(-2px);
+}
+
+[data-theme="pink"] .btn-ghost {
+  color: #D1719B !important;
+  border: 2px solid #FBCFE8 !important;
+  border-radius: 50px !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+[data-theme="pink"] .btn-ghost:hover { background: #FFF5F9 !important; }
+
+/* O/X 버튼 — 민트 젤리 / 딸기 젤리 */
+[data-theme="pink"] #btn-correct.btn-ox-new.btn-o {
+  background: linear-gradient(150deg, #F2FDF4, #DDF9E4) !important;
+  border: 3px solid #A7EDBB !important;
+  border-radius: 28px !important;
+}
+[data-theme="pink"] #btn-wrong.btn-ox-new.btn-x {
+  background: linear-gradient(150deg, #FFF5F9, #FFE4F0) !important;
+  border: 3px solid #FAD1E5 !important;
+  border-radius: 28px !important;
+}
+
+/* 라운드 필 & 프로그레스 */
+[data-theme="pink"] .round-pill {
+  background: #FFFFFF !important;
+  border: 2px solid #FAD1E5 !important;
+  color: #C2447C !important;
+  border-radius: 50px !important;
+  font-weight: 800 !important;
+}
+[data-theme="pink"] .progress-fill,
+[data-theme="pink"] .progress-bar {
+  background: linear-gradient(90deg, #FBCFE8, #F472B6, #EC4899) !important;
+  border-radius: 50px !important;
+}
+[data-theme="pink"] .progress-track,
+[data-theme="pink"] .progress-container {
+  background: #FCE7F3 !important;
+  border-radius: 50px !important;
+}
+
+/* 구간 선택 */
+[data-theme="pink"] .btn-range-item {
+  border: 2px solid #FAD1E5 !important;
+  border-radius: 20px !important;
+  background: #FFFFFF !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+[data-theme="pink"] .btn-range-item:hover {
+  border-color: #F472B6 !important;
+  background: #FFF5FA !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(244, 114, 182, 0.16) !important;
+}
+
+/* 탭 */
+[data-theme="pink"] .tab-btn {
+  border: 2px solid #FAD1E5 !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-radius: 50px !important;
+  color: #C2447C !important;
+  font-weight: 700 !important;
+}
+[data-theme="pink"] .tab-btn:hover {
+  background: #FFF0F6 !important;
+  border-color: #F472B6 !important;
+}
+[data-theme="pink"] .tab-btn.active {
+  background: linear-gradient(135deg, #F472B6, #EC4899) !important;
+  color: #fff !important;
+  border-color: #EC4899 !important;
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.3) !important;
+}
+
+/* 입력 요소 */
+[data-theme="pink"] input,
+[data-theme="pink"] select,
+[data-theme="pink"] textarea {
+  border: 2px solid #FAD1E5 !important;
+  border-radius: 16px !important;
+  background: #FFFDFE !important;
+  color: #9D3D68 !important;
+}
+[data-theme="pink"] input:focus,
+[data-theme="pink"] select:focus,
+[data-theme="pink"] textarea:focus {
+  border-color: #F472B6 !important;
+  box-shadow: 0 0 0 4px rgba(244, 114, 182, 0.14) !important;
+  outline: none !important;
+}
+[data-theme="pink"] input::placeholder { color: #DFA8C4 !important; }
+
+/* 스피커 / 받아쓰기 */
+[data-theme="pink"] #btn-speak-again {
+  background: #FFFFFF !important;
+  border: 3px solid #FAD1E5 !important;
+  box-shadow: 0 6px 20px rgba(244, 114, 182, 0.16) !important;
+}
+[data-theme="pink"] #btn-speak-again:hover {
+  background: #FFF0F6 !important;
+  border-color: #F472B6 !important;
+}
+[data-theme="pink"] .btn-dictation-red {
+  background: rgba(244, 114, 182, 0.06) !important;
+  border: 2px solid rgba(244, 114, 182, 0.35) !important;
+  color: #C2447C !important;
+  border-radius: 18px !important;
+}
+[data-theme="pink"] .btn-dictation-red:hover {
+  background: rgba(244, 114, 182, 0.12) !important;
+  border-color: #F472B6 !important;
+  transform: translateY(-2px);
+}
+[data-theme="pink"] .btn-dictation-blue {
+  background: rgba(167, 139, 250, 0.06) !important;
+  border: 2px solid rgba(167, 139, 250, 0.32) !important;
+  color: #7C3AED !important;
+  border-radius: 18px !important;
+}
+[data-theme="pink"] .btn-dictation-blue:hover {
+  background: rgba(167, 139, 250, 0.12) !important;
+  transform: translateY(-2px);
+}
+[data-theme="pink"] .dictation-section-title { color: #C2447C !important; }
+
+/* 설정 & 드롭다운 & 모달 */
+[data-theme="pink"] #settings-dropdown {
+  border: 2px solid #FAD1E5 !important;
+  border-radius: 22px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 14px 40px rgba(244, 114, 182, 0.16) !important;
+}
+[data-theme="pink"] #btn-settings {
+  background: #FFFFFF !important;
+  border: 2px solid #FAD1E5 !important;
+}
+[data-theme="pink"] #btn-settings:hover { background: #FFF0F6 !important; }
+[data-theme="pink"] .modal-content {
+  background: #FFFFFF !important;
+  border: 2.5px solid #FAD1E5 !important;
+  box-shadow: 0 20px 50px rgba(244, 114, 182, 0.25) !important;
+}
+[data-theme="pink"] .pwa-modal-content {
+  border: 2.5px solid #FAD1E5 !important;
+  border-radius: 26px !important;
+  background: #FFFFFF !important;
+}
+
+/* 기타 디테일 */
+[data-theme="pink"] h2, [data-theme="pink"] h3 { color: #C2447C !important; }
+[data-theme="pink"] #btn-home-test {
+  border-radius: 50px !important;
+  border: 2px solid #FAD1E5 !important;
+  background: #FFFFFF !important;
+  color: #C2447C !important;
+}
+[data-theme="pink"] .toggle-switch .slider { background: #FBCFE8 !important; }
+[data-theme="pink"] .toggle-switch input:checked + .slider {
+  background: linear-gradient(135deg, #F472B6, #EC4899) !important;
+}
+[data-theme="pink"] hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #FAD1E5, #F472B6, #FAD1E5, transparent) !important;
+}
+[data-theme="pink"] a { color: #EC4899 !important; }
+[data-theme="pink"] .boss-badge {
+  background: linear-gradient(135deg, #F472B6, #EC4899) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3) !important;
+}
+[data-theme="pink"] .btn-review.weakness-focus {
+  background: #FFFDF3 !important;
+  border: 2px solid #FCD34D !important;
+  color: #B45309 !important;
+  border-radius: 20px !important;
+}
+[data-theme="pink"] .result-table th { color: #C2447C !important; background: #FFF0F6 !important; }
+[data-theme="pink"] .result-table td { border-bottom: 1.5px solid #FCE7F3 !important; }
+[data-theme="pink"] .result-table tr:hover td { background: #FFF7FB !important; }
+[data-theme="pink"] ::-webkit-scrollbar { width: 8px !important; }
+[data-theme="pink"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FBCFE8, #F472B6) !important;
+  border-radius: 50px !important;
+}
+[data-theme="pink"] ::-webkit-scrollbar-track { background: #FFF0F6 !important; }
+[data-theme="pink"] .total-study-time-display {
+  background: #FFFFFF !important;
+  border: 2px solid #FAD1E5 !important;
+  border-radius: 18px !important;
+}
+[data-theme="pink"] .total-time-label { color: #C2447C !important; font-weight: 700 !important; }
+[data-theme="pink"] .total-time-value { color: #EC4899 !important; font-weight: 800 !important; }
+[data-theme="pink"] .progress-badge.time-badge {
+  background: #FFF0F6 !important;
+  color: #C2447C !important;
+  border: 1.5px solid #FAD1E5 !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+}
+[data-theme="pink"] .test-category-day-badge {
+  background: #FFFFFF !important;
+  border: 2px solid #FAD1E5 !important;
+  color: #C2447C !important;
+  box-shadow: 0 2px 8px rgba(244, 114, 182, 0.12) !important;
+}
+[data-theme="pink"] #test-word,
+[data-theme="pink"] .test-word { color: #C2447C !important; }
+[data-theme="pink"] #btn-login-google-main::after { display: none !important; }
+
+/* 핑크 테마에서도 기본 학원/앱 로고 사용 */
+[data-theme='pink'] .default-logo { display: block !important; }
+[data-theme='pink'] .bear-logo { display: none !important; }
+
+/* ────────────────────────────────────────────
+   ☁️ 블루 — 하늘하늘 구름 테마
+   파란 하늘 그라데이션 + 두둥실 흘러가는 구름 + 구름빵 카드
+   ──────────────────────────────────────────── */
+body[data-theme="blue"] {
+  background:
+    radial-gradient(ellipse 85% 50% at 50% -15%, rgba(255, 255, 255, 0.55) 0%, transparent 60%),
+    linear-gradient(180deg, #7CC4F5 0%, #A5D8FF 34%, #D6EEFF 68%, #F2FAFF 100%) !important;
+  color: #16457C !important;
+}
+
+/* 구름 레이어 1 — 멀리서 천천히 */
+body[data-theme="blue"]::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='300'%3E%3Cg fill='white' opacity='.75'%3E%3Cellipse cx='90' cy='70' rx='58' ry='26'/%3E%3Cellipse cx='55' cy='84' rx='38' ry='20'/%3E%3Cellipse cx='128' cy='84' rx='40' ry='20'/%3E%3C/g%3E%3Cg fill='white' opacity='.55'%3E%3Cellipse cx='320' cy='200' rx='48' ry='20'/%3E%3Cellipse cx='290' cy='212' rx='30' ry='15'/%3E%3Cellipse cx='352' cy='212' rx='32' ry='15'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 420px 300px;
+  animation: cloudDrift1 70s linear infinite;
+}
+
+/* 구름 레이어 2 — 가까이서 큼직하게 */
+body[data-theme="blue"]::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='440'%3E%3Cg fill='white' opacity='.5'%3E%3Cellipse cx='170' cy='330' rx='90' ry='38'/%3E%3Cellipse cx='110' cy='350' rx='55' ry='28'/%3E%3Cellipse cx='230' cy='350' rx='60' ry='28'/%3E%3C/g%3E%3Cg fill='white' opacity='.35'%3E%3Cellipse cx='510' cy='90' rx='75' ry='30'/%3E%3Cellipse cx='460' cy='106' rx='45' ry='22'/%3E%3Cellipse cx='560' cy='106' rx='48' ry='22'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 640px 440px;
+  animation: cloudDrift2 45s linear infinite;
+}
+
+@keyframes cloudDrift1 {
+  from { background-position: 0 0; }
+  to   { background-position: 420px 0; }
+}
+@keyframes cloudDrift2 {
+  from { background-position: 0 0; }
+  to   { background-position: 640px 0; }
+}
+
+/* ☁️ 헤더 */
+[data-theme="blue"] .brand-title {
+  background: linear-gradient(120deg, #2E90DC 0%, #55ACEC 55%, #8CCBF7 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+[data-theme="blue"] .brand-sub { color: #4A7FB5 !important; font-weight: 600 !important; }
+[data-theme="blue"] .brand-sub::after { content: ' ☁️'; }
+[data-theme="blue"] .brand-icon-img {
+  border: 3px solid #FFFFFF !important;
+  box-shadow: 0 8px 22px rgba(56, 132, 200, 0.25) !important;
+  border-radius: 20px !important;
+}
+
+/* ☁️ 카드 — 테두리 없는 새하얀 구름빵 */
+[data-theme="blue"] .glass-card,
+[data-theme="blue"] .word-card {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: none !important;
+  border-radius: 30px !important;
+  box-shadow: 0 18px 40px rgba(56, 132, 200, 0.18), inset 0 3px 0 rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(6px) !important;
+  position: relative;
+}
+
+/* 구름 모양 테스트 카드 — 위로 몽글몽글 솟은 구름 봉우리 */
+[data-theme="blue"] .test-card {
+  background: #FFFFFF !important;
+  border: none !important;
+  border-radius: 40px !important;
+  box-shadow: 0 22px 50px rgba(56, 132, 200, 0.22) !important;
+  margin-top: 40px !important;
+  overflow: visible !important;
+  z-index: auto !important;
+}
+[data-theme="blue"] .test-card::before,
+[data-theme="blue"] .test-card::after {
+  content: '' !important;
+  position: absolute !important;
+  background: #FFFFFF !important;
+  border: none !important;
+  border-radius: 50% !important;
+  z-index: -1 !important;
+  box-shadow: 0 -8px 20px rgba(56, 132, 200, 0.08) !important;
+  animation: none !important;
+  transform: none !important;
+  font-size: 0 !important;
+}
+[data-theme="blue"] .test-card::before {
+  width: 90px !important; height: 90px !important;
+  top: -30px !important; left: 36px !important; right: auto !important;
+}
+[data-theme="blue"] .test-card::after {
+  width: 58px !important; height: 58px !important;
+  top: -20px !important; left: 116px !important; right: auto !important;
+}
+
+/* 라운드 결과 카드도 구름 모양 */
+[data-theme="blue"] .round-result-card {
+  overflow: visible !important;
+  margin-top: 34px;
+  z-index: auto !important;
+}
+[data-theme="blue"] .round-result-card::before,
+[data-theme="blue"] .round-result-card::after {
+  content: '';
+  position: absolute;
+  background: #FFFFFF;
+  border-radius: 50%;
+  z-index: -1;
+}
+[data-theme="blue"] .round-result-card::before {
+  width: 76px; height: 76px; top: -24px; right: 44px;
+}
+[data-theme="blue"] .round-result-card::after {
+  width: 48px; height: 48px; top: -16px; right: 104px;
+}
+
+/* 버튼 — 하늘빛 필 */
+[data-theme="blue"] .btn-primary {
+  background: linear-gradient(135deg, #2E90DC 0%, #55ACEC 60%, #7CC4F5 100%) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  box-shadow: 0 8px 22px rgba(46, 144, 220, 0.32), inset 0 2px 0 rgba(255, 255, 255, 0.4) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+[data-theme="blue"] .btn-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(46, 144, 220, 0.4) !important;
+}
+[data-theme="blue"] .btn-secondary {
+  border: none !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #2E7CC4 !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(56, 132, 200, 0.14) !important;
+}
+[data-theme="blue"] .btn-secondary:hover {
+  background: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+[data-theme="blue"] .btn-ghost {
+  color: #4A7FB5 !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  box-shadow: 0 2px 8px rgba(56, 132, 200, 0.1) !important;
+}
+[data-theme="blue"] .btn-ghost:hover { background: rgba(255, 255, 255, 0.95) !important; }
+
+/* 구간 선택 — 구름 조각 */
+[data-theme="blue"] .btn-range-item {
+  border: none !important;
+  border-radius: 24px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 6px 16px rgba(56, 132, 200, 0.12) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+[data-theme="blue"] .btn-range-item:hover {
+  background: #F2FAFF !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(56, 132, 200, 0.2) !important;
+}
+[data-theme="blue"] .range-btn-label { color: #2E7CC4 !important; font-weight: 800 !important; }
+
+/* 탭 */
+[data-theme="blue"] .tab-btn {
+  border: none !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-radius: 50px !important;
+  color: #2E7CC4 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 3px 10px rgba(56, 132, 200, 0.1) !important;
+}
+[data-theme="blue"] .tab-btn:hover { background: #FFFFFF !important; }
+[data-theme="blue"] .tab-btn.active {
+  background: linear-gradient(135deg, #2E90DC, #55ACEC) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 16px rgba(46, 144, 220, 0.32) !important;
+}
+
+/* 입력 요소 */
+[data-theme="blue"] input,
+[data-theme="blue"] select,
+[data-theme="blue"] textarea {
+  border: 2px solid #C9E6FB !important;
+  border-radius: 18px !important;
+  background: #FFFFFF !important;
+  color: #16457C !important;
+  font-weight: 600 !important;
+}
+[data-theme="blue"] input:focus,
+[data-theme="blue"] select:focus,
+[data-theme="blue"] textarea:focus {
+  border-color: #3BA3E8 !important;
+  box-shadow: 0 0 0 4px rgba(59, 163, 232, 0.16) !important;
+  outline: none !important;
+}
+
+/* 프로그레스 & 필 */
+[data-theme="blue"] .progress-fill,
+[data-theme="blue"] .progress-bar {
+  background: linear-gradient(90deg, #7CC4F5, #3BA3E8) !important;
+  border-radius: 50px !important;
+}
+[data-theme="blue"] .progress-track,
+[data-theme="blue"] .progress-container {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-radius: 50px !important;
+}
+[data-theme="blue"] .round-pill {
+  background: #FFFFFF !important;
+  border: none !important;
+  color: #2E7CC4 !important;
+  border-radius: 50px !important;
+  font-weight: 800 !important;
+  box-shadow: 0 3px 10px rgba(56, 132, 200, 0.14) !important;
+}
+
+/* 설정 & 드롭다운 & 모달 */
+[data-theme="blue"] #settings-dropdown {
+  border: none !important;
+  border-radius: 24px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 18px 44px rgba(56, 132, 200, 0.24) !important;
+}
+[data-theme="blue"] #btn-settings {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: none !important;
+  box-shadow: 0 3px 10px rgba(56, 132, 200, 0.14) !important;
+}
+[data-theme="blue"] #btn-settings:hover { background: #FFFFFF !important; }
+[data-theme="blue"] .modal-content {
+  background: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 24px 56px rgba(46, 110, 180, 0.28) !important;
+  color: #16457C !important;
+}
+[data-theme="blue"] #btn-home-test {
+  border-radius: 50px !important;
+  border: none !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: #2E7CC4 !important;
+  box-shadow: 0 3px 10px rgba(56, 132, 200, 0.12) !important;
+}
+
+/* 기타 디테일 */
+[data-theme="blue"] h2, [data-theme="blue"] h3 { color: #2E7CC4 !important; }
+[data-theme="blue"] .toggle-switch .slider { background: #C9E6FB !important; }
+[data-theme="blue"] .toggle-switch input:checked + .slider {
+  background: linear-gradient(135deg, #3BA3E8, #55ACEC) !important;
+}
+[data-theme="blue"] hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #C9E6FB, #7CC4F5, #C9E6FB, transparent) !important;
+}
+[data-theme="blue"] ::-webkit-scrollbar { width: 8px !important; }
+[data-theme="blue"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #A5D8FF, #3BA3E8) !important;
+  border-radius: 50px !important;
+}
+[data-theme="blue"] ::-webkit-scrollbar-track { background: #EFF8FF !important; }
+[data-theme="blue"] .total-study-time-display {
+  background: #FFFFFF !important;
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: 0 6px 16px rgba(56, 132, 200, 0.12) !important;
+}
+[data-theme="blue"] .total-time-label { color: #2E7CC4 !important; font-weight: 800 !important; }
+[data-theme="blue"] .total-time-value { color: #2189D3 !important; font-weight: 800 !important; }
+[data-theme="blue"] .progress-badge.time-badge {
+  background: #EFF8FF !important;
+  color: #2E7CC4 !important;
+  border: none !important;
+  font-weight: 800 !important;
+  border-radius: 50px !important;
+}
+[data-theme="blue"] .test-category-day-badge {
+  background: #EFF8FF !important;
+  border: none !important;
+  color: #2E7CC4 !important;
+  box-shadow: 0 2px 8px rgba(56, 132, 200, 0.12) !important;
+}
+[data-theme="blue"] .boss-badge {
+  background: linear-gradient(135deg, #2E90DC, #55ACEC) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 16px rgba(46, 144, 220, 0.35) !important;
+}
+
+/* ────────────────────────────────────────────
+   🌱 그린 — 초록초록 새싹 테마
+   봄 새순 빛 배경 + 흔들리는 새싹 + 잎사귀 모서리 카드
+   ──────────────────────────────────────────── */
+body[data-theme="green"] {
+  background:
+    radial-gradient(ellipse 70% 40% at 50% -10%, #FDFFF4 0%, transparent 60%),
+    linear-gradient(180deg, #F2FBEA 0%, #E4F7DC 55%, #D3F2CC 100%) !important;
+}
+
+/* 은은한 새싹 패턴 */
+body[data-theme="green"]::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Ctext x='24' y='58' font-size='20'%3E%F0%9F%8C%B1%3C/text%3E%3Ctext x='120' y='140' font-size='15'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.08;
+}
+
+/* 아래쪽 초록 언덕 */
+body[data-theme="green"]::after {
+  content: '';
+  position: fixed;
+  left: -10%; right: -10%; bottom: -80px;
+  height: 210px;
+  pointer-events: none; z-index: 0;
+  opacity: 0.45;
+  background:
+    radial-gradient(ellipse 55% 90% at 18% 100%, #9FE897 0%, transparent 65%),
+    radial-gradient(ellipse 60% 100% at 78% 100%, #7FD97B 0%, transparent 70%);
+}
+
+/* 🌿 헤더 */
+[data-theme="green"] .brand-title {
+  background: linear-gradient(120deg, #1F8A4C 0%, #2FB960 55%, #7FD97B 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+[data-theme="green"] .brand-sub { color: #5C8A6B !important; }
+[data-theme="green"] .brand-sub::after { content: ' 🌱'; }
+
+/* 🍃 카드 — 한쪽 모서리가 잎사귀처럼 */
+[data-theme="green"] .glass-card,
+[data-theme="green"] .word-card {
+  background: #FFFFFF !important;
+  border: 2px solid #C9EEC2 !important;
+  border-radius: 26px 26px 26px 8px !important;
+  box-shadow: 0 10px 28px rgba(74, 222, 128, 0.14), inset 0 2px 0 rgba(255, 255, 255, 0.9) !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* 🌱 테스트 카드 — 흙 위에서 새싹이 자라는 카드 */
+[data-theme="green"] .test-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F7FDF3 100%) !important;
+  border: 3px solid #C9EEC2 !important;
+  border-radius: 32px 32px 32px 10px !important;
+  box-shadow: 0 14px 36px rgba(74, 222, 128, 0.16), 0 0 0 6px rgba(255, 255, 255, 0.55) !important;
+  margin-top: 30px !important;
+  overflow: visible !important;
+  z-index: auto !important;
+}
+[data-theme="green"] .test-card::before {
+  content: '🌱' !important;
+  position: absolute !important;
+  top: -26px !important;
+  left: 50% !important;
+  right: auto !important;
+  width: auto !important; height: auto !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 32px !important;
+  border-radius: 0 !important;
+  z-index: 2 !important;
+  transform-origin: 50% 100%;
+  animation: sproutSway 3.2s ease-in-out infinite !important;
+  filter: drop-shadow(0 3px 5px rgba(34, 197, 94, 0.25));
+}
+[data-theme="green"] .test-card::after {
+  content: '🍃' !important;
+  position: absolute !important;
+  top: -14px !important;
+  right: 26px !important;
+  left: auto !important;
+  width: auto !important; height: auto !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 17px !important;
+  border-radius: 0 !important;
+  z-index: 2 !important;
+  animation: leafFloat 3.6s ease-in-out infinite !important;
+}
+@keyframes sproutSway {
+  0%, 100% { transform: translateX(-50%) rotate(-7deg); }
+  50%      { transform: translateX(-50%) rotate(7deg); }
+}
+@keyframes leafFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.85; }
+  50%      { transform: translateY(-6px) rotate(12deg); opacity: 1; }
+}
+
+/* 라운드 결과 카드에도 새싹 */
+[data-theme="green"] .round-result-card {
+  overflow: visible !important;
+  margin-top: 26px;
+}
+[data-theme="green"] .round-result-card::before {
+  content: '🌱';
+  position: absolute;
+  top: -24px; left: 50%;
+  font-size: 28px;
+  transform-origin: 50% 100%;
+  animation: sproutSway 3.2s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* 버튼 — 새순 그라데이션 */
+[data-theme="green"] .btn-primary {
+  background: linear-gradient(135deg, #22A552 0%, #2FB960 55%, #4ADE80 100%) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  box-shadow: 0 6px 18px rgba(47, 185, 96, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+[data-theme="green"] .btn-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 26px rgba(47, 185, 96, 0.38) !important;
+}
+[data-theme="green"] .btn-secondary {
+  border: 2px solid #C9EEC2 !important;
+  background: #FFFFFF !important;
+  color: #1F8A4C !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+}
+[data-theme="green"] .btn-secondary:hover {
+  background: #F0FBEE !important;
+  border-color: #4ADE80 !important;
+  transform: translateY(-2px);
+}
+[data-theme="green"] .btn-ghost {
+  color: #3E9C63 !important;
+  border: 2px solid #C9EEC2 !important;
+  border-radius: 50px !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+[data-theme="green"] .btn-ghost:hover { background: #F0FBEE !important; }
+
+/* 구간 선택 */
+[data-theme="green"] .btn-range-item {
+  border: 2px solid #C9EEC2 !important;
+  border-radius: 20px 20px 20px 6px !important;
+  background: #FFFFFF !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+[data-theme="green"] .btn-range-item:hover {
+  border-color: #4ADE80 !important;
+  background: #F7FDF3 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(74, 222, 128, 0.16) !important;
+}
+
+/* 탭 */
+[data-theme="green"] .tab-btn {
+  border: 2px solid #C9EEC2 !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-radius: 50px !important;
+  color: #1F8A4C !important;
+  font-weight: 700 !important;
+}
+[data-theme="green"] .tab-btn:hover {
+  background: #F0FBEE !important;
+  border-color: #4ADE80 !important;
+}
+[data-theme="green"] .tab-btn.active {
+  background: linear-gradient(135deg, #22A552, #2FB960) !important;
+  color: #FFFFFF !important;
+  border-color: #22A552 !important;
+  box-shadow: 0 4px 14px rgba(47, 185, 96, 0.3) !important;
+}
+
+/* 입력 요소 */
+[data-theme="green"] input,
+[data-theme="green"] select,
+[data-theme="green"] textarea {
+  border: 2px solid #C9EEC2 !important;
+  border-radius: 16px !important;
+  background: #FDFFFB !important;
+  color: #1F6B3A !important;
+}
+[data-theme="green"] input:focus,
+[data-theme="green"] select:focus,
+[data-theme="green"] textarea:focus {
+  border-color: #2FB960 !important;
+  box-shadow: 0 0 0 4px rgba(47, 185, 96, 0.14) !important;
+  outline: none !important;
+}
+[data-theme="green"] input::placeholder { color: #A4CBB0 !important; }
+
+/* 프로그레스 & 필 */
+[data-theme="green"] .progress-fill,
+[data-theme="green"] .progress-bar {
+  background: linear-gradient(90deg, #9FE897, #2FB960) !important;
+  border-radius: 50px !important;
+}
+[data-theme="green"] .progress-track,
+[data-theme="green"] .progress-container {
+  background: #E4F7DC !important;
+  border-radius: 50px !important;
+}
+[data-theme="green"] .round-pill {
+  background: #FFFFFF !important;
+  border: 2px solid #C9EEC2 !important;
+  color: #1F8A4C !important;
+  border-radius: 50px !important;
+  font-weight: 800 !important;
+}
+
+/* 설정 & 드롭다운 & 모달 */
+[data-theme="green"] #settings-dropdown {
+  border: 2px solid #C9EEC2 !important;
+  border-radius: 22px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 14px 40px rgba(74, 222, 128, 0.18) !important;
+}
+[data-theme="green"] #btn-settings {
+  background: #FFFFFF !important;
+  border: 2px solid #C9EEC2 !important;
+}
+[data-theme="green"] #btn-settings:hover { background: #F0FBEE !important; }
+[data-theme="green"] .modal-content {
+  background: #FFFFFF !important;
+  border: 2.5px solid #C9EEC2 !important;
+  box-shadow: 0 20px 50px rgba(47, 185, 96, 0.22) !important;
+}
+[data-theme="green"] #btn-home-test {
+  border-radius: 50px !important;
+  border: 2px solid #C9EEC2 !important;
+  background: #FFFFFF !important;
+  color: #1F8A4C !important;
+}
+
+/* 기타 디테일 */
+[data-theme="green"] h2, [data-theme="green"] h3 { color: #1F8A4C !important; }
+[data-theme="green"] .toggle-switch .slider { background: #C9EEC2 !important; }
+[data-theme="green"] .toggle-switch input:checked + .slider {
+  background: linear-gradient(135deg, #22A552, #4ADE80) !important;
+}
+[data-theme="green"] hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #C9EEC2, #4ADE80, #C9EEC2, transparent) !important;
+}
+[data-theme="green"] ::-webkit-scrollbar { width: 8px !important; }
+[data-theme="green"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9FE897, #2FB960) !important;
+  border-radius: 50px !important;
+}
+[data-theme="green"] ::-webkit-scrollbar-track { background: #F0FBEE !important; }
+[data-theme="green"] .total-study-time-display {
+  background: #FFFFFF !important;
+  border: 2px solid #C9EEC2 !important;
+  border-radius: 18px !important;
+}
+[data-theme="green"] .total-time-label { color: #1F8A4C !important; font-weight: 700 !important; }
+[data-theme="green"] .total-time-value { color: #22A552 !important; font-weight: 800 !important; }
+[data-theme="green"] .progress-badge.time-badge {
+  background: #F0FBEE !important;
+  color: #1F8A4C !important;
+  border: 1.5px solid #C9EEC2 !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+}
+[data-theme="green"] .test-category-day-badge {
+  background: #FFFFFF !important;
+  border: 2px solid #C9EEC2 !important;
+  color: #1F8A4C !important;
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.12) !important;
+}
+[data-theme="green"] .boss-badge {
+  background: linear-gradient(135deg, #22A552, #2FB960) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 16px rgba(47, 185, 96, 0.32) !important;
+}
+[data-theme="green"] #test-word,
+[data-theme="green"] .test-word { color: #1F6B3A !important; }
