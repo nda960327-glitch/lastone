@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v340'; // feat: 학습 리포트 + 연속 학습 스트릭 + 망각곡선 복습 추천
+const CACHE_NAME = 'vocabmaster-v341'; // feat: 테마별 오리지널 캐릭터 패밀리 (구름이·새싹이·달돌이)
 const ASSETS = [
   '/',
   '/index.html',
