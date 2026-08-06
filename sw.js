@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v337'; // fix: 앱 진입 불가 버그, 맛보기 모드 유지, 기능 오류 수정
+const CACHE_NAME = 'vocabmaster-v338'; // feat: 배경 고정 패턴화 + 핑크 모찌곰 캐릭터
 const ASSETS = [
   '/',
   '/index.html',
