@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v338'; // feat: 배경 고정 패턴화 + 핑크 모찌곰 캐릭터
+const CACHE_NAME = 'vocabmaster-v339'; // fix: 학습 화면 배경 장식 제거 + 패턴 농도 하향
 const ASSETS = [
   '/',
   '/index.html',

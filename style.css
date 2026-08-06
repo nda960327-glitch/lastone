@@ -2342,7 +2342,7 @@ body[data-theme="dark"]::before {
   pointer-events: none; z-index: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='white'%3E%3Ccircle cx='24' cy='36' r='1.3' opacity='.7'/%3E%3Ccircle cx='120' cy='18' r='1' opacity='.5'/%3E%3Ccircle cx='200' cy='70' r='1.6' opacity='.8'/%3E%3Ccircle cx='70' cy='120' r='1' opacity='.4'/%3E%3Ccircle cx='160' cy='150' r='1.2' opacity='.6'/%3E%3Ccircle cx='30' cy='200' r='1.5' opacity='.7'/%3E%3Ccircle cx='220' cy='210' r='1' opacity='.5'/%3E%3Ccircle cx='105' cy='226' r='1.3' opacity='.6'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 240px 240px;
-  opacity: 0.4; /* 고정 패턴 (애니메이션 제거) */
+  opacity: 0.2; /* 고정 패턴 — 은은하게 */
 }
 
 
@@ -2412,7 +2412,7 @@ body[data-theme="pink"]::before {
   pointer-events: none; z-index: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='white'%3E%3Ccircle cx='18' cy='22' r='2.4'/%3E%3Ccircle cx='75' cy='60' r='1.8'/%3E%3Ccircle cx='115' cy='18' r='2.2'/%3E%3Ccircle cx='45' cy='105' r='2'/%3E%3Ccircle cx='100' cy='120' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 140px 140px;
-  opacity: 0.7;
+  opacity: 0.3;
 }
 
 /* 눈송이 레이어 2 — 큰 눈 + ❄️, 사뿐사뿐 */
@@ -2422,7 +2422,7 @@ body[data-theme="pink"]::after {
   pointer-events: none; z-index: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg transform='translate(36,120)'%3E%3Ccircle cx='-9' cy='-10' r='4' fill='%23FFFFFF' stroke='%23F2AFC9' stroke-width='1.6'/%3E%3Ccircle cx='9' cy='-10' r='4' fill='%23FFFFFF' stroke='%23F2AFC9' stroke-width='1.6'/%3E%3Cellipse cx='0' cy='0' rx='13' ry='11' fill='%23FFFFFF' stroke='%23F2AFC9' stroke-width='1.6'/%3E%3Ccircle cx='-4.5' cy='-1' r='1.3' fill='%234A3640'/%3E%3Ccircle cx='4.5' cy='-1' r='1.3' fill='%234A3640'/%3E%3Cellipse cx='0' cy='2.4' rx='1.5' ry='1.2' fill='%234A3640'/%3E%3Cellipse cx='-8' cy='2.5' rx='2.4' ry='1.5' fill='%23FFC4DA'/%3E%3Cellipse cx='8' cy='2.5' rx='2.4' ry='1.5' fill='%23FFC4DA'/%3E%3C/g%3E%3Cpath d='M186 58s-7-4.6-7-9.6a4 4 0 0 1 7-2.6 4 4 0 0 1 7 2.6c0 5-7 9.6-7 9.6z' fill='%23F9B9D2' opacity='.7'/%3E%3Ccircle cx='105' cy='40' r='3' fill='white' opacity='.8'/%3E%3Ccircle cx='60' cy='226' r='3.4' fill='white' opacity='.7'/%3E%3Ccircle cx='224' cy='170' r='2.6' fill='white' opacity='.75'/%3E%3C/svg%3E");
   background-size: 260px 260px;
-  opacity: 0.5;
+  opacity: 0.28;
 }
 
 
@@ -2790,6 +2790,7 @@ body[data-theme="blue"]::before {
   pointer-events: none; z-index: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='300'%3E%3Cg fill='white' opacity='.75'%3E%3Cellipse cx='90' cy='70' rx='58' ry='26'/%3E%3Cellipse cx='55' cy='84' rx='38' ry='20'/%3E%3Cellipse cx='128' cy='84' rx='40' ry='20'/%3E%3C/g%3E%3Cg fill='white' opacity='.55'%3E%3Cellipse cx='320' cy='200' rx='48' ry='20'/%3E%3Cellipse cx='290' cy='212' rx='30' ry='15'/%3E%3Cellipse cx='352' cy='212' rx='32' ry='15'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 420px 300px;
+  opacity: 0.5;
 }
 
 /* 구름 레이어 2 — 가까이서 큼직하게 */
@@ -2799,6 +2800,7 @@ body[data-theme="blue"]::after {
   pointer-events: none; z-index: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='440'%3E%3Cg fill='white' opacity='.5'%3E%3Cellipse cx='170' cy='330' rx='90' ry='38'/%3E%3Cellipse cx='110' cy='350' rx='55' ry='28'/%3E%3Cellipse cx='230' cy='350' rx='60' ry='28'/%3E%3C/g%3E%3Cg fill='white' opacity='.35'%3E%3Cellipse cx='510' cy='90' rx='75' ry='30'/%3E%3Cellipse cx='460' cy='106' rx='45' ry='22'/%3E%3Cellipse cx='560' cy='106' rx='48' ry='22'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 640px 440px;
+  opacity: 0.4;
 }
 
 
@@ -3084,7 +3086,7 @@ body[data-theme="green"]::after {
   left: -10%; right: -10%; bottom: -80px;
   height: 210px;
   pointer-events: none; z-index: 0;
-  opacity: 0.45;
+  opacity: 0.28;
   background:
     radial-gradient(ellipse 55% 90% at 18% 100%, #9FE897 0%, transparent 65%),
     radial-gradient(ellipse 60% 100% at 78% 100%, #7FD97B 0%, transparent 70%);
@@ -3340,3 +3342,56 @@ body[data-theme="green"]::after {
 }
 [data-theme="green"] #test-word,
 [data-theme="green"] .test-word { color: #1F6B3A !important; }
+
+/* ────────────────────────────────────────────
+   🧠 학습(테스트) 화면에서는 배경 장식 완전 제거
+   — 단어 암기에 시각적 방해 요소 0
+   ──────────────────────────────────────────── */
+body:has(#view-test.active)::before,
+body:has(#view-test.active)::after {
+  display: none !important;
+}
+
+/* ────────────────────────────────────────────
+   📱 모바일 버튼 정비 — 글자 두 줄 줄바꿈 방지
+   ──────────────────────────────────────────── */
+button { word-break: keep-all; }
+
+/* 테스트 하단 3버튼 (이전 / 일시정지 / 다음): 한 줄 고정 */
+.test-actions-footer { gap: 10px; }
+.test-actions-footer button {
+  white-space: nowrap;
+  flex: 1 1 0;
+  min-width: 0;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .test-actions-footer { gap: 6px; }
+  .test-actions-footer .btn-prev { padding: 11px 6px !important; font-size: 12.5px !important; }
+  #btn-pause-study { padding: 11px 6px !important; font-size: 12.5px !important; gap: 4px !important; }
+  #btn-pause-study #pause-icon { font-size: 13px !important; }
+
+  /* 카테고리 탭: 한 줄 유지 */
+  .tab-btn { font-size: 13.5px; padding: 12px 6px; white-space: nowrap; }
+
+  /* 받아쓰기 / 복습 큰 버튼 */
+  .btn-dictation-red, .btn-dictation-blue { font-size: 0.95rem; padding: 14px 10px; }
+
+  /* 라운드 결과 / 최종 화면 버튼 */
+  #btn-next-round, #btn-home-result, #btn-restart, #btn-restart-dictation {
+    white-space: nowrap;
+    font-size: 14px !important;
+    padding: 13px 8px !important;
+  }
+
+  /* 홈으로(테스트 상단) 버튼 */
+  #btn-home-test { white-space: nowrap; font-size: 12px !important; padding: 6px 8px !important; }
+}
+
+@media (max-width: 360px) {
+  .tab-btn { font-size: 12.5px; padding: 11px 4px; }
+  .test-actions-footer .btn-prev, #btn-pause-study { font-size: 11.5px !important; }
+  .brand-title { font-size: 27px !important; }
+  #btn-next-round, #btn-home-result, #btn-restart, #btn-restart-dictation { font-size: 13px !important; }
+}
