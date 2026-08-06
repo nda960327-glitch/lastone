@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v341'; // feat: 테마별 오리지널 캐릭터 패밀리 (구름이·새싹이·달돌이)
+const CACHE_NAME = 'vocabmaster-v342'; // chore: 기본(다크) 테마 캐릭터 제거
 const ASSETS = [
   '/',
   '/index.html',
