@@ -8,8 +8,10 @@
   <meta name="theme-color" content="#07071a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=342">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Jua&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=343">
+  <!-- 몰랑몰랑 스킨 레이어 (캐릭터 · 동글동글 폼 · 커튼콜) -->
+  <link rel="stylesheet" href="kawaii.css?v=343">
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -284,7 +286,7 @@
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
             <h1 class="brand-title" id="header-brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v334</span>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v343</span>
           </div>
           <p class="brand-sub" id="header-brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
@@ -349,6 +351,16 @@
             <span class="slider round" style="box-shadow: none;"></span>
           </div>
         </label>
+        <!-- 🔊 효과음 토글 -->
+        <label for="sfx-toggle-checkbox" class="swipe-toggle-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; pointer-events: auto; margin-top: 12px;">
+          <span style="font-size: 14px; color: var(--text-main); font-weight: 700;">효과음 <span style="font-size: 11px; color: var(--text-sub); font-weight: normal;">(버튼·정답 소리)</span></span>
+          <div class="toggle-switch">
+            <input type="checkbox" id="sfx-toggle-checkbox" checked>
+            <span class="slider round" style="box-shadow: none;"></span>
+          </div>
+        </label>
+        <!-- 🎪 커튼콜 수집 현황 -->
+        <div id="show-collection" style="margin-top: 12px; font-size: 12px; color: var(--text-sub); text-align: center;"></div>
         <!-- 초기화하기 -->
         <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--box-border); text-align: center;">
           <button id="btn-reset-study" style="width: 100%; padding: 8px; margin-bottom: 8px; background: transparent; border: 1px solid var(--purple); color: var(--purple); border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.2s;">
@@ -962,6 +974,27 @@
   </div>
 
 <script src="wordData.js?v=287"></script>
-<script src="app.js?v=340"></script>
+<script src="sfx.js?v=343"></script>
+<script src="celebration.js?v=343"></script>
+<script src="app.js?v=343"></script>
+<script>
+  // 🔊 효과음 토글 + 🎪 커튼콜 수집 현황
+  (function () {
+    var box = document.getElementById('sfx-toggle-checkbox');
+    if (box && window.SFX) {
+      box.checked = SFX.isEnabled();
+      box.addEventListener('change', function () { SFX.setEnabled(box.checked); });
+    }
+    var slot = document.getElementById('show-collection');
+    function paint() {
+      if (!slot || !window.Celebration) return;
+      slot.innerHTML = '🎪 커튼콜 공연 <b>' + Celebration.seenCount() + '</b> / ' +
+                       Celebration.totalActs() + ' 수집';
+    }
+    paint();
+    var gear = document.getElementById('btn-settings');
+    if (gear) gear.addEventListener('click', paint);
+  })();
+</script>
 </body>
 </html>

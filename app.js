@@ -2711,7 +2711,19 @@ function showRoundResult(correct, wrong) {
 
   const emoji = correct >= wrong ? '💪' : '📖';
   document.getElementById('round-result-emoji').textContent = emoji;
-  document.getElementById('round-message').textContent = `${wrong}개 단어를 다시 테스트합니다. 화이팅!`;
+  // 칭찬 멘트는 매번 다르게 (celebration.js 의 멘트 풀)
+  document.getElementById('round-message').textContent =
+    (window.Celebration && Celebration.roundPraise)
+      ? Celebration.roundPraise(correct, wrong)
+      : `${wrong}개 단어를 다시 테스트합니다. 화이팅!`;
+
+  // 마스코트 표정: 잘했으면 활짝, 아쉬우면 울먹 (kawaii.css)
+  const resultCard = document.querySelector('#view-result .round-result-card');
+  if (resultCard) {
+    resultCard.classList.toggle('k-mood-good', correct >= wrong);
+    resultCard.classList.toggle('k-mood-bad',  correct <  wrong);
+  }
+  if (window.SFX) SFX.play('round');
 
   App.round++;
   const btnNext = document.getElementById('btn-next-round');
@@ -2773,19 +2785,35 @@ function showFinalResult() {
     }
   }
 
+  // ── 🎪 캐릭터 커튼콜 (celebration.js) ──
+  // 공연은 매번 랜덤이고 레어 공연이 섞여 있다. 다 모으면 12개.
+  const goHome = () => {
+    localStorage.setItem('skipAcademyModal', 'true');
+    window.location.reload();
+  };
+  const isPerfect = wrongWords.length === 0;
+  if (window.Celebration && Celebration.show) {
+    setTimeout(() => {
+      Celebration.show({
+        total: all.length,
+        correct: all.length - wrongWords.length,
+        wrong: wrongWords.length,
+        // 만점이면 공연을 다 보고 나서 홈으로
+        onClose: isPerfect ? goHome : null,
+      });
+    }, 400);
+  }
+
   const tbody = document.getElementById('result-tbody');
   tbody.innerHTML = '';
-  
-  if (wrongWords.length === 0) {
+
+  if (isPerfect) {
     const tr = document.createElement('tr');
     tr.innerHTML = `<td colspan="4" style="text-align:center; padding: 30px; font-weight:bold; color:#10b981; font-size: 18px;">🎉 오답이 한 개도 없습니다. 완벽합니다! 🎉</td>`;
     tbody.appendChild(tr);
 
-    // 오답 0개로 완벽 종료 시 1.8초 후 자동으로 홈 이동 & 새로고침
-    setTimeout(() => {
-      localStorage.setItem('skipAcademyModal', 'true');
-      window.location.reload();
-    }, 1800);
+    // 커튼콜을 못 띄우는 환경에서만 예전처럼 1.8초 뒤 자동 복귀
+    if (!(window.Celebration && Celebration.show)) setTimeout(goHome, 1800);
   } else {
     const sorted = [...wrongWords].sort((a, b) => b.attempts - a.attempts);
     sorted.forEach((w, idx) => {

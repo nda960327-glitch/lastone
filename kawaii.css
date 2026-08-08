@@ -1,0 +1,656 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   DOACore — 몰랑몰랑 스킨 (kawaii.css)
+   style.css 다음에 로드되는 "스킨 레이어".
+   구조/기능은 건드리지 않고 생김새만 동글동글하게 다시 그린다.
+
+   🧸 영어곰 곰곰이 (핑크)   ☁️ 영어구름 구름이 (블루)   🌱 영어새싹 새싹이 (그린)
+   캐릭터 원화: assets/kawaii/*.svg  (scripts/build_kawaii_sprites.js 로 생성)
+
+   ⚠️ 글씨 규칙
+      영단어(.test-word)와 스펠링 입력창은 절대 장식 서체를 쓰지 않는다.
+      철자를 정확히 읽어야 하는 곳이라 가독성이 최우선.
+      귀여운 서체(Jua)는 한글 제목·버튼·안내문에만 쓴다.
+
+   목차
+     1. 말랑 토큰      2. 캐릭터 배정   3. 타이포      4. 카드
+     5. 버튼          6. 탭/구간/인풋  7. 진행바/뱃지  8. 테스트 화면
+     9. O·X          10. 결과 화면    11. 마스코트    12. 모달
+    13. 다크 테마     14. 모션        15. 🎪 커튼콜   16. 좁은 화면
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --k-title: 'Jua', 'Noto Sans KR', sans-serif;   /* 한글 전용 귀여운 제목체 */
+  --k-body: 'Noto Sans KR', 'Inter', system-ui, sans-serif;
+}
+
+/* ── 1. 말랑 토큰 ─────────────────────────────────────────────────── */
+[data-theme="pink"] {
+  --k-line: #F7C6DE; --k-deep: #EDA3C6; --k-soft: #FFF2F8;
+  --k-accent: #FF8FC0; --k-accent-deep: #E0559C;
+  --k-shadow: rgba(238, 140, 186, .22);
+}
+[data-theme="blue"] {
+  --k-line: #BCE0F8; --k-deep: #86BFEA; --k-soft: #F1F9FF;
+  --k-accent: #6FBDF2; --k-accent-deep: #2A8FD6;
+  --k-shadow: rgba(80, 160, 220, .22);
+}
+[data-theme="green"] {
+  --k-line: #C6EACC; --k-deep: #8ECC99; --k-soft: #F2FCF1;
+  --k-accent: #6FD48C; --k-accent-deep: #2FA75C;
+  --k-shadow: rgba(90, 190, 120, .22);
+}
+:root, [data-theme="dark"] {
+  --k-line: rgba(160, 170, 255, .22); --k-deep: rgba(70, 78, 170, .55);
+  --k-soft: rgba(255, 255, 255, .05);
+  --k-accent: #7C82FF; --k-accent-deep: #4046C8;
+  --k-shadow: rgba(0, 0, 0, .5);
+}
+:root { --k-ok: #7BD8A6; --k-no: #FFA3A8; }
+
+/* ── 2. 캐릭터 배정 ───────────────────────────────────────────────── */
+[data-theme="pink"] {
+  --k-idle: url("assets/kawaii/bear-idle.svg");
+  --k-happy: url("assets/kawaii/bear-happy.svg");
+  --k-oops: url("assets/kawaii/bear-oops.svg");
+  --k-cheer: url("assets/kawaii/bear-cheer.svg");
+  --k-face: url("assets/kawaii/bear-face.svg");
+  --k-face-happy: url("assets/kawaii/bear-face-happy.svg");
+  --k-mini: url("assets/kawaii/bear-mini.svg");
+}
+[data-theme="blue"] {
+  --k-idle: url("assets/kawaii/cloud-idle.svg");
+  --k-happy: url("assets/kawaii/cloud-happy.svg");
+  --k-oops: url("assets/kawaii/cloud-oops.svg");
+  --k-cheer: url("assets/kawaii/cloud-cheer.svg");
+  --k-face: url("assets/kawaii/cloud-face.svg");
+  --k-face-happy: url("assets/kawaii/cloud-face-happy.svg");
+  --k-mini: url("assets/kawaii/cloud-mini.svg");
+}
+[data-theme="green"] {
+  --k-idle: url("assets/kawaii/sprout-idle.svg");
+  --k-happy: url("assets/kawaii/sprout-happy.svg");
+  --k-oops: url("assets/kawaii/sprout-oops.svg");
+  --k-cheer: url("assets/kawaii/sprout-cheer.svg");
+  --k-face: url("assets/kawaii/sprout-face.svg");
+  --k-face-happy: url("assets/kawaii/sprout-face-happy.svg");
+  --k-mini: url("assets/kawaii/sprout-mini.svg");
+}
+
+/* ── 3. 타이포 ───────────────────────────────────────────────────── */
+/* 한글 제목·버튼만 동글체. 본문과 영단어는 손대지 않는다. */
+[data-theme="pink"] h1, [data-theme="pink"] h2, [data-theme="pink"] h3,
+[data-theme="blue"] h1, [data-theme="blue"] h2, [data-theme="blue"] h3,
+[data-theme="green"] h1, [data-theme="green"] h2, [data-theme="green"] h3,
+[data-theme="pink"] .brand-title, [data-theme="blue"] .brand-title, [data-theme="green"] .brand-title,
+[data-theme="pink"] .range-title, [data-theme="blue"] .range-title, [data-theme="green"] .range-title,
+[data-theme="pink"] .tab-btn, [data-theme="blue"] .tab-btn, [data-theme="green"] .tab-btn,
+[data-theme="pink"] .round-message, [data-theme="blue"] .round-message, [data-theme="green"] .round-message,
+[data-theme="pink"] .btn-primary, [data-theme="blue"] .btn-primary, [data-theme="green"] .btn-primary,
+[data-theme="pink"] .btn-secondary, [data-theme="blue"] .btn-secondary, [data-theme="green"] .btn-secondary,
+[data-theme="pink"] .info-pill-btn, [data-theme="blue"] .info-pill-btn, [data-theme="green"] .info-pill-btn,
+[data-theme="pink"] .btn-reveal, [data-theme="blue"] .btn-reveal, [data-theme="green"] .btn-reveal,
+[data-theme="pink"] .ox-label, [data-theme="blue"] .ox-label, [data-theme="green"] .ox-label {
+  font-family: var(--k-title);
+  font-weight: 400;
+}
+
+/* 🔒 영단어·스펠링 입력은 원래의 또렷한 서체 그대로 (가독성 최우선) */
+[data-theme] .test-word, [data-theme] #test-word,
+[data-theme] #dictation-input,
+[data-theme] .result-table, [data-theme] .ai-prompt-box {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif !important;
+  font-feature-settings: 'ss01' off;
+}
+[data-theme="pink"] .test-word, [data-theme="blue"] .test-word, [data-theme="green"] .test-word {
+  font-weight: 800 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="pink"] .brand-title,
+[data-theme="blue"] .brand-title,
+[data-theme="green"] .brand-title { text-shadow: 0 2px 0 #fff, 0 3px 0 var(--k-line); }
+[data-theme="green"] .brand-sub::after { content: none !important; }
+
+/* ── 4. 카드 — 하얀 찹쌀떡 ──────────────────────────────────────── */
+[data-theme="pink"] .glass-card, [data-theme="pink"] .word-card,
+[data-theme="blue"] .glass-card, [data-theme="blue"] .word-card,
+[data-theme="green"] .glass-card, [data-theme="green"] .word-card {
+  background: #fff !important;
+  border: 3px solid var(--k-line) !important;
+  border-radius: 30px !important;
+  box-shadow: 0 8px 0 -2px var(--k-line), 0 18px 34px var(--k-shadow) !important;
+  backdrop-filter: none !important;
+}
+[data-theme="pink"] .range-select-panel,
+[data-theme="blue"] .range-select-panel,
+[data-theme="green"] .range-select-panel {
+  background: var(--k-soft) !important;
+  border: 2.5px dashed var(--k-line) !important;
+  border-radius: 26px !important;
+  padding: 18px 14px !important;
+  box-shadow: none !important;
+}
+
+/* ── 5. 버튼 — 눌리는 스티커 젤리 ──────────────────────────────── */
+[data-theme="pink"] .btn-primary, [data-theme="blue"] .btn-primary, [data-theme="green"] .btn-primary {
+  background: var(--k-accent) !important;
+  border: 3px solid var(--k-accent-deep) !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  box-shadow: 0 5px 0 var(--k-accent-deep) !important;
+  transition: transform .1s ease, box-shadow .1s ease !important;
+}
+[data-theme="pink"] .btn-primary:active, [data-theme="blue"] .btn-primary:active, [data-theme="green"] .btn-primary:active {
+  transform: translateY(5px) !important;
+  box-shadow: 0 0 0 var(--k-accent-deep) !important;
+}
+[data-theme="pink"] .btn-secondary, [data-theme="blue"] .btn-secondary, [data-theme="green"] .btn-secondary,
+[data-theme="pink"] .btn-ghost, [data-theme="blue"] .btn-ghost, [data-theme="green"] .btn-ghost,
+[data-theme="pink"] .info-pill-btn, [data-theme="blue"] .info-pill-btn, [data-theme="green"] .info-pill-btn {
+  background: #fff !important;
+  border: 2.5px solid var(--k-line) !important;
+  border-radius: 999px !important;
+  color: var(--text-main) !important;
+  box-shadow: 0 4px 0 var(--k-line) !important;
+  transition: transform .1s ease, box-shadow .1s ease !important;
+}
+[data-theme="pink"] .btn-secondary:active, [data-theme="blue"] .btn-secondary:active, [data-theme="green"] .btn-secondary:active,
+[data-theme="pink"] .btn-ghost:active, [data-theme="blue"] .btn-ghost:active, [data-theme="green"] .btn-ghost:active,
+[data-theme="pink"] .info-pill-btn:active, [data-theme="blue"] .info-pill-btn:active, [data-theme="green"] .info-pill-btn:active {
+  transform: translateY(4px) !important;
+  box-shadow: 0 0 0 var(--k-line) !important;
+}
+[data-theme="pink"] .btn-dictation-red, [data-theme="blue"] .btn-dictation-red, [data-theme="green"] .btn-dictation-red,
+[data-theme="pink"] .btn-dictation-blue, [data-theme="blue"] .btn-dictation-blue, [data-theme="green"] .btn-dictation-blue {
+  border-radius: 22px !important;
+  border-width: 2.5px !important;
+}
+
+/* ── 6. 탭 / 구간 / 인풋 ───────────────────────────────────────── */
+[data-theme="pink"] .tab-btn, [data-theme="blue"] .tab-btn, [data-theme="green"] .tab-btn {
+  background: #fff !important;
+  border: 2.5px solid var(--k-line) !important;
+  border-radius: 999px !important;
+  padding: 12px 10px !important;
+  color: var(--text-sub) !important;
+  box-shadow: 0 3px 0 var(--k-line) !important;
+}
+[data-theme="pink"] .tab-btn.active, [data-theme="blue"] .tab-btn.active, [data-theme="green"] .tab-btn.active {
+  background: var(--k-accent) !important;
+  border-color: var(--k-accent-deep) !important;
+  color: #fff !important;
+  box-shadow: 0 3px 0 var(--k-accent-deep) !important;
+}
+[data-theme="pink"] .btn-range-item, [data-theme="blue"] .btn-range-item, [data-theme="green"] .btn-range-item {
+  background: #fff !important;
+  border: 2.5px solid var(--k-line) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 3px 0 var(--k-line) !important;
+}
+[data-theme="pink"] input[type="text"], [data-theme="pink"] input[type="tel"], [data-theme="pink"] select,
+[data-theme="blue"] input[type="text"], [data-theme="blue"] input[type="tel"], [data-theme="blue"] select,
+[data-theme="green"] input[type="text"], [data-theme="green"] input[type="tel"], [data-theme="green"] select {
+  border: 2.5px solid var(--k-line) !important;
+  border-radius: 18px !important;
+  background: #fff !important;
+  color: var(--text-main) !important;
+}
+[data-theme="pink"] #day-selector, [data-theme="blue"] #day-selector, [data-theme="green"] #day-selector {
+  border-radius: 999px !important;
+  border: 3px solid var(--k-line) !important;
+  box-shadow: 0 4px 0 var(--k-line) !important;
+  font-family: var(--k-title) !important;
+}
+
+/* ── 7. 진행바 / 뱃지 ──────────────────────────────────────────── */
+[data-theme="pink"] .progress-track, [data-theme="blue"] .progress-track, [data-theme="green"] .progress-track {
+  height: 16px !important;
+  background: #fff !important;
+  border: 2.5px solid var(--k-line) !important;
+  border-radius: 999px !important;
+  overflow: visible !important;
+  box-shadow: none !important;
+}
+[data-theme="pink"] .progress-fill, [data-theme="blue"] .progress-fill, [data-theme="green"] .progress-fill {
+  background: var(--k-accent) !important;
+  border-radius: 999px !important;
+  height: 100% !important;
+  position: relative;
+}
+/* 진행바 끝에 캐릭터가 매달려 같이 간다 */
+[data-theme="pink"] .progress-fill::after,
+[data-theme="blue"] .progress-fill::after,
+[data-theme="green"] .progress-fill::after {
+  content: '';
+  position: absolute; right: -17px; bottom: -7px;
+  width: 34px; height: 32px;
+  background: var(--k-mini) center / contain no-repeat;
+  filter: drop-shadow(0 2px 3px var(--k-shadow));
+  pointer-events: none;
+}
+[data-theme="pink"] .round-pill, [data-theme="blue"] .round-pill, [data-theme="green"] .round-pill {
+  background: #fff !important;
+  border: 2.5px solid var(--k-line) !important;
+  border-radius: 999px !important;
+  color: var(--text-main) !important;
+  box-shadow: 0 3px 0 var(--k-line) !important;
+}
+[data-theme="pink"] .test-category-day-badge, [data-theme="blue"] .test-category-day-badge, [data-theme="green"] .test-category-day-badge {
+  background: var(--k-soft) !important;
+  border: 2px solid var(--k-line) !important;
+  border-radius: 999px !important;
+  color: var(--text-sub) !important;
+}
+
+/* ── 8. 테스트 화면 ────────────────────────────────────────────── */
+[data-theme="pink"] .test-card, [data-theme="blue"] .test-card, [data-theme="green"] .test-card {
+  background: #fff !important;
+  border: 3.5px solid var(--k-line) !important;
+  border-radius: 40px !important;
+  box-shadow: 0 10px 0 -2px var(--k-line), 0 22px 44px var(--k-shadow) !important;
+  overflow: visible !important;
+  margin-top: 76px !important;
+  z-index: auto !important;
+}
+[data-theme="pink"] .btn-reveal, [data-theme="blue"] .btn-reveal, [data-theme="green"] .btn-reveal {
+  background: #fff !important;
+  border: 3px solid var(--k-line) !important;
+  border-radius: 999px !important;
+  color: var(--text-main) !important;
+  box-shadow: 0 5px 0 var(--k-line) !important;
+}
+[data-theme="pink"] .btn-reveal:active, [data-theme="blue"] .btn-reveal:active, [data-theme="green"] .btn-reveal:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 var(--k-line) !important;
+}
+[data-theme="pink"] #test-timer-fill, [data-theme="blue"] #test-timer-fill, [data-theme="green"] #test-timer-fill {
+  background: var(--k-accent) !important;
+  border-radius: 999px !important;
+}
+
+/* ── 9. O·X ───────────────────────────────────────────────────── */
+[data-theme="pink"] .btn-ox-new, [data-theme="blue"] .btn-ox-new, [data-theme="green"] .btn-ox-new {
+  border-radius: 28px !important;
+  border-width: 3px !important;
+  transition: transform .1s ease, box-shadow .1s ease !important;
+}
+[data-theme="pink"] .btn-ox-new.btn-o, [data-theme="blue"] .btn-ox-new.btn-o, [data-theme="green"] .btn-ox-new.btn-o {
+  background: #F1FCF6 !important; border-color: var(--k-ok) !important;
+  box-shadow: 0 6px 0 var(--k-ok) !important;
+}
+[data-theme="pink"] .btn-ox-new.btn-x, [data-theme="blue"] .btn-ox-new.btn-x, [data-theme="green"] .btn-ox-new.btn-x {
+  background: #FFF4F4 !important; border-color: var(--k-no) !important;
+  box-shadow: 0 6px 0 var(--k-no) !important;
+}
+[data-theme="pink"] .btn-ox-new:active, [data-theme="blue"] .btn-ox-new:active, [data-theme="green"] .btn-ox-new:active {
+  transform: translateY(6px) !important; box-shadow: 0 0 0 transparent !important;
+}
+
+/* ── 10. 결과 화면 ────────────────────────────────────────────── */
+[data-theme="pink"] .round-result-card, [data-theme="blue"] .round-result-card, [data-theme="green"] .round-result-card {
+  border-radius: 36px !important;
+  overflow: visible !important;
+  margin-top: 130px !important;
+  z-index: auto !important;
+}
+[data-theme="pink"] .round-stat, [data-theme="blue"] .round-stat, [data-theme="green"] .round-stat {
+  background: var(--k-soft) !important; border-radius: 24px !important;
+}
+[data-theme="pink"] #round-result-emoji,
+[data-theme="blue"] #round-result-emoji,
+[data-theme="green"] #round-result-emoji { display: none !important; }
+
+/* ── 11. 마스코트 배치 ────────────────────────────────────────── */
+/* (a) 테스트 카드 위 — 얼굴만 온전하게 얹는다 (잘리는 부분 없음) */
+[data-theme="pink"] .test-card::before,
+[data-theme="blue"] .test-card::before,
+[data-theme="green"] .test-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -66px !important;
+  left: 50% !important;
+  right: auto !important;
+  width: 116px !important;
+  height: 90px !important;
+  transform: translateX(-50%) !important;
+  background: var(--k-face) center bottom / contain no-repeat !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 0 !important;
+  filter: drop-shadow(0 5px 9px var(--k-shadow));
+  z-index: 2 !important;
+  animation: none !important;
+  pointer-events: none !important;
+}
+/* 예전 스킨이 붙여 두었던 옆 장식(하트/아기구름/꽃)은 정리 */
+[data-theme="pink"] .test-card::after,
+[data-theme="blue"] .test-card::after,
+[data-theme="green"] .test-card::after { content: none !important; display: none !important; }
+
+/* (b) 라운드 결과 — 잘했으면 활짝, 아쉬우면 울먹 */
+[data-theme="pink"] .round-result-card::before,
+[data-theme="blue"] .round-result-card::before,
+[data-theme="green"] .round-result-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -152px !important;
+  left: 50% !important;
+  right: auto !important;
+  width: 140px !important;
+  height: 154px !important;
+  transform: translateX(-50%) !important;
+  background: var(--k-idle) center bottom / contain no-repeat !important;
+  border: none !important; border-radius: 0 !important; box-shadow: none !important;
+  font-size: 0 !important;
+  filter: drop-shadow(0 6px 10px var(--k-shadow));
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+[data-theme="pink"] .round-result-card.k-mood-good::before,
+[data-theme="blue"] .round-result-card.k-mood-good::before,
+[data-theme="green"] .round-result-card.k-mood-good::before { background-image: var(--k-happy) !important; }
+[data-theme="pink"] .round-result-card.k-mood-bad::before,
+[data-theme="blue"] .round-result-card.k-mood-bad::before,
+[data-theme="green"] .round-result-card.k-mood-bad::before { background-image: var(--k-oops) !important; }
+[data-theme="pink"] .round-result-card::after,
+[data-theme="blue"] .round-result-card::after,
+[data-theme="green"] .round-result-card::after { content: none !important; display: none !important; }
+
+/* (c) 홈 화면 — 말풍선 + 전신 마스코트 */
+[data-theme="pink"] .footer-info-links,
+[data-theme="blue"] .footer-info-links,
+[data-theme="green"] .footer-info-links { position: relative; padding-bottom: 8px; }
+[data-theme="pink"] .footer-info-links::before,
+[data-theme="blue"] .footer-info-links::before,
+[data-theme="green"] .footer-info-links::before {
+  content: '오늘도 같이 외워볼까?';
+  display: block; width: fit-content; max-width: 90%;
+  margin: 26px auto 6px; padding: 10px 18px;
+  background: #fff; border: 2.5px solid var(--k-line); border-radius: 999px;
+  font-family: var(--k-title); font-size: 14px; color: var(--text-main);
+  box-shadow: 0 4px 0 var(--k-line);
+}
+[data-theme="blue"] .footer-info-links::before { content: '한 조각씩, 구름처럼 가볍게!'; }
+[data-theme="green"] .footer-info-links::before { content: '하루 한 뼘씩 자라는 중!'; }
+[data-theme="pink"] .footer-info-links::after,
+[data-theme="blue"] .footer-info-links::after,
+[data-theme="green"] .footer-info-links::after {
+  content: ''; display: block;
+  width: 128px; height: 142px; margin: 0 auto;
+  background: var(--k-idle) center bottom / contain no-repeat;
+  filter: drop-shadow(0 8px 12px var(--k-shadow));
+  pointer-events: none;
+  animation: kBob 3.6s ease-in-out infinite;
+}
+
+/* (d) 로그인 화면 — 로고 위에 얼굴 */
+[data-theme="pink"] #login-logo-container::before,
+[data-theme="blue"] #login-logo-container::before,
+[data-theme="green"] #login-logo-container::before {
+  content: ''; display: block;
+  width: 152px; height: 118px;
+  background: var(--k-face-happy) center bottom / contain no-repeat;
+  filter: drop-shadow(0 8px 14px var(--k-shadow));
+  pointer-events: none;
+  animation: kBob 4s ease-in-out infinite;
+}
+[data-theme="pink"] .bear-logo, [data-theme="blue"] .bear-logo, [data-theme="green"] .bear-logo { display: none !important; }
+
+/* (e) 최종 결과 — 만세 */
+[data-theme="pink"] .final-hero .trophy-anim,
+[data-theme="blue"] .final-hero .trophy-anim,
+[data-theme="green"] .final-hero .trophy-anim { font-size: 0 !important; }
+[data-theme="pink"] .final-hero .trophy-anim::after,
+[data-theme="blue"] .final-hero .trophy-anim::after,
+[data-theme="green"] .final-hero .trophy-anim::after {
+  content: ''; display: block;
+  width: 168px; height: 186px; margin: 0 auto 6px;
+  background: var(--k-cheer) center bottom / contain no-repeat;
+  filter: drop-shadow(0 10px 16px var(--k-shadow));
+  animation: kHop 1.5s ease-in-out infinite;
+}
+
+/* (f) 틀린 단어가 없을 때 */
+[data-theme="pink"] #wrong-words-empty::before,
+[data-theme="blue"] #wrong-words-empty::before,
+[data-theme="green"] #wrong-words-empty::before {
+  content: ''; display: block;
+  width: 110px; height: 122px; margin: 0 auto 10px;
+  background: var(--k-happy) center bottom / contain no-repeat;
+}
+
+/* ── 12. 모달 ─────────────────────────────────────────────────── */
+[data-theme="pink"] .pwa-modal-content, [data-theme="blue"] .pwa-modal-content, [data-theme="green"] .pwa-modal-content,
+[data-theme="pink"] .modal-content, [data-theme="blue"] .modal-content, [data-theme="green"] .modal-content {
+  border-radius: 32px !important;
+  border: 3px solid var(--k-line) !important;
+  background: #fff !important;
+  box-shadow: 0 10px 0 -2px var(--k-line), 0 24px 50px var(--k-shadow) !important;
+}
+
+/* ── 13. 다크 테마 — 캐릭터 없이 형태만 몰랑 ─────────────────── */
+[data-theme="dark"] .glass-card, [data-theme="dark"] .word-card { border-radius: 28px !important; }
+[data-theme="dark"] .test-card { border-radius: 36px !important; }
+[data-theme="dark"] .round-result-card { border-radius: 32px !important; }
+[data-theme="dark"] .btn-primary, [data-theme="dark"] .btn-secondary, [data-theme="dark"] .btn-ghost,
+[data-theme="dark"] .tab-btn, [data-theme="dark"] .round-pill, [data-theme="dark"] .info-pill-btn,
+[data-theme="dark"] .btn-reveal, [data-theme="dark"] .progress-track, [data-theme="dark"] .progress-fill {
+  border-radius: 999px !important;
+}
+[data-theme="dark"] .test-card::before, [data-theme="dark"] .test-card::after,
+[data-theme="dark"] .round-result-card::before,
+[data-theme="dark"] .footer-info-links::before, [data-theme="dark"] .footer-info-links::after,
+[data-theme="dark"] #login-logo-container::before { content: none !important; display: none !important; }
+
+/* ── 14. 모션 ─────────────────────────────────────────────────── */
+/* 학습 화면 캐릭터는 움직이지 않는다 (집중 방해 방지).
+   홈 / 로그인 / 최종결과의 마스코트만 아주 느리게 숨쉰다. */
+@keyframes kBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes kHop {
+  0%,100%{transform:translateY(0) scale(1,1)}
+  40%{transform:translateY(-12px) scale(.98,1.02)}
+  70%{transform:translateY(0) scale(1.03,.97)}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   15. 🎪 커튼콜 — 학습을 끝내면 열리는 캐릭터 공연 (celebration.js)
+   ═══════════════════════════════════════════════════════════════ */
+.cel-overlay {
+  position: fixed; inset: 0; z-index: 3000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  background: radial-gradient(ellipse at 50% 30%, rgba(255,255,255,.18), rgba(18,16,40,.82));
+  backdrop-filter: blur(6px);
+  opacity: 0; transition: opacity .3s ease;
+  overflow-y: auto;
+}
+.cel-overlay.is-on { opacity: 1; }
+.cel-confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.cel-inner {
+  position: relative;
+  width: 100%; max-width: 420px;
+  background: #fff;
+  border: 4px solid var(--k-line, #F7C6DE);
+  border-radius: 34px;
+  padding: 22px 20px 20px;
+  text-align: center;
+  box-shadow: 0 12px 0 -3px var(--k-line, #F7C6DE), 0 30px 60px rgba(0,0,0,.35);
+  transform: translateY(18px) scale(.96);
+  transition: transform .34s cubic-bezier(.2,1.5,.4,1);
+  font-family: var(--k-title);
+}
+.cel-overlay.is-on .cel-inner { transform: translateY(0) scale(1); }
+
+.cel-title { font-size: 13px; color: var(--text-sub, #999); letter-spacing: .04em; }
+.cel-actname { font-size: 23px; font-weight: 700; margin: 2px 0 4px; color: var(--text-main, #333); }
+.cel-actname em {
+  font-style: normal; font-size: 12px; vertical-align: middle;
+  background: #FF6FA8; color: #fff; border-radius: 999px; padding: 2px 8px; margin-left: 4px;
+}
+.cel-tier-rare .cel-actname { color: #B06BD8; }
+.cel-tier-legend .cel-actname {
+  background: linear-gradient(90deg,#FF8FC0,#FFC46F,#6FD48C,#6FBDF2,#C89BF5);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ── 무대 ── */
+.cel-stage {
+  position: relative;
+  height: 168px; margin: 6px 0 10px;
+  display: flex; align-items: flex-end; justify-content: center; gap: 4px;
+}
+.cel-char {
+  width: 104px; height: 116px;
+  object-fit: contain; object-position: bottom;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,.16));
+  transform-origin: 50% 92%;
+}
+.cel-props { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 20px; }
+
+.cel-caption {
+  font-size: 14.5px; line-height: 1.55; color: var(--text-main, #444);
+  margin: 2px 0 10px; word-break: keep-all;
+}
+.cel-praise {
+  font-size: 13.5px; line-height: 1.5; color: var(--text-sub, #888);
+  background: var(--k-soft, #FFF2F8); border-radius: 18px; padding: 10px 14px;
+  margin: 0 0 12px; word-break: keep-all;
+}
+.cel-collect { font-size: 12.5px; color: var(--text-sub, #999); margin-bottom: 14px; }
+.cel-collect b { font-size: 15px; color: var(--k-accent-deep, #E0559C); }
+.cel-collect span { display: block; margin-top: 2px; font-size: 11.5px; opacity: .8; }
+.cel-close {
+  width: 100%; padding: 14px; font-size: 15.5px; cursor: pointer;
+  font-family: var(--k-title);
+  background: var(--k-accent, #FF8FC0); color: #fff;
+  border: 3px solid var(--k-accent-deep, #E0559C); border-radius: 999px;
+  box-shadow: 0 5px 0 var(--k-accent-deep, #E0559C);
+  transition: transform .1s ease, box-shadow .1s ease;
+}
+.cel-close:active { transform: translateY(5px); box-shadow: 0 0 0; }
+
+/* ── 공연별 안무 ────────────────────────────────────────────── */
+@keyframes celSway   { 0%,100%{transform:translateX(-9px) rotate(-7deg)} 50%{transform:translateX(9px) rotate(7deg)} }
+@keyframes celJump   { 0%,60%,100%{transform:translateY(0) scaleY(1)} 20%{transform:translateY(-30px) scaleY(1.06)} 45%{transform:translateY(0) scaleY(.94)} }
+@keyframes celSpin   { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+@keyframes celBob    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes celWaveUp { 0%,70%,100%{transform:translateY(0)} 25%{transform:translateY(-26px)} }
+@keyframes celBow    { 0%,70%,100%{transform:rotate(0)} 30%{transform:rotate(22deg) translateY(6px)} }
+@keyframes celConga  { 0%{transform:translateX(-40px)} 50%{transform:translateX(40px) } 100%{transform:translateX(-40px)} }
+@keyframes celClap   { 0%,100%{transform:rotate(-6deg)} 50%{transform:rotate(6deg)} }
+@keyframes celRaise  { 0%,100%{transform:translateY(-6px) scale(1.04)} 50%{transform:translateY(-20px) scale(1.06)} }
+@keyframes celShake  { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+@keyframes celSlip   { 0%{transform:rotate(0) translateY(0)} 30%{transform:rotate(-84deg) translateY(26px)} 70%{transform:rotate(-84deg) translateY(26px)} 100%{transform:rotate(0) translateY(0)} }
+@keyframes celGrow   { 0%,100%{transform:scale(1)} 50%{transform:scale(1.75) translateY(-10px)} }
+@keyframes celFuse   { 0%{transform:translateX(var(--fx,0)) scale(1);opacity:1} 60%{transform:translateX(0) scale(1.1);opacity:1} 80%{transform:translateX(0) scale(1.1);opacity:.55} 100%{transform:translateX(var(--fx,0)) scale(1);opacity:1} }
+
+.cel-act-linedance .cel-c1 { animation: celSway 1.1s ease-in-out infinite; }
+.cel-act-linedance .cel-c2 { animation: celSway 1.1s ease-in-out .18s infinite reverse; }
+.cel-act-linedance .cel-c3 { animation: celSway 1.1s ease-in-out .36s infinite; }
+
+.cel-act-jump .cel-char { animation: celJump 1.15s ease-in-out infinite; }
+.cel-act-jump .cel-c2 { animation-delay: .12s; }
+.cel-act-jump .cel-c3 { animation-delay: .24s; }
+
+.cel-act-heartrain .cel-char { animation: celBob 1.6s ease-in-out infinite; }
+.cel-act-heartrain .cel-c2 { animation-delay: .25s; }
+.cel-act-heartrain .cel-c3 { animation-delay: .5s; }
+
+.cel-act-spin .cel-char { animation: celSpin 1.4s linear infinite; }
+.cel-act-spin .cel-c2 { animation-duration: 1.7s; animation-direction: reverse; }
+.cel-act-spin .cel-c3 { animation-duration: 2s; }
+
+.cel-act-wave .cel-char { animation: celWaveUp 1.5s ease-in-out infinite; }
+.cel-act-wave .cel-c2 { animation-delay: .2s; }
+.cel-act-wave .cel-c3 { animation-delay: .4s; }
+
+.cel-act-trophy .cel-c1 { animation: celRaise 1.3s ease-in-out infinite; z-index: 2; }
+.cel-act-trophy .cel-c2, .cel-act-trophy .cel-c3 { animation: celClap .5s ease-in-out infinite; }
+
+.cel-act-conga .cel-stage { gap: 0; }
+.cel-act-conga .cel-char { animation: celConga 2.6s ease-in-out infinite; }
+.cel-act-conga .cel-c2 { animation-delay: .18s; }
+.cel-act-conga .cel-c3 { animation-delay: .36s; }
+
+.cel-act-bow .cel-char { animation: celBow 2s ease-in-out infinite; }
+.cel-act-bow .cel-c2 { animation-delay: .15s; }
+.cel-act-bow .cel-c3 { animation-delay: .3s; }
+
+.cel-act-slip .cel-c1 { animation: celSlip 2.6s ease-in-out infinite; }
+.cel-act-slip .cel-c2, .cel-act-slip .cel-c3 { animation: celShake .45s ease-in-out infinite; }
+
+.cel-act-rain .cel-c2 { animation: celShake .5s ease-in-out infinite; }
+.cel-act-rain .cel-c1, .cel-act-rain .cel-c3 { animation: celBob 1.8s ease-in-out infinite; }
+
+.cel-act-giant .cel-c3 { animation: celGrow 2.4s ease-in-out infinite; z-index: 3; }
+.cel-act-giant .cel-c1, .cel-act-giant .cel-c2 { animation: celShake .4s ease-in-out infinite; }
+
+.cel-act-fusion .cel-c1 { --fx: 0px;   animation: celFuse 2.6s ease-in-out infinite; }
+.cel-act-fusion .cel-c2 { --fx: 0px;   animation: celFuse 2.6s ease-in-out infinite; }
+.cel-act-fusion .cel-c3 { --fx: 0px;   animation: celFuse 2.6s ease-in-out infinite; }
+.cel-act-fusion .cel-stage { gap: 0; }
+.cel-act-fusion .cel-char { margin: 0 -34px; }
+
+/* ── 소품 ─────────────────────────────────────────────────────── */
+@keyframes celFall { 0%{transform:translateY(-30px) rotate(0);opacity:0} 12%{opacity:1} 100%{transform:translateY(190px) rotate(220deg);opacity:0} }
+.cel-heart {
+  position: absolute; top: 0; font-size: 20px; color: #FF6FA8;
+  animation: celFall 2.4s linear infinite;
+}
+@keyframes celDrop { 0%{transform:translateY(-10px);opacity:0} 15%{opacity:.85} 100%{transform:translateY(180px);opacity:0} }
+.cel-drop {
+  position: absolute; top: 0; width: 3px; height: 14px; border-radius: 2px;
+  background: #7CC4F5; animation: celDrop 1.1s linear infinite;
+}
+.cel-rainbow {
+  position: absolute; left: 50%; top: 4px; width: 210px; height: 105px;
+  transform: translateX(-50%);
+  border-radius: 210px 210px 0 0;
+  border: 11px solid transparent;
+  border-image: linear-gradient(90deg,#FF8FC0,#FFC46F,#FFEE6F,#6FD48C,#6FBDF2,#C89BF5) 1;
+  opacity: .55;
+  border-bottom: none;
+}
+@keyframes celTrophy { 0%,100%{transform:translate(-50%,0) rotate(-8deg)} 50%{transform:translate(-50%,-10px) rotate(8deg)} }
+.cel-trophy {
+  position: absolute; left: 50%; top: 2px; font-size: 34px;
+  animation: celTrophy 1.3s ease-in-out infinite;
+}
+@keyframes celBurst { 0%,100%{transform:translate(-50%,-50%) scale(.4);opacity:0} 55%{transform:translate(-50%,-50%) scale(1.5);opacity:.75} }
+.cel-burst {
+  position: absolute; left: 50%; top: 55%;
+  width: 190px; height: 190px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(255,214,120,.6) 42%, transparent 70%);
+  animation: celBurst 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cel-char, .cel-heart, .cel-drop, .cel-trophy, .cel-burst,
+  [data-theme] .footer-info-links::after,
+  [data-theme] #login-logo-container::before,
+  [data-theme] .final-hero .trophy-anim::after { animation: none !important; }
+}
+
+/* ── 16. 좁은 화면 보정 ───────────────────────────────────────── */
+@media (max-width: 400px) {
+  .cel-char { width: 88px; height: 100px; }
+  .cel-stage { height: 148px; }
+  .cel-actname { font-size: 20px; }
+}
+@media (max-width: 380px) {
+  [data-theme="pink"] .test-card, [data-theme="blue"] .test-card, [data-theme="green"] .test-card {
+    margin-top: 66px !important; border-radius: 32px !important;
+  }
+  [data-theme="pink"] .test-card::before,
+  [data-theme="blue"] .test-card::before,
+  [data-theme="green"] .test-card::before { width: 100px !important; height: 78px !important; top: -57px !important; }
+  [data-theme="pink"] .round-result-card, [data-theme="blue"] .round-result-card, [data-theme="green"] .round-result-card {
+    margin-top: 116px !important;
+  }
+  [data-theme="pink"] .round-result-card::before,
+  [data-theme="blue"] .round-result-card::before,
+  [data-theme="green"] .round-result-card::before { width: 122px !important; height: 134px !important; top: -132px !important; }
+}

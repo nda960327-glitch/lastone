@@ -1,13 +1,23 @@
-const CACHE_NAME = 'vocabmaster-v342'; // chore: 기본(다크) 테마 캐릭터 제거
+const CACHE_NAME = 'vocabmaster-v343'; // feat: 몰랑 캐릭터 스킨 + 효과음 + 커튼콜
+const KAWAII = [];
+for (const kind of ['bear', 'cloud', 'sprout']) {
+  for (const pose of ['idle','happy','oops','cheer','wave','dance','sleep','love','shock','face','face-happy','mini']) {
+    KAWAII.push(`/assets/kawaii/${kind}-${pose}.svg`);
+  }
+}
 const ASSETS = [
   '/',
   '/index.html',
   '/style.css',
+  '/kawaii.css',
   '/app.js',
+  '/sfx.js',
+  '/celebration.js',
   '/manifest.json',
   '/icon-192.png',
   '/icon-512.png',
-  '/icon.jpg'
+  '/icon.jpg',
+  ...KAWAII
 ];
 
 self.addEventListener('install', (e) => {
