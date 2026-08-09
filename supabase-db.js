@@ -243,6 +243,12 @@
       async remove(id)                { need(); return unwrap(await sb.rpc('delete_academy', { p_academy_id: id })); },
       async setInviteCode(id, code)   { need(); return unwrap(await sb.rpc('set_invite_code', { p_academy_id: id, p_new: code })); },
       async myInviteCode()            { need(); return unwrap(await sb.rpc('my_invite_code')); },
+      async updateAll(id, name, adminCode, inviteCode) {
+        need();
+        return unwrap(await sb.rpc('update_academy_admin', {
+          p_academy_id: id, p_name: name, p_admin_code: adminCode, p_invite_code: inviteCode,
+        }));
+      },
     },
 
     /* ── 학원 단어장 (1번/2번 슬롯) ── */
@@ -293,11 +299,12 @@
       async listByAcademy(academyId) {
         if (!sb || !academyId) return [];
         const { data, error } = await sb.from('profiles')
-          .select('id,real_name,display_name,email,phone,joined_at')
+          .select('id,real_name,display_name,email,phone,joined_at,created_at')
           .eq('academy_id', academyId);
         if (error) { console.warn('students.list', error); return []; }
         return data || [];
       },
+      async unlink(userId) { need(); return unwrap(await sb.rpc('unlink_student', { p_user_id: userId })); },
     },
 
     /* ── 코드 검증 RPC ── */

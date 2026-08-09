@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v343'; // feat: 몰랑 캐릭터 스킨 + 효과음 + 커튼콜
+const CACHE_NAME = 'vocabmaster-v344'; // feat: 파이어베이스 → 수파베이스 전환
 const KAWAII = [];
 for (const kind of ['bear', 'cloud', 'sprout']) {
   for (const pose of ['idle','happy','oops','cheer','wave','dance','sleep','love','shock','face','face-happy','mini']) {
@@ -11,6 +11,7 @@ const ASSETS = [
   '/style.css',
   '/kawaii.css',
   '/app.js',
+  '/supabase-db.js',
   '/sfx.js',
   '/celebration.js',
   '/manifest.json',

@@ -2,31 +2,12 @@
 // VocabMaster — app.js
 // =============================================
 
-// --- Firebase Configuration ---
-const firebaseConfig = {
-  apiKey: "AIzaSyAeLZog0wbtVULUAq2RfyHwiADqQtOfXig",
-  authDomain: "doacore.firebaseapp.com",
-  projectId: "doacore",
-  storageBucket: "doacore.firebasestorage.app",
-  messagingSenderId: "760005417553",
-  appId: "1:760005417553:web:5a38511bc12fd4b531b670",
-  measurementId: "G-PGN0N4686E"
-};
-
-// Initialize Firebase
-if (typeof firebase !== 'undefined') {
-  firebase.initializeApp(firebaseConfig);
-  // Enable offline persistence
-  firebase.firestore().enablePersistence().catch(function(err) {
-    if (err.code == 'failed-precondition') {
-      console.warn("Multiple tabs open, persistence can only be enabled in one tab at a a time.");
-    } else if (err.code == 'unimplemented') {
-      console.warn("The current browser does not support all of the features required to enable persistence");
-    }
-  });
-}
-const db = typeof firebase !== 'undefined' ? firebase.firestore() : null;
-const auth = typeof firebase !== 'undefined' ? firebase.auth() : null;
+// --- 백엔드: 수파베이스 (supabase-db.js 가 Auth / DB 를 노출한다) ---
+// 키가 설정되지 않았거나 로드에 실패해도 앱이 죽지 않게 방어한다.
+// (그 경우 로그인 기능만 빠지고 맛보기 모드로 계속 동작)
+const Backend = (typeof window !== 'undefined' && window.DB) ? window.DB : null;
+const Session = (typeof window !== 'undefined' && window.Auth) ? window.Auth : null;
+const hasBackend = !!(Backend && Session && Session.isReady());
 
 // Global Auth State
 let currentUser = null;
@@ -35,11 +16,8 @@ let currentAcademyId = localStorage.getItem('saved_academy_id') || null; // 0ms 
 // Sync Helper
 function setProgressSync(key, value) {
   localStorage.setItem(key, value);
-  if (currentUser && db) {
-    db.collection('users').doc(currentUser.uid).collection('progress').doc(key).set({
-      value: value,
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-    }).catch(err => console.error("Sync up failed", err));
+  if (currentUser && Backend) {
+    Backend.progress.set(key, value).catch(err => console.error("Sync up failed", err));
   }
 }
 
@@ -1633,7 +1611,7 @@ async function loadDBList(textarea) {
   }
 
   // 학원 단어장 로드
-  if (currentUser && currentAcademyId && db) {
+  if (currentUser && currentAcademyId && Backend) {
     if (statusEl) {
       statusEl.innerHTML = `ℹ️ <b>학원 단어장 동기화 중...</b>`;
       statusEl.style.color = '#3b82f6';
@@ -1641,12 +1619,10 @@ async function loadDBList(textarea) {
     const cacheKey = `academy_vocab_fetched_${currentAcademyId}`;
     if (!localStorage.getItem(cacheKey)) {
       try {
-        const qs = await db.collection('academies').doc(currentAcademyId).collection('vocabularies').get();
-        if (!qs.empty) {
-          qs.forEach(doc => {
-            localStorage.setItem(`vocab_file_${doc.id}`, doc.data().content);
-          });
-        }
+        const rows = await Backend.vocab.listByAcademy(currentAcademyId);
+        rows.forEach(r => {
+          localStorage.setItem(`vocab_file_${r.title}`, r.content || '');
+        });
         localStorage.setItem(cacheKey, 'true');
       } catch(err) {
         console.error('Failed to fetch academy vocabs', err);
@@ -3443,19 +3419,17 @@ let isVerticalScroll = false;
       });
       setProgressSync('doacore_total_fails', JSON.stringify(failData));
 
-      // 4. Firestore user progress sync 제거
-      // (참고: 이 앱은 IndexedDB를 사용하지 않음 — localStorage + Firestore가 저장소의 전부)
-      if (currentUser && db) {
+      // 4. 서버에 올라간 진도도 같이 지운다
+      // (참고: 이 앱은 IndexedDB를 사용하지 않음 — localStorage + 수파베이스가 저장소의 전부)
+      if (currentUser && Backend) {
         try {
           if (day) {
-            await db.collection('users').doc(currentUser.uid).collection('progress').doc(`vocab_word_states_${dbName}`).delete();
+            await Backend.progress.remove(`vocab_word_states_${dbName}`);
           } else {
-            const pqs = await db.collection('users').doc(currentUser.uid).collection('progress').get();
-            pqs.forEach(doc => {
-              if (doc.id.includes(category)) {
-                doc.ref.delete();
-              }
-            });
+            const rows = await Backend.progress.list();
+            for (const r of rows) {
+              if (r.key.includes(category)) await Backend.progress.remove(r.key);
+            }
           }
         } catch(e){}
       }
@@ -3704,18 +3678,22 @@ let isVerticalScroll = false;
   const academyInviteInput = document.getElementById('academy-invite-input');
   const academyErrorMsg = document.getElementById('academy-error-msg');
 
-  if (auth) {
-    // 1. Handle redirect result if redirected back from Google Login
-    auth.getRedirectResult().then((result) => {
-      if (result && result.user) {
-        console.log("Redirect login successful:", result.user);
-      }
-    }).catch((err) => {
-      console.warn("getRedirectResult error:", err);
-    });
-
-    // 2. Auth State Changed listener
-    auth.onAuthStateChanged(async (user) => {
+  if (Session) {
+    // 로그인 상태 변화 감지 (수파베이스)
+    // 파일 곳곳이 currentUser.uid / .displayName 을 쓰므로 같은 모양으로 맞춰 준다.
+    Session.onChange(async (sbUser, profile) => {
+      const user = sbUser ? {
+        uid: sbUser.id,
+        id: sbUser.id,
+        email: sbUser.email || '',
+        displayName: (profile && (profile.real_name || profile.display_name))
+          || (sbUser.user_metadata && (sbUser.user_metadata.name || sbUser.user_metadata.full_name))
+          || '이름 없음',
+        photoURL: (profile && profile.avatar_url)
+          || (sbUser.user_metadata && (sbUser.user_metadata.avatar_url || sbUser.user_metadata.picture))
+          || '',
+        provider: profile ? profile.provider : '',
+      } : null;
       currentUser = user;
       if (user) {
         localStorage.removeItem('guest_mode'); // 정식 로그인 시 맛보기 모드 해제
@@ -3726,19 +3704,13 @@ let isVerticalScroll = false;
         const settingsDropdown = document.getElementById('settings-dropdown');
         if (settingsDropdown) settingsDropdown.classList.add('hidden');
 
-        if (btnLoginGoogle) btnLoginGoogle.style.display = 'none';
-        if (btnLoginGoogleMain) btnLoginGoogleMain.style.display = 'none';
+        document.querySelectorAll('[data-login-provider]').forEach(b => { b.style.display = 'none'; });
         if (userProfileUI) userProfileUI.classList.remove('hidden');
         if (userAvatar) userAvatar.src = user.photoURL || '';
         if (userNameDisplay) userNameDisplay.textContent = user.displayName || 'User';
         
-        // 유저 기본 정보(이름, 이메일)를 Firestore에 저장
-        if (db) {
-          db.collection('users').doc(user.uid).set({
-            displayName: user.displayName || '이름 없음',
-            email: user.email || ''
-          }, { merge: true }).catch(err => console.error("Profile sync error", err));
-        }
+        // 프로필 행은 가입 시 DB 트리거(handle_new_user)가 자동으로 만든다.
+        // 여기서는 화면 표시용 이름만 최신으로 맞춰 준다.
 
         // 비동기로 유저 프로필 및 학원 소속 동기화 진행
         try {
@@ -3749,8 +3721,7 @@ let isVerticalScroll = false;
       } else {
         // Logged out
         currentAcademyId = null;
-        if (btnLoginGoogle) btnLoginGoogle.style.display = 'flex';
-        if (btnLoginGoogleMain) btnLoginGoogleMain.style.display = 'flex';
+        document.querySelectorAll('[data-login-provider]').forEach(b => { b.style.display = 'flex'; });
         if (userProfileUI) userProfileUI.classList.add('hidden');
         if (academyInviteModal) academyInviteModal.classList.add('hidden');
 
@@ -3769,84 +3740,37 @@ let isVerticalScroll = false;
       }
     });
 
-    const handleGoogleLogin = async () => {
-      const mainText = btnLoginGoogleMain ? btnLoginGoogleMain.innerHTML : '';
-      const subText  = btnLoginGoogle ? btnLoginGoogle.innerHTML : '';
+    // ── 소셜 로그인 (구글 · 카카오 · 네이버) ──
+    // 세 방식 모두 페이지를 떠났다가 돌아오는 흐름이라, 여기서는 보내기만 하면 된다.
+    // 돌아온 뒤 처리는 Session.onChange 가 맡는다.
+    const PROVIDER_LABEL = { google: '구글', kakao: '카카오', naver: '네이버' };
 
-      if (btnLoginGoogleMain) {
-        btnLoginGoogleMain.innerHTML = '⏳ 로그인 진행 중...';
-        btnLoginGoogleMain.disabled = true;
-      }
-      if (btnLoginGoogle) {
-        btnLoginGoogle.innerHTML = '⏳ 로그인 진행 중...';
-        btnLoginGoogle.disabled = true;
-      }
+    const loginButtons = () => Array.from(document.querySelectorAll('[data-login-provider]'));
 
-      const resetBtn = () => {
-        if (btnLoginGoogleMain) {
-          btnLoginGoogleMain.innerHTML = mainText;
-          btnLoginGoogleMain.disabled = false;
-        }
-        if (btnLoginGoogle) {
-          btnLoginGoogle.innerHTML = subText;
-          btnLoginGoogle.disabled = false;
-        }
-      };
+    const handleSocialLogin = async (provider) => {
+      const btns = loginButtons();
+      const original = btns.map(b => b.innerHTML);
+      const reset = () => btns.forEach((b, i) => { b.disabled = false; b.innerHTML = original[i]; });
+
+      btns.forEach(b => { b.disabled = true; });
+      const target = btns.find(b => b.dataset.loginProvider === provider);
+      if (target) target.innerHTML = '⏳ 로그인 진행 중...';
 
       try {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        provider.setCustomParameters({ prompt: 'select_account' });
-
-        try {
-          await auth.signInWithPopup(provider);
-          resetBtn();
-        } catch (popupErr) {
-          console.warn("signInWithPopup error:", popupErr);
-          
-          if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
-            try {
-              const client = google.accounts.oauth2.initTokenClient({
-                client_id: firebaseConfig.clientId || '760005417553-5iq38rttennaadqp91g0eaq98m3qk24t.apps.googleusercontent.com',
-                scope: 'email profile',
-                callback: async (tokenResponse) => {
-                  resetBtn();
-                  if (tokenResponse.access_token) {
-                    const credential = firebase.auth.GoogleAuthProvider.credential(null, tokenResponse.access_token);
-                    try {
-                      await auth.signInWithCredential(credential);
-                    } catch (cErr) {
-                      alert("로그인 처리 실패: " + cErr.message);
-                    }
-                  }
-                },
-                error_callback: () => { resetBtn(); }
-              });
-              client.requestAccessToken();
-              setTimeout(resetBtn, 4000);
-            } catch (gisErr) {
-              console.error("GIS initTokenClient failed:", gisErr);
-              resetBtn();
-              await auth.signInWithRedirect(provider);
-            }
-          } else {
-            resetBtn();
-            await auth.signInWithRedirect(provider);
-          }
-        }
+        localStorage.removeItem('skipAcademyModal');
+        await Session.signIn(provider);
+        // 리다이렉트가 안 일어나면 버튼이 영영 잠기므로 안전장치를 둔다
+        setTimeout(reset, 8000);
       } catch (err) {
-        console.error("handleGoogleLogin error:", err);
-        resetBtn();
-        const errStr = (err.code || '') + (err.message || '');
-        if (errStr.includes('unauthorized-domain')) {
-          alert(`🔑 Firebase Google 로그인 도메인 승인이 필요합니다!\n\n현재 접속 주소 (${window.location.hostname})가 Firebase 콘솔의 [승인된 도메인] 목록에 등록되어 있지 않습니다.\n\n👉 해결 방법 (1분 소요):\n1. Firebase 콘솔 (console.firebase.google.com) 접속\n2. 'doacore' 프로젝트 ➔ [Authentication] ➔ [설정] 탭\n3. [승인된 도메인] ➔ [도메인 추가] ➔ '${window.location.hostname}' 입력!\n\n(승인 추가 후 새로고침하시면 즉시 구글 로그인이 정상 작용합니다)`);
-        } else {
-          alert("로그인 중 오류가 발생했습니다: " + (err.message || err));
-        }
+        console.error('login error:', err);
+        reset();
+        alert(`${PROVIDER_LABEL[provider] || ''} 로그인 중 오류가 발생했습니다:\n` + (err.message || err));
       }
     };
 
-    if (btnLoginGoogle) btnLoginGoogle.onclick = () => { localStorage.removeItem('skipAcademyModal'); handleGoogleLogin(); };
-    if (btnLoginGoogleMain) btnLoginGoogleMain.onclick = () => { localStorage.removeItem('skipAcademyModal'); handleGoogleLogin(); };
+    loginButtons().forEach(btn => {
+      btn.onclick = () => handleSocialLogin(btn.dataset.loginProvider);
+    });
 
     const btnLoginSkip = document.getElementById('btn-login-skip');
     if (btnLoginSkip) {
@@ -3867,7 +3791,7 @@ let isVerticalScroll = false;
       btnLogout.onclick = () => {
         if (confirm("로그아웃 하시겠습니까?")) {
           localStorage.removeItem('guest_mode'); // 로그아웃 시 맛보기 모드도 해제
-          auth.signOut().then(() => {
+          Session.signOut().then(() => {
             currentAcademyId = null;
             currentAcademyName = null;
             applyAcademyBranding(null);
@@ -3883,34 +3807,15 @@ let isVerticalScroll = false;
         if (!currentUser) return;
         if (confirm("정말로 회원 탈퇴를 하시겠습니까?\n모든 학습 기록과 단어장 데이터가 삭제되며 복구할 수 없습니다.")) {
           try {
-            if (db) {
-              try {
-                // Firestore 문서 삭제 시도 (규칙에 의해 거부될 수 있음)
-                await db.collection('users').doc(currentUser.uid).delete();
-              } catch (fsErr) {
-                console.warn('Firestore doc delete failed, trying update instead:', fsErr);
-                try {
-                  // 삭제 권한이 없다면 학원 정보만 초기화
-                  await db.collection('users').doc(currentUser.uid).update({
-                    academyId: null,
-                    academyName: null,
-                    deleted: true
-                  });
-                } catch (updateErr) {
-                  console.warn('Firestore doc update failed:', updateErr);
-                }
-              }
-            }
-            await currentUser.delete();
+            // 프로필·학습기록을 지우고 계정을 삭제한다 (supabase-db.js)
+            await Session.deleteAccount();
+            localStorage.removeItem('guest_mode');
+            localStorage.removeItem('saved_academy_id');
             alert("회원 탈퇴가 완료되었습니다.");
             showView('view-login');
           } catch (err) {
             console.error(err);
-            if (err.code === 'auth/requires-recent-login') {
-              alert("보안을 위해 로그아웃 후 다시 로그인하여 탈퇴를 진행해주세요.");
-            } else {
-              alert("탈퇴 중 오류가 발생했습니다: " + err.message);
-            }
+            alert("탈퇴 중 오류가 발생했습니다: " + (err.message || err));
           }
         }
       };
@@ -3963,34 +3868,20 @@ let isVerticalScroll = false;
             return;
           }
           
-          const qs = await db.collection('academies').where('inviteCode', '==', code).limit(1).get();
-          if (qs.empty) {
-            if (academyErrorMsg) academyErrorMsg.textContent = "유효하지 않은 초대 코드입니다.";
-          } else {
-            const academyDoc = qs.docs[0];
-            const academyId = academyDoc.id;
-            const academyName = academyDoc.data().name;
-            
-            const updateObj = {
-              displayName: userName,
-              realName: userName,
-              academyId: academyId,
-              academyName: academyName,
-              phoneNumber: phoneNum,
-              deleted: false,
-              joinedAt: firebase.firestore.FieldValue.serverTimestamp(),
-              updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            };
-
-            await db.collection('users').doc(currentUser.uid).set(updateObj, { merge: true });
-            
-            academyInviteModal.classList.add('hidden');
-            alert(`🎉 ${academyName}에 성공적으로 등록되었습니다!`);
-            await fetchUserProfile(currentUser.uid);
-          }
+          // 초대 코드 검증 + 프로필 갱신을 서버 함수가 한 번에 처리한다.
+          // (코드 자체는 클라이언트에서 조회할 수 없다 — RLS)
+          const joined = await Backend.rpc.joinAcademy(code, userName, phoneNum);
+          academyInviteModal.classList.add('hidden');
+          alert(`🎉 ${joined.academy_name}에 성공적으로 등록되었습니다!`);
+          await fetchUserProfile(currentUser.uid);
         } catch (err) {
           console.error(err);
-          if (academyErrorMsg) academyErrorMsg.textContent = "오류가 발생했습니다.";
+          const msg = String(err.message || err);
+          if (academyErrorMsg) {
+            academyErrorMsg.textContent = msg.includes('초대 코드')
+              ? '유효하지 않은 초대 코드입니다.'
+              : '오류가 발생했습니다.';
+          }
         }
         btnAcademySubmit.disabled = false;
       };
@@ -4004,13 +3895,11 @@ let isVerticalScroll = false;
           const confirmLeave = confirm("⚠️ 정말 소속 학원에서 탈퇴하시겠습니까?\n\n탈퇴 시 학원 전용 단어장을 더 이상 이용할 수 없게 되며, 기본 단어장 모드로 전환됩니다. (언제든지 초대 코드로 재등록 가능합니다)");
           if (confirmLeave) {
             try {
-              if (currentUser && db) {
-                await db.collection('users').doc(currentUser.uid).set({
-                  academyId: firebase.firestore.FieldValue.delete(),
-                  academyName: firebase.firestore.FieldValue.delete()
-                }, { merge: true });
+              if (currentUser && Backend) {
+                await Backend.rpc.leaveAcademy();
               }
               currentAcademyId = null;
+              localStorage.removeItem('saved_academy_id');
               localStorage.setItem('skipAcademyModal', 'true');
               alert("소속 학원에서 정상적으로 탈퇴되었습니다. 기본 단어장으로 전환합니다.");
               window.location.reload();
@@ -4046,11 +3935,11 @@ let isVerticalScroll = false;
 
       const userName = (document.getElementById('user-name-input')?.value || '').trim();
       const phoneNum = (document.getElementById('user-phone-input')?.value || '').trim();
-      if ((userName || phoneNum) && typeof currentUser !== 'undefined' && currentUser && typeof db !== 'undefined' && db) {
+      if ((userName || phoneNum) && typeof currentUser !== 'undefined' && currentUser && Backend) {
         const payload = {};
-        if (userName) { payload.displayName = userName; payload.realName = userName; }
-        if (phoneNum) { payload.phoneNumber = phoneNum; }
-        db.collection('users').doc(currentUser.uid).set(payload, { merge: true }).catch(e => console.warn('Save profile on skip fail:', e));
+        if (userName) { payload.display_name = userName; payload.real_name = userName; }
+        if (phoneNum) { payload.phone = phoneNum; }
+        Backend.profile.update(payload).catch(e => console.warn('Save profile on skip fail:', e));
       }
     };
 
@@ -4205,30 +4094,19 @@ let isVerticalScroll = false;
   // =============================================
   // 👑 Super Admin (최고관리자) Logic
   // =============================================
-  function getSuperAdminCode() {
-    return localStorage.getItem('vocab_super_admin_code') || 'admin_nodoa327';
-  }
-
-  async function syncSuperAdminCode() {
-    if (!db) return;
-    try {
-      const doc = await db.collection('config').doc('superadminDoc').get();
-      if (doc.exists && doc.data().superAdminCode) {
-        localStorage.setItem('vocab_super_admin_code', doc.data().superAdminCode);
-      }
-    } catch(e){}
-  }
-  syncSuperAdminCode();
+  // 최고관리자 코드는 이제 서버(app_config)에만 있고 클라이언트는 읽을 수 없다.
+  // 검증은 enter_super_admin RPC 가 대신한다.
 
   async function enterSuperAdminMode() {
-    if (!db) { alert("데이터베이스 연결 안됨"); return; }
+    if (!Backend) { alert("서버에 연결되어 있지 않습니다."); return; }
 
     showView('view-superadmin');
 
-    // Populate current super admin code in input
+    // 코드는 보안상 내려받지 않는다 — 새로 정할 때만 입력한다
     const saSuperCodeInput = document.getElementById('sa-super-code-input');
     if (saSuperCodeInput) {
-      saSuperCodeInput.value = getSuperAdminCode();
+      saSuperCodeInput.value = '';
+      saSuperCodeInput.placeholder = '새 코드를 입력해 변경 (현재 코드는 표시되지 않습니다)';
     }
 
     const btnSaveSuperCode = document.getElementById('btn-sa-save-super-code');
@@ -4238,17 +4116,11 @@ let isVerticalScroll = false;
         if (!newCode) { alert('최고관리자 코드를 입력해 주세요.'); return; }
         btnSaveSuperCode.disabled = true;
         try {
-          localStorage.setItem('vocab_super_admin_code', newCode);
-          if (db) {
-            await db.collection('config').doc('superadminDoc').set({
-              superAdminCode: newCode,
-              updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            }, { merge: true });
-          }
+          await Backend.rpc.setSuperCode(newCode);
           alert(`🎉 최고관리자 접속 코드가 '${newCode}'(으)로 성공적으로 변경되었습니다!\n다음부터는 이 코드로 최고관리자 페이지에 접속하실 수 있습니다.`);
         } catch(err) {
           console.error(err);
-          alert(`🎉 최고관리자 코드 변경 완료! (${newCode})`);
+          alert('코드 변경에 실패했습니다: ' + (err.message || err));
         } finally {
           btnSaveSuperCode.disabled = false;
         }
@@ -4271,22 +4143,17 @@ let isVerticalScroll = false;
     async function loadSuperAdminData() {
       if (saAcademyList) saAcademyList.innerHTML = '<div style="color:var(--text-sub); text-align:center; padding:20px;">로딩 중...</div>';
       try {
-        const academyQs = await db.collection('academies').get();
-        const academies = [];
-        academyQs.forEach(doc => academies.push({ id: doc.id, ...doc.data() }));
-        
+        // 학원 목록 + 학생 수를 서버 함수 한 번으로 받아온다 (최고관리자만 허용)
+        const academies = await Backend.academy.listAdmin();
+
         if (saTotalAcademies) saTotalAcademies.textContent = academies.length;
 
-        // 전체 학생 수 계산
-        const studentQs = await db.collection('users').where('academyId', '!=', null).get();
-        let totalStudents = 0;
         const studentsByAcademy = {};
-        studentQs.forEach(doc => {
-          const data = doc.data();
-          if (data.academyId && !data.deleted) {
-            totalStudents++;
-            studentsByAcademy[data.academyId] = (studentsByAcademy[data.academyId] || 0) + 1;
-          }
+        let totalStudents = 0;
+        academies.forEach(a => {
+          const n = Number(a.student_count) || 0;
+          studentsByAcademy[a.id] = n;
+          totalStudents += n;
         });
         if (saTotalStudents) saTotalStudents.textContent = totalStudents;
 
@@ -4305,7 +4172,8 @@ let isVerticalScroll = false;
 
         academies.forEach(aca => {
           const studentCount = studentsByAcademy[aca.id] || 0;
-          const createdStr = aca.createdAt?.toDate ? aca.createdAt.toDate().toLocaleDateString('ko-KR') : '미상';
+          const createdStr = aca.created_at
+            ? new Date(aca.created_at).toLocaleDateString('ko-KR') : '미상';
 
           const card = document.createElement('div');
           card.className = 'glass-card';
@@ -4326,13 +4194,13 @@ let isVerticalScroll = false;
               <div style="background: rgba(0,0,0,0.2); padding: 8px 10px; border-radius: 6px;">
                 <div style="font-size: 10px; color: var(--text-sub); margin-bottom: 2px;">🔑 관리자 코드</div>
                 <div style="font-size: 13px; font-weight: 600; color: #a5b4fc; font-family: monospace; display: flex; align-items: center; gap: 6px;">
-                  <input type="text" class="sa-admin-code-input" value="${esc(aca.adminCode || '')}" style="background: transparent; border: none; color: #a5b4fc; font-size: 13px; font-family: monospace; width: 100%; outline: none; font-weight: 600;" />
+                  <input type="text" class="sa-admin-code-input" value="${esc(aca.admin_code || '')}" style="background: transparent; border: none; color: #a5b4fc; font-size: 13px; font-family: monospace; width: 100%; outline: none; font-weight: 600;" />
                 </div>
               </div>
               <div style="background: rgba(0,0,0,0.2); padding: 8px 10px; border-radius: 6px;">
                 <div style="font-size: 10px; color: var(--text-sub); margin-bottom: 2px;">🎟️ 학생 등록 코드</div>
                 <div style="font-size: 13px; font-weight: 600; color: #4ade80; font-family: monospace; display: flex; align-items: center; gap: 6px;">
-                  <input type="text" class="sa-invite-code-input" value="${esc(aca.inviteCode || '')}" style="background: transparent; border: none; color: #4ade80; font-size: 13px; font-family: monospace; width: 100%; outline: none; font-weight: 600;" />
+                  <input type="text" class="sa-invite-code-input" value="${esc(aca.invite_code || '')}" style="background: transparent; border: none; color: #4ade80; font-size: 13px; font-family: monospace; width: 100%; outline: none; font-weight: 600;" />
                 </div>
               </div>
             </div>
@@ -4343,7 +4211,7 @@ let isVerticalScroll = false;
 
           // 학원관리 접속 버튼
           card.querySelector('.sa-btn-enter').onclick = () => {
-            enterAdminMode(aca.adminCode);
+            enterAdminMode(aca.admin_code);
           };
 
           // 삭제 버튼
@@ -4352,20 +4220,9 @@ let isVerticalScroll = false;
             if (!confirm(`🚨 최종 확인: [${aca.name}] 학원을 정말로 삭제합니까?`)) return;
 
             try {
-              // 소속 학생들의 학원 연결 해제
-              const studentsQs = await db.collection('users').where('academyId', '==', aca.id).get();
-              const batch = db.batch();
-              studentsQs.forEach(doc => {
-                batch.update(doc.ref, { academyId: null, academyName: null });
-              });
-
-              // 단어장 서브컬렉션 삭제
-              const wbQs = await db.collection('academies').doc(aca.id).collection('wordBooks').get();
-              wbQs.forEach(doc => batch.delete(doc.ref));
-
-              // 학원 문서 삭제
-              batch.delete(db.collection('academies').doc(aca.id));
-              await batch.commit();
+              // 소속 학생 연결 해제 + 단어장 삭제 + 학원 삭제를 서버 함수가 한 번에 처리
+              // (단어장/코드는 외래키 cascade 로 같이 지워진다)
+              await Backend.academy.remove(aca.id);
 
               alert(`🗑️ [${aca.name}] 학원이 성공적으로 삭제되었습니다.`);
               loadSuperAdminData();
@@ -4388,22 +4245,8 @@ let isVerticalScroll = false;
             const btnSave = card.querySelector('.sa-btn-save-codes');
             btnSave.disabled = true;
             try {
-              await db.collection('academies').doc(aca.id).update({
-                name: newName,
-                adminCode: newAdminCode,
-                inviteCode: newInviteCode
-              });
-
-              if (newName !== aca.name) {
-                const studentsQs = await db.collection('users').where('academyId', '==', aca.id).get();
-                if (!studentsQs.empty) {
-                  const batch = db.batch();
-                  studentsQs.forEach(doc => {
-                    batch.update(doc.ref, { academyName: newName });
-                  });
-                  await batch.commit();
-                }
-              }
+              // 이름 + 두 코드를 한 번에 갱신한다. 소속 학생들의 학원 이름도 서버가 같이 고친다.
+              await Backend.academy.updateAll(aca.id, newName, newAdminCode, newInviteCode);
 
               alert(`✅ [${newName}] 학원 정보 및 코드가 성공적으로 변경되었습니다.\n\n학원 이름: ${newName}\n관리자 코드: ${newAdminCode}\n학생 등록 코드: ${newInviteCode}`);
               loadSuperAdminData();
@@ -4435,21 +4278,10 @@ let isVerticalScroll = false;
         if (!adminCode) { alert('관리자 코드를 입력해주세요.'); return; }
         if (!inviteCode) { alert('학생 등록 코드를 입력해주세요.'); return; }
 
-        // 관리자 코드 중복 확인
-        const existingQs = await db.collection('academies').where('adminCode', '==', adminCode).limit(1).get();
-        if (!existingQs.empty) {
-          alert(`⚠️ 관리자 코드 '${adminCode}'는 이미 다른 학원에서 사용 중입니다.\n다른 코드를 입력해주세요.`);
-          return;
-        }
-
         btnCreateAcademy.disabled = true;
         try {
-          await db.collection('academies').add({
-            name,
-            adminCode,
-            inviteCode,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-          });
+          // 코드 중복 검사도 서버 함수 안에서 같이 한다
+          await Backend.academy.create(name, adminCode, inviteCode);
           alert(`🎉 [${name}] 학원이 성공적으로 등록되었습니다!\n\n관리자 코드: ${adminCode}\n학생 등록 코드: ${inviteCode}`);
 
           // 입력란 초기화
@@ -4473,55 +4305,49 @@ let isVerticalScroll = false;
 
   async function enterAdminMode(rawAdminCode) {
     const adminCode = (rawAdminCode || '').trim();
-    if (!db) {
-      alert("데이터베이스 연결 안됨");
+    if (!hasBackend) {
+      alert("서버에 연결되어 있지 않습니다.\n(수파베이스 설정이 아직 완료되지 않았습니다)");
       return;
     }
     if (!currentUser) {
-      alert("먼저 구글 로그인을 진행해주세요!");
-      return;
-    }
-
-    // 👑 최고관리자 코드 감지 (가변 맞춤형 코드 및 기본 admin_nodoa327 대조)
-    const activeSuperAdminCode = getSuperAdminCode();
-    if (adminCode === activeSuperAdminCode || adminCode === 'admin_nodoa327') {
-      enterSuperAdminMode();
+      alert("먼저 로그인을 진행해주세요!");
       return;
     }
 
     try {
-      const qs = await db.collection('academies').where('adminCode', '==', adminCode).limit(1).get();
-      if (qs.empty) {
-        if (adminCode === 'admin_asher') {
-          // 편의를 위해 처음 로그인 시 데이터베이스에 자동으로 학원 정보를 생성해 줍니다.
-          await db.collection('academies').add({
-            name: "아셀 학원",
-            adminCode: "admin_asher",
-            inviteCode: "asher2026",
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-          });
-          alert("최초 1회: 데이터베이스에 '아셀 학원(admin_asher)' 정보가 자동 생성되었습니다! 확인을 누르고 다시 한 번 코드를 입력해주세요.");
-          return;
-        }
-        alert("유효하지 않은 관리자 코드입니다.");
+      // 👑 최고관리자 코드인지 먼저 서버에 물어본다 (코드는 클라이언트에 없다)
+      if (await Backend.rpc.enterSuper(adminCode)) {
+        enterSuperAdminMode();
         return;
       }
-      const academyDoc = qs.docs[0];
-      const academyId = academyDoc.id;
-      const acaData = academyDoc.data();
-      const academyName = acaData.name;
-      const currentInviteCode = acaData.inviteCode || '';
-      
+    } catch (e) { /* 최고관리자가 아니면 그냥 아래로 */ }
+
+    let academyId, academyName;
+    try {
+      // 학원 관리자 코드 검증 + role 승격을 서버 함수가 처리한다
+      const aca = await Backend.rpc.enterAdmin(adminCode);
+      academyId = aca.academy_id;
+      academyName = aca.academy_name;
+    } catch (err) {
+      console.error(err);
+      alert("유효하지 않은 관리자 코드입니다.");
+      return;
+    }
+
+    try {
+      const acaData = (await Backend.academy.get(academyId)) || {};
+      const currentInviteCode = await Backend.academy.myInviteCode().catch(() => '');
+
       document.getElementById('admin-academy-name').textContent = academyName;
-      document.getElementById('admin-invite-code').value = currentInviteCode;
-      
+      document.getElementById('admin-invite-code').value = currentInviteCode || '';
+
       const adminBrandName = document.getElementById('admin-brand-name');
       const adminBrandLogo = document.getElementById('admin-brand-logo');
       const adminBrandSub = document.getElementById('admin-brand-sub');
 
-      if (adminBrandName) adminBrandName.value = acaData.brandName || acaData.name || '';
-      if (adminBrandLogo) adminBrandLogo.value = acaData.brandLogo || '🧸';
-      if (adminBrandSub) adminBrandSub.value = acaData.brandSub || '';
+      if (adminBrandName) adminBrandName.value = acaData.brand_name || acaData.name || academyName || '';
+      if (adminBrandLogo) adminBrandLogo.value = acaData.brand_logo || '🧸';
+      if (adminBrandSub) adminBrandSub.value = acaData.brand_sub || '';
 
       const btnSaveBrand = document.getElementById('btn-save-academy-brand');
       if (btnSaveBrand) {
@@ -4532,11 +4358,7 @@ let isVerticalScroll = false;
           if (!brandName) { alert('학원 이름을 입력해 주세요.'); return; }
           btnSaveBrand.disabled = true;
           try {
-            await db.collection('academies').doc(academyId).update({
-              brandName,
-              brandLogo,
-              brandSub
-            });
+            await Backend.academy.updateBrand(academyId, { brandName, brandLogo, brandSub });
             applyAcademyBranding({ name: brandName, brandName, brandLogo, brandSub });
             alert('🎉 학원 브랜드 및 로고 설정이 성공적으로 저장되었습니다!\n학생 화면에 즉시 적용됩니다.');
           } catch (err) {
@@ -4558,9 +4380,7 @@ let isVerticalScroll = false;
         if (confirm(`학생 등록 코드를 '${newCode}'(으)로 변경하시겠습니까?`)) {
           btnUpdateInviteCode.disabled = true;
           try {
-            await db.collection('academies').doc(academyId).update({
-              inviteCode: newCode
-            });
+            await Backend.academy.setInviteCode(academyId, newCode);
             alert('학생 등록 코드가 성공적으로 변경되었습니다.');
           } catch (err) {
             console.error(err);
@@ -4622,7 +4442,7 @@ let isVerticalScroll = false;
 
       async function loadAdminWordBooks() {
         try {
-          const wbQs = await db.collection('academies').doc(academyId).collection('wordBooks').get();
+          const books = await Backend.wordBooks.listByAcademy(academyId);
           const wb1Title = document.getElementById('admin-wb1-title');
           const wb2Title = document.getElementById('admin-wb2-title');
           if (wb1Title) wb1Title.value = '';
@@ -4631,26 +4451,16 @@ let isVerticalScroll = false;
           wb1Days = { "Day 1": "" };
           wb2Days = { "Day 1": "" };
 
-          wbQs.forEach(doc => {
-            const data = doc.data();
-            if (doc.id === 'slot_1') {
-              if (wb1Title) wb1Title.value = data.title || '';
-              if (data.days) {
-                wb1Days = data.days;
-              } else if (data.content) {
-                wb1Days = parseMultiDayText(data.content);
-              }
-              updateAdminWordBookStatus('slot_1', data.title, wb1Days);
-            } else if (doc.id === 'slot_2') {
-              if (wb2Title) wb2Title.value = data.title || '';
-              if (data.days) {
-                wb2Days = data.days;
-              } else if (data.content) {
-                wb2Days = parseMultiDayText(data.content);
-              }
-              updateAdminWordBookStatus('slot_2', data.title, wb2Days);
-            }
-          });
+          if (books.slot_1) {
+            if (wb1Title) wb1Title.value = books.slot_1.title || '';
+            if (books.slot_1.days && Object.keys(books.slot_1.days).length) wb1Days = books.slot_1.days;
+            updateAdminWordBookStatus('slot_1', books.slot_1.title, wb1Days);
+          }
+          if (books.slot_2) {
+            if (wb2Title) wb2Title.value = books.slot_2.title || '';
+            if (books.slot_2.days && Object.keys(books.slot_2.days).length) wb2Days = books.slot_2.days;
+            updateAdminWordBookStatus('slot_2', books.slot_2.title, wb2Days);
+          }
 
           renderWbDays('slot_1');
           renderWbDays('slot_2');
@@ -4787,12 +4597,8 @@ let isVerticalScroll = false;
 
           setTimeout(async () => {
             try {
-              updateUploadLoading(70, "☁️ Firestore 데이터베이스에 암호화 저장 중...");
-              await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).set({
-                title,
-                days,
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-              });
+              updateUploadLoading(70, "☁️ 서버 데이터베이스에 저장 중...");
+              await Backend.wordBooks.save(academyId, slotId, title, days);
               updateAdminWordBookStatus(slotId, title, days);
 
               updateUploadLoading(100, "🎉 서버 저장 완료!");
@@ -4803,8 +4609,8 @@ let isVerticalScroll = false;
             } catch (err) {
               console.error(err);
               hideUploadLoading();
-              if (err.message && (err.message.includes('permission') || err.message.includes('Permissions'))) {
-                alert("⚠️ Firebase Firestore 보안 규칙 권한 오류가 발생했습니다!\n\n[해결 방법]\n1. Firebase 콘솔(https://console.firebase.google.com) 접속\n2. Firestore Database > 규칙(Rules) 탭 클릭\n3. 아래 규칙으로 수정한 뒤 '게시(Publish)' 클릭:\n\nrules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if request.auth != null;\n    }\n  }\n}");
+              if (err.message && /permission|policy|row-level/i.test(err.message)) {
+                alert("⚠️ 권한 오류입니다.\n\n이 학원의 관리자로 접속한 상태인지 확인해주세요.\n(관리자 코드로 다시 로그인하면 해결됩니다)");
               } else {
                 alert('단어장 등록 중 오류가 발생했습니다: ' + err.message);
               }
@@ -4821,8 +4627,8 @@ let isVerticalScroll = false;
           showUploadLoading("🗑️ 서버에서 단어장 삭제 중...", `[${slotName} 단어장] 데이터를 서버에서 제거하는 중입니다.`, 40);
           setTimeout(async () => {
             try {
-              updateUploadLoading(70, "☁️ Firestore 데이터베이스에서 제거 중...");
-              await db.collection('academies').doc(academyId).collection('wordBooks').doc(slotId).delete();
+              updateUploadLoading(70, "☁️ 서버 데이터베이스에서 제거 중...");
+              await Backend.wordBooks.remove(academyId, slotId);
               
               const titleEl = document.getElementById(titleId);
               const contentEl = document.getElementById(slotId === 'slot_1' ? 'admin-wb1-content' : 'admin-wb2-content');
@@ -4841,8 +4647,8 @@ let isVerticalScroll = false;
             } catch (err) {
               console.error(err);
               hideUploadLoading();
-              if (err.message && (err.message.includes('permission') || err.message.includes('Permissions'))) {
-                alert("⚠️ Firebase Firestore 보안 규칙 권한 오류가 발생했습니다!\n\nFirestore Database > 규칙(Rules) 탭에서 권한 허용을 확인해주세요.");
+              if (err.message && /permission|policy|row-level/i.test(err.message)) {
+                alert("⚠️ 권한 오류입니다.\n\n이 학원의 관리자로 접속한 상태인지 확인해주세요.");
               } else {
                 alert('삭제 중 오류가 발생했습니다: ' + err.message);
               }
@@ -4879,24 +4685,27 @@ let isVerticalScroll = false;
     
     currentAdminStudents = [];
     try {
-      const qs = await db.collection('users').where('academyId', '==', academyId).get();
-      if (studentCount) studentCount.textContent = `${qs.size}명`;
+      const rows = await Backend.students.listByAcademy(academyId);
+      if (studentCount) studentCount.textContent = `${rows.length}명`;
       if (studentList) studentList.innerHTML = '';
-      
-      if (qs.empty) {
+
+      if (rows.length === 0) {
         if (studentList) studentList.innerHTML = '<li style="color:var(--text-sub); text-align:center; padding:20px;">등록된 학생이 없습니다.</li>';
         return;
       }
-      
-      qs.forEach(doc => {
-        const data = doc.data();
-        
+
+      rows.forEach(row => {
+        // 화면 코드가 쓰던 이름 그대로 맞춰 준다
+        const data = {
+          displayName: row.real_name || row.display_name || '이름 없음',
+          phoneNumber: row.phone || '',
+          email: row.email || '',
+        };
+
         let joinDateStr = '미상';
-        const dateObj = data.joinedAt || data.createdAt || data.updatedAt;
+        const dateObj = row.joined_at || row.created_at;
         if (dateObj) {
-          let d;
-          if (dateObj.toDate && typeof dateObj.toDate === 'function') d = dateObj.toDate();
-          else d = new Date(dateObj);
+          const d = new Date(dateObj);
           if (!isNaN(d.getTime())) {
             const yyyy = d.getFullYear();
             const mm = String(d.getMonth() + 1).padStart(2, '0');
@@ -4935,10 +4744,7 @@ let isVerticalScroll = false;
         delBtn.onclick = async () => {
           if (confirm(`${data.displayName || '학생'} 학생을 학원 명단에서 삭제하시겠습니까?`)) {
             try {
-              await db.collection('users').doc(doc.id).update({
-                academyId: null,
-                academyName: null
-              });
+              await Backend.students.unlink(row.id);
               loadAdminStudents(academyId);
             } catch (err) {
               console.error(err);
@@ -4992,36 +4798,33 @@ let isVerticalScroll = false;
 
 
   async function fetchUserProfile(uid) {
-    if (!db) return;
+    if (!Backend) return;
     try {
-      const userDoc = await db.collection('users').doc(uid).get();
+      const uData = await Backend.profile.get(uid);
 
       // Populate name & phone inputs if exists
       const userNameInput = document.getElementById('user-name-input');
       const userPhoneInput = document.getElementById('user-phone-input');
-      if (userDoc.exists) {
-        const uData = userDoc.data();
+      if (uData) {
         if (userNameInput) {
-          userNameInput.value = uData.realName || uData.displayName || (currentUser ? currentUser.displayName : '') || '';
+          userNameInput.value = uData.real_name || uData.display_name || (currentUser ? currentUser.displayName : '') || '';
         }
-        if (userPhoneInput && uData.phoneNumber) {
-          userPhoneInput.value = uData.phoneNumber;
+        if (userPhoneInput && uData.phone) {
+          userPhoneInput.value = uData.phone;
         }
       } else if (currentUser && userNameInput) {
         userNameInput.value = currentUser.displayName || '';
       }
-      
+
       // Sync down progress data first
       try {
-        const progressQs = await db.collection('users').doc(uid).collection('progress').get();
-        progressQs.forEach(doc => {
-          const oldVal = localStorage.getItem(doc.id);
-          const newVal = doc.data().value;
-          if (oldVal !== newVal) {
-            localStorage.setItem(doc.id, newVal);
+        const rows = await Backend.progress.list();
+        rows.forEach(r => {
+          if (localStorage.getItem(r.key) !== r.value) {
+            localStorage.setItem(r.key, r.value);
           }
         });
-        console.log("Firestore progress synced down to local.");
+        console.log("서버 학습기록을 로컬로 내려받았습니다.");
       } catch (e) {
         console.error("Progress sync failed", e);
       }
@@ -5032,17 +4835,22 @@ let isVerticalScroll = false;
       showView('view-input');
       loadDBList();
 
-      if (userDoc.exists && userDoc.data().academyId && !userDoc.data().deleted) {
-        const data = userDoc.data();
-        currentAcademyId = data.academyId;
+      if (uData && uData.academy_id) {
+        currentAcademyId = uData.academy_id;
         if (currentAcademyId) localStorage.setItem('saved_academy_id', currentAcademyId);
-        currentAcademyName = data.academyName;
-        if (userAcademyDisplay) userAcademyDisplay.textContent = `소속: ${data.academyName || currentAcademyId}`;
-        
+        currentAcademyName = uData.academy_name;
+        if (userAcademyDisplay) userAcademyDisplay.textContent = `소속: ${uData.academy_name || currentAcademyId}`;
+
         try {
-          const acaDoc = await db.collection('academies').doc(currentAcademyId).get();
-          if (acaDoc.exists) {
-            applyAcademyBranding(acaDoc.data());
+          const aca = await Backend.academy.get(currentAcademyId);
+          if (aca) {
+            // applyAcademyBranding 은 camelCase 로 읽으므로 맞춰서 넘긴다
+            applyAcademyBranding({
+              name: aca.name,
+              brandName: aca.brand_name,
+              brandLogo: aca.brand_logo,
+              brandSub: aca.brand_sub,
+            });
           }
         } catch(e){}
 
@@ -5056,13 +4864,9 @@ let isVerticalScroll = false;
 
         // 학원 소속인 경우 해당 학원 전용 단어장(slot_1, slot_2)을 서버에서 동기화
         try {
-          const wbQs = await db.collection('academies').doc(currentAcademyId).collection('wordBooks').get();
-          let wb1Data = null;
-          let wb2Data = null;
-          wbQs.forEach(doc => {
-            if (doc.id === 'slot_1') wb1Data = doc.data();
-            if (doc.id === 'slot_2') wb2Data = doc.data();
-          });
+          const books = await Backend.wordBooks.listByAcademy(currentAcademyId);
+          const wb1Data = books.slot_1 || null;
+          const wb2Data = books.slot_2 || null;
           if (wb1Data) localStorage.setItem(`academy_wb_${currentAcademyId}_slot_1`, JSON.stringify(wb1Data));
           else localStorage.removeItem(`academy_wb_${currentAcademyId}_slot_1`);
           

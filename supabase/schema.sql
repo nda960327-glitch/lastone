@@ -386,15 +386,54 @@ begin
   update public.academy_secrets set invite_code = btrim(p_new) where academy_id = p_academy_id;
 end $$;
 
+-- 학원 이름 + 코드 한 번에 수정 (최고관리자 전용)
+-- 이름이 바뀌면 소속 학생들의 academy_name 도 같이 갱신한다.
+create or replace function public.update_academy_admin(
+  p_academy_id uuid, p_name text, p_admin_code text, p_invite_code text
+) returns void
+language plpgsql security definer set search_path = public as $$
+begin
+  if public.my_role() <> 'superadmin' then raise exception '권한이 없습니다'; end if;
+
+  if exists (select 1 from public.academy_secrets
+             where academy_id <> p_academy_id
+               and (admin_code = btrim(p_admin_code) or invite_code = btrim(p_invite_code))) then
+    raise exception '다른 학원이 이미 쓰는 코드입니다';
+  end if;
+
+  update public.academies set name = btrim(p_name) where id = p_academy_id;
+  update public.academy_secrets
+     set admin_code = btrim(p_admin_code), invite_code = btrim(p_invite_code)
+   where academy_id = p_academy_id;
+  update public.profiles set academy_name = btrim(p_name) where academy_id = p_academy_id;
+end $$;
+
+-- 학생을 학원 명단에서 제외 (해당 학원 관리자 또는 최고관리자)
+create or replace function public.unlink_student(p_user_id uuid)
+returns void language plpgsql security definer set search_path = public as $$
+declare v_aca uuid;
+begin
+  select academy_id into v_aca from public.profiles where id = p_user_id;
+  if not (public.my_role() = 'superadmin'
+          or (public.my_role() = 'admin' and public.my_academy() = v_aca)) then
+    raise exception '권한이 없습니다';
+  end if;
+  update public.profiles
+     set academy_id = null, academy_name = null
+   where id = p_user_id;
+end $$;
+
 -- 최고관리자 화면용 학원 목록 (코드 포함 — 최고관리자만)
 create or replace function public.list_academies_admin()
-returns table (id uuid, name text, admin_code text, invite_code text, student_count bigint)
+returns table (id uuid, name text, admin_code text, invite_code text,
+               student_count bigint, created_at timestamptz)
 language plpgsql security definer set search_path = public as $$
 begin
   if public.my_role() <> 'superadmin' then raise exception '권한이 없습니다'; end if;
   return query
     select a.id, a.name, s.admin_code, s.invite_code,
-           (select count(*) from public.profiles p where p.academy_id = a.id)
+           (select count(*) from public.profiles p where p.academy_id = a.id),
+           a.created_at
     from public.academies a
     left join public.academy_secrets s on s.academy_id = a.id
     order by a.created_at desc;
@@ -419,6 +458,8 @@ grant execute on function
   public.set_super_admin_code(text),
   public.create_academy(text, text, text),
   public.delete_academy(uuid),
+  public.update_academy_admin(uuid, text, text, text),
+  public.unlink_student(uuid),
   public.set_invite_code(uuid, text),
   public.list_academies_admin(),
   public.my_invite_code(),
