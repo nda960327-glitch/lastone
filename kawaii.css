@@ -24,28 +24,55 @@
 }
 
 /* ── 1. 말랑 토큰 ─────────────────────────────────────────────────── */
+/* accent-lt → accent 로 이어지는 세로 그라데이션이 "비싼 느낌"의 핵심.
+   단색은 평평하고 싸 보이고, 위가 살짝 밝으면 빛을 받은 입체로 읽힌다. */
 [data-theme="pink"] {
-  --k-line: #F7C6DE; --k-deep: #EDA3C6; --k-soft: #FFF2F8;
-  --k-accent: #FF8FC0; --k-accent-deep: #E0559C;
-  --k-shadow: rgba(238, 140, 186, .22);
+  --k-line: #F7C6DE; --k-deep: #EDA3C6; --k-soft: #FFF4F9;
+  --k-accent-lt: #FFA6CE; --k-accent: #FB7FB4; --k-accent-deep: #DB4F95;
+  --k-glow: rgba(240, 118, 172, .42);
+  --k-shadow: rgba(214, 122, 166, .20);
+  --k-tint: 340;
 }
 [data-theme="blue"] {
-  --k-line: #BCE0F8; --k-deep: #86BFEA; --k-soft: #F1F9FF;
-  --k-accent: #6FBDF2; --k-accent-deep: #2A8FD6;
-  --k-shadow: rgba(80, 160, 220, .22);
+  --k-line: #BCE0F8; --k-deep: #86BFEA; --k-soft: #F2F9FF;
+  --k-accent-lt: #7FC6F5; --k-accent: #4FA8E8; --k-accent-deep: #2183CC;
+  --k-glow: rgba(79, 168, 232, .42);
+  --k-shadow: rgba(70, 140, 200, .20);
+  --k-tint: 205;
 }
 [data-theme="green"] {
-  --k-line: #C6EACC; --k-deep: #8ECC99; --k-soft: #F2FCF1;
-  --k-accent: #6FD48C; --k-accent-deep: #2FA75C;
-  --k-shadow: rgba(90, 190, 120, .22);
+  --k-line: #C6EACC; --k-deep: #8ECC99; --k-soft: #F3FCF3;
+  --k-accent-lt: #7BDA97; --k-accent: #4FC377; --k-accent-deep: #269B54;
+  --k-glow: rgba(79, 195, 119, .40);
+  --k-shadow: rgba(80, 170, 110, .20);
+  --k-tint: 145;
 }
 :root, [data-theme="dark"] {
-  --k-line: rgba(160, 170, 255, .22); --k-deep: rgba(70, 78, 170, .55);
+  --k-line: rgba(160, 170, 255, .20); --k-deep: rgba(70, 78, 170, .55);
   --k-soft: rgba(255, 255, 255, .05);
-  --k-accent: #7C82FF; --k-accent-deep: #4046C8;
+  --k-accent-lt: #8E93FF; --k-accent: #6B71F0; --k-accent-deep: #4046C8;
+  --k-glow: rgba(107, 113, 240, .45);
   --k-shadow: rgba(0, 0, 0, .5);
+  --k-tint: 240;
 }
-:root { --k-ok: #7BD8A6; --k-no: #FFA3A8; }
+:root { --k-ok: #34C77B; --k-ok-lt: #56D897; --k-no: #F2607A; --k-no-lt: #FA8098; }
+
+/* 그림자 단계 — 딱딱한 오프셋 대신 여러 겹을 얇게 쌓는다 */
+:root {
+  --e1: 0 1px 2px rgba(20, 24, 40, .06);
+  --e2: 0 1px 2px rgba(20, 24, 40, .06), 0 4px 10px -3px rgba(20, 24, 40, .10);
+  --e3: 0 2px 4px rgba(20, 24, 40, .05), 0 14px 28px -10px rgba(20, 24, 40, .18);
+  --gloss: inset 0 1px 0 rgba(255, 255, 255, .55);   /* 위쪽 광택 한 줄 */
+  --hair:  inset 0 0 0 1px rgba(20, 24, 40, .05);    /* 헤어라인 테두리 */
+  --k-ease: cubic-bezier(.2, .8, .3, 1);
+}
+[data-theme="dark"] {
+  --e1: 0 1px 2px rgba(0, 0, 0, .4);
+  --e2: 0 2px 6px rgba(0, 0, 0, .45);
+  --e3: 0 4px 10px rgba(0, 0, 0, .5), 0 18px 36px -12px rgba(0, 0, 0, .7);
+  --gloss: inset 0 1px 0 rgba(255, 255, 255, .12);
+  --hair:  inset 0 0 0 1px rgba(255, 255, 255, .07);
+}
 
 /* ── 2. 캐릭터 배정 ───────────────────────────────────────────────── */
 [data-theme="pink"] {
@@ -109,7 +136,7 @@
 
 [data-theme="pink"] .brand-title,
 [data-theme="blue"] .brand-title,
-[data-theme="green"] .brand-title { text-shadow: 0 2px 0 #fff, 0 3px 0 var(--k-line); }
+[data-theme="green"] .brand-title { text-shadow: none; letter-spacing: -.02em; }
 [data-theme="green"] .brand-sub::after { content: none !important; }
 
 /* ── 4. 카드 — 하얀 찹쌀떡 ──────────────────────────────────────── */
@@ -117,9 +144,9 @@
 [data-theme="blue"] .glass-card, [data-theme="blue"] .word-card,
 [data-theme="green"] .glass-card, [data-theme="green"] .word-card {
   background: #fff !important;
-  border: 3px solid var(--k-line) !important;
-  border-radius: 30px !important;
-  box-shadow: 0 8px 0 -2px var(--k-line), 0 18px 34px var(--k-shadow) !important;
+  border: none !important;
+  border-radius: 28px !important;
+  box-shadow: var(--hair), 0 2px 4px rgba(20,24,40,.04), 0 16px 32px -12px var(--k-shadow) !important;
   backdrop-filter: none !important;
 }
 [data-theme="pink"] .range-select-panel,
@@ -132,61 +159,186 @@
   box-shadow: none !important;
 }
 
-/* ── 5. 버튼 — 눌리는 스티커 젤리 ──────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════════
+   5. 버튼 시스템
+   ------------------------------------------------------------------
+   설계 규칙 (전 테마 공통)
+     · 눌림은 translateY 가 아니라 scale(.97) — 훨씬 빠르고 고급스럽다
+     · 그림자는 딱딱한 오프셋이 아니라 얇게 여러 겹
+     · 채워진 버튼은 위→아래 그라데이션 + 상단 광택 한 줄
+     · 테두리는 굵은 선이 아니라 헤어라인
+     · 위계는 3단: 주 액션(채움) → 보조(흰 바탕) → 조용함(투명)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* 모든 버튼 공통 물리 */
+[data-theme] .btn-primary, [data-theme] .btn-secondary, [data-theme] .btn-ghost,
+[data-theme] .info-pill-btn, [data-theme] .btn-reveal, [data-theme] .tab-btn,
+[data-theme] .btn-range-item, [data-theme] .btn-ox-new,
+[data-theme] .btn-dictation-red, [data-theme] .btn-dictation-blue,
+[data-theme] .btn-social {
+  transition: transform .14s var(--k-ease), box-shadow .14s var(--k-ease),
+              background-color .14s var(--k-ease), filter .14s var(--k-ease) !important;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
+}
+[data-theme] .btn-primary:active, [data-theme] .btn-secondary:active,
+[data-theme] .btn-ghost:active, [data-theme] .info-pill-btn:active,
+[data-theme] .btn-reveal:active, [data-theme] .btn-range-item:active,
+[data-theme] .btn-dictation-red:active, [data-theme] .btn-dictation-blue:active,
+[data-theme] .btn-social:active {
+  transform: scale(.972) !important;
+}
+/* 키보드 포커스 링 — 접근성 + 완성도 */
+[data-theme] button:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5.5px var(--k-accent) !important;
+}
+[data-theme] button:disabled { opacity: .45 !important; filter: saturate(.6); cursor: not-allowed !important; }
+
+/* ── 주 액션 ─────────────────────────────────────────────────────── */
 [data-theme="pink"] .btn-primary, [data-theme="blue"] .btn-primary, [data-theme="green"] .btn-primary {
-  background: var(--k-accent) !important;
-  border: 3px solid var(--k-accent-deep) !important;
-  border-radius: 999px !important;
+  background: linear-gradient(180deg, var(--k-accent-lt) 0%, var(--k-accent) 100%) !important;
+  border: none !important;
+  border-radius: 16px !important;
   color: #fff !important;
-  box-shadow: 0 5px 0 var(--k-accent-deep) !important;
-  transition: transform .1s ease, box-shadow .1s ease !important;
+  font-size: 15.5px !important;
+  letter-spacing: -.01em !important;
+  padding: 15px 20px !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .12);
+  box-shadow: var(--gloss), 0 1px 2px rgba(20,24,40,.10), 0 10px 22px -8px var(--k-glow) !important;
+}
+[data-theme="pink"] .btn-primary:hover, [data-theme="blue"] .btn-primary:hover, [data-theme="green"] .btn-primary:hover {
+  filter: brightness(1.045);
+  box-shadow: var(--gloss), 0 2px 4px rgba(20,24,40,.10), 0 16px 30px -10px var(--k-glow) !important;
 }
 [data-theme="pink"] .btn-primary:active, [data-theme="blue"] .btn-primary:active, [data-theme="green"] .btn-primary:active {
-  transform: translateY(5px) !important;
-  box-shadow: 0 0 0 var(--k-accent-deep) !important;
-}
-[data-theme="pink"] .btn-secondary, [data-theme="blue"] .btn-secondary, [data-theme="green"] .btn-secondary,
-[data-theme="pink"] .btn-ghost, [data-theme="blue"] .btn-ghost, [data-theme="green"] .btn-ghost,
-[data-theme="pink"] .info-pill-btn, [data-theme="blue"] .info-pill-btn, [data-theme="green"] .info-pill-btn {
-  background: #fff !important;
-  border: 2.5px solid var(--k-line) !important;
-  border-radius: 999px !important;
-  color: var(--text-main) !important;
-  box-shadow: 0 4px 0 var(--k-line) !important;
-  transition: transform .1s ease, box-shadow .1s ease !important;
-}
-[data-theme="pink"] .btn-secondary:active, [data-theme="blue"] .btn-secondary:active, [data-theme="green"] .btn-secondary:active,
-[data-theme="pink"] .btn-ghost:active, [data-theme="blue"] .btn-ghost:active, [data-theme="green"] .btn-ghost:active,
-[data-theme="pink"] .info-pill-btn:active, [data-theme="blue"] .info-pill-btn:active, [data-theme="green"] .info-pill-btn:active {
-  transform: translateY(4px) !important;
-  box-shadow: 0 0 0 var(--k-line) !important;
-}
-[data-theme="pink"] .btn-dictation-red, [data-theme="blue"] .btn-dictation-red, [data-theme="green"] .btn-dictation-red,
-[data-theme="pink"] .btn-dictation-blue, [data-theme="blue"] .btn-dictation-blue, [data-theme="green"] .btn-dictation-blue {
-  border-radius: 22px !important;
-  border-width: 2.5px !important;
+  box-shadow: var(--gloss), 0 1px 2px rgba(20,24,40,.12) !important;
 }
 
-/* ── 6. 탭 / 구간 / 인풋 ───────────────────────────────────────── */
-[data-theme="pink"] .tab-btn, [data-theme="blue"] .tab-btn, [data-theme="green"] .tab-btn {
+/* ── 보조 액션 ───────────────────────────────────────────────────── */
+[data-theme="pink"] .btn-secondary, [data-theme="blue"] .btn-secondary, [data-theme="green"] .btn-secondary,
+[data-theme="pink"] .btn-ghost, [data-theme="blue"] .btn-ghost, [data-theme="green"] .btn-ghost {
   background: #fff !important;
-  border: 2.5px solid var(--k-line) !important;
+  border: none !important;
+  border-radius: 16px !important;
+  color: var(--text-main) !important;
+  font-size: 14.5px !important;
+  padding: 14px 18px !important;
+  box-shadow: var(--hair), var(--e2) !important;
+}
+[data-theme="pink"] .btn-secondary:hover, [data-theme="blue"] .btn-secondary:hover, [data-theme="green"] .btn-secondary:hover,
+[data-theme="pink"] .btn-ghost:hover, [data-theme="blue"] .btn-ghost:hover, [data-theme="green"] .btn-ghost:hover {
+  background: var(--k-soft) !important;
+  box-shadow: var(--hair), var(--e3) !important;
+}
+
+/* ── 조용한 액션 (하단 안내 등) ─────────────────────────────────── */
+[data-theme="pink"] .info-pill-btn, [data-theme="blue"] .info-pill-btn, [data-theme="green"] .info-pill-btn {
+  background: rgba(255, 255, 255, .72) !important;
+  border: none !important;
   border-radius: 999px !important;
-  padding: 12px 10px !important;
   color: var(--text-sub) !important;
-  box-shadow: 0 3px 0 var(--k-line) !important;
+  font-size: 13px !important;
+  padding: 11px 18px !important;
+  box-shadow: var(--hair) !important;
+  backdrop-filter: blur(6px);
+}
+[data-theme="pink"] .info-pill-btn:hover, [data-theme="blue"] .info-pill-btn:hover, [data-theme="green"] .info-pill-btn:hover {
+  background: #fff !important;
+  color: var(--text-main) !important;
+  box-shadow: var(--hair), var(--e2) !important;
+}
+
+/* ── 받아쓰기 / 복습 (기능색 유지, 물리만 통일) ─────────────────── */
+[data-theme="pink"] .btn-dictation-red, [data-theme="blue"] .btn-dictation-red, [data-theme="green"] .btn-dictation-red,
+[data-theme="pink"] .btn-dictation-blue, [data-theme="blue"] .btn-dictation-blue, [data-theme="green"] .btn-dictation-blue {
+  border-radius: 16px !important;
+  border-width: 1.5px !important;
+  box-shadow: var(--e1) !important;
+}
+
+/* ── 소셜 로그인 — 브랜드색은 지키되 물리는 동일하게 ────────────── */
+[data-theme] .btn-social {
+  border: none !important;
+  border-radius: 14px !important;
+  font-weight: 700;
+  box-shadow: var(--hair), var(--e2) !important;
+}
+[data-theme] .btn-social:hover { box-shadow: var(--hair), var(--e3) !important; }
+[data-theme] .btn-social-kakao  { background: #FEE500 !important; color: #191600 !important; }
+[data-theme] .btn-social-google { background: #fff !important;    color: #1F2937 !important; }
+
+/* ── 6. 탭 / 구간 / 인풋 ───────────────────────────────────────── */
+/* 탭은 "세그먼트 컨트롤"처럼 — 선택된 것만 떠오르고 나머지는 조용히 */
+[data-theme="pink"] .category-tabs-container,
+[data-theme="blue"] .category-tabs-container,
+[data-theme="green"] .category-tabs-container {
+  background: rgba(255, 255, 255, .55) !important;
+  border-radius: 20px !important;
+  padding: 6px !important;
+  gap: 4px !important;
+  box-shadow: var(--hair) !important;
+  backdrop-filter: blur(6px);
+}
+[data-theme="pink"] .tab-btn, [data-theme="blue"] .tab-btn, [data-theme="green"] .tab-btn {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 15px !important;
+  padding: 12px 8px !important;
+  font-size: 13.5px !important;
+  color: var(--text-sub) !important;
+  box-shadow: none !important;
+}
+[data-theme="pink"] .tab-btn:hover, [data-theme="blue"] .tab-btn:hover, [data-theme="green"] .tab-btn:hover {
+  background: rgba(255, 255, 255, .85) !important;
+  color: var(--text-main) !important;
 }
 [data-theme="pink"] .tab-btn.active, [data-theme="blue"] .tab-btn.active, [data-theme="green"] .tab-btn.active {
-  background: var(--k-accent) !important;
-  border-color: var(--k-accent-deep) !important;
+  background: linear-gradient(180deg, var(--k-accent-lt), var(--k-accent)) !important;
   color: #fff !important;
-  box-shadow: 0 3px 0 var(--k-accent-deep) !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,.12);
+  box-shadow: var(--gloss), 0 4px 10px -3px var(--k-glow) !important;
 }
+[data-theme="pink"] .tab-btn:active, [data-theme="blue"] .tab-btn:active, [data-theme="green"] .tab-btn:active {
+  transform: scale(.96) !important;
+}
+
+/* 구간 버튼 — 눌러야 할 카드처럼 보이게 */
 [data-theme="pink"] .btn-range-item, [data-theme="blue"] .btn-range-item, [data-theme="green"] .btn-range-item {
   background: #fff !important;
-  border: 2.5px solid var(--k-line) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 3px 0 var(--k-line) !important;
+  border: none !important;
+  border-radius: 18px !important;
+  padding: 16px 14px !important;
+  box-shadow: var(--hair), var(--e1) !important;
+  position: relative;
+  overflow: hidden;
+}
+[data-theme="pink"] .btn-range-item:hover, [data-theme="blue"] .btn-range-item:hover, [data-theme="green"] .btn-range-item:hover {
+  box-shadow: var(--hair), var(--e2) !important;
+  transform: translateY(-1px);
+}
+/* 왼쪽에 얇은 강조 바 — 어디를 누르는지 눈이 먼저 잡는다 */
+[data-theme="pink"] .btn-range-item::before,
+[data-theme="blue"] .btn-range-item::before,
+[data-theme="green"] .btn-range-item::before {
+  content: '';
+  position: absolute; left: 0; top: 12%; bottom: 12%;
+  width: 4px; border-radius: 0 4px 4px 0;
+  background: var(--k-accent);
+  opacity: .25;
+  transition: opacity .14s var(--k-ease);
+}
+[data-theme="pink"] .btn-range-item:hover::before,
+[data-theme="blue"] .btn-range-item:hover::before,
+[data-theme="green"] .btn-range-item:hover::before { opacity: 1; }
+
+[data-theme="pink"] .range-btn-count, [data-theme="blue"] .range-btn-count, [data-theme="green"] .range-btn-count {
+  background: var(--k-soft) !important;
+  color: var(--text-sub) !important;
+  border: none !important;
+  border-radius: 999px !important;
+  font-size: 11.5px !important;
+  padding: 3px 9px !important;
 }
 [data-theme="pink"] input[type="text"], [data-theme="pink"] input[type="tel"], [data-theme="pink"] select,
 [data-theme="blue"] input[type="text"], [data-theme="blue"] input[type="tel"], [data-theme="blue"] select,
@@ -197,10 +349,12 @@
   color: var(--text-main) !important;
 }
 [data-theme="pink"] #day-selector, [data-theme="blue"] #day-selector, [data-theme="green"] #day-selector {
-  border-radius: 999px !important;
-  border: 3px solid var(--k-line) !important;
-  box-shadow: 0 4px 0 var(--k-line) !important;
+  border-radius: 16px !important;
+  border: none !important;
+  padding: 17px 40px 17px 18px !important;
+  box-shadow: var(--hair), var(--e2) !important;
   font-family: var(--k-title) !important;
+  font-size: 15.5px !important;
 }
 
 /* ── 7. 진행바 / 뱃지 ──────────────────────────────────────────── */
@@ -231,10 +385,10 @@
 }
 [data-theme="pink"] .round-pill, [data-theme="blue"] .round-pill, [data-theme="green"] .round-pill {
   background: #fff !important;
-  border: 2.5px solid var(--k-line) !important;
+  border: none !important;
   border-radius: 999px !important;
   color: var(--text-main) !important;
-  box-shadow: 0 3px 0 var(--k-line) !important;
+  box-shadow: var(--hair), var(--e1) !important;
 }
 [data-theme="pink"] .test-category-day-badge, [data-theme="blue"] .test-category-day-badge, [data-theme="green"] .test-category-day-badge {
   background: var(--k-soft) !important;
@@ -246,45 +400,85 @@
 /* ── 8. 테스트 화면 ────────────────────────────────────────────── */
 [data-theme="pink"] .test-card, [data-theme="blue"] .test-card, [data-theme="green"] .test-card {
   background: #fff !important;
-  border: 3.5px solid var(--k-line) !important;
-  border-radius: 40px !important;
-  box-shadow: 0 10px 0 -2px var(--k-line), 0 22px 44px var(--k-shadow) !important;
+  border: none !important;
+  border-radius: 34px !important;
+  box-shadow: var(--hair), 0 4px 8px rgba(20,24,40,.05), 0 26px 48px -18px var(--k-shadow) !important;
   overflow: visible !important;
   margin-top: 76px !important;
   z-index: auto !important;
 }
+/* 뜻 확인 — 이 화면의 유일한 주 액션이므로 확실히 눈에 띄게 */
 [data-theme="pink"] .btn-reveal, [data-theme="blue"] .btn-reveal, [data-theme="green"] .btn-reveal {
-  background: #fff !important;
-  border: 3px solid var(--k-line) !important;
+  background: linear-gradient(180deg, var(--k-accent-lt), var(--k-accent)) !important;
+  border: none !important;
   border-radius: 999px !important;
-  color: var(--text-main) !important;
-  box-shadow: 0 5px 0 var(--k-line) !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  padding: 16px 30px !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,.14);
+  box-shadow: var(--gloss), 0 2px 4px rgba(20,24,40,.10), 0 12px 26px -8px var(--k-glow) !important;
 }
 [data-theme="pink"] .btn-reveal:active, [data-theme="blue"] .btn-reveal:active, [data-theme="green"] .btn-reveal:active {
-  transform: translateY(5px);
-  box-shadow: 0 0 0 var(--k-line) !important;
+  transform: scale(.97);
+  box-shadow: var(--gloss), 0 1px 2px rgba(20,24,40,.12) !important;
 }
 [data-theme="pink"] #test-timer-fill, [data-theme="blue"] #test-timer-fill, [data-theme="green"] #test-timer-fill {
   background: var(--k-accent) !important;
   border-radius: 999px !important;
 }
 
-/* ── 9. O·X ───────────────────────────────────────────────────── */
+/* ── 9. O·X — 이 앱에서 가장 많이 누르는 버튼 ──────────────────── */
+/* 색 · 아이콘 · 라벨 세 가지가 동시에 다르게 읽히도록 만든다.
+   색맹이어도 아이콘 모양(체크/엑스)으로 구분된다.                    */
+[data-theme] .ox-buttons, [data-theme] #ox-buttons-container { gap: 12px !important; }
+
 [data-theme="pink"] .btn-ox-new, [data-theme="blue"] .btn-ox-new, [data-theme="green"] .btn-ox-new {
-  border-radius: 28px !important;
-  border-width: 3px !important;
-  transition: transform .1s ease, box-shadow .1s ease !important;
-}
-[data-theme="pink"] .btn-ox-new.btn-o, [data-theme="blue"] .btn-ox-new.btn-o, [data-theme="green"] .btn-ox-new.btn-o {
-  background: #F1FCF6 !important; border-color: var(--k-ok) !important;
-  box-shadow: 0 6px 0 var(--k-ok) !important;
-}
-[data-theme="pink"] .btn-ox-new.btn-x, [data-theme="blue"] .btn-ox-new.btn-x, [data-theme="green"] .btn-ox-new.btn-x {
-  background: #FFF4F4 !important; border-color: var(--k-no) !important;
-  box-shadow: 0 6px 0 var(--k-no) !important;
+  flex: 1;
+  border: none !important;
+  border-radius: 22px !important;
+  padding: 18px 12px 15px !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px !important;
+  background: #fff !important;
+  box-shadow: var(--hair), var(--e2) !important;
 }
 [data-theme="pink"] .btn-ox-new:active, [data-theme="blue"] .btn-ox-new:active, [data-theme="green"] .btn-ox-new:active {
-  transform: translateY(6px) !important; box-shadow: 0 0 0 transparent !important;
+  transform: scale(.955) !important;
+}
+
+/* 아이콘 원 — 채워진 원이라 멀리서도 O/X가 즉시 구분된다 */
+[data-theme="pink"] .ox-circle, [data-theme="blue"] .ox-circle, [data-theme="green"] .ox-circle {
+  width: 54px !important; height: 54px !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important; align-items: center; justify-content: center;
+  color: #fff !important;
+}
+[data-theme="pink"] .circle-o, [data-theme="blue"] .circle-o, [data-theme="green"] .circle-o {
+  background: linear-gradient(180deg, var(--k-ok-lt), var(--k-ok)) !important;
+  box-shadow: var(--gloss), 0 6px 14px -4px rgba(52, 199, 123, .55) !important;
+}
+[data-theme="pink"] .circle-x, [data-theme="blue"] .circle-x, [data-theme="green"] .circle-x {
+  background: linear-gradient(180deg, var(--k-no-lt), var(--k-no)) !important;
+  box-shadow: var(--gloss), 0 6px 14px -4px rgba(242, 96, 122, .5) !important;
+}
+[data-theme="pink"] .ox-label, [data-theme="blue"] .ox-label, [data-theme="green"] .ox-label {
+  font-size: 14.5px !important;
+  letter-spacing: -.01em;
+}
+[data-theme="pink"] .btn-o .ox-label, [data-theme="blue"] .btn-o .ox-label, [data-theme="green"] .btn-o .ox-label { color: #1E9A5C !important; }
+[data-theme="pink"] .btn-x .ox-label, [data-theme="blue"] .btn-x .ox-label, [data-theme="green"] .btn-x .ox-label { color: #D6415E !important; }
+
+/* 누르는 순간 카드 전체가 그 색으로 물든다 — 눌렸다는 확신을 준다 */
+[data-theme="pink"] .btn-o:active, [data-theme="blue"] .btn-o:active, [data-theme="green"] .btn-o:active {
+  background: #EDFBF3 !important;
+  box-shadow: inset 0 0 0 2px var(--k-ok) !important;
+}
+[data-theme="pink"] .btn-x:active, [data-theme="blue"] .btn-x:active, [data-theme="green"] .btn-x:active {
+  background: #FEF1F3 !important;
+  box-shadow: inset 0 0 0 2px var(--k-no) !important;
 }
 
 /* ── 10. 결과 화면 ────────────────────────────────────────────── */
@@ -368,9 +562,9 @@
   content: '오늘도 같이 외워볼까?';
   display: block; width: fit-content; max-width: 90%;
   margin: 26px auto 6px; padding: 10px 18px;
-  background: #fff; border: 2.5px solid var(--k-line); border-radius: 999px;
+  background: #fff; border: none; border-radius: 999px;
   font-family: var(--k-title); font-size: 14px; color: var(--text-main);
-  box-shadow: 0 4px 0 var(--k-line);
+  box-shadow: var(--hair), var(--e2);
 }
 [data-theme="blue"] .footer-info-links::before { content: '한 조각씩, 구름처럼 가볍게!'; }
 [data-theme="green"] .footer-info-links::before { content: '하루 한 뼘씩 자라는 중!'; }
@@ -424,20 +618,70 @@
 /* ── 12. 모달 ─────────────────────────────────────────────────── */
 [data-theme="pink"] .pwa-modal-content, [data-theme="blue"] .pwa-modal-content, [data-theme="green"] .pwa-modal-content,
 [data-theme="pink"] .modal-content, [data-theme="blue"] .modal-content, [data-theme="green"] .modal-content {
-  border-radius: 32px !important;
-  border: 3px solid var(--k-line) !important;
+  border-radius: 30px !important;
+  border: none !important;
   background: #fff !important;
-  box-shadow: 0 10px 0 -2px var(--k-line), 0 24px 50px var(--k-shadow) !important;
+  box-shadow: var(--hair), 0 6px 14px rgba(20,24,40,.07), 0 34px 60px -22px var(--k-shadow) !important;
 }
 
 /* ── 13. 다크 테마 — 캐릭터 없이 형태만 몰랑 ─────────────────── */
 [data-theme="dark"] .glass-card, [data-theme="dark"] .word-card { border-radius: 28px !important; }
 [data-theme="dark"] .test-card { border-radius: 36px !important; }
 [data-theme="dark"] .round-result-card { border-radius: 32px !important; }
-[data-theme="dark"] .btn-primary, [data-theme="dark"] .btn-secondary, [data-theme="dark"] .btn-ghost,
-[data-theme="dark"] .tab-btn, [data-theme="dark"] .round-pill, [data-theme="dark"] .info-pill-btn,
+[data-theme="dark"] .round-pill, [data-theme="dark"] .info-pill-btn,
 [data-theme="dark"] .btn-reveal, [data-theme="dark"] .progress-track, [data-theme="dark"] .progress-fill {
   border-radius: 999px !important;
+}
+/* 다크도 같은 버튼 물리를 쓴다 — 그라데이션 + 얇은 그림자 + scale 눌림 */
+[data-theme="dark"] .btn-primary {
+  background: linear-gradient(180deg, var(--k-accent-lt), var(--k-accent)) !important;
+  border: none !important;
+  border-radius: 16px !important;
+  color: #fff !important;
+  padding: 15px 20px !important;
+  box-shadow: var(--gloss), 0 2px 6px rgba(0,0,0,.4), 0 12px 26px -10px var(--k-glow) !important;
+}
+[data-theme="dark"] .btn-reveal {
+  background: linear-gradient(180deg, var(--k-accent-lt), var(--k-accent)) !important;
+  border: none !important; color: #fff !important;
+  padding: 16px 30px !important;
+  box-shadow: var(--gloss), 0 12px 26px -8px var(--k-glow) !important;
+}
+[data-theme="dark"] .btn-secondary, [data-theme="dark"] .btn-ghost {
+  background: rgba(255,255,255,.06) !important;
+  border: none !important;
+  border-radius: 16px !important;
+  color: var(--text-main) !important;
+  box-shadow: var(--hair) !important;
+}
+[data-theme="dark"] .btn-secondary:hover, [data-theme="dark"] .btn-ghost:hover {
+  background: rgba(255,255,255,.11) !important;
+}
+[data-theme="dark"] .category-tabs-container {
+  background: rgba(255,255,255,.05) !important;
+  border-radius: 20px !important; padding: 6px !important; gap: 4px !important;
+  box-shadow: var(--hair) !important;
+}
+[data-theme="dark"] .tab-btn {
+  background: transparent !important; border: none !important;
+  border-radius: 15px !important; box-shadow: none !important;
+  color: var(--text-sub) !important;
+}
+[data-theme="dark"] .tab-btn.active {
+  background: linear-gradient(180deg, var(--k-accent-lt), var(--k-accent)) !important;
+  color: #fff !important;
+  box-shadow: var(--gloss), 0 4px 12px -3px var(--k-glow) !important;
+}
+[data-theme="dark"] .btn-range-item {
+  background: rgba(255,255,255,.05) !important;
+  border: none !important; border-radius: 18px !important;
+  box-shadow: var(--hair) !important;
+}
+[data-theme="dark"] .btn-range-item:hover { background: rgba(255,255,255,.09) !important; }
+[data-theme="dark"] .btn-primary:active, [data-theme="dark"] .btn-secondary:active,
+[data-theme="dark"] .btn-ghost:active, [data-theme="dark"] .btn-reveal:active,
+[data-theme="dark"] .btn-range-item:active, [data-theme="dark"] .tab-btn:active {
+  transform: scale(.97) !important;
 }
 [data-theme="dark"] .test-card::before, [data-theme="dark"] .test-card::after,
 [data-theme="dark"] .round-result-card::before,
@@ -477,7 +721,7 @@
   border-radius: 34px;
   padding: 22px 20px 20px;
   text-align: center;
-  box-shadow: 0 12px 0 -3px var(--k-line, #F7C6DE), 0 30px 60px rgba(0,0,0,.35);
+  box-shadow: 0 8px 18px rgba(0,0,0,.16), 0 40px 80px -24px rgba(0,0,0,.45);
   transform: translateY(18px) scale(.96);
   transition: transform .34s cubic-bezier(.2,1.5,.4,1);
   font-family: var(--k-title);
@@ -523,14 +767,15 @@
 .cel-collect b { font-size: 15px; color: var(--k-accent-deep, #E0559C); }
 .cel-collect span { display: block; margin-top: 2px; font-size: 11.5px; opacity: .8; }
 .cel-close {
-  width: 100%; padding: 14px; font-size: 15.5px; cursor: pointer;
+  width: 100%; padding: 16px; font-size: 15.5px; cursor: pointer;
   font-family: var(--k-title);
-  background: var(--k-accent, #FF8FC0); color: #fff;
-  border: 3px solid var(--k-accent-deep, #E0559C); border-radius: 999px;
-  box-shadow: 0 5px 0 var(--k-accent-deep, #E0559C);
-  transition: transform .1s ease, box-shadow .1s ease;
+  background: linear-gradient(180deg, var(--k-accent-lt, #FFA6CE), var(--k-accent, #FB7FB4));
+  color: #fff; text-shadow: 0 1px 1px rgba(0,0,0,.14);
+  border: none; border-radius: 16px;
+  box-shadow: var(--gloss), 0 2px 4px rgba(20,24,40,.1), 0 12px 26px -8px var(--k-glow, rgba(240,118,172,.42));
+  transition: transform .14s var(--k-ease), box-shadow .14s var(--k-ease);
 }
-.cel-close:active { transform: translateY(5px); box-shadow: 0 0 0; }
+.cel-close:active { transform: scale(.97); box-shadow: var(--gloss), 0 1px 2px rgba(20,24,40,.12); }
 
 /* ── 공연별 안무 ────────────────────────────────────────────── */
 @keyframes celSway   { 0%,100%{transform:translateX(-9px) rotate(-7deg)} 50%{transform:translateX(9px) rotate(7deg)} }
