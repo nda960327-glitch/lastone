@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v344'; // feat: 파이어베이스 → 수파베이스 전환
+const CACHE_NAME = 'vocabmaster-v345'; // chore: 네이버 로그인 제거 (구글·카카오만)
 const KAWAII = [];
 for (const kind of ['bear', 'cloud', 'sprout']) {
   for (const pose of ['idle','happy','oops','cheer','wave','dance','sleep','love','shock','face','face-happy','mini']) {

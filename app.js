@@ -3740,10 +3740,10 @@ let isVerticalScroll = false;
       }
     });
 
-    // ── 소셜 로그인 (구글 · 카카오 · 네이버) ──
-    // 세 방식 모두 페이지를 떠났다가 돌아오는 흐름이라, 여기서는 보내기만 하면 된다.
+    // ── 소셜 로그인 (구글 · 카카오) ──
+    // 둘 다 페이지를 떠났다가 돌아오는 흐름이라, 여기서는 보내기만 하면 된다.
     // 돌아온 뒤 처리는 Session.onChange 가 맡는다.
-    const PROVIDER_LABEL = { google: '구글', kakao: '카카오', naver: '네이버' };
+    const PROVIDER_LABEL = { google: '구글', kakao: '카카오' };
 
     const loginButtons = () => Array.from(document.querySelectorAll('[data-login-provider]'));
 

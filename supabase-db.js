@@ -4,10 +4,9 @@
    파이어베이스(Firestore + Firebase Auth)를 대체한다.
    app.js 는 이 파일이 노출하는 Auth / DB 만 쓴다.
 
-   로그인: 구글 · 카카오 (수파베이스 기본 지원)
-           네이버 (Edge Function `naver-auth` 경유)
+   로그인: 구글 · 카카오 (둘 다 수파베이스 기본 지원)
 
-   ⚠️ 아래 CONFIG 세 줄만 본인 값으로 채우면 동작합니다.
+   ⚠️ 아래 CONFIG 두 줄만 본인 값으로 채우면 동작합니다.
       키가 비어 있어도 앱은 죽지 않고 "맛보기(비로그인) 모드"로 돌아갑니다.
    ═══════════════════════════════════════════════════════════════════════ */
 (function (global) {
@@ -18,8 +17,6 @@
     // Supabase 대시보드 → Project Settings → API
     SUPABASE_URL:      'https://YOUR-PROJECT.supabase.co',
     SUPABASE_ANON_KEY: 'YOUR-ANON-KEY',
-    // 네이버 개발자센터 → 애플리케이션 → Client ID (공개값이라 노출돼도 됩니다)
-    NAVER_CLIENT_ID:   'YOUR-NAVER-CLIENT-ID',
   };
 
   const configured =
@@ -58,56 +55,6 @@
 
   const REDIRECT = global.location.origin + global.location.pathname;
 
-  /* ── 네이버 ─────────────────────────────────────────────────────
-     수파베이스가 지원하지 않으므로 직접 처리한다.
-       1) 네이버 인증 페이지로 보낸다
-       2) 돌아오면 code 를 Edge Function 에 넘긴다
-       3) 받은 매직링크 토큰을 세션으로 바꾼다                        */
-  const NAVER_STATE_KEY = 'doacore_naver_state';
-
-  function naverAuthorizeURL() {
-    const state = Math.random().toString(36).slice(2) + Date.now().toString(36);
-    sessionStorage.setItem(NAVER_STATE_KEY, state);
-    const u = new URL('https://nid.naver.com/oauth2.0/authorize');
-    u.searchParams.set('response_type', 'code');
-    u.searchParams.set('client_id', CONFIG.NAVER_CLIENT_ID);
-    u.searchParams.set('redirect_uri', REDIRECT);
-    u.searchParams.set('state', state);
-    return u.toString();
-  }
-
-  async function completeNaverLogin() {
-    const q = new URLSearchParams(global.location.search);
-    const code = q.get('code');
-    const state = q.get('state');
-    const saved = sessionStorage.getItem(NAVER_STATE_KEY);
-    // state 가 우리가 만든 값과 같아야 한다 (CSRF 방지)
-    if (!code || !state || !saved || state !== saved) return false;
-    sessionStorage.removeItem(NAVER_STATE_KEY);
-
-    try {
-      const res = await fetch(CONFIG.SUPABASE_URL + '/functions/v1/naver-auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', apikey: CONFIG.SUPABASE_ANON_KEY },
-        body: JSON.stringify({ code, state, redirectUri: REDIRECT }),
-      });
-      const out = await res.json();
-      if (!res.ok || !out.token_hash) throw new Error(out.error || '네이버 로그인 실패');
-
-      const { error } = await sb.auth.verifyOtp({
-        email: out.email, token_hash: out.token_hash, type: 'magiclink',
-      });
-      if (error) throw error;
-    } catch (e) {
-      console.error('[naver]', e);
-      alert('네이버 로그인에 실패했습니다: ' + (e.message || e));
-    } finally {
-      // 주소창에서 code/state 를 지운다
-      history.replaceState({}, '', REDIRECT);
-    }
-    return true;
-  }
-
   const Auth = {
     user()    { return _user; },
     profile() { return _profile; },
@@ -115,19 +62,11 @@
 
     onChange(fn) { listeners.push(fn); if (_user !== null) fn(_user, _profile); },
 
-    /** provider: 'google' | 'kakao' | 'naver' */
+    /** provider: 'google' | 'kakao' */
     async signIn(provider) {
-      if (provider === 'naver') {
-        if (CONFIG.NAVER_CLIENT_ID.indexOf('YOUR-') !== -1) {
-          alert('네이버 로그인이 아직 설정되지 않았습니다.');
-          return;
-        }
-        global.location.href = naverAuthorizeURL();
-        return;
-      }
       need();
       const { error } = await sb.auth.signInWithOAuth({
-        provider,                       // 'google' | 'kakao'
+        provider,
         options: {
           redirectTo: REDIRECT,
           queryParams: provider === 'google' ? { prompt: 'select_account' } : undefined,
@@ -332,9 +271,6 @@
      ═══════════════════════════════════════════════════════════════ */
   async function boot() {
     if (!sb) { _user = false; emit(); return; }
-
-    // 네이버에서 돌아온 경우 먼저 세션으로 교환
-    await completeNaverLogin();
 
     sb.auth.onAuthStateChange(async (_event, session) => {
       _user = session ? session.user : false;

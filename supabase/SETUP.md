@@ -15,7 +15,6 @@
 const CONFIG = {
   SUPABASE_URL:      'https://xxxxxxxx.supabase.co',
   SUPABASE_ANON_KEY: 'eyJhbGciOi...',
-  NAVER_CLIENT_ID:   '아직 비워둠',
 };
 ```
 
@@ -68,37 +67,7 @@ const CONFIG = {
 
 ---
 
-## 5. 네이버 로그인 (Edge Function)
-
-수파베이스가 네이버를 기본 지원하지 않아서 함수를 하나 띄웁니다.
-
-**5-1. 네이버 앱 등록**
-
-1. https://developers.naver.com/apps → 애플리케이션 등록
-2. 사용 API: **네이버 로그인** / 제공 정보: 이메일·이름·프로필사진
-3. **서비스 URL** 과 **Callback URL** 에 앱 주소를 등록
-   ```
-   https://내앱주소.com/index.html
-   ```
-   > 여기는 수파베이스 주소가 아니라 **앱 자신의 주소**입니다. 우리가 직접 처리하니까요.
-   > 로컬 테스트용으로 `http://localhost:8765/index.html` 도 같이 등록해두면 편합니다.
-4. Client ID → `supabase-db.js` 의 `NAVER_CLIENT_ID` 에 입력
-
-**5-2. 함수 배포**
-
-```bash
-npm i -g supabase
-supabase login
-supabase link --project-ref <프로젝트ref>
-supabase secrets set NAVER_CLIENT_ID=xxx NAVER_CLIENT_SECRET=yyy
-supabase functions deploy naver-auth --no-verify-jwt
-```
-
-> `--no-verify-jwt` 는 필수입니다. 로그인 **전에** 호출되는 함수라 아직 토큰이 없습니다.
-
----
-
-## 6. 리디렉션 주소 등록
+## 5. 리디렉션 주소 등록
 
 **Authentication → URL Configuration**
 
@@ -116,7 +85,7 @@ com.doacore.app://login-callback
 
 ---
 
-## 7. 최고관리자 계정 만들기
+## 6. 최고관리자 계정 만들기
 
 스키마가 기본 코드 `admin_nodoa327` 을 심어둡니다. 첫 로그인 후 로고를 길게 눌러 이 코드를 입력하면 최고관리자가 됩니다.
 **바로 다른 코드로 바꾸세요.** (최고관리자 화면 → 코드 변경)
@@ -127,7 +96,7 @@ com.doacore.app://login-callback
 
 - [ ] 구글로 로그인 → `profiles` 테이블에 행이 자동 생성되는가
 - [ ] 카카오로 로그인 → 같은가
-- [ ] 네이버로 로그인 → 같은가
+- [ ] 카카오 계정에서 **이메일 제공에 동의하지 않고** 로그인해도 되는가
 - [ ] 최고관리자 코드로 학원 생성 → `academies` + `academy_secrets` 생성 확인
 - [ ] 학생 계정으로 초대 코드 입력 → 학원 등록되는가
 - [ ] **학생 계정으로 `academy_secrets` 조회 시도 → 빈 결과가 나와야 정상**
