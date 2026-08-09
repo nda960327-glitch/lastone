@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v346'; // feat: 버튼 시스템 리디자인
+const CACHE_NAME = 'vocabmaster-v345'; // chore: 네이버 로그인 제거 (구글·카카오만)
 const KAWAII = [];
 for (const kind of ['bear', 'cloud', 'sprout']) {
   for (const pose of ['idle','happy','oops','cheer','wave','dance','sleep','love','shock','face','face-happy','mini']) {
