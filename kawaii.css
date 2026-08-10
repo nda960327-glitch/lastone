@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   DOACore — 몰랑몰랑 스킨 (kawaii.css)
+   5SECore — 몰랑몰랑 스킨 (kawaii.css)
    style.css 다음에 로드되는 "스킨 레이어".
    구조/기능은 건드리지 않고 생김새만 동글동글하게 다시 그린다.
 
@@ -107,9 +107,11 @@
   color: var(--text-main) !important;
 }
 
+/* 제목은 그라데이션 텍스트(background-clip:text)라 흰 그림자를 깔면
+   글자 주위에 후광이 생겨 오히려 안 읽힌다. 그림자 없이 대비로 승부. */
 [data-theme="pink"] .brand-title,
 [data-theme="blue"] .brand-title,
-[data-theme="green"] .brand-title { text-shadow: 0 2px 0 #fff, 0 3px 0 var(--k-line); }
+[data-theme="green"] .brand-title { text-shadow: none; letter-spacing: -.025em; }
 [data-theme="green"] .brand-sub::after { content: none !important; }
 
 /* ── 4. 카드 — 하얀 찹쌀떡 ──────────────────────────────────────── */

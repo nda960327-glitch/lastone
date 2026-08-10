@@ -2736,7 +2736,7 @@ function showFinalResult() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `DOACore_오답성적표.csv`;
+    a.download = `5SECore_오답성적표.csv`;
     a.click();
   };
 
@@ -2965,7 +2965,7 @@ function restoreProgress(jsonStr) {
   };
 
   function showPwaGuideAlert() {
-    alert("📲 DOACore 앱 설치 (홈 화면에 추가) 안내\n\n1. [안드로이드 크롬/삼성인터넷]:\n   브라우저 우측 상단 점 3개(⋮) ➔ '홈 화면에 추가' 또는 '앱 설치'를 누르세요.\n\n2. [아이폰 Safari]:\n   하단 중앙 [공유(↑)] 아이콘 ➔ '홈 화면에 추가'를 누르세요.\n\n바탕화면에 앱 아이콘이 생성되어 더욱 빠르고 편리하게 단어를 학습할 수 있습니다!");
+    alert("📲 5SECore 앱 설치 (홈 화면에 추가) 안내\n\n1. [안드로이드 크롬/삼성인터넷]:\n   브라우저 우측 상단 점 3개(⋮) ➔ '홈 화면에 추가' 또는 '앱 설치'를 누르세요.\n\n2. [아이폰 Safari]:\n   하단 중앙 [공유(↑)] 아이콘 ➔ '홈 화면에 추가'를 누르세요.\n\n바탕화면에 앱 아이콘이 생성되어 더욱 빠르고 편리하게 단어를 학습할 수 있습니다!");
   }
 
   if (btnInstall) btnInstall.onclick = handleInstallClick;
@@ -3986,7 +3986,7 @@ let isVerticalScroll = false;
   // AI Prompt Copy Helper
   // =============================================
   const AI_PROMPT_TEMPLATE = `너는 영단어 변환 및 정리 전문가야.
-내가 아래에 입력하는 임의의 영단어/뜻/Day 자료를 DOACore 단어장 전용 포맷으로 정확하게 변환해줘.
+내가 아래에 입력하는 임의의 영단어/뜻/Day 자료를 5SECore 단어장 전용 포맷으로 정확하게 변환해줘.
 
 ■ 변환 포맷 규칙:
 1. Day 구분은 반드시 '# Day 1', '# Day 2' 처럼 작성할 것. (Day 번호는 유지하거나 1부터 순서대로 부여)
@@ -4018,7 +4018,7 @@ let isVerticalScroll = false;
     
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(AI_PROMPT_TEMPLATE).then(() => {
-        alert("📋 ChatGPT/AI용 단어 변환 프롬프트가 클립보드에 복사되었습니다!\n\nChatGPT나 Claude에 붙여넣어 단어 자료를 DOACore 포맷으로 쉽게 변환해보세요.");
+        alert("📋 ChatGPT/AI용 단어 변환 프롬프트가 클립보드에 복사되었습니다!\n\nChatGPT나 Claude에 붙여넣어 단어 자료를 5SECore 포맷으로 쉽게 변환해보세요.");
       }).catch(() => {});
     }
   };
@@ -4066,8 +4066,8 @@ let isVerticalScroll = false;
     const headerBear = document.getElementById('header-bear-logo');
 
     if (!brandData || (!brandData.brandName && !brandData.name)) {
-      if (headerTitle) headerTitle.textContent = "DOACore";
-      if (headerSub) headerSub.textContent = "DOACore: 인지공학 기반 영단어 각인 엔진";
+      if (headerTitle) headerTitle.textContent = "5SECore";
+      if (headerSub) headerSub.textContent = "5SECore: 인지공학 기반 영단어 각인 엔진";
       if (headerImg) { headerImg.src = "icon.jpg"; headerImg.style.display = "block"; }
       if (headerBear) headerBear.style.display = "none";
       return;

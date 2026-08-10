@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   DOACore — 수파베이스 연결 계층 (supabase-db.js)
+   5SECore — 수파베이스 연결 계층 (supabase-db.js)
    -----------------------------------------------------------------------
    파이어베이스(Firestore + Firebase Auth)를 대체한다.
    app.js 는 이 파일이 노출하는 Auth / DB 만 쓴다.
@@ -26,7 +26,7 @@
     CONFIG.SUPABASE_ANON_KEY.indexOf('YOUR-') === -1;
 
   if (!configured) {
-    console.warn('[DOACore] 수파베이스 키가 아직 설정되지 않았습니다 — 맛보기(비로그인) 모드로만 동작합니다.');
+    console.warn('[5SECore] 수파베이스 키가 아직 설정되지 않았습니다 — 맛보기(비로그인) 모드로만 동작합니다.');
   }
 
   const sb = (configured && global.supabase)
@@ -289,5 +289,6 @@
   global.SBClient = sb;
   global.Auth = Auth;
   global.DB = DB;
-  global.DOACoreBoot = boot();
+  // 식별자는 숫자로 시작할 수 없어서 브랜드명(5SECore)을 그대로 쓰지 않는다
+  global.AppBoot = boot();
 })(window);

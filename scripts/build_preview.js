@@ -19,7 +19,7 @@ const cel = fs.readFileSync(path.join(ROOT, 'celebration.js'), 'utf8');
 
 const html = `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DOACore 캐릭터 & 커튼콜 미리보기</title>
+<title>5SECore 캐릭터 & 커튼콜 미리보기</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Jua&display=swap" rel="stylesheet">
 <style>
 ${css}

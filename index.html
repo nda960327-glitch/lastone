@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>DOACore</title>
+  <title>5SECore</title>
   <meta name="description" content="뇌과학 및 인지공학 기반의 개인 맞춤형 영단어 각인 시스템">
   <meta name="theme-color" content="#07071a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Jua&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=345">
+  <link rel="stylesheet" href="style.css?v=348">
   <!-- 몰랑몰랑 스킨 레이어 (캐릭터 · 동글동글 폼 · 커튼콜) -->
-  <link rel="stylesheet" href="kawaii.css?v=345">
+  <link rel="stylesheet" href="kawaii.css?v=348">
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -20,7 +20,7 @@
   <!-- 백엔드: 수파베이스 (Auth + Postgres) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <!-- 연결 계층 — app.js 보다 먼저 로드돼야 한다 (window.Auth / window.DB 를 만든다) -->
-  <script src="supabase-db.js?v=347"></script>
+  <script src="supabase-db.js?v=348"></script>
 </head>
 <body>
   <!-- 글로벌 스탬프 -->
@@ -57,10 +57,10 @@
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; text-align: center; max-width: 440px; margin: 0 auto; position: relative;">
       <!-- Logo Container -->
       <div id="login-logo-container" style="display: flex; flex-direction: column; align-items: center; gap: 14px; cursor: pointer; user-select: none; -webkit-user-select: none; margin-bottom: 28px;">
-        <img src="icon.jpg" class="brand-icon-img default-logo" alt="DOACore Logo" style="width: 84px; height: 84px; border-radius: 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); pointer-events: none; object-fit: cover;">
+        <img src="icon.jpg" class="brand-icon-img default-logo" alt="5SECore Logo" style="width: 84px; height: 84px; border-radius: 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); pointer-events: none; object-fit: cover;">
         <div class="bear-logo" style="width: 84px; height: 84px; font-size: 48px; border-radius: 24px; pointer-events: none; display: none;">🐻‍❄️</div>
         <div style="pointer-events: none;">
-          <h1 class="brand-title" style="margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.5px;">DOACore</h1>
+          <h1 class="brand-title" style="margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.5px;">5SECore</h1>
           <p class="brand-sub" style="margin: 6px 0 0 0; font-size: 14px; color: var(--text-sub);">인지공학 기반 영단어 각인 엔진</p>
         </div>
       </div>
@@ -291,10 +291,10 @@
         <div class="bear-logo" id="header-bear-logo" style="cursor: pointer; flex-shrink: 0; display: none; width: 64px; height: 64px; font-size: 38px; border-radius: 18px; align-items: center; justify-content: center;">🐻‍❄️</div>
         <div>
           <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
-            <h1 class="brand-title" id="header-brand-title" style="margin: 0;">DOACore</h1>
-            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v345</span>
+            <h1 class="brand-title" id="header-brand-title" style="margin: 0;">5SECore</h1>
+            <span style="background: rgba(150,150,150,0.15); color: var(--text-sub); font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(150,150,150,0.2);">v348</span>
           </div>
-          <p class="brand-sub" id="header-brand-sub" style="margin: 4px 0 0 0;">DOACore: 인지공학 기반 영단어 각인 엔진</p>
+          <p class="brand-sub" id="header-brand-sub" style="margin: 4px 0 0 0;">5SECore: 인지공학 기반 영단어 각인 엔진</p>
         </div>
       </div>
     </header>
@@ -450,7 +450,7 @@
         💡 이 앱의 효과 및 사용법 읽기
       </button>
       <button id="btn-developer-story" class="info-pill-btn">
-        👨‍💻 DOACore 탄생 비화
+        👨‍💻 5SECore 탄생 비화
       </button>
     </div>
   </section>
@@ -717,7 +717,7 @@
   <div id="pwa-install-modal" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card">
       <div class="pwa-modal-icon">📱</div>
-      <h3>DOACore 앱 설치</h3>
+      <h3>5SECore 앱 설치</h3>
       <p>홈 화면에 설치하여 오프라인에서도 웹 데이터 제한 없이 전체 화면으로 편리하게 단어를 학습해 보세요!</p>
       <div class="pwa-modal-btns">
         <button id="btn-pwa-close" class="btn-secondary">나중에</button>
@@ -734,22 +734,22 @@
         <button id="btn-info-close" style="background: transparent; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; padding: 0 4px;">✕</button>
       </div>
       <div class="guide-content">
-        <h2 class="guide-title">🧠 DOACore : 뇌과학이 증명한 '단기 기억' 해킹 시스템</h2>
+        <h2 class="guide-title">🧠 5SECore : 뇌과학이 증명한 '단기 기억' 해킹 시스템</h2>
         <p class="guide-intro">"깜지 쓰기? 무미건조한 무한 반복? 당신의 뇌를 학대하는 원시적인 암기는 오늘부로 끝납니다."</p>
-        <p>DOACore는 인간 뇌의 심리적 약점과 기억의 메타인지를 완벽하게 제어하는 과학적 알고리즘입니다. 시스템이 이끄는 대로만 따라오시면, <b>최소 45분에서 최대 80분 만에 200개의 영단어를 뇌에 가장 견고한 '장기 기억' 상태로 영구 각인</b>시킬 수 있습니다.</p>
+        <p>5SECore는 인간 뇌의 심리적 약점과 기억의 메타인지를 완벽하게 제어하는 과학적 알고리즘입니다. 시스템이 이끄는 대로만 따라오시면, <b>최소 45분에서 최대 80분 만에 200개의 영단어를 뇌에 가장 견고한 '장기 기억' 상태로 영구 각인</b>시킬 수 있습니다.</p>
 
         <div class="trust-box">
           <h3>💡 아무리 어려운 토플(TOEFL) 단어 200개라도 진짜 80분 안에 가능할까?</h3>
           <p><b>네, 무조건 가능합니다. 이것은 기적이 아니라 '과학'이자 '산수'입니다.</b></p>
           <p>우리가 영단어 암기에 수시간을 낭비하는 이유는 머리가 나빠서가 아닙니다. '모르는 단어'를 멍하니 쳐다보며 시간을 보내거나, '이미 아는 단어'를 불안해서 또 확인하느라 뇌를 공회전시키기 때문입니다.</p>
-          <p>DOACore는 당신이 낭비하는 이 모든 시간을 <b>'0초'</b>로 강제 압축합니다. 생판 처음 보는 최고 난이도의 토플, GRE 단어장이라도 상관없습니다. 당신의 뇌가 타들어 가는 듯한 80분의 압박을 견뎌내고 최종 보스전을 클리어했다면, 그것은 시스템이 당신의 뇌를 멱살 잡고 끌고 가 200단어의 스냅샷을 완벽하게 찍어냈다는 과학적 증거입니다. 당신은 그저 시스템을 믿고, 5초마다 버튼만 누르시면 됩니다.</p>
+          <p>5SECore는 당신이 낭비하는 이 모든 시간을 <b>'0초'</b>로 강제 압축합니다. 생판 처음 보는 최고 난이도의 토플, GRE 단어장이라도 상관없습니다. 당신의 뇌가 타들어 가는 듯한 80분의 압박을 견뎌내고 최종 보스전을 클리어했다면, 그것은 시스템이 당신의 뇌를 멱살 잡고 끌고 가 200단어의 스냅샷을 완벽하게 찍어냈다는 과학적 증거입니다. 당신은 그저 시스템을 믿고, 5초마다 버튼만 누르시면 됩니다.</p>
         </div>
 
-        <h3 class="section-heading">🔥 DOACore는 왜 미치도록 압도적이고 과학적일까?</h3>
+        <h3 class="section-heading">🔥 5SECore는 왜 미치도록 압도적이고 과학적일까?</h3>
         <p>이 앱은 단순한 단어장이 아닙니다. 인지과학 논문에서 증명된 4가지 핵심 원리를 시스템으로 구현한 <b>'뇌 훈련 엔진'</b>입니다.</p>
         
         <ul class="science-list">
-          <li><b>1. ⏱️ 5초 초고속 메타인지 (Fast-Failing):</b> 뇌과학적으로 5초 이내에 튀어나오지 않는 지식은 모르는 것입니다. DOACore는 5초가 지나면 정답을 강제로 잠가버립니다. <b>빠르게 틀리고, 내 약점을 인정하고, 다시 보는 것</b>이 가장 빠른 지름길입니다.</li>
+          <li><b>1. ⏱️ 5초 초고속 메타인지 (Fast-Failing):</b> 뇌과학적으로 5초 이내에 튀어나오지 않는 지식은 모르는 것입니다. 5SECore는 5초가 지나면 정답을 강제로 잠가버립니다. <b>빠르게 틀리고, 내 약점을 인정하고, 다시 보는 것</b>이 가장 빠른 지름길입니다.</li>
           <li><b>2. 🎧 청각 프라이밍 (Auditory Priming):</b> 뜻을 보기 전 원어민의 발음을 2초간 먼저 듣습니다. 뇌의 청각 피질이 선제 자극된 상태에서 시각 정보를 받아들이면 시냅스가 훨씬 강력하게 결합합니다.</li>
           <li><b>3. 🎯 낭비 시간 ZERO, 진짜 약점 표적 타격:</b> 한두 번 만에 맞춘 단어는 과감히 버리세요. 당신이 2번 이상 틀리며 뇌를 괴롭혔던 <b>'진짜 고난도 악성 오답'</b>만 집요하게 추적하여 복습 풀을 재구성합니다.</li>
           <li><b>4. 🌪️ 뇌내 간섭 극복 (최종 보스전):</b> 좁은 범위에서 쉽게 맞추던 단어도 200개에 섞이면 뇌는 혼란을 일으킵니다. 살아남은 단어들을 거대한 맥락에 기습적으로 다시 던져, 이 혼란을 이겨내야만 진짜 '내 단어'가 됩니다.</li>
@@ -781,7 +781,7 @@
         <p style="margin: 0;">안녕하세요, 개발자 노도아입니다.</p>
         <p style="margin: 0;">저는 과거 영어학원에서 7시간을 꼬박 외워도 기초 영단어 100개조차 제대로 맞추지 못하던 뼈아픈 기억이 있습니다. 무식하게 뇌를 혹사시키는 대신 '뇌과학'을 파고들어 직접 시스템을 설계하기로 결심했습니다.</p>
         <p style="margin: 0;">돌을 하나하나 맨몸으로 나르는 것보다, 초반에 답답하고 고생스럽더라도 <b style="color: crimson;">'도르래'</b>를 먼저 만드는 것이 결국 거대한 건축물을 완성하는 유일한 비결이라는 것을 깨달았기 때문입니다.</p>
-        <p style="margin: 0;">단 한 번의 오답도 절대 놓치지 않는 <b style="color: crimson;">'집요한 오답 추적'</b> 훈련소, <b style="color: crimson;">'DOACore'</b>는 그렇게 탄생했습니다. 포기하지 않고 만든 이 완벽한 도르래가, 무식한 암기에 고통받는 뇌를 구원해 줄 것이라 확신합니다.</p>
+        <p style="margin: 0;">단 한 번의 오답도 절대 놓치지 않는 <b style="color: crimson;">'집요한 오답 추적'</b> 훈련소, <b style="color: crimson;">'5SECore'</b>는 그렇게 탄생했습니다. 포기하지 않고 만든 이 완벽한 도르래가, 무식한 암기에 고통받는 뇌를 구원해 줄 것이라 확신합니다.</p>
       </div>
       <button id="btn-developer-story-ok" class="btn-primary" style="width: 100%; margin-top: 24px; padding: 12px;">닫기</button>
     </div>
@@ -880,7 +880,7 @@
   <div id="modal-format-guide" class="pwa-modal hidden">
     <div class="pwa-modal-content glass-card" style="padding: 24px; text-align: left; max-width: 420px; width: 90%; margin: 0 auto;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-        <h3 style="font-size: 17px; margin: 0; line-height: 1.4; color: var(--text-main);">📝 DOACore 단어장 txt 파일 양식 가이드</h3>
+        <h3 style="font-size: 17px; margin: 0; line-height: 1.4; color: var(--text-main);">📝 5SECore 단어장 txt 파일 양식 가이드</h3>
         <button id="btn-format-guide-close" style="background: transparent; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; padding: 0 4px; flex-shrink: 0; margin-left: 10px;">✖</button>
       </div>
       <div style="font-size: 14px; line-height: 1.6; color: var(--text-sub); display: flex; flex-direction: column; gap: 12px;">
@@ -948,7 +948,7 @@
         <button id="btn-ai-prompt-close" style="background: transparent; border: none; color: white; font-size: 20px; cursor: pointer;">✕</button>
       </div>
       <p style="color: var(--text-sub); font-size: 13px; margin-bottom: 14px; line-height: 1.5;">
-        보유하신 엑셀, 한글, PDF 등의 영단어 목록을 ChatGPT나 Claude에 붙여넣어 <b>DOACore 단어장 포맷(# Day 1, 단어 [품사] 뜻)</b>으로 자동 변환해주는 AI 전용 프롬프트입니다.
+        보유하신 엑셀, 한글, PDF 등의 영단어 목록을 ChatGPT나 Claude에 붙여넣어 <b>5SECore 단어장 포맷(# Day 1, 단어 [품사] 뜻)</b>으로 자동 변환해주는 AI 전용 프롬프트입니다.
       </p>
 
       <div style="position: relative; margin-bottom: 16px;">
@@ -980,9 +980,9 @@
   </div>
 
 <script src="wordData.js?v=287"></script>
-<script src="sfx.js?v=345"></script>
-<script src="celebration.js?v=345"></script>
-<script src="app.js?v=345"></script>
+<script src="sfx.js?v=348"></script>
+<script src="celebration.js?v=348"></script>
+<script src="app.js?v=348"></script>
 <script>
   // 🔊 효과음 토글 + 🎪 커튼콜 수집 현황
   (function () {

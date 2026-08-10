@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vocabmaster-v345'; // chore: 네이버 로그인 제거 (구글·카카오만)
+const CACHE_NAME = '5secore-v348'; // feat: 5SECore 로 리브랜딩 + 제목 대비 개선
 const KAWAII = [];
 for (const kind of ['bear', 'cloud', 'sprout']) {
   for (const pose of ['idle','happy','oops','cheer','wave','dance','sleep','love','shock','face','face-happy','mini']) {

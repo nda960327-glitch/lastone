@@ -2428,12 +2428,12 @@ body[data-theme="pink"]::after {
 
 /* 🎀 헤더 */
 [data-theme="pink"] .brand-title {
-  background: linear-gradient(135deg, #F472B6 0%, #EC4899 45%, #D9469E 100%) !important;
+  background: linear-gradient(135deg, #9E1E57 0%, #C42C74 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
-[data-theme="pink"] .brand-sub { color: #CF7FA6 !important; }
+[data-theme="pink"] .brand-sub { color: #A34B77 !important; }
 [data-theme="pink"] .brand-sub::after { content: ' 🐻‍❄️'; }
 
 /* 🤍 카드 — 눈처럼 하얗고 몽글몽글 */
@@ -2806,12 +2806,12 @@ body[data-theme="blue"]::after {
 
 /* ☁️ 헤더 */
 [data-theme="blue"] .brand-title {
-  background: linear-gradient(120deg, #2E90DC 0%, #55ACEC 55%, #8CCBF7 100%) !important;
+  background: linear-gradient(120deg, #0B3C7A 0%, #175C9E 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
-[data-theme="blue"] .brand-sub { color: #4A7FB5 !important; font-weight: 600 !important; }
+[data-theme="blue"] .brand-sub { color: #1F5688 !important; font-weight: 600 !important; }
 [data-theme="blue"] .brand-sub::after { content: ' ☁️'; }
 [data-theme="blue"] .brand-icon-img {
   border: 3px solid #FFFFFF !important;
@@ -3094,12 +3094,12 @@ body[data-theme="green"]::after {
 
 /* 🌿 헤더 */
 [data-theme="green"] .brand-title {
-  background: linear-gradient(120deg, #1F8A4C 0%, #2FB960 55%, #7FD97B 100%) !important;
+  background: linear-gradient(120deg, #0F5F30 0%, #1E8449 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
-[data-theme="green"] .brand-sub { color: #5C8A6B !important; }
+[data-theme="green"] .brand-sub { color: #3F6B4E !important; }
 [data-theme="green"] .brand-sub::after { content: ' 🌱'; }
 
 /* 🍃 카드 — 한쪽 모서리가 잎사귀처럼 */
