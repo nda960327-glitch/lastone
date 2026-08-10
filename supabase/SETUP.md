@@ -45,7 +45,7 @@ const CONFIG = {
 1. **Google Cloud Console → APIs & Services → Credentials → OAuth client ID (웹)**
 2. **승인된 리디렉션 URI** 에 아래를 등록
    ```
-   https://<프로젝트ref>.supabase.co/auth/v1/callback
+   https://aavcfhdavluppcxgxuii.supabase.co/auth/v1/callback
    ```
 3. 발급된 Client ID / Secret 을 수파베이스 **Authentication → Providers → Google** 에 입력하고 Enable
 
@@ -58,7 +58,7 @@ const CONFIG = {
 3. **제품 설정 → 카카오 로그인** → 활성화 ON
 4. **Redirect URI** 에 등록
    ```
-   https://<프로젝트ref>.supabase.co/auth/v1/callback
+   https://aavcfhdavluppcxgxuii.supabase.co/auth/v1/callback
    ```
 5. **보안 → Client Secret** 생성 후 활성화
 6. **동의항목**: 닉네임·프로필사진 필수, **이메일은 "선택 동의"** 로 켜두세요

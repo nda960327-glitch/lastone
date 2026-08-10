@@ -15,8 +15,10 @@
   /* ── ⚙️ CONFIG ──────────────────────────────────────────────────── */
   const CONFIG = {
     // Supabase 대시보드 → Project Settings → API
-    SUPABASE_URL:      'https://YOUR-PROJECT.supabase.co',
-    SUPABASE_ANON_KEY: 'YOUR-ANON-KEY',
+    // anon 키는 공개용이라 앱에 넣어도 된다. 실제 방어선은 schema.sql 의 RLS.
+    // ⚠️ service_role 키는 절대 여기 넣지 말 것 (RLS를 전부 무시한다)
+    SUPABASE_URL:      'https://aavcfhdavluppcxgxuii.supabase.co',
+    SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhdmNmaGRhdmx1cHBjeGd4dWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYzMjA2NjcsImV4cCI6MjEwMTg5NjY2N30.gp9272SRtw7ecgBEWE4jq43vtSEFYelx2LpXMoUWY80',
   };
 
   const configured =
